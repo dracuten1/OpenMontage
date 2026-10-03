@@ -127,8 +127,13 @@ def build_research_brief(raw_data: dict[str, Any]) -> dict[str, Any]:
             ],
         }
 
+    VALID_ANGLE_TYPES = {'trending', 'evergreen', 'contrarian', 'narrative', 'data_driven'}
     angles_discovered = raw_data.get("angles_discovered")
-    if not angles_discovered or len(angles_discovered) < 3 or not isinstance(angles_discovered[0], dict) or "type" not in angles_discovered[0]:
+    if angles_discovered and isinstance(angles_discovered, list) and len(angles_discovered) >= 3:
+        for a in angles_discovered:
+            if isinstance(a, dict) and a.get("type") not in VALID_ANGLE_TYPES:
+                a["type"] = "data_driven"
+    else:
         dp_claims = [dp["claim"] for dp in data_points[:3]]
         angles_discovered = [
             {
