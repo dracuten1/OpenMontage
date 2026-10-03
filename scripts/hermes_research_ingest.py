@@ -11,7 +11,13 @@ import argparse
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import sys
 from typing import Any
+
+# Ensure repo root is on sys.path for direct CLI execution
+REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from lib.checkpoint import (
     PROJECT_MARKER_FILENAME,
