@@ -48,6 +48,13 @@
 
 ## Provider-Specific Caveats
 
+### OpenAI Image (`openai_image` & 9router gateway)
+- When configured with local 9router gateway (`OPENAI_BASE_URL=http://localhost:20128/v1`), cost is $0.
+- **T2I models:** `cx/gpt-image-2.5`, `cx/gpt-5.6-luna-image`, `cx/gpt-5.6-terra-image`, `ag/gemini-3.1-flash-image`.
+- **Img2Img (I2I) models:** `cx/gpt-image-2.5-flare`, `cx/gpt-image-2.5-sunburst` (preserves source identity).
+  - Img2img accepts the source image base64-encoded in the prompt (`data:image/png;base64,...`). The `openai_image` tool handles this automatically when `image_path` is passed.
+- Recommended params for `cx/` models: `size="auto"`, `quality="auto"`, `background="auto"`, `image_detail="high"`, `output_format="png"`.
+
 ### Recraft V4 via fal.ai
 - **`style` parameter causes 422 errors** (as of 2026-04). The `style` enum values (`digital_illustration`, `realistic_image`, etc.) are rejected by fal.ai's Recraft V4 endpoint. **Workaround:** encode style direction in the prompt text instead (e.g. "digital illustration of a tooth cross-section" rather than `style="digital_illustration"`). The `image_size` and `colors` parameters work fine.
 - **Text rendering is unreliable for exact business names.** Recraft (like all AI image models) may hallucinate wrong text. For any scene where text must be verbatim (CTA screens, business names, phone numbers), use Remotion `text_card` instead of generating an image with text.
