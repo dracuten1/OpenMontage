@@ -79,8 +79,10 @@ Thumbs.db
 # Node (for remotion-composer/)
 node_modules/
 
-# Remotion build output and copied project assets (regenerable at render time)
+# Remotion build output, cache, and copied project assets (regenerable at render time)
 remotion-composer/out/
+.cache/
+.remotion/
 # Project-local bespoke ("atelier") compositions — hand-authored per video,
 # throwaway and regenerable. Keeps the shared src/ free of one-off scenes.
 remotion-composer/projects/
