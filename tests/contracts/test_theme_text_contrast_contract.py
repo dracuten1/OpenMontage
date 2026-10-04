@@ -92,7 +92,7 @@ def test_theme_text_color_is_threaded_into_overlay_components(component: str) ->
     [
         ("components/SectionTitle.tsx", "color: textColor,"),
         ("components/StatReveal.tsx", "color: textColor,"),
-        ("components/HeroTitle.tsx", "color: i < 8 ? accentColor : textColor,"),
+        ("components/HeroTitle.tsx", "color: i < accentLen ? accentColor : textColor,"),
         ("components/HeroTitle.tsx", "color: subtitleColor,"),
         ("components/HeroTitle.tsx", "backgroundColor: accentColor,"),
         ("components/HeroTitle.tsx", "background: scrimBackground,"),
@@ -128,3 +128,35 @@ def test_every_playbook_theme_keeps_captions_legible(playbook: str) -> None:
         f"{playbook}: caption text {theme['textColor']} on bar {caption_bar} "
         f"is {ratio}:1, below WCAG AA {MIN_CONTRAST}:1"
     )
+
+def test_hero_title_accent_boundary_is_derived_not_hardcoded() -> None:
+    """The accent split boundary must be DERIVED from the title's first word.
+
+    The shipped defect hardcoded `i < 8`, splitting "ETH 03/10/2026" mid-date
+    ("ETH 03/1" accent | "0/2026" body). A revert to any constant boundary —
+    including exactly 8 — must fail this test, not just the wiring assert.
+    """
+    source = _read("components/HeroTitle.tsx")
+
+    assert (
+        'const accentLen = (title.trimStart().split(" ")[0] ?? "").length;' in source
+    ), "accentLen must be derived from the first word, not a constant"
+    assert "color: i < accentLen ? accentColor : textColor," in source
+    assert "i < 8 ?" not in source, "hardcoded 8-char boundary regressed"
+
+
+@pytest.mark.parametrize(
+    ("title", "expected_boundary"),
+    [
+        ("ETH 03/10/2026", 3),          # shorter than 8: the shipped defect
+        ("BITCOIN 03/10/2026", 7),      # shorter than 8
+        ("KỶ LUẬT THỰC CHIẾN", 2),      # BTC sc05 hero, non-ASCII first word (K + U+1EF6)
+        ("INFRASTRUCTURE REBUILT", 14), # longer than 8: a constant 8 splits mid-word
+        ("  ETH 03/10/2026", 3),        # leading whitespace must not shift the boundary
+    ],
+)
+def test_first_word_accent_boundary_spec(title: str, expected_boundary: int) -> None:
+    """Spec for the derivation HeroTitle implements (see test above): the
+    accent run is exactly the first word, for lengths below AND above 8."""
+    derived = len(title.strip().split(" ")[0])
+    assert derived == expected_boundary

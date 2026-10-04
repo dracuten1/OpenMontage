@@ -5,6 +5,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { inkOnSurface, covaryTextInk } from "../../lib/color";
 
 interface Metric {
   label: string;
@@ -46,6 +47,13 @@ export const KPIGrid: React.FC<KPIGridProps> = ({
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
+
+  // Ink co-variance: the title sits on the page background, labels and values
+  // sit on the (default light) cards — each must contrast ITS surface.
+  const titleInk = covaryTextInk(textColor, backgroundColor);
+  const labelInk = covaryTextInk(textColor, cardBackgroundColor);
+  const positiveInk = inkOnSurface(positiveColor, cardBackgroundColor);
+  const negativeInk = inkOnSurface(negativeColor, cardBackgroundColor);
 
   const cols = Math.min(columns, metrics.length);
   const rows = Math.ceil(metrics.length / cols);
@@ -95,7 +103,7 @@ export const KPIGrid: React.FC<KPIGridProps> = ({
             textAlign: "center",
             fontSize: 48,
             fontWeight: 700,
-            color: textColor,
+            color: titleInk,
             fontFamily,
             opacity:
               spring({ frame, fps, config: { damping: 20 } }) * fadeOut,
@@ -111,7 +119,7 @@ export const KPIGrid: React.FC<KPIGridProps> = ({
         const row = Math.floor(idx / cols);
         const left = gridPadding + col * (cardWidth + cardGap);
         const top = gridTopOffset + row * (cardHeight + cardGap);
-        const accentColor = colors[idx % colors.length];
+        const accentColor = inkOnSurface(colors[idx % colors.length], cardBackgroundColor);
 
         const staggerDelay =
           animationStyle === "cascade" ? idx * 5 : 0;
@@ -174,10 +182,10 @@ export const KPIGrid: React.FC<KPIGridProps> = ({
               <KPICardContent
                 metric={metric}
                 accentColor={accentColor}
-                textColor={textColor}
+                textColor={labelInk}
                 fontFamily={fontFamily}
-                positiveColor={positiveColor}
-                negativeColor={negativeColor}
+                positiveColor={positiveInk}
+                negativeColor={negativeInk}
                 frame={frame}
                 fps={fps}
                 staggerDelay={staggerDelay}
@@ -220,10 +228,10 @@ export const KPIGrid: React.FC<KPIGridProps> = ({
             <KPICardContent
               metric={metric}
               accentColor={accentColor}
-              textColor={textColor}
+              textColor={labelInk}
               fontFamily={fontFamily}
-              positiveColor={positiveColor}
-              negativeColor={negativeColor}
+              positiveColor={positiveInk}
+              negativeColor={negativeInk}
               frame={frame}
               fps={fps}
               staggerDelay={idx * 3}

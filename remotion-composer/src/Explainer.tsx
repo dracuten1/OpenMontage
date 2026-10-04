@@ -31,6 +31,7 @@ import { ScreenshotScene } from "./components/ScreenshotScene";
 import type { ScreenshotStep } from "./components/ScreenshotScene";
 import { ProviderChip } from "./components/ProviderChip";
 import { resolveAsset } from "./lib/resolveAsset";
+import { inkOnSurface, covaryTextInk, contrastRatio } from "./lib/color";
 import type { ParticleType } from "./components/ParticleOverlay";
 import { resolveTheme, type ThemeConfig, DEFAULT_THEME } from "./Root";
 
@@ -70,6 +71,35 @@ function heroScrim(theme: ThemeConfig): string {
     `radial-gradient(ellipse at center, rgba(${r},${g},${b},0.35) 0%, ` +
     `rgba(${r},${g},${b},0.55) 100%)`
   );
+}
+
+// Conservative backdrop a hero title actually sits on: heroScrim() washes the
+// theme surface toward white (light themes) or #0F172A (dark themes), so the
+// least-washed point (center, alpha 0.35) over the theme surface is the
+// pairing the hero inks must clear — not the raw theme background.
+function heroEffectiveScrim(theme: ThemeConfig): string {
+  const wash = isLightColor(theme.backgroundColor) ? "#FFFFFF" : "#0F172A";
+  const { r, g, b } = hexToRgb(theme.surfaceColor);
+  const { r: wr, g: wg, b: wb } = hexToRgb(wash);
+  const mix = (c: number, w: number) =>
+    Math.round(0.65 * c + 0.35 * w).toString(16).padStart(2, "0");
+  return `#${mix(r, wr)}${mix(g, wg)}${mix(b, wb)}`;
+}
+
+// Hero title/accent/subtitle inks derived from the scrim HeroTitle actually
+// paints. The subtitle must clear the body bar (>=4.5:1) against the real
+// scrim — measured margins alone (4.56:1) are not a guarantee.
+function heroInks(accent: string, theme: ThemeConfig): {
+  accentInk: string; textInk: string; subtitleInk: string;
+} {
+  const scrim = heroEffectiveScrim(theme);
+  return {
+    accentInk: inkOnSurface(accent, scrim),
+    textInk: covaryTextInk(theme.textColor, scrim),
+    subtitleInk: contrastRatio(theme.mutedTextColor, scrim) >= 4.5
+      ? theme.mutedTextColor
+      : theme.textColor,
+  };
 }
 
 // Darken/lighten a color by mixing toward black or white
@@ -587,7 +617,20 @@ const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig }> = ({ cut, theme 
   // When no explicit backgroundColor on the cut, inherit from theme
   const rawBg = (cut.backgroundImage || cut.backgroundVideo) ? "transparent" : (cut.backgroundColor || theme.surfaceColor);
   const bgColor = (rawBg === theme.backgroundColor || rawBg === "#0F172A" || rawBg === "#0f172a") ? "transparent" : rawBg;
-  const textColor = cut.color || theme.textColor;
+  // Text ink must co-vary with the surface the cut actually paints. A dark-theme
+  // token (#F1F5F9) landing on a light theme surface — or the light theme's slate
+  // (#1F2937) on a dark cut background — is the 1.0-1.4:1 invisible class found in
+  // both tradingagents projects. Media backdrops (backgroundImage/backgroundVideo)
+  // keep their authored ink: their luminance is unknowable here and the authored
+  // pairings already pass (dark chart PNGs under light overlays).
+  const hasMediaBackdrop = Boolean(cut.backgroundImage || cut.backgroundVideo);
+  const textSurface = hasMediaBackdrop
+    ? null
+    : (bgColor !== "transparent" ? bgColor : theme.backgroundColor);
+  const rawTextColor = cut.color || theme.textColor;
+  const textColor = textSurface !== null && isLightColor(textSurface) === isLightColor(rawTextColor)
+    ? (isLightColor(textSurface) ? theme.textColor : "#F8FAFC")
+    : rawTextColor;
   const accent = cut.accentColor || theme.accentColor;
 
   // Explicit component types — use theme-derived defaults for colors
@@ -620,14 +663,15 @@ const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig }> = ({ cut, theme 
       />
     );
   }
-  if (cut.type === "hero_title" && cut.text) {
+  if (cut.type === "hero_title" && (cut.text || cut.title)) {
+    const hero = heroInks(accent, theme);
     return maybeWrapWithBg(
       <HeroTitle
-        title={cut.text}
+        title={cut.text ?? cut.title ?? ""}
         subtitle={cut.heroSubtitle || cut.subtitle}
-        accentColor={accent}
-        textColor={textColor}
-        subtitleColor={theme.mutedTextColor}
+        accentColor={hero.accentInk}
+        textColor={hero.textInk}
+        subtitleColor={hero.subtitleInk}
         scrimBackground={heroScrim(theme)}
       />
     );
@@ -805,13 +849,14 @@ const OverlayRenderer: React.FC<{ overlay: Overlay; theme: ThemeConfig }> = ({
     );
   }
   if (overlay.type === "hero_title") {
+    const hero = heroInks(overlay.accentColor || theme.accentColor, theme);
     return (
       <HeroTitle
         title={overlay.text ?? ""}
         subtitle={overlay.subtitle}
-        accentColor={overlay.accentColor || theme.accentColor}
-        textColor={theme.textColor}
-        subtitleColor={theme.mutedTextColor}
+        accentColor={hero.accentInk}
+        textColor={hero.textInk}
+        subtitleColor={hero.subtitleInk}
         scrimBackground={heroScrim(theme)}
       />
     );
