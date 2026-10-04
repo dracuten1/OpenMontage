@@ -29,7 +29,11 @@ class _FakeResponse:
 
 
 class _FakeImages:
+    def __init__(self):
+        self.last_kwargs = {}
+
     def generate(self, **kwargs):
+        self.last_kwargs = kwargs
         return _FakeResponse(kwargs["n"])
 
 
@@ -89,3 +93,53 @@ def test_multi_output_paths_are_suffixed_and_unique():
     paths = OpenAIImage._output_paths("/tmp/art/pic.png", 3, "png")
     assert [p.name for p in paths] == ["pic_1.png", "pic_2.png", "pic_3.png"]
     assert len(set(paths)) == 3
+
+
+def test_img2img_embeds_base64_in_prompt(openai_tool, tmp_path):
+    input_img = tmp_path / "source.png"
+    input_img.write_bytes(b"PNG_SAMPLE_DATA")
+    out = tmp_path / "out.png"
+
+    result = openai_tool.execute({
+        "prompt": "Make this cat wear a wizard hat",
+        "image_path": str(input_img),
+        "output_path": str(out),
+    })
+
+    assert result.success
+    assert result.data["is_img2img"] is True
+    # Verify that model defaults to cx/gpt-image-2.5-sunburst when img2img is used
+    assert result.data["model"] == "cx/gpt-image-2.5-sunburst"
+    # Verify prompt contains data URI
+    assert "data:image/png;base64," in result.data["prompt"]
+    expected_b64 = base64.b64encode(b"PNG_SAMPLE_DATA").decode()
+    assert expected_b64 in result.data["prompt"]
+
+
+def test_img2img_preserves_explicit_model(openai_tool, tmp_path):
+    input_img = tmp_path / "source.jpg"
+    input_img.write_bytes(b"JPEG_DATA")
+    out = tmp_path / "out.png"
+
+    result = openai_tool.execute({
+        "prompt": "Stylize this image",
+        "model": "cx/gpt-image-2.5-flare",
+        "image_path": str(input_img),
+        "output_path": str(out),
+    })
+
+    assert result.success
+    assert result.data["model"] == "cx/gpt-image-2.5-flare"
+    assert "data:image/jpeg;base64," in result.data["prompt"]
+
+
+def test_cx_model_defaults_size_and_quality_to_auto(openai_tool, tmp_path):
+    out = tmp_path / "luna.png"
+    result = openai_tool.execute({
+        "prompt": "A futuristic city",
+        "model": "cx/gpt-5.6-luna-image",
+        "output_path": str(out),
+    })
+    assert result.success
+    assert result.data["model"] == "cx/gpt-5.6-luna-image"
+

@@ -39,6 +39,10 @@ export const HeroTitle: React.FC<HeroTitleProps> = ({
 
   // Staggered letter-by-letter spring
   const titleChars = title.split("");
+  // Accent exactly the first word — a hardcoded prefix length splits
+  // mid-token for any title whose first word is longer/shorter (the
+  // "ETH 03/1 | 0/2026" defect).
+  const accentLen = (title.trimStart().split(" ")[0] ?? "").length;
 
   return (
     <AbsoluteFill
@@ -77,7 +81,7 @@ export const HeroTitle: React.FC<HeroTitleProps> = ({
                   display: "inline-block",
                   opacity: charSpring,
                   transform: `translateY(${interpolate(charSpring, [0, 1], [30, 0])}px)`,
-                  color: i < 8 ? accentColor : textColor, // Accent first word
+                  color: i < accentLen ? accentColor : textColor, // Accent first word
                   whiteSpace: char === " " ? "pre" : undefined,
                   minWidth: char === " " ? "0.3em" : undefined,
                 }}

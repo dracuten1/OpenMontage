@@ -180,22 +180,28 @@ This applies especially to:
 
 ## Orchestrator
 
-The agent itself orchestrates the production state machine:
+The orchestrator manages the production state machine:
 
-`research -> proposal -> script -> scene_plan -> assets -> edit -> compose`
+`research -> proposal -> script -> scene_plan -> assets -> edit -> compose -> publish`
 
-The agent:
+**Big Context Protection (Mandatory):**
+To avoid context exhaustion (150k+ tokens from bulk tool logs, Whisper timings, image base64, and npm build messages), the orchestrator MUST operate as a lean coordinator (< 25k tokens) delegating execution to specialized subagents (`skills/meta/agent-orchestrator.md`).
 
-1. Reads the pipeline manifest (`pipeline_defs/*.yaml`) to know the process
-2. Calls `checkpoint.get_next_stage()` to find where to resume
-3. Reads the stage's director skill (`skills/pipelines/<pipeline>/<stage>-director.md`) to know HOW
-4. Uses tools (`tools/`) for concrete capabilities
-5. Self-reviews using the reviewer meta skill (`skills/meta/reviewer.md`)
-6. Checkpoints via the checkpoint protocol (`skills/meta/checkpoint-protocol.md`)
-7. Presents to human for approval when `human_approval_default: true`
+The Orchestrator:
+
+1. Reads the pipeline manifest (`pipeline_defs/*.yaml`) and `checkpoint.get_next_stage()`.
+2. Dispatches specialized subagents (`.claude/agents/`):
+   - `stage-worker`: executes individual planning & creative stages (`idea`, `script`, `scene_plan`, `edit`).
+   - `asset-worker`: executes batch media generation (`assets`), splitting Audio and Visuals into parallel runs.
+   - `composer`: handles Remotion / HyperFrames composition, build errors, and final rendering (`compose`).
+   - `reviewer`: independent QA auditor verifying stage artifacts against schemas and standing rules.
+3. Enforces **Disk-as-State**: subagents write canonical artifacts and assets to `projects/<project>/`, returning only concise reports (< 100 words). Raw tool dumps never enter orchestrator context.
+4. Enforces **Human Approval Gates**: when `human_approval_default: true`, sets checkpoint to `awaiting_human`, presents artifact summary, and waits for explicit user approval before advancing.
 
 Infrastructure files:
 
+- `skills/meta/agent-orchestrator.md` — multi-agent orchestration & anti-bloat protocol
+- `.claude/agents/` — subagent definitions (`stage-worker`, `asset-worker`, `composer`, `reviewer`)
 - `lib/checkpoint.py` — read/write checkpoints, stage validation
 - `tools/cost_tracker.py` — budget governance
 - `lib/pipeline_loader.py` — manifest loading and helpers
@@ -551,9 +557,9 @@ Record the music decision in the proposal/brief artifact so the asset director k
 
 Each pipeline manifest's `tools_available` field declares what tools a stage can use. Use selectors for multi-provider capabilities — the selector handles routing to whatever is available. Read the pipeline manifest for the authoritative list per stage.
 
-## Stage Agents
+## Stage Agents & Delegation
 
-Each stage produces one canonical artifact that becomes the contract for the next stage. The stage director skill teaches the agent HOW to produce it.
+Each stage produces one canonical artifact that becomes the contract for the next stage. Stage execution is delegated to isolated subagents (`stage-worker`, `asset-worker`, `composer`) configured in `.claude/agents/` to prevent context pollution in the lead orchestrator. The stage director skill teaches the agent HOW to produce each artifact.
 
 | Stage | Director Skill | Canonical output | Core quality bar |
 |------|---------------|------------------|------------------|

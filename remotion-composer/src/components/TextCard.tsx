@@ -1,4 +1,5 @@
 import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { isLightColor } from "../lib/color";
 
 interface TextCardProps {
   text: string;
@@ -10,9 +11,12 @@ interface TextCardProps {
 export const TextCard: React.FC<TextCardProps> = ({
   text,
   fontSize = 64,
-  color = "#FFFFFF",
+  color,
   backgroundColor = "#1F2937",
 }) => {
+  // Default ink co-varies with the painted background: a hardcoded #FFFFFF is
+  // invisible whenever the caller passes a light background (fallback path).
+  const ink = color ?? (isLightColor(backgroundColor) ? "#1F2937" : "#FFFFFF");
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -38,7 +42,7 @@ export const TextCard: React.FC<TextCardProps> = ({
           opacity,
           transform: `scale(${scale})`,
           fontSize,
-          color,
+          color: ink,
           fontFamily: "Inter, system-ui, sans-serif",
           fontWeight: 700,
           textAlign: "center",

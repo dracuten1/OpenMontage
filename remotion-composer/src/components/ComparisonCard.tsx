@@ -5,6 +5,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { inkOnSurface, covaryTextInk } from "../lib/color";
 
 type ChangeDirection = "up" | "down" | "neutral";
 
@@ -47,6 +48,14 @@ export const ComparisonCard: React.FC<ComparisonCardProps> = ({
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+
+  // Ink co-variance: the title sits on the page background, labels and values
+  // sit on the card — each must contrast ITS surface (labels also render at
+  // 0.7 opacity, so the base ink needs headroom).
+  const titleInk = covaryTextInk(textColor, backgroundColor);
+  const labelInk = covaryTextInk(textColor, cardBackgroundColor);
+  const leftInk = inkOnSurface(leftColor, cardBackgroundColor);
+  const rightInk = inkOnSurface(rightColor, cardBackgroundColor);
 
   // Phase 1: Title + left side appears
   const titleOpacity = spring({
@@ -156,7 +165,7 @@ export const ComparisonCard: React.FC<ComparisonCardProps> = ({
               fontFamily,
               fontWeight: 700,
               fontSize: titleFontSize,
-              color: textColor,
+              color: titleInk,
               textAlign: "center",
               opacity: titleOpacity,
               letterSpacing: "-0.02em",
@@ -209,7 +218,7 @@ export const ComparisonCard: React.FC<ComparisonCardProps> = ({
                 fontFamily,
                 fontWeight: 600,
                 fontSize: labelFontSize,
-                color: textColor,
+                color: labelInk,
                 opacity: 0.7,
                 textTransform: "uppercase" as const,
                 letterSpacing: "0.05em",
@@ -222,7 +231,7 @@ export const ComparisonCard: React.FC<ComparisonCardProps> = ({
                 fontFamily,
                 fontWeight: 800,
                 fontSize: valueFontSize,
-                color: leftColor,
+                color: leftInk,
                 lineHeight: 1.1,
               }}
             >
@@ -333,7 +342,7 @@ export const ComparisonCard: React.FC<ComparisonCardProps> = ({
                 fontFamily,
                 fontWeight: 600,
                 fontSize: labelFontSize,
-                color: textColor,
+                color: labelInk,
                 opacity: 0.7,
                 textTransform: "uppercase" as const,
                 letterSpacing: "0.05em",
@@ -346,7 +355,7 @@ export const ComparisonCard: React.FC<ComparisonCardProps> = ({
                 fontFamily,
                 fontWeight: 800,
                 fontSize: valueFontSize,
-                color: rightColor,
+                color: rightInk,
                 lineHeight: 1.1,
               }}
             >

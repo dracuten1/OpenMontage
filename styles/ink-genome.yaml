@@ -1,0 +1,120 @@
+identity:
+  name: "Ink & Genome (vn-myth)"
+  category: custom
+  mood: "mythic, warm, evidential"
+  pace: deliberate
+  best_for: "Vietnamese myth-history explainer series — every episode = 1 legend + 1 body of real evidence"
+
+taste_profile:
+  design_read: "Bảo tàng đêm kể chuyện: nền lụa giấy sẫm (dark parchment) gợi không gian đền/đêm kể chuyện, truyền thuyết hiện lên bằng nét mực ấm, bằng chứng khoa học hiện lên bằng ánh sáng lạnh của 'phòng lab' — hai thế giới màu KHÁC NHAU có chủ đích để người xem luôn biết đang ở lớp nào. Giọng kể ấm như người kể chuyện lửa trại, đồ họa evidential như tạp chí khoa học."
+  visual_variance: 6
+  motion_intensity: 4
+  information_density: 5
+  palette_discipline: "Nền tối giấy dó #1A1714; truyền thuyết = mực ấm #E8DCC8 + accent hổ phách/vàng trống đồng #D9A441; khoa học = ánh sáng lạnh #7FD1C8 + trắng nghiệm #F5F2EA. Không gradient trang trí, không tím AI. Tối đa 1 accent trên màn hình tại một thời điểm."
+  layout_variation: "Xen kẽ: frame full-bleed tranh mực (thần thoại) ↔ frame diagram/data cold-light (khoa học) ↔ frame comparison 2 cột (đối chiếu). Mỗi loại có margin hệ riêng."
+  reference_strategy: "Mỗi scene family (myth-ink / science-cold / comparison / map) lấy 1 reference still trước khi gen batch."
+  anti_patterns:
+    - "gradient tím AI generic"
+    - "template corporate xanh dương"
+    - "ken burns chậm trên ảnh tĩnh suốt cả video"
+    - "trộn lẫn accent ấm/lạnh trong CÙNG một frame"
+    - "hiệu ứng chữ bay nhanh khiến narration khó theo"
+  quality_gates:
+    - "Người xem phải nhận ra ngay frame đang ở lớp truyền thuyết hay lớp khoa học chỉ bằng màu nền"
+    - "Số liệu (4.000 năm, 609, 2.500–3.000) luôn dùng stat_card đếm số, không hiện dạng chữ thường"
+    - "Không khẳng định thần thoại = lịch sử; các mốc suy đoán luôn có dấu (?) trên màn hình"
+
+visual_language:
+  color_palette:
+    primary: ["#E8DCC8", "#D9A441"]
+    accent: ["#7FD1C8"]
+    background: "#1A1714"
+    text: "#F5F2EA"
+    muted: "#9A8F7D"
+  composition: "centered mythic frames with generous negative space for ink art; evidence frames use asymmetric editorial grid"
+  texture: "giấy dó texture nhẹ trên nền myth; matte phẳng trên nền science; grain film mỏng toàn video cho cohesion"
+
+typography:
+  headings:
+    font: "Playfair Display"
+    weight: 700
+    tracking: "-0.01em"
+  body:
+    font: "Be Vietnam Pro"
+    weight: 400
+    line_height: 1.55
+  code:
+    font: "JetBrains Mono"
+    weight: 400
+  stat_card:
+    font: "Playfair Display"
+    weight: 800
+    size_multiplier: 3.4
+  scale_system: "major_third"
+  weight_matrix:
+    title: 800
+    heading: 700
+    body: 400
+    caption: 500
+
+motion:
+  transitions: [fade, dissolve, wipe-ink, slide-left]
+  animation_style: "ink strokes ease-out; evidence elements reveal bằng counter rồi hold; wipe-ink chỉ dùng khi chuyển lớp myth→science"
+  pacing_rules:
+    min_scene_hold_seconds: 3
+    max_scene_hold_seconds: 12
+    text_card_hold_seconds: 3.75
+    stat_card_hold_seconds: 3.5
+    transition_duration_seconds: 0.5
+  entrance: "fade-up 12px; ink elements vẽ nét theo stroke"
+  exit: "soft fade"
+
+audio:
+  voice_style: "kể chuyện ấm, chắc, không giáo điều (vieneu v3 Turbo)"
+  music_mood: "ambient trống đồng chậm, dây+kbd hơi thở, tối giản"
+  music_volume: 0.08
+  sfx_style: "tiếng giấy sột soạt nhẹ khi chuyển lớp; tick nhỏ khi số đếm"
+  ducking_threshold_db: -4
+
+asset_generation:
+  image_prompt_prefix: "hand-drawn ink illustration on dark parchment paper, warm cream ink lines with amber-gold accents, Vietnamese folk-tale art, generous negative space, "
+  image_negative_prompt: "photo, photorealistic, neon, purple gradient, busy, watermark, text, modern clothing"
+  diagram_style: "cold-light scientific diagram: teal #7FD1C8 strokes and labels on dark matte #1A1714, thin lines, no decoration"
+  consistency_anchors:
+    - "Myth frames: nền #1A1714, nét mực #E8DCC8, accent #D9A441 duy nhất"
+    - "Science frames: nền #1A1714, stroke #7FD1C8, chữ #F5F2EA"
+    - "Comparison frames: chia đôi dọc, trái myth / phải science, đường biên sáng mảnh"
+    - "Nhân vật lặp lại (LLQ/Âu Cơ) dùng cùng file reference, không gen lại khác style"
+
+overlays:
+  stat_card:
+    bg: "#241F1A"
+    border: "#3A322A"
+    radius: 8
+    shadow: "0 2px 10px rgba(0,0,0,0.35)"
+  key_term:
+    bg: "#2A241C"
+    text: "#D9A441"
+    radius: 4
+  code_block:
+    bg: "#111827"
+    text: "#F5F2EA"
+    highlight: "#7FD1C8"
+
+quality_rules:
+  - "Minimum contrast ratio 4.5:1 for all text on #1A1714"
+  - "Không quá 1 accent color trên màn hình tại một thời điểm"
+  - "Mỗi frame một claim chính"
+  - "Số liệu phải đếm động (count-up), không hiện tĩnh"
+  - "Cấm Ken Burns là động tác chính — dùng Remotion component + parallax nhẹ"
+
+chart_palette:
+  - "#7FD1C8"
+  - "#D9A441"
+  - "#F5F2EA"
+  - "#9A8F7D"
+
+color_rules:
+  harmony_type: "split-complementary"
+  contrast_validation: true
+  colorblind_safe: true

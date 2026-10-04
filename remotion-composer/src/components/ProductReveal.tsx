@@ -53,6 +53,9 @@ export const ProductReveal: React.FC<ProductRevealProps> = ({
   // === PHASE 2: Product name springs in letter by letter (1s delay) ===
   const nameDelay = fps * 1.2;
   const nameChars = productName.split("");
+  // Accent exactly the first word — a hardcoded 3-char prefix splits mid-word
+  // for any other product name (mirrors the HeroTitle fix).
+  const accentLen = (productName.split(" ")[0] ?? "").length;
 
   // === PHASE 3: Price reveals (3s delay) ===
   const priceDelay = fps * 3.2;
@@ -214,8 +217,8 @@ export const ProductReveal: React.FC<ProductRevealProps> = ({
               config: { damping: 14, stiffness: 160 },
             });
 
-            // "Air" = first 3 chars get accent color
-            const isAccent = i < 3;
+            // First word gets the accent color
+            const isAccent = i < accentLen;
 
             return (
               <span
