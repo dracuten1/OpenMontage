@@ -420,11 +420,11 @@ def _merge_decision_log(
 
 
 def write_checkpoint(
-    pipeline_dir: Path,
-    project_id: str,
-    stage: str,
-    status: str,
-    artifacts: dict[str, Any],
+    pipeline_dir: Path | str,
+    project_id: Optional[str] = None,
+    stage: Optional[str] = None,
+    status: Optional[str] = None,
+    artifacts: Optional[dict[str, Any]] = None,
     *,
     pipeline_type: Optional[str] = None,
     style_playbook: Optional[str] = None,
@@ -437,6 +437,24 @@ def write_checkpoint(
     metadata: Optional[dict] = None,
 ) -> Path:
     """Write a checkpoint file for a pipeline stage."""
+    # Allow write_checkpoint(project_id, stage, status, artifacts=...) when pipeline_dir is omitted
+    if artifacts is not None and status is None and stage in {"in_progress", "awaiting_human", "completed", "failed"}:
+        status = stage
+        stage = project_id
+        project_id = str(pipeline_dir)
+        pipeline_dir = PROJECTS_DIR
+    elif status is None and isinstance(project_id, str) and stage in {"in_progress", "awaiting_human", "completed", "failed"}:
+        status = stage
+        stage = project_id
+        project_id = str(pipeline_dir)
+        pipeline_dir = PROJECTS_DIR
+
+    pipeline_dir = Path(pipeline_dir)
+    if project_id is None or stage is None or status is None:
+        raise ValueError("project_id, stage, and status must be specified")
+    if artifacts is None:
+        artifacts = {}
+
     # Backfill identity fields from the project marker so omitted kwargs
     # cannot bypass either gate enforcement or style validation.
     marker = None

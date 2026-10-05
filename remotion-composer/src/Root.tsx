@@ -18,6 +18,9 @@ import { CollageBurst, CollageBurstProps } from "./CollageBurst";
 import { LyricOverlay, LyricOverlayProps } from "./LyricOverlay";
 import { ScenePreview, ScenePreviewProps } from "./con-rong-chau-tien/ScenePreview";
 import { VNMythEpisode } from "./con-rong-chau-tien/Episode";
+import { News20261004, NEWS_TOTAL_FRAMES } from "./news-20261004";
+import { Aivn20261005Main, AIVN_TOTAL_FRAMES } from "./aivn-20261005";
+import { AIVN20261006, AIVN_20261006_TOTAL_FRAMES } from "./aivn-20261006";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -352,6 +355,30 @@ export const Root: React.FC = () => {
         calculateMetadata={async ({ props }) => ({
           durationInFrames: (props as ScenePreviewProps).durationInFrames,
         })}
+      />
+      <Composition
+        id="News20261004"
+        component={News20261004}
+        durationInFrames={NEWS_TOTAL_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="Aivn20261005Main"
+        component={Aivn20261005Main}
+        durationInFrames={AIVN_TOTAL_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="AIVN20261006"
+        component={AIVN20261006}
+        durationInFrames={AIVN_20261006_TOTAL_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
       />
     </>
   );
