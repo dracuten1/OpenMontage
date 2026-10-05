@@ -107,8 +107,10 @@ Key capability families to look for in the output:
 | â†³ Sora Prompting | `creative/prompting/sora-prompting.md` | Sora 2 structured template, advanced fields | `ai-video-gen` |
 | â†³ VEO Prompting | `creative/prompting/veo-prompting.md` | VEO 3.1 14-component structure, art movements | `ai-video-gen` |
 | â†³ LTX Prompting | `creative/prompting/ltx-prompting.md` | LTX-2 6-element structure, audio prompting | `ltx2` |
-| â†³ HunyuanVideo Prompting | `creative/prompting/hunyuan-prompting.md` | HunyuanVideo formula, I2V best practices | â€" |
-| Storytelling | `creative/storytelling.md` | Narrative structure, hooks, pacing, Mayer's principles | â€" |
+| â†³ HunyuanVideo Prompting | `creative/prompting/hunyuan-prompting.md` | HunyuanVideo formula, I2V best practices | â€” |
+| â†³ Omni Flash Prompting | `creative/prompting/omni-flash-prompting.md` | Multi-clip stickman/line-animation generation contract: dual audio locks, character anchors, 12-field standalone prompts (from kaomei/stickman-video-director, MIT) | `creative/stickman-director.md` |
+| Storytelling | `creative/storytelling.md` | Narrative structure, hooks, pacing, Mayer's principles | â€” |
+| Stickman Director | `creative/stickman-director.md` | Phase A direction: 5-stage high-completion engine, storyboard contract, visual-density recipe for line-animation explainers (extracted from kaomei/stickman-video-director, MIT) | `creative/prompting/omni-flash-prompting.md` |
 | Sound Design | `creative/sound-design.md` | Audio ducking, LUFS targets, SFX timing, AI TTS mixing | `elevenlabs` |
 | Typography | `creative/typography.md` | Font selection, text sizing, safe zones, caption styling | â€" |
 | ManimCE Usage | `creative/manim-usage.md` | Scene composition, animation timing, color usage | `manimce-best-practices` |

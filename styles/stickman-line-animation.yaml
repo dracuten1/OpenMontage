@@ -1,0 +1,77 @@
+# Stickman Line-Animation playbook (extracted)
+# From kaomei/stickman-video-director style-catalog (MIT). Use with
+# creative/stickman-director.md + creative/prompting/omni-flash-prompting.md.
+# Base theme below = Style 1 Classic Light; variant DNA lives in `stickman_variants`.
+# Hex colors are for compose-time styling ONLY — never inside generation prompts.
+
+identity:
+  name: "Stickman Line-Animation"
+  category: whiteboard
+  mood: focused, curious, high-energy
+  pace: fast
+  best_for: "Knowledge explainers, motivational shorts, education clips, fast-paced visual concepts for Shorts/TikTok/Reels"
+
+visual_language:
+  color_palette:
+    primary: ["#111111", "#000000"]      # black line art
+    accent: ["#E94560", "#0F3460", "#F2B705"]  # vivid red / electric blue / warm gold (max 3, named in prompts by ordinary words)
+    background: "#FFFFFF"                # flat digitally pure white, Style 1 Light
+    text: "#111111"
+    muted: "#6B7280"
+  composition: centered figure, generous negative space, grid-aligned devices, overlay-safe margins
+  texture: flat vector lines, uniform medium line weight, no gradients, no 3D depth
+
+typography:
+  headings:
+    font: "IBM Plex Sans"
+    weight: 700
+    tracking: "0"
+  body:
+    font: "IBM Plex Sans"
+    weight: 400
+    line_height: 1.6
+  code:
+    font: "IBM Plex Mono"
+    weight: 400
+
+motion:
+  transitions: [fade, draw-in, match-cut]
+  animation_style: "kinetic, ease-out, no overshoot on line art"
+  pacing_rules:
+    min_scene_hold_seconds: 2.0          # visual change every 2-3s per stickman contract
+    max_scene_hold_seconds: 4.0
+    text_card_hold_seconds: 2.5
+    stat_card_hold_seconds: 2.5
+    transition_duration_seconds: 0.3
+  entrance: "draw-in (SVG path animation) or fade-up"
+  exit: "fade-out or motion-matched exit"
+
+audio:
+  voice_style: "energetic conversational storyteller, voice-first mix"
+  music_mood: "quiet thoughtful piano and soft ambient synth, optimistic momentum"
+  music_volume: 0.08
+  sfx_style: "crisp synchronized SFX on physical actions"
+  ducking_threshold_db: -2
+
+# --- Stickman-specific DNA (not consumed by theme builder; read by stickman skills) ---
+stickman_variants:
+  style_1_classic:
+    character_dna: "A minimalist 2D stick figure with a hollow circular head, no facial features, no hair, no clothing, no filled body, uniform medium line weight."
+    themes: [light, dark]
+    best_for: "hard knowledge, logic breakdowns, mental models"
+  style_2a_studio_tech:
+    character_dna: "Red beanie (smooth knit, no pom-pom), yellow t-shirt, black stick limbs. Simple black lines, vibrant colors, smooth 2D animation style."
+    environment: "modern bright white studio space with subtle light-gray perspective grid lines on the floor plane, high-key lighting, glowing cyan and blue glass holographic UI elements"
+    negative_must: "strictly minimalist studio aesthetic, no circuit board textures, no sci-fi wall panels, no spaceship corridors, no cracked concrete, no grunge textures"
+    best_for: "tech tutorials, AI tool breakdowns, career insights"
+  style_2b_cinematic_story:
+    character_dna: "same red beanie and yellow shirt figure inside rich environmental lighting"
+    environment: "rich full-color cinematic environments (warm bedroom, dusk highway, summit clouds), volumetric lighting, soft depth of field"
+    negative_must: "no photorealistic human skin, no 3D humanoid CGI models, no chaotic line glitches"
+    best_for: "emotional storytelling, personal growth, motivational journeys"
+  narrative:
+    engine: "5-Stage High-Completion Heartbeat"
+    stages: [golden_hook, disrupt_assumptions, insider_secrets, ultimate_truth, elevation_discussion]
+    vo_words_per_10s: "20-25"
+    beats_per_clip: "[0-3s][3-7s][7-10s]"
+    forbidden: "abstract liquid/shape morphing; idle character; camera-staring"
