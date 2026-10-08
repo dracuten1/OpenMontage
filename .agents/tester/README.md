@@ -1,4 +1,7 @@
-# Tester — OpenMontage (eth-tradingagents-20261003 acceptance)
+# Tester — OpenMontage
+Current engagement (2026-10-08): timing-relock-hardening branch acceptance — see
+RESULTS/2026-10-08-timing-relock-hardening.md (report-only; mission gate verified against
+real project artifacts on /tmp copies).
 
 ## Project
 OpenMontage: Remotion-based animated explainer production pipeline.
@@ -20,8 +23,9 @@ Current engagement: final acceptance of `projects/eth-tradingagents-20261003/ren
   act as the gate list. Ask user to add ensure.md for future engagements.
 
 ## Environment
-- Repo root: /Users/tuyennguyen/project/OpenMontage (macOS — prefer `gtimeout` if
-  `timeout` is absent; `shasum -a 256` for hashing).
+- Repo root: /Users/tuyennguyen/project/OpenMontage (macOS).
+- NO `timeout` AND NO `gtimeout` on this host — use the perl-alarm watchdog instead:
+  `perl -e 'alarm shift; exec @ARGV' <seconds> <cmd>` (verified 2026-10-08).
 - Python: `.venv/bin/python` from repo root.
 - Expected render actuals: h264 1920x1080@30, AAC, 64.04s, 19,459,083 B,
   duration gate [59.83, 66.13]s.

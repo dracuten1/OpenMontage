@@ -255,7 +255,10 @@ the AI model's training data — it may be wrong or outdated.
 
 - **Generating before checking budget**: Always estimate total cost first. A 60-second video with 15 images can burn $3+ quickly.
 - **Inconsistent image style**: Each image_selector call is independent. Use consistent anchors, but adapt them per scene. If you paste the same style prefix into every prompt, the video will feel machine-made and repetitive.
-- **Ignoring narration timing**: If TTS produces 12s of audio for a 10s section, the edit phase will struggle. Check durations.
+- **Ignoring narration timing & stale manifest**: If TTS produces 12s of audio for a 10s section, the edit phase will struggle. Check durations.
+  - **Re-TTS Rule**: Whenever narration audio is re-generated (e.g. pronunciation fix or pacing adjustment), you MUST mechanically update `asset_manifest.json` by running:
+    `python tools/audio/refresh_manifest.py projects/<project_id>/artifacts/asset_manifest.json`
+    Failure to refresh will lead to downstream timing mismatches that are hard-rejected by the edit stage gate.
 - **Ignoring delivery cues**: Generating raw script text when `provider_text` or `delivery_cues` exist will flatten the read. Apply the voice-performance contract first.
 - **Missing pronunciation guide**: "PostgreSQL" or "Kubernetes" will be mispronounced without explicit guidance.
 - **One retry then give up**: If an image doesn't match, refine the prompt specifically — don't just retry the same prompt.

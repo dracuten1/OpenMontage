@@ -41,7 +41,11 @@
           "label": { "type": "string" },
           "text": { "type": "string" },
           "start_seconds": { "type": "number", "minimum": 0 },
-          "end_seconds": { "type": "number", "minimum": 0 },
+          "end_seconds": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Planned end timestamp. Recommended soft cap: section duration (end_seconds - start_seconds) should not exceed 25 seconds to bound TTS duration drift."
+          },
           "speaker_directions": { "type": "string" },
           "delivery_cues": {
             "type": "object",

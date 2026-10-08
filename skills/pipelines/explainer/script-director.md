@@ -112,6 +112,17 @@ Write each section with these fields:
 }
 ```
 
+#### Section Duration and Splitting Guidance
+
+Target **≤20–25s** per script section (soft cap). Split long thoughts at natural narrative boundaries (problem statement → data revelation, or cause → consequence).
+
+**Why this matters (measured data):**
+Empirical investigation of production runs demonstrates that planned-vs-actual TTS duration drift scales directly with section length:
+- Sections **<10s** average only **0.86s** drift.
+- Long sections of **30–40s** balloon to **7.7s** average drift.
+
+Keeping sections ≤20–25s bounds duration drift, keeps speech aligned with scene visuals, and prevents cascading timing mismatches down the pipeline.
+
 #### Timing Estimation
 
 | Pace | Words/minute | Use when |
