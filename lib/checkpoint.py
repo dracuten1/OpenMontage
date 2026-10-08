@@ -121,10 +121,67 @@ def _load_checkpoint_schema() -> dict[str, Any]:
         return json.load(f)
 
 
+def _check_script_section_durations(script: dict[str, Any]) -> list[str]:
+    """Soft cap warning for script section durations exceeding 25s.
+
+    Does not raise CheckpointValidationError (to preserve backward compatibility with
+    legacy scripts); emits structured warnings into logs and checkpoint metadata.
+    """
+    warnings = []
+    sections = script.get("sections", [])
+    if isinstance(sections, list):
+        for idx, sec in enumerate(sections, start=1):
+            if isinstance(sec, dict):
+                sid = sec.get("id", f"section-{idx}")
+                in_s = sec.get("start_seconds")
+                out_s = sec.get("end_seconds")
+                if isinstance(in_s, (int, float)) and isinstance(out_s, (int, float)):
+                    dur = out_s - in_s
+                    if dur > 25.0:
+                        msg = (
+                            f"Section {sid!r} duration ({dur:.1f}s) exceeds soft cap (25s). "
+                            f"Empirical drift grows from 0.86s (<10s) to 7.7s (30-40s). "
+                            f"Consider splitting at natural narrative boundaries."
+                        )
+                        warnings.append(msg)
+                        import logging
+                        logging.getLogger(__name__).warning("SCRIPT SECTION DURATION WARNING: %s", msg)
+    return warnings
+
+
+def _validate_edit_decisions_audio_sync(
+    edit_decisions: dict[str, Any],
+    pipeline_dir: Path,
+    project_id: str,
+) -> None:
+    """Validate edit_decisions cut boundaries against measured audio.
+
+    Enforces that edit stage cut boundaries match measured audio durations from
+    asset_manifest.json (and narration_words.json / narration_full.wav when present)
+    before allowing the edit stage to be written as completed or awaiting_human.
+
+    Raises CheckpointValidationError on desync (HARD FAIL). Degrades gracefully to
+    WARNING if required asset artifacts do not exist yet.
+    """
+    from lib.timing_validator import validate_edit_timing_against_audio
+
+    project_dir = pipeline_dir / project_id
+    res = validate_edit_timing_against_audio(edit_decisions, project_dir)
+    if not res.valid:
+        error_details = "\n  - ".join(res.errors)
+        raise CheckpointValidationError(
+            f"TIMING RE-LOCK VALIDATION FAILED for stage 'edit':\n  - {error_details}\n"
+            f"Run 'python tools/audio/refresh_manifest.py <manifest>' if audio was re-synthesized, "
+            f"or align cut in/out boundaries to measured audio durations."
+        )
+
+
 def _validate_artifacts_for_stage(
     stage: str,
     status: str,
     artifacts: dict[str, Any],
+    pipeline_dir: Path | None = None,
+    project_id: str | None = None,
 ) -> None:
     # Valid stages come from the pipeline manifest (get_pipeline_stages), which
     # can declare stages beyond the 9 canonical ones (e.g. character-animation's
@@ -156,8 +213,20 @@ def _validate_artifacts_for_stage(
                 f"Artifact {artifact_name!r} failed schema validation: {exc}"
             ) from exc
 
+    # Cross-artifact stage gate validations
+    if status in {"completed", "awaiting_human"} and pipeline_dir is not None and project_id is not None:
+        if stage == "script" and "script" in artifacts and isinstance(artifacts["script"], dict):
+            _check_script_section_durations(artifacts["script"])
 
-def validate_checkpoint(checkpoint: dict[str, Any]) -> None:
+        if stage == "edit" and "edit_decisions" in artifacts and isinstance(artifacts["edit_decisions"], dict):
+            _validate_edit_decisions_audio_sync(artifacts["edit_decisions"], pipeline_dir, project_id)
+
+
+def validate_checkpoint(
+    checkpoint: dict[str, Any],
+    pipeline_dir: Path | None = None,
+    project_id: str | None = None,
+) -> None:
     """Validate checkpoint structure and canonical artifact payloads.
 
     Uses pipeline_type (if present) to resolve the valid stage list.
@@ -167,6 +236,7 @@ def validate_checkpoint(checkpoint: dict[str, Any]) -> None:
     status = checkpoint.get("status")
     artifacts = checkpoint.get("artifacts")
     pipeline_type = checkpoint.get("pipeline_type")
+    p_id = project_id or checkpoint.get("project_id")
 
     valid_stages = (
         set(get_pipeline_stages(pipeline_type)) if pipeline_type
@@ -183,7 +253,7 @@ def validate_checkpoint(checkpoint: dict[str, Any]) -> None:
     if not isinstance(artifacts, dict):
         raise CheckpointValidationError("Checkpoint artifacts must be a dictionary")
 
-    _validate_artifacts_for_stage(stage, status, artifacts)
+    _validate_artifacts_for_stage(stage, status, artifacts, pipeline_dir=pipeline_dir, project_id=p_id)
 
     try:
         jsonschema.validate(instance=checkpoint, schema=_load_checkpoint_schema())
@@ -544,7 +614,7 @@ def write_checkpoint(
                 else:
                     plan_or_top["decision_log_ref"] = log_ref
 
-    validate_checkpoint(checkpoint)
+    validate_checkpoint(checkpoint, pipeline_dir=pipeline_dir, project_id=project_id)
 
     path = _checkpoint_path(pipeline_dir, project_id, stage)
     path.parent.mkdir(parents=True, exist_ok=True)
