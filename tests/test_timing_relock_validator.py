@@ -428,3 +428,132 @@ class TestRefreshManifestHelper:
         updated = json.loads(manifest_path.read_text(encoding="utf-8"))
         assert abs(updated["assets"][0]["duration_seconds"] - 1.5) < 0.01
         assert abs(updated["metadata"]["total_audio_speech_duration_seconds"] - 1.5) < 0.01
+
+    def test_atomic_write_preserves_original_on_interruption(self, tmp_path: Path, monkeypatch):
+        """(a) Atomic write: a crash mid-write leaves the ORIGINAL manifest intact.
+
+        Simulates the fail-open chain this fix closes: crash between temp-file
+        write and the rename. With a non-atomic direct write this truncated the
+        manifest (missing durations -> silent degradation -> valid=True); with
+        os.replace the original file is untouched.
+        """
+        import wave
+
+        proj_dir = tmp_path / "atomic-proj"
+        art_dir = proj_dir / "artifacts"
+        audio_dir = proj_dir / "assets" / "audio"
+        art_dir.mkdir(parents=True, exist_ok=True)
+        audio_dir.mkdir(parents=True, exist_ok=True)
+
+        wav_path = audio_dir / "scene_1.wav"
+        with wave.open(str(wav_path), "wb") as w:
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(16000)
+            w.writeframes(b"\x00\x00" * 16000)  # 1.0s
+
+        manifest_path = art_dir / "asset_manifest.json"
+        original_data = {
+            "version": "1.0",
+            "assets": [
+                {
+                    "id": "audio-s1",
+                    "type": "narration",
+                    "scene_id": "scene-1",
+                    "path": "assets/audio/scene_1.wav",
+                    "duration_seconds": 99.0,  # stale on purpose
+                }
+            ],
+            "metadata": {"total_audio_speech_duration_seconds": 99.0},
+        }
+        original_text = json.dumps(original_data, indent=2)
+        manifest_path.write_text(original_text, encoding="utf-8")
+
+        def _boom(*args, **kwargs):
+            raise OSError("simulated crash mid-write (between temp write and replace)")
+
+        monkeypatch.setattr("os.replace", _boom)
+
+        with pytest.raises(OSError, match="simulated crash mid-write"):
+            refresh_asset_manifest(manifest_path, project_dir=proj_dir)
+
+        # The ORIGINAL manifest content is intact — no truncation, no partial write.
+        assert manifest_path.read_text(encoding="utf-8") == original_text
+        reloaded = json.loads(manifest_path.read_text(encoding="utf-8"))
+        assert reloaded["assets"][0]["duration_seconds"] == 99.0
+
+        # No partial temp file left behind by the failed refresh.
+        assert not (art_dir / "asset_manifest.json.tmp").exists()
+
+    def test_gate_surfaces_degradation_warnings_in_metadata_and_log(
+        self, tmp_path: Path, caplog
+    ):
+        """(b) Gate warnings: degradation (missing asset_manifest.json) is logged AND
+        attached to checkpoint metadata — no longer silently discarded."""
+        import logging
+
+        from tests.contracts.test_phase0_contracts import sample_artifact
+
+        init_project("run-warn", title="Run Warn", pipeline_type="animated-explainer", pipeline_dir=tmp_path)
+        proj_dir = tmp_path / "run-warn"
+
+        # Predecessors (manifest deliberately MISSING from artifacts/ — degradation case)
+        predecessors = [
+            ("research", "research_brief"),
+            ("proposal", "proposal_packet"),
+            ("script", "script"),
+            ("scene_plan", "scene_plan"),
+            ("assets", "asset_manifest"),
+        ]
+        for st, art_name in predecessors:
+            (proj_dir / f"checkpoint_{st}.json").write_text(
+                json.dumps({
+                    "version": "1.0",
+                    "project_id": "run-warn",
+                    "pipeline_type": "animated-explainer",
+                    "stage": st,
+                    "status": "completed",
+                    "timestamp": "2026-10-08T00:00:00Z",
+                    "human_approval_required": True,
+                    "human_approved": True,
+                    "artifacts": {art_name: sample_artifact(art_name)},
+                }),
+                encoding="utf-8",
+            )
+
+        edit_decisions = {
+            "version": "1.0",
+            "render_runtime": "remotion",
+            "cuts": [
+                {
+                    "id": "cut-1",
+                    "source": "assets/audio/scene_1.wav",
+                    "in_seconds": 0.0,
+                    "out_seconds": 10.0,
+                    "layer": "primary",
+                }
+            ],
+        }
+
+        # Warnings stay non-fatal: the checkpoint writes successfully.
+        with caplog.at_level(logging.WARNING, logger="lib.checkpoint"):
+            cp_path = write_checkpoint(
+                tmp_path,
+                "run-warn",
+                "edit",
+                "completed",
+                {"edit_decisions": edit_decisions},
+                pipeline_type="animated-explainer",
+                human_approved=True,
+            )
+
+        assert cp_path.exists()
+
+        # (b)(a) each degradation warning is LOGGED, not swallowed
+        assert "asset_manifest.json does not exist yet" in caplog.text
+
+        # (b)(b) the warnings list is attached to the checkpoint record metadata
+        record = json.loads(cp_path.read_text(encoding="utf-8"))
+        attached = record["metadata"]["timing_validation_warnings"]
+        assert isinstance(attached, list) and attached
+        assert any("asset_manifest.json does not exist yet" in w for w in attached)

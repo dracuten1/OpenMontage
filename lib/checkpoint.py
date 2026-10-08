@@ -153,6 +153,7 @@ def _validate_edit_decisions_audio_sync(
     edit_decisions: dict[str, Any],
     pipeline_dir: Path,
     project_id: str,
+    checkpoint: Optional[dict[str, Any]] = None,
 ) -> None:
     """Validate edit_decisions cut boundaries against measured audio.
 
@@ -162,11 +163,32 @@ def _validate_edit_decisions_audio_sync(
 
     Raises CheckpointValidationError on desync (HARD FAIL). Degrades gracefully to
     WARNING if required asset artifacts do not exist yet.
+
+    Degradation warnings are NEVER silently discarded: each one is logged and the
+    full list is attached to the checkpoint record under
+    ``metadata.timing_validation_warnings`` so a degradation that allowed the gate
+    to pass remains inspectable downstream. Warnings stay non-fatal — valid/fail
+    semantics are unchanged.
     """
+    import logging
+
     from lib.timing_validator import validate_edit_timing_against_audio
 
     project_dir = pipeline_dir / project_id
     res = validate_edit_timing_against_audio(edit_decisions, project_dir)
+
+    if res.warnings:
+        logger = logging.getLogger(__name__)
+        for warning_msg in res.warnings:
+            logger.warning(
+                "TIMING VALIDATION WARNING (stage 'edit', project %r): %s",
+                project_id, warning_msg,
+            )
+        if checkpoint is not None:
+            meta = checkpoint.setdefault("metadata", {})
+            if isinstance(meta, dict):
+                meta["timing_validation_warnings"] = list(res.warnings)
+
     if not res.valid:
         error_details = "\n  - ".join(res.errors)
         raise CheckpointValidationError(
@@ -182,6 +204,7 @@ def _validate_artifacts_for_stage(
     artifacts: dict[str, Any],
     pipeline_dir: Path | None = None,
     project_id: str | None = None,
+    checkpoint: Optional[dict[str, Any]] = None,
 ) -> None:
     # Valid stages come from the pipeline manifest (get_pipeline_stages), which
     # can declare stages beyond the 9 canonical ones (e.g. character-animation's
@@ -219,7 +242,9 @@ def _validate_artifacts_for_stage(
             _check_script_section_durations(artifacts["script"])
 
         if stage == "edit" and "edit_decisions" in artifacts and isinstance(artifacts["edit_decisions"], dict):
-            _validate_edit_decisions_audio_sync(artifacts["edit_decisions"], pipeline_dir, project_id)
+            _validate_edit_decisions_audio_sync(
+                artifacts["edit_decisions"], pipeline_dir, project_id, checkpoint=checkpoint,
+            )
 
 
 def validate_checkpoint(
@@ -253,7 +278,7 @@ def validate_checkpoint(
     if not isinstance(artifacts, dict):
         raise CheckpointValidationError("Checkpoint artifacts must be a dictionary")
 
-    _validate_artifacts_for_stage(stage, status, artifacts, pipeline_dir=pipeline_dir, project_id=p_id)
+    _validate_artifacts_for_stage(stage, status, artifacts, pipeline_dir=pipeline_dir, project_id=p_id, checkpoint=checkpoint)
 
     try:
         jsonschema.validate(instance=checkpoint, schema=_load_checkpoint_schema())

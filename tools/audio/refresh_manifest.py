@@ -7,6 +7,7 @@ fails, wave module is used for standard WAV files.
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import wave
@@ -116,8 +117,25 @@ def refresh_asset_manifest(
     if total_speech_duration > 0:
         metadata["total_audio_speech_duration_seconds"] = round(total_speech_duration, 3)
 
-    with open(manifest_path, "w", encoding="utf-8") as f:
-        json.dump(manifest, f, indent=2, ensure_ascii=False)
+    # Atomic write: temp file in the SAME directory as the target (same
+    # filesystem => os.replace is atomic on POSIX). A crash mid-write can
+    # never leave a truncated manifest behind — the old file stays intact
+    # until the rename lands. Formatting (indent=2, ensure_ascii=False) is
+    # byte-identical to the previous direct write; atomicity is the only
+    # behavioral change.
+    tmp_path = manifest_path.with_name(manifest_path.name + ".tmp")
+    try:
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(manifest, f, indent=2, ensure_ascii=False)
+        os.replace(tmp_path, manifest_path)
+    except BaseException:
+        # Best-effort cleanup of the partial temp file; the original
+        # manifest on disk was never touched.
+        try:
+            tmp_path.unlink()
+        except OSError:
+            pass
+        raise
 
     return {
         "updated_count": updated_count,
