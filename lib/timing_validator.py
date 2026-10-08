@@ -7,16 +7,45 @@ to advance from edit to compose stage.
 Degradation model (documented for stage gates):
 - If asset_manifest does not exist or has no narration assets with durations,
   the validator degrades to a clear WARNING (allowing earlier pipeline scaffolding/testing).
+- If a narration asset's audio file is missing or unprobeable, the staleness check
+  degrades to a WARNING and falls back to the manifest duration.
 - If word alignment (narration_words.json) is missing, the word-level check is gracefully
   skipped (no-op), and only the primary manifest-based check runs.
-- If edit_decisions cut boundaries mismatch measured audio beyond tolerance (or word start
-  mismatches beyond tolerance), it raises a HARD CheckpointValidationError at the gate.
+- The word-alignment check is an ENHANCEMENT and is fail-safe by design: a shape it
+  cannot unambiguously interpret, or a cut it cannot map to a speech span, degrades
+  to a skip-with-WARNING — never a hard error. Only the primary manifest + ffprobe
+  checks carry enforcement load.
+- If edit_decisions cut boundaries mismatch measured audio beyond tolerance, a manifest
+  duration disagrees with the file it names, or a word start mismatches beyond tolerance,
+  it raises a HARD CheckpointValidationError at the gate.
+
+Supported narration_words.json shapes (fail-safe word-alignment enhancement):
+1. Flat list of word dicts (aivn style): each carries scene_id and/or
+   script_section_id plus global_start/clip_start timestamps.
+2. Section-keyed dict (bach-viet-bien-mat / co-loa-no-than / vua-hung-trong-dong /
+   con-rong-chau-tien / nguon-goc-dan-toc-v2 series): {"s01": {"global_start": X,
+   "words": [...]}}. Per the producer convention (projects/*/scripts/build_transcripts.py),
+   each word's "start"/"end" fields are ALREADY global-timeline seconds and
+   "local_start"/"local_end" are section-local; entry "global_start" is the section
+   offset. Global resolution order: word.global_start, else entry.global_start +
+   word.local_start, else word.start used as-is (NEVER re-added to the section offset).
+3. Dict with a single top-level "words" list and no per-word scene attribution
+   (gh6-20261007 / btc-tradingagents-20261008 style): cuts cannot be mapped to
+   speech spans unambiguously → whole check SKIPPED with an explicit warning.
+
+Cut→speech-span mapping rule (stable, documented, two-tier): the last alphanumeric
+token of the cut id (e.g. "cut-s01" → ("s", 1), "cut_02" → ("", 2)) is resolved
+against section keys / scene ids — tier 1: identical prefix AND number; tier 2:
+unique number-only match (covers the real cross-convention pair cut 'cut-s01' ↔
+word record 'scene_01'). Zero matches → unmapped; more than one number-match →
+ambiguous. Both are mapping failures → skip-with-WARNING (never an error).
 """
 
 from __future__ import annotations
 
 import json
 import logging
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -36,6 +65,16 @@ WORD_ALIGNMENT_TOLERANCE_SECONDS = 0.40
 
 # Narration full wav tolerance vs sum of cuts: 1.0s to accommodate visual hold/tail padding (e.g. 0.44s - 0.5s tail pad).
 FULL_AUDIO_TOLERANCE_SECONDS = 1.00
+
+# Manifest-vs-file staleness tolerance: ±0.30s, anchored on CUT_BOUNDARY_TOLERANCE_SECONDS.
+# The manifest duration is written from the same probe at asset-generation time, so honest
+# disagreement is bounded by codec/container round-trip (≪50ms for WAV header math; ~1-2
+# frames for MP3 estimates). A disagreement beyond ±0.30s cannot be rounding — it means the
+# audio file was re-synthesized after the manifest was written (the aivn d-011 failure
+# mode: re-TTS then forget the manifest). This is the check that closes the per-scene
+# re-TTS evasion hole: cuts, manifest, and a stale narration_full.wav can agree with each
+# other and all be wrong; the files themselves are ground truth.
+MANIFEST_STALENESS_TOLERANCE_SECONDS = 0.30
 
 
 @dataclass
@@ -63,65 +102,143 @@ def _load_word_alignment(project_dir: Path) -> dict[str, Any] | list[dict[str, A
     return None
 
 
-def _get_first_word_start(word_data: Any, scene_idx: int, scene_id: str | None = None) -> float | None:
-    """Extract first word start timestamp for a given scene from narration_words.json data."""
-    if not word_data:
-        return None
+# ---------------------------------------------------------------------------
+# Word-alignment shape handling (fail-safe enhancement — never hard-fails).
+# See the module docstring for the supported shapes and the cut→span mapping rule.
+# ---------------------------------------------------------------------------
 
-    # Shape 1: Flat list of word entries
+def _classify_word_shape(word_data: Any) -> str:
+    """Classify a narration_words.json payload into a supported shape name."""
     if isinstance(word_data, list):
-        # Match by scene_id (e.g. 'scene_01', 's01', 'scene-1', or index)
-        matching_words = []
-        for w in word_data:
-            w_scene = str(w.get("scene_id") or w.get("script_section_id") or "")
-            if scene_id and (w_scene == scene_id or w_scene.lower() == scene_id.lower()):
-                matching_words.append(w)
-            elif not scene_id and f"{scene_idx}" in w_scene:
-                matching_words.append(w)
-
-        if matching_words:
-            first_w = matching_words[0]
-            start = first_w.get("global_start")
-            if start is None:
-                start = first_w.get("clip_start")
-            if start is not None:
-                return float(start)
-
-    # Shape 2: Dict keyed by section/scene id (e.g. 's01', 's1', 'scene-1')
-    elif isinstance(word_data, dict):
+        return "flat-list"
+    if isinstance(word_data, dict):
         if "words" in word_data and isinstance(word_data["words"], list):
-            # Dict with top-level words list (e.g. gh6 style)
-            # Find words in this scene
-            return None
+            return "top-level-words-dict"
+        if any(isinstance(v, dict) for v in word_data.values()):
+            return "section-dict"
+    return "unknown"
 
-        # Dict keyed by section id (e.g. bach-viet style: {'s01': {'words': [...]}})
-        possible_keys = [
-            f"s{scene_idx:02d}",
-            f"s{scene_idx}",
-            f"scene_{scene_idx:02d}",
-            f"scene_{scene_idx}",
-            f"scene-{scene_idx}",
-        ]
-        if scene_id:
-            possible_keys.insert(0, scene_id)
 
-        for k in possible_keys:
-            if k in word_data:
-                entry = word_data[k]
-                if isinstance(entry, dict):
-                    ws = entry.get("words", [])
-                    if ws and isinstance(ws[0], dict):
-                        w0 = ws[0]
-                        start = w0.get("global_start")
-                        if start is None:
-                            start = w0.get("start")
-                        if start is not None:
-                            g_offset = float(entry.get("global_start", 0.0))
-                            # If start is local and global_offset exists
-                            if "global_start" in w0:
-                                return float(w0["global_start"])
-                            return g_offset + float(start)
+def _section_id_token(section_id: str) -> tuple[str, int] | None:
+    """Split a section id into (alphabetic prefix, numeric value), e.g. 's01' -> ('s', 1)."""
+    m = re.fullmatch(r"\s*([A-Za-z]*)[-_ ]?0*(\d+)\s*", str(section_id))
+    if not m:
+        return None
+    return (m.group(1).lower(), int(m.group(2)))
+
+
+def _cut_id_token(cut_id: Any) -> tuple[str, int] | None:
+    """Extract the section token from a cut id: last alphanumeric run's (prefix, number).
+
+    'cut-s01' -> ('s', 1); 'cut_02' -> ('', 2); 'cut-sc01' -> ('sc', 1).
+    """
+    if not isinstance(cut_id, str):
+        return None
+    runs = re.findall(r"[A-Za-z]*\d+", cut_id)
+    if not runs:
+        return None
+    return _section_id_token(runs[-1])
+
+
+def _resolve_token_match(
+    cut_tok: tuple[str, int] | None,
+    keyed: list[tuple[str, Any]],
+) -> tuple[Any | None, str]:
+    """Two-tier token resolution over (key, payload) candidates.
+
+    Tier 1: identical prefix AND number ('cut-s01' vs key 's01').
+    Tier 2: unique number-only match — covers the real cross-convention pairs
+    ('cut-s01' vs 'scene_01' / '1'), because producer conventions disagree on the
+    alphabetic prefix while the number is the identity.
+    Exactly one tier-1 match wins immediately; otherwise a unique tier-2 match wins;
+    multiple tier-2 matches are AMBIGUOUS (fail-safe: caller skips with a warning).
+
+    Returns (payload_or_None, 'matched' | 'ambiguous' | 'unmapped').
+    """
+    if cut_tok is None:
+        return None, "unmapped"
+
+    def _tok(key: str) -> tuple[str, int] | None:
+        return _section_id_token(key)
+
+    if cut_tok[0]:
+        tier1 = [(k, v) for k, v in keyed
+                 if (t := _tok(k)) is not None and t[0] == cut_tok[0] and t[1] == cut_tok[1]]
+        if len(tier1) == 1:
+            return tier1[0][1], "matched"
+    tier2 = [(k, v) for k, v in keyed if (t := _tok(k)) is not None and t[1] == cut_tok[1]]
+    if len(tier2) == 1:
+        return tier2[0][1], "matched"
+    if len(tier2) > 1:
+        return None, "ambiguous"
+    return None, "unmapped"
+
+
+def _first_word_global_start(entry: dict[str, Any]) -> float | None:
+    """Resolve the first word's GLOBAL start from one section entry, per the producer
+    convention documented in the module docstring. Word 'start' values in the
+    section-dict shape are already global-timeline seconds — they are NEVER re-added
+    to the section offset (that double-count is a proven bogus-hard-fail source)."""
+    words = entry.get("words", [])
+    if not words or not isinstance(words[0], dict):
+        return None
+    w0 = words[0]
+    # 1) Explicit per-word global timestamp (producer convention).
+    if w0.get("global_start") is not None:
+        return float(w0["global_start"])
+    # 2) Local word timestamp + the section's global offset.
+    if w0.get("local_start") is not None and entry.get("global_start") is not None:
+        return float(entry["global_start"]) + float(w0["local_start"])
+    # 3) Plain 'start' — treated AS GLOBAL per the build_transcripts.py series
+    #    convention. Deliberately NOT offset by entry.global_start.
+    if w0.get("start") is not None:
+        return float(w0["start"])
     return None
+
+
+def _match_section_entry(
+    word_data: dict[str, Any], cut: dict[str, Any], idx: int,
+) -> tuple[dict[str, Any] | None, str]:
+    """Map one cut to its section entry in the section-dict shape.
+
+    Returns (entry, status): ('matched' | 'unmapped' | 'ambiguous').
+    """
+    cut_tok = _cut_id_token(cut.get("id"))
+    if cut_tok is not None:
+        entries = [(k, v) for k, v in word_data.items() if isinstance(v, dict)]
+        # A cut id that CARRIES a token but matches nothing is unmapped — do NOT
+        # silently fall back to position (that would guess across a real mismatch).
+        return _resolve_token_match(cut_tok, entries)
+
+    # Token-less cut ids (e.g. 'cut-hook'): positional mapping only when unambiguous —
+    # exactly one section sits at position idx in document order. Otherwise: failure.
+    entries = [(k, v) for k, v in word_data.items() if isinstance(v, dict)]
+    if 1 <= idx <= len(entries):
+        return entries[idx - 1][1], "matched"
+    return None, "unmapped"
+
+
+def _match_flat_words(
+    word_data: list[dict[str, Any]], cut: dict[str, Any], idx: int,
+) -> tuple[float | None, str]:
+    """Map one cut to its first spoken word in the flat-list shape.
+
+    Returns (global_start_or_None, status): ('matched' | 'unmapped' | 'ambiguous').
+    Word records are keyed by their scene_id / script_section_id and resolved with the
+    same two-tier token rule (real aivn pair: cut 'cut-s01' ↔ words 'scene_01').
+    """
+    cut_tok = _cut_id_token(cut.get("id"))
+    if cut_tok is None:
+        return None, "unmapped"
+    keyed = [
+        (str(w.get("scene_id") or w.get("script_section_id") or ""), w)
+        for w in word_data
+    ]
+    first, status = _resolve_token_match(cut_tok, keyed)
+    if status != "matched" or not isinstance(first, dict):
+        return None, status
+    start = first.get("global_start", first.get("clip_start"))
+    return (float(start) if start is not None else None), "matched"
 
 
 def validate_edit_timing_against_audio(
@@ -240,7 +357,50 @@ def validate_edit_timing_against_audio(
             f"only the full-audio total check applies."
         )
 
-    # 2. Cumulative boundary and Narration Full WAV consistency check
+    # 2. Manifest-vs-file staleness check (Fix A — closes the per-scene re-TTS evasion
+    # hole): probe each narration asset's actual audio file and compare against the
+    # manifest's duration_seconds. Cuts, manifest, and a stale narration_full.wav can
+    # agree with each other and all be stale; the files are ground truth.
+    if asset_manifest is not None:
+        for asset in assets_with_duration:
+            asset_id = asset.get("id", "<unnamed>")
+            manifest_dur = float(asset["duration_seconds"])
+            raw_path = asset.get("path", "")
+            if not raw_path:
+                warnings.append(
+                    f"Manifest asset {asset_id} has no path; cannot probe file — "
+                    f"staleness check skipped for it (source of truth: asset_manifest.json)."
+                )
+                continue
+            file_path = Path(raw_path)
+            if not file_path.is_absolute():
+                file_path = project_dir / file_path
+            if not file_path.is_file():
+                warnings.append(
+                    f"Manifest asset {asset_id} path {asset.get('path')!r} does not exist on "
+                    f"disk; falling back to manifest duration for it "
+                    f"(source of truth: asset_manifest.json)."
+                )
+                continue
+            probed_dur = probe_audio_duration(file_path)
+            if probed_dur is None:
+                warnings.append(
+                    f"Could not probe audio file for manifest asset {asset_id} "
+                    f"({asset.get('path')!r}); falling back to manifest duration "
+                    f"(source of truth: asset_manifest.json)."
+                )
+                continue
+            staleness = probed_dur - manifest_dur
+            if abs(staleness) > MANIFEST_STALENESS_TOLERANCE_SECONDS:
+                errors.append(
+                    f"Manifest asset {asset_id}: manifest duration says {manifest_dur:.3f}s, "
+                    f"file probes {probed_dur:.3f}s (delta {staleness:+.3f}s, tolerance "
+                    f"±{MANIFEST_STALENESS_TOLERANCE_SECONDS:.2f}s) — manifest is stale; "
+                    f"run 'python tools/audio/refresh_manifest.py <manifest>' and re-lock cuts "
+                    f"(source of truth: ffprobe/wave probe on {asset.get('path')})."
+                )
+
+    # 3. Cumulative boundary and Narration Full WAV consistency check
     full_wav_path = project_dir / "assets" / "audio" / "narration_full.wav"
     if full_wav_path.is_file():
         actual_full_dur = probe_audio_duration(full_wav_path)
@@ -262,16 +422,52 @@ def validate_edit_timing_against_audio(
                     f"max allowed tail padding {FULL_AUDIO_TOLERANCE_SECONDS:.2f}s)."
                 )
 
-    # 3. Enhanced check: Word alignment verification (if narration_words.json exists)
+    # 4. Enhanced check: Word alignment verification (if narration_words.json exists).
+    # This is an ENHANCEMENT and is FAIL-SAFE: shape ambiguity or cut→span mapping
+    # failure degrades to skip-with-WARNING, never a hard error. Enforcement load is
+    # carried by checks 1-3 (manifest per-cut, file-probe staleness, full-wav total).
     word_alignment = _load_word_alignment(project_dir)
     if word_alignment is not None:
-        info.append("Word-alignment artifact detected (narration_words.json); running enhanced speech-lock check.")
-        for idx, cut in enumerate(cuts, start=1):
-            cut_id = cut.get("id", f"cut-{idx}")
-            in_s = float(cut.get("in_seconds", 0.0))
-            first_word_s = _get_first_word_start(word_alignment, idx, cut.get("id"))
-            if first_word_s is not None:
-                # The cut in_seconds should be very close to (or slightly before) the first spoken word
+        shape = _classify_word_shape(word_alignment)
+        if shape == "top-level-words-dict":
+            # gh6/btc08 style: one global word list, no per-word scene attribution —
+            # cuts cannot be mapped to speech spans unambiguously. Skip, don't guess.
+            warnings.append(
+                "narration_words.json uses a top-level words-list shape without per-scene "
+                "attribution; word-alignment check SKIPPED (cannot map cuts to speech spans "
+                "unambiguously). Source: narration_words.json."
+            )
+        elif shape == "unknown":
+            warnings.append(
+                "narration_words.json shape not recognized; word-alignment check SKIPPED "
+                "(fail-safe). Source: narration_words.json."
+            )
+        else:
+            info.append(
+                f"Word-alignment artifact detected (narration_words.json, shape={shape}); "
+                f"running enhanced speech-lock check."
+            )
+            for idx, cut in enumerate(cuts, start=1):
+                cut_id = cut.get("id", f"cut-{idx}")
+                in_s = float(cut.get("in_seconds", 0.0))
+                first_word_s: float | None = None
+                if shape == "flat-list":
+                    first_word_s, status = _match_flat_words(word_alignment, cut, idx)
+                else:  # section-dict
+                    entry, status = _match_section_entry(word_alignment, cut, idx)
+                    if status == "matched" and entry is not None:
+                        first_word_s = _first_word_global_start(entry)
+                if first_word_s is None:
+                    # Mapping failure / no usable timestamp → skip this cut with a
+                    # warning. NEVER a bogus hard fail on a shape we don't understand.
+                    warnings.append(
+                        f"Cut {cut_id!r}: word-alignment mapping failed (shape={shape}, "
+                        f"status={status}); enhanced speech-lock check SKIPPED for it. "
+                        f"Source: narration_words.json."
+                    )
+                    continue
+                # The cut in_seconds should be very close to (or slightly before) the
+                # first spoken word of its span.
                 delta = abs(in_s - first_word_s)
                 if delta > WORD_ALIGNMENT_TOLERANCE_SECONDS:
                     errors.append(

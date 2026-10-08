@@ -18,6 +18,18 @@ from lib.timing_validator import (
 from tools.audio.refresh_manifest import probe_audio_duration, refresh_asset_manifest
 
 
+def _write_real_wav_file(path: Path, duration_seconds: float, rate: int = 16000) -> float:
+    """Write a real, probe-able mono 16-bit WAV of the given duration; returns duration."""
+    import wave
+    frames = int(round(duration_seconds * rate))
+    with wave.open(str(path), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(rate)
+        w.writeframes(b"\x00\x00" * frames)
+    return frames / rate
+
+
 def _create_sample_project(
     tmp_path: Path,
     project_id: str = "test-proj",
@@ -65,8 +77,9 @@ def _create_sample_project(
     assets = []
     for idx, a_dur in enumerate(audio_durations, start=1):
         wav_file = audio_dir / f"voice_s{idx}.wav"
-        # Placeholder file only — never probed (durations come from the manifest).
-        wav_file.write_bytes(b"RIFF" + b"\x00" * 36)
+        # Real probe-able WAV matching the manifest duration — the validator's
+        # manifest-vs-file staleness check probes these files directly.
+        _write_real_wav_file(wav_file, a_dur)
         assets.append({
             "id": f"voice-s{idx}",
             "type": "narration",
@@ -318,6 +331,179 @@ class TestTimingValidator:
         res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
         assert res.valid is True
         assert len(res.errors) == 0
+
+    # ------------------------------------------------------------------
+    # Fix A — manifest-vs-file staleness (probe per-scene audio directly)
+    # ------------------------------------------------------------------
+
+    def test_perturbed_scene_wav_with_stale_manifest_hard_fails(self, tmp_path: Path):
+        """(Fix A, tester evasion scenario) Scene WAV re-synthesized +1.5s while the
+        manifest stays stale: cuts↔manifest↔(no)full-wav all agree and would pass —
+        the direct file probe must HARD-FAIL naming the asset and the fix."""
+        proj_dir, edit_decisions, manifest = _create_sample_project(
+            tmp_path,
+            project_id="perturbed-scene",
+            cut_durations=[10.0, 10.0],
+            audio_durations=[10.0, 10.0],
+        )
+        # Perturb scene 2's actual audio +1.5s (the d-011 single-scene re-TTS shape).
+        self._write_real_wav(proj_dir / "assets" / "audio" / "voice_s2.wav", 11.5)
+
+        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res.valid is False
+        stale_errors = [e for e in res.errors if "manifest is stale" in e]
+        assert stale_errors, f"expected staleness error, got: {res.errors}"
+        err = stale_errors[0]
+        assert "voice-s2" in err                                  # asset id
+        assert "says 10.000s" in err and "probes 11.500s" in err  # manifest vs file
+        assert "refresh_manifest" in err                          # actionable fix
+        assert "ffprobe/wave probe on assets/audio/voice_s2.wav" in err  # source of truth
+
+    def test_missing_scene_file_falls_back_with_warning(self, tmp_path: Path):
+        """(Fix A, graceful) Manifest path that does not exist on disk → explicit
+        warning + fallback to manifest duration; cuts matching the manifest stay valid."""
+        proj_dir, edit_decisions, manifest = _create_sample_project(
+            tmp_path,
+            project_id="missing-file",
+            cut_durations=[10.0, 10.0],
+            audio_durations=[10.0, 10.0],
+        )
+        # Remove scene 2's file so the manifest names something unprobeable.
+        (proj_dir / "assets" / "audio" / "voice_s2.wav").unlink()
+
+        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res.valid is True
+        assert len(res.errors) == 0
+        assert any("voice-s2" in w and "does not exist on disk" in w for w in res.warnings)
+        assert any("falling back to manifest duration" in w for w in res.warnings)
+
+    def test_clean_run_probes_pass_without_staleness_warnings(self, tmp_path: Path):
+        """(Fix A, no false positives) Files matching the manifest → no staleness
+        errors AND no staleness warnings."""
+        proj_dir, edit_decisions, manifest = _create_sample_project(
+            tmp_path,
+            project_id="clean-probe",
+            cut_durations=[9.28, 12.94],
+            audio_durations=[9.28, 12.94],
+        )
+        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res.valid is True
+        assert len(res.errors) == 0
+        assert not any("manifest is stale" in w for w in res.warnings)
+        assert not any("falling back to manifest duration" in w for w in res.warnings)
+
+    # ------------------------------------------------------------------
+    # Fix B — fail-safe word-alignment check
+    # ------------------------------------------------------------------
+
+    def test_section_dict_global_timestamps_no_double_count(self, tmp_path: Path):
+        """(Fix B, bach counterfactual) Section-dict shape whose word 'start' values are
+        ALREADY global-timeline (per the build_transcripts.py series convention) must not
+        be re-offset by the entry's global_start — zero bogus errors on aligned cuts."""
+        # 3 sections, real bach-style shape; word starts are cumulative GLOBAL seconds.
+        words = {
+            "s01": {"duration_seconds": 9.0, "global_start": 0.0, "global_end": 9.0,
+                    "pause_after": 0.8,
+                    "words": [{"word": "Ngày", "start": 0.0, "end": 0.22,
+                               "local_start": 0.0, "local_end": 0.22, "probability": 0.92}]},
+            "s02": {"duration_seconds": 8.0, "global_start": 9.8, "global_end": 17.8,
+                    "pause_after": 0.8,
+                    "words": [{"word": "Xưa", "start": 9.8, "end": 10.0,
+                               "local_start": 0.0, "local_end": 0.2, "probability": 0.94}]},
+            "s03": {"duration_seconds": 7.0, "global_start": 18.6, "global_end": 25.6,
+                    "pause_after": 0.0,
+                    "words": [{"word": "Có", "start": 18.6, "end": 18.9,
+                               "local_start": 0.0, "local_end": 0.3, "probability": 0.9}]},
+        }
+        # Pause-inclusive cut spans: cut-ins at 0.0 / 10.0 / 18.8 (0.8s inter-section pauses).
+        proj_dir, edit_decisions, manifest = _create_sample_project(
+            tmp_path,
+            project_id="bach-shape",
+            cut_durations=[10.0, 8.8, 7.0],
+            audio_durations=[9.0, 8.0, 7.0],
+            narration_words=words,
+        )
+        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        word_errors = [e for e in res.errors if "narration_words.json" in e]
+        assert word_errors == [], (
+            "double-count regression: word starts already global were re-offset "
+            f"by section offsets: {word_errors}"
+        )
+
+    def test_aivn_flat_shape_real_ids_match(self, tmp_path: Path):
+        """(Fix B / mock-fidelity MISMATCH) Real aivn flat shape: words carry
+        scene_id 'scene_01' while cuts are 'cut-s01' — the enhanced check must
+        actually MATCH (not silently no-op) via the documented token rule."""
+        words = [
+            {"word": "Một", "scene_id": "scene_01", "script_section_id": "s01",
+             "global_start": 0.0, "global_end": 0.24},
+            {"word": "Hai", "scene_id": "scene_02", "script_section_id": "s02",
+             "global_start": 8.74, "global_end": 8.94},
+        ]
+        proj_dir, edit_decisions, manifest = _create_sample_project(
+            tmp_path,
+            project_id="aivn-flat",
+            cut_durations=[8.74, 8.5],
+            audio_durations=[8.74, 8.5],
+            narration_words=words,
+        )
+        # Real aivn cut-id convention (helper emits 'cut-1'/'cut-2').
+        edit_decisions["cuts"][0]["id"] = "cut-s01"
+        edit_decisions["cuts"][1]["id"] = "cut-s02"
+        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res.valid is True
+        # The check RAN (no unmapped skip-warnings for these two cuts).
+        assert not any("word-alignment mapping failed" in w for w in res.warnings)
+
+        # Desync the second cut-in by 1.0s → real hard error naming word alignment.
+        edit_decisions["cuts"][1]["in_seconds"] = 9.74
+        edit_decisions["cuts"][1]["out_seconds"] = 18.24
+        res_bad = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res_bad.valid is False
+        word_errors = [e for e in res_bad.errors
+                       if "cut-s02" in e and "first spoken word timestamp" in e
+                       and "narration_words.json" in e]
+        assert word_errors, f"expected aivn word-alignment error, got: {res_bad.errors}"
+
+    def test_gh6_top_level_words_shape_skips_with_warning(self, tmp_path: Path):
+        """(Fix B, gh6 shape) Top-level words dict with no per-scene attribution →
+        whole word-alignment check SKIPPED with an explicit warning, never an error."""
+        words = {
+            "version": "1.0", "project_id": "x", "total_duration_seconds": 12.0,
+            "words": [{"text": "Phô", "global_start": 0.0, "global_end": 0.14,
+                       "probability": 0.3}],
+        }
+        proj_dir, edit_decisions, manifest = _create_sample_project(
+            tmp_path,
+            project_id="gh6-shape",
+            cut_durations=[6.0, 6.0],
+            audio_durations=[6.0, 6.0],
+            narration_words=words,
+        )
+        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res.valid is True
+        assert len(res.errors) == 0
+        assert any("SKIPPED" in w and "narration_words.json" in w for w in res.warnings)
+
+    def test_unmappable_cut_skips_with_warning_not_error(self, tmp_path: Path):
+        """(Fix B, mapping failure) A cut whose id matches no section is skipped with a
+        warning — mapping failure must never manufacture a hard error."""
+        words = {
+            "s01": {"global_start": 0.0, "words": [
+                {"word": "A", "start": 0.0, "end": 0.2, "local_start": 0.0, "local_end": 0.2}]},
+        }
+        proj_dir, edit_decisions, manifest = _create_sample_project(
+            tmp_path,
+            project_id="unmapped-cut",
+            cut_durations=[5.0],
+            audio_durations=[5.0],
+            narration_words=words,
+        )
+        edit_decisions["cuts"][0]["id"] = "cut-x99"  # matches no section key
+        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res.valid is True
+        assert len(res.errors) == 0
+        assert any("cut-x99" in w and "SKIPPED" in w for w in res.warnings)
 
 
 class TestCheckpointGateIntegration:
