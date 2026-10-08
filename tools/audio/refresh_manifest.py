@@ -12,6 +12,7 @@ import shutil
 import subprocess
 import wave
 from pathlib import Path
+from typing import Any
 
 
 def probe_audio_duration(file_path: str | Path) -> float | None:
@@ -66,7 +67,7 @@ def refresh_asset_manifest(
     manifest_path: str | Path,
     *,
     project_dir: str | Path | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """Re-probe actual audio files and update asset_manifest.json durations.
 
     Updates duration_seconds per narration/audio asset and recalculates

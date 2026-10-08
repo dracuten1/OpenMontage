@@ -46,7 +46,7 @@ class TimingValidationResult:
     info: list[str] = field(default_factory=list)
 
 
-def _load_word_alignment(project_dir: Path) -> list[dict] | dict | None:
+def _load_word_alignment(project_dir: Path) -> dict[str, Any] | list[dict[str, Any]] | None:
     """Look for narration_words.json in standard project paths."""
     candidates = [
         project_dir / "artifacts" / "narration_words.json",
@@ -170,6 +170,9 @@ def validate_edit_timing_against_audio(
         return TimingValidationResult(valid=True, warnings=warnings)
 
     assets = asset_manifest.get("assets", [])
+    # scene_id "all" is the full-program concat (narration_full), not a per-scene
+    # segment; ids containing "probe" are sample/probe clips (e.g. news-20261006
+    # probe_sXX.wav) that no cut maps to. Both must stay out of the per-cut check.
     narration_assets = [
         a for a in assets
         if a.get("type") == "narration" and a.get("scene_id") != "all" and "probe" not in str(a.get("id", ""))

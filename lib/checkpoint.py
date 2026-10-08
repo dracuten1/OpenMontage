@@ -47,6 +47,13 @@ SUPPLEMENTARY_ARTIFACTS = {
     "video_analysis_brief", # Reference-video grounding artifact carried alongside stages
 }
 
+# Soft cap on script section planned duration (seconds). This is a WARNING, not a
+# hard fail: JSON Schema has no native warn severity and a hard maximum would break
+# pre-existing artifacts (e.g. 30s-section serial runs). Rationale: measured
+# planned-vs-actual TTS drift grows from 0.86s avg (<10s sections) to 7.7s avg
+# (30-40s sections) — bounding section length bounds downstream timing drift.
+SCRIPT_SECTION_DURATION_SOFT_CAP_SECONDS = 25.0
+
 
 def get_pipeline_stages(pipeline_type: str | None) -> list[str]:
     """Return the ordered stage list for a specific pipeline.
@@ -122,30 +129,39 @@ def _load_checkpoint_schema() -> dict[str, Any]:
 
 
 def _check_script_section_durations(script: dict[str, Any]) -> list[str]:
-    """Soft cap warning for script section durations exceeding 25s.
+    """Soft cap warning for script section durations exceeding the soft cap.
 
-    Does not raise CheckpointValidationError (to preserve backward compatibility with
-    legacy scripts); emits structured warnings into logs and checkpoint metadata.
+    Non-fatal by design (backward compatibility with legacy scripts). Returns the
+    warning list; the caller attaches it to the checkpoint record under
+    ``metadata.timing_validation_warnings`` and logs each entry — same surface as
+    the edit-stage timing gate.
     """
-    warnings = []
+    import logging
+
+    warnings: list[str] = []
+    cap = SCRIPT_SECTION_DURATION_SOFT_CAP_SECONDS
     sections = script.get("sections", [])
-    if isinstance(sections, list):
-        for idx, sec in enumerate(sections, start=1):
-            if isinstance(sec, dict):
-                sid = sec.get("id", f"section-{idx}")
-                in_s = sec.get("start_seconds")
-                out_s = sec.get("end_seconds")
-                if isinstance(in_s, (int, float)) and isinstance(out_s, (int, float)):
-                    dur = out_s - in_s
-                    if dur > 25.0:
-                        msg = (
-                            f"Section {sid!r} duration ({dur:.1f}s) exceeds soft cap (25s). "
-                            f"Empirical drift grows from 0.86s (<10s) to 7.7s (30-40s). "
-                            f"Consider splitting at natural narrative boundaries."
-                        )
-                        warnings.append(msg)
-                        import logging
-                        logging.getLogger(__name__).warning("SCRIPT SECTION DURATION WARNING: %s", msg)
+    if not isinstance(sections, list):
+        return warnings
+
+    for idx, sec in enumerate(sections, start=1):
+        if not isinstance(sec, dict):
+            continue
+        in_s = sec.get("start_seconds")
+        out_s = sec.get("end_seconds")
+        if not isinstance(in_s, (int, float)) or not isinstance(out_s, (int, float)):
+            continue
+        dur = out_s - in_s
+        if dur <= cap:
+            continue
+        sid = sec.get("id", f"section-{idx}")
+        msg = (
+            f"Section {sid!r} duration ({dur:.1f}s) exceeds soft cap ({cap:.0f}s). "
+            f"Empirical drift grows from 0.86s (<10s) to 7.7s (30-40s). "
+            f"Consider splitting at natural narrative boundaries."
+        )
+        warnings.append(msg)
+        logging.getLogger(__name__).warning("SCRIPT SECTION DURATION WARNING: %s", msg)
     return warnings
 
 
@@ -206,6 +222,14 @@ def _validate_artifacts_for_stage(
     project_id: str | None = None,
     checkpoint: Optional[dict[str, Any]] = None,
 ) -> None:
+    """Validate a stage's artifacts against their schemas.
+
+    When ``pipeline_dir`` and ``project_id`` are provided (write_checkpoint only),
+    cross-artifact stage gates also run: the script soft-cap check and the edit
+    audio timing re-lock. Non-fatal warnings from those gates are logged and
+    attached to the in-scope checkpoint record as
+    ``metadata.timing_validation_warnings``.
+    """
     # Valid stages come from the pipeline manifest (get_pipeline_stages), which
     # can declare stages beyond the 9 canonical ones (e.g. character-animation's
     # `character_design`/`rig_plan`, screen-demo's `real_capture`). Those have no
@@ -236,10 +260,19 @@ def _validate_artifacts_for_stage(
                 f"Artifact {artifact_name!r} failed schema validation: {exc}"
             ) from exc
 
-    # Cross-artifact stage gate validations
+    # Cross-artifact stage gate validations. Only run when pipeline_dir and
+    # project_id are provided (i.e. at write_checkpoint time, where the record
+    # about to be persisted is in scope): non-fatal warnings from both gates are
+    # logged and attached to the record as metadata.timing_validation_warnings.
     if status in {"completed", "awaiting_human"} and pipeline_dir is not None and project_id is not None:
         if stage == "script" and "script" in artifacts and isinstance(artifacts["script"], dict):
-            _check_script_section_durations(artifacts["script"])
+            script_warnings = _check_script_section_durations(artifacts["script"])
+            if script_warnings and checkpoint is not None:
+                # Mirror the edit gate: soft-cap warnings must be inspectable on
+                # the persisted record, not only in logs.
+                meta = checkpoint.setdefault("metadata", {})
+                if isinstance(meta, dict):
+                    meta["timing_validation_warnings"] = list(script_warnings)
 
         if stage == "edit" and "edit_decisions" in artifacts and isinstance(artifacts["edit_decisions"], dict):
             _validate_edit_decisions_audio_sync(
@@ -256,12 +289,18 @@ def validate_checkpoint(
 
     Uses pipeline_type (if present) to resolve the valid stage list.
     Falls back to ALL_KNOWN_STAGES when pipeline_type is absent.
+
+    Providing ``pipeline_dir`` (with ``project_id`` resolved from the arg or the
+    record itself) activates the cross-artifact stage gates (script soft cap,
+    edit audio re-lock); their non-fatal warnings attach to the record as
+    ``metadata.timing_validation_warnings``. Omit them for read/predicate calls —
+    gates run only where the record about to be persisted is in scope.
     """
     stage = checkpoint.get("stage")
     status = checkpoint.get("status")
     artifacts = checkpoint.get("artifacts")
     pipeline_type = checkpoint.get("pipeline_type")
-    p_id = project_id or checkpoint.get("project_id")
+    resolved_project_id = project_id or checkpoint.get("project_id")
 
     valid_stages = (
         set(get_pipeline_stages(pipeline_type)) if pipeline_type
@@ -278,7 +317,10 @@ def validate_checkpoint(
     if not isinstance(artifacts, dict):
         raise CheckpointValidationError("Checkpoint artifacts must be a dictionary")
 
-    _validate_artifacts_for_stage(stage, status, artifacts, pipeline_dir=pipeline_dir, project_id=p_id, checkpoint=checkpoint)
+    _validate_artifacts_for_stage(
+        stage, status, artifacts,
+        pipeline_dir=pipeline_dir, project_id=resolved_project_id, checkpoint=checkpoint,
+    )
 
     try:
         jsonschema.validate(instance=checkpoint, schema=_load_checkpoint_schema())

@@ -65,7 +65,7 @@ def _create_sample_project(
     assets = []
     for idx, a_dur in enumerate(audio_durations, start=1):
         wav_file = audio_dir / f"voice_s{idx}.wav"
-        # Write dummy wav bytes if needed for probing
+        # Placeholder file only — never probed (durations come from the manifest).
         wav_file.write_bytes(b"RIFF" + b"\x00" * 36)
         assets.append({
             "id": f"voice-s{idx}",
@@ -240,6 +240,85 @@ class TestTimingValidator:
         assert "Per-cut boundary check was SKIPPED" in warn_msg
         assert "only the full-audio total check applies" in warn_msg
 
+    @staticmethod
+    def _write_real_wav(path: Path, duration_seconds: float) -> float:
+        """Write a real (probe-able) mono 16-bit 16 kHz WAV; returns its duration."""
+        import wave
+        rate = 16000
+        frames = int(round(duration_seconds * rate))
+        with wave.open(str(path), "wb") as w:
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(rate)
+            w.writeframes(b"\x00\x00" * frames)
+        return frames / rate
+
+    def test_full_wav_total_mismatch_fails_beyond_full_audio_tolerance(self, tmp_path: Path):
+        """(±1.00s branch) Total edit duration vs probed narration_full.wav.
+
+        Per-cut boundaries match the manifest; the mismatch is introduced only in
+        narration_full.wav, so the error must come from the FULL_AUDIO_TOLERANCE_SECONDS
+        branch naming narration_full.wav as source of truth.
+        """
+        # Matching per-cut setup: 2 cuts x 10.0s -> edit total 20.0s
+        proj_dir, edit_decisions, manifest = _create_sample_project(
+            tmp_path,
+            project_id="full-wav-mismatch",
+            cut_durations=[10.0, 10.0],
+            audio_durations=[10.0, 10.0],
+        )
+        full_wav_path = proj_dir / "assets" / "audio" / "narration_full.wav"
+        edit_total = sum(c["out_seconds"] - c["in_seconds"] for c in edit_decisions["cuts"])
+
+        # Surplus: full audio SHORTER than edit total by more than the ±1.00s tail allowance
+        surplus_gap = FULL_AUDIO_TOLERANCE_SECONDS + 0.5
+        wav_dur_short = self._write_real_wav(full_wav_path, edit_total - surplus_gap)
+        assert abs(wav_dur_short - (edit_total - surplus_gap)) < 0.05
+
+        res_short = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res_short.valid is False
+        # edit total > audio -> the "exceeds" direction of the narration_full.wav check
+        assert any(
+            "narration_full.wav" in e and "Total edit duration" in e and "exceeds" in e
+            for e in res_short.errors
+        )
+        # Failure gap exceeds the tolerance that governs this branch
+        assert surplus_gap > FULL_AUDIO_TOLERANCE_SECONDS
+
+        # Shortfall: full audio LONGER than edit total by more than the boundary tolerance.
+        # edit (20.0) < audio (~22.8) -> the error must be the "shorter than actual full
+        # audio" direction of the narration_full.wav check.
+        shortfall_gap = CUT_BOUNDARY_TOLERANCE_SECONDS + 0.5
+        wav_dur_long = self._write_real_wav(full_wav_path, edit_total + shortfall_gap)
+        assert abs(wav_dur_long - (edit_total + shortfall_gap)) < 0.05
+
+        res_long = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res_long.valid is False
+        assert any(
+            "narration_full.wav" in e and "Total edit duration" in e and "shorter than" in e
+            for e in res_long.errors
+        )
+        assert shortfall_gap > CUT_BOUNDARY_TOLERANCE_SECONDS
+
+    def test_full_wav_tail_padding_within_tolerance_passes(self, tmp_path: Path):
+        """(±1.00s branch, pass side) Edit total exceeding full audio by a legitimate
+        tail pad (0.44s < FULL_AUDIO_TOLERANCE_SECONDS) stays valid."""
+        proj_dir, edit_decisions, manifest = _create_sample_project(
+            tmp_path,
+            project_id="full-wav-tail-ok",
+            cut_durations=[10.0, 10.44],  # last cut carries the 0.44s tail pad
+            audio_durations=[10.0, 10.0],
+        )
+        full_wav_path = proj_dir / "assets" / "audio" / "narration_full.wav"
+        edit_total = sum(c["out_seconds"] - c["in_seconds"] for c in edit_decisions["cuts"])
+        # Full audio shorter than edit total by exactly the tail pad — within tolerance.
+        self._write_real_wav(full_wav_path, edit_total - 0.44)
+        assert 0.44 < FULL_AUDIO_TOLERANCE_SECONDS
+
+        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        assert res.valid is True
+        assert len(res.errors) == 0
+
 
 class TestCheckpointGateIntegration:
     """Test stage gate integration in lib/checkpoint.py."""
@@ -371,7 +450,14 @@ class TestCheckpointGateIntegration:
                 human_approved=True,
             )
         assert cp_path.exists()
-        assert "exceeds soft cap (25s)" in caplog.text
+        assert "exceeds soft cap" in caplog.text
+
+        # Soft-cap warnings must reach the persisted record's metadata — same
+        # surface as the edit gate (metadata.timing_validation_warnings).
+        record = json.loads(cp_path.read_text(encoding="utf-8"))
+        attached = record["metadata"]["timing_validation_warnings"]
+        assert isinstance(attached, list) and attached
+        assert any("exceeds soft cap" in w for w in attached)
 
 
 class TestRefreshManifestHelper:
