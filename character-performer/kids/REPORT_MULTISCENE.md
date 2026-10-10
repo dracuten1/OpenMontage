@@ -289,3 +289,44 @@ Anchor f045/f200/f660/f754/f1008/f1110 · metric % pixel max-channel |Δ|, PIL 1
 - QC: `character-performer/kids/qc_rig_split/` — `frame_diff.py` (3 lớp A/B/C, chạy lại được bằng `.venv/bin/python`), `frame_diff_table.txt`, `frames/` (anchor PNG + still-vs-still), `orig_code_rerender.mp4` (control), `refactor_render2.mp4` (run-to-run proof), `scan/` (chẩn đoán f1012–1095)
 - Bonus: `remotion-composer/src/rigs/README.md` — công thức tạo nhân vật mới từ 1 spec JSON
 - Ghi chú: hằng số "ear lag 0.18s" nêu trong task KHÔNG tồn tại trong code v3.3 (giá trị 0.18 duy nhất là rShScale — đã giữ nguyên .orig:932 → KawaiiRabbit.tsx:215); composer agent vỡ context giữa chừng — lead kế tục verify (sửa path bug still-diff, đo lại toàn bộ A/B/C + run-to-run)
+
+# EP1_V4 — TASK_EP1_V4.md (2026-10-10): rig rùa v4 side-view + dialogue_v2 + 6 cảnh mới
+
+Ep.01 REMAKE: comp mới `KidsStoryEp1V4` (Root.tsx add-only +9−0), rig `GoldenTurtle.tsx` v4 side-view (spec `turtle.kawaii.v4.side.json`, `tCrawl` nhịp bò chéo) dùng nguyên trạng, audio `dialogue_v2/` (8 câu, 40.66s, cues theo timeline.json, copy 17 file vào public byte-identical), 6 nền có sẵn (sc4_path lần đầu dùng).
+
+## Scene map + staging (boundaries = gap centers cues v2)
+XFADES **[9.62, 17.97, 22.97, 29.72, 34.26]** · crossfade 0.5s (XF 0.25) · slide 0.75s · Ken Burns 6 cam giữ kiểu cũ (S4 push-in nhẹ — bò là motion chính). S1 k_base 0→9.62 · S2 sc2_race →17.97 · S3 sc3_tree →22.97 · S4 sc4_path →29.72 · S5 sc5_sunset →34.26 · S6 sc6_finish →40.66.
+- **Turtle** wrapper `translate(x 856) scale(dir·0.88) translate(−572 −859)`: S1 bò vào từ mép trái **dir −1** (hướng phải, −80→380 trong 4.3–8.4, nói i1 vừa bò); S2 x360 quay đầu về thỏ@720 (kính+sách, gật i3); T23 trôi ra phải 1250, **flip −1→+1 @t=20.0 off-screen**; S4 **bò phải→trái theo hướng đường sc4_path** 1150→380 (23.4–29.3, ~143px/s, chu kỳ bò 1.1s), nói i5 giữa đường; S6 540 dưới banner caro. WALKS per-frame: [4.3–8.4], [23.4–29.3], [33.89–34.64].
+- **Sách** giữ ôm suốt (đúng still TurtleStillV4Walk owner đã duyệt — chân trước gần grip trang, 3 chân còn lại bò chéo); S6 bookFall **34.5→34.78**, settle 34.95, land (405, 842, −10°) — dùng đúng giá trị brief, still f1085 xác nhận 0 px chỉnh.
+- **Rabbit**: S1 hop vào giữa (1160→700) nói i0; S2 tự tin 720 (hop 10.6); S3 **chạy nhanh −130→740 @18.7–21.4** (~322px/s, hop-bounce ~0.35s + 2 ghost afterimage op 0.15/0.08) → ngủ gục dưới cây sồi zZz (sleepIn 21.5); S4 ngủ **góc dưới-phải** (900, 1000, S 0.62, vẽ SAU rùa = foreground); S5 giật mình @30.01 (tai dựng + shock cũ) nói i6 + **bóng dài ellipse 2 nhân vật** (29.9–34.2, kéo dài opposite nắng sc5_sunset, rx 2.2× shadow gốc); S6 clap 35.6+, confetti 36 mảnh @35.0 (hash cũ).
+- **Audio**: 8 Sequence `from=round(start·30)` từ dialogue_v2; BGM `dialogue/bgm_dialogue.wav` **45.0s ≥ 40.66s → 1 pass volume 0.42** (không cần loop thật).
+
+## QC deliver-and-verify (17/17 PASS — lead xem từng ảnh; 0 vòng fix)
+| Frame | Thời điểm | Kiểm tra | Kết quả |
+|---|---|---|---|
+| f051 | 1.7s | S1: title giữa + thỏ nói i0; mũi rùa hé mép trái (đang chờ vào — deviation có chủ đích) | **PASS** |
+| f180 (+crop mặt) | 6.0s | rùa bò vào **dir −1 hướng phải**, miệng mở mid-cue i1, kính + sách ôm | **PASS** |
+| f289 | 9.63s | crossfade X12 k_base→sc2_race | **PASS** |
+| f350 (+crop mặt) | 11.67s | thỏ nói i2 mid-cue, miệng mở | **PASS** |
+| f461 (+crop mặt) | 15.37s | rùa nói i3 mid-cue: kính + sách + chân grip trang | **PASS** |
+| f539 | 17.97s | crossfade X23, nhân vật thoát sạch | **PASS** |
+| f595 | 19.83s | S3 thỏ chạy giữa đường (hops + ghost), sồi bên phải | **PASS** |
+| f665 | 22.17s | S3 thỏ ngủ gục dưới sồi + **zZz 3 tầng** | **PASS** |
+| f689 | 22.97s | crossfade X34, thỏ trôi về góc, rùa vào từ mép phải | **PASS** |
+| **f790 (+crop rùa)** | 26.33s | **S4 GATE: đủ 4 CHÂN** (near-front grip sách, near-rear nhấc bước, 2 far nhạt sau lưng) **+ ĐUÔI nón + BỤNG kem + plastron, side-view đúng**, miệng mở mid-cue i5; thỏ ngủ góc dưới-phải + zZz nhỏ | **PASS** |
+| f891 | 29.71s | crossfade X45 | **PASS** |
+| f912 | 30.4s | S5 thỏ giật minh tai dựng + **bóng dài dưới cả 2 nhân vật** | **PASS** |
+| f960 (+crop mặt) | 32.0s | thỏ nói i6 mid-cue (startled), miệng mở | **PASS** |
+| f1028 | 34.27s | crossfade X56, rùa tiến về dưới banner | **PASS** |
+| f1085 (+crop sách) | 36.17s | S6: rùa **proud ngẩng đầu** nói i7 mid-cue, **sách NẰM ĐẤT cạnh chân trước**, confetti rơi, thỏ clap | **PASS** |
+| f1155 | 38.5s | celebration sâu | **PASS** |
+| f1219 | 40.63s | frame cuối sạch, confetti vẫn rơi | **PASS** |
+
+Lip-sync mid-cue ×2/nhân vật: rùa f180/f461, thỏ f350/f960 (tránh pitfall đầu-cue). **Bài học lead:** báo-nhầm "title còn hiện ở f180" khi xem batch đa ảnh — crop vùng + still đối chiếu + đếm pixel xác định title fade f60–75 đúng spec (false alarm, 0 thay đổi code).
+
+## Output + constraints
+- **Video:** `character-performer/renders/kids_story_ep1_v4.mp4` — 1080×1080 · 30fps · **1220 frames = 40.67s** · h264+aac · 58,792,930 bytes · render đủ 1220/1220, không warning
+- Comp: `remotion-composer/src/KidsStoryEp1V4.tsx` (mới) + Root.tsx +9−0 + `public/…/dialogue_v2/` (17 file byte-identical). Rigs / KidsStoryMultiScene / TurtleStill* / tsconfig KHÔNG đụng (reviewer audit PASS; tsc 0 error; không Math.random/Date).
+- QC: `character-performer/kids/qc_ep1_v4/` (28 file): 17 probe + 6 crop + 3 gate + `ffprobe_ep1_v4.txt` + `COMPOSER_FACTS.md` (đầy đủ staging table, WALKS, flip schedule, book values, 4 deviations)
+- Reviewer độc lập: **PASS**, 0 critical/suggestion (2 nitpick: 3 file gate_*.png bonus; mtime rigs post-14:36 = việc vòng turtle-v4 trước, git-clean xác nhận)
+- Deviations (ghi COMPOSER_FACTS): (1) S4 re-stage 1250→1150 dưới X34 fade chống pop mũi; (2) S1 pre-entry hold −80 mũi hé mép; (3) bóng dài rx = 2.2× shadow gốc (đọc theo width thân sẽ tràn canvas); (4) pose "walk" thỏ advisory — rig front-view không có geometry đi bộ, run = hops + ghosts.

@@ -19,6 +19,7 @@ import { KidsRiggedRabbit } from "./KidsRiggedRabbit";
 import { KidsRabbitCode } from "./KidsRabbitCode";
 import { KidsRabbitTurtleDuet } from "./KidsRabbitDuet";
 import { KidsStoryMultiScene } from "./KidsStoryMultiScene";
+import { KidsStoryEp1V4 } from "./KidsStoryEp1V4";
 import { TurtleStill, TurtleStillWalk, TurtleStillProud } from "./TurtleStill";
 import {
   TurtleStillV4Idle,
@@ -269,6 +270,14 @@ export const Root: React.FC = () => {
         id="KidsStoryMultiScene"
         component={KidsStoryMultiScene}
         durationInFrames={1188}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsStoryEp1V4"
+        component={KidsStoryEp1V4}
+        durationInFrames={1220}
         fps={30}
         width={1080}
         height={1080}
