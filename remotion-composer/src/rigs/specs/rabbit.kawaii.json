@@ -1,0 +1,83 @@
+{
+  "id": "rabbit.kawaii",
+  "outline": "#3a2e2a",
+  "white": "#ffffff",
+  "headRatio": 1.5306,
+  "visemeScale": 1,
+  "axisX": 540,
+  "feetY": 856,
+  "shadow": { "cx": 540, "cy": 858, "rx": 150, "ry": 30, "fill": "#2e5d34" },
+  "body": {
+    "cx": 540, "cy": 775, "rx": 115, "ry": 98,
+    "fill": "#f3ebe4",
+    "rimDx": -8, "rimDy": -5, "rimDRx": -1, "rimDRy": -1, "rimFill": "#ffffff",
+    "strokeWidth": 14
+  },
+  "head": {
+    "cx": 540, "cy": 560, "rx": 175, "ry": 150,
+    "fill": "#f3ebe4",
+    "rimDx": -9, "rimDy": -6, "rimDRx": -1, "rimDRy": -1, "rimFill": "#ffffff",
+    "strokeWidth": 14
+  },
+  "neck": { "x": 540, "y": 668 },
+  "ear": {
+    "pivotY": 480,
+    "xs": [496, 584],
+    "outerCy": 402, "outerRx": 33, "outerRy": 78, "outerFill": "#ffffff", "outerStrokeWidth": 12,
+    "pinks": [
+      { "cy": 412, "rx": 17, "ry": 52, "fill": "#ffc9d6" },
+      { "cy": 418, "rx": 12, "ry": 42, "fill": "#ff9fb6" },
+      { "cy": 426, "rx": 7, "ry": 30, "fill": "#ff7fa2" }
+    ]
+  },
+  "tail": { "cx": 415, "cy": 770, "rx": 30, "ry": 28, "fill": "#ffffff", "strokeWidth": 10 },
+  "vest": {
+    "path": "M 462 706 Q 540 686 618 706 Q 646 748 636 800 Q 540 838 444 800 Q 434 748 462 706 Z",
+    "fill": "#e8503a", "strokeWidth": 10, "trim": "#c23a28",
+    "hemPath": "M 452 788 Q 540 828 628 788", "hemStrokeWidth": 8,
+    "seamPath": "M 540 700 Q 543 764 540 828", "seamStrokeWidth": 5,
+    "buttonX": 540, "buttonYs": [752, 794], "buttonR": 10, "buttonFill": "#ffffff", "buttonStrokeWidth": 4.5
+  },
+  "feet": {
+    "xs": [502, 578], "cy": 852, "rx": 48, "ry": 25, "fill": "#ffffff", "strokeWidth": 10,
+    "toeDx": 12, "toeY1": 841, "toeY2": 855, "toeStrokeWidth": 6, "toeOpacity": 0.85
+  },
+  "arm": {
+    "left": { "pivX": 468, "pivY": 712, "cx": 452 },
+    "right": { "pivX": 612, "pivY": 712, "cx": 628 },
+    "cy": 748, "rx": 19, "ry": 38, "fill": "#ffffff", "strokeWidth": 10
+  },
+  "mouthX": 540,
+  "mouthY": 650,
+  "eyeY": 562,
+  "eyesX": [466, 614],
+  "eye": {
+    "rx": 22, "ry": 28,
+    "haloDx": -7, "haloDy": -9, "haloRx": 9, "haloRy": 11, "haloOpacity": 0.25,
+    "glintDx": -7, "glintDy": -9, "glintR": 7, "glintOpacity": 0.97,
+    "glint2Dx": 8, "glint2Dy": 10, "glint2R": 3, "glint2Opacity": 0.9,
+    "starDx": 6, "starDy": -13, "starR": 4.5, "starOpacity": 0.92,
+    "arcDx": 20, "arcDy": 3, "arcPeakDy": -12, "arcStrokeWidth": 9
+  },
+  "blush": { "leftX": 418, "rightX": 662, "cy": 618, "rx": 31, "ry": 18, "fill": "#ff9db4", "opacity": 0.85, "tiltDeg": 10 },
+  "nose": { "path": "M 524 608 Q 540 600 556 608 Q 550 624 540 630 Q 530 624 524 608 Z", "fill": "#ff8fa3", "strokeWidth": 5 },
+  "mouth": {
+    "fill": "#5b3a3f", "strokeWidth": 6,
+    "tongueFill": "#ff8fa3", "tongueDyFactor": 0.38, "tongueRxFactor": 0.62, "tongueRyFactor": 0.5,
+    "smilePath": "M 502 638 Q 540 672 578 638", "smileStrokeWidth": 8,
+    "dimpleLPath": "M 500 641 Q 490 649 492 658",
+    "dimpleRPath": "M 580 641 Q 590 649 588 658",
+    "dimpleStrokeWidth": 5
+  },
+  "visemes": {
+    "X": { "rx": 0, "ry": 0 },
+    "B": { "rx": 9, "ry": 3 },
+    "C": { "rx": 13, "ry": 7 },
+    "D": { "rx": 20, "ry": 15 },
+    "E": { "rx": 26, "ry": 9 },
+    "F": { "rx": 10, "ry": 6 },
+    "G": { "rx": 8, "ry": 8 },
+    "H": { "rx": 28, "ry": 22 },
+    "A": { "rx": 30, "ry": 26 }
+  }
+}

@@ -1,0 +1,49 @@
+qc_rig_split/frame_diff_table.txt — rig-split visual-identity QC
+A) refactor video vs STORED v33 baseline (task criterion, PASS <= 0.1% per frame)
+B) CONTROL: original-code re-render vs STORED v33 baseline (same code, cross-session)
+C) STILL-vs-STILL: orig-code frame vs refactor-code frame (remotion still, same
+   session, encoder-free) — DECISIVE source-level identity check
+
+frame   | %d>0      | %d>2      | %d>8      | verdict   (per section: A, B, C)
+f0045
+  A refa-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  B ctrl-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  C still-vs-still |  0.000000 |  0.000000 |  0.000000 | PASS
+f0200
+  A refa-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  B ctrl-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  C still-vs-still |  0.000000 |  0.000000 |  0.000000 | PASS
+f0660
+  A refa-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  B ctrl-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  C still-vs-still |  0.000000 |  0.000000 |  0.000000 | PASS
+f0754
+  A refa-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  B ctrl-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  C still-vs-still |  0.000000 |  0.000000 |  0.000000 | PASS
+f1008
+  A refa-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  B ctrl-vs-stored |  0.000000 |  0.000000 |  0.000000 | PASS
+  C still-vs-still |  0.000000 |  0.000000 |  0.000000 | PASS
+f1110
+  A refa-vs-stored | 87.041067 | 48.324588 |  2.828189 | DIFF
+  B ctrl-vs-stored | 86.982510 | 48.073903 |  2.775463 | DIFF
+  C still-vs-still |  0.000000 |  0.000000 |  0.000000 | PASS
+
+VERDICT: PASS — visual identical.
+  - C) all 6 anchors: still-vs-still = 0.000000% (bit-identical source frames;
+     strongest, encoder-free proof that the rig split changed no visual value).
+  - A) 5/6 video anchors bit-identical (0.000000%); f1110 shows 87% d>0 BUT only
+     ~2.8% d>8 (sub-2 encoder noise), and B) the CONTROL (unchanged original code
+     re-rendered today) fails the same stored baseline at f1110 with the same
+     magnitude (86.98% d>0) — the stored mp4 is not bit-reproducible across
+     sessions after confetti onset (~f1010): tiny Chrome AA differences on
+     subpixel confetti shapes propagate through x264 P-frames.
+  - Run-to-run proof: two renders of the SAME refactored code
+     (kids_story_multiscene_v33_refactor.mp4 vs qc_rig_split/refactor_render2.mp4)
+     disagree with each other at f1037 (75.2% d>0) and f1187 (90.1% d>0) —
+     post-f1008 video-level drift is pipeline nondeterminism, not constants.
+
+ffprobe[stored-v33] kids_story_multiscene_v33.mp4: width=1080 | height=1080 | duration=39.600000 | nb_read_frames=1188 | bytes=66086365 (66.1 MB)
+ffprobe[refactor] kids_story_multiscene_v33_refactor.mp4: width=1080 | height=1080 | duration=39.600000 | nb_read_frames=1188 | bytes=66089255 (66.1 MB)
+ffprobe[ctrl-orig-rerender] orig_code_rerender.mp4: width=1080 | height=1080 | duration=39.600000 | nb_read_frames=1188 | bytes=66087743 (66.1 MB)

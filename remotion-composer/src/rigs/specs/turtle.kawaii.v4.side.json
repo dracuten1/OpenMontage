@@ -1,0 +1,112 @@
+{
+  "id": "turtle.kawaii.v4.side",
+  "outline": "#3a2e2a",
+  "white": "#ffffff",
+  "headRatio": 1.0,
+  "visemeScale": 0.85,
+  "bodyPath": "M 512 772 C 506 736 510 696 524 666 C 540 632 570 608 612 608 C 654 608 686 632 700 664 C 710 688 713 734 712 772 C 708 790 692 804 664 809 C 634 815 578 815 552 808 C 526 802 514 788 512 772 Z",
+  "equatorPath": "M 512 772 Q 612 788 712 772",
+  "maiPath": "M 512 772 Q 612 788 712 772 L 712 560 L 512 560 Z",
+  "bellyFill": "#f5e6c8",
+  "maiFill": "#f2b53c",
+  "bodyStrokeWidth": 13,
+  "rim": { "color": "#c9821e", "strokeWidth": 6 },
+  "scutes": {
+    "fill": "#e8724a", "strokeWidth": 8,
+    "spots": [
+      { "x": 565, "y": 688, "r": 22 },
+      { "x": 628, "y": 676, "r": 19 },
+      { "x": 676, "y": 716, "r": 16 },
+      { "x": 545, "y": 728, "r": 15 }
+    ]
+  },
+  "sheen": { "cx": 606, "cy": 652, "rx": 44, "ry": 15, "opacity": 0.22, "rot": -15 },
+  "plastron": {
+    "strokeWidth": 4, "opacity": 0.3,
+    "paths": ["M 536 802 Q 612 811 688 802", "M 552 813 Q 612 821 672 813"]
+  },
+  "tail": {
+    "path": "M 697 728 Q 738 731 748 743 Q 740 757 699 763 Q 703 745 697 728 Z",
+    "fill": "#94a344",
+    "strokeWidth": 10
+  },
+  "head": {
+    "cx": 460, "cy": 698, "rx": 57, "ry": 60,
+    "fill": "#94a344",
+    "rimDx": -7, "rimDy": -7, "rimDRx": -2, "rimDRy": -2, "rimFill": "#a8b755",
+    "strokeWidth": 12
+  },
+  "neck": { "cx": 505, "cy": 740 },
+  "face": {
+    "eyeDx": -16, "eyeDy": -12,
+    "mouthDx": -20, "mouthDy": 38,
+    "blushDx": 8, "blushDy": 24,
+    "nostrilDx": -49, "nostrilDy": 12,
+    "mouthTiltDeg": 15
+  },
+  "eye": {
+    "rx": 16, "ry": 20,
+    "glintDx": -5, "glintDy": -6, "glintR": 5.5, "glintOpacity": 0.97,
+    "glint2Dx": 5, "glint2Dy": 7, "glint2R": 2.4, "glint2Opacity": 0.9,
+    "arcDx": 15, "arcDy": 3, "arcPeakDy": -9, "arcStrokeWidth": 7
+  },
+  "glasses": {
+    "color": "#5b3a2f", "rx": 23, "ry": 27, "strokeWidth": 7, "detailStrokeWidth": 6.5,
+    "lensDx": 0, "lensDy": 0,
+    "temple": [[19, -12], [46, -18], [64, -2]],
+    "bridge": [[-21, -7], [-29, -14], [-36, -8]]
+  },
+  "blush": { "rx": 22, "ry": 13, "fill": "#ff9db4", "opacity": 0.8, "tiltDeg": 10 },
+  "nostril": { "r": 2.8 },
+  "mouth": {
+    "fill": "#5b3a3f", "strokeWidth": 6,
+    "tongueFill": "#ff8fa3", "tongueDyFactor": 0.38, "tongueRxFactor": 0.62, "tongueRyFactor": 0.5,
+    "smileDy": -6, "smileStrokeWidth": 8,
+    "dimple": { "dx1": 34, "dy1": -3, "dx2": 41, "dy2": 4, "dx3": 39, "dy3": 11, "strokeWidth": 4.5 }
+  },
+  "crawl": { "ampDeg": 16, "liftPx": 5 },
+  "legsFar": {
+    "fill": "#a5b354", "strokeWidth": 9,
+    "legs": [
+      { "x": 590, "cy": 818, "rx": 24, "ry": 38, "hipY": 780, "baseTilt": 0, "phase": 3.141593 },
+      { "x": 630, "cy": 818, "rx": 24, "ry": 38, "hipY": 780, "baseTilt": 4, "phase": 0 }
+    ]
+  },
+  "legsNear": {
+    "fill": "#94a344", "strokeWidth": 10,
+    "gripDeg": 55,
+    "legs": [
+      { "x": 548, "cy": 816, "rx": 24, "ry": 38, "hipY": 778, "baseTilt": 8, "phase": 0, "grips": true },
+      { "x": 678, "cy": 816, "rx": 24, "ry": 38, "hipY": 778, "baseTilt": 0, "phase": 3.141593, "grips": false }
+    ],
+    "toeDx": 10, "toeTopDy": -16, "toeBotDy": -3, "toeStrokeWidth": 6, "toeOpacity": 0.85
+  },
+  "shadow": { "cx": 565, "cy": 858, "rx": 170, "ry": 22, "fill": "#2e5d34", "opacity": 0.22 },
+  "book": {
+    "homeX": 470, "homeY": 816,
+    "pageFill": "#fbf3dd", "pageStrokeWidth": 7.5,
+    "pageLPath": "M 394 800 L 470 794 L 470 826 L 394 832 Z",
+    "pageRPath": "M 546 800 L 470 794 L 470 826 L 546 832 Z",
+    "spinePath": "M 470 794 L 470 826", "spineStrokeWidth": 4.5,
+    "textStrokeWidth": 3.2, "textOpacity": 0.5,
+    "textLines": [
+      "M 402 802 L 442 798.4",
+      "M 402 809 L 446 805.6",
+      "M 402 816 L 428 813.6",
+      "M 494 798.4 L 538 802",
+      "M 494 805.6 L 538 809",
+      "M 510 813.6 L 538 816"
+    ]
+  },
+  "visemes": {
+    "X": { "rx": 0, "ry": 0 },
+    "B": { "rx": 9, "ry": 3 },
+    "C": { "rx": 13, "ry": 7 },
+    "D": { "rx": 20, "ry": 15 },
+    "E": { "rx": 26, "ry": 9 },
+    "F": { "rx": 10, "ry": 6 },
+    "G": { "rx": 8, "ry": 8 },
+    "H": { "rx": 28, "ry": 22 },
+    "A": { "rx": 30, "ry": 26 }
+  }
+}

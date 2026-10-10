@@ -1,0 +1,97 @@
+{
+  "id": "turtle.kawaii.v33",
+  "outline": "#3a2e2a",
+  "white": "#ffffff",
+  "headRatio": 0.7699,
+  "visemeScale": 0.85,
+  "bodyPath": "M 470 846 C 430 846 405 824 400 780 C 396 742 400 706 418 676 C 442 638 486 612 540 612 C 606 612 660 646 672 700 C 678 728 678 752 674 772 C 690 778 706 786 706 800 C 706 812 692 820 674 818 C 664 828 648 842 620 846 C 588 851 520 851 470 846 Z",
+  "equatorPath": "M 398 770 Q 540 822 675 770",
+  "maiPath": "M 398 770 Q 540 822 675 770 L 675 560 L 398 560 Z",
+  "bellyFill": "#f5e6c8",
+  "maiFill": "#f2b53c",
+  "bodyStrokeWidth": 13,
+  "rim": { "color": "#c9821e", "strokeWidth": 6 },
+  "scutes": {
+    "fill": "#e8724a", "strokeWidth": 8,
+    "spots": [
+      { "x": 568, "y": 652, "r": 24 },
+      { "x": 622, "y": 700, "r": 19 },
+      { "x": 490, "y": 730, "r": 21 },
+      { "x": 596, "y": 742, "r": 17 },
+      { "x": 432, "y": 726, "r": 15 }
+    ]
+  },
+  "sheen": { "cx": 610, "cy": 655, "rx": 40, "ry": 18, "opacity": 0.22, "rot": -25 },
+  "plastron": {
+    "strokeWidth": 4, "opacity": 0.3,
+    "paths": ["M 452 816 Q 540 826 628 816", "M 468 838 Q 540 846 612 838"]
+  },
+  "head": {
+    "cx": 445, "cy": 600, "rx": 108, "ry": 92,
+    "fill": "#94a344",
+    "rimDx": -8, "rimDy": -6, "rimDRx": -2, "rimDRy": -2, "rimFill": "#a8b755",
+    "strokeWidth": 14
+  },
+  "neck": { "cx": 450, "cy": 688 },
+  "face": {
+    "eyeDy": -25, "eyeLDx": -58, "eyeRDx": 30,
+    "mouthDx": -40, "mouthDy": 61,
+    "blushLDx": -80, "blushLDy": 27, "blushRDx": 68, "blushRDy": 31,
+    "snoutDx": -100, "snoutDy": 15,
+    "nostrilADx": -105, "nostrilADy": 10, "nostrilBDx": -98, "nostrilBDy": 7
+  },
+  "eye": {
+    "rx": 19, "ry": 23,
+    "glintDx": -5.5, "glintDy": -7, "glintR": 6, "glintOpacity": 0.97,
+    "glint2Dx": 6, "glint2Dy": 8, "glint2R": 2.6, "glint2Opacity": 0.9,
+    "arcDx": 18, "arcDy": 3, "arcPeakDy": -11, "arcStrokeWidth": 8
+  },
+  "glasses": {
+    "color": "#5b3a2f", "rx": 27, "ry": 31, "strokeWidth": 7.5, "detailStrokeWidth": 7,
+    "bridge": [[-31, -8], [-14, -18], [3, -8]],
+    "templeR": [[57, -4], [76, -12], [88, 4]],
+    "templeL": [[-85, -4], [-104, -12], [-109, 7]]
+  },
+  "blush": { "rx": 27, "ry": 16, "fill": "#ff9db4", "opacity": 0.8, "tiltDeg": 10 },
+  "snout": { "rx": 13, "ry": 10, "fill": "#a8b755", "strokeWidth": 6, "nostrilR": 2.6 },
+  "mouth": {
+    "fill": "#5b3a3f", "strokeWidth": 6,
+    "tongueFill": "#ff8fa3", "tongueDyFactor": 0.38, "tongueRxFactor": 0.62, "tongueRyFactor": 0.5,
+    "smileDy": -6, "smileStrokeWidth": 8,
+    "dimple": { "dx1": 40, "dy1": -3, "dx2": 47, "dy2": 4, "dx3": 45, "dy3": 11, "strokeWidth": 4.5 }
+  },
+  "legsFar": { "xs": [505, 600], "cy": 818, "rx": 26, "ry": 44, "fill": "#7f8f38", "strokeWidth": 10 },
+  "legsNear": {
+    "xs": [445, 648], "cy": 812, "rx": 31, "ry": 43, "fill": "#94a344", "strokeWidth": 10,
+    "gripPivotY": 786, "gripDeg": 72,
+    "toeDx": 10, "toeY1": 840, "toeY2": 854, "toeStrokeWidth": 6, "toeOpacity": 0.85
+  },
+  "shadow": { "cx": 540, "cy": 858, "rx": 160, "ry": 26, "fill": "#2e5d34", "opacity": 0.22 },
+  "book": {
+    "homeX": 548, "homeY": 812,
+    "pageFill": "#fbf3dd", "pageStrokeWidth": 7.5,
+    "pageLPath": "M 472 793 L 548 799 L 548 831 L 472 825 Z",
+    "pageRPath": "M 624 793 L 548 799 L 548 831 L 624 825 Z",
+    "spinePath": "M 548 799 L 548 831", "spineStrokeWidth": 4.5,
+    "textStrokeWidth": 3.2, "textOpacity": 0.5,
+    "textLines": [
+      "M 481 803 L 524 806.4",
+      "M 481 811 L 526 814.8",
+      "M 481 819 L 509 821.2",
+      "M 572 806.4 L 615 803",
+      "M 570 814.8 L 615 811",
+      "M 587 821.2 L 615 819"
+    ]
+  },
+  "visemes": {
+    "X": { "rx": 0, "ry": 0 },
+    "B": { "rx": 9, "ry": 3 },
+    "C": { "rx": 13, "ry": 7 },
+    "D": { "rx": 20, "ry": 15 },
+    "E": { "rx": 26, "ry": 9 },
+    "F": { "rx": 10, "ry": 6 },
+    "G": { "rx": 8, "ry": 8 },
+    "H": { "rx": 28, "ry": 22 },
+    "A": { "rx": 30, "ry": 26 }
+  }
+}

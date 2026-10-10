@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "soundFile": "/Users/tuyennguyen/project/OpenMontage/character-performer/kids/dialogue/d6_rabbit.wav",
+    "duration": 4.20
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.06, "value": "X" },
+    { "start": 0.06, "end": 0.27, "value": "C" },
+    { "start": 0.27, "end": 0.34, "value": "B" },
+    { "start": 0.34, "end": 0.48, "value": "C" },
+    { "start": 0.48, "end": 0.69, "value": "F" },
+    { "start": 0.69, "end": 0.76, "value": "B" },
+    { "start": 0.76, "end": 0.90, "value": "C" },
+    { "start": 0.90, "end": 1.04, "value": "B" },
+    { "start": 1.04, "end": 1.11, "value": "C" },
+    { "start": 1.11, "end": 1.26, "value": "A" },
+    { "start": 1.26, "end": 1.64, "value": "B" },
+    { "start": 1.64, "end": 1.83, "value": "D" },
+    { "start": 1.83, "end": 1.88, "value": "C" },
+    { "start": 1.88, "end": 2.32, "value": "B" },
+    { "start": 2.32, "end": 2.58, "value": "E" },
+    { "start": 2.58, "end": 2.72, "value": "F" },
+    { "start": 2.72, "end": 2.85, "value": "X" },
+    { "start": 2.85, "end": 2.90, "value": "B" },
+    { "start": 2.90, "end": 3.01, "value": "C" },
+    { "start": 3.01, "end": 3.09, "value": "A" },
+    { "start": 3.09, "end": 3.66, "value": "B" },
+    { "start": 3.66, "end": 3.94, "value": "C" },
+    { "start": 3.94, "end": 4.02, "value": "A" },
+    { "start": 4.02, "end": 4.20, "value": "X" }
+  ]
+}

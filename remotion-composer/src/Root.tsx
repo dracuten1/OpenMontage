@@ -12,12 +12,26 @@ import {
 } from "./TitledVideo";
 import { EndTag, EndTagProps } from "./components/EndTag";
 import { HeroTitle } from "./components/HeroTitle";
+import { CharacterPerformerAdv } from "./CharacterPerformerAdv";
+import { KidsRabbitDemo } from "./KidsRabbitDemo";
+import { KidsRabbitLayered } from "./KidsRabbitLayered";
+import { KidsRiggedRabbit } from "./KidsRiggedRabbit";
+import { KidsRabbitCode } from "./KidsRabbitCode";
+import { KidsRabbitTurtleDuet } from "./KidsRabbitDuet";
+import { KidsStoryMultiScene } from "./KidsStoryMultiScene";
+import { TurtleStill, TurtleStillWalk, TurtleStillProud } from "./TurtleStill";
+import {
+  TurtleStillV4Idle,
+  TurtleStillV4Walk,
+  TurtleStillV4Proud,
+} from "./TurtleStillV4";
 import { ProductReveal, ProductRevealProps } from "./components/ProductReveal";
 import { CaptionOverlay, WordCaption } from "./components/CaptionOverlay";
 import { CollageBurst, CollageBurstProps } from "./CollageBurst";
 import { LyricOverlay, LyricOverlayProps } from "./LyricOverlay";
 import { ScenePreview, ScenePreviewProps } from "./con-rong-chau-tien/ScenePreview";
 import { VNMythEpisode } from "./con-rong-chau-tien/Episode";
+import { XiVuBaTocEpisode, XI_VU_BA_TOC_FRAMES } from "./xi-vu-ba-toc/Episode";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -212,6 +226,110 @@ export const Root: React.FC = () => {
         calculateMetadata={calculateTitledVideoMetadata}
       />
       <Composition
+        id="KidsRiggedRabbit"
+        component={KidsRiggedRabbit}
+        durationInFrames={30 * 17}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsRabbitLayered"
+        component={KidsRabbitLayered}
+        durationInFrames={30 * 17}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsRabbitDemo"
+        component={KidsRabbitDemo}
+        durationInFrames={30 * 13}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsRabbitCode"
+        component={KidsRabbitCode}
+        durationInFrames={510}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsRabbitTurtleDuet"
+        component={KidsRabbitTurtleDuet}
+        durationInFrames={900}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsStoryMultiScene"
+        component={KidsStoryMultiScene}
+        durationInFrames={1188}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="TurtleStill"
+        component={TurtleStill}
+        durationInFrames={30}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="TurtleStillWalk"
+        component={TurtleStillWalk}
+        durationInFrames={30}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="TurtleStillProud"
+        component={TurtleStillProud}
+        durationInFrames={30}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="TurtleStillV4Idle"
+        component={TurtleStillV4Idle}
+        durationInFrames={30}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="TurtleStillV4Walk"
+        component={TurtleStillV4Walk}
+        durationInFrames={30}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="TurtleStillV4Proud"
+        component={TurtleStillV4Proud}
+        durationInFrames={30}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="CharacterPerformerAdv"
+        component={CharacterPerformerAdv}
+        durationInFrames={30 * 9}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
         id="HeroTitle"
         component={HeroTitle}
         durationInFrames={30 * 17}
@@ -340,6 +458,15 @@ export const Root: React.FC = () => {
         width={1920}
         height={1080}
         defaultProps={{ withMusic: true } as never}
+      />
+      <Composition
+        id="XiVuBaToc"
+        component={XiVuBaTocEpisode}
+        durationInFrames={XI_VU_BA_TOC_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ withMusic: true }}
       />
       <Composition
         id="VNMythScenePreview"
