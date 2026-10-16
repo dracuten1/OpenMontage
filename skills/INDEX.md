@@ -108,7 +108,8 @@ Key capability families to look for in the output:
 | â†³ VEO Prompting | `creative/prompting/veo-prompting.md` | VEO 3.1 14-component structure, art movements | `ai-video-gen` |
 | â†³ LTX Prompting | `creative/prompting/ltx-prompting.md` | LTX-2 6-element structure, audio prompting | `ltx2` |
 | â†³ HunyuanVideo Prompting | `creative/prompting/hunyuan-prompting.md` | HunyuanVideo formula, I2V best practices | â€" |
-| Storytelling | `creative/storytelling.md` | Narrative structure, hooks, pacing, Mayer's principles | â€" |
+| Storytelling | `creative/storytelling.md` | Narrative structure, hooks, pacing, Mayer's principles | — |
+| Sprite Story Pipeline | `creative/sprite-story-pipeline.md` | Layered 2D sprite scenes: generation contract (swatch + matched-pair i2i), PIL registration, viewport manifest, two-gate verification (`tools/qc/sprite_register.py`, `tools/qc/sprite_gate.py`) | — |
 | Sound Design | `creative/sound-design.md` | Audio ducking, LUFS targets, SFX timing, AI TTS mixing | `elevenlabs` |
 | Typography | `creative/typography.md` | Font selection, text sizing, safe zones, caption styling | â€" |
 | ManimCE Usage | `creative/manim-usage.md` | Scene composition, animation timing, color usage | `manimce-best-practices` |

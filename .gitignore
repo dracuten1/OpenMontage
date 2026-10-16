@@ -106,3 +106,11 @@ venv/
 
 # Local Wan / diffusers GPU environment
 .venv-wan/
+
+# regenerable heavy intermediates + agent session logs (2026-10-16)
+character-performer/kids/turn7/lossless/
+character-performer/kids/rig_demo/out/
+character-performer/kids/cc_*.out
+character-performer/kids/cc_*.err
+character-performer/kids/turn4_cc_*.out
+character-performer/kids/turn4_cc_*.err
