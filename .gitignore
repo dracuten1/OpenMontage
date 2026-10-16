@@ -114,3 +114,20 @@ character-performer/kids/cc_*.out
 character-performer/kids/cc_*.err
 character-performer/kids/turn4_cc_*.out
 character-performer/kids/turn4_cc_*.err
+
+# Video files are local artifacts; never commit them.
+*.3[gG][pP]
+*.[aA][vV][iI]
+*.[fF][lL][vV]
+*.[mM]2[tT][sS]
+*.[mM]4[pP]
+*.[mM]4[vV]
+*.[mM][kK][vV]
+*.[mM][oO][vV]
+*.[mM][pP]4
+*.[mM][pP][eE][gG]
+*.[mM][pP][gG]
+*.[mM][tT][sS]
+*.[oO][gG][vV]
+*.[wW][eE][bB][mM]
+*.[wW][mM][vV]
