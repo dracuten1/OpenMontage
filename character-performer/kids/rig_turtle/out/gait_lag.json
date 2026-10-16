@@ -1,0 +1,316 @@
+{
+ "x_centroid_series": {
+  "leg_near_hind": [
+   171.19,
+   170.36,
+   170.47,
+   169.67,
+   172.25,
+   172.14,
+   177.54,
+   177.62,
+   184.1,
+   184.44,
+   189.73,
+   189.96,
+   191.96,
+   192.17,
+   190.91,
+   191.1,
+   186.92,
+   186.86,
+   181.21,
+   181.26,
+   176.8,
+   176.39,
+   173.03,
+   172.46
+  ],
+  "leg_far_hind": [
+   512.45,
+   511.74,
+   511.69,
+   511.01,
+   511.37,
+   511.12,
+   506.89,
+   507.03,
+   497.89,
+   498.26,
+   491.78,
+   492.13,
+   490.21,
+   490.39,
+   492.09,
+   492.32,
+   499.4,
+   499.25,
+   509.26,
+   509.4,
+   514.45,
+   514.26,
+   513.41,
+   513.17
+  ],
+  "leg_near_front": [
+   985.17,
+   985.02,
+   983.85,
+   983.63,
+   980.18,
+   980.15,
+   973.28,
+   973.39,
+   963.24,
+   963.41,
+   956.12,
+   956.26,
+   953.99,
+   953.84,
+   956.5,
+   956.35,
+   963.77,
+   963.62,
+   973.68,
+   973.79,
+   980.8,
+   980.76,
+   984.14,
+   984.06
+  ],
+  "leg_far_front": [
+   1218.87,
+   1218.76,
+   1220.25,
+   1220.01,
+   1227.68,
+   1227.74,
+   1237.2,
+   1237.19,
+   1237.68,
+   1238.0,
+   1237.68,
+   1238.06,
+   1237.95,
+   1238.17,
+   1238.59,
+   1238.64,
+   1239.41,
+   1239.25,
+   1238.65,
+   1238.68,
+   1228.89,
+   1228.9,
+   1220.45,
+   1220.48
+  ]
+ },
+ "lag_corr": {
+  "leg_near_front_vs_leg_far_hind": {
+   "lag_f": 0,
+   "r": 0.9805
+  },
+  "leg_near_hind_vs_leg_far_front": {
+   "lag_f": 0,
+   "r": 0.86
+  },
+  "leg_near_front_vs_leg_near_hind": {
+   "lag_f": -10,
+   "r": 0.8022
+  },
+  "leg_far_front_vs_leg_far_hind": {
+   "lag_f": 12,
+   "r": 0.743
+  }
+ },
+ "expected_lag": {
+  "leg_near_front_vs_leg_far_hind": 0,
+  "leg_near_hind_vs_leg_far_front": 0,
+  "leg_near_front_vs_leg_near_hind": 12,
+  "leg_far_front_vs_leg_far_hind": 12
+ },
+ "swing_peak": {
+  "leg_near_hind": {
+   "x_max_frame_1based": 14,
+   "x_min_frame_1based": 4,
+   "amp_px": 22.5
+  },
+  "leg_far_hind": {
+   "x_max_frame_1based": 21,
+   "x_min_frame_1based": 13,
+   "amp_px": 24.2
+  },
+  "leg_near_front": {
+   "x_max_frame_1based": 1,
+   "x_min_frame_1based": 14,
+   "amp_px": 31.3
+  },
+  "leg_far_front": {
+   "x_max_frame_1based": 17,
+   "x_min_frame_1based": 2,
+   "amp_px": 20.6
+  }
+ },
+ "neck_gap_f1": {
+  "n_cols_ge8px": 0,
+  "worst": null
+ },
+ "neck_gap_f13": {
+  "n_cols_ge8px": 13,
+  "worst": {
+   "x": 1049,
+   "gap_px": 21,
+   "y": [
+    736,
+    756
+   ]
+  },
+  "cols": [
+   1049,
+   1050,
+   1051,
+   1052,
+   1053,
+   1054,
+   1055,
+   1056,
+   1057,
+   1058,
+   1059,
+   1060,
+   1061
+  ]
+ },
+ "neck_gap_f13_coverage": [
+  {
+   "x": 1049,
+   "gap_y": [
+    736,
+    756
+   ],
+   "gap_px": 21,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1050,
+   "gap_y": [
+    736,
+    755
+   ],
+   "gap_px": 20,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1051,
+   "gap_y": [
+    735,
+    755
+   ],
+   "gap_px": 21,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1052,
+   "gap_y": [
+    734,
+    754
+   ],
+   "gap_px": 21,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1053,
+   "gap_y": [
+    734,
+    753
+   ],
+   "gap_px": 20,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1054,
+   "gap_y": [
+    734,
+    752
+   ],
+   "gap_px": 19,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1055,
+   "gap_y": [
+    736,
+    751
+   ],
+   "gap_px": 16,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1056,
+   "gap_y": [
+    738,
+    750
+   ],
+   "gap_px": 13,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1057,
+   "gap_y": [
+    738,
+    749
+   ],
+   "gap_px": 12,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1058,
+   "gap_y": [
+    739,
+    748
+   ],
+   "gap_px": 10,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1059,
+   "gap_y": [
+    739,
+    748
+   ],
+   "gap_px": 10,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1060,
+   "gap_y": [
+    739,
+    747
+   ],
+   "gap_px": 9,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  },
+  {
+   "x": 1061,
+   "gap_y": [
+    739,
+    746
+   ],
+   "gap_px": 8,
+   "head_a_gap_min": 0,
+   "shell_a_gap_min": 0
+  }
+ ]
+}

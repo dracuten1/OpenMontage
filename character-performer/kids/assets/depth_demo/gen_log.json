@@ -1,0 +1,328 @@
+{
+ "bg_far": {
+  "ok": true,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 58.4,
+    "ok": true,
+    "check": "mode=RGB (opaque asset)"
+   }
+  ],
+  "size": "1916x821"
+ },
+ "strip_mid": {
+  "ok": true,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 35.5,
+    "ok": true,
+    "check": "mode=RGBA transparent=46.0% opaque=53.8% thr=25.0"
+   }
+  ],
+  "transparent_pct": 46.0,
+  "opaque_pct": 53.8,
+  "size": "2048x768"
+ },
+ "strip_fg": {
+  "ok": true,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 90.1,
+    "ok": true,
+    "check": "mode=RGBA transparent=72.3% opaque=26.9% thr=25.0"
+   }
+  ],
+  "transparent_pct": 72.3,
+  "opaque_pct": 26.9,
+  "size": "2172x724"
+ },
+ "tree_sleep": {
+  "ok": true,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 91.5,
+    "ok": true,
+    "check": "mode=RGBA transparent=37.0% opaque=61.8% thr=5.0"
+   }
+  ],
+  "transparent_pct": 37.0,
+  "opaque_pct": 61.8,
+  "size": "1223x1286"
+ },
+ "turtle_base": {
+  "ok": true,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 309.7,
+    "ok": true,
+    "check": "mode=RGBA transparent=48.2% opaque=51.4% thr=25.0"
+   }
+  ],
+  "transparent_pct": 48.2,
+  "opaque_pct": 51.4,
+  "size": "1536x1024"
+ },
+ "rabbit_sleep": {
+  "ok": true,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 432.9,
+    "ok": true,
+    "check": "mode=RGBA transparent=50.4% opaque=49.3% thr=25.0"
+   }
+  ],
+  "transparent_pct": 50.4,
+  "opaque_pct": 49.3,
+  "size": "1536x1024"
+ },
+ "turtle_walk": {
+  "ok": true,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 128.5,
+    "ok": true,
+    "check": "mode=RGBA transparent=50.1% opaque=49.4% thr=25.0"
+   },
+   {
+    "attempt": 1,
+    "elapsed_s": 91.8,
+    "ok": false,
+    "check": "mode=RGBA transparent=46.6% opaque=53.0% thr=25.0; olive_floor 0.0001<0.08",
+    "stats": {
+     "olive_frac": 0.0001,
+     "olive_cx": 0.794,
+     "yellow_frac": 0.6421,
+     "reg": {
+      "ar": 1.499,
+      "x0": 0.03,
+      "y0": 0.089,
+      "x1": 0.982,
+      "y1": 0.9,
+      "cx": 0.506
+     }
+    }
+   },
+   {
+    "attempt": 2,
+    "elapsed_s": 157.0,
+    "ok": false,
+    "check": "mode=RGBA transparent=50.3% opaque=49.3% thr=25.0; facing (olive_cx=0.5 not >0.5) olive_floor 0.0001<0.08",
+    "stats": {
+     "olive_frac": 0.0001,
+     "olive_cx": 0.5,
+     "yellow_frac": 0.6633,
+     "reg": {
+      "ar": 1.5,
+      "x0": 0.03,
+      "y0": 0.095,
+      "x1": 0.988,
+      "y1": 0.879,
+      "cx": 0.509
+     }
+    }
+   },
+   {
+    "attempt": "recalibration-v2 (no new call; re-measured on-disk try2)",
+    "ok": true,
+    "check": "v1 saturated-olive gate miscalibrated (anchor turtle_base itself measures olive 0.0009); v2 anchor-relative: green_frac 0.2864>=0.10 floor, yellow_frac 0.6633>=0.30 (base 0.6596), green_cx 0.637>0.5 facing right, bbox reg vs base dCx=0.004 dY0=0.005 dY1=0.024 ar=1.5/1.5"
+   }
+  ],
+  "ref": {
+   "file": "turtle_base.png",
+   "sha256": "34015569ef7c9322",
+   "source_px": "1536x1024",
+   "embed_px": "1024x683"
+  },
+  "superseded": "UNCONDITIONED: data URI was embedded in prompt text; gateway ingests image refs only from body.image/body.images (codex adapter), so these outputs were not image-conditioned. Superseded 2026-10-11.",
+  "conditioning": "structured body.image -> input_image",
+  "identity": {
+   "stats": {
+    "green_frac": 0.3149,
+    "green_cx": 0.629,
+    "yellow_frac": 0.6422,
+    "reg": {
+     "ar": 1.499,
+     "x0": 0.032,
+     "y0": 0.096,
+     "x1": 0.979,
+     "y1": 0.906,
+     "cx": 0.506
+    }
+   },
+   "anchor": {
+    "green_frac": 0.0009,
+    "green_cx": 0.765,
+    "yellow_frac": 0.6596,
+    "reg": {
+     "ar": 1.5,
+     "x0": 0.032,
+     "y0": 0.1,
+     "x1": 0.979,
+     "y1": 0.903,
+     "cx": 0.506
+    }
+   }
+  },
+  "transparent_pct": 50.3,
+  "opaque_pct": 49.3,
+  "size": "1536x1024",
+  "note": "approved by PIL stats + visual Read 2026-10-11; try1 (92s) overwritten by try2 (157s) on disk"
+ },
+ "turtle_m0": {
+  "ok": true,
+  "attempts": [
+   {
+    "attempt": 1,
+    "error": "TimeoutError('timed out')"
+   },
+   {
+    "attempt": 2,
+    "elapsed_s": 78.8,
+    "ok": true,
+    "check": "mode=RGBA transparent=47.7% opaque=51.9% thr=25.0; identity OK",
+    "stats": {
+     "green_frac": 0.3147,
+     "green_cx": 0.629,
+     "yellow_frac": 0.6148,
+     "reg": {
+      "ar": 1.499,
+      "x0": 0.032,
+      "y0": 0.094,
+      "x1": 0.98,
+      "y1": 0.907,
+      "cx": 0.506
+     },
+     "anchor": {
+      "green_frac": 0.3055,
+      "green_cx": 0.631,
+      "yellow_frac": 0.6465
+     },
+     "anchor_reg": {
+      "ar": 1.499,
+      "x0": 0.03,
+      "y0": 0.098,
+      "x1": 0.982,
+      "y1": 0.902,
+      "cx": 0.506
+     }
+    }
+   }
+  ],
+  "transparent_pct": 47.7,
+  "opaque_pct": 51.9,
+  "size": "1535x1024",
+  "ref": {
+   "file": "turtle_walk.png",
+   "sha256": "b50fc83f80482e51",
+   "source_px": "1535x1024",
+   "embed_px": "1024x683"
+  },
+  "conditioning": "structured body.image -> input_image",
+  "identity": {
+   "green_frac": 0.3147,
+   "green_cx": 0.629,
+   "yellow_frac": 0.6148,
+   "reg": {
+    "ar": 1.499,
+    "x0": 0.032,
+    "y0": 0.094,
+    "x1": 0.98,
+    "y1": 0.907,
+    "cx": 0.506
+   },
+   "anchor": {
+    "green_frac": 0.3055,
+    "green_cx": 0.631,
+    "yellow_frac": 0.6465
+   },
+   "anchor_reg": {
+    "ar": 1.499,
+    "x0": 0.03,
+    "y0": 0.098,
+    "x1": 0.982,
+    "y1": 0.902,
+    "cx": 0.506
+   }
+  }
+ },
+ "turtle_mO": {
+  "ok": true,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 58.2,
+    "ok": true,
+    "check": "mode=RGBA transparent=47.4% opaque=52.2% thr=25.0; identity OK",
+    "stats": {
+     "green_frac": 0.3081,
+     "green_cx": 0.629,
+     "yellow_frac": 0.6381,
+     "reg": {
+      "ar": 1.499,
+      "x0": 0.029,
+      "y0": 0.096,
+      "x1": 0.982,
+      "y1": 0.903,
+      "cx": 0.506
+     },
+     "anchor": {
+      "green_frac": 0.3055,
+      "green_cx": 0.631,
+      "yellow_frac": 0.6465
+     },
+     "anchor_reg": {
+      "ar": 1.499,
+      "x0": 0.03,
+      "y0": 0.098,
+      "x1": 0.982,
+      "y1": 0.902,
+      "cx": 0.506
+     }
+    }
+   }
+  ],
+  "transparent_pct": 47.4,
+  "opaque_pct": 52.2,
+  "size": "1535x1024",
+  "ref": {
+   "file": "turtle_walk.png",
+   "sha256": "398d0fe9d93d22d1",
+   "source_px": "1535x1024",
+   "embed_px": "1024x683"
+  },
+  "conditioning": "structured body.image -> input_image",
+  "identity": {
+   "green_frac": 0.3081,
+   "green_cx": 0.629,
+   "yellow_frac": 0.6381,
+   "reg": {
+    "ar": 1.499,
+    "x0": 0.029,
+    "y0": 0.096,
+    "x1": 0.982,
+    "y1": 0.903,
+    "cx": 0.506
+   },
+   "anchor": {
+    "green_frac": 0.3055,
+    "green_cx": 0.631,
+    "yellow_frac": 0.6465
+   },
+   "anchor_reg": {
+    "ar": 1.499,
+    "x0": 0.03,
+    "y0": 0.098,
+    "x1": 0.982,
+    "y1": 0.902,
+    "cx": 0.506
+   }
+  }
+ }
+}

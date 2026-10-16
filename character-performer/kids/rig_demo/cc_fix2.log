@@ -1,0 +1,17 @@
+**FIX-LOOP 2: XONG** — mp4 mới `out/rabbit_rig_demo_1080.mp4` (8.982s, 1080×1080, audio).
+
+**Fix 1 — patch theo head mapping** (delta −110,−121px = −1.10,−1.21BU, cùng convention WANTS):
+- `cc/fix_render_prep.py` + `PATCH_DELTA` cho mouth/eyelid, backup `.bak_pre_fix2` → PREP_OK (err 1.43e-06)
+- Render talk 110..216: RENDER_OK — EEVEE, 107f, 40.4s (shot1 không re-render)
+- **Bbox verify PASS** (f150 solo, PIL): mouth [743,522,908,708] ⊂ head [632,431,939,859]; mép phải 908 ≤ 939 — trước fix thò tới 1064. `out/fix2_verify.json` ok=true
+
+**Fix 2 — path shot1**: POLY (12,80)→(35,68)→(55,56)→(75,57)→(97,60), feet = centerline +1%, không đổi H → COMPOSITE_OK (rc [0,0,0])
+
+**Artifacts QC:** `out/qc_self/fix2_t6.08.jpg` · `fix2_t7.87.jpg` · `fix2_t1.04.jpg` — chưa xem (task cấm đọc png), verify hoàn toàn bằng số đo.
+
+**Timing:** ~1.5' compute (prep 3s · render 46s · solo 10s · composite 30s). REPORT đã append `## FIX2`.
+
+Hai lưu ý:
+1. **MCP Blender mất kết nối** (GUI đã đóng) → chạy headless `blender -b -P`, EEVEE render tốt — không cần GUI.
+2. Số bbox sketch trong task ([535,222,945,538]/[855,327,1055,527]) là ước lượng tại frame nghỉ; đo thực tại f150 (head đang animate) khác số nhưng tiêu chí PASS (mouth ⊄ mép phải ngoài head) thỏa — đã ghi rõ trong REPORT.
+CCFIX2_EXIT=0

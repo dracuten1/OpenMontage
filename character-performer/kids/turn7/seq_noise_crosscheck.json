@@ -1,0 +1,26 @@
+{
+ "730": {
+  "stillV6_vs_seqV6_nz": 0,
+  "stillV6_vs_stillV7_nz": 0
+ },
+ "780": {
+  "stillV6_vs_seqV6_nz": 24611,
+  "stillV6_vs_stillV7_nz": 0
+ },
+ "845": {
+  "stillV6_vs_seqV6_nz": 5394,
+  "stillV6_vs_stillV7_nz": 0
+ },
+ "886": {
+  "stillV6_vs_seqV6_nz": 5183,
+  "stillV6_vs_stillV7_nz": 0
+ },
+ "100": {
+  "stillV6_vs_seqV6_nz": 0,
+  "stillV6_vs_stillV7_nz": 0
+ },
+ "600": {
+  "stillV6_vs_seqV6_nz": 0,
+  "stillV6_vs_stillV7_nz": 0
+ }
+}

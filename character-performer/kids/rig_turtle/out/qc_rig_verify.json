@@ -1,0 +1,377 @@
+{
+ "blend": "/Users/tuyennguyen/project/OpenMontage/character-performer/kids/rig_turtle/out/turtle_rig.blend",
+ "blender": "5.2.2 LTS",
+ "frame_range": [
+  1,
+  248
+ ],
+ "t_open_s": 0.01,
+ "checks": {
+  "a_leg_binding": {
+   "pass": true,
+   "detail": {
+    "leg_near_front": {
+     "resolved_object": "leg_near_front",
+     "parent": "SpriteObject",
+     "parent_type": "BONE",
+     "parent_bone": "leg_near_front_b",
+     "modifiers": [],
+     "vertex_group_weights": {},
+     "deforming_bone_vgs": [],
+     "own_bone_only": true
+    },
+    "leg_far_front": {
+     "resolved_object": "leg_far_front",
+     "parent": "SpriteObject",
+     "parent_type": "BONE",
+     "parent_bone": "leg_far_front_b",
+     "modifiers": [],
+     "vertex_group_weights": {},
+     "deforming_bone_vgs": [],
+     "own_bone_only": true
+    },
+    "leg_near_hind": {
+     "resolved_object": "leg_near_hind",
+     "parent": "SpriteObject",
+     "parent_type": "BONE",
+     "parent_bone": "leg_near_hind_b",
+     "modifiers": [],
+     "vertex_group_weights": {},
+     "deforming_bone_vgs": [],
+     "own_bone_only": true
+    },
+    "leg_far_hind": {
+     "resolved_object": "leg_far_hind",
+     "parent": "SpriteObject",
+     "parent_type": "BONE",
+     "parent_bone": "leg_far_hind_b",
+     "modifiers": [],
+     "vertex_group_weights": {},
+     "deforming_bone_vgs": [],
+     "own_bone_only": true
+    }
+   }
+  },
+  "b_head_copy_patches": {
+   "pass": true,
+   "detail": {
+    "head_object": "head",
+    "mouth": {
+     "resolved_object": "mouth",
+     "parent": "SpriteObject",
+     "parent_type": "BONE",
+     "parent_bone": "head_b",
+     "head_parent_bone": "head_b",
+     "same_parent_as_head": true,
+     "mpi_max_abs_diff_vs_head": 0.0,
+     "own_mesh": true,
+     "n_verts": 4,
+     "head_n_verts": 4,
+     "materials": [
+      "M_mouth"
+     ],
+     "has_mat": true,
+     "ok": true
+    },
+    "eyelid": {
+     "resolved_object": "eyelid",
+     "parent": "SpriteObject",
+     "parent_type": "BONE",
+     "parent_bone": "head_b",
+     "head_parent_bone": "head_b",
+     "same_parent_as_head": true,
+     "mpi_max_abs_diff_vs_head": 0.0,
+     "own_mesh": true,
+     "n_verts": 4,
+     "head_n_verts": 4,
+     "materials": [
+      "M_eyelid"
+     ],
+     "has_mat": true,
+     "ok": true
+    }
+   }
+  },
+  "c_key_coverage_1_248": {
+   "pass": true,
+   "detail": {
+    "n_objects_with_action": 5,
+    "n_fcurves": 16,
+    "channels": {
+     "leg_far_front_target|location[0]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_far_front_target|location[1]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_far_front_target|location[2]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_far_hind_target|location[0]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_far_hind_target|location[1]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_far_hind_target|location[2]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_near_front_target|location[0]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_near_front_target|location[1]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_near_front_target|location[2]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_near_hind_target|location[0]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_near_hind_target|location[1]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "leg_near_hind_target|location[2]": [
+      1.0,
+      248.0,
+      125
+     ],
+     "SpriteObject|location[2]": [
+      1.0,
+      248.0,
+      84
+     ],
+     "SpriteObject|pose.bones[\"hips\"].rotation_euler[2]": [
+      1.0,
+      248.0,
+      63
+     ],
+     "SpriteObject|pose.bones[\"tail_b\"].rotation_euler[2]": [
+      1.0,
+      248.0,
+      84
+     ],
+     "SpriteObject|pose.bones[\"head_b\"].rotation_euler[2]": [
+      1.0,
+      248.0,
+      54
+     ]
+    }
+   }
+  },
+  "d_in_plane_local_z": {
+   "pass": true,
+   "detail": {
+    "bones": {
+     "head_b": {
+      "euler_indices_keyed": [
+       2
+      ],
+      "idx2_deg": {
+       "cycle_amp_deg": 1.9355,
+       "full_amp_deg": 3.0
+      },
+      "in_plane_local_Z_keyed": true
+     },
+     "hips": {
+      "euler_indices_keyed": [
+       2
+      ],
+      "idx2_deg": {
+       "cycle_amp_deg": 1.0,
+       "full_amp_deg": 1.0
+      },
+      "in_plane_local_Z_keyed": true
+     },
+     "leg_far_front_b": {
+      "euler_indices_keyed": []
+     },
+     "leg_far_hind_b": {
+      "euler_indices_keyed": []
+     },
+     "leg_near_front_b": {
+      "euler_indices_keyed": []
+     },
+     "leg_near_hind_b": {
+      "euler_indices_keyed": []
+     },
+     "root": {
+      "euler_indices_keyed": []
+     },
+     "tail_b": {
+      "euler_indices_keyed": [
+       2
+      ],
+      "idx2_deg": {
+       "cycle_amp_deg": 14.0,
+       "full_amp_deg": 14.0
+      },
+      "in_plane_local_Z_keyed": true
+     }
+    }
+   }
+  },
+  "f_amplitudes": {
+   "pass": true,
+   "detail": {
+    "hips_eulerZ_cycle_deg": 1.0,
+    "hips_eulerZ_full_deg": 1.0,
+    "head_eulerZ_cycle_deg": 1.9355,
+    "head_eulerZ_full_deg": 3.0,
+    "budget_sway_deg": 1.0,
+    "budget_head_deg": 3.0
+   }
+  },
+  "e_head_stability": {
+   "pass": true,
+   "detail": {
+    "frames": [
+     1,
+     7,
+     13,
+     19
+    ],
+    "head_bone": {
+     "element_spread": {
+      "m00": 0.03311414,
+      "m01": 0.02709335,
+      "m02": 0.0,
+      "m03": 0.04014206,
+      "m10": 0.0,
+      "m11": 0.0,
+      "m12": 0.0,
+      "m13": 0.0,
+      "m20": 0.02709329,
+      "m21": 0.03311414,
+      "m22": 0.0,
+      "m23": 0.04535866,
+      "m30": 0.0,
+      "m31": 0.0,
+      "m32": 0.0,
+      "m33": 0.0
+     },
+     "translation_spread": {
+      "x": 0.04014206,
+      "y": 0.0,
+      "z": 0.04535866
+     },
+     "rot3x3_spread_max": 0.04535866,
+     "out_of_plane_leakage_max": 0.0,
+     "sample_axis_1_13": [
+      0.0,
+      0.0,
+      -1.00023,
+      0.01689
+     ]
+    },
+    "patch_vs_head": {
+     "mouth": {
+      "rel_element_spread": {
+       "m00": 0.0,
+       "m01": 0.0,
+       "m02": 0.0,
+       "m03": 7e-07,
+       "m10": 0.0,
+       "m11": 6e-08,
+       "m12": 0.0,
+       "m13": 1e-08,
+       "m20": 0.0,
+       "m21": 0.0,
+       "m22": 0.0,
+       "m23": 6e-07,
+       "m30": 0.0,
+       "m31": 0.0,
+       "m32": 0.0,
+       "m33": 0.0
+      },
+      "rel_translation_spread": {
+       "x": 7e-07,
+       "y": 1e-08,
+       "z": 6e-07
+      },
+      "rel_spread_max": 7e-07
+     },
+     "eyelid": {
+      "rel_element_spread": {
+       "m00": 0.0,
+       "m01": 0.0,
+       "m02": 0.0,
+       "m03": 7.3e-07,
+       "m10": 0.0,
+       "m11": 6e-08,
+       "m12": 0.0,
+       "m13": 0.0,
+       "m20": 0.0,
+       "m21": 0.0,
+       "m22": 0.0,
+       "m23": 1.03e-06,
+       "m30": 0.0,
+       "m31": 0.0,
+       "m32": 0.0,
+       "m33": 0.0
+      },
+      "rel_translation_spread": {
+       "x": 7.3e-07,
+       "y": 0.0,
+       "z": 1.03e-06
+      },
+      "rel_spread_max": 1.03e-06
+     }
+    },
+    "pass_detail": {
+     "trans_y": 0.0,
+     "out_of_plane_row_max": 0.0,
+     "bone_plane_stability": true,
+     "note": "criterion: world-Y row (m10,m11,m12) + trans Y; in-plane XZ swing allowed"
+    },
+    "patch_tracking_pass": true
+   }
+  }
+ },
+ "armature": "SpriteObject",
+ "pose_bones": [
+  "head_b",
+  "hips",
+  "leg_far_front_b",
+  "leg_far_hind_b",
+  "leg_near_front_b",
+  "leg_near_hind_b",
+  "root",
+  "tail_b"
+ ],
+ "mesh_objects": [
+  "eyelid",
+  "head",
+  "leg_far_front",
+  "leg_far_hind",
+  "leg_near_front",
+  "leg_near_hind",
+  "mouth",
+  "shell",
+  "tail"
+ ],
+ "t_total_s": 0.01,
+ "all_pass": true
+}

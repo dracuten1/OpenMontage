@@ -1,0 +1,65 @@
+{
+ "voices": {
+  "rabbit": "Trúc Ly",
+  "turtle": "Mỹ Duyên"
+ },
+ "lines": [
+  {
+   "i": 0,
+   "who": "rabbit",
+   "text": "Chào các bạn! Mình là Thỏ Trắng đây. Còn đây là bạn Rùa Vàng.",
+   "start": 0.0,
+   "dur": 3.58
+  },
+  {
+   "i": 1,
+   "who": "turtle",
+   "text": "Chào các bạn nhỏ. Hôm nay chúng mình kể chuyện Rùa và Thỏ nhé.",
+   "start": 4.18,
+   "dur": 4.95
+  },
+  {
+   "i": 2,
+   "who": "rabbit",
+   "text": "Rùa ơi, mình chạy nhanh lắm. Cậu chạy chậm thế, đấu với mình không?",
+   "start": 9.73,
+   "dur": 3.57
+  },
+  {
+   "i": 3,
+   "who": "turtle",
+   "text": "Được thôi. Nhưng mà, chậm mà chắc mới thắng được nhé.",
+   "start": 13.9,
+   "dur": 4.12
+  },
+  {
+   "i": 4,
+   "who": "rabbit",
+   "text": "Một, hai, ba, chạy nào! Ồ, hơi mệt một chút, mình ngủ chút đã.",
+   "start": 18.63,
+   "dur": 3.76
+  },
+  {
+   "i": 5,
+   "who": "turtle",
+   "text": "Thỏ ngủ ngon nhé. Mình cứ đi chậm rãi, đều đều thôi.",
+   "start": 22.98,
+   "dur": 4.3
+  },
+  {
+   "i": 6,
+   "who": "rabbit",
+   "text": "Ơ, trời tối rồi sao? Rùa ơi... ồ, Rùa tới đích trước rồi à?",
+   "start": 27.89,
+   "dur": 4.21
+  },
+  {
+   "i": 7,
+   "who": "turtle",
+   "text": "Thấy chưa các bạn ơi. Kiên trì, không chủ quan, là thắng nhé.",
+   "start": 32.69,
+   "dur": 5.13
+  }
+ ],
+ "total": 38.42
+}

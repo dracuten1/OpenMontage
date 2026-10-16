@@ -1,0 +1,12 @@
+model: cx/gpt-5.6-luna-image
+kind: i2i
+img2img_source: turtle_walk.png (sha256:b50fc83f80482e51 1535x1024 -> embed 1024x683, structured body.image)
+size: auto
+background: transparent
+image_detail: high
+quality: auto output_format: png n: 1
+elapsed_s: 79
+check: mode=RGBA transparent=47.7% opaque=51.9% thr=25.0; identity OK
+
+--- prompt (text only; ref image sent via body.image) ---
+The reference image is the EXACT character to keep: a flat kawaii cartoon golden turtle with a warm yellow dome shell and olive-green head and legs, friendly big brown eyes, thick dark-brown outlines, soft pastel cel shading, side view FACING RIGHT (head on the right side of the image, tail on the left). Using the attached reference image as the exact same character: redraw this SAME turtle IDENTICALLY - same pose, same colors, same size, same framing, same facing direction - and change ONLY the mouth: mouth gently closed with a small friendly smile, eyes open normally. Do NOT change the art style, do NOT flip or mirror the turtle, do NOT turn the skin yellow, do NOT make it realistic or 3d, keep the head on the RIGHT side. flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark, fully transparent background

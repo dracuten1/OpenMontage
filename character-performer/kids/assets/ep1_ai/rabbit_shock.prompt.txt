@@ -1,0 +1,12 @@
+model: cx/gpt-5.6-luna-image
+kind: i2i
+img2img_source: /Users/tuyennguyen/.hermes/cache/scratch/luna_probe.png (sha256:49a63230b90caef9 1536x1024 -> embed 1024x683, structured body.image)
+size: auto
+background: transparent
+image_detail: high
+quality: auto output_format: png n: 1
+elapsed_s: 143
+check: mode=RGBA transparent=78.9% opaque=20.8% thr=25.0
+
+--- prompt (text only; ref image sent via body.image) ---
+The reference image is the EXACT character to keep: a kawaii white rabbit with soft cream highlights wearing a red vest with a single yellow button, thick dark-brown outlines, soft pastel cel shading, flat 2d kawaii children's picture-book style. Using the attached reference image as the exact same character: the same rabbit startled awake, eyes wide open, ears bolt upright, mouth open small, facing RIGHT, full body side view. Do NOT change the art style, do NOT change the fur color, the red vest or the yellow button, do NOT make it realistic or 3d. flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark, fully transparent background, isolated subject

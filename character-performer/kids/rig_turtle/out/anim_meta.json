@@ -1,0 +1,9 @@
+{
+ "n_actions": 7,
+ "total_keyframes": 1156,
+ "n_mouth_segments": 7,
+ "f_talk0": 98,
+ "f_end": 248,
+ "cues_source": "../dialogue_v2/d5_cues.json",
+ "t_s": 0.0
+}

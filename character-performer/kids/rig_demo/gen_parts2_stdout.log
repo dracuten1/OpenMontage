@@ -1,0 +1,4 @@
+[ok] head_mO 52s alpha=6.4% bbox=[693, 331, 1108, 647]
+[ok] head_blink 73s alpha=6.4% bbox=[693, 331, 1108, 647]
+DONE2 {"head_mO": {"alpha_pct": 6.4, "bbox": [693, 331, 1108, 647], "gen_s": 51.9}, "head_blink": {"alpha_pct": 6.4, "bbox": [693, 331, 1108, 647], "gen_s": 73.0}, "drift_head_mO": 2.877, "drift_head_blink": 4.212}
+BATCH2_EXIT=0

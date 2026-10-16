@@ -1,0 +1,227 @@
+{
+ "rabbit_greet": {
+  "ok": true,
+  "seconds": 44.8,
+  "size": "1535x1024",
+  "transparent_pct": 69.8,
+  "opaque_pct": 29.9,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 44.8,
+    "ok": true,
+    "check": "mode=RGBA transparent=69.8% opaque=29.9% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "/Users/tuyennguyen/.hermes/cache/scratch/luna_probe.png",
+   "sha256": "49a63230b90caef9",
+   "source_px": "1536x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "rabbit_greet_mO": {
+  "ok": true,
+  "seconds": 108.0,
+  "size": "1535x1024",
+  "transparent_pct": 69.7,
+  "opaque_pct": 29.9,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 108.0,
+    "ok": true,
+    "check": "mode=RGBA transparent=69.7% opaque=29.9% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "character-performer/kids/assets/ep1_ai/rabbit_greet.png",
+   "sha256": "ff97a340b8cb7723",
+   "source_px": "1535x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "rabbit_taunt": {
+  "ok": true,
+  "seconds": 77.9,
+  "size": "1535x1024",
+  "transparent_pct": 69.5,
+  "opaque_pct": 30.1,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 77.9,
+    "ok": true,
+    "check": "mode=RGBA transparent=69.5% opaque=30.1% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "/Users/tuyennguyen/.hermes/cache/scratch/luna_probe.png",
+   "sha256": "49a63230b90caef9",
+   "source_px": "1536x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "rabbit_taunt_mO": {
+  "ok": true,
+  "seconds": 69.0,
+  "size": "1536x1024",
+  "transparent_pct": 69.5,
+  "opaque_pct": 30.2,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 69.0,
+    "ok": true,
+    "check": "mode=RGBA transparent=69.5% opaque=30.2% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "character-performer/kids/assets/ep1_ai/rabbit_taunt.png",
+   "sha256": "93d7d24885544bed",
+   "source_px": "1535x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "rabbit_run1": {
+  "ok": true,
+  "seconds": 87.4,
+  "size": "1536x1024",
+  "transparent_pct": 54.2,
+  "opaque_pct": 45.3,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 87.4,
+    "ok": true,
+    "check": "mode=RGBA transparent=54.2% opaque=45.3% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "/Users/tuyennguyen/.hermes/cache/scratch/luna_probe.png",
+   "sha256": "49a63230b90caef9",
+   "source_px": "1536x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "rabbit_run2": {
+  "ok": true,
+  "seconds": 147.2,
+  "size": "1536x1024",
+  "transparent_pct": 55.1,
+  "opaque_pct": 44.4,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 147.2,
+    "ok": true,
+    "check": "mode=RGBA transparent=55.1% opaque=44.4% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "character-performer/kids/assets/ep1_ai/rabbit_run1.png",
+   "sha256": "65497d8e8464d0d5",
+   "source_px": "1536x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "rabbit_shock": {
+  "ok": true,
+  "seconds": 143.3,
+  "size": "1536x1024",
+  "transparent_pct": 78.9,
+  "opaque_pct": 20.8,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 143.3,
+    "ok": true,
+    "check": "mode=RGBA transparent=78.9% opaque=20.8% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "/Users/tuyennguyen/.hermes/cache/scratch/luna_probe.png",
+   "sha256": "49a63230b90caef9",
+   "source_px": "1536x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "rabbit_shock_m0": {
+  "ok": true,
+  "seconds": 77.5,
+  "size": "1536x1024",
+  "transparent_pct": 78.8,
+  "opaque_pct": 20.9,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 77.5,
+    "ok": true,
+    "check": "mode=RGBA transparent=78.8% opaque=20.9% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "character-performer/kids/assets/ep1_ai/rabbit_shock.png",
+   "sha256": "fd45b34a532dd2ea",
+   "source_px": "1536x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "turtle_proud": {
+  "ok": true,
+  "seconds": 131.1,
+  "size": "1536x1024",
+  "transparent_pct": 47.6,
+  "opaque_pct": 52.0,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 131.1,
+    "ok": true,
+    "check": "mode=RGBA transparent=47.6% opaque=52.0% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "remotion-composer/public/character-performer/kids/depth_demo/turtle_walk.png",
+   "sha256": "398d0fe9d93d22d1",
+   "source_px": "1535x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "turtle_proud_mO": {
+  "ok": true,
+  "seconds": 102.5,
+  "size": "1535x1024",
+  "transparent_pct": 47.3,
+  "opaque_pct": 52.3,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 102.5,
+    "ok": true,
+    "check": "mode=RGBA transparent=47.3% opaque=52.3% thr=25.0"
+   }
+  ],
+  "ref": {
+   "file": "character-performer/kids/assets/ep1_ai/turtle_proud.png",
+   "sha256": "89a75e5013812fa3",
+   "source_px": "1536x1024",
+   "embed_px": "1024x683"
+  }
+ },
+ "finish_bg": {
+  "ok": true,
+  "seconds": 103.2,
+  "size": "1672x941",
+  "transparent_pct": null,
+  "opaque_pct": null,
+  "attempts": [
+   {
+    "attempt": 1,
+    "elapsed_s": 103.2,
+    "ok": true,
+    "check": "mode=RGB (opaque asset)"
+   }
+  ]
+ }
+}

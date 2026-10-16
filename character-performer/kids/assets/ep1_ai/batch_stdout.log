@@ -1,0 +1,13 @@
+base=http://127.0.0.1:20128/v1 model=cx/gpt-5.6-luna-image jobs=11
+[rabbit_greet] try1: 45s mode=RGBA transparent=69.8% opaque=29.9% thr=25.0 -> OK
+[rabbit_greet_mO] try1: 108s mode=RGBA transparent=69.7% opaque=29.9% thr=25.0 -> OK
+[rabbit_taunt] try1: 78s mode=RGBA transparent=69.5% opaque=30.1% thr=25.0 -> OK
+[rabbit_taunt_mO] try1: 69s mode=RGBA transparent=69.5% opaque=30.2% thr=25.0 -> OK
+[rabbit_run1] try1: 87s mode=RGBA transparent=54.2% opaque=45.3% thr=25.0 -> OK
+[rabbit_run2] try1: 147s mode=RGBA transparent=55.1% opaque=44.4% thr=25.0 -> OK
+[rabbit_shock] try1: 143s mode=RGBA transparent=78.9% opaque=20.8% thr=25.0 -> OK
+[rabbit_shock_m0] try1: 78s mode=RGBA transparent=78.8% opaque=20.9% thr=25.0 -> OK
+[turtle_proud] try1: 131s mode=RGBA transparent=47.6% opaque=52.0% thr=25.0 -> OK
+[turtle_proud_mO] try1: 103s mode=RGBA transparent=47.3% opaque=52.3% thr=25.0 -> OK
+[finish_bg] try1: 103s mode=RGB (opaque asset) -> OK
+DONE ok=11/11 fail=none skipped=none total_gen_s=1092

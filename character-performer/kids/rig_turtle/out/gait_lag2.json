@@ -1,0 +1,185 @@
+{
+ "band_y": [
+  905,
+  1010
+ ],
+ "shell_edges_f1": {
+  "leg_near_hind": {
+   "shell_edge_max": 878,
+   "shell_edge_min": 768
+  },
+  "leg_far_hind": {
+   "shell_edge_max": 871,
+   "shell_edge_min": 818
+  },
+  "leg_near_front": {
+   "shell_edge_max": 920,
+   "shell_edge_min": 783
+  },
+  "leg_far_front": {
+   "shell_edge_max": 881,
+   "shell_edge_min": 842
+  }
+ },
+ "cx_series": {
+  "leg_near_hind": [
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN
+  ],
+  "leg_far_hind": [
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN
+  ],
+  "leg_near_front": [
+   987.4531516183986,
+   987.3531409168081,
+   986.2825513969426,
+   985.7163009404389,
+   982.811889596603,
+   982.9790812141099,
+   978.9194312796209,
+   978.8774382314695,
+   974.2172942817294,
+   974.6043125175021,
+   971.3048101265823,
+   971.5354510800508,
+   970.6344964117793,
+   970.755140628693,
+   972.4496738117427,
+   972.601425072367,
+   976.8221445221445,
+   976.7454462659381,
+   981.6944873776404,
+   981.6717011128776,
+   985.9758518028449,
+   985.4267135325132,
+   987.8514672686231,
+   987.1062075654704
+  ],
+  "leg_far_front": [
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN,
+   NaN
+  ]
+ },
+ "lag": {
+  "leg_near_front_vs_leg_far_hind": {
+   "lag_f": null,
+   "r": -2
+  },
+  "leg_near_hind_vs_leg_far_front": {
+   "lag_f": null,
+   "r": -2
+  },
+  "leg_near_front_vs_leg_near_hind": {
+   "lag_f": null,
+   "r": -2
+  },
+  "leg_far_front_vs_leg_far_hind": {
+   "lag_f": null,
+   "r": -2
+  }
+ },
+ "expected_lag": {
+  "leg_near_front_vs_leg_far_hind": 0,
+  "leg_near_hind_vs_leg_far_front": 0,
+  "leg_near_front_vs_leg_near_hind": 12,
+  "leg_far_front_vs_leg_far_hind": 12
+ },
+ "swing": {
+  "leg_near_hind": {
+   "x_max_f": 1,
+   "x_min_f": 1,
+   "amp_px": 0.0,
+   "tip_disp_px_y": 0,
+   "n_frames_no_px_below_905": 24
+  },
+  "leg_far_hind": {
+   "x_max_f": 1,
+   "x_min_f": 1,
+   "amp_px": 0.0,
+   "tip_disp_px_y": 0,
+   "n_frames_no_px_below_905": 24
+  },
+  "leg_near_front": {
+   "x_max_f": 23,
+   "x_min_f": 13,
+   "amp_px": 17.2,
+   "tip_disp_px_y": 13,
+   "n_frames_no_px_below_905": 0
+  },
+  "leg_far_front": {
+   "x_max_f": 1,
+   "x_min_f": 1,
+   "amp_px": 0.0,
+   "tip_disp_px_y": 0,
+   "n_frames_no_px_below_905": 24
+  }
+ },
+ "diagonal_pass": false
+}

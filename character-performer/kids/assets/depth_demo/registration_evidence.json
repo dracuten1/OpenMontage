@@ -1,0 +1,125 @@
+{
+ "date": "2026-10-11",
+ "conditioning_contract": "structured body.image (data URI) -> 9router codex adapter input_image; prompt is pure text (prompt-embedded data URIs are NOT ingested - open-sse/handlers/imageProviders/codex.js buildBody/buildContent)",
+ "model": "cx/gpt-5.6-luna-image",
+ "chain": "turtle_base (T2I, untouched) -> turtle_walk (regen, ref=base) -> turtle_m0/mO (regen, ref=walk)",
+ "gates": "v2: RGBA, transparent>25%, green-dominant skin frac, yellow shell frac, green_cx>0.5 (facing right), bbox reg vs anchor dCx/dY0/dY1<=0.08, ar ratio 0.85..1.18; v1 saturated-olive gate deprecated (anchor itself measures 0.0009)",
+ "assets": {
+  "turtle_walk": {
+   "ref": {
+    "file": "turtle_base.png",
+    "sha256": "34015569ef7c9322",
+    "source_px": "1536x1024",
+    "embed_px": "1024x683"
+   },
+   "size": "1536x1024",
+   "transparent_pct": 50.3,
+   "elapsed_s_ok_attempt": null,
+   "identity": {
+    "stats": {
+     "green_frac": 0.3149,
+     "green_cx": 0.629,
+     "yellow_frac": 0.6422,
+     "reg": {
+      "ar": 1.499,
+      "x0": 0.032,
+      "y0": 0.096,
+      "x1": 0.979,
+      "y1": 0.906,
+      "cx": 0.506
+     }
+    },
+    "anchor": {
+     "green_frac": 0.0009,
+     "green_cx": 0.765,
+     "yellow_frac": 0.6596,
+     "reg": {
+      "ar": 1.5,
+      "x0": 0.032,
+      "y0": 0.1,
+      "x1": 0.979,
+      "y1": 0.903,
+      "cx": 0.506
+     }
+    }
+   },
+   "visual_check": "approved by Read 2026-10-11 (style/colors/facing/pose match anchor; m0 mouth closed smile, mO mouth open round o)"
+  },
+  "turtle_m0": {
+   "ref": {
+    "file": "turtle_walk.png",
+    "sha256": "b50fc83f80482e51",
+    "source_px": "1535x1024",
+    "embed_px": "1024x683"
+   },
+   "size": "1535x1024",
+   "transparent_pct": 47.7,
+   "elapsed_s_ok_attempt": 78.8,
+   "identity": {
+    "green_frac": 0.3147,
+    "green_cx": 0.629,
+    "yellow_frac": 0.6148,
+    "reg": {
+     "ar": 1.499,
+     "x0": 0.032,
+     "y0": 0.094,
+     "x1": 0.98,
+     "y1": 0.907,
+     "cx": 0.506
+    },
+    "anchor": {
+     "green_frac": 0.3055,
+     "green_cx": 0.631,
+     "yellow_frac": 0.6465
+    },
+    "anchor_reg": {
+     "ar": 1.499,
+     "x0": 0.03,
+     "y0": 0.098,
+     "x1": 0.982,
+     "y1": 0.902,
+     "cx": 0.506
+    }
+   },
+   "visual_check": "approved by Read 2026-10-11 (style/colors/facing/pose match anchor; m0 mouth closed smile, mO mouth open round o)"
+  },
+  "turtle_mO": {
+   "ref": {
+    "file": "turtle_walk.png",
+    "sha256": "398d0fe9d93d22d1",
+    "source_px": "1535x1024",
+    "embed_px": "1024x683"
+   },
+   "size": "1535x1024",
+   "transparent_pct": 47.4,
+   "elapsed_s_ok_attempt": 58.2,
+   "identity": {
+    "green_frac": 0.3081,
+    "green_cx": 0.629,
+    "yellow_frac": 0.6381,
+    "reg": {
+     "ar": 1.499,
+     "x0": 0.029,
+     "y0": 0.096,
+     "x1": 0.982,
+     "y1": 0.903,
+     "cx": 0.506
+    },
+    "anchor": {
+     "green_frac": 0.3055,
+     "green_cx": 0.631,
+     "yellow_frac": 0.6465
+    },
+    "anchor_reg": {
+     "ar": 1.499,
+     "x0": 0.03,
+     "y0": 0.098,
+     "x1": 0.982,
+     "y1": 0.902,
+     "cx": 0.506
+    }
+   },
+   "visual_check": "approved by Read 2026-10-11 (style/colors/facing/pose match anchor; m0 mouth closed smile, mO mouth open round o)"
+  }
+ }
+}

@@ -1,0 +1,76 @@
+{
+  "character": "turtle",
+  "format": "OpenMontage_Turnaround_v1",
+  "generated_at": "2026-10-11T02:00:00Z",
+  "mode": "procedural_fallback",
+  "model": "cx/gpt-image-2.5-sunburst",
+  "reference_image": "/Users/tuyennguyen/project/OpenMontage/character-performer/kids/qc_multiscene_v3/sheet_turtle.png",
+  "views": {
+    "front": {
+      "view": "front",
+      "angle": 0,
+      "nominal_yaw": 0,
+      "label": "Front View (0\u00b0)",
+      "file": "turtle_front_000.png",
+      "path": "character-performer/kids/turnaround/turtle_front_000.png",
+      "width": 512,
+      "height": 512,
+      "anchor_x": 256,
+      "anchor_y": 296
+    },
+    "three_quarter": {
+      "view": "three_quarter",
+      "angle": 45,
+      "nominal_yaw": 45,
+      "label": "3/4 View (45\u00b0)",
+      "file": "turtle_three_quarter_045.png",
+      "path": "character-performer/kids/turnaround/turtle_three_quarter_045.png",
+      "width": 512,
+      "height": 512,
+      "anchor_x": 256,
+      "anchor_y": 296
+    },
+    "side": {
+      "view": "side",
+      "angle": 90,
+      "nominal_yaw": 90,
+      "label": "Side Profile (90\u00b0)",
+      "file": "turtle_side_090.png",
+      "path": "character-performer/kids/turnaround/turtle_side_090.png",
+      "width": 512,
+      "height": 512,
+      "anchor_x": 256,
+      "anchor_y": 296
+    },
+    "three_quarter_back": {
+      "view": "three_quarter_back",
+      "angle": 135,
+      "nominal_yaw": 135,
+      "label": "3/4 Back View (135\u00b0)",
+      "file": "turtle_three_quarter_back_135.png",
+      "path": "character-performer/kids/turnaround/turtle_three_quarter_back_135.png",
+      "width": 512,
+      "height": 512,
+      "anchor_x": 256,
+      "anchor_y": 296
+    },
+    "back": {
+      "view": "back",
+      "angle": 180,
+      "nominal_yaw": 180,
+      "label": "Back View (180\u00b0)",
+      "file": "turtle_back_180.png",
+      "path": "character-performer/kids/turnaround/turtle_back_180.png",
+      "width": 512,
+      "height": 512,
+      "anchor_x": 256,
+      "anchor_y": 296
+    }
+  },
+  "contact_sheet": {
+    "file": "turtle_turnaround_sheet.png",
+    "path": "character-performer/kids/turnaround/turtle_turnaround_sheet.png",
+    "width": 2560,
+    "height": 512
+  }
+}

@@ -1,0 +1,9 @@
+model: cx/gpt-5.6-luna-image
+kind: t2i
+size: 1536x1024
+background: opaque
+elapsed_s: 58
+check: mode=RGB (opaque asset)
+
+--- prompt ---
+wide storybook landscape background, pale soft-blue sky with a few gentle clouds, distant rolling green hills, a faint hazy far-away tree line, atmospheric perspective with washed-out pale low-detail distance, open grassy meadow ground across the bottom, flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark

@@ -1,0 +1,316 @@
+{
+ "bands": {
+  "leg_near_hind": [
+   49,
+   354
+  ],
+  "leg_far_hind": [
+   381,
+   604
+  ],
+  "leg_near_front": [
+   755,
+   1109
+  ],
+  "leg_far_front": [
+   1110,
+   1349
+  ]
+ },
+ "y_band": [
+  820,
+  1010
+ ],
+ "sample_frames": [
+  1,
+  7,
+  13,
+  19
+ ],
+ "leg_probe": {
+  "leg_near_hind": {
+   "y_tip_series": [
+    879,
+    881,
+    884,
+    885,
+    890,
+    891,
+    896,
+    895,
+    899,
+    897,
+    898,
+    897,
+    896,
+    895,
+    893,
+    893,
+    889,
+    889,
+    886,
+    885,
+    880,
+    881,
+    879,
+    879
+   ],
+   "tip_disp_px_y": 20,
+   "x_centroid_disp_px": 13.3,
+   "band_px_f1_f7_f13_f19": [
+    9167,
+    14195,
+    15027,
+    11774
+   ]
+  },
+  "leg_far_hind": {
+   "y_tip_series": [
+    881,
+    882,
+    881,
+    882,
+    877,
+    878,
+    873,
+    873,
+    873,
+    871,
+    873,
+    872,
+    871,
+    871,
+    870,
+    870,
+    868,
+    868,
+    869,
+    868,
+    873,
+    873,
+    879,
+    879
+   ],
+   "tip_disp_px_y": 14,
+   "x_centroid_disp_px": 41.2,
+   "band_px_f1_f7_f13_f19": [
+    7504,
+    8763,
+    7577,
+    7790
+   ]
+  },
+  "leg_near_front": {
+   "y_tip_series": [
+    921,
+    921,
+    922,
+    922,
+    924,
+    924,
+    928,
+    927,
+    929,
+    929,
+    931,
+    931,
+    932,
+    933,
+    933,
+    934,
+    933,
+    933,
+    931,
+    931,
+    927,
+    926,
+    923,
+    922
+   ],
+   "tip_disp_px_y": 13,
+   "x_centroid_disp_px": 19.9,
+   "band_px_f1_f7_f13_f19": [
+    21897,
+    24742,
+    24777,
+    25561
+   ]
+  },
+  "leg_far_front": {
+   "y_tip_series": [
+    882,
+    882,
+    881,
+    881,
+    880,
+    881,
+    865,
+    865,
+    861,
+    861,
+    859,
+    860,
+    859,
+    861,
+    863,
+    864,
+    868,
+    869,
+    873,
+    873,
+    886,
+    884,
+    884,
+    883
+   ],
+   "tip_disp_px_y": 27,
+   "x_centroid_disp_px": 19.6,
+   "band_px_f1_f7_f13_f19": [
+    10326,
+    7589,
+    5853,
+    9421
+   ]
+  }
+ },
+ "leg_phase": {
+  "leg_near_front_vs_leg_far_hind": {
+   "lift_frame_a": 0,
+   "lift_frame_b": 16,
+   "phase_diff_f": 16,
+   "measurable": true
+  },
+  "leg_near_hind_vs_leg_far_front": {
+   "lift_frame_a": 0,
+   "lift_frame_b": 10,
+   "phase_diff_f": 10,
+   "measurable": true
+  },
+  "leg_near_front_vs_leg_near_hind": {
+   "lift_frame_a": 0,
+   "lift_frame_b": 0,
+   "phase_diff_f": 0,
+   "measurable": true
+  },
+  "leg_far_front_vs_leg_far_hind": {
+   "lift_frame_a": 10,
+   "lift_frame_b": 16,
+   "phase_diff_f": 6,
+   "measurable": true
+  }
+ },
+ "expected_diagonal": {
+  "leg_near_front_vs_leg_far_hind": 0,
+  "leg_near_hind_vs_leg_far_front": 0,
+  "leg_near_front_vs_leg_near_hind": 12
+ },
+ "whole_sprite_bbox_drift_px_1_24": {
+  "left": 32,
+  "top": 5,
+  "right": 10,
+  "bottom": 13
+ },
+ "frame_diff_f1_f7_px_gt25": 197157,
+ "leg_band_diff_f1_f7": {
+  "leg_near_hind": 12432,
+  "leg_far_hind": 6992,
+  "leg_near_front": 13271,
+  "leg_far_front": 7656
+ },
+ "seam": {
+  "per_frame": {
+   "1": {
+    "neck": [
+     0,
+     null,
+     0
+    ],
+    "leg_roots": [
+     172,
+     1325,
+     307
+    ]
+   },
+   "7": {
+    "neck": [
+     1,
+     1158,
+     0
+    ],
+    "leg_roots": [
+     165,
+     1348,
+     216
+    ]
+   },
+   "13": {
+    "neck": [
+     21,
+     1049,
+     21
+    ],
+    "leg_roots": [
+     127,
+     1359,
+     406
+    ]
+   },
+   "19": {
+    "neck": [
+     10,
+     992,
+     15
+    ],
+    "leg_roots": [
+     154,
+     1349,
+     200
+    ]
+   }
+  },
+  "baseline_f1": {
+   "neck": [
+    0,
+    null,
+    0
+   ],
+   "leg_roots": [
+    172,
+    1325,
+    307
+   ]
+  },
+  "growth_threshold_px": 2,
+  "seam_exposed": true
+ },
+ "halo_f1": {
+  "fringe_px": 17486,
+  "ring_px": 5719,
+  "ring_max_L": 71.0,
+  "solid_max_L": 197.0,
+  "solid_mean_L": 142.6,
+  "halo_detected": false
+ },
+ "filmstrip": {
+  "path": "/Users/tuyennguyen/project/OpenMontage/character-performer/kids/rig_turtle/out/rig_cycle_strip.jpg",
+  "size": [
+   2208,
+   1456
+  ],
+  "crops": {
+   "neck": [
+    882,
+    480,
+    1122,
+    720
+   ],
+   "leg_root": [
+    812,
+    540,
+    1052,
+    780
+   ]
+  }
+ },
+ "t_probe_s": 0.66
+}

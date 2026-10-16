@@ -1,0 +1,18 @@
+{
+ "mO_full_vs_m0_solid_excl_mouth": 1.2849482410128403,
+ "mO_pixels": 310504,
+ "blink_full_vs_m0_solid_excl_eyes": 2.3641043277857854,
+ "blink_pixels": 317791,
+ "head_mO_vs_head_solid_excl_mouth": 1.4142707097739264,
+ "hmO_pixels": 80536,
+ "head_blink_vs_head_solid_excl_eyes": 3.186834783148357,
+ "hb_pixels": 85305,
+ "mouth_annulus_45_100_pct_px": [
+  2.233,
+  12658
+ ],
+ "eye_annulus_40_90_pct_px": [
+  11.429,
+  18267
+ ]
+}

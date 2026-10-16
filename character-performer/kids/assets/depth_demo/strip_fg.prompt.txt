@@ -1,0 +1,9 @@
+model: cx/gpt-5.6-luna-image
+kind: t2i
+size: 1536x1024
+background: transparent
+elapsed_s: 90
+check: mode=RGBA transparent=72.3% opaque=26.9% thr=25.0
+
+--- prompt ---
+foreground layer strip: low clusters of vivid green grass tufts and small pastel flowers (pink, yellow, white) sitting ONLY along the very bottom edge of the image, the closest layer to the camera so the most saturated colors, the entire upper 70 percent of the image is fully transparent (alpha 0), clusters repeat across the full width edge to edge, flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark, isolated foreground layer with transparent background

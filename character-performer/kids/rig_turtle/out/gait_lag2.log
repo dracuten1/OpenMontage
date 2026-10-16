@@ -1,0 +1,12 @@
+/Users/tuyennguyen/project/OpenMontage/character-performer/kids/rig_turtle/cc/gait_lag2.py:48: RuntimeWarning: Mean of empty slice
+  B = np.array(cx[b]) - np.nanmean(cx[b])
+/Users/tuyennguyen/project/OpenMontage/character-performer/kids/rig_turtle/cc/gait_lag2.py:47: RuntimeWarning: Mean of empty slice
+  A = np.array(cx[a]) - np.nanmean(cx[a])
+/Users/tuyennguyen/project/OpenMontage/character-performer/kids/rig_turtle/cc/gait_lag2.py:66: RuntimeWarning: Mean of empty slice
+  A = np.array(cx[k]) - np.nanmean(cx[k])
+Traceback (most recent call last):
+  File "/Users/tuyennguyen/project/OpenMontage/character-performer/kids/rig_turtle/cc/gait_lag2.py", line 67, in <module>
+    swing[k] = {'x_max_f': int(np.nanargmax(A)) + 1, 'x_min_f': int(np.nanargmin(A)) + 1,
+  File "/Users/tuyennguyen/Library/Python/3.9/lib/python/site-packages/numpy/lib/nanfunctions.py", line 613, in nanargmax
+    raise ValueError("All-NaN slice encountered")
+ValueError: All-NaN slice encountered

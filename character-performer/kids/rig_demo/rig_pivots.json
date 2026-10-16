@@ -1,0 +1,63 @@
+{
+  "_doc": "Puppet assembly THỎ — pivots px trên canvas RIÊNG của từng part (part-space) ánh xạ vào canvas puppet 1536x1024 (puppet-space). Ground y=980, nhìn phải. Đơn vị: px, gốc top-left.",
+  "parts_dir": "parts2",
+  "scale_policy": "head giữ scale 1.0 làm đơn vị; các part scale về tỷ lệ tham chiếu m0 (đầu 400x316, tai ~dài đầu x1.0, thân ~420h, chân ~195h, tay ~180 dài)",
+  "canvas": [1536, 1024],
+  "parts": {
+    "head": {
+      "file": "head.png", "bbox": [695, 332, 1105, 648], "scale": 1.0,
+      "place": "head-center đặt tại puppet (740, 380); neck attach part-space (880,641) -> puppet (770, 520)",
+      "mouth_px_part": [1065, 548], "nose_px_part": [1083, 506],
+      "notes": "1 mắt nhìn phải, miệng đóng cười"
+    },
+    "ear_far": {
+      "file": "ear_tilt.png", "bbox": [525, 110, 895, 515], "scale": 0.78,
+      "pivot_part": [875, 510], "pivot_puppet": [820, 245],
+      "rest_angle_deg": -25, "notes": "base có tuft lông; tip hướng lên-trái"
+    },
+    "ear_near": {
+      "file": "ear_up.png", "bbox": [445, 64, 1065, 853], "scale": 0.72,
+      "pivot_part": [990, 825], "pivot_puppet": [872, 252],
+      "rest_angle_deg": -8, "notes": "part gốc nằm ngang-chéo, XOAY khi ghép để tip lên gần đứng; có thể cần trim bbox (part dài 789px)"
+    },
+    "body": {
+      "file": "body.png", "bbox": [398, 207, 1197, 798], "scale": 0.71,
+      "chest_top_part": [932, 300], "chest_top_puppet": [770, 470],
+      "hip_left_part": [650, 765], "hip_left_puppet": [700, 800],
+      "hip_right_part": [990, 765], "hip_right_puppet": [830, 800],
+      "tail_center_part": [525, 505],
+      "notes": "thân chính y207-798 cao 591 -> x0.71 = 420h"
+    },
+    "arm_far": {
+      "file": "arm_far.png", "bbox": [610, 400, 1044, 660], "scale": 0.90,
+      "pivot_part": [715, 510], "pivot_puppet": [798, 565],
+      "rest_angle_deg": 20
+    },
+    "arm_near": {
+      "file": "arm_near.png", "bbox": [808, 509, 1100, 680], "scale": 0.95,
+      "pivot_part": [826, 591], "pivot_puppet": [845, 588],
+      "rest_angle_deg": 25
+    },
+    "leg_far": {
+      "file": "leg_left.png (DÙNG CHO CẢ 2 CHÂN - leg_right bị loại: đùi to S-curve lệch tỷ lệ 716px vs 392px)",
+      "bbox": [584, 575, 851, 965], "scale": 0.50,
+      "pivot_part": [716, 574], "pivot_puppet": [700, 798],
+      "notes": "chân xa camera (sau)"
+    },
+    "leg_near": {
+      "file": "leg_left.png (bản duplicate)", "bbox": [584, 575, 851, 965], "scale": 0.50,
+      "pivot_part": [716, 574], "pivot_puppet": [830, 798],
+      "notes": "chân gần camera (trước) - phân biệt bằng animation phase, không mirror"
+    }
+  },
+  "mouth_patch": {
+    "source": "head_mO.png (i2i matched-pair TỪ head.png, cùng canvas)",
+    "crop_around_px": [1065, 548], "radius_px": 100, "feather_px": 28,
+    "rule": "paste toạ độ TUYỆT ĐỐI (cùng canvas) — cấm offset/scale"
+  },
+  "blink_patch": {
+    "source": "head_blink.png (i2i matched-pair TỪ head.png)",
+    "crop_around_px": [985, 430], "radius_px": 90, "feather_px": 24
+  },
+  "alpha_cleanup": "ramp: a<70->0, a>190->255, giữa tuyến tính; sau đó morphology open 1px bỏ stray; áp cho MỌI part + patch TRƯỚC khi dựng"
+}

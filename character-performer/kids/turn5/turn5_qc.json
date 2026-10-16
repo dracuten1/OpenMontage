@@ -1,0 +1,43 @@
+{
+ "g1_identity_outside": {
+  "f0600": 0.0,
+  "f0780": 0.0,
+  "f0920": 0.0,
+  "f1150": 0.0
+ },
+ "g2_kept_zoom": {
+  "f0340": 0.0,
+  "f0470": 0.0,
+  "f0527": 0.0
+ },
+ "g3_removed_zoom": {
+  "f0100": 33.20978546142578,
+  "f0190": 21.605825424194336
+ },
+ "g4_camera_static": {
+  "A_bg3_5.0-10.83": 0.0,
+  "B_close_10.9-12.4": 0.0,
+  "C_12.4-15.3": 0.0,
+  "D_close_15.33-16.67": 0.0
+ },
+ "g5_ffprobe": {
+  "meta": {
+   "streams": [
+    {
+     "width": 1080,
+     "height": 1080,
+     "r_frame_rate": "30/1",
+     "nb_read_frames": "1230",
+     "side_data_list": [
+      {}
+     ]
+    }
+   ],
+   "format": {
+    "duration": "41.045333"
+   }
+  },
+  "audio": "audio"
+ },
+ "pass": true
+}

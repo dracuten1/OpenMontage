@@ -1,0 +1,12 @@
+model: cx/gpt-5.6-luna-image
+kind: i2i
+img2img_source: character-performer/kids/assets/ep1_ai/rabbit_run1.png (sha256:65497d8e8464d0d5 1536x1024 -> embed 1024x683, structured body.image)
+size: auto
+background: transparent
+image_detail: high
+quality: auto output_format: png n: 1
+elapsed_s: 147
+check: mode=RGBA transparent=55.1% opaque=44.4% thr=25.0
+
+--- prompt (text only; ref image sent via body.image) ---
+The reference image is the EXACT character to keep: a kawaii white rabbit with soft cream highlights wearing a red vest with a single yellow button, thick dark-brown outlines, soft pastel cel shading, flat 2d kawaii children's picture-book style. Using the attached reference image as the exact same character: the same running rabbit IDENTICALLY - same style, colors, outfit, still sprinting FACING RIGHT mid-leap - but the NEXT stride phase of the same run cycle, front and back legs swapped positions. Do NOT change the art style, do NOT change the fur color, the red vest or the yellow button, do NOT make it realistic or 3d. flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark, fully transparent background, isolated subject

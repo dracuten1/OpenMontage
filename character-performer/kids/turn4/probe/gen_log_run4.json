@@ -1,0 +1,26 @@
+{
+  "task": "TASK_TURN4_A2",
+  "model": "cx/gpt-image-2.5-sunburst",
+  "endpoint": "http://127.0.0.1:20128/v1/images/generations",
+  "started": "2026-10-14T18:54:19",
+  "images": [
+    {
+      "file": "rabbit_back_run4",
+      "ref": "remotion-composer/public/character-performer/kids/sprite_lib/rabbit/rabbit_back_run3.png",
+      "exit": 0,
+      "attempt": 1,
+      "seconds": 46.4,
+      "size": "1489x1056",
+      "bytes": 681603,
+      "mode": "RGBA",
+      "transparent_pct": 74.1,
+      "path": "character-performer/kids/turn4/probe/rabbit_back_run4.png"
+    },
+    {
+      "file": "rabbit_front_run4",
+      "exit": 0,
+      "skip": "exists"
+    }
+  ],
+  "finished": "2026-10-14T18:55:05"
+}

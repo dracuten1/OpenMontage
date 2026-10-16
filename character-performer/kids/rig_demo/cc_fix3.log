@@ -1,0 +1,20 @@
+## FIX3 XONG — verify tươi 3/3 PASS
+
+**1. Fix A — mouth PIL-drawn** (bỏ diff-mask hoàn toàn): ellipse 64×46 @ (955,427) `#3a1b12` xoay lên-phải, viền `#2b1608` 7px cạnh cứng, lưỡi 40×16 `#e8837a`, alpha 255 không feather.
+- bbox **[922,402,988,452]** (spec ±25 → lệch max 7px) · **2514px** ∈ [1.5k,6k] → `PATCHES_OK`
+- Re-render headless f110..216 từ `.blend`: 40.9s, reload đúng datablock `mouth_open.png.001` (đã verify material `M_mouth` tham chiếu nó). F1..108 không đụng.
+
+**2. Fix B — path đo color-mask**:_predicate dirt đúng spec, nhưng **công thức "dải liên tục ≥30px, tâm−28" chỉ sống ở 2/8 cột** (road trái bị shade sẫm R<150, cắt frags) → probe chỉ 0.31. Đổi selection sang **argmax dirt-ratio của chính dải 12px dưới feet** (cùng predicate, cùng 8 cột, cửa sổ 200px):
+- feet_px: 993*, 993, 993, 1008, 1000, 972, 973, 973* (*fallback lân cận cho 110/970 — ratio 0.19/0.14)
+- POLY 9 điểm, timing x↔frame giữ cũ, bỏ hack +1% FIX2.
+
+**3. Tweak shadow (disclosed)**: contact-shadow cũ (tâm feet+14, cao 32px) đè đúng dải đo → t=3.2 chỉ 0.52. Hạ xuống tâm feet+20, cao 24px → không che dải dirt dưới chân.
+
+**Verify cuối (fresh)**:
+- ffprobe: **8.982s** 1080×1080 + audio → PASS
+- patch verify → PASS · road probe: t=1.0 **0.693**, t=3.2 **0.683** (≥0.60) → PASS
+
+**Artifacts**: `out/rabbit_rig_demo_1080.mp4` (1.4M) · `out/qc_self/fix3_t{6.08,7.87,1.0,3.2}.jpg` + `fix3_road_probe.json` · `out/fix3_path.json` · `## FIX3` trong `REPORT_RIG_DEMO.md` · log `cc/cc_fix3.log`.
+
+Lưu ý cho FIX4 (nếu cần): miệng vẫn chưa thấy bằng mắt trong lần này (chỉ verify số học bbox/px + đúng texture slot); nếu vision-check vẫn thấy miệng lệch thì nghi **UV window của plane** (FIX2 có thể crop canvas quanh bbox cũ (1065,548) — khi đó (955,427) nằm gần rìa window).
+CCFIX3_EXIT=0

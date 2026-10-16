@@ -1,0 +1,9 @@
+model: cx/gpt-5.6-luna-image
+kind: t2i
+size: 1024x1024
+background: transparent
+elapsed_s: 91
+check: mode=RGBA transparent=37.0% opaque=61.8% thr=5.0
+
+--- prompt ---
+one big friendly oak tree with a thick sturdy trunk and a lush round leafy green canopy, wide enough shade at the base for a small rabbit to nap under, full tree visible, isolated subject, fully transparent background, flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark, isolated subject on transparent background

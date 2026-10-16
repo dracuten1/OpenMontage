@@ -1,0 +1,22 @@
+LAG: {
+ "leg_near_front_vs_leg_far_hind": {
+  "lag_f": -10,
+  "r": 0.7511
+ },
+ "leg_near_hind_vs_leg_far_front": {
+  "lag_f": 0,
+  "r": 0.86
+ },
+ "leg_near_front_vs_leg_near_hind": {
+  "lag_f": -10,
+  "r": 0.8022
+ },
+ "leg_far_front_vs_leg_far_hind": {
+  "lag_f": 0,
+  "r": 0.9797
+ }
+}
+SWING PEAKS: {"leg_near_hind": {"x_max_frame_1based": 14, "x_min_frame_1based": 4, "amp_px": 22.5}, "leg_far_hind": {"x_max_frame_1based": 17, "x_min_frame_1based": 2, "amp_px": 24.6}, "leg_near_front": {"x_max_frame_1based": 1, "x_min_frame_1based": 14, "amp_px": 31.3}, "leg_far_front": {"x_max_frame_1based": 17, "x_min_frame_1based": 2, "amp_px": 20.6}}
+neck f1 cols>=8px: 13 f13: 120
+f13 worst: {'x': 1049, 'gap_px': 29, 'y': (728, 756)}
+GAIT_LAG_OK

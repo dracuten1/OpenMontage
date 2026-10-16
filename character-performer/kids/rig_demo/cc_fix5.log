@@ -1,0 +1,2 @@
+Đã gửi yêu cầu tới reviewer (agent idle, sẽ phản hồi ở lượt tới). Trạng thái hiện tại: probe JSON đã tự verify — `all_pass: true`, mọi số khớp spec. Chờ reviewer confirm các item còn lại (probe ranges, mp4, composite truth, REPORT section, fade a+1) rồi tổng kết.
+CCFIX5_EXIT=0

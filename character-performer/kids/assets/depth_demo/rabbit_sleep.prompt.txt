@@ -1,0 +1,9 @@
+model: cx/gpt-5.6-luna-image
+kind: t2i
+size: 1024x1024
+background: transparent
+elapsed_s: 433
+check: mode=RGBA transparent=50.4% opaque=49.3% thr=25.0
+
+--- prompt ---
+kawaii white rabbit with soft cream highlights wearing a red vest with a single yellow button, thick dark-brown outline, sleeping peacefully curled up in a ball, eyes closed with gentle curved eyelids, long ears relaxed drooping over the body, paws tucked in, leaning against a tree trunk base, do NOT draw any z letters or sleep symbols, side view, full body, flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark, isolated subject on transparent background

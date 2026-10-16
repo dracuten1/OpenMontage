@@ -1,0 +1,33 @@
+{
+  "task": "TASK_TURN4_A1",
+  "model": "cx/gpt-image-2.5-sunburst",
+  "endpoint": "http://127.0.0.1:20128/v1/images/generations",
+  "started": "2026-10-14T11:28:54",
+  "images": [
+    {
+      "file": "rabbit_back_run3",
+      "ref": "remotion-composer/public/character-performer/kids/sprite_lib/rabbit/rabbit_back_run2.png",
+      "exit": 0,
+      "attempt": 1,
+      "seconds": 38.7,
+      "size": "1489x1056",
+      "bytes": 638162,
+      "mode": "RGBA",
+      "transparent_pct": 75.5,
+      "path": "character-performer/kids/turn4/probe/rabbit_back_run3.png"
+    },
+    {
+      "file": "rabbit_front_run3",
+      "ref": "remotion-composer/public/character-performer/kids/sprite_lib/rabbit/rabbit_front_run2.png",
+      "exit": 0,
+      "attempt": 1,
+      "seconds": 51.6,
+      "size": "1032x1524",
+      "bytes": 1068639,
+      "mode": "RGBA",
+      "transparent_pct": 53.0,
+      "path": "character-performer/kids/turn4/probe/rabbit_front_run3.png"
+    }
+  ],
+  "finished": "2026-10-14T11:30:24"
+}

@@ -1,0 +1,66 @@
+{
+ "materials": {
+  "M_eyelid": [
+   {
+    "data_path": "nodes[\"AlphaKey\"].inputs[1].default_value",
+    "array_index": 0,
+    "key_range": [
+     1.0,
+     218.0
+    ],
+    "n_keys": 13,
+    "vals": {
+     "1": 0.0,
+     "49": 0.0,
+     "90": 0.0,
+     "96": 0.0,
+     "97": 0.0,
+     "98": 0.0,
+     "99": 0.0,
+     "105": 0.0,
+     "150": 0.0,
+     "248": 0.0
+    },
+    "max_dev_f1_f97": 0.0
+   }
+  ],
+  "M_mouth": [
+   {
+    "data_path": "nodes[\"AlphaKey\"].inputs[1].default_value",
+    "array_index": 0,
+    "key_range": [
+     1.0,
+     242.0
+    ],
+    "n_keys": 29,
+    "vals": {
+     "1": 0.0,
+     "49": 0.0,
+     "90": 0.0,
+     "96": 0.0,
+     "97": 0.0,
+     "98": 0.0,
+     "99": 0.0,
+     "105": 1.0,
+     "150": 1.0,
+     "248": 0.0
+    },
+    "max_dev_f1_f97": 0.0
+   }
+  ]
+ },
+ "window_scan_1_97": {
+  "M_eyelid": [
+   {
+    "path": "nodes[\"AlphaKey\"].inputs[1].default_value",
+    "max_dev_f1_f97": 0.0
+   }
+  ],
+  "M_mouth": [
+   {
+    "path": "nodes[\"AlphaKey\"].inputs[1].default_value",
+    "max_dev_f1_f97": 0.0
+   }
+  ]
+ }
+}

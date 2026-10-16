@@ -1,0 +1,13 @@
+## FIX1 — XONG
+
+**Kết quả gate:** `out/rabbit_rig_demo_1080.mp4` — dur 8.982s, 1080×1080, audio, 24fps, comp_meta ok=true. Solo-verify **10/10 PASS** (bbox exact ±8px, content 2.27–6.83/255). Clip canvas **0/216** frame.
+
+**Chệch lớn so với chỉ định (bằng chứng số, đã ghi rõ trong report):**
+- **Texture flip KHÔNG áp dụng** — chẩn đoán sai. Số liệu: solo head giả thuyết "content-vflip tại vị trí V" khớp 3.18/255 (pixel-exact) ⇒ render = `V(place(png))` toàn cục, không phải lộn từng part. Flip PNG sẽ double-flip + tán loạn placement.
+- Bug thật thứ 2: **placement rebake drift khi load blend** (f0001 v1 bbox [361,55,1014,902] không khớp upright lẫn V) — nguồn gốc "body cao trên đầu, tai chỉ xuống".
+- Fix thay thế: (1) `fix_render_prep.py` calibrate `matrix_parent_inverse`, err 1.43e-06; (2) `composite.py` un-flip frame trước crop; (3) camera fit ortho 13.9 / z 3.80 theo sweep đo [−2.756, 10.350]m. Đã chứng minh bằng toán: `world(t) = P(t) @ P_rest⁻¹ @ want` = bone-follow chuẩn, không có mpi-amplification — sweep lớn là bone keys hips squash/stretch chính gốc.
+
+**QC stills:** `out/qc_self/fix1_run_mid.jpg` (t=2.5) · `fix1_open_cue.jpg` (t=6.08) · `fix1_closed_mid.jpg` (t=7.87)
+
+**FAIL sót: không.** 2 cảnh báo: (a) `.bak_pre_fix1` bị overwrite lần prep 2 — không còn blend gốc v1 sạch; (b) nếu tai đập mạnh quá ở run shot thì chỉnh biên độ scaleY hips trong action (authored motion, không phải bug rig). Chi tiết + exit codes đầy đủ trong `## FIX1` của `out/REPORT_RIG_DEMO.md`.
+CCFIX1_EXIT=0

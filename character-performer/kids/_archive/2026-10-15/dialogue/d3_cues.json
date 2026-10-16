@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "soundFile": "/Users/tuyennguyen/project/OpenMontage/character-performer/kids/dialogue/d3_turtle.wav",
+    "duration": 4.12
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.05, "value": "X" },
+    { "start": 0.05, "end": 0.18, "value": "F" },
+    { "start": 0.18, "end": 0.53, "value": "E" },
+    { "start": 0.53, "end": 0.74, "value": "B" },
+    { "start": 0.74, "end": 0.95, "value": "C" },
+    { "start": 0.95, "end": 1.10, "value": "X" },
+    { "start": 1.10, "end": 1.23, "value": "B" },
+    { "start": 1.23, "end": 1.41, "value": "A" },
+    { "start": 1.41, "end": 1.96, "value": "C" },
+    { "start": 1.96, "end": 2.11, "value": "B" },
+    { "start": 2.11, "end": 2.29, "value": "C" },
+    { "start": 2.29, "end": 2.47, "value": "A" },
+    { "start": 2.47, "end": 2.54, "value": "C" },
+    { "start": 2.54, "end": 2.81, "value": "B" },
+    { "start": 2.81, "end": 2.93, "value": "H" },
+    { "start": 2.93, "end": 3.07, "value": "C" },
+    { "start": 3.07, "end": 3.28, "value": "B" },
+    { "start": 3.28, "end": 3.49, "value": "C" },
+    { "start": 3.49, "end": 3.91, "value": "B" },
+    { "start": 3.91, "end": 4.12, "value": "X" }
+  ]
+}

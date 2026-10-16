@@ -1,0 +1,10 @@
+{"name": "head", "ok": true, "err": null}
+{"name": "ear_up", "ok": true, "err": null}
+{"name": "ear_tilt", "ok": true, "err": null}
+{"name": "body", "ok": true, "err": null}
+{"name": "arm_near", "ok": true, "err": null}
+{"name": "arm_far", "ok": true, "err": null}
+{"name": "leg_left", "ok": true, "err": null}
+{"name": "leg_right", "ok": true, "err": null}
+{"name": "mO_full", "ok": true, "err": null}
+{"name": "blink_full", "ok": true, "err": null}

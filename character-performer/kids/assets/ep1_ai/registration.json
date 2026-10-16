@@ -1,0 +1,178 @@
+{
+ "rabbit_greet.png": {
+  "size": [
+   1535,
+   1024
+  ],
+  "ar": 1.499,
+  "t": 12,
+  "b": 1019,
+  "cx": 815,
+  "content_h_frac": 0.9834
+ },
+ "rabbit_greet_mO.png": {
+  "size": [
+   1535,
+   1024
+  ],
+  "ar": 1.499,
+  "t": 12,
+  "b": 1021,
+  "cx": 814,
+  "content_h_frac": 0.9854
+ },
+ "rabbit_taunt.png": {
+  "size": [
+   1535,
+   1024
+  ],
+  "ar": 1.499,
+  "t": 16,
+  "b": 1012,
+  "cx": 814,
+  "content_h_frac": 0.9727
+ },
+ "rabbit_taunt_mO.png": {
+  "size": [
+   1536,
+   1024
+  ],
+  "ar": 1.5,
+  "t": 16,
+  "b": 1012,
+  "cx": 814,
+  "content_h_frac": 0.9727
+ },
+ "rabbit_run1.png": {
+  "size": [
+   1536,
+   1024
+  ],
+  "ar": 1.5,
+  "t": 28,
+  "b": 978,
+  "cx": 763,
+  "content_h_frac": 0.9277
+ },
+ "rabbit_run2.png": {
+  "size": [
+   1536,
+   1024
+  ],
+  "ar": 1.5,
+  "t": 27,
+  "b": 968,
+  "cx": 768,
+  "content_h_frac": 0.9189
+ },
+ "rabbit_shock.png": {
+  "size": [
+   1536,
+   1024
+  ],
+  "ar": 1.5,
+  "t": 16,
+  "b": 1015,
+  "cx": 817,
+  "content_h_frac": 0.9756
+ },
+ "rabbit_shock_m0.png": {
+  "size": [
+   1536,
+   1024
+  ],
+  "ar": 1.5,
+  "t": 16,
+  "b": 1015,
+  "cx": 817,
+  "content_h_frac": 0.9756
+ },
+ "turtle_proud.png": {
+  "size": [
+   1536,
+   1024
+  ],
+  "ar": 1.5,
+  "t": 97,
+  "b": 924,
+  "cx": 777,
+  "content_h_frac": 0.8076
+ },
+ "turtle_proud_mO.png": {
+  "size": [
+   1535,
+   1024
+  ],
+  "ar": 1.499,
+  "t": 96,
+  "b": 925,
+  "cx": 777,
+  "content_h_frac": 0.8096
+ },
+ "finish_bg.png": {
+  "size": [
+   1672,
+   941
+  ],
+  "ar": 1.7768,
+  "t": 0,
+  "b": 941,
+  "cx": 836,
+  "content_h_frac": 1.0
+ },
+ "turtle_walk.png": {
+  "size": [
+   1535,
+   1024
+  ],
+  "ar": 1.499,
+  "t": 100,
+  "b": 924,
+  "cx": 776,
+  "content_h_frac": 0.8047
+ },
+ "turtle_m0.png": {
+  "size": [
+   1535,
+   1024
+  ],
+  "ar": 1.499,
+  "t": 96,
+  "b": 929,
+  "cx": 776,
+  "content_h_frac": 0.8135
+ },
+ "turtle_mO.png": {
+  "size": [
+   1535,
+   1024
+  ],
+  "ar": 1.499,
+  "t": 98,
+  "b": 925,
+  "cx": 776,
+  "content_h_frac": 0.8076
+ },
+ "rabbit_sleep.png": {
+  "size": [
+   1536,
+   1024
+  ],
+  "ar": 1.5,
+  "t": 68,
+  "b": 934,
+  "cx": 765,
+  "content_h_frac": 0.8457
+ },
+ "tree_sleep.png": {
+  "size": [
+   1223,
+   1286
+  ],
+  "ar": 0.951,
+  "t": 0,
+  "b": 1277,
+  "cx": 611,
+  "content_h_frac": 0.993
+ }
+}

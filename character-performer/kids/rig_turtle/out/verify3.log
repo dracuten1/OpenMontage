@@ -1,0 +1,10 @@
+00:00.337  blend            | Read blend: "/Users/tuyennguyen/project/OpenMontage/character-performer/kids/rig_turtle/out/turtle_rig.blend"
+BlenderMCP addon registered
+[finish_verify] all_pass=True
+  a_leg_binding pass=True
+  b_head_copy_patches pass=True
+  c_key_coverage_1_248 pass=True
+  d_in_plane_local_z pass=True
+  f_amplitudes pass=True
+  e_head_stability pass=True
+FINISH_VERIFY_OK

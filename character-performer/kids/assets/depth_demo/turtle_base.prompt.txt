@@ -1,0 +1,9 @@
+model: cx/gpt-5.6-luna-image
+kind: t2i
+size: 1024x1024
+background: transparent
+elapsed_s: 310
+check: mode=RGBA transparent=48.2% opaque=51.4% thr=25.0
+
+--- prompt ---
+cute kawaii golden turtle with warm yellow dome shell and olive-green skin, friendly big brown eyes, smiling, side view, crawling pose, thick dark-brown outlines, flat pastel children's picture-book style, gentle cel shading, no text, isolated subject, flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark, fully transparent background, single turtle centered, side view facing right

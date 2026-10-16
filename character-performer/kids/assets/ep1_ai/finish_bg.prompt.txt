@@ -1,0 +1,10 @@
+model: cx/gpt-5.6-luna-image
+kind: t2i
+size: 1536x1024
+background: opaque
+quality: auto output_format: png n: 1
+elapsed_s: 103
+check: mode=RGB (opaque asset)
+
+--- prompt (text only; ref image sent via body.image) ---
+wide sunny meadow FINISH LINE for a race: a plain red ribbon banner stretched between two wooden poles across a brown dirt road, small colorful pennant flags on strings, distant soft green hills, bright friendly sky, NO characters, no animals, plain red ribbon with no letters or writing on it, flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark

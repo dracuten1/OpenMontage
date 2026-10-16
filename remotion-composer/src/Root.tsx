@@ -20,6 +20,17 @@ import { KidsRabbitCode } from "./KidsRabbitCode";
 import { KidsRabbitTurtleDuet } from "./KidsRabbitDuet";
 import { KidsStoryMultiScene } from "./KidsStoryMultiScene";
 import { KidsStoryEp1V4 } from "./KidsStoryEp1V4";
+import { KidsStoryEp1V6 } from "./KidsStoryEp1V6";
+import { KidsStoryEp1V8 } from "./KidsStoryEp1V8";
+import { KidsDepthDemo } from "./KidsDepthDemo";
+import { KidsStoryEp1AI } from "./KidsStoryEp1AI";
+import { KidsStoryEp1V2 } from "./KidsStoryEp1V2";
+import { KidsRaceRigDemo } from "./KidsRaceRigDemo";
+import { KidsStoryEp1RemakeDemo } from "./KidsStoryEp1RemakeDemo";
+import { KidsStoryEp1Remake } from "./KidsStoryEp1Remake";
+import { KidsS5BackDemo } from "./KidsS5BackDemo";
+import { MeshDeformDemo } from "./MeshDeformDemo";
+import { CapsuleTurnaroundDemo } from "./CapsuleTurnaroundDemo";
 import { TurtleStill, TurtleStillWalk, TurtleStillProud } from "./TurtleStill";
 import {
   TurtleStillV4Idle,
@@ -33,6 +44,7 @@ import { LyricOverlay, LyricOverlayProps } from "./LyricOverlay";
 import { ScenePreview, ScenePreviewProps } from "./con-rong-chau-tien/ScenePreview";
 import { VNMythEpisode } from "./con-rong-chau-tien/Episode";
 import { XiVuBaTocEpisode, XI_VU_BA_TOC_FRAMES } from "./xi-vu-ba-toc/Episode";
+import { SonTinhThuyTinhEpisode, SON_TINH_THUY_TINH_FRAMES } from "./son-tinh-thuy-tinh/Episode";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -283,6 +295,94 @@ export const Root: React.FC = () => {
         height={1080}
       />
       <Composition
+        id="KidsStoryEp1V8"
+        component={KidsStoryEp1V8}
+        durationInFrames={1220}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsStoryEp1V6"
+        component={KidsStoryEp1V6}
+        durationInFrames={1220}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsDepthDemo"
+        component={KidsDepthDemo}
+        durationInFrames={270}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsStoryEp1AI"
+        component={KidsStoryEp1AI}
+        durationInFrames={1220}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsStoryEp1V2"
+        component={KidsStoryEp1V2}
+        durationInFrames={1206}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsRaceRigDemo"
+        component={KidsRaceRigDemo}
+        durationInFrames={102}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsStoryEp1RemakeDemo"
+        component={KidsStoryEp1RemakeDemo}
+        durationInFrames={285}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsS5BackDemo"
+        component={KidsS5BackDemo}
+        durationInFrames={198}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="KidsStoryEp1Remake"
+        component={KidsStoryEp1Remake}
+        durationInFrames={1230}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="MeshDeformDemo"
+        component={MeshDeformDemo}
+        durationInFrames={150}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="CapsuleTurnaroundDemo"
+        component={CapsuleTurnaroundDemo}
+        durationInFrames={180}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
         id="TurtleStill"
         component={TurtleStill}
         durationInFrames={30}
@@ -467,6 +567,24 @@ export const Root: React.FC = () => {
         width={1920}
         height={1080}
         defaultProps={{ withMusic: true } as never}
+      />
+      <Composition
+        id="SonTinhThuyTinh"
+        component={SonTinhThuyTinhEpisode}
+        durationInFrames={SON_TINH_THUY_TINH_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ withMusic: true }}
+      />
+      <Composition
+        id="SonTinhThuyTinhDraft"
+        component={SonTinhThuyTinhEpisode}
+        durationInFrames={SON_TINH_THUY_TINH_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ withMusic: true, draftHud: true }}
       />
       <Composition
         id="XiVuBaToc"

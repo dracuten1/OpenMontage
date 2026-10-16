@@ -1,6 +1,9 @@
 import React from "react";
 import { Easing, interpolate } from "remotion";
 import rabbitSpecJson from "./specs/rabbit.kawaii.json";
+import { DeformableEar } from "./mesh/DeformableEar";
+import { computeOrganicEarAngles } from "./mesh/SpineMesh";
+import { EarRenderMode } from "./mesh/types";
 import {
   blinkFrom,
   CharacterCues,
@@ -61,6 +64,11 @@ export type KawaiiRabbitProps = {
   // clipPath id suffix — ids are global per SVG doc; omit for the historical
   // unsuffixed ids (ms-r-body-clip ...), pass e.g. "main" for multi-instance
   clipSuffix?: string;
+  /** Whether to use Spine-style LBS mesh ears (default: true for organic bending) */
+  useMeshEars?: boolean;
+  earRenderMode?: EarRenderMode;
+  showEarBones?: boolean;
+  showEarWireframe?: boolean;
 };
 
 // asleep 0..1 shared with scene elements (zZz) — same formula the rig uses
@@ -136,6 +144,10 @@ export const KawaiiRabbit: React.FC<KawaiiRabbitProps> = ({
   lookX,
   schedule,
   clipSuffix = "",
+  useMeshEars = true,
+  earRenderMode = "contour",
+  showEarBones = false,
+  showEarWireframe = false,
 }) => {
   const OUT = spec.outline;
   const t = frame / fps;
@@ -273,14 +285,51 @@ export const KawaiiRabbit: React.FC<KawaiiRabbitProps> = ({
 
             {/* ears — droop outward asleep, shoot upright startled; 3-layer pink */}
             <g transform={piv(spec.neck.x, spec.neck.y, rHeadTilt)}>
-              {spec.ear.xs.map((ex, ei) => (
-                <g key={`ear-${ex}`} transform={piv(ex, spec.ear.pivotY, ei === 0 ? earRotL : earRotR)}>
-                  <ellipse cx={ex} cy={spec.ear.outerCy} rx={spec.ear.outerRx} ry={spec.ear.outerRy} fill={spec.ear.outerFill} stroke={OUT} strokeWidth={spec.ear.outerStrokeWidth} strokeLinejoin="round" />
-                  {spec.ear.pinks.map((p) => (
-                    <ellipse key={`earpink-${p.cy}`} cx={ex} cy={p.cy} rx={p.rx} ry={p.ry} fill={p.fill} />
-                  ))}
-                </g>
-              ))}
+              {spec.ear.xs.map((ex, ei) => {
+                const isLeft = ei === 0;
+
+                // Legacy rigid pivot rotation mode (100% backward compatible)
+                if (!useMeshEars) {
+                  return (
+                    <g key={`ear-${ex}`} transform={piv(ex, spec.ear.pivotY, isLeft ? earRotL : earRotR)}>
+                      <ellipse cx={ex} cy={spec.ear.outerCy} rx={spec.ear.outerRx} ry={spec.ear.outerRy} fill={spec.ear.outerFill} stroke={OUT} strokeWidth={spec.ear.outerStrokeWidth} strokeLinejoin="round" />
+                      {spec.ear.pinks.map((p) => (
+                        <ellipse key={`earpink-${p.cy}`} cx={ex} cy={p.cy} rx={p.rx} ry={p.ry} fill={p.fill} />
+                      ))}
+                    </g>
+                  );
+                }
+
+                // Spine-style 3-bone LBS mesh deformation mode
+                const angles = computeOrganicEarAngles({
+                  side: isLeft ? "left" : "right",
+                  t,
+                  asleep,
+                  wakePop,
+                  hopDy: hop.dy,
+                });
+
+                return (
+                  <DeformableEar
+                    key={`ear-${ex}`}
+                    baseX={ex}
+                    baseY={spec.ear.pivotY}
+                    height={spec.ear.outerRy * 2}
+                    width={spec.ear.outerRx * 2}
+                    side={isLeft ? "left" : "right"}
+                    baseAngle={angles.baseAngle}
+                    midBend={angles.midBend}
+                    tipFlop={angles.tipFlop}
+                    outlineColor={OUT}
+                    outlineWidth={spec.ear.outerStrokeWidth}
+                    outerFill={spec.ear.outerFill}
+                    pinks={spec.ear.pinks}
+                    renderMode={earRenderMode}
+                    showBones={showEarBones}
+                    showWireframe={showEarWireframe}
+                  />
+                );
+              })}
             </g>
 
             {/* body with warm rim shading */}

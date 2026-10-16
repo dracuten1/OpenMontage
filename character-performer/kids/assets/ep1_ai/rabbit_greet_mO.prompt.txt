@@ -1,0 +1,12 @@
+model: cx/gpt-5.6-luna-image
+kind: i2i
+img2img_source: character-performer/kids/assets/ep1_ai/rabbit_greet.png (sha256:ff97a340b8cb7723 1535x1024 -> embed 1024x683, structured body.image)
+size: auto
+background: transparent
+image_detail: high
+quality: auto output_format: png n: 1
+elapsed_s: 108
+check: mode=RGBA transparent=69.7% opaque=29.9% thr=25.0
+
+--- prompt (text only; ref image sent via body.image) ---
+The reference image is the EXACT character to keep: a kawaii white rabbit with soft cream highlights wearing a red vest with a single yellow button, thick dark-brown outlines, soft pastel cel shading, flat 2d kawaii children's picture-book style. Using the attached reference image as the exact same character: keep character design and colors EXACTLY, same pose, same size, same framing, same facing direction - only change the mouth: mouth open in a small round O shape as if speaking. Do NOT change the art style, do NOT change the fur color, the red vest or the yellow button, do NOT make it realistic or 3d. flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark, fully transparent background, isolated subject

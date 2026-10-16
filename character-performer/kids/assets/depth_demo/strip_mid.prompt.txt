@@ -1,0 +1,9 @@
+model: cx/gpt-5.6-luna-image
+kind: t2i
+size: 1536x1024
+background: transparent
+elapsed_s: 35
+check: mode=RGBA transparent=46.0% opaque=53.8% thr=25.0
+
+--- prompt ---
+horizontal scenery strip for layering: a row of soft green bushes and small rounded trees across the middle, and a wide brown dirt race-track road covering the bottom 40 percent, NO sky, the entire upper area above the bushes is fully transparent (alpha 0), road and bushes run across the full width edge to edge, flat kawaii children's picture-book style, thick dark-brown outlines, soft pastel colors, gentle cel shading, no text, no watermark, isolated ground layer with transparent background
