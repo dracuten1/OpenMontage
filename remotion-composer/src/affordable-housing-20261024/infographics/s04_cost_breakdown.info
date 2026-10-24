@@ -1,0 +1,15 @@
+infographic chart-bar-plain-text
+data
+  title CƠ CẤU GIÁ THÀNH 1M² CĂN HỘ NỘI ĐÔ
+  desc Bóc tách 4 thành phần chi phí xuất xưởng (CBRE & Bộ Xây Dựng)
+  values
+    - label Tiền đất & GPMB (28%)
+      value 28
+    - label Xây dựng & Vật liệu (38%)
+      value 38
+    - label Chi phí vốn & Pháp lý (18%)
+      value 18
+    - label Thuế & Biên lợi nhuận (16%)
+      value 16
+theme dark
+  palette #FFB703 #00F5D4 #FF5E5B #A78BFA

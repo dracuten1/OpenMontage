@@ -380,144 +380,83 @@ const Scene3Infographics: React.FC<{s: SceneId}> = ({s}) => {
 };
 
 // Scene 4: Bài toán mua căn 50m2 - 3,25 tỷ
+// Scene 4: Giải phẫu chi phí giá thành 1m² (AntV Infographic upgraded)
 const Scene4Infographics: React.FC<{s: SceneId}> = ({s}) => {
   const f = useCurrentFrame();
-  const calc1El = el(s, 'calc1');
-  const totalEl = el(s, 'total');
-  const loanEl = el(s, 'loan');
-  const monthlyEl = el(s, 'monthly');
-
-  // Count up to 3.25 Tỷ
-  const totalVal = interpolate(
-    f - totalEl.start_frame_local,
-    [0, 24],
-    [0, 3.25],
-    {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
-  ).toFixed(2);
+  const costLandEl = el(s, 'cost_land');
+  const costBuildEl = el(s, 'cost_build');
+  const costFloorEl = el(s, 'cost_floor');
 
   return (
     <>
-      {/* Top Formula Card */}
-      <Spoken at={calc1El.start_frame_local} fromY={-16} style={{...pos(70, 460)}}>
-        <div style={glassCard(C.border, 'rgba(15, 23, 42, 0.92)')}>
-          <div style={{fontSize: 20, fontWeight: 800, color: C.cyan}}>
-            CÔNG THỨC ĐỊNH GIÁ CĂN HỘ 2 PHÒNG NGỦ
-          </div>
+      {/* Top Header Card */}
+      <Spoken at={0} fromY={-16} style={{...pos(70, 290)}}>
+        <div
+          style={{
+            textAlign: 'center',
+            background: 'rgba(15, 23, 42, 0.94)',
+            padding: '16px 24px',
+            borderRadius: 20,
+            border: `1.5px solid ${C.amber}55`,
+          }}
+        >
           <div
             style={{
-              display: 'flex',
-              alignItems: 'baseline',
-              gap: 16,
-              marginTop: 8,
-              flexWrap: 'wrap',
+              fontSize: 20,
+              fontWeight: 800,
+              color: C.amber,
+              letterSpacing: 1.5,
+              textTransform: 'uppercase',
             }}
           >
-            <div style={{fontSize: 38, fontWeight: 900, color: C.white}}>
-              50 m² × 65 tr/m²
-            </div>
-            {f >= totalEl.start_frame_local && (
-              <div
-                style={{
-                  fontSize: 52,
-                  fontWeight: 900,
-                  color: C.amber,
-                  textShadow: `0 0 20px ${C.amber}66`,
-                }}
-              >
-                = {totalVal} TỶ ĐỒNG
-              </div>
-            )}
-          </div>
-        </div>
-      </Spoken>
-
-      {/* SVG Blueprint Dimension Frame over 3D Apartment */}
-      <svg
-        viewBox="0 0 1080 1920"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          pointerEvents: 'none',
-          zIndex: 25,
-        }}
-      >
-        {/* Blueprint Corners centered at y = 660..970 */}
-        <g stroke={C.cyan} strokeWidth="3" fill="none" opacity="0.85">
-          {/* Top-left */}
-          <path d="M 120 680 L 80 680 L 80 720" />
-          {/* Top-right */}
-          <path d="M 960 680 L 1000 680 L 1000 720" />
-          {/* Bottom-left */}
-          <path d="M 120 970 L 80 970 L 80 930" />
-          {/* Bottom-right */}
-          <path d="M 960 970 L 1000 970 L 1000 930" />
-
-          {/* Dimension Line across width */}
-          <line
-            x1="120"
-            y1="655"
-            x2="960"
-            y2="655"
-            strokeDasharray="8 6"
-            stroke={C.blue}
-            strokeWidth="2"
-          />
-          <polygon points="120,655 135,649 135,661" fill={C.blue} />
-          <polygon points="960,655 945,649 945,661" fill={C.blue} />
-        </g>
-        <text
-          x="540"
-          y="642"
-          fill={C.cyan}
-          fontSize="22"
-          fontWeight="800"
-          textAnchor="middle"
-          fontFamily={FONT}
-          letterSpacing="2"
-        >
-          [ CAD BLUEPRINT: 50.0 M² CĂN HỘ TIÊU CHUẨN ]
-        </text>
-      </svg>
-
-      {/* Bottom Cards: Loan & Monthly */}
-      <Spoken at={loanEl.start_frame_local} fromY={20} style={{...pos(70, 1010)}}>
-        <div style={glassCard(C.blue, 'rgba(17, 28, 53, 0.94)')}>
-          <div style={{fontSize: 20, fontWeight: 800, color: C.blue}}>
-            CƠ CẤU VỐN VAY NGÂN HÀNG (70%)
+            GIẢI PHẪU CHI PHÍ DỰ ÁN
           </div>
           <div
             style={{
-              fontSize: 27,
+              fontSize: 38,
               fontWeight: 900,
               color: C.white,
               marginTop: 4,
             }}
           >
-            Vốn tự có 30% (~975 tr) · Vay 70% (~2,28 tỷ) trong 20 năm
+            Vì Sao Biến Mất Căn Hộ 30 Tr/M²?
           </div>
         </div>
       </Spoken>
 
-      <Spoken at={monthlyEl.start_frame_local} fromY={20} style={{...pos(70, 1140)}}>
+      {/* Main AntV Infographic Vector: Cost breakdown bar chart */}
+      <Spoken at={costLandEl.start_frame_local} fromY={18} style={{...pos(70, 440)}}>
+        <div style={{...glassCard(C.amber, 'rgba(15, 23, 42, 0.94)'), padding: '24px 20px'}}>
+          <InfographicView id="s04_cost_breakdown" at={costLandEl.start_frame_local} scale={1.04} />
+        </div>
+      </Spoken>
+
+      {/* Cost Floor Outcome Card */}
+      <Spoken at={costFloorEl.start_frame_local} fromY={24} style={{...pos(70, 1020)}}>
         <div style={glassCard(C.coral, 'rgba(15, 23, 42, 0.96)')}>
-          <div style={{fontSize: 20, fontWeight: 800, color: C.coral}}>
-            TRẢ GÓP THÁNG ĐẦU TIÊN (GỐC + LÃI)
-          </div>
-          <div
-            style={{
-              fontSize: 48,
-              fontWeight: 900,
-              color: C.amber,
-              marginTop: 4,
-            }}
-          >
-            27 – 29 <span style={{fontSize: 28, color: C.white}}>TRIỆU / THÁNG</span>
-          </div>
-          <div style={{fontSize: 18, color: C.muted, marginTop: 4}}>
-            Gốc ~9,5 triệu + Lãi ưu đãi ~17,5 triệu/tháng
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+            <div>
+              <div style={{fontSize: 20, fontWeight: 800, color: C.coral}}>
+                GIÁ THÀNH XUẤT XƯỞNG TỐI THIỂU
+              </div>
+              <div style={{fontSize: 48, fontWeight: 900, color: C.amber, marginTop: 4}}>
+                45 – 55 <span style={{fontSize: 28, color: C.white}}>TRIỆU / M²</span>
+              </div>
+            </div>
+            <div
+              style={{
+                background: 'rgba(255, 94, 91, 0.15)',
+                border: `1.5px solid ${C.coral}`,
+                borderRadius: 14,
+                padding: '10px 18px',
+                textAlign: 'center',
+              }}
+            >
+              <div style={{fontSize: 16, color: C.muted}}>Chưa tính</div>
+              <div style={{fontSize: 22, fontWeight: 900, color: C.coral}}>
+                Thuế & Lợi nhuận
+              </div>
+            </div>
           </div>
         </div>
       </Spoken>
@@ -680,34 +619,15 @@ const Scene6Infographics: React.FC<{s: SceneId}> = ({s}) => {
         </div>
       </div>
 
-      {/* Rate 1 Card */}
-      <Spoken at={rate1El.start_frame_local} fromY={16} style={{...pos(70, 690)}}>
-        <div style={glassCard(C.green, 'rgba(15, 23, 42, 0.92)')}>
-          <div style={{display: 'flex', justifyContent: 'space-between'}}>
-            <div style={{fontSize: 22, fontWeight: 800, color: C.green}}>
-              ✅ GIAI ĐOẠN ƯU ĐÃI (NĂM 1–2): 8%/NĂM
-            </div>
-          </div>
-          <div style={{fontSize: 28, fontWeight: 900, color: C.white, marginTop: 4}}>
-            Trả góp ~28 triệu/tháng (56% thu nhập)
-          </div>
-        </div>
-      </Spoken>
-
-      {/* Rate 2 Card */}
-      <Spoken at={rate2El.start_frame_local} fromY={20} style={{...pos(70, 825)}}>
-        <div style={glassCard(C.amber, 'rgba(17, 28, 53, 0.94)')}>
-          <div style={{fontSize: 22, fontWeight: 800, color: C.amber}}>
-            ⚠️ KHI HẾT ƯU ĐÃI: LÃI SUẤT THẢ NỔI VỌT LÊN 12%/NĂM
-          </div>
-          <div style={{fontSize: 20, color: C.muted, marginTop: 4}}>
-            Lãi suất cơ sở ngân hàng thương mại + biên độ điều chỉnh 2% – 3,5%
-          </div>
+      {/* Main AntV Infographic Vector: Interest Shock Comparison */}
+      <Spoken at={rate1El.start_frame_local} fromY={18} style={{...pos(70, 520)}}>
+        <div style={{...glassCard(C.coral, 'rgba(15, 23, 42, 0.94)'), padding: '24px 20px'}}>
+          <InfographicView id="s06_interest_shock" at={rate1El.start_frame_local} scale={1.04} />
         </div>
       </Spoken>
 
       {/* Shock Card */}
-      <Spoken at={shockEl.start_frame_local} fromY={24} style={{...pos(70, 960)}}>
+      <Spoken at={shockEl.start_frame_local} fromY={24} style={{...pos(70, 1050)}}>
         <div
           style={{
             ...glassCard(C.coral, 'rgba(30, 10, 18, 0.96)'),
@@ -724,11 +644,11 @@ const Scene6Infographics: React.FC<{s: SceneId}> = ({s}) => {
                 lineHeight: 1.15,
               }}
             >
-              VỌT QUA 32 TRIỆU / THÁNG (&gt;64% THU NHẬP)
+              VỌT LÊN 33 – 36 TRIỆU / THÁNG (&gt;65–70% THU NHẬP)
             </div>
           </div>
           <div style={{fontSize: 20, color: '#FECDD3', marginTop: 8}}>
-            Nguy cơ kiệt quệ tài chính hoặc mất khả năng trả nợ nếu có biến cố việc làm.
+            Vượt ngưỡng an toàn quốc tế DTI 40%, đẩy người mua vào bẫy nợ kiệt quệ tài chính.
           </div>
         </div>
       </Spoken>

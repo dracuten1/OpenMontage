@@ -6,8 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const composerNodeModules = path.resolve(__dirname, '../remotion-composer/node_modules');
-const ssrPath = path.join(composerNodeModules, '@antv/infographic/esm/ssr/index.js');
+const ssrPath = path.resolve(__dirname, '../remotion-composer/node_modules/@antv/infographic/esm/ssr/index.js');
 const { renderToString } = await import(ssrPath);
 
 const infographics = [
@@ -66,6 +65,26 @@ theme dark
 `
   },
   {
+    id: 's04_cost_breakdown',
+    title: 'S04: Cơ cấu giá thành 1m²',
+    dsl: `infographic chart-bar-plain-text
+data
+  title CƠ CẤU GIÁ THÀNH 1M² CĂN HỘ NỘI ĐÔ
+  desc Bóc tách 4 thành phần chi phí xuất xưởng (CBRE & Bộ Xây Dựng)
+  values
+    - label Tiền đất & GPMB (28%)
+      value 28
+    - label Xây dựng & Vật liệu (38%)
+      value 38
+    - label Chi phí vốn & Pháp lý (18%)
+      value 18
+    - label Thuế & Biên lợi nhuận (16%)
+      value 16
+theme dark
+  palette #FFB703 #00F5D4 #FF5E5B #A78BFA
+`
+  },
+  {
     id: 's05_cashflow',
     title: 'S05: Dòng tiền 50 triệu/tháng',
     dsl: `infographic chart-pie-donut-compact-card
@@ -81,6 +100,36 @@ data
       value 14
 theme dark
   palette #FF5E5B #FFB703 #00F5D4
+`
+  },
+  {
+    id: 's06_interest_shock',
+    title: 'S06: Cú sốc lãi suất thả nổi',
+    dsl: `infographic compare-binary-horizontal-badge-card-vs
+data
+  title CÚ SỐC LÃI SUẤT THẢ NỔI VAY MUA NHÀ
+  desc So sánh áp lực trả nợ giữa giai đoạn ưu đãi và thả nổi
+  compares
+    - label Giai đoạn Ưu đãi (1-2 năm)
+      icon shield
+      children
+        - label Lãi suất vay
+          value 8.0%/năm
+          icon percent
+        - label Trả góp tháng
+          value 28 tr/tháng (56%)
+          icon credit card
+    - label Hết Ưu đãi: Thả nổi
+      icon alert triangle
+      children
+        - label Lãi suất thả nổi
+          value 11.5–12.5%
+          icon trending up
+        - label Trả góp tháng
+          value 33–36 tr/tháng (70%)
+          icon alert circle
+theme dark
+  palette #10B981 #FF5E5B #FFB703
 `
   },
   {
