@@ -262,6 +262,7 @@ stages:
       - "render_runtime in edit_decisions matches proposal_packet — silent swap is a CRITICAL governance violation"
       - "Cinematic work typically picks render_runtime='remotion' (CinematicRenderer) for video-led pieces; render_runtime='hyperframes' for kinetic title cards and HTML/GSAP-driven trailers"
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report artifact
       - Output file exists and passes ffprobe validation
 
@@ -283,5 +284,6 @@ stages:
       - Metadata matches the tone and distribution intent
       - Poster-frame or thumbnail concept is coherent
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid publish_log artifact
       - Export package contains video and metadata outputs

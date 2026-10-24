@@ -1,0 +1,76 @@
+// GENERATED from projects/chu-dong-tu/artifacts/scene_timing.json (S2 artifact).
+// Do not hand-edit — regenerate via scripts/gen_scene_timing.py (speech-lock, engine pattern S2E01 d-012).
+
+
+export type SceneTiming = {
+  sceneId: string;
+  sectionId: string;
+  startFrame: number;
+  durationInFrames: number;
+};
+
+export const TIMING: SceneTiming[] = [
+  { sceneId: "sc001", sectionId: "s01", startFrame: 0, durationInFrames: 239 },
+  { sceneId: "sc002", sectionId: "s01", startFrame: 239, durationInFrames: 671 },
+  { sceneId: "sc003", sectionId: "s02", startFrame: 910, durationInFrames: 174 },
+  { sceneId: "sc004", sectionId: "s02", startFrame: 1084, durationInFrames: 484 },
+  { sceneId: "sc005", sectionId: "s03", startFrame: 1568, durationInFrames: 57 },
+  { sceneId: "sc006", sectionId: "s03", startFrame: 1625, durationInFrames: 292 },
+  { sceneId: "sc007", sectionId: "s03", startFrame: 1917, durationInFrames: 407 },
+  { sceneId: "sc008", sectionId: "s04", startFrame: 2324, durationInFrames: 391 },
+  { sceneId: "sc009", sectionId: "s04", startFrame: 2715, durationInFrames: 653 },
+  { sceneId: "sc010", sectionId: "s05", startFrame: 3368, durationInFrames: 346 },
+  { sceneId: "sc011", sectionId: "s05", startFrame: 3714, durationInFrames: 378 },
+  { sceneId: "sc012", sectionId: "s06", startFrame: 4092, durationInFrames: 451 },
+  { sceneId: "sc013", sectionId: "s06", startFrame: 4543, durationInFrames: 368 },
+  { sceneId: "sc014", sectionId: "s07", startFrame: 4911, durationInFrames: 260 },
+  { sceneId: "sc015", sectionId: "s07", startFrame: 5171, durationInFrames: 993 },
+  { sceneId: "sc016", sectionId: "s08", startFrame: 6164, durationInFrames: 155 },
+  { sceneId: "sc017", sectionId: "s08", startFrame: 6319, durationInFrames: 443 },
+  { sceneId: "sc018", sectionId: "s09", startFrame: 6762, durationInFrames: 333 },
+  { sceneId: "sc019", sectionId: "s09", startFrame: 7095, durationInFrames: 337 },
+  { sceneId: "sc020", sectionId: "s10", startFrame: 7432, durationInFrames: 700 },
+  { sceneId: "sc021", sectionId: "s10", startFrame: 8132, durationInFrames: 523 },
+  { sceneId: "sc022", sectionId: "s11", startFrame: 8655, durationInFrames: 630 },
+  { sceneId: "sc023", sectionId: "s11", startFrame: 9285, durationInFrames: 208 },
+  { sceneId: "sc024", sectionId: "s12", startFrame: 9493, durationInFrames: 70 },
+  { sceneId: "sc025", sectionId: "s12", startFrame: 9563, durationInFrames: 819 },
+  { sceneId: "sc026", sectionId: "s13", startFrame: 10382, durationInFrames: 65 },
+  { sceneId: "sc027", sectionId: "s13", startFrame: 10447, durationInFrames: 1141 },
+  { sceneId: "sc028", sectionId: "s14", startFrame: 11588, durationInFrames: 658 },
+  { sceneId: "sc029", sectionId: "s14", startFrame: 12246, durationInFrames: 489 },
+  { sceneId: "sc030", sectionId: "s15", startFrame: 12735, durationInFrames: 617 },
+  { sceneId: "sc031", sectionId: "s15", startFrame: 13352, durationInFrames: 590 },
+  { sceneId: "sc032", sectionId: "s16", startFrame: 13942, durationInFrames: 430 },
+  { sceneId: "sc033", sectionId: "s16", startFrame: 14372, durationInFrames: 828 },
+  { sceneId: "sc034", sectionId: "s17", startFrame: 15200, durationInFrames: 358 },
+  { sceneId: "sc035", sectionId: "s17", startFrame: 15558, durationInFrames: 165 },
+  { sceneId: "sc036", sectionId: "s18", startFrame: 15723, durationInFrames: 128 },
+  { sceneId: "sc037", sectionId: "s18", startFrame: 15851, durationInFrames: 621 },
+  { sceneId: "sc038", sectionId: "s19", startFrame: 16472, durationInFrames: 160 },
+  { sceneId: "sc039", sectionId: "s19", startFrame: 16632, durationInFrames: 809 },
+  { sceneId: "sc040", sectionId: "s20", startFrame: 17441, durationInFrames: 212 },
+  { sceneId: "sc041", sectionId: "s20", startFrame: 17653, durationInFrames: 743 },
+  { sceneId: "sc042", sectionId: "s21", startFrame: 18396, durationInFrames: 532 },
+  { sceneId: "sc043", sectionId: "s21", startFrame: 18928, durationInFrames: 696 },
+  { sceneId: "sc044", sectionId: "s22", startFrame: 19624, durationInFrames: 571 },
+  { sceneId: "sc045", sectionId: "s22", startFrame: 20195, durationInFrames: 350 },
+  { sceneId: "sc046", sectionId: "s23", startFrame: 20545, durationInFrames: 484 },
+  { sceneId: "sc047", sectionId: "s23", startFrame: 21029, durationInFrames: 176 },
+  { sceneId: "sc048", sectionId: "s24", startFrame: 21205, durationInFrames: 157 },
+  { sceneId: "sc049", sectionId: "s24", startFrame: 21362, durationInFrames: 576 },
+  { sceneId: "sc050", sectionId: "s25", startFrame: 21938, durationInFrames: 533 },
+  { sceneId: "sc051", sectionId: "s25", startFrame: 22471, durationInFrames: 424 },
+  { sceneId: "sc052", sectionId: "s26", startFrame: 22895, durationInFrames: 428 },
+  { sceneId: "sc053", sectionId: "s26", startFrame: 23323, durationInFrames: 755 },
+  { sceneId: "sc054", sectionId: "s27", startFrame: 24078, durationInFrames: 181 },
+  { sceneId: "sc055", sectionId: "s27", startFrame: 24259, durationInFrames: 296 },
+  { sceneId: "sc056", sectionId: "s27", startFrame: 24555, durationInFrames: 203 },
+  { sceneId: "sc057", sectionId: "s28", startFrame: 24758, durationInFrames: 100 },
+  { sceneId: "sc058", sectionId: "s28", startFrame: 24858, durationInFrames: 36 },
+  { sceneId: "sc059", sectionId: "s28", startFrame: 24894, durationInFrames: 466 },
+  { sceneId: "sc060", sectionId: "s29", startFrame: 25360, durationInFrames: 270 },
+  { sceneId: "sc061", sectionId: "s30", startFrame: 25630, durationInFrames: 232 },
+  { sceneId: "sc062", sectionId: "s31", startFrame: 25862, durationInFrames: 110 },
+  { sceneId: "sc063", sectionId: "s32", startFrame: 25972, durationInFrames: 106 }
+];

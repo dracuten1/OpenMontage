@@ -45,6 +45,23 @@ import { ScenePreview, ScenePreviewProps } from "./con-rong-chau-tien/ScenePrevi
 import { VNMythEpisode } from "./con-rong-chau-tien/Episode";
 import { XiVuBaTocEpisode, XI_VU_BA_TOC_FRAMES } from "./xi-vu-ba-toc/Episode";
 import { SonTinhThuyTinhEpisode, SON_TINH_THUY_TINH_FRAMES } from "./son-tinh-thuy-tinh/Episode";
+import { ThanhGiongEpisode, THANH_GIONG_FRAMES } from "./thanh-giong/Episode";
+import {
+  ChuDongTuDemo,
+  CHU_DONG_TU_DEMO_FRAMES,
+} from "./chu-dong-tu/Demo";
+import {
+  ChuDongTuEpisode,
+  CHU_DONG_TU_FRAMES,
+} from "./chu-dong-tu/Episode";
+import { News20261017, NEWS_20261017_TOTAL_FRAMES } from "./news-daily-20261017/Episode";
+import { News20261018, NEWS_20261018_TOTAL_FRAMES } from "./news-daily-20261018/Episode";
+import { News20261019, NEWS_20261019_TOTAL_FRAMES } from "./news-daily-20261019/Episode";
+import { LieuHanhDemo, LIEU_HANH_DEMO_FRAMES } from "./lieu-hanh/Demo";
+import { LieuHanhEpisode, LIEU_HANH_FRAMES } from "./lieu-hanh/Episode";
+import { CoastalReclamationDemo } from "./coastal-reclamation-20261024/Scene01Demo";
+import { CoastalReclamationThumbnail } from "./coastal-reclamation-20261024/Thumbnail";
+import { CoastalReclamationEpisode } from "./coastal-reclamation-20261024/Episode";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -569,6 +586,51 @@ export const Root: React.FC = () => {
         defaultProps={{ withMusic: true } as never}
       />
       <Composition
+        id="ThanhGiong"
+        component={ThanhGiongEpisode}
+        durationInFrames={THANH_GIONG_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ withMusic: true }}
+      />
+      <Composition
+        id="ThanhGiongDraft"
+        component={ThanhGiongEpisode}
+        durationInFrames={THANH_GIONG_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ withMusic: true, draftHud: true }}
+      />
+      <Composition
+        id="ChuDongTuDemo"
+        component={ChuDongTuDemo}
+        durationInFrames={CHU_DONG_TU_DEMO_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ draftHud: true }}
+      />
+      <Composition
+        id="ChuDongTu"
+        component={ChuDongTuEpisode}
+        durationInFrames={CHU_DONG_TU_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ withMusic: true }}
+      />
+      <Composition
+        id="ChuDongTuDraft"
+        component={ChuDongTuEpisode}
+        durationInFrames={CHU_DONG_TU_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ withMusic: true, draftHud: true }}
+      />
+      <Composition
         id="SonTinhThuyTinh"
         component={SonTinhThuyTinhEpisode}
         durationInFrames={SON_TINH_THUY_TINH_FRAMES}
@@ -596,6 +658,60 @@ export const Root: React.FC = () => {
         defaultProps={{ withMusic: true }}
       />
       <Composition
+        id="News20261017"
+        component={News20261017}
+        durationInFrames={NEWS_20261017_TOTAL_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ hud: false }}
+      />
+      <Composition
+        id="News20261017Debug"
+        component={News20261017}
+        durationInFrames={NEWS_20261017_TOTAL_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ hud: true }}
+      />
+      <Composition
+        id="News20261018"
+        component={News20261018}
+        durationInFrames={NEWS_20261018_TOTAL_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ hud: false }}
+      />
+      <Composition
+        id="News20261018Debug"
+        component={News20261018}
+        durationInFrames={NEWS_20261018_TOTAL_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ hud: true }}
+      />
+      <Composition
+        id="News20261019"
+        component={News20261019}
+        durationInFrames={NEWS_20261019_TOTAL_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ hud: false }}
+      />
+      <Composition
+        id="News20261019Debug"
+        component={News20261019}
+        durationInFrames={NEWS_20261019_TOTAL_FRAMES}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ hud: true }}
+      />
+      <Composition
         id="VNMythScenePreview"
         component={ScenePreview}
         durationInFrames={450}
@@ -606,6 +722,77 @@ export const Root: React.FC = () => {
         calculateMetadata={async ({ props }) => ({
           durationInFrames: (props as ScenePreviewProps).durationInFrames,
         })}
+      />
+      <Composition
+        id="LieuHanhDemo"
+        component={LieuHanhDemo}
+        durationInFrames={LIEU_HANH_DEMO_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ draftHud: true }}
+      />
+      <Composition
+        id="LieuHanh"
+        component={LieuHanhEpisode}
+        durationInFrames={LIEU_HANH_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ withMusic: true }}
+      />
+      <Composition
+        id="LieuHanhDraft"
+        component={LieuHanhEpisode}
+        durationInFrames={LIEU_HANH_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ withMusic: true, draftHud: true }}
+      />
+      <Composition
+        id="CoastalReclamationDemo"
+        component={CoastalReclamationDemo}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ debug: true }}
+      />
+      <Composition
+        id="CoastalReclamationDemoClean"
+        component={CoastalReclamationDemo}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ debug: false }}
+      />
+      <Composition
+        id="CoastalReclamationThumbnail"
+        component={CoastalReclamationThumbnail}
+        durationInFrames={1}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="CoastalReclamationEpisode"
+        component={CoastalReclamationEpisode}
+        durationInFrames={2910}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ debug: true }}
+      />
+      <Composition
+        id="CoastalReclamationEpisodeClean"
+        component={CoastalReclamationEpisode}
+        durationInFrames={2910}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ debug: false }}
       />
     </>
   );

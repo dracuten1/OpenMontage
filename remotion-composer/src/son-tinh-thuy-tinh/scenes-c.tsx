@@ -452,14 +452,15 @@ export const Sc039: React.FC<SceneProps> = () => {
 export const Sc045: React.FC<SceneProps> = () => {
   const A = useA();
   const { frame, dur } = useFrac();
-  const fDoi = A("đời này tiếp đời trước");
+  // d-012B: «đời này tiếp đời trước» (657.8s) nói ở sc044 — đổi cue mở sang intro thực của hồi ba.
+  const fIntro = A("Và nếu ai hỏi thần núi ở đâu");
   const fLop = A("mỗi lớp đất được nện chặt");
   const fNgay = A("một ngày Sơn Tinh đi làm");
   const shadows = [
-    { name: "nông dân", x: 540, y: 640, at: fDoi },
-    { name: "lính", x: 830, y: 566, at: fDoi + 26 / dur },
-    { name: "dân phu", x: 1120, y: 566, at: fDoi + 52 / dur },
-    { name: "kỹ sư", x: 1410, y: 640, at: fDoi + 78 / dur },
+    { name: "nông dân", x: 540, y: 640, at: fIntro },
+    { name: "lính", x: 830, y: 566, at: fIntro + 26 / dur },
+    { name: "dân phu", x: 1120, y: 566, at: fIntro + 52 / dur },
+    { name: "kỹ sư", x: 1410, y: 640, at: fIntro + 78 / dur },
   ];
   return (
     <Paper>
@@ -488,7 +489,7 @@ export const Sc045: React.FC<SceneProps> = () => {
           eyebrow="HỒI BA"
           title="Bóng các thế hệ"
           subtitle="trên sườn đê"
-          startFrac={Math.max(0.02, fDoi - 170 / dur)}
+          startFrac={Math.max(0.02, fIntro - 170 / dur)}
         />
       </div>
       {shadows.map((s, i) => {

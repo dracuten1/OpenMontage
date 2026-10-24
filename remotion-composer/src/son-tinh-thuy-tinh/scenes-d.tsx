@@ -38,9 +38,12 @@ const CHIP_SPOT: React.CSSProperties = { position: "absolute", left: 64, top: 48
 /* sc004 (s02) — IMAGE PLATE — SÍNH LỄ TRUYỆN KỂ (img-04) */
 export const Sc004: React.FC<SceneProps> = () => {
   const A = useA();
+  // d-012B: tách onset panel khỏi từng dòng — panel+header bật tại «ra điều kiện» 51.411s (f1542),
+  // mỗi vế sính lễ có A riêng đúng nhịp đọc thực.
+  const onset = A("ra điều kiện");
   const v1 = A("voi chín ngà");
-  const v2 = v1 + 0.15;
-  const v3 = v1 + 0.3;
+  const v2 = A("gà chín cựa");
+  const v3 = A("ngựa chín hồng mao");
   const cond = A("đến trước thì được cưới");
   const rows: Array<[string, number]> = [
     ["voi chín ngà", v1],
@@ -61,6 +64,7 @@ export const Sc004: React.FC<SceneProps> = () => {
               <Chip color={C.amber}>TRUYỆN KỂ</Chip>
             </Reveal>
           </div>
+          <Reveal startFrac={onset} dy={20}>
           <div
             style={{
               position: "absolute",
@@ -114,6 +118,7 @@ export const Sc004: React.FC<SceneProps> = () => {
               </div>
             </Reveal>
           </div>
+          </Reveal>
           <SourceTag text="Truyện Sơn Tinh, Thủy Tinh — kể từ ghế nhà trường" right />
         </div>
       </InkImageScene>
@@ -721,8 +726,8 @@ export const Sc046: React.FC<SceneProps> = () => {
   const aSd = A("Sử chép đê");
   const aNui = A("Núi nâng lên");
   const aDe = A("Đê nối liền");
-  const aHai = A("hai lớp của một trang giấy");
-  const t = p(aHai - 0.005, aHai + 0.06);
+  // d-012B: «hai lớp của một trang giấy» (707.757s) chuyển sang sc047 — hai trang khớp nhau sau «Đê nối liền».
+  const t = p(aDe, aDe + 0.09);
   const suLines: Array<[string, number]> = [
     ["Sử chép đê.", aSd],
     ["Sử chép quan đê.", aSd + 0.028],
@@ -829,13 +834,6 @@ export const Sc046: React.FC<SceneProps> = () => {
             </div>
           </Reveal>
         </div>
-        <div style={{ position: "absolute", left: 0, right: 0, top: 972, textAlign: "center" }}>
-          <SpringPop startFrac={aHai + 0.06} from={0.9}>
-            <div style={{ fontFamily: FONT.display, fontSize: 34, color: C.amber, whiteSpace: "nowrap" }}>
-              «Chúng là hai lớp của một trang giấy.»
-            </div>
-          </SpringPop>
-        </div>
         <SourceTag text="Truyện kể và chính sử — hai lớp một trang giấy" right />
       </div>
     </Paper>
@@ -894,6 +892,11 @@ export const Sc052: React.FC<SceneProps> = () => {
 /* sc058 (s26) — VÒNG TRÒN KHÉP CỦA CẢ TẬP (diagram, nền tối) */
 export const Sc058: React.FC<SceneProps> = () => {
   const A = useA();
+  // d-012B: hai dòng khép mở chuyển TỪ sc059 sang sc058 — đúng nhịp đọc thực 881.015s/883.556s,
+  // ẩn trước khi vòng icon chiếm vùng giữa; sc059 chỉ giữ câu khép cuối.
+  const t1 = A("không bao giờ thắng");
+  const t2 = A("không bao giờ cho hắn biến mất");
+  const tHide = A("Một kẻ thù bị xóa");
   const aHN = A("hằng năm vẫn đến");
   const aGiu = A("giữ Thủy Tinh ở lại");
   const aM1 = A("Mùa một đi tìm tổ tiên");
@@ -975,6 +978,28 @@ export const Sc058: React.FC<SceneProps> = () => {
             VÒNG TRÒN KHÉP CỦA CẢ TẬP
           </div>
         </Reveal>
+        {/* d-012B: overlay mở tạm — hai dòng khép sớm, đúng nhịp đọc, ẩn trước vòng icon */}
+        <div style={{ position: "absolute", left: 160, top: 240, width: 1600, textAlign: "center" }}>
+          <Reveal startFrac={t1} endFrac={tHide} dy={16}>
+            <div style={{ fontFamily: FONT.display, fontWeight: 700, fontSize: 54, color: C.cream }}>
+              Trong truyện, Thủy Tinh <span style={{ color: C.amber }}>không bao giờ thắng</span>.
+            </div>
+          </Reveal>
+          <Reveal startFrac={t2} endFrac={tHide} dy={16}>
+            <div
+              style={{
+                fontFamily: FONT.body,
+                fontWeight: 500,
+                fontSize: 40,
+                color: C.cream,
+                opacity: 0.92,
+                marginTop: 18,
+              }}
+            >
+              và có lẽ chính vì thế, người ta không bao giờ cho hắn biến mất.
+            </div>
+          </Reveal>
+        </div>
         {/* nét tròn khép kín đúng nhịp «giữ Thủy Tinh ở lại» */}
         <InkDraw d={circleD(960, 470, 300)} startFrac={aGiu} endFrac={aGiu + 0.18} stroke={C.mute} strokeWidth={3} style={INKS} />
         {icons.map((ic) => (

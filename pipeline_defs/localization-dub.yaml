@@ -182,6 +182,7 @@ stages:
       - Subtitle and dub timing match the chosen treatment
       - Version labeling is unambiguous
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report artifact
       - Output file exists and passes ffprobe validation
 
@@ -203,5 +204,6 @@ stages:
       - Locale labels and titles are consistent
       - Review notes remain attached to the published package
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid publish_log artifact
       - Export package contains localized video and metadata outputs

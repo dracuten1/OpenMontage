@@ -222,6 +222,7 @@ stages:
       - "render_runtime in edit_decisions matches proposal_packet — silent swap is a CRITICAL governance violation"
       - "For synthetic UI/terminal demos, render_runtime='remotion' (TerminalScene) is preferred; render_runtime='hyperframes' is valid for custom HTML UIs — in that case, lint+validate must pass before render"
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report artifact
       - Output file exists and passes ffprobe validation
 
@@ -242,5 +243,6 @@ stages:
       - Chapter markers align with workflow steps
       - Export package is complete
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid publish_log artifact
       - Export directory contains video, metadata, and thumbnail concept

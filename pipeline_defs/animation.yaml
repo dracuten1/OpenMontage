@@ -273,6 +273,7 @@ stages:
       - "HyperFrames renders MUST pass `hyperframes lint` and `hyperframes validate` before the render step — never skip validation"
       - "Post-render self-review MANDATORY: extract keyframes, visually inspect each scene, flag weak frames before presenting to user"
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report artifact
       - Output file exists and passes ffprobe validation
       - self_review_completed is true with per-scene quality notes
@@ -295,5 +296,6 @@ stages:
       - Metadata reflects the actual topic, animation mode, and visual system
       - Thumbnail concept matches the final visual language
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid publish_log artifact
       - Export package contains video and metadata outputs

@@ -108,7 +108,7 @@ export const Sc005: React.FC<SceneProps> = () => {
 // sc011 (s04) — MỘT CÂU HỎI: "Bốn lớp, một câu hỏi" + "ai đang thắng?" hold lặng.
 export const Sc011: React.FC<SceneProps> = () => {
   const A = useA();
-  const tBon = A("Bốn lớp");
+  const tBon = A("Bốn lớp", 2);
   const tAi = A("ai đang thắng");
   return (
     <Paper variant="museum">
@@ -708,6 +708,8 @@ export const Sc047: React.FC<SceneProps> = () => {
   const f = (n: number) => n / DUR;
   const dc = A("đổi chủ thể");
   const nc = A("người cùng sống với nước");
+  // d-012B: câu kết «hai lớp của một trang giấy» kế thừa TỪ sc046 — nhịp đọc thật 707.757s, giữ tới hết câu.
+  const aHai = A("hai lớp của một trang giấy");
   return (
     <Paper>
       <div style={{ position: "absolute", left: 160, top: 360, width: 1600, textAlign: "center" }}>
@@ -749,6 +751,13 @@ export const Sc047: React.FC<SceneProps> = () => {
           </div>
         </Reveal>
       </div>
+      <div style={{ position: "absolute", left: 160, top: 884, width: 1600, textAlign: "center" }}>
+        <Reveal startFrac={aHai}>
+          <div style={{ fontFamily: FONT.display, fontSize: 34, color: C.amber }}>
+            «Chúng là hai lớp của một trang giấy.»
+          </div>
+        </Reveal>
+      </div>
     </Paper>
   );
 };
@@ -759,7 +768,7 @@ export const Sc053: React.FC<SceneProps> = () => {
   const { frame, p } = useFrac();
   const DUR = 387;
   const f = (n: number) => n / DUR;
-  const mv = A("Một công việc");
+  const mv = A("Một công việc", 2);
   const dm = A("Đều đặn như mùa");
   const km = A("kể mãi không hết");
   const mapOp = 0.34 - 0.28 * ease(p(0, f(150)));
@@ -850,37 +859,25 @@ export const Sc059: React.FC<SceneProps> = () => {
   const { p } = useFrac();
   const DUR = 370;
   const f = (n: number) => n / DUR;
-  const t1 = A("không bao giờ thắng");
-  const t2 = A("không bao giờ cho hắn biến mất");
+  // d-012B: hai dòng «không bao giờ…» đã chuyển sang sc058 (881.0s/883.6s); sc059 mở bằng câu
+  // khép cuối đúng nhịp thực 899.644s+; fade-to-black giữ nguyên, chỉ sau hết câu 903.430s.
+  const qk = A("quá khứ không nằm phía sau lưng");
+  const nc = A("Nó nằm ngay dưới chân");
   const t3 = A("trong từng mùa nước lên");
   const veilOp = 0.18 + 0.2 * ease(p(0, 1));
   const shut = 0.6 * ease(p(f(260), f(358)));
   return (
     <Paper>
       <AbsoluteFill style={{ background: "rgba(8,6,4," + veilOp + ")", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", left: 160, top: 340, width: 1600, textAlign: "center" }}>
-        <Reveal startFrac={t1} endFrac={t1 + f(20)}>
-          <div style={{ fontFamily: FONT.display, fontWeight: 700, fontSize: 58, color: C.white }}>
-            Trong truyện, Thủy Tinh <span style={{ color: C.amber }}>không bao giờ thắng</span>.
-          </div>
-        </Reveal>
-      </div>
-      <div style={{ position: "absolute", left: 160, top: 474, width: 1600, textAlign: "center" }}>
-        <Reveal startFrac={t2} endFrac={t2 + f(22)}>
-          <div style={{ fontFamily: FONT.body, fontWeight: 500, fontSize: 44, color: C.cream, opacity: 0.92 }}>
-            và có lẽ chính vì thế, người ta không bao giờ cho hắn biến mất.
-          </div>
-        </Reveal>
-      </div>
       <div style={{ position: "absolute", left: 260, top: 716, width: 1400, textAlign: "center" }}>
-        <Reveal startFrac={t3 - f(40)} endFrac={t3 - f(20)}>
+        <Reveal startFrac={qk} endFrac={t3 - f(20)}>
           <div style={{ fontFamily: FONT.body, fontSize: 36, color: C.cream, opacity: 0.82 }}>
             quá khứ không nằm phía sau lưng.
           </div>
         </Reveal>
-        <Reveal startFrac={t3} endFrac={t3 + f(24)}>
+        <Reveal startFrac={nc}>
           <div style={{ fontFamily: FONT.body, fontSize: 36, color: C.mute, marginTop: 14 }}>
-            Nó nằm ngay dưới chân, trong từng mùa nước lên.
+            Nó nằm ngay dưới chân, <span style={{ color: C.amber }}>trong từng mùa nước lên</span>.
           </div>
         </Reveal>
       </div>

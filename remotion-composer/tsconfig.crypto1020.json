@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/crypto-tradingagents-20261020/**/*"],
+  "exclude": []
+}

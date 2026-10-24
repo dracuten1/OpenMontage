@@ -182,6 +182,7 @@ stages:
       - Each clip meets its target platform specs (resolution, aspect ratio)
       - Audio levels consistent across clips
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report artifact
       - All clip output files exist and pass ffprobe validation
 
@@ -202,5 +203,6 @@ stages:
       - Clips numbered/ordered for posting schedule
       - Export package organized by platform
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid publish_log artifact
       - Export directory contains all clips with per-clip metadata

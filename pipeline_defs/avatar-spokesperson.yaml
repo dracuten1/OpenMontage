@@ -181,6 +181,7 @@ stages:
       - Subtitle placement and framing remain clean
       - Audio is clear and presenter-focused
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report artifact
       - Output file exists and passes ffprobe validation
 
@@ -202,5 +203,6 @@ stages:
       - Metadata matches the spokesperson offer and audience
       - Thumbnail or poster frame features the presenter cleanly
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid publish_log artifact
       - Export package contains video and metadata outputs

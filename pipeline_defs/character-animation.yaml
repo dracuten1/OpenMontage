@@ -275,6 +275,7 @@ stages:
       - Final MP4 passes ffprobe, frame sampling, character QA, and visual self-review
       - No silent downgrade to still-image motion
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report
       - Schema-valid final_review
       - Schema-valid character_qa_report
@@ -299,4 +300,5 @@ stages:
       - Thumbnail/poster frame features the main character and emotional hook
       - Any limitations are surfaced in delivery notes
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid publish_log

@@ -1,0 +1,358 @@
+{
+  "s01": [
+    {
+      "text": "Tin nhanh ngày 19 tháng 10.",
+      "start": 0.0,
+      "end": 1.0
+    },
+    {
+      "text": "Năm tin đáng chú ý nhất",
+      "start": 1.48,
+      "end": 2.42
+    },
+    {
+      "text": "hôm nay: nợ công Mỹ chạm",
+      "start": 2.42,
+      "end": 3.64
+    },
+    {
+      "text": "mốc 40.000 tỷ USD, 4 ca não",
+      "start": 3.64,
+      "end": 5.36
+    },
+    {
+      "text": "mô cầu tại trường học ở TP.HCM,",
+      "start": 5.36,
+      "end": 6.82
+    },
+    {
+      "text": "Putin đề xuất thượng đỉnh với",
+      "start": 7.26,
+      "end": 8.28
+    },
+    {
+      "text": "Trump và Tập Cận Bình, vòm cầu",
+      "start": 8.28,
+      "end": 10.06
+    },
+    {
+      "text": "3.400 tấn về tới Bến Bạch Đằng,",
+      "start": 10.06,
+      "end": 11.84
+    },
+    {
+      "text": "và siêu bão Champi mạnh cấp 16.",
+      "start": 12.24,
+      "end": 13.88
+    }
+  ],
+  "s02": [
+    {
+      "text": "Tin một, kinh tế.",
+      "start": 0.0,
+      "end": 1.14
+    },
+    {
+      "text": "Nợ công Mỹ chạm mốc 40.000",
+      "start": 1.5,
+      "end": 2.64
+    },
+    {
+      "text": "tỷ USD, trong lúc thâm hụt",
+      "start": 2.64,
+      "end": 4.06
+    },
+    {
+      "text": "cao và chi phí vay leo thang,",
+      "start": 4.06,
+      "end": 5.34
+    },
+    {
+      "text": "ngay trước bầu cử giữa kỳ",
+      "start": 5.76,
+      "end": 6.52
+    },
+    {
+      "text": "ngày 3/11 với hơn 100 triệu",
+      "start": 6.52,
+      "end": 8.12
+    },
+    {
+      "text": "cử tri đã bỏ phiếu sớm.",
+      "start": 8.12,
+      "end": 9.46
+    }
+  ],
+  "s03": [
+    {
+      "text": "Tin hai, sức khỏe.",
+      "start": 0.0,
+      "end": 0.76
+    },
+    {
+      "text": "Trường THCS Hai Bà Trưng ở TP.HCM",
+      "start": 1.14,
+      "end": 2.88
+    },
+    {
+      "text": "ghi nhận 4 ca não mô cầu,",
+      "start": 2.88,
+      "end": 4.1
+    },
+    {
+      "text": "một em tử vong.",
+      "start": 4.38,
+      "end": 4.88
+    },
+    {
+      "text": "Trường dừng bán trú, khử khuẩn,",
+      "start": 5.28,
+      "end": 6.44
+    },
+    {
+      "text": "và hơn 2.000 học sinh, giáo",
+      "start": 6.76,
+      "end": 8.12
+    },
+    {
+      "text": "viên được uống kháng sinh dự phòng.",
+      "start": 8.12,
+      "end": 9.22
+    }
+  ],
+  "s04": [
+    {
+      "text": "Tin ba, thế giới.",
+      "start": 0.0,
+      "end": 0.76
+    },
+    {
+      "text": "Putin đề xuất thượng đỉnh về",
+      "start": 0.98,
+      "end": 2.08
+    },
+    {
+      "text": "Ukraine với Trump và Tập Cận Bình,",
+      "start": 2.08,
+      "end": 3.72
+    },
+    {
+      "text": "nhưng từ chối đàm phán với Zelensky.",
+      "start": 4.08,
+      "end": 5.44
+    },
+    {
+      "text": "Trump tạm dừng trừng",
+      "start": 6.0,
+      "end": 6.54
+    },
+    {
+      "text": "phạt mới với Nga để không",
+      "start": 6.54,
+      "end": 7.68
+    },
+    {
+      "text": "làm hỏng đàm phán hòa bình,",
+      "start": 7.68,
+      "end": 8.6
+    },
+    {
+      "text": "và chỉ trích gay gắt Zelensky sau",
+      "start": 9.04,
+      "end": 10.74
+    },
+    {
+      "text": "đợt drone quy mô lớn nhất năm",
+      "start": 10.74,
+      "end": 11.98
+    },
+    {
+      "text": "của Ukraine đánh vào ga dầu Nga.",
+      "start": 11.98,
+      "end": 13.86
+    }
+  ],
+  "s05": [
+    {
+      "text": "Tin bốn, đô thị.",
+      "start": 0.0,
+      "end": 0.72
+    },
+    {
+      "text": "Vòm cầu 'lá dừa nước' nặng",
+      "start": 1.18,
+      "end": 2.02
+    },
+    {
+      "text": "3.400 tấn đã cập Bến Bạch Đằng,",
+      "start": 2.02,
+      "end": 3.68
+    },
+    {
+      "text": "sau hơn 30 giờ lai",
+      "start": 3.96,
+      "end": 4.8
+    },
+    {
+      "text": "dắt 124 km từ Vũng Tàu.",
+      "start": 4.8,
+      "end": 6.56
+    },
+    {
+      "text": "Nhiều người dân đứng chờ hàng giờ",
+      "start": 6.98,
+      "end": 8.08
+    },
+    {
+      "text": "để chiêm ngưỡng nhịp chính của cây",
+      "start": 8.08,
+      "end": 9.2
+    },
+    {
+      "text": "cầu đi bộ qua sông Sài Gòn.",
+      "start": 9.2,
+      "end": 10.26
+    }
+  ],
+  "s06": [
+    {
+      "text": "Tin năm, thời tiết.",
+      "start": 0.0,
+      "end": 1.04
+    },
+    {
+      "text": "Siêu bão Champi mạnh cấp 16, đẩy",
+      "start": 1.58,
+      "end": 3.18
+    },
+    {
+      "text": "sóng Biển Đông cao trên 5 mét.",
+      "start": 3.18,
+      "end": 4.18
+    },
+    {
+      "text": "Bão ít khả năng vào Biển",
+      "start": 4.86,
+      "end": 5.7
+    },
+    {
+      "text": "Đông nhưng duy trì cường độ",
+      "start": 5.7,
+      "end": 6.8
+    },
+    {
+      "text": "đến giữa tuần, khả năng ảnh hưởng",
+      "start": 6.8,
+      "end": 8.3
+    },
+    {
+      "text": "Đài Loan và ven biển Trung Quốc.",
+      "start": 8.3,
+      "end": 9.42
+    }
+  ],
+  "s07": [
+    {
+      "text": "Nhận định cho người đi làm.",
+      "start": 0.0,
+      "end": 0.88
+    },
+    {
+      "text": "Vay dễ nhưng trả khó:",
+      "start": 1.3,
+      "end": 2.08
+    },
+    {
+      "text": "khi chi phí vay leo thang,",
+      "start": 2.4,
+      "end": 3.32
+    },
+    {
+      "text": "gánh nặng trả nợ càng lớn,",
+      "start": 3.68,
+      "end": 4.58
+    },
+    {
+      "text": "đúng với nợ công Mỹ 40.000",
+      "start": 4.82,
+      "end": 5.84
+    },
+    {
+      "text": "tỷ USD, và cũng đúng với",
+      "start": 5.84,
+      "end": 7.18
+    },
+    {
+      "text": "ngân sách của mỗi gia đình.",
+      "start": 7.18,
+      "end": 8.02
+    },
+    {
+      "text": "Với cha mẹ có con đi học:",
+      "start": 8.48,
+      "end": 9.46
+    },
+    {
+      "text": "trường đã dừng bán trú và",
+      "start": 9.78,
+      "end": 10.64
+    },
+    {
+      "text": "hơn 2.000 em được uống kháng",
+      "start": 10.64,
+      "end": 11.86
+    },
+    {
+      "text": "sinh dự phòng, nên hãy theo",
+      "start": 11.86,
+      "end": 13.36
+    },
+    {
+      "text": "dõi thông báo từ trường. Và vì",
+      "start": 13.36,
+      "end": 14.86
+    },
+    {
+      "text": "đòn drone vừa đánh vào ga dầu,",
+      "start": 14.86,
+      "end": 16.06
+    },
+    {
+      "text": "thị trường năng lượng dễ rung lắc,",
+      "start": 16.44,
+      "end": 17.58
+    },
+    {
+      "text": "người đi làm nên",
+      "start": 17.9,
+      "end": 18.36
+    },
+    {
+      "text": "canh chi phí đi lại.",
+      "start": 18.36,
+      "end": 19.1
+    }
+  ],
+  "s08": [
+    {
+      "text": "Trên đây là năm tin đáng",
+      "start": 0.0,
+      "end": 1.06
+    },
+    {
+      "text": "chú ý ngày 19 tháng 10,",
+      "start": 1.06,
+      "end": 2.02
+    },
+    {
+      "text": "kèm góc nhìn nhận định. Theo dõi",
+      "start": 2.36,
+      "end": 3.78
+    },
+    {
+      "text": "để không bỏ lỡ tin ngày mai.",
+      "start": 3.78,
+      "end": 4.7
+    }
+  ]
+}

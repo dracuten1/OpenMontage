@@ -207,6 +207,7 @@ stages:
       - Subtitles are synced with speech
       - Audio is clear with balanced levels
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report artifact
       - Output video file exists and is playable
 
@@ -224,5 +225,6 @@ stages:
       - Metadata is complete and compelling
       - Export package is structured correctly
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid publish_log artifact
       - Export package or publish URLs are present

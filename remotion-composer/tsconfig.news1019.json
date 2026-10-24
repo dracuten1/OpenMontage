@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/news-daily-20261019/**/*"],
+  "exclude": []
+}

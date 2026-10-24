@@ -1,5 +1,0 @@
-crypto
-bitcoin
-ethereum
-solana
-tradingagents

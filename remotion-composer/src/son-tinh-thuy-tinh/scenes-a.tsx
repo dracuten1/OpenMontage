@@ -536,9 +536,9 @@ export const Sc025: React.FC<SceneProps> = () => {
 // ---------------------------------------------------------------------------
 export const Sc031: React.FC<SceneProps> = () => {
   const A = useA();
-  const aHat = A("sông Hát"); // "lên cửa sông Hát"
-  const aDa = A("sông Đà"); // "rẽ vào sông Đà"
-  const aTV = A("Tản Viên"); // "để đánh Tản Viên"
+  const aHat = A("sông Hát", 2); // "lên cửa sông Hát"
+  const aDa = A("sông Đà", 2); // "rẽ vào sông Đà"
+  const aTV = A("Tản Viên", 2); // "để đánh Tản Viên"
   const aBp = A("binh pháp"); // "Một đường hành quân có binh pháp"
   return (
     <InkImageScene
@@ -861,6 +861,10 @@ export const Sc049: React.FC<SceneProps> = () => {
   const a1 = A("không có triều đại để sụp đổ");
   const a2 = A("không có đạo quân để giải tán");
   const a3 = A("không có cái chết để biến mất");
+  // d-012B: hai vế «tạm lùi về biển»/«lại lên theo mùa» (725.169s/726.535s) kế thừa TỪ sc048 —
+  // hiện sau ba vế phủ định đúng thứ tự narration, giữ tới hết câu.
+  const aLui = A("tạm lùi về biển");
+  const aLen = A("lại lên theo mùa");
   const dong = (t: number, text: string) => (
     <SpringPop startFrac={t}>
       <div
@@ -882,6 +886,32 @@ export const Sc049: React.FC<SceneProps> = () => {
         {dong(a1, "triều đại để sụp đổ")}
         {dong(a2, "đạo quân để giải tán")}
         {dong(a3, "cái chết để biến mất")}
+        <Reveal startFrac={aLui} dy={14}>
+          <div
+            style={{
+              fontFamily: FONT.body,
+              fontStyle: "italic",
+              fontSize: 34,
+              color: C.teal,
+              textAlign: "center",
+            }}
+          >
+            Mỗi năm, nó chỉ tạm lùi về biển,
+          </div>
+        </Reveal>
+        <Reveal startFrac={aLen} dy={14}>
+          <div
+            style={{
+              fontFamily: FONT.body,
+              fontStyle: "italic",
+              fontSize: 34,
+              color: C.teal,
+              textAlign: "center",
+            }}
+          >
+            để rồi lại lên theo mùa.
+          </div>
+        </Reveal>
         <Reveal
           startFrac={a3 + 0.26}
           dy={40}

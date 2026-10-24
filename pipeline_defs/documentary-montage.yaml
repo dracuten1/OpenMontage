@@ -171,6 +171,7 @@ stages:
       - "Overlay mode: extract a frame from the overlay region and verify text is visible over footage, not over black. Concat mode: last frame must be the end-tag card."
       - No silent fallback from a motion-led promise
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report artifact
       - Output file exists and passes ffprobe validation
       - render_report.end_tag_rendered = true (or explicit opt-out)

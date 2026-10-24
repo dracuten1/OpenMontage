@@ -829,15 +829,15 @@ export const Sc048: React.FC<SceneProps> = () => {
   const { frame, dur, p } = useFrac();
   const fp = (f: number, fr: number) => Math.max(0.01, Math.min(0.97, (f * dur + fr) / dur));
   const fQ = A("vì sao Thủy Tinh vẫn quay lại");
-  const fLui = A("tạm lùi về biển");
-  const fLen = A("lại lên theo mùa");
+  // d-012B: hai nhãn «tạm lùi về biển»/«lại lên theo mùa» (725.169s/726.535s) nói SAU ba vế phủ định
+  // của sc049 — text chuyển sang sc049; vòng nước ở đây chạy theo nhịp câu hỏi (không phải text).
 
   // vòng năm quay chậm dần về cuối section
   const f1 = Math.min(1, frame / Math.max(1, dur - 1));
   const deg = (140 * Math.log(1 + 3 * f1)) / Math.log(4);
-  // cung nước phía đông: rút khi «tạm lùi về biển», dâng khi «lại lên theo mùa»
-  const recede = ease(p(fp(fLui, -30), fLui));
-  const rise = ease(p(fLen, fp(fLen, 35)));
+  // cung nước phía đông: rút rồi dâng theo mùa — chạy theo nhịp câu hỏi (animation, không phải text)
+  const recede = ease(p(fQ + 0.3, fQ + 0.5));
+  const rise = ease(p(fQ + 0.55, fQ + 0.8));
   const arcOp = Math.max(0.05, Math.min(1, 0.55 - 0.4 * recede + 0.85 * rise));
 
   return (
@@ -909,38 +909,6 @@ export const Sc048: React.FC<SceneProps> = () => {
             }}
           >
             BA VÌ
-          </div>
-        </Reveal>
-        <Reveal startFrac={fp(fLui, 10)} dy={8}>
-          <div
-            style={{
-              position: "absolute",
-              left: 1270,
-              top: 790,
-              fontFamily: FONT.body,
-              fontStyle: "italic",
-              fontSize: 27,
-              color: C.teal,
-              textShadow: "0 2px 8px rgba(0,0,0,0.8)",
-            }}
-          >
-            tạm lùi về biển
-          </div>
-        </Reveal>
-        <Reveal startFrac={fp(fLen, 10)} dy={8}>
-          <div
-            style={{
-              position: "absolute",
-              left: 1270,
-              top: 330,
-              fontFamily: FONT.body,
-              fontStyle: "italic",
-              fontSize: 27,
-              color: C.teal,
-              textShadow: "0 2px 8px rgba(0,0,0,0.8)",
-            }}
-          >
-            lại lên theo mùa
           </div>
         </Reveal>
       </div>

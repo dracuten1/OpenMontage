@@ -188,6 +188,7 @@ stages:
       - Audio quality preserved from original podcast
       - Any waveform or motion treatment matches the intended layout
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report artifact
       - All output files exist and pass ffprobe validation
 
@@ -208,5 +209,6 @@ stages:
       - Posting schedule suggested for clip distribution
       - Full episode video metadata includes chapter markers
     success_criteria:
+      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid publish_log artifact
       - Export directory contains all deliverables with metadata
