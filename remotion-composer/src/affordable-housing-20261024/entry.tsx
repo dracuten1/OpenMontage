@@ -6,6 +6,7 @@ import {
   AffordableHousingThumbnailLandscape,
 } from './Thumbnail';
 import {FPS, EPISODE_TOTAL_FRAMES} from './timing';
+import S05DonutSample from './S05DonutSample';
 
 const Root: React.FC = () => {
   return (
@@ -52,6 +53,16 @@ const Root: React.FC = () => {
         fps={FPS}
         durationInFrames={1}
         defaultProps={{headlineType: 'salary'}}
+      />
+
+      {/* S05 donut narration-sync sample (720x1280 window) */}
+      <Composition
+        id="AffordableHousingS05Sample"
+        component={S05DonutSample}
+        width={720}
+        height={1280}
+        fps={FPS}
+        durationInFrames={443}
       />
 
       {/* Landscape Thumbnail for YouTube (1280x720) */}

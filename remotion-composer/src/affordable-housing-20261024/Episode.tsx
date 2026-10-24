@@ -20,7 +20,7 @@ import {
   captionAt,
   Spoken,
 } from './timing';
-import {InfographicView} from './InfographicView';
+import {AnimatedInfographicView} from './AnimatedInfographic';
 
 // Helper positioning and styling
 const pos = (x: number, y: number, w: number = 940): React.CSSProperties => ({
@@ -261,9 +261,14 @@ const Scene2Infographics: React.FC<{s: SceneId}> = ({s}) => {
       </Spoken>
 
       {/* Main AntV Infographic Vector Comparison (Hà Nội/HCM 60-70tr vs Tỉnh 25-30tr) */}
-      <Spoken at={tier1El.start_frame_local} fromY={18} style={{...pos(70, 480)}}>
+      <Spoken at={tier1El.start_frame_local - 25} fromY={18} style={{...pos(70, 480)}}>
         <div style={{...glassCard(C.amber, 'rgba(15, 23, 42, 0.94)'), padding: '24px 20px'}}>
-          <InfographicView id="s02_horea" at={tier1El.start_frame_local} scale={1.04} />
+          <AnimatedInfographicView
+            id="s02_horea"
+            at={tier1El.start_frame_local - 25}
+            scale={1.04}
+            cues={[tier1El.start_frame_local, tier2El.start_frame_local]}
+          />
         </div>
       </Spoken>
 
@@ -330,7 +335,12 @@ const Scene3Infographics: React.FC<{s: SceneId}> = ({s}) => {
       {/* Main AntV Infographic Vector: 3-Tier Waterfall Badge Cards */}
       <Spoken at={15} fromY={18} style={{...pos(70, 460)}}>
         <div style={{...glassCard(C.cyan, 'rgba(15, 23, 42, 0.94)'), padding: '24px 20px'}}>
-          <InfographicView id="s03_missing_middle" at={15} scale={1.05} />
+          <AnimatedInfographicView
+            id="s03_missing_middle"
+            at={15}
+            scale={1.05}
+            cues={[b1El.start_frame_local, b2El.start_frame_local, b3El.start_frame_local]}
+          />
         </div>
       </Spoken>
 
@@ -387,6 +397,12 @@ const Scene4Infographics: React.FC<{s: SceneId}> = ({s}) => {
   const costBuildEl = el(s, 'cost_build');
   const costFloorEl = el(s, 'cost_floor');
 
+  // Count-up for the 45 – 55 floor-price card, synced to its narration cue.
+  const floorP = interpolate(f - costFloorEl.start_frame_local, [0, 24], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
   return (
     <>
       {/* Top Header Card */}
@@ -425,9 +441,19 @@ const Scene4Infographics: React.FC<{s: SceneId}> = ({s}) => {
       </Spoken>
 
       {/* Main AntV Infographic Vector: Cost breakdown bar chart */}
-      <Spoken at={costLandEl.start_frame_local} fromY={18} style={{...pos(70, 440)}}>
+      <Spoken at={costLandEl.start_frame_local - 25} fromY={18} style={{...pos(70, 440)}}>
         <div style={{...glassCard(C.amber, 'rgba(15, 23, 42, 0.94)'), padding: '24px 20px'}}>
-          <InfographicView id="s04_cost_breakdown" at={costLandEl.start_frame_local} scale={1.04} />
+          <AnimatedInfographicView
+            id="s04_cost_breakdown"
+            at={costLandEl.start_frame_local - 25}
+            scale={1.04}
+            cues={[
+              costLandEl.start_frame_local,
+              costBuildEl.start_frame_local,
+              costBuildEl.start_frame_local + 45,
+              costBuildEl.start_frame_local + 90,
+            ]}
+          />
         </div>
       </Spoken>
 
@@ -440,7 +466,8 @@ const Scene4Infographics: React.FC<{s: SceneId}> = ({s}) => {
                 GIÁ THÀNH XUẤT XƯỞNG TỐI THIỂU
               </div>
               <div style={{fontSize: 48, fontWeight: 900, color: C.amber, marginTop: 4}}>
-                45 – 55 <span style={{fontSize: 28, color: C.white}}>TRIỆU / M²</span>
+                {`${Math.round(45 * floorP)} – ${Math.round(55 * floorP)}`}{' '}
+                <span style={{fontSize: 28, color: C.white}}>TRIỆU / M²</span>
               </div>
             </div>
             <div
@@ -465,7 +492,7 @@ const Scene4Infographics: React.FC<{s: SceneId}> = ({s}) => {
 };
 
 // Scene 5: Bóc tách dòng tiền 50 triệu/tháng (AntV Infographic upgraded)
-const Scene5Infographics: React.FC<{s: SceneId}> = ({s}) => {
+export const Scene5Infographics: React.FC<{s: SceneId}> = ({s}) => {
   const f = useCurrentFrame();
   const seg1El = el(s, 'seg1');
   const seg2El = el(s, 'seg2');
@@ -488,7 +515,12 @@ const Scene5Infographics: React.FC<{s: SceneId}> = ({s}) => {
       {/* Main AntV Infographic Donut Chart with Callout Labels */}
       <Spoken at={15} fromY={18} style={{...pos(70, 440)}}>
         <div style={{...glassCard(C.coral, 'rgba(15, 23, 42, 0.94)'), padding: '20px 16px'}}>
-          <InfographicView id="s05_cashflow" at={15} scale={1.04} />
+          <AnimatedInfographicView
+            id="s05_cashflow"
+            at={15}
+            scale={1.04}
+            arcCues={[seg1El.start_frame_local, seg2El.start_frame_local, seg3El.start_frame_local]}
+          />
         </div>
       </Spoken>
 
@@ -620,9 +652,14 @@ const Scene6Infographics: React.FC<{s: SceneId}> = ({s}) => {
       </div>
 
       {/* Main AntV Infographic Vector: Interest Shock Comparison */}
-      <Spoken at={rate1El.start_frame_local} fromY={18} style={{...pos(70, 520)}}>
+      <Spoken at={rate1El.start_frame_local - 25} fromY={18} style={{...pos(70, 520)}}>
         <div style={{...glassCard(C.coral, 'rgba(15, 23, 42, 0.94)'), padding: '24px 20px'}}>
-          <InfographicView id="s06_interest_shock" at={rate1El.start_frame_local} scale={1.04} />
+          <AnimatedInfographicView
+            id="s06_interest_shock"
+            at={rate1El.start_frame_local - 25}
+            scale={1.04}
+            cues={[rate1El.start_frame_local, rate2El.start_frame_local]}
+          />
         </div>
       </Spoken>
 
@@ -681,7 +718,12 @@ const Scene7Infographics: React.FC<{s: SceneId}> = ({s}) => {
       {/* Main AntV Infographic Vector Bar Chart */}
       <Spoken at={15} fromY={18} style={{...pos(70, 470)}}>
         <div style={{...glassCard(C.border, 'rgba(15, 23, 42, 0.94)'), padding: '24px 20px'}}>
-          <InfographicView id="s07_numbeo" at={15} scale={1.06} />
+          <AnimatedInfographicView
+            id="s07_numbeo"
+            at={15}
+            scale={1.06}
+            cues={[unEl.start_frame_local, hcmEl.start_frame_local, hnEl.start_frame_local]}
+          />
         </div>
       </Spoken>
 
@@ -786,9 +828,14 @@ const Scene8Infographics: React.FC<{s: SceneId}> = ({s}) => {
       </Spoken>
 
       {/* Main AntV Infographic Vector: TOD & Metro Progression Steps */}
-      <Spoken at={todEl.start_frame_local} fromY={18} style={{...pos(70, 480)}}>
+      <Spoken at={line1El.start_frame_local - 20} fromY={18} style={{...pos(70, 480)}}>
         <div style={{...glassCard(C.cyan, 'rgba(15, 23, 42, 0.94)'), padding: '24px 20px'}}>
-          <InfographicView id="s08_tod_metro" at={todEl.start_frame_local} scale={1.05} />
+          <AnimatedInfographicView
+            id="s08_tod_metro"
+            at={line1El.start_frame_local - 20}
+            scale={1.05}
+            cues={[line1El.start_frame_local, todEl.start_frame_local, ctaEl.start_frame_local]}
+          />
         </div>
       </Spoken>
 
@@ -895,7 +942,7 @@ const SceneInfographics: React.FC<{s: SceneId}> = ({s}) => {
 
 // --- Karaoke Caption Overlay --------------------------------------------------
 
-const Caption: React.FC<{s: SceneId}> = ({s}) => {
+export const Caption: React.FC<{s: SceneId}> = ({s}) => {
   const f = useCurrentFrame();
   const active = captionAt(s, f / FPS);
   if (!active) return null;
