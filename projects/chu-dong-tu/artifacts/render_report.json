@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1920x1080",
+      "duration_seconds": 869.312,
+      "fps": 30.0,
+      "file_size_bytes": 159321981,
+      "platform_target": "youtube_upload_master"
+    },
+    {
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1280x720",
+      "duration_seconds": 869.312,
+      "fps": 30.0,
+      "file_size_bytes": 42217805,
+      "platform_target": "telegram_preview"
+    }
+  ],
+  "render_grammar": "explainer-data",
+  "verification_notes": [
+    "ChuDongTuDraft props draftHud=false; all episode source/public files and original drafts unchanged.",
+    "ffprobe + full video-frame count + loudness vs approved 50MB draft + vision at 30/435/860 seconds passed.",
+    "No ASR or anchor rerun, per owner final directive.",
+    "No auto-post; owner uploads manually."
+  ],
+  "decision_log_ref": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/decision_log.json",
+  "final_review_ref": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/artifacts/final_review.json",
+  "metadata": {
+    "final_qc": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_qc.json",
+    "delivery": {
+      "status": "delivered",
+      "started_at": "2026-10-19T05:16:27.495014+00:00",
+      "preview_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4",
+      "preview_bytes": 42217805,
+      "master_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+      "master_bytes": 159321981,
+      "no_auto_post": true,
+      "video_message_id": 387,
+      "summary_message_id": 388,
+      "delivered_at": "2026-10-19T05:17:58.529885+00:00"
+    },
+    "source_manifest": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_source_manifest.json"
+  }
+}

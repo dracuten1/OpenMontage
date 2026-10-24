@@ -1,0 +1,36 @@
+{
+  "news-daily-20261022": {
+    "Champi": "Chăm pi",
+    "năm 2026": "năm hai nghìn không trăm hai mươi sáu",
+    "210 km/h": "hai trăm mười ki lô mét một giờ",
+    "cấp 16 giật trên cấp 17": "cấp mười sáu giật trên cấp mười bảy",
+    "cấp 8 đến 9": "cấp tám đến chín",
+    "4 đến 6 mét": "bốn đến sáu mét",
+    "TPHCM": "thành phố Hồ Chí Minh",
+    "chùm 5 ca": "chùm năm ca",
+    "12 tuổi": "mười hai tuổi",
+    "100 người": "một trăm người",
+    "50.000 mũi": "năm mươi nghìn mũi",
+    "trong 6 ngày": "trong sáu ngày",
+    "tháng 10": "tháng mười",
+    "Hormuz": "Hóc mút",
+    "Aramco": "A ram cô",
+    "Dhahran": "Đa ha ran",
+    "E10": "ê mười",
+    "15 giờ": "mười lăm giờ",
+    "25.213 đồng": "hai mươi lăm nghìn hai trăm mười ba đồng",
+    "444 đến 1.238 đồng": "bốn trăm bốn mươi tư đến một nghìn hai trăm ba mươi tám đồng",
+    "gần 2%": "gần hai phần trăm",
+    "7%": "bảy phần trăm",
+    "Nasdaq": "Nát đách",
+    "Tesla": "Tét la",
+    "Meta": "Me ta",
+    "IBM": "i bê em",
+    "AI": "trí tuệ nhân tạo"
+  },
+  "provenance": "Lead-authored 2026-10-22 from standing lexicon rules (km→ki lô mét, TPHCM→thành phố Hồ Chí Minh, AI→trí tuệ nhân tạo) + new proper-name respellings (Champi/Hormuz/Aramco/Dhahran/Nasdaq/Tesla/Meta/IBM/E10). Canonical display never replaced.",
+  "_inherited_from": [
+    "projects/news-daily-20261021/tts_lexicon.json",
+    "standing rules media/video-producer"
+  ]
+}

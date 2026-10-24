@@ -1,0 +1,253 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "narration-s01",
+      "type": "narration",
+      "path": "projects/news-daily-20261022/assets/audio/voice_s01.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "S1",
+      "model": "VieNeu-TTS-v3-Turbo",
+      "provider": "vieneu",
+      "cost_usd": 0,
+      "duration_seconds": 17.036,
+      "format": "wav 48kHz mono pcm_s16le",
+      "subtype": "voice_atempo_1.15",
+      "generation_summary": "Local vieneu Turbo default voice; canonical->provider via project tts_lexicon.json (27 entries); ffmpeg atempo=1.15 applied once from raw.",
+      "voice_performance": {
+        "source_section_id": "S1",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "provider_settings": {
+          "voice": null,
+          "sample_rate": 48000,
+          "atempo": 1.15,
+          "lufs_post": "tool default -14.5 LUFS path"
+        },
+        "sample_approved": true,
+        "sample_path": "projects/news-daily-20261022/assets/audio/s01_raw.wav",
+        "review_notes": "Owner brief 2026-10-22 draft-run authorization (lane precedent voice); ASR round-trip qc/asr_roundtrip.json PASS."
+      }
+    },
+    {
+      "id": "narration-s02",
+      "type": "narration",
+      "path": "projects/news-daily-20261022/assets/audio/voice_s02.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "S2",
+      "model": "VieNeu-TTS-v3-Turbo",
+      "provider": "vieneu",
+      "cost_usd": 0,
+      "duration_seconds": 9.956,
+      "format": "wav 48kHz mono pcm_s16le",
+      "subtype": "voice_atempo_1.15",
+      "generation_summary": "Local vieneu Turbo default voice; canonical->provider via project tts_lexicon.json (27 entries); ffmpeg atempo=1.15 applied once from raw.",
+      "voice_performance": {
+        "source_section_id": "S2",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "provider_settings": {
+          "voice": null,
+          "sample_rate": 48000,
+          "atempo": 1.15,
+          "lufs_post": "tool default -14.5 LUFS path"
+        },
+        "sample_approved": true,
+        "sample_path": "projects/news-daily-20261022/assets/audio/s02_raw.wav",
+        "review_notes": "Owner brief 2026-10-22 draft-run authorization (lane precedent voice); ASR round-trip qc/asr_roundtrip.json PASS."
+      }
+    },
+    {
+      "id": "narration-s03",
+      "type": "narration",
+      "path": "projects/news-daily-20261022/assets/audio/voice_s03.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "S3",
+      "model": "VieNeu-TTS-v3-Turbo",
+      "provider": "vieneu",
+      "cost_usd": 0,
+      "duration_seconds": 7.734,
+      "format": "wav 48kHz mono pcm_s16le",
+      "subtype": "voice_atempo_1.15",
+      "generation_summary": "Local vieneu Turbo default voice; canonical->provider via project tts_lexicon.json (27 entries); ffmpeg atempo=1.15 applied once from raw.",
+      "voice_performance": {
+        "source_section_id": "S3",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "provider_settings": {
+          "voice": null,
+          "sample_rate": 48000,
+          "atempo": 1.15,
+          "lufs_post": "tool default -14.5 LUFS path"
+        },
+        "sample_approved": true,
+        "sample_path": "projects/news-daily-20261022/assets/audio/s03_raw.wav",
+        "review_notes": "Owner brief 2026-10-22 draft-run authorization (lane precedent voice); ASR round-trip qc/asr_roundtrip.json PASS."
+      }
+    },
+    {
+      "id": "narration-s04",
+      "type": "narration",
+      "path": "projects/news-daily-20261022/assets/audio/voice_s04.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "S4",
+      "model": "VieNeu-TTS-v3-Turbo",
+      "provider": "vieneu",
+      "cost_usd": 0,
+      "duration_seconds": 7.594,
+      "format": "wav 48kHz mono pcm_s16le",
+      "subtype": "voice_atempo_1.15",
+      "generation_summary": "Local vieneu Turbo default voice; canonical->provider via project tts_lexicon.json (27 entries); ffmpeg atempo=1.15 applied once from raw.",
+      "voice_performance": {
+        "source_section_id": "S4",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "provider_settings": {
+          "voice": null,
+          "sample_rate": 48000,
+          "atempo": 1.15,
+          "lufs_post": "tool default -14.5 LUFS path"
+        },
+        "sample_approved": true,
+        "sample_path": "projects/news-daily-20261022/assets/audio/s04_raw.wav",
+        "review_notes": "Owner brief 2026-10-22 draft-run authorization (lane precedent voice); ASR round-trip qc/asr_roundtrip.json PASS."
+      }
+    },
+    {
+      "id": "narration-s05",
+      "type": "narration",
+      "path": "projects/news-daily-20261022/assets/audio/voice_s05.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "S5",
+      "model": "VieNeu-TTS-v3-Turbo",
+      "provider": "vieneu",
+      "cost_usd": 0,
+      "duration_seconds": 8.085,
+      "format": "wav 48kHz mono pcm_s16le",
+      "subtype": "voice_atempo_1.15",
+      "generation_summary": "Local vieneu Turbo default voice; canonical->provider via project tts_lexicon.json (27 entries); ffmpeg atempo=1.15 applied once from raw.",
+      "voice_performance": {
+        "source_section_id": "S5",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "provider_settings": {
+          "voice": null,
+          "sample_rate": 48000,
+          "atempo": 1.15,
+          "lufs_post": "tool default -14.5 LUFS path"
+        },
+        "sample_approved": true,
+        "sample_path": "projects/news-daily-20261022/assets/audio/s05_raw.wav",
+        "review_notes": "Owner brief 2026-10-22 draft-run authorization (lane precedent voice); ASR round-trip qc/asr_roundtrip.json PASS."
+      }
+    },
+    {
+      "id": "narration-s06",
+      "type": "narration",
+      "path": "projects/news-daily-20261022/assets/audio/voice_s06.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "S6a",
+      "model": "VieNeu-TTS-v3-Turbo",
+      "provider": "vieneu",
+      "cost_usd": 0,
+      "duration_seconds": 8.359,
+      "format": "wav 48kHz mono pcm_s16le",
+      "subtype": "voice_atempo_1.15",
+      "generation_summary": "Local vieneu Turbo default voice; canonical->provider via project tts_lexicon.json (27 entries); ffmpeg atempo=1.15 applied once from raw.",
+      "voice_performance": {
+        "source_section_id": "S6a",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "provider_settings": {
+          "voice": null,
+          "sample_rate": 48000,
+          "atempo": 1.15,
+          "lufs_post": "tool default -14.5 LUFS path"
+        },
+        "sample_approved": true,
+        "sample_path": "projects/news-daily-20261022/assets/audio/s06_raw.wav",
+        "review_notes": "Owner brief 2026-10-22 draft-run authorization (lane precedent voice); ASR round-trip qc/asr_roundtrip.json PASS."
+      }
+    },
+    {
+      "id": "narration-s07",
+      "type": "narration",
+      "path": "projects/news-daily-20261022/assets/audio/voice_s07.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "S6b",
+      "model": "VieNeu-TTS-v3-Turbo",
+      "provider": "vieneu",
+      "cost_usd": 0,
+      "duration_seconds": 12.213,
+      "format": "wav 48kHz mono pcm_s16le",
+      "subtype": "voice_atempo_1.15",
+      "generation_summary": "Local vieneu Turbo default voice; canonical->provider via project tts_lexicon.json (27 entries); ffmpeg atempo=1.15 applied once from raw.",
+      "voice_performance": {
+        "source_section_id": "S6b",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "provider_settings": {
+          "voice": null,
+          "sample_rate": 48000,
+          "atempo": 1.15,
+          "lufs_post": "tool default -14.5 LUFS path"
+        },
+        "sample_approved": true,
+        "sample_path": "projects/news-daily-20261022/assets/audio/s07_raw.wav",
+        "review_notes": "Owner brief 2026-10-22 draft-run authorization (lane precedent voice); ASR round-trip qc/asr_roundtrip.json PASS."
+      }
+    },
+    {
+      "id": "narration-s08",
+      "type": "narration",
+      "path": "projects/news-daily-20261022/assets/audio/voice_s08.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "S7",
+      "model": "VieNeu-TTS-v3-Turbo",
+      "provider": "vieneu",
+      "cost_usd": 0,
+      "duration_seconds": 1.615,
+      "format": "wav 48kHz mono pcm_s16le",
+      "subtype": "voice_atempo_1.15",
+      "generation_summary": "Local vieneu Turbo default voice; canonical->provider via project tts_lexicon.json (27 entries); ffmpeg atempo=1.15 applied once from raw.",
+      "voice_performance": {
+        "source_section_id": "S7",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "provider_settings": {
+          "voice": null,
+          "sample_rate": 48000,
+          "atempo": 1.15,
+          "lufs_post": "tool default -14.5 LUFS path"
+        },
+        "sample_approved": true,
+        "sample_path": "projects/news-daily-20261022/assets/audio/s08_raw.wav",
+        "review_notes": "Owner brief 2026-10-22 draft-run authorization (lane precedent voice); ASR round-trip qc/asr_roundtrip.json PASS."
+      }
+    },
+    {
+      "id": "captions-json",
+      "type": "subtitle",
+      "path": "remotion-composer/public/news-daily-20261022/captions.json",
+      "source_tool": "faster_whisper alignment",
+      "scene_id": "all",
+      "duration_seconds": 79.133,
+      "format": "json",
+      "generation_summary": "Canonical caption chunks with real per-word ASR spans; scene-local seconds; 25 chunks."
+    }
+  ],
+  "total_cost_usd": 0,
+  "metadata": {
+    "bgm": "none — voice-only draft per lane precedent (no music asset, no credit needed)",
+    "sfx": "none",
+    "source_policy": "Only sealed local digests 2026-10-22 (latest-vn.md + latest-world.md, sha256 in brief.json); whitelist.json claim ledger",
+    "episode_duration_seconds": 79.133,
+    "total_frames": 2374,
+    "fps": 30,
+    "audits": {
+      "speech_window": "qc/speech_window_audit.json PASS 34/34 in-window 0 overflow",
+      "asr_roundtrip": "qc/asr_roundtrip.json PASS 8/8",
+      "audio_batch": "qc/audio_batch.json PASS lexicon coverage 8/8"
+    }
+  }
+}

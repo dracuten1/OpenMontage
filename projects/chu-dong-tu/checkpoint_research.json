@@ -1,0 +1,306 @@
+{
+  "version": "1.0",
+  "project_id": "chu-dong-tu",
+  "pipeline_type": "animated-explainer",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-10-18T19:12:43.881985+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "VN-Myth S2E03 \u2014 Ch\u1eed \u0110\u1ed3ng T\u1eed: v\u00ec sao ng\u01b0\u1eddi kh\u00f4ng c\u00f3 c\u1ea3 chi\u1ebfc kh\u1ed1 l\u1ea1i \u0111\u01b0\u1ee3c th\u1edd l\u00e0m th\u00e1nh?",
+      "research_date": "2026-10-19",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "S\u1ef1 t\u00edch l\u1ec5 h\u1ed9i Ch\u1eed \u0110\u1ed3ng T\u1eed \u2014 b\u00e0i t\u1eadp \u0111\u1ecdc/c\u00e2u h\u1ecfi SGK \u0111\u01b0\u1ee3c VnDoc \u0111\u0103ng l\u1ea1i",
+            "url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+            "source": "B\u00e0i t\u1eadp \u0111\u1ecdc/c\u00e2u h\u1ecfi gi\u00e1o d\u1ee5c \u0111\u01b0\u1ee3c VnDoc \u0111\u0103ng l\u1ea1i",
+            "angle": "Ngh\u00e8o kh\u00f3, g\u1eb7p c\u00f4ng ch\u00faa, gi\u00fap d\u00e2n v\u00e0 t\u01b0\u1edfng nh\u1edb",
+            "what_it_covers": "Chi\u1ebfc kh\u1ed1, k\u1ebft duy\u00ean, c\u00f4ng \u0111\u1ee9c, l\u1ec5 h\u1ed9i.",
+            "what_it_misses": "Kh\u00f4ng \u0111\u1ed1i chi\u1ebfu chu\u1ed7i l\u1eadp ch\u1ee3\u2013h\u1ecdc \u0111\u1ea1o\u2013h\u00f3a \u0111\u1ea7m gi\u1eefa c\u00e1c b\u1ea3n.",
+            "engagement_signal": "Kh\u00f4ng \u0111o m\u1ee9c ph\u1ed5 bi\u1ebfn/l\u01b0\u1ee3t xem."
+          },
+          {
+            "title": "Truy\u1ec1n thuy\u1ebft Ch\u1eed \u0110\u1ed3ng T\u1eed \u0111i tu \u0111\u1ea1o Ph\u1eadt \u2014 b\u00e0i Phan Duy Kha \u0111\u0103ng l\u1ea1i tr\u00ean B\u1ea3o t\u00e0ng L\u1ecbch s\u1eed qu\u1ed1c gia",
+            "url": "https://baotanglichsu.vn/vi/Articles/3096/10118/truyen-thuyet-chu-djong-tu-dji-tu-djao-phat.html",
+            "source": "B\u00e0i Phan Duy Kha \u0111\u0103ng l\u1ea1i tr\u00ean website b\u1ea3o t\u00e0ng",
+            "angle": "D\u00f9ng truy\u1ec1n thuy\u1ebft l\u1eadp lu\u1eadn v\u1ec1 Ph\u1eadt gi\u00e1o th\u1eddi H\u00f9ng",
+            "what_it_covers": "T\u00ean s\u01b0 Ng\u01b0\u1ee1ng Quang, n\u00fai Qu\u1ef3nh Vi\u00ean, di\u1ec5n gi\u1ea3i ngu\u1ed3n g\u1ed1c.",
+            "what_it_misses": "B\u01b0\u1edbc suy t\u1eeb truy\u1ec7n sang ni\u00ean \u0111\u1ea1i l\u1ecbch s\u1eed ch\u01b0a \u0111\u01b0\u1ee3c ch\u1ee9ng th\u1ef1c trong g\u00f3i n\u00e0y.",
+            "engagement_signal": "Th\u01b0\u01a1ng hi\u1ec7u website kh\u00f4ng b\u1ea3o ch\u1ee9ng k\u1ebft lu\u1eadn c\u1ee7a b\u00e0i."
+          },
+          {
+            "title": "Khai m\u1ea1c L\u1ec5 h\u1ed9i truy\u1ec1n th\u1ed1ng Ch\u1eed \u0110\u1ed3ng T\u1eed - Ti\u00ean Dung \u2014 01/03/2023, ngu\u1ed3n B\u00e1o H\u01b0ng Y\u00ean",
+            "url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+            "source": "C\u1ed5ng h\u00e0nh ch\u00ednh H\u01b0ng Y\u00ean, ghi ngu\u1ed3n B\u00e1o H\u01b0ng Y\u00ean, 01/03/2023",
+            "angle": "Tin l\u1ec5 h\u1ed9i v\u00e0 c\u00f4ng b\u1ed1 di s\u1ea3n \u0111\u1ec1n \u0110a H\u00f2a",
+            "what_it_covers": "L\u1ecbch n\u0103m 2023, r\u01b0\u1edbc n\u01b0\u1edbc, quy m\u00f4 h\u00e0ng t\u1ed5ng v\u00e0 quy\u1ebft \u0111\u1ecbnh \u0111\u01b0\u1ee3c d\u1eabn.",
+            "what_it_misses": "Kh\u00f4ng \u0111\u1ed1i chi\u1ebfu c\u1ed5 th\u01b0, kh\u00f4ng x\u00e1c nh\u1eadn chuy\u1ec7n th\u1ea7n k\u1ef3.",
+            "engagement_signal": "Kh\u00f4ng suy l\u01b0\u1ee3ng ng\u01b0\u1eddi d\u1ef1 hay \u0111\u1ed9 ph\u1ed5 bi\u1ebfn."
+          }
+        ],
+        "saturated_angles": [
+          "Trong m\u1eabu \u0111\u00e3 truy c\u1eadp: k\u1ec3 ri\u00eang h\u00f4n nh\u00e2n th\u1ea7n k\u1ef3/c\u00f4ng \u0111\u1ee9c; kh\u00f4ng tuy\u00ean b\u1ed1 \u0111\u00e3 kh\u1ea3o s\u00e1t to\u00e0n th\u1ecb tr\u01b0\u1eddng."
+        ],
+        "underserved_gaps": [
+          "\u0110\u1eb7t cu\u1ed9c \u0111\u1eddi sau h\u00f4n nh\u00e2n c\u1ea1nh l\u1ec5 h\u1ed9i th\u1eadt, kh\u00f4ng bi\u1ebfn truy\u1ec7n th\u00e0nh s\u1eed li\u1ec7u.",
+          "Ph\u00e2n bi\u1ec7t b\u1ea3n d\u1ecbch, d\u1ecb b\u1ea3n v\u00e0 di\u1ec5n gi\u1ea3i hi\u1ec7n \u0111\u1ea1i b\u1eb1ng chi ti\u1ebft truy xu\u1ea5t \u0111\u01b0\u1ee3c."
+        ]
+      },
+      "trending": {
+        "recent_developments": [],
+        "active_discussions": [],
+        "timeliness_window": "evergreen"
+      },
+      "data_points": [
+        {
+          "claim": "B\u1ea3n d\u1ecbch LNCQ k\u1ec3 cha con chung m\u1ed9t kh\u1ed1; \u0110\u1ed3ng T\u1eed d\u00f9ng kh\u1ed1 li\u1ec7m cha.",
+          "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+          "source_name": "L\u0129nh Nam Ch\u00edch Qu\u00e1i \u2014 b\u1ea3n d\u1ecbch Nguy\u1ec5n H\u1eefu Vinh, b\u00ecnh Tr\u1ea7n \u0110\u00ecnh Ho\u00e0nh; PDF 2015",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C01; Ch\u1ec9 l\u00e0 t\u00ecnh ti\u1ebft b\u1ea3n truy\u1ec7n, kh\u00f4ng x\u00e1c nh\u1eadn nh\u00e2n v\u1eadt/s\u1ef1 ki\u1ec7n l\u1ecbch s\u1eed."
+        },
+        {
+          "claim": "B\u1ea3n d\u1ecbch LNCQ ti\u1ebfp t\u1ee5c sau h\u00f4n nh\u00e2n b\u1eb1ng vi\u1ec7c hai ng\u01b0\u1eddi l\u1eadp ch\u1ee3 v\u00e0 bu\u00f4n b\u00e1n.",
+          "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+          "source_name": "L\u0129nh Nam Ch\u00edch Qu\u00e1i \u2014 b\u1ea3n d\u1ecbch Nguy\u1ec5n H\u1eefu Vinh, b\u00ecnh Tr\u1ea7n \u0110\u00ecnh Ho\u00e0nh; PDF 2015",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C02; Kh\u00f4ng suy ra ng\u01b0\u1eddi khai sinh th\u01b0\u01a1ng m\u1ea1i Vi\u1ec7t Nam hay ni\u00ean \u0111\u1ea1i ch\u1ee3."
+        },
+        {
+          "claim": "B\u1ea3n d\u1ecbch LNCQ c\u00f3 chuy\u1ebfn bu\u00f4n, g\u1eb7p s\u01b0 Phu Quang, nh\u1eadn tr\u01b0\u1ee3ng v\u00e0 n\u00f3n, tr\u1edf v\u1ec1 gi\u1ea3ng \u0111\u1ea1o.",
+          "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+          "source_name": "L\u0129nh Nam Ch\u00edch Qu\u00e1i \u2014 b\u1ea3n d\u1ecbch Nguy\u1ec5n H\u1eefu Vinh, b\u00ecnh Tr\u1ea7n \u0110\u00ecnh Ho\u00e0nh; PDF 2015",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C03; T\u00ean trong b\u1ea3n n\u00e0y l\u00e0 Phu Quang. Kh\u00f4ng t\u1ef1 \u0111\u1ed5i th\u00e0nh Ph\u1eadt Quang trong tr\u00edch d\u1eabn; kh\u00f4ng \u0111\u1ecbnh ni\u00ean \u0111\u1ea1i Ph\u1eadt gi\u00e1o b\u1eb1ng truy\u1ec7n."
+        },
+        {
+          "claim": "B\u1ea3n LNCQ k\u1ec3 th\u00e0nh qu\u00e1ch bay l\u00ean, n\u01a1i c\u0169 th\u00e0nh \u0111\u1ea7m Nh\u1ea5t D\u1ea1 v\u00e0 d\u00e2n l\u1eadp mi\u1ebfu.",
+          "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+          "source_name": "L\u0129nh Nam Ch\u00edch Qu\u00e1i \u2014 b\u1ea3n d\u1ecbch Nguy\u1ec5n H\u1eefu Vinh, b\u00ecnh Tr\u1ea7n \u0110\u00ecnh Ho\u00e0nh; PDF 2015",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C04; Truy\u1ec7n gi\u1ea3i th\u00edch \u0111\u1ecba danh; kh\u00f4ng ph\u1ea3i b\u00e1o c\u00e1o \u0111\u1ecba ch\u1ea5t hay b\u1eb1ng ch\u1ee9ng bi\u1ebfn c\u1ed1 c\u00f3 th\u1eadt."
+        },
+        {
+          "claim": "B\u1ea3n Phan K\u1ebf B\u00ednh tr\u00ean Wikisource g\u1ecdi v\u1ecb s\u01b0 l\u00e0 Ph\u1eadt-Quang v\u00e0 c\u0169ng c\u00f3 g\u1eady/n\u00f3n.",
+          "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/38",
+          "source_name": "Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n/38 \u2014 S\u1eed-\u0111\u1ed3ng-T\u1eed, Phan K\u1ebf B\u00ednh, b\u1ea3n ch\u00e9p Wikisource",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C05; D\u00f9ng \u0111\u1ed1i chi\u1ebfu t\u00ean/chi ti\u1ebft; ch\u01b0a x\u00e1c minh n\u0103m \u1ea5n b\u1ea3n n\u00ean kh\u00f4ng n\u00eau m\u1ed1c xu\u1ea5t b\u1ea3n c\u1ee5 th\u1ec3."
+        },
+        {
+          "claim": "B\u00e0i Phan Duy Kha \u0111\u0103ng l\u1ea1i tr\u00ean trang b\u1ea3o t\u00e0ng d\u1eabn t\u00ean Ng\u01b0\u1ee1ng Quang.",
+          "source_url": "https://baotanglichsu.vn/vi/Articles/3096/10118/truyen-thuyet-chu-djong-tu-dji-tu-djao-phat.html",
+          "source_name": "Truy\u1ec1n thuy\u1ebft Ch\u1eed \u0110\u1ed3ng T\u1eed \u0111i tu \u0111\u1ea1o Ph\u1eadt \u2014 b\u00e0i Phan Duy Kha \u0111\u0103ng l\u1ea1i tr\u00ean B\u1ea3o t\u00e0ng L\u1ecbch s\u1eed qu\u1ed1c gia",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C06; B\u00e0i di\u1ec5n gi\u1ea3i hi\u1ec7n \u0111\u1ea1i, kh\u00f4ng ph\u1ea3i ch\u1ee9ng c\u1ee9 \u0111\u1ed9c l\u1eadp x\u00e1c nh\u1eadn nh\u00e2n v\u1eadt ho\u1eb7c Ph\u1eadt gi\u00e1o th\u1eddi H\u00f9ng."
+        },
+        {
+          "claim": "C\u1ed5ng du l\u1ecbch H\u01b0ng Y\u00ean ghi kho\u1ea3ng h\u1ed9i 10\u201312 th\u00e1ng Hai \u00e2m l\u1ecbch.",
+          "source_url": "https://dulich.hungyen.gov.vn/vi/detailevents/?t=le-hoi-chu-dong-tu-tien-dung&id=event_971",
+          "source_name": "L\u1ec5 h\u1ed9i Ch\u1eed \u0110\u1ed3ng T\u1eed \u2013 Ti\u00ean Dung \u2014 C\u1ed5ng du l\u1ecbch H\u01b0ng Y\u00ean (l\u1ecbch s\u1ef1 ki\u1ec7n 2018)",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C07; Ngu\u1ed3n c\u00f3 l\u1ecbch s\u1ef1 ki\u1ec7n 2018. Kh\u00f4ng coi l\u1ecbch nghi l\u1ec5 chi ti\u1ebft l\u00e0 l\u1ecbch n\u0103m 2026."
+        },
+        {
+          "claim": "L\u1ecbch \u0111\u01b0\u1ee3c c\u1ed5ng du l\u1ecbch \u0111\u0103ng c\u00f3 nghi th\u1ee9c du thuy\u1ec1n r\u01b0\u1edbc n\u01b0\u1edbc tr\u00ean s\u00f4ng H\u1ed3ng.",
+          "source_url": "https://dulich.hungyen.gov.vn/vi/detailevents/?t=le-hoi-chu-dong-tu-tien-dung&id=event_971",
+          "source_name": "L\u1ec5 h\u1ed9i Ch\u1eed \u0110\u1ed3ng T\u1eed \u2013 Ti\u00ean Dung \u2014 C\u1ed5ng du l\u1ecbch H\u01b0ng Y\u00ean (l\u1ecbch s\u1ef1 ki\u1ec7n 2018)",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C08; N\u1ebfu n\u00eau ng\u00e0y 11, ph\u1ea3i n\u00f3i theo l\u1ecbch \u0111\u0103ng trong ngu\u1ed3n; kh\u00f4ng g\u1ed9p th\u00e0nh ng\u00e0y r\u01b0\u1edbc chung m\u1ecdi \u0111\u1ec1n/m\u1ecdi n\u0103m."
+        },
+        {
+          "claim": "B\u00e0i ng\u00e0y 01/03/2023 n\u00eau quy\u1ebft \u0111\u1ecbnh 153/Q\u0110-BVHTTDL ng\u00e0y 02/02/2023 ghi danh L\u1ec5 h\u1ed9i \u0111\u1ec1n \u0110a H\u00f2a.",
+          "source_url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+          "source_name": "Khai m\u1ea1c L\u1ec5 h\u1ed9i truy\u1ec1n th\u1ed1ng Ch\u1eed \u0110\u1ed3ng T\u1eed - Ti\u00ean Dung \u2014 01/03/2023, ngu\u1ed3n B\u00e1o H\u01b0ng Y\u00ean",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C09; Ph\u1ea1m vi \u0111\u00fang t\u00ean L\u1ec5 h\u1ed9i \u0111\u1ec1n \u0110a H\u00f2a theo b\u00e0i c\u00f4ng b\u1ed1, KH\u00d4NG n\u00f3i UNESCO, kh\u00f4ng m\u1edf r\u1ed9ng sang m\u1ecdi \u0111\u1ec1n. Ch\u01b0a t\u1ea3i b\u1ea3n quy\u1ebft \u0111\u1ecbnh g\u1ed1c."
+        },
+        {
+          "claim": "B\u00e0i n\u0103m 2023 m\u00f4 t\u1ea3 quy m\u00f4 h\u00e0ng t\u1ed5ng ba n\u0103m m\u1ed9t l\u1ea7n v\u00e0 ch\u00edn l\u00e0ng/th\u00f4n.",
+          "source_url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+          "source_name": "Khai m\u1ea1c L\u1ec5 h\u1ed9i truy\u1ec1n th\u1ed1ng Ch\u1eed \u0110\u1ed3ng T\u1eed - Ti\u00ean Dung \u2014 01/03/2023, ngu\u1ed3n B\u00e1o H\u01b0ng Y\u00ean",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C10; Ch\u1ec9 n\u00f3i s\u1ef1 ki\u1ec7n \u0111\u01b0\u1ee3c t\u01b0\u1eddng thu\u1eadt n\u0103m 2023; \u0111\u1ecba danh h\u00e0nh ch\u00ednh theo th\u1eddi b\u00e0i vi\u1ebft, kh\u00f4ng coi l\u00e0 b\u1ea3n \u0111\u1ed3 h\u00e0nh ch\u00ednh 2026."
+        },
+        {
+          "claim": "B\u1ea3n d\u1ecbch c\u00f3 l\u1eddi t\u1ef1a V\u0169 Qu\u1ef3nh \u0111\u1ec1 H\u1ed3ng \u0110\u1ee9c 23, ch\u00fa th\u00edch quy \u0111\u1ed5i 1492.",
+          "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+          "source_name": "L\u0129nh Nam Ch\u00edch Qu\u00e1i \u2014 b\u1ea3n d\u1ecbch Nguy\u1ec5n H\u1eefu Vinh, b\u00ecnh Tr\u1ea7n \u0110\u00ecnh Ho\u00e0nh; PDF 2015",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C11; M\u1ed1c c\u1ee7a l\u1eddi t\u1ef1a \u0111\u01b0\u1ee3c truy\u1ec1n trong s\u00e1ch, kh\u00f4ng ph\u1ea3i tu\u1ed5i nh\u00e2n v\u1eadt/tu\u1ed5i truy\u1ec7n ho\u1eb7c b\u1ea3n in g\u1ed1c \u0111ang c\u00f2n."
+        },
+        {
+          "claim": "B\u1ea3n d\u1ecbch c\u00f3 l\u1eddi b\u1ea1t Ki\u1ec1u Ph\u00fa \u0111\u1ec1 H\u1ed3ng \u0110\u1ee9c 24, ch\u00fa th\u00edch quy \u0111\u1ed5i 1493.",
+          "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+          "source_name": "L\u0129nh Nam Ch\u00edch Qu\u00e1i \u2014 b\u1ea3n d\u1ecbch Nguy\u1ec5n H\u1eefu Vinh, b\u00ecnh Tr\u1ea7n \u0110\u00ecnh Ho\u00e0nh; PDF 2015",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C12; Kh\u00f4ng k\u1ebft lu\u1eadn truy\u1ec7n ra \u0111\u1eddi n\u0103m 1493; kh\u00f4ng m\u00f4 t\u1ea3 PDF d\u1ecbch hi\u1ec7n \u0111\u1ea1i l\u00e0 b\u1ea3n ch\u1ee5p th\u1ee7 b\u1ea3n th\u1ebf k\u1ef7 XV."
+        },
+        {
+          "claim": "L\u1eddi gi\u1ea3i b\u00e0i t\u1eadp \u0111\u1ecdc tr\u00ean VnDoc nh\u1ea5n v\u00e0o tr\u1ed3ng l\u00faa, nu\u00f4i t\u1eb1m, d\u1ec7t v\u1ea3i v\u00e0 hi\u1ec3n linh.",
+          "source_url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+          "source_name": "S\u1ef1 t\u00edch l\u1ec5 h\u1ed9i Ch\u1eed \u0110\u1ed3ng T\u1eed \u2014 b\u00e0i t\u1eadp \u0111\u1ecdc/c\u00e2u h\u1ecfi SGK \u0111\u01b0\u1ee3c VnDoc \u0111\u0103ng l\u1ea1i",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "C13; L\u1edbp k\u1ec3 gi\u00e1o d\u1ee5c \u0111\u01b0\u1ee3c \u0111\u0103ng l\u1ea1i, kh\u00f4ng d\u00f9ng \u0111\u1ec3 ch\u1ee9ng minh \u00f4ng khai sinh k\u1ef9 thu\u1eadt n\u00f4ng nghi\u1ec7p."
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "Cu\u1ed9c g\u1eb7p g\u1ee1 k\u00ec l\u1ea1 gi\u1eefa Ch\u1eed \u0110\u1ed3ng T\u1eed v\u00e0 Ti\u00ean Dung di\u1ec5n ra nh\u01b0 th\u1ebf n\u00e0o?",
+          "V\u00ec sao c\u00f4ng ch\u00faa Ti\u00ean Dung k\u1ebft duy\u00ean c\u00f9ng Ch\u1eed \u0110\u1ed3ng T\u1eed?",
+          "Nh\u00e2n d\u00e2n l\u00e0m g\u00ec \u0111\u1ec3 t\u01b0\u1edfng nh\u1edb \u00f4ng?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "T\u00ecnh ti\u1ebft h\u1ecdc \u0111\u1ea1o trong truy\u1ec7n t\u1ef1 ch\u1ee9ng minh Ph\u1eadt gi\u00e1o v\u00e0o th\u1eddi H\u00f9ng.",
+            "reality": "Ch\u1ec9 x\u00e1c nh\u1eadn n\u1ed9i dung b\u1ea3n k\u1ec3/b\u00e0i di\u1ec5n gi\u1ea3i; ch\u01b0a c\u00f3 ch\u1ee9ng c\u1ee9 \u0111\u1ecbnh ni\u00ean \u0111\u1ea1i l\u1ecbch s\u1eed.",
+            "source": "https://baotanglichsu.vn/vi/Articles/3096/10118/truyen-thuyet-chu-djong-tu-dji-tu-djao-phat.html"
+          },
+          {
+            "myth": "Nhi\u1ec1u URL \u0111\u1ed3ng ngh\u0129a nhi\u1ec1u ch\u1ee9ng c\u1ee9 \u0111\u1ed9c l\u1eadp cho nh\u00e2n v\u1eadt.",
+            "reality": "C\u00e1c b\u1ea3n k\u1ec3 c\u00f3 th\u1ec3 chung ngu\u1ed3n; l\u00e0 ch\u1ee9ng c\u1ee9 v\u0103n b\u1ea3n, kh\u00f4ng t\u1ef1 x\u00e1c nh\u1eadn nh\u00e2n v\u1eadt.",
+            "source": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf"
+          },
+          {
+            "myth": "Ghi danh di s\u1ea3n x\u00e1c th\u1ef1c to\u00e0n b\u1ed9 truy\u1ec1n thuy\u1ebft ho\u1eb7c \u0111\u1ed3ng ngh\u0129a UNESCO.",
+            "reality": "B\u00e0i ch\u1ec9 n\u00f3i di s\u1ea3n phi v\u1eadt th\u1ec3 qu\u1ed1c gia v\u1edbi L\u1ec5 h\u1ed9i \u0111\u1ec1n \u0110a H\u00f2a.",
+            "source": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html"
+          }
+        ],
+        "knowledge_level": "Gi\u1ea3 \u0111\u1ecbnh bi\u00ean t\u1eadp: ng\u01b0\u1eddi xem bi\u1ebft cu\u1ed9c g\u1eb7p c\u00f4ng ch\u00faa. Kh\u00f4ng c\u00f3 kh\u1ea3o s\u00e1t. C\u00e1c c\u00e2u h\u1ecfi l\u00e0 b\u00e0i t\u1eadp \u0111\u1ecdc \u0111\u0103ng l\u1ea1i, kh\u00f4ng ph\u1ea3i forum/th\u1ed1ng k\u00ea.",
+        "pain_points": []
+      },
+      "angles_discovered": [
+        {
+          "name": "Sau \u0111\u00e1m c\u01b0\u1edbi, d\u00f2ng s\u00f4ng c\u00f2n ch\u1ea3y",
+          "hook": "Ch\u00e0ng ngh\u00e8o g\u1eb7p c\u00f4ng ch\u00faa; v\u00ec sao c\u00e2u chuy\u1ec7n kh\u00f4ng d\u1eebng \u1edf \u0111\u00e1m c\u01b0\u1edbi?",
+          "type": "narrative",
+          "why_now": "Evergreen theo roadmap; chu\u1ed7i ch\u1ee3\u2013thuy\u1ec1n\u2013h\u1ecdc \u0111\u1ea1o\u2013\u0111\u1ea7m n\u1ed1i v\u1ec1 l\u1ec5 h\u1ed9i h\u00f4m nay.",
+          "grounded_in": [
+            "C01",
+            "C02",
+            "C03",
+            "C04",
+            "C07",
+            "C08"
+          ]
+        },
+        {
+          "name": "M\u1ed9t chi\u1ebfc kh\u1ed1, hai l\u1ef1a ch\u1ecdn",
+          "hook": "Chi\u1ebfc kh\u1ed1 d\u00e0nh cho cha; ai \u0111\u01b0\u1ee3c quy\u1ebft \u0111\u1ecbnh cu\u1ed9c \u0111\u1eddi m\u00ecnh sau \u0111\u00f3?",
+          "type": "narrative",
+          "why_now": "Ph\u1ea9m gi\u00e1 v\u00e0 l\u1ef1a ch\u1ecdn qua h\u00e0nh \u0111\u1ed9ng c\u1ee5 th\u1ec3; ph\u1ea3i n\u00f3i l\u00e0 c\u00e1ch \u0111\u1ecdc, kh\u00f4ng k\u1ebft lu\u1eadn x\u00e3 h\u1ed9i c\u1ed5.",
+          "grounded_in": [
+            "C01",
+            "C02",
+            "Q02"
+          ]
+        },
+        {
+          "name": "M\u1ed9t truy\u1ec7n, nhi\u1ec1u t\u00ean ng\u01b0\u1eddi th\u1ea7y",
+          "hook": "Phu Quang, Ph\u1eadt Quang hay Ng\u01b0\u1ee1ng Quang \u2014 ta \u0111ang \u0111\u1ecdc b\u1ea3n n\u00e0o?",
+          "type": "evergreen",
+          "why_now": "Ba b\u1ea3n \u0111\u00e3 truy c\u1eadp ghi t\u00ean kh\u00e1c nhau, \u0111\u1ee7 minh h\u1ecda gi\u1edbi h\u1ea1n suy lu\u1eadn t\u1eeb v\u0103n b\u1ea3n.",
+          "grounded_in": [
+            "C03",
+            "C05",
+            "C06",
+            "C11",
+            "C12"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://baotanglichsu.vn/vi/Articles/3096/10118/truyen-thuyet-chu-djong-tu-dji-tu-djao-phat.html",
+          "title": "Truy\u1ec1n thuy\u1ebft Ch\u1eed \u0110\u1ed3ng T\u1eed \u0111i tu \u0111\u1ea1o Ph\u1eadt \u2014 b\u00e0i Phan Duy Kha \u0111\u0103ng l\u1ea1i tr\u00ean B\u1ea3o t\u00e0ng L\u1ecbch s\u1eed qu\u1ed1c gia",
+          "used_for": "C06 \u2014 t\u00ean Ng\u01b0\u1ee1ng Quang v\u00e0 gi\u1edbi h\u1ea1n suy lu\u1eadn b\u00e0i hi\u1ec7n \u0111\u1ea1i, kh\u00f4ng nh\u1eadn k\u1ebft lu\u1eadn l\u1ecbch s\u1eed.",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://dulich.hungyen.gov.vn/vi/detailevents/?t=le-hoi-chu-dong-tu-tien-dung&id=event_971",
+          "title": "L\u1ec5 h\u1ed9i Ch\u1eed \u0110\u1ed3ng T\u1eed \u2013 Ti\u00ean Dung \u2014 C\u1ed5ng du l\u1ecbch H\u01b0ng Y\u00ean (l\u1ecbch s\u1ef1 ki\u1ec7n 2018)",
+          "used_for": "C07\u201308 \u2014 kho\u1ea3ng h\u1ed9i/r\u01b0\u1edbc n\u01b0\u1edbc theo l\u1ecbch \u0111\u01b0\u1ee3c \u0111\u0103ng, kh\u00f4ng l\u1ecbch hi\u1ec7n t\u1ea1i.",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+          "title": "Khai m\u1ea1c L\u1ec5 h\u1ed9i truy\u1ec1n th\u1ed1ng Ch\u1eed \u0110\u1ed3ng T\u1eed - Ti\u00ean Dung \u2014 01/03/2023, ngu\u1ed3n B\u00e1o H\u01b0ng Y\u00ean",
+          "used_for": "C09\u201310 \u2014 c\u00f4ng b\u1ed1 2023, t\u00ean/ph\u1ea1m vi di s\u1ea3n v\u00e0 quy m\u00f4 h\u00e0ng t\u1ed5ng.",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+          "title": "L\u0129nh Nam Ch\u00edch Qu\u00e1i \u2014 b\u1ea3n d\u1ecbch Nguy\u1ec5n H\u1eefu Vinh, b\u00ecnh Tr\u1ea7n \u0110\u00ecnh Ho\u00e0nh; PDF 2015",
+          "used_for": "C01\u201304, C11\u201312 \u2014 b\u1ea3n d\u1ecbch truy\u1ec7n v\u00e0 l\u1eddi t\u1ef1a/b\u1ea1t; t\u00e1ch b\u00ecnh gi\u1ea3i.",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/38",
+          "title": "Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n/38 \u2014 S\u1eed-\u0111\u1ed3ng-T\u1eed, Phan K\u1ebf B\u00ednh, b\u1ea3n ch\u00e9p Wikisource",
+          "used_for": "C05 \u2014 d\u1ecb b\u1ea3n t\u00ean Ph\u1eadt-Quang, g\u1eady/n\u00f3n; ch\u01b0a ch\u1ed1t n\u0103m \u1ea5n b\u1ea3n.",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+          "title": "S\u1ef1 t\u00edch l\u1ec5 h\u1ed9i Ch\u1eed \u0110\u1ed3ng T\u1eed \u2014 b\u00e0i t\u1eadp \u0111\u1ecdc/c\u00e2u h\u1ecfi SGK \u0111\u01b0\u1ee3c VnDoc \u0111\u0103ng l\u1ea1i",
+          "used_for": "Q01\u201303, C13 \u2014 c\u00e2u h\u1ecfi gi\u00e1o d\u1ee5c c\u00f3 th\u1eadt, kh\u00f4ng kh\u1ea3o s\u00e1t/forum.",
+          "reliability": "secondary"
+        }
+      ],
+      "research_summary": "H\u00f4n nh\u00e2n l\u00e0 \u0111i\u1ec3m ngo\u1eb7t ch\u1ee9 kh\u00f4ng k\u1ebft th\u00fac: kh\u1ed1, l\u1ef1a ch\u1ecdn, ch\u1ee3, thuy\u1ec1n, g\u1eady/n\u00f3n, \u0111\u1ea7m v\u00e0 l\u1ec5 h\u1ed9i n\u1ed1i nhau. B\u1eb1ng ch\u1ee9ng ch\u1eafc ch\u1eafn l\u00e0 n\u1ed9i dung c\u00e1c b\u1ea3n k\u1ec3 \u0111\u1ed1i chi\u1ebfu \u0111\u01b0\u1ee3c v\u00e0 s\u1ef1 th\u1ef1c h\u00e0nh l\u1ec5 h\u1ed9i \u0111\u01b0\u1ee3c t\u01b0\u1eddng thu\u1eadt. Ch\u01b0a th\u1ec3 bi\u1ebfn nh\u00e2n v\u1eadt th\u00e0nh ng\u01b0\u1eddi khai sinh th\u01b0\u01a1ng m\u1ea1i/Ph\u1eadt gi\u00e1o. C\u00e1ch \u0111\u1ecdc v\u1ec1 \u0111\u1eddi s\u1ed1ng c\u00f3 ph\u1ea9m gi\u00e1 l\u00e0 \u0111\u1ec1 xu\u1ea5t bi\u00ean t\u1eadp ch\u1edd duy\u1ec7t.",
+      "metadata": {
+        "episode": "S2E03",
+        "package_version": "v1",
+        "claim_ledger": "claim_ledger.json",
+        "raw_data": "raw_data.json",
+        "approval_policy": "approval_policy.json",
+        "evidence_dir": "evidence/",
+        "source_independence": "6 URL kh\u00f4ng \u0111\u1ed3ng ngh\u0129a 6 ch\u1ee9ng c\u1ee9 l\u1ecbch s\u1eed \u0111\u1ed9c l\u1eadp.",
+        "audience_question_provenance": {
+          "source_id": 7,
+          "kind": "published_educational_questions",
+          "claim_ids": [
+            "Q01",
+            "Q02",
+            "Q03"
+          ],
+          "not_forum_or_survey": true
+        },
+        "limitations": [
+          "Ch\u01b0a t\u1ea3i quy\u1ebft \u0111\u1ecbnh g\u1ed1c; ch\u1ec9 d\u00f9ng th\u00f4ng b\u00e1o ghi s\u1ed1/ng\u00e0y \u0111\u00fang ph\u1ea1m vi.",
+          "Ch\u01b0a ch\u1ed1t n\u0103m \u1ea5n b\u1ea3n Phan K\u1ebf B\u00ednh.",
+          "Kh\u00f4ng x\u00e1c \u0111\u1ecbnh th\u1ee9 t\u1ef1 h\u00ecnh th\u00e0nh c\u00e1c l\u1edbp truy\u1ec7n t\u1eeb ba t\u00ean s\u01b0.",
+          "L\u1ecbch du l\u1ecbch c\u0169 kh\u00f4ng ch\u1ee9ng minh ng\u00e0y/gi\u1edd nghi l\u1ec5 n\u0103m 2026."
+        ],
+        "approval_status": "pending_owner_research_script"
+      }
+    }
+  },
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "notes": "Import native sealed package v1 (2026-10-18) t\u1eeb vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1 \u2014 15/15 sha256 match package_manifest, research_brief validate pass. KH\u00d4NG web research. Owner review g\u1ed9p \u1edf Gate B (research+proposal+script) \u2014 approval_policy.json v1.",
+    "package_id": "vnmyth-s2e03-research-v1",
+    "package_path": "projects/chu-dong-tu/research/v1",
+    "checksum_result": "15/15 match",
+    "external_research_policy": "no_external_research; claim ngo\u00e0i ledger \u2192 needs_input v\u1ec1 Hermes"
+  }
+}

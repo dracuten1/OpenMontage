@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "episode": "S2E03",
+  "numeric_whitelist": [
+    {
+      "display": "1492",
+      "claim_id": "C11",
+      "scope": "Lời tựa Vũ Quỳnh, theo chú thích bản dịch; không phải ngày sinh truyện/nhân vật."
+    },
+    {
+      "display": "1493",
+      "claim_id": "C12",
+      "scope": "Lời bạt Kiều Phú, theo chú thích bản dịch; không phải năm sinh truyện."
+    },
+    {
+      "display": "10–12 tháng Hai âm lịch",
+      "claim_id": "C07",
+      "scope": "Khoảng hội theo cổng du lịch; lịch chi tiết sự kiện cũ không phải lịch năm 2026."
+    },
+    {
+      "display": "02/02/2023; 153/QĐ-BVHTTDL",
+      "claim_id": "C09",
+      "scope": "Ngày/số quyết định Lễ hội đền Đa Hòa được bài tin dẫn; chưa có bản quyết định gốc."
+    },
+    {
+      "display": "01/03/2023",
+      "claim_id": "C09",
+      "scope": "Ngày bài tin/lễ công bố được tường thuật."
+    },
+    {
+      "display": "9 làng; 3 năm một lần",
+      "claim_id": "C10",
+      "scope": "Quy mô hàng tổng được bài năm 2023 tường thuật; địa danh theo thời điểm bài."
+    }
+  ],
+  "variant_names": [
+    {
+      "source_id": 4,
+      "monk": "Phu Quang",
+      "mountain": "Quỳnh Vi",
+      "edition": "Bản dịch Nguyễn Hữu Vinh, PDF hiện đại"
+    },
+    {
+      "source_id": 5,
+      "monk": "Phật-Quang",
+      "mountain": "Quình-lãng",
+      "edition": "Bản chép Phan Kế Bính trên Wikisource"
+    },
+    {
+      "source_id": 1,
+      "monk": "Ngưỡng Quang",
+      "mountain": "Quỳnh Viên",
+      "edition": "Bài Phan Duy Kha trên website bảo tàng"
+    }
+  ],
+  "literal_story_numbers_policy": "Một khố, một gậy, một nón, một đêm là tình tiết truyện. Nếu nêu Hùng đời thứ ba/tuổi 18 phải gắn bản kể; nên bỏ vì không cần luận điểm. Không lấy lợi nhuận trong truyện thành số liệu kinh tế.",
+  "forbidden_inferences": [
+    "Không gán năm sinh/sống Chử Đồng Tử.",
+    "Không coi là người khai sinh thương mại hoặc Phật giáo Việt Nam.",
+    "Không gán năm ấn bản Nam Hải dị nhân liệt truyện khi chưa xác minh thư mục.",
+    "Không coi bình giải Trần Đình Hoành là nguyên văn LNCQ.",
+    "Không gán ngày 2026 từ navigation cho lịch sự kiện 2018."
+  ]
+}

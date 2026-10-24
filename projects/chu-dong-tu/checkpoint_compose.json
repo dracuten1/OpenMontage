@@ -1,0 +1,268 @@
+{
+  "version": "1.0",
+  "project_id": "chu-dong-tu",
+  "pipeline_type": "animated-explainer",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-10-19T05:18:03.058710+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": true,
+  "artifacts": {
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "audio_codec": "aac",
+          "resolution": "1920x1080",
+          "duration_seconds": 869.312,
+          "fps": 30.0,
+          "file_size_bytes": 159321981,
+          "platform_target": "youtube_upload_master"
+        },
+        {
+          "path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "audio_codec": "aac",
+          "resolution": "1280x720",
+          "duration_seconds": 869.312,
+          "fps": 30.0,
+          "file_size_bytes": 42217805,
+          "platform_target": "telegram_preview"
+        }
+      ],
+      "render_grammar": "explainer-data",
+      "verification_notes": [
+        "ChuDongTuDraft props draftHud=false; all episode source/public files and original drafts unchanged.",
+        "ffprobe + full video-frame count + loudness vs approved 50MB draft + vision at 30/435/860 seconds passed.",
+        "No ASR or anchor rerun, per owner final directive.",
+        "No auto-post; owner uploads manually."
+      ],
+      "decision_log_ref": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/decision_log.json",
+      "final_review_ref": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/artifacts/final_review.json",
+      "metadata": {
+        "final_qc": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_qc.json",
+        "delivery": {
+          "status": "delivered",
+          "started_at": "2026-10-19T05:16:27.495014+00:00",
+          "preview_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4",
+          "preview_bytes": 42217805,
+          "master_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+          "master_bytes": 159321981,
+          "no_auto_post": true,
+          "video_message_id": 387,
+          "summary_message_id": 388,
+          "delivered_at": "2026-10-19T05:17:58.529885+00:00"
+        },
+        "source_manifest": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_source_manifest.json"
+      }
+    },
+    "final_review": {
+      "version": "1.0",
+      "output_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+      "status": "pass",
+      "recommended_action": "present_to_user",
+      "checks": {
+        "technical_probe": {
+          "valid_container": true,
+          "duration_seconds": 869.312,
+          "resolution": "1920x1080",
+          "fps": 30,
+          "has_audio": true,
+          "codec": "h264",
+          "file_size_bytes": 159321981,
+          "issues": []
+        },
+        "visual_spotcheck": {
+          "frames_sampled": 6,
+          "frame_paths": [
+            "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/early_final_1080p.png",
+            "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/early_final_720p.png",
+            "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/mid_final_1080p.png",
+            "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/mid_final_720p.png",
+            "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/late_final_1080p.png",
+            "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/late_final_720p.png"
+          ],
+          "broken_overlays": false,
+          "missing_assets": false,
+          "unreadable_text": false,
+          "issues": []
+        },
+        "audio_spotcheck": {
+          "issues": [
+            "Checked integrated loudness and unchanged approved source only; no new ASR required."
+          ]
+        },
+        "promise_preservation": {
+          "delivery_promise_honored": true,
+          "renderer_family_used": "explainer-data",
+          "render_runtime_used": "remotion",
+          "runtime_swap_detected": false,
+          "runtime_swap_check": "ok \u2014 same approved Remotion composition, only HUD disabled.",
+          "silent_downgrade_detected": false,
+          "issues": []
+        },
+        "subtitle_check": {
+          "subtitles_expected": true,
+          "subtitles_present": true,
+          "timing_drift_detected": false,
+          "issues": []
+        }
+      },
+      "issues_found": [],
+      "metadata": {
+        "final_qc": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_qc.json",
+        "vision_summary": {
+          "status": "pass",
+          "points": [
+            {
+              "tag": "early",
+              "seconds": 30,
+              "frame": 900,
+              "compare_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/early_compare.png",
+              "frame_paths": {
+                "approved_draft": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/early_approved_draft.png",
+                "final_1080p": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/early_final_1080p.png",
+                "final_720p": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/early_final_720p.png"
+              },
+              "content_diff_excluding_hud_band": {
+                "final_1080p": {
+                  "mean_absolute_rgb_0_255": 1.4738
+                },
+                "final_720p": {
+                  "mean_absolute_rgb_0_255": 1.175
+                }
+              },
+              "vision_verdict": "pass",
+              "vision_note": "Draft row shows HUD 'S2 f900 30.0s [661/671]' lower-left; both final rows have NO HUD; same artwork + '9 l\u00e0ng' label + subtitle 'N\u01b0\u1edbc \u0111\u01b0\u1ee3c m\u00fac l\u00ean t\u1eeb s\u00f4ng...'."
+            },
+            {
+              "tag": "mid",
+              "seconds": 435,
+              "frame": 13050,
+              "compare_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/mid_compare.png",
+              "frame_paths": {
+                "approved_draft": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/mid_approved_draft.png",
+                "final_1080p": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/mid_final_1080p.png",
+                "final_720p": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/mid_final_720p.png"
+              },
+              "content_diff_excluding_hud_band": {
+                "final_1080p": {
+                  "mean_absolute_rgb_0_255": 2.0039
+                },
+                "final_720p": {
+                  "mean_absolute_rgb_0_255": 1.6766
+                }
+              },
+              "vision_verdict": "pass",
+              "vision_note": "No HUD in either final row; all three rows show identical '\u0110\u1ed0I CHI\u1ebeU BA B\u1ea2N K\u1ec2' title card with Ph\u00f9 \u0110\u1ed5ng/Ph\u1eadt-Quang cards + caption."
+            },
+            {
+              "tag": "late",
+              "seconds": 860,
+              "frame": 25800,
+              "compare_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/late_compare.png",
+              "frame_paths": {
+                "approved_draft": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/late_approved_draft.png",
+                "final_1080p": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/late_final_1080p.png",
+                "final_720p": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_frames/late_final_720p.png"
+              },
+              "content_diff_excluding_hud_band": {
+                "final_1080p": {
+                  "mean_absolute_rgb_0_255": 1.9326
+                },
+                "final_720p": {
+                  "mean_absolute_rgb_0_255": 1.4749
+                }
+              },
+              "vision_verdict": "pass",
+              "vision_note": "No HUD in either final row; identical NGU\u1ed2N credits card (L\u0129nh Nam ch\u00edch qu\u00e1i, Phan K\u1ebf B\u00ednh, B\u1ea3o t\u00e0ng LSQG, H\u01b0ng Y\u00ean, VnDoc) across all rows."
+            }
+          ],
+          "method": "3 compare stacks (draft vs final_1080p vs final_720p) adjudicated by vision at 30s/435s/860s; HUD present only in draft row at all 3 points; frame-diff excluding HUD band 1.17-2.00/255 (encode noise only)."
+        },
+        "loudness": {
+          "approved_draft": {
+            "input_i": -15.08,
+            "input_tp": -2.8,
+            "input_lra": 2.2,
+            "input_thresh": -25.52
+          },
+          "final_1080p": {
+            "input_i": -15.08,
+            "input_tp": -2.8,
+            "input_lra": 2.2,
+            "input_thresh": -25.52
+          },
+          "final_720p": {
+            "input_i": -15.13,
+            "input_tp": -2.67,
+            "input_lra": 2.2,
+            "input_thresh": -25.56
+          }
+        },
+        "approval": {
+          "owner_approval_text": "Duy\u1ec7t",
+          "approval_recorded_at": "2026-10-19T11:44:41+07:00",
+          "approval_time_note": "Receipt-recorded timestamp; exact owner reply time not provided.",
+          "approved_draft": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_draft_hud_720p_50mb.mp4",
+          "approved_draft_sha256": "100f907480f96baf425e2014991b8d4e97302b50c120513e869bc6d5fd42067f",
+          "draft_telegram_message_ids": [
+            384,
+            385,
+            386
+          ],
+          "session_id": "20261019_020840_82fb79",
+          "no_auto_post": true,
+          "source_unchanged": true,
+          "final_qc": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_qc.json",
+          "telegram_delivery": {
+            "status": "delivered",
+            "started_at": "2026-10-19T05:16:27.495014+00:00",
+            "preview_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4",
+            "preview_bytes": 42217805,
+            "master_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+            "master_bytes": 159321981,
+            "no_auto_post": true,
+            "video_message_id": 387,
+            "summary_message_id": 388,
+            "delivered_at": "2026-10-19T05:17:58.529885+00:00"
+          }
+        }
+      }
+    }
+  },
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "owner_approval_text": "Duy\u1ec7t",
+    "approval_recorded_at": "2026-10-19T11:44:41+07:00",
+    "approval_time_note": "Receipt-recorded timestamp; exact owner reply time not provided.",
+    "approved_draft": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_draft_hud_720p_50mb.mp4",
+    "approved_draft_sha256": "100f907480f96baf425e2014991b8d4e97302b50c120513e869bc6d5fd42067f",
+    "draft_telegram_message_ids": [
+      384,
+      385,
+      386
+    ],
+    "session_id": "20261019_020840_82fb79",
+    "no_auto_post": true,
+    "source_unchanged": true,
+    "final_qc": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_qc.json",
+    "telegram_delivery": {
+      "status": "delivered",
+      "started_at": "2026-10-19T05:16:27.495014+00:00",
+      "preview_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4",
+      "preview_bytes": 42217805,
+      "master_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+      "master_bytes": 159321981,
+      "no_auto_post": true,
+      "video_message_id": 387,
+      "summary_message_id": 388,
+      "delivered_at": "2026-10-19T05:17:58.529885+00:00"
+    }
+  }
+}

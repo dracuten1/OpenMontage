@@ -1,0 +1,80 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.04,
+      "text": "\u0110\u0103ng ng\u1ea1, ch\u1ebf \u0111\u0103ng ng\u1ea1.",
+      "words": [
+        {
+          "word": " \u0110\u0103ng",
+          "start": 0.0,
+          "end": 0.28,
+          "probability": 0.497
+        },
+        {
+          "word": " ng\u1ea1,",
+          "start": 0.28,
+          "end": 0.46,
+          "probability": 0.388
+        },
+        {
+          "word": " ch\u1ebf",
+          "start": 0.56,
+          "end": 0.7,
+          "probability": 0.38
+        },
+        {
+          "word": " \u0111\u0103ng",
+          "start": 0.7,
+          "end": 0.86,
+          "probability": 0.676
+        },
+        {
+          "word": " ng\u1ea1.",
+          "start": 0.86,
+          "end": 1.04,
+          "probability": 0.991
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " \u0110\u0103ng",
+      "start": 0.0,
+      "end": 0.28,
+      "probability": 0.497
+    },
+    {
+      "word": " ng\u1ea1,",
+      "start": 0.28,
+      "end": 0.46,
+      "probability": 0.388
+    },
+    {
+      "word": " ch\u1ebf",
+      "start": 0.56,
+      "end": 0.7,
+      "probability": 0.38
+    },
+    {
+      "word": " \u0111\u0103ng",
+      "start": 0.7,
+      "end": 0.86,
+      "probability": 0.676
+    },
+    {
+      "word": " ng\u1ea1.",
+      "start": 0.86,
+      "end": 1.04,
+      "probability": 0.991
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.28,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

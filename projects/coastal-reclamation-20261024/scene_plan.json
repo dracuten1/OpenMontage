@@ -1,0 +1,187 @@
+{
+  "version": "1.0",
+  "style_playbook": "clean-professional",
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "diagram",
+      "description": "Lát cắt 3D isometric bờ biển nguyên sơ với đường bình độ sâu bathymetry và hạt dòng hải lưu chuyển động",
+      "start_seconds": 0.0,
+      "end_seconds": 10.0,
+      "script_section_id": "sec-01",
+      "framing": "isometric_aerial_45deg",
+      "movement": "slow_dolly_in",
+      "transition_in": "fade_in",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Nhãn minh họa nguyên lý, đường đẳng sâu 0m, -5m, -10m, hạt cyan trôi dọc bờ, subtitle karaoke",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lens_mm": 35,
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Khơi gợi sự tò mò khoa học bằng câu hỏi mở đầu về tác động vật lý của lấn biển",
+      "narrative_role": "establish_context",
+      "information_role": "Giới thiệu hiện trạng bờ biển nguyên sơ với cân bằng thủy triều và vành đai ngập mặn",
+      "hero_moment": false,
+      "texture_keywords": [
+        "clean",
+        "isometric",
+        "schematic",
+        "deep_marine"
+      ]
+    },
+    {
+      "id": "scene-02",
+      "type": "diagram",
+      "description": "Sơ đồ thu hẹp mặt cắt lăng kính triều, công trình san lấp làm nắn dòng chảy và tạo xoáy nước quẩn tù đọng",
+      "start_seconds": 10.0,
+      "end_seconds": 32.0,
+      "script_section_id": "sec-02",
+      "framing": "top_down_isometric_cutaway",
+      "movement": "pan_right",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Sơ đồ mặt cắt lăng kính triều A_m, vector vận tốc chuyển màu từ cyan sang đỏ cam ở eo hẹp, vòng xoáy eddy",
+      "shot_language": {
+        "shot_size": "medium_wide",
+        "camera_movement": "pan_right",
+        "lens_mm": 50,
+        "lighting_key": "volumetric",
+        "depth_of_field": "medium",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Giải thích định luật bảo toàn khối lượng và sự gia tốc dòng triều qua eo hẹp",
+      "narrative_role": "deliver_payload",
+      "information_role": "Người xem hiểu vì sao lấn biển làm tăng vận tốc dòng triều và gây tù đọng cục bộ",
+      "hero_moment": true,
+      "texture_keywords": [
+        "hydrodynamics",
+        "vector_arrows",
+        "bathymetry_alteration"
+      ]
+    },
+    {
+      "id": "scene-03",
+      "type": "diagram",
+      "description": "Mô hình mũi đê nhân tạo chặn dòng cát ven bờ: bồi lắng dày đặc phía đón dòng và sạt lở dữ dội phía khuất dòng",
+      "start_seconds": 32.0,
+      "end_seconds": 56.0,
+      "script_section_id": "sec-03",
+      "framing": "aerial_shoreline_macro",
+      "movement": "tracking_right",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Hạt cát vàng tích tụ dày ở updrift, vách bờ biển thụt lùi đỏ ở downdrift, chỉ dẫn cân bằng bùn cát USGS",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tracking_right",
+        "lens_mm": 35,
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Minh họa cơ chế bồi xói bất đối xứng do vật cản nhân tạo ngắt quãng dòng cát dọc bờ",
+      "narrative_role": "evidence",
+      "information_role": "Giải thích nghịch lý: một bên bờ được bồi thêm cát nhưng phía bên kia lại bị biển ngoạm mất",
+      "hero_moment": false,
+      "texture_keywords": [
+        "sediment_transport",
+        "longshore_drift",
+        "erosion_accretion"
+      ]
+    },
+    {
+      "id": "scene-04",
+      "type": "diagram",
+      "description": "Lát cắt 3D hệ rễ thở (pneumatophores) của cây ngập mặn: hấp thụ sóng và cơ chế trao đổi khí qua triều rút",
+      "start_seconds": 56.0,
+      "end_seconds": 80.0,
+      "script_section_id": "sec-04",
+      "framing": "close_up_cross_section",
+      "movement": "dolly_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Sóng cao giảm 70% qua mạng lưới rễ chằng chịt, bong bóng oxy hô hấp, cảnh báo nguy cơ ngạt bùn",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "dolly_in",
+        "lens_mm": 85,
+        "lighting_key": "rim_lit",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Làm rõ bản chất sinh học: rừng ngập mặn rất khỏe chống sóng nhưng rất mong manh trước ngập úng kéo dài",
+      "narrative_role": "emotional_beat",
+      "information_role": "Người xem nhận thức được rễ cây cần thở và không thể sống sót nếu chu kỳ triều bị cắt đứt",
+      "hero_moment": true,
+      "texture_keywords": [
+        "mangrove_roots",
+        "wave_attenuation",
+        "lenticels_respiration"
+      ]
+    },
+    {
+      "id": "scene-05",
+      "type": "diagram",
+      "description": "Giải pháp công trình xanh hiện đại: đảo mở có kênh lưu thông triều, nuôi bãi định kỳ và vành đai đệm sinh thái",
+      "start_seconds": 80.0,
+      "end_seconds": 102.0,
+      "script_section_id": "sec-05",
+      "framing": "isometric_engineering_masterplan",
+      "movement": "orbital",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Kênh lưu thông triều mở dòng nước xanh mát, đai rừng chắn sóng đa tầng, công trình kè mềm",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "orbital",
+        "lens_mm": 50,
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Cung cấp góc nhìn giải pháp kỹ thuật công trình tiến bộ, không bi quan bế tắc",
+      "narrative_role": "resolution",
+      "information_role": "Giới thiệu các phương pháp lấn biển có trách nhiệm dựa vào thiên nhiên",
+      "hero_moment": false,
+      "texture_keywords": [
+        "living_shorelines",
+        "eco_engineering",
+        "permeable_design"
+      ]
+    },
+    {
+      "id": "scene-06",
+      "type": "diagram",
+      "description": "Toàn cảnh bờ biển cân bằng hài hòa giữa công trình và tự nhiên, đồ họa tổng hợp thông điệp cân bằng động",
+      "start_seconds": 102.0,
+      "end_seconds": 118.0,
+      "script_section_id": "sec-06",
+      "framing": "extreme_wide_vista",
+      "movement": "zoom_out",
+      "transition_in": "cross_dissolve",
+      "transition_out": "fade_in",
+      "overlay_notes": "Thông điệp đúc kết: Bờ biển là hệ cân bằng động nhạy cảm, kêu gọi tư duy phát triển bền vững",
+      "shot_language": {
+        "shot_size": "extreme_wide",
+        "camera_movement": "zoom_out",
+        "lens_mm": 24,
+        "lighting_key": "golden_hour",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Khép lại video với thông điệp triết lý khoa học sâu sắc và tích cực",
+      "narrative_role": "call_to_action",
+      "information_role": "Đọng lại trong tâm trí người xem nguyên tắc tôn trọng quy luật tự nhiên",
+      "hero_moment": false,
+      "texture_keywords": [
+        "harmony",
+        "dynamic_equilibrium",
+        "coastal_sustainability"
+      ]
+    }
+  ]
+}

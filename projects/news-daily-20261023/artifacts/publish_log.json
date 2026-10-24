@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "tiktok",
+      "status": "exported",
+      "export_path": "out/news-daily-20261023.mp4",
+      "timestamp": "2026-10-23T18:35:24.174061+07:00",
+      "metadata_used": {
+        "title": "Tin nhanh 23/10/2026 — thi lớp 10 chỉ Toán & Văn, thuế đất bỏ hoang 0,2%, gần 1.500 văn bằng giả",
+        "caption": "Thi lớp 10 chỉ còn Toán & Văn? 📚 Bộ GD&ĐT đề xuất giảm áp lực thi cử — nhưng chưa phải quy định chính thức. Kèm 4 tin nữa: thuế 0,2% với đất bỏ hoang, gần 1.500 văn bằng giả, tay chân miệng tăng 32,2% trong 1 tuần, Long Thành nguy cơ trễ hẹn. Có NHẬN ĐỊNH cho người đi làm 👇 #tinmoi #tintuc #thoisu #thilop10 #giaoduc\n",
+        "description": "Tin nhanh 23/10/2026 — thi lớp 10 chỉ Toán & Văn, thuế đất bỏ hoang 0,2%, gần 1.500 văn bằng giả\n\n5 tin đáng chú ý nhất ngày 23/10/2026 kèm NHẬN ĐỊNH cho người đi làm:\n0:00 Thi vào lớp 10 chỉ còn Toán và Văn — Bộ GD&ĐT đề xuất nhằm giảm áp lực thi cử (chưa phải quy định chính thức)\n0:07 Chính phủ trình Quốc hội: thuế 0,2% với đất bỏ hoang, toàn bộ diện tích, không hạn mức\n0:15 Công an Hà Nội khởi tố đường dây gần 1.500 văn bằng, chứng chỉ giả — 10 bị can, 2 giảng viên đại học, thu lời bất chính gần 3 tỷ đồng\n0:23 TP.HCM hơn 40.000 ca tay chân miệng từ đầu năm — tăng 32,2% trong một tuần\n0:31 Sân bay Long Thành: 4 gói thầu nguy cơ trễ hẹn (thiếu nhân lực, chậm thanh toán) trước ngày dự kiến khai thác 24/12\n0:39 NHẬN ĐỊNH cho người đi làm\n0:59 Tin nhanh 23/10 — hẹn gặp lại\n\nChi tiết: thi 2 môn hiện là đề xuất, chưa phải quy định chính thức; thuế đất bỏ hoang 0,2% áp dụng toàn bộ diện tích, không áp dụng hạn mức; giữ mốc 24/12 là ngày dự kiến khai thác của Long Thành.\nNguồn: bản tin tổng hợp ngày 23/10/2026. Voice-only, không nhạc nền.\n#tinmoi #tintuc #thoisu #thilop10 #giaoduc\n",
+        "thumbnail_path": "projects/news-daily-20261023/exports/thumbnails/news-daily-20261023-tiktok.png",
+        "draft_delivered": "Telegram DM to Tuyên (awaiting human approval)",
+        "auto_post": false,
+        "delivery_receipts": [
+          445,
+          446,
+          447,
+          448,
+          449
+        ],
+        "delivered_at_utc": "2026-10-23T11:37:00Z"
+      }
+    }
+  ]
+}

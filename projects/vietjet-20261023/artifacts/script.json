@@ -1,0 +1,134 @@
+{
+  "version": "2.0",
+  "revision_note": "v2 10-23 tối: owner bổ sung beat 'Cơ chế nợ phình to' 4 lớp (a-d) + chart anatomy 251,6; cấu trúc 120-150s. Giữ nguyên hook H1 đã duyệt, AHL/Cayman, WFO 15/10, timeline chart, VietJet phản bác, NHẬN ĐỊNH.",
+  "metadata": {
+    "project_id": "vietjet-20261023",
+    "hook_status": "APPROVED_VERBATIM_BY_OWNER",
+    "structure_source": "research_brief.md (bản cập nhật 10-23 tối) section CẤU TRÚC + VÌ SAO NỢ PHÌNH TO",
+    "duration_policy": "target 120-150s (owner cho phép dài hơn 120s để làm rõ cơ chế nợ)",
+    "documentary_treatment": "arc rise-fall: cơ chế leo thang → đỉnh WFO + lời thẩm phán → hạ: phản bác, context chart, vẫn bay bình thường, nhận định"
+  },
+  "title": "VietJet bị tòa Anh đóng băng 251,6 triệu USD tài sản toàn cầu",
+  "total_duration_seconds": 162.7,
+  "sections": [
+    {
+      "id": "S1",
+      "label": "HOOK (owner duyệt nguyên văn)",
+      "text": "Nợ 7 triệu USD thời COVID vừa khiến VietJet bị tòa Anh đóng băng 251 triệu USD tài sản toàn cầu.",
+      "speaker_directions": "Hook nguyên văn; đọc chậm rãi, dứt khoát; KHÔNG thêm/bớt từ.",
+      "source_ref": "research_brief.md H1 (đã duyệt)"
+    },
+    {
+      "id": "S2",
+      "label": "Gốc rễ — COVID và món nợ thuê",
+      "text": "Gốc rễ từ thời COVID. Những năm 2018, 2019, hãng thuê 4 máy bay Airbus A321. Dịch bệnh khiến hãng chậm trả khoảng 7,4 triệu USD tiền thuê. Cuối 2021, hợp đồng bị chấm dứt sớm.",
+      "speaker_directions": "Giọng kể phân tích; nhấn '7,4 triệu USD'.",
+      "source_ref": "research_brief.md TIMELINE 2018-2021"
+    },
+    {
+      "id": "S3",
+      "label": "Cơ chế 1/4 — điều khoản chuyển nhượng nợ",
+      "text": "Cơ chế thứ nhất: điều khoản chuyển nhượng nợ. Ngân hàng gốc bán khoản nợ COVID cho công ty của quỹ săn nợ Anh FitzWalter. VietJet mất đối tác để đàm phán giãn nợ, và đối diện bên chỉ muốn đòi tới cùng.",
+      "speaker_directions": "Câu trả lời 'điều khoản nào' — nhấn 'chuyển nhượng nợ'.",
+      "source_ref": "brief.md §CƠ CHẾ mục 1; vj8_grounded.txt mục 3"
+    },
+    {
+      "id": "S4",
+      "label": "Cơ chế 2/4 + 3/4 — chấm dứt hợp đồng & thua kiện 'khoản phạt'",
+      "text": "Cơ chế thứ hai: điều khoản chấm dứt — trả máy bay vẫn phải đền. Bản án 181,5 triệu USD tháng 4, 2025, phần lớn là bồi thường chấm dứt, theo phân tích phán quyết. Cơ chế thứ ba: VietJet kiện đây là khoản phạt vô lý — tòa Anh bác lập luận của hãng.",
+      "speaker_directions": "Trung tính: 'tòa bác lập luận của VietJet' — KHÔNG tự kết luận điều khoản hợp lý/phi lý; 'theo phân tích phán quyết' đọc đủ.",
+      "source_ref": "brief.md §CƠ CHẾ mục 2-3 + QA flags (split MEDIUM, Cavendish MEDIUM-HIGH)"
+    },
+    {
+      "id": "S5",
+      "label": "Cơ chế 4/4 — lãi cộng dồn + chi phí pháp lý",
+      "text": "Cơ chế thứ tư: lãi chậm trả cộng dồn, cùng chi phí pháp lý, đội thêm trên từng bản án. Máy bay đã trả từ 2022 — con số chỉ đi lên.",
+      "speaker_directions": "'Lãi chậm trả cộng dồn' — KHÔNG nói 'lãi kép'.",
+      "source_ref": "brief.md §CƠ CHẾ mục 4 + QA flag compounding"
+    },
+    {
+      "id": "S6",
+      "label": "Tổng 3 bản án vs đã trả",
+      "text": "Cộng lại, ba bản án tòa Anh lên tới 251,6 triệu USD. VietJet mới trả khoảng 2 triệu.",
+      "speaker_directions": "Tương phản mạnh giữa 2 số; giọng phẳng, để con số tự nói.",
+      "source_ref": "brief.md TIMELINE 'Ba bản án tòa Anh'"
+    },
+    {
+      "id": "S7",
+      "label": "Leo thang — order book sang Cayman + Singapore",
+      "text": "Tháng 12, 2024, VietJet chuyển gần như toàn bộ giá trị kinh tế của danh mục đặt mua khoảng 300 máy bay cho Angelica Holding — công ty tại Cayman, liên quan tới VietJet. Tòa Singapore từng ra lệnh thu giữ 9 máy bay — nhưng không thành.",
+      "speaker_directions": "'Liên quan tới VietJet' — dừng nhẹ, tuyệt đối không nói 'công ty con'.",
+      "source_ref": "brief.md TIMELINE 12/2024 AHL + Singapore; QA flag AHL=linked"
+    },
+    {
+      "id": "S8",
+      "label": "Lệnh 15/10/2026 — WFO",
+      "text": "Ngày 15/10/2026, sau phiên nghe 2 ngày, thẩm phán Saini của tòa Anh ra lệnh đóng băng tài sản toàn cầu tới 251,6 triệu USD — vì có bằng chứng chắc chắn về nguy cơ tẩu tán tài sản.",
+      "speaker_directions": "Đỉnh arc: chậm lại ở '251,6 triệu USD'.",
+      "source_ref": "brief.md TIMELINE 15/10/2026 WFO"
+    },
+    {
+      "id": "S9",
+      "label": "Lời thẩm phán — anchor kịch tính",
+      "text": "Ba cụm từ trong bản án sẽ bị trích dẫn nhiều: hoàn toàn ảo. Quái đản. Và không chịu trả. Đó là lời của tòa, chưa phải kết luận cuối cùng.",
+      "speaker_directions": "Mỗi cụm một nhịp; đây là LỜI TÒA (trích dẫn), câu cuối nhắc chưa kết luận.",
+      "source_ref": "brief.md CHART 4 + QA flags won't pay"
+    },
+    {
+      "id": "S10",
+      "label": "Phản bác của VietJet — đối thoại 2 chiều",
+      "text": "Phía VietJet phản bác: đây là tài trợ và tái tài trợ thông thường trong ngành, không phải tẩu tán. Hãng có quyền kháng án.",
+      "speaker_directions": "Giọng trung tính đều — quyền ngang nhau của các bên.",
+      "source_ref": "brief.md TIMELINE 'Phản ứng' + QA flag 2 chiều"
+    },
+    {
+      "id": "S11",
+      "label": "CHART — nợ phình to (bar zero-based)",
+      "text": "Nhìn lại tổng thế: 7,4 triệu nợ thuê, 18,8 rồi 181,5 triệu bản án, thêm 18,3 triệu lãi và chi phí — chính đội lãi và chi phí đẩy tổng vượt mốc 250 triệu USD.",
+      "speaker_directions": "Đọc theo thứ tự cột; câu cuối chốt về lãi + chi phí.",
+      "source_ref": "brief.md CHART 1"
+    },
+    {
+      "id": "S12",
+      "label": "CHART — bóc tách 251,6 triệu (anatomy)",
+      "text": "Bóc tách 251,6 triệu, ước tính theo phân tích phán quyết: khoảng 164,8 triệu là bồi thường chấm dứt, 16,7 triệu tiền thuê quá hạn. Phần còn lại: hai bản án nhỏ hơn, lãi cộng dồn và chi phí pháp lý.",
+      "speaker_directions": "'Ước tính theo phân tích phán quyết' mở đầu — bao trùm cả split 164,8/16,7.",
+      "source_ref": "brief.md CHART 5 + QA flag split MEDIUM"
+    },
+    {
+      "id": "S13",
+      "label": "CHART — timeline ngang 2018→2026",
+      "text": "Dòng thời gian: 2018 nhận máy bay. 2021 mất hợp đồng. 2022 thu hồi xong 4 chiếc. 2024, bản án đầu tiên. Cuối 2024, giao dịch Angelica. Và 15/10/2026 — lệnh đóng băng toàn cầu.",
+      "speaker_directions": "Nhịp đều như mốc thời gian; mốc cuối chậm lại.",
+      "source_ref": "brief.md CHART 2"
+    },
+    {
+      "id": "S14",
+      "label": "CHART — bị đóng băng gì vs vẫn bay bình thường",
+      "text": "Bị đóng băng: giá trị khoảng 300 máy bay đặt trước, tiền cọc PDP, động cơ, và cả doanh thu bán vé qua đại lý. Nhưng đây không phải lệnh cấm bay — chuyến bay vẫn khởi hành bình thường.",
+      "speaker_directions": "Nửa đầu liệt kê; chữ 'nhưng' đổi nhịp sang trấn an.",
+      "source_ref": "brief.md TIMELINE 'Phạm vi đóng băng' + CHART 3"
+    },
+    {
+      "id": "S15",
+      "label": "Ảnh hưởng",
+      "text": "Cổ phiếu VJC không bán tháo, quanh 128.600 đồng theo giao dịch gần đây. Kế hoạch Úc với 10 Boeing 737 dự kiến khó hơn. Hành khách cuối năm: lịch bay không đổi.",
+      "speaker_directions": "Trấn an: tách pháp lý dài hạn vs đi bay không đổi; 'theo giao dịch gần đây' đọc đủ.",
+      "source_ref": "brief.md TIMELINE 'Phản ứng' + QA flag 128.600 medium"
+    },
+    {
+      "id": "S16",
+      "label": "NHẬN ĐỊNH (badge riêng)",
+      "text": "Nhận định: hợp đồng quốc tế không có khoản khoan nhượng COVID. Chuyển nhượng nợ và chấm dứt sớm biến 7 triệu nợ gốc thành hơn 250 triệu nghĩa vụ. Chuyện này còn dài.",
+      "speaker_directions": "Giọng biên tập; badge NHẬN ĐỊNH hiển thị toàn cảnh; chỉ diễn giải whitelist.",
+      "source_ref": "brief.md NHẬN ĐỊNH (bản cập nhật có cơ chế điều khoản)"
+    },
+    {
+      "id": "S17",
+      "label": "CTA",
+      "text": "Theo dõi, để xem VietJet kháng án đến đâu.",
+      "speaker_directions": "Ngắn, gọn, không giật gân.",
+      "source_ref": "editorial_cta"
+    }
+  ]
+}

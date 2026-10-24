@@ -1,0 +1,229 @@
+{
+  "decisions": [
+    {
+      "decision_id": "d-000",
+      "stage": "proposal",
+      "category": "approval_policy",
+      "subject": "Full-run authorization cho S2E02 thanh-giong (đến awaiting_human, KHÔNG tự xuất bản)",
+      "options_considered": [
+        {
+          "option_id": "full_run",
+          "label": "Full-run pipeline 8 stage, self-review + reviewer, Gate C bởi Hermes, dừng khi thiếu evidence",
+          "score": 0.95,
+          "reason": "Owner dispatch 2026-10-17: sản xuất trọn vẹn S2E02 qua 8 giai đoạn, deliver awaiting_human."
+        },
+        {
+          "option_id": "manual_gates",
+          "label": "Từng gate duyệt tay giữa chừng",
+          "score": 0.2,
+          "reason": "Dispatch đã chốt luồng; dừng giữa chừng chỉ khi thiếu evidence."
+        }
+      ],
+      "selected": "full_run",
+      "reason": "Kế thừa chuẩn series vn-myth S2E01 pilot: full-run end-to-end, Hermes kiểm soát Gate C, upload tay owner. DISPATCH 2026-10-17 là bằng chứng phê duyệt.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "d-001",
+      "stage": "assets",
+      "category": "music_licensing",
+      "subject": "BGM S2E02 = REUSE 'Mesmerize' (Kevin MacLeod, CC BY 4.0) — track đã QC ở S2E01, license cho phép",
+      "options_considered": [
+        {
+          "option_id": "reuse_mesmerize",
+          "label": "Mesmerize — Piano, 424s, CC BY 4.0 (đã QC S2E01, provenance + sha256 trong catalog.json)",
+          "score": 0.85,
+          "reason": "Dispatch S2E02: 'ưu tiên track đã QC ở S2E01 nếu cùng license cho phép' — CC BY 4.0 cho phép tái sử dụng có credit; nhất quán âm thanh mùa S2."
+        },
+        {
+          "option_id": "new_incompetech",
+          "label": "Track mới từ media-library catalog",
+          "score": 0.45,
+          "reason": "Hầu hết selection_status 'listening review pending' — chưa qua tai; vi phạm tinh thần 'không kế thừa track chưa kiểm tra'."
+        },
+        {
+          "option_id": "inherit_unverified",
+          "label": "Kế thừa track bất kỳ chưa verify",
+          "score": 0.0,
+          "reason": "Bài học Ep.03 d-008: Content ID claim."
+        }
+      ],
+      "selected": "reuse_mesmerize",
+      "reason": "Provenance đã verify ở S2E01 (Incompetech CC BY 4.0, credit đầy đủ catalog.json); credit ghi lại vào youtube.json S2E02. Loop bed acrossfade + loudnorm I=-24 TP=-2.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "script",
+      "category": "timing_budget",
+      "subject": "Cấu trúc BRIEF 13–15' giữ tỷ lệ scale về ~870s; word count 3.400–3.900 là SSOT",
+      "options_considered": [
+        {
+          "option_id": "scale_870",
+          "label": "Giữ TỶ LỆ cấu trúc BRIEF, scale về ~870s; tổng từ là chuẩn cuối",
+          "score": 0.9,
+          "reason": "BRIEF chốt 13–15' ≈ 3.400–3.900 từ / 28–31 section; mốc thô từng hồi chỉ là phác."
+        },
+        {
+          "option_id": "raw_855",
+          "label": "Cộng thô mốc BRIEF (30+180+210+240+180+120+90+30)",
+          "score": 0.5,
+          "reason": "Gần ~870s nhưng từng hồi thô chưa đối chiếu tỷ lệ."
+        }
+      ],
+      "selected": "scale_870",
+      "reason": "Word-count range là chuẩn đo cuối (SSOT); budget từng hồi ghi trong digest.target_structure.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "assets",
+      "category": "asset_reuse",
+      "subject": "Reuse silhouette Hùng Vương f07 từ S1 (copy vào assets/reference/) — callback S1 đúng 1 lần",
+      "options_considered": [
+        {
+          "option_id": "reuse_f07",
+          "label": "Copy f07-hung-vuong.png vào assets/reference/, dùng 1 lần thoáng trong setup",
+          "score": 0.9,
+          "reason": "BIBLE §4 + S2-BIBLE §4: reuse chỉ silhouette/tranh cổ; BRIEF S2E02 chọn 1 trong 2 callback (đền Hùng/trống đồng)."
+        },
+        {
+          "option_id": "regen",
+          "label": "Gen lại Hùng Vương mới",
+          "score": 0.1,
+          "reason": "Chống quy tắc bible; tốn quota ảnh."
+        }
+      ],
+      "selected": "reuse_f07",
+      "reason": "Callback S1 tối đa 1 lần nhẹ (BRIEF); f07 đã copy 2026-10-17 vào assets/reference/.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "script",
+      "category": "tts_pronunciation",
+      "subject": "Gate A pronunciation probe S2E02 (18 clip isolate, whisper round-trip): 0 term cần respell",
+      "options_considered": [
+        {
+          "option_id": "keep_all_verbatim",
+          "label": "Giữ nguyên toàn bộ địa danh/số trong provider_text; anchor resolve bằng ASR-spelling từ transcript thật",
+          "score": 0.88,
+          "reason": "Mọi sai lệch isolate là tone/rime noise của whisper-small trên skeleton âm đúng — trùng danh sách biến thể đã chấp nhận ở S2E01 (phụ đồng, vó dàn, kênh sơ, đăng ngạ, nên sắp, cậu hút...). Số đọc chữ whisper bắt thành digits = TTS đọc rõ."
+        },
+        {
+          "option_id": "respell_outliers",
+          "label": "Respell các term cấu trúc lệch hẳn (Soi Bia, Mộc Dục, Gia Bình)",
+          "score": 0.35,
+          "reason": "Whisper nghe 'so be ya'/'một sóc'/'zabbing' — nhưng đây là từ hiếm whisper-small không biết, không phải lỗi phát âm TTS; respell sẽ làm sai chính tả hiển thị + không sửa được gì."
+        }
+      ],
+      "selected": "keep_all_verbatim",
+      "reason": "Kết quả ghi trong tts_lexicon.json._gate_a_verdicts + artifacts/probes/gate_a_s2e02_result.json; asr_variants_for_anchors dùng cho anchor resolution (pattern d-004 S2E01).",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "assets",
+      "category": "bgm_selection",
+      "subject": "BGM S2E02 = 'Floating Cities' (Kevin MacLeod, CC BY 4.0, media-library/explainer) thay vì kế thừa Mesmerize của S2E01",
+      "options_considered": [
+        {
+          "option_id": "floating_cities",
+          "label": "Floating Cities — Synths/Percussion, 3:04, feel 'Somber, Mystical, Calming'",
+          "score": 0.85,
+          "reason": "Provenance rõ (catalog CC-BY-4.0, credit đầy đủ); mood hợp giọng 'các vị thần ở lại' (trầm, tín ngưỡng) hơn Mesmerize (hypnotic); phân biệt âm sắc 2 tập."
+        },
+        {
+          "option_id": "reuse_mesmerize",
+          "label": "Kế thừa Mesmerize như S2E01",
+          "score": 0.6,
+          "reason": "Đã QC, license cho phép — nhưng trùng track 2 tập liền, giảm nhận diện."
+        }
+      ],
+      "selected": "floating_cities",
+      "reason": "Dispatch: 'ưu tiên track đã QC ở S2E01 nếu cùng license cho phép' — cả 2 đều CC BY 4.0 đã kiểm kê trong catalog; chọn track KHÁC để tránh trùng, vẫn $0 + provenance.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "script",
+      "category": "script_qc",
+      "subject": "S2E02 script: S1b CC 1 session sống nguyên (không chết), 28 sections / 3.861 từ; Hermes audit độc lập 0 issues (whitelist số, anti-rules, S2-C2, 9 quotes verbatim, provider_text sạch)",
+      "options_considered": [
+        {
+          "option_id": "resume_session",
+          "label": "Respawn bằng --resume giữ context thay vì session mới",
+          "score": 0.9,
+          "reason": "Upstream flaky (gemini 502 đồng thời); resume giữ plan và chỉ viết phần còn thiếu."
+        },
+        {
+          "option_id": "fresh_restart",
+          "label": "Session mới viết lại từ đầu",
+          "score": 0.4,
+          "reason": "Tốn turn đọc lại; rủi ro chết mạng lặp lại giữa Write lớn."
+        }
+      ],
+      "selected": "resume_session",
+      "reason": "S1b2 resume xong trong ~8 phút: 28 sections / 3.872 từ (trong range 3.400–3.900), tự trim từ 4.011, tự bắt 3 chỗ ký tự ngoại lai. Hermes audit độc lập: 4 false positive đã adjudicate (asset f07, 'tháng 7, tháng 8' trong nguyên văn quote LNCQ, id S2-C1, regex hoa thường Mỵ Nương). Fix cơ học: provider_text ';'->'.' 13 sections (vieneu 3-vế lesson).",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "assets",
+      "category": "duration",
+      "subject": "S2E02 narration 941.5s (3.861 từ) — GIỮ NGUYÊN không atempo; composition ~944s = 15'44\"",
+      "options_considered": [
+        {
+          "option_id": "keep_natural",
+          "label": "Giữ tốc độ tự nhiên vieneu, composition 944s",
+          "score": 0.9,
+          "reason": "Word count 3.861 trong 3.400–3.900 (SSOT digest timing_reconciliation); tỷ lệ từ/giây trùng S2E01 (3.872 từ → 933s, owner-duyệt 15'35\"); S2-BIBLE §1 cho 2 tập đầu 12–16'."
+        },
+        {
+          "option_id": "atempo_095",
+          "label": "atempo 0.95 kéo về ~894s cho khít 15'",
+          "score": 0.45,
+          "reason": "Vào khung 13–15' BRIEF nhưng đổi tốc giọng cả tập so series; word count vốn đã đạt, nén thêm không thêm nội dung."
+        }
+      ],
+      "selected": "keep_natural",
+      "reason": "Word count là chuẩn đo cuối (SSOT); precedent S2E01 935s approved; 944s trong khung 12–16' S2-BIBLE. Lệch +74s vs budget 870s do TTS đọc đúng pause_policy 0,5–0,7s giữa hồi.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-008",
+      "stage": "scene_plan",
+      "category": "scene_architecture",
+      "subject": "70 scenes (15 text_card, 35 diagram, 20 generated), 28/28 sections, anchors substring 100%",
+      "options_considered": [
+        {
+          "option_id": "70_scenes",
+          "label": "70 scenes (~13.5s/scene) — upper band target",
+          "score": 0.9,
+          "reason": "Phủ dày trục vật thể 3 hồi; đúng range 60–70; anchors đều nguyên văn section text (validate_sp PASS)."
+        }
+      ],
+      "selected": "70_scenes",
+      "reason": "S1c2 1 session sống (hết turns sau khi đủ file); Hermes normalize type-enum (quote_card/stat_card/…→ text_card/diagram/generated) + required_assets object hóa cho khớp schema.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.9
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+ "version": "1.0",
+ "project_id": "news-daily-20261023",
+ "editorial_focus": "5 tin ấn tượng giảm dần; tin mạnh nhất thi lớp 10 2 môn mở video; segment NHẬN ĐỊNH riêng; audio-locked flat motion graphics",
+ "pacing_strategy": "speech-driven cut, 0.8s tail per scene, camera TĨNH",
+ "subtitles": {
+  "enabled": true,
+  "position": "bottom-center",
+  "font_size": 48,
+  "style": "adaptive clamp(28..48) 2-line pill, dark navy background"
+ },
+ "audio": {
+  "voice_over": "vieneu Turbo default 48k atempo=1.15",
+  "background_music": "none (voice-only lane precedent)"
+ },
+ "visual_theme": "flat-motion-graphics, dark navy #0F172A, coral accent #FF7F6E, gold highlight #F5C470",
+ "camera": "TĨNH tuyệt đối trong shot — 0 push/Ken Burns; cut cứng",
+ "decision_log_ref": "artifacts/decision_log.json"
+}

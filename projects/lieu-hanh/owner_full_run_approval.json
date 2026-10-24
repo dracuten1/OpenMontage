@@ -1,0 +1,13 @@
+{
+ "version":"1.0",
+ "project_id":"lieu-hanh",
+ "session_id":"20261020_070647_629003",
+ "owner_quote":"Let finish the vn myth ep4 I approve all",
+ "provenance":"Direct owner Telegram DM615761638 request relayed verbatim in active OWNER FULL-RUN APPROVAL user message in this lead session. No Telegram message_id supplied; not invented.",
+ "scope":"VN-Myth S2E04 Liễu Hạnh ONLY",
+ "approved":["research sealed v1","concept c1 Người con gái trở về incorporating c2/c3","reviewed script","S2-C4 interpretive framing for this episode, no bible edit","CC+OpenMontage Remotion","content-driven duration within 12–20min","internal demo","asset batches after internal probe/demo QC","internal draft HUD QC","clean final","Telegram delivery DM615761638"],
+ "quality_gates_waived":false,
+ "additional_owner_wait_required":false,
+ "forbidden":["auto publication","E05 production","series bible edits","cron/config/profile changes","git reset/commit/push","unsupported sources or claims","paid models"],
+ "status":"full_run_authorized"
+}

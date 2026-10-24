@@ -1,0 +1,136 @@
+{
+ "version": "1.0",
+ "project_id": "news-daily-20261023",
+ "pipeline_type": "hybrid",
+ "stage": "scene_plan",
+ "status": "completed",
+ "timestamp": "2026-10-23T18:09:36.089725+07:00",
+ "checkpoint_policy": "guided",
+ "human_approval_required": true,
+ "human_approved": true,
+ "artifacts": {
+  "scene_plan": {
+   "version": "1.0",
+   "style_playbook": "flat-motion-graphics",
+   "scenes": [
+    {
+     "id": "S1",
+     "type": "text_card",
+     "script_section_id": "S1",
+     "description": "Hook giáo dục. Title 'THI LỚP 10: CHỈ TOÁN VÀ VĂN' + stat '2 môn thi — Toán và Văn' (số 2 coral, nguyên giá trị, không countup) + sub 'Đề xuất nhằm giảm áp lực thi cử' + chip nổi bật 'Chưa phải quy định chính thức' (chip viền vàng để khỏi bị hiểu là đã áp dụng). Nền navy tĩnh, không minh họa nhân vật.",
+     "movement": "Reveal từng element theo word timestamps thật (speech-lock); camera TĨNH tuyệt đối trong shot",
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "overlay_notes": "Captions nguyên văn section; Nguồn: bản tin tổng hợp ngày 23/10/2026",
+     "narrative_role": "introduce_subject",
+     "required_assets": [],
+     "start_seconds": 0,
+     "end_seconds": 11
+    },
+    {
+     "id": "S2",
+     "type": "text_card",
+     "script_section_id": "S2",
+     "description": "Kinh tế/đất đai: title 'THUẾ VỚI ĐẤT BỎ HOANG' + sub 'Chính phủ trình Quốc hội' + stat '0,2%' coral lớn + qualifier 'trên toàn bộ diện tích đất bỏ hoang' + chip 'Không áp dụng hạn mức'. Có thể SVG line-art mảnh đất trống trơn (MINH HỌA) sau vùng title.",
+     "movement": "Reveal từng element theo word timestamps; camera TĨNH",
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "overlay_notes": "Số 0,2% nguyên văn, không thêm '/năm'",
+     "narrative_role": "elaborate_point",
+     "required_assets": [],
+     "start_seconds": 11,
+     "end_seconds": 20
+    },
+    {
+     "id": "S3",
+     "type": "text_card",
+     "script_section_id": "S3",
+     "description": "Pháp luật: title 'GẦN 1.500 VĂN BẰNG, CHỨNG CHỈ GIẢ' + 3 stat hàng dọc: 'Khởi tố 10 bị can' / 'Trong đó có 2 giảng viên đại học' / 'Thu lời bất chính gần 3 tỷ đồng'. Số coral, giữ 'gần'.",
+     "movement": "Reveal từng element theo word timestamps; camera TĨNH",
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "overlay_notes": "Không hình ảnh cảnh sát/giam giữ — text card thuần",
+     "narrative_role": "elaborate_point",
+     "required_assets": [],
+     "start_seconds": 20,
+     "end_seconds": 31
+    },
+    {
+     "id": "S4",
+     "type": "text_card",
+     "script_section_id": "S4",
+     "description": "Sức khỏe: title 'HƠN 40.000 CA TAY CHÂN MIỆNG' + sub 'Từ đầu năm' + stat 'Số ca tăng 32,2% trong một tuần' + chip 'Bác sĩ: nhận biết sớm dấu hiệu nặng'. Không hình y tế gây sợ.",
+     "movement": "Reveal từng element theo word timestamps; camera TĨNH",
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "overlay_notes": "Giữ 'hơn' và '32,2% trong một tuần' nguyên văn",
+     "narrative_role": "elaborate_point",
+     "required_assets": [],
+     "start_seconds": 31,
+     "end_seconds": 42
+    },
+    {
+     "id": "S5",
+     "type": "text_card",
+     "script_section_id": "S5",
+     "description": "Hạ tầng: title 'LONG THÀNH: 4 GÓI THẦU NGUY CƠ TRỄ' + chip 'Thiếu nhân lực, chậm thanh toán' + chip 'Dự kiến khai thác 24/12'. Có thể SVG line-art nhà ga/sân bay trừu tượng (MINH HỌA) sau title.",
+     "movement": "Reveal từng element theo word timestamps; camera TĨNH",
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "overlay_notes": "'nguy cơ' và 'dự kiến' giữ nguyên mức độ",
+     "narrative_role": "elaborate_point",
+     "required_assets": [],
+     "start_seconds": 42,
+     "end_seconds": 51
+    },
+    {
+     "id": "S6a",
+     "type": "commentary_panel",
+     "script_section_id": "S6a",
+     "description": "Panel NHẬN ĐỊNH (viền coral trái, nền coral 7%): badge 'NHẬN ĐỊNH' coral hiện suốt scene (persist) + line1 'Có đất bỏ hoang: nếu đề xuất thông qua sẽ tốn thêm thuế' + line2 'Toàn bộ diện tích, không hạn mức — đất càng lớn, thuế càng cao'.",
+     "movement": "Badge persist scene; lines reveal theo anchor; camera TĨNH",
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "overlay_notes": "Badge NHẬN ĐỊNH phân biệt với tin gốc",
+     "narrative_role": "editorial_commentary",
+     "required_assets": [],
+     "start_seconds": 51,
+     "end_seconds": 60
+    },
+    {
+     "id": "S6b",
+     "type": "commentary_panel",
+     "script_section_id": "S6b",
+     "description": "Panel NHẬN ĐỊNH thứ hai: badge persist + line1 'Thi 2 môn có thể giảm áp lực — nhưng vẫn là đề xuất, chưa phải quy định' + line2 'Tay chân miệng đang tăng — nhận biết sớm dấu hiệu nặng'.",
+     "movement": "Badge persist scene; lines reveal theo anchor; camera TĨNH",
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "overlay_notes": "Giọng trung tính",
+     "narrative_role": "editorial_commentary",
+     "required_assets": [],
+     "start_seconds": 60,
+     "end_seconds": 72
+    },
+    {
+     "id": "S7",
+     "type": "outro",
+     "script_section_id": "S7",
+     "description": "Outro: 'TIN NHANH 23/10/2026' giữa khung + gạch vàng + chip 'Theo dõi để cập nhật bản tin tiếp theo'.",
+     "movement": "TĨNH, chỉ reveal chip theo anchor",
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "overlay_notes": "CTA trung tính",
+     "narrative_role": "outro",
+     "required_assets": [],
+     "start_seconds": 72,
+     "end_seconds": 75
+    }
+   ],
+   "metadata": {
+    "camera": "TĨNH tuyệt đối trong shot — scale hằng, 0 push/Ken Burns; cut cứng giữa scene",
+    "speech_lock": "scene boundary + element reveal lock per-word timestamps audio thật (rule S2E01 10-16)",
+    "timeline_note": "start/end là budget placeholder — thực tế do scene_timing.json quyết định"
+   }
+  }
+ }
+}

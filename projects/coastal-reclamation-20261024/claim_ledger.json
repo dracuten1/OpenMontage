@@ -1,0 +1,102 @@
+{
+  "version": "1.0",
+  "topic": "Lấn biển thay đổi dòng chảy và rừng ngập mặn như thế nào?",
+  "editorial_stance": "Khách quan, khoa học, phổ biến cơ chế tự nhiên và kỹ thuật công trình, KHÔNG suy diễn/quy kết dự án cụ thể (như Vin / Cần Giờ). Phân định rõ cơ chế tổng quát (mechanisms) với số liệu đo đạc thực tế của từng vị trí cụ thể (site-specific).",
+  "verified_claims": [
+    {
+      "id": "CLM-001",
+      "topic": "Thủy động lực học - Lăng kính triều (Tidal Prism) & Vận tốc dòng chảy",
+      "mechanism": "Khi lấn biển hoặc đắp đê trên bãi triều, diện tích ngập triều bị thu hẹp làm giảm tổng thể tích nước trao đổi trong một chu kỳ triều (lăng kính triều). Hệ quả là vận tốc dòng chảy trung bình trong các lạch dẫn chính bị suy giảm, tăng thời gian lưu nước (residence time), thúc đẩy quá trình bồi lấp phù sa mịn.",
+      "context_dependence": "Nếu công trình tạo ra các điểm thắt hẹp cục bộ (bottlenecks / chokepoints), vận tốc dòng chảy tại điểm thắt lại tăng vọt (acceleration), gây xói lở đáy lòng dẫn. Hiệu ứng phụ thuộc chặt chẽ vào hình học công trình và độ sâu luồng lạch.",
+      "distinction_site_vs_mechanism": "Đây là cơ chế thủy văn tổng quát đã được lượng hóa trong các mô hình số trị (FVCOM, Delft3D). Không thể tự suy diễn vận tốc tại một điểm cụ thể nếu chưa có mô hình địa hình đáy (bathymetry) và chu kỳ triều thực đo.",
+      "sources": [
+        {
+          "citation": "Wilson et al. (2017), 'Widespread infilling of tidal channels and navigable waterways in the human-modified tidal deltaplain'",
+          "url": "https://jonathangilligan.org/files/pubs/pdfs/wilson_2017_infilling.pdf",
+          "type": "Peer-reviewed scientific study"
+        },
+        {
+          "citation": "Wu et al. (2024), 'Numerical Investigation of Land Reclamation Effects on Hydrodynamics and Mangroves in Shacheng Bay for the Last 36 Years', Journal of Ocean University of China",
+          "url": "https://link.springer.com/article/10.1007/s11802-024-5750-6",
+          "type": "Peer-reviewed scientific journal"
+        }
+      ]
+    },
+    {
+      "id": "CLM-002",
+      "topic": "Phân định 3 lực động lực học biển (Tidal vs Wave vs Storm Surge)",
+      "mechanism": "1. Dòng triều (Tidal currents): Chuyển động hai chiều tuần hoàn (lên/xuống, vào/ra) do lực hấp dẫn Mặt Trăng và Mặt Trời, chi phối toàn bộ cột nước từ mặt đến đáy.\n2. Sóng ven bờ & Dòng dọc bờ (Waves & Longshore Drift): Do năng lượng gió tạo ra ở tầng mặt, khi sóng vỡ xiên góc với bờ biển tạo thành dòng chảy ven bờ cuốn trôi bùn cát.\n3. Nước dâng do bão (Storm surge): Sự dâng cao bất thường của mực nước biển do áp suất khí quyển giảm sâu và ứng suất gió bão cực mạnh dồn ép nước vào bờ.",
+      "context_dependence": "Vùng kín gió/cửa sông chịu chi phối bởi dòng triều; bờ biển hở chịu chi phối bởi sóng; khi có bão thì nước dâng và sóng biển khuếch đại lẫn nhau.",
+      "distinction_site_vs_mechanism": "Không đồng nhất tác động của sóng với dòng triều ngầm. Mỗi lực tác động lên một tầng nước và vật liệu đáy biển khác nhau.",
+      "sources": [
+        {
+          "citation": "Morton et al. (2003), 'An Overview of Coastal Land Loss: Waves, Currents, and Storm Surges', USGS Open-File Report 03-337",
+          "url": "https://pubs.usgs.gov/of/2003/of03-337/budget.html",
+          "type": "USGS Scientific Report"
+        },
+        {
+          "citation": "NOAA National Ocean Service, 'Tides, Currents, and Storm Surges'",
+          "url": "https://oceanservice.noaa.gov/facts/stormsurge-tidalflood.html",
+          "type": "Authoritative Government Agency"
+        }
+      ]
+    },
+    {
+      "id": "CLM-003",
+      "topic": "Cân bằng bùn cát (Sediment Budget) - Hiện tượng Bồi / Xói đối xứng",
+      "mechanism": "Cân bằng bùn cát tuân theo định luật bảo toàn: [Nguồn cấp] - [Lượng lấy đi] = [Biến thiên tích tụ]. Khi công trình lấn biển nhô ra ngoài bờ (tương tự một mỏ kè khổng lồ):\n- Phía đón dòng dọc bờ (updrift): Trầm tích bị cản lại và bồi lắng tạo bãi.\n- Phía khuất dòng (downdrift): Xảy ra hiện tượng 'đói bùn cát' (sediment starvation), sóng tiếp tục bóc tách bùn cát mang đi mà không có nguồn bù lại, gây sạt lở bờ biển kế cận.",
+      "context_dependence": "Mức độ bồi/xói phụ thuộc vào hướng sóng thịnh hành theo mùa, nguồn cung trầm tích từ sông và loại trầm tích (cát mịn, bùn sét hay cát thô).",
+      "distinction_site_vs_mechanism": "Xói lở bờ biển kế cận không nhất thiết do bản thân công trình phá hủy đất đá, mà là hệ quả gián tiếp của việc ngắt đứt chuỗi cung cấp bùn cát tự nhiên.",
+      "sources": [
+        {
+          "citation": "USGS Open-File Report 2008-1206, 'Coastal Change Along the Shore: Sediment Budget and Transport Pathways'",
+          "url": "https://pubs.usgs.gov/of/2008/1206/html/processes4.html",
+          "type": "USGS Technical Report"
+        }
+      ]
+    },
+    {
+      "id": "CLM-004",
+      "topic": "Hệ sinh thái Rừng ngập mặn (Mangrove Ecology) - Khả năng cản sóng & Giới hạn sinh thái",
+      "mechanism": "Rễ cây ngập mặn (rễ chống của Đước, rễ thở của Mắm) tạo ra lực cản thủy lực (drag force), có thể làm suy giảm 70% đến hơn 80% năng lượng và chiều cao sóng ngắn trong khoảng 50-100m. Đồng thời làm giảm độ cao nước dâng bão từ 18-50 cm/km rừng.\nTuy nhiên, rừng ngập mặn đòi hỏi chu kỳ ngập - rút triều đều đặn để thông khí mô rễ qua các lỗ thở (lenticels). Nếu bị bồi lắng bùn mịn quá nhanh hoặc bị ngập nước tù đọng kéo dài (thời gian lưu nước tăng >36h), rễ bị ngạt khí (hypoxia), dẫn đến rụng lá và suy thoái.",
+      "context_dependence": "Không có kịch bản 'hủy diệt tất yếu': Nếu công trình lấn biển được thiết kế có kênh mở và duy trì bãi bồi nông với biên độ triều phù hợp, rừng ngập mặn có thể thích ứng và thậm chí bồi tụ phát triển thêm ở các vùng nước êm mới.",
+      "distinction_site_vs_mechanism": "Rừng ngập mặn suy thoái hay phát triển phụ thuộc vào cao độ mặt bùn (bed elevation) so với mực nước triều trung bình, chứ không phải một kết luận định kiến chung.",
+      "sources": [
+        {
+          "citation": "Quartel et al. (2007) / Friess et al. (2020), 'Potential short wave attenuation function of mangroves', Estuarine, Coastal and Shelf Science",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0272771419309497",
+          "type": "Peer-reviewed journal"
+        },
+        {
+          "citation": "Nature Communications Earth & Environment (2022), 'Mangrove forests can be an effective coastal defence in the Pearl River Delta'",
+          "url": "https://www.nature.com/articles/s43247-022-00672-7",
+          "type": "Nature portfolio journal"
+        },
+        {
+          "citation": "Frontiers in Marine Science (2025), 'The response of mangrove degradation to mineral composition and hydrodynamic stagnation'",
+          "url": "https://frontiersin.org/articles/10.3389/fmars.2025.1626088/full",
+          "type": "Peer-reviewed scientific publication"
+        }
+      ]
+    },
+    {
+      "id": "CLM-005",
+      "topic": "Giải pháp công trình giảm thiểu (Mitigation & Sustainable Engineering)",
+      "mechanism": "Các biện pháp kỹ thuật ven biển hiện đại nhằm giảm thiểu xung đột thủy động lực học:\n1. Thiết kế đảo nhân tạo cách bờ có kênh thông lưu (open flushing channels) thay vì bờ đắp liền khối bịt kín luồng lạch.\n2. Kè mềm kết hợp sinh thái (Living Shorelines): Giữ lại hoặc phục hồi đai rừng ngập mặn tiền tiêu trước kè cứng để giảm 50-70% áp lực sóng trực diện lên đê biển.\n3. Bơm bùn cát vòng qua công trình (Sediment bypassing): Chủ động dẫn cát từ phía đón dòng sang phía khuất dòng để chống đói cát downdrift.",
+      "context_dependence": "Áp dụng tùy theo nguồn kinh phí, quy mô quy hoạch và tính chất nền đất (bùn mềm đồng bằng sông vs cát ven biển miền Trung).",
+      "distinction_site_vs_mechanism": "Chứng minh khoa học công trình ven biển luôn có hai mặt: thách thức vật lý và giải pháp cân bằng thích ứng.",
+      "sources": [
+        {
+          "citation": "ISPRS Archives (2021), 'Enhancing coastal resiliency with mangrove forest and oyster reef assessed by ADCIRC and SWAN model'",
+          "url": "https://isprs-archives.copernicus.org/articles/XLVI-4-W6-2021/243/2021/isprs-archives-XLVI-4-W6-2021-243-2021.pdf",
+          "type": "Peer-reviewed symposium paper"
+        },
+        {
+          "citation": "IntechOpen / GIZ (2023), 'Mangroves and Ecosystem-Based Coastal Protection in the Mekong River Delta, Vietnam'",
+          "url": "https://www.intechopen.com/chapters/86645",
+          "type": "Open-access scientific chapter"
+        }
+      ]
+    }
+  ]
+}

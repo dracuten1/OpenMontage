@@ -1,0 +1,194 @@
+{
+  "version": "1.0",
+  "episode": "S2E03",
+  "retrieved_at": "2026-10-19",
+  "policy": "Chỉ dùng mỗi claim trong allowed_scope. Bản kể chứng minh nội dung văn bản, không chứng minh sự kiện lịch sử.",
+  "claims": [
+    {
+      "id": "C01",
+      "claim": "Bản dịch LNCQ kể cha con chung một khố; Đồng Tử dùng khố liệm cha.",
+      "source_id": 4,
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "quote": "Cha từ, con hiếu, nhà gặp hỏa hoạn, của cải sạch không, chỉ còn lại một khố vải duy nhất, cha con ra vào thay nhau mà mặc. Tới lúc cha già lâm bệnh gần chết bảo con rằng: “Cha chết cứ để trần mà chôn, giữ khố lại cho con, để khỏi xấu hổ”. Con không nỡ làm theo, liệm khố rồi đem chôn.",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_04_pdf_text.txt",
+      "kind": "myth_text",
+      "allowed_scope": "Chỉ là tình tiết bản truyện, không xác nhận nhân vật/sự kiện lịch sử.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C02",
+      "claim": "Bản dịch LNCQ tiếp tục sau hôn nhân bằng việc hai người lập chợ và buôn bán.",
+      "source_id": 4,
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "quote": "Tiên Dung nghe sợ không dám về, bèn cùng Đồng Tử mở chợ búa, lập phố xá, cùng dân buôn bán, dần dần trở thành phố chợ lớn (nay là chợ Thám). Thương nhân nước ngoài tới lui buôn bán, kính nể tôn Tiên Dung và Chử Đồng Tử làm chủ.",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_04_pdf_text.txt",
+      "kind": "myth_text",
+      "allowed_scope": "Không suy ra người khai sinh thương mại Việt Nam hay niên đại chợ.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C03",
+      "claim": "Bản dịch LNCQ có chuyến buôn, gặp sư Phu Quang, nhận trượng và nón, trở về giảng đạo.",
+      "source_id": 4,
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "quote": "Đồng Tử bèn cùng lái buôn đi buôn bán. Đến núi Quỳnh Vi, trên núi có am nhỏ, bọn lái buôn thường ghé lại đó lấy uống nước. Đồng Tử lên am chơi, trong am có sư tên gọi Phu Quang truyền phép cho Đồng Tử, Đồng Tử ở lại học phép, giao tiền cho lái buôn mua hàng. Sau bọn lái buôn quay lại am chở Đồng Tử trở về. Sư bèn tặng Đồng Tử một cây trượng và một chiếc nón mà nói rằng: “Linh thiêng ở những vật này đây”. Đồng Tử trở về, giảng đạo lại cho Tiên Dung.",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_04_pdf_text.txt",
+      "kind": "myth_text",
+      "allowed_scope": "Tên trong bản này là Phu Quang. Không tự đổi thành Phật Quang trong trích dẫn; không định niên đại Phật giáo bằng truyện.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C04",
+      "claim": "Bản LNCQ kể thành quách bay lên, nơi cũ thành đầm Nhất Dạ và dân lập miếu.",
+      "source_id": 4,
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "quote": "Quan quân tới, đóng trại ở bãi Tự Nhiên, chỉ còn cách con sông lớn thì trời tối không kịp tiến quân. Nửa đêm, bỗng nhiên gió lớn nổi lên, cát bay, cây đổ, quan quân hỗn loạn. Tiên Dung cùng thủ hạ, thành quách phút chốc bay bổng lên trời. Đất chỗ đó sụt xuống thành cái đầm lớn. Ngày hôm sau, dân chúng không thấy thành quách đâu cả, đều cho là linh dị. Về sau, dân lập miếu thờ, bốn mùa cúng tế, gọi đầm là đầm Nhất Dạ (Nhất Dạ Trạch, nghĩa là đầm một đêm), gọi bãi là bãi Tự Nhiên, còn gọi là bãi Mạn Trù (hố tắm), và gọi chợ là chợ Hà Thị (chợ Hà).",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_04_pdf_text.txt",
+      "kind": "myth_text",
+      "allowed_scope": "Truyện giải thích địa danh; không phải báo cáo địa chất hay bằng chứng biến cố có thật.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C05",
+      "claim": "Bản Phan Kế Bính trên Wikisource gọi vị sư là Phật-Quang và cũng có gậy/nón.",
+      "source_id": 5,
+      "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/38",
+      "quote": "Trong am có một nhà sư còn trẻ, tên là Phật-Quang, thấy Đồng-tử có cách điệu thần tiên, muốn truyền phép cho Đồng-tử. Đồng-tử ở liền ngay đấy học đạo Được hơn một năm, Đồng-tử trở về, Phật-Quang tặng cho một cái gậy, một cái nón, và dặn rằng: — Phép linh thông ở cả cái gậy và cái nón này.",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_05.txt",
+      "kind": "text_variant",
+      "allowed_scope": "Dùng đối chiếu tên/chi tiết; chưa xác minh năm ấn bản nên không nêu mốc xuất bản cụ thể.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C06",
+      "claim": "Bài Phan Duy Kha đăng lại trên trang bảo tàng dẫn tên Ngưỡng Quang.",
+      "source_id": 1,
+      "source_url": "https://baotanglichsu.vn/vi/Articles/3096/10118/truyen-thuyet-chu-djong-tu-dji-tu-djao-phat.html",
+      "quote": "Có núi Quỳnh Viên, trên núi có am nhỏ, bọn lái buôn thường ghé lại đó uống nước. Đồng Tử lên am chơi, có tiểu tăng tên là Ngưỡng Quang truyền phép cho Đồng Tử.",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_01.txt",
+      "kind": "secondary_interpretation",
+      "allowed_scope": "Bài diễn giải hiện đại, không phải chứng cứ độc lập xác nhận nhân vật hoặc Phật giáo thời Hùng.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C07",
+      "claim": "Cổng du lịch Hưng Yên ghi khoảng hội 10–12 tháng Hai âm lịch.",
+      "source_id": 2,
+      "source_url": "https://dulich.hungyen.gov.vn/vi/detailevents/?t=le-hoi-chu-dong-tu-tien-dung&id=event_971",
+      "quote": "Thời gian tổ chức lễ hội từ ngày 10- 12/2 âm lịch hàng năm.",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_02.txt",
+      "kind": "festival_document",
+      "allowed_scope": "Nguồn có lịch sự kiện 2018. Không coi lịch nghi lễ chi tiết là lịch năm 2026.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C08",
+      "claim": "Lịch được cổng du lịch đăng có nghi thức du thuyền rước nước trên sông Hồng.",
+      "source_id": 2,
+      "source_url": "https://dulich.hungyen.gov.vn/vi/detailevents/?t=le-hoi-chu-dong-tu-tien-dung&id=event_971",
+      "quote": "Ngày 11/2 âm lịch, sáng 9h đến 10h30′ các làng tổ chức du thuyền rước nước trên sông Hồng (gồm 9 làng tham dự).",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_02.txt",
+      "kind": "festival_document",
+      "allowed_scope": "Nếu nêu ngày 11, phải nói theo lịch đăng trong nguồn; không gộp thành ngày rước chung mọi đền/mọi năm.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C09",
+      "claim": "Bài ngày 01/03/2023 nêu quyết định 153/QĐ-BVHTTDL ngày 02/02/2023 ghi danh Lễ hội đền Đa Hòa.",
+      "source_id": 3,
+      "source_url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+      "quote": "Tại buổi lễ, đại diện huyện Khoái Châu công bố Quyết định số 153/QĐ-BVHTTDL ngày 2/2/2023 của Bộ Văn hóa, Thể thao và Du lịch chứng nhận Lễ hội đền Đa Hòa (xã Bình Minh, huyện Khoái Châu và xã Mễ Sở, huyện Văn Giang) được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia.",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_03.txt",
+      "kind": "official_announcement",
+      "allowed_scope": "Phạm vi đúng tên Lễ hội đền Đa Hòa theo bài công bố, KHÔNG nói UNESCO, không mở rộng sang mọi đền. Chưa tải bản quyết định gốc.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C10",
+      "claim": "Bài năm 2023 mô tả quy mô hàng tổng ba năm một lần và chín làng/thôn.",
+      "source_id": 3,
+      "source_url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+      "quote": "Lễ hội truyền thống Chử Đồng Tử - Tiên Dung năm nay được tổ chức theo quy mô hàng tổng (3 năm một lần) với sự tham gia của 9 làng trong Tổng Mễ xưa, nay là 9 thôn thuộc 2 xã: Bình Minh (Khoái Châu) và Mễ Sở (Văn Giang).",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_03.txt",
+      "kind": "official_announcement",
+      "allowed_scope": "Chỉ nói sự kiện được tường thuật năm 2023; địa danh hành chính theo thời bài viết, không coi là bản đồ hành chính 2026.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "Q01",
+      "claim": "Cuộc gặp gỡ kì lạ giữa Chử Đồng Tử và Tiên Dung diễn ra như thế nào?",
+      "source_id": 7,
+      "source_url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+      "quote": "Cuộc gặp gỡ kì lạ giữa Chử Đồng Tử và Tiên Dung diễn ra như thế nào?",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_07.txt",
+      "kind": "published_educational_question",
+      "allowed_scope": "Câu hỏi bài tập đọc được VnDoc đăng lại; không phải câu hỏi khảo sát khán giả, forum hay số liệu mức phổ biến.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "Q02",
+      "claim": "Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?",
+      "source_id": 7,
+      "source_url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+      "quote": "Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_07.txt",
+      "kind": "published_educational_question",
+      "allowed_scope": "Câu hỏi bài tập đọc được VnDoc đăng lại; không phải câu hỏi khảo sát khán giả, forum hay số liệu mức phổ biến.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "Q03",
+      "claim": "Nhân dân làm gì để tưởng nhớ ông?",
+      "source_id": 7,
+      "source_url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+      "quote": "Nhân dân làm gì để tưởng nhớ ông?",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_07.txt",
+      "kind": "published_educational_question",
+      "allowed_scope": "Câu hỏi bài tập đọc được VnDoc đăng lại; không phải câu hỏi khảo sát khán giả, forum hay số liệu mức phổ biến.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C11",
+      "claim": "Bản dịch có lời tựa Vũ Quỳnh đề Hồng Đức 23, chú thích quy đổi 1492.",
+      "source_id": 4,
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "quote": "Giữa mùa thu năm thứ 23, đời Hồng Đức (2) ##### Vũ Quỳnh Giám Sát Ngự Sử đạo Kinh Bắc, Tiến Sĩ khoa Mậu Tuất, hiệu Trạch Ổ, Yến Ôn, người làng Mộ Trạch, huyện Đường An, Hồng châu. ————————— ##### Chú thích 1. Quế là tên tỉnh Quảng Tây, Trung Quốc. Quế Hải theo nghĩa rộng là vùng đất bao gồm Quảng tây, tức chỉ gồm cả nước ta. 2. Tức năm 1492 đời vua Lê Thánh Tông",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_04_pdf_text.txt",
+      "kind": "text_history",
+      "allowed_scope": "Mốc của lời tựa được truyền trong sách, không phải tuổi nhân vật/tuổi truyện hoặc bản in gốc đang còn.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C12",
+      "claim": "Bản dịch có lời bạt Kiều Phú đề Hồng Đức 24, chú thích quy đổi 1493.",
+      "source_id": 4,
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "quote": "Năm Quí Sửu, niên hiệu Hồng Đức thứ 24 (1). Ninh Sơn Kiều Phú, tự Hiếu Lễ, Tiến sĩ Khoa Ất Mùi, nguyên Giám sát Ngự sử đạo Kinh Bắc kính chép. ————————— ##### Chú thích 1. Tức năm 1493 đời vua Lê Thánh Tông",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_04_pdf_text.txt",
+      "kind": "text_history",
+      "allowed_scope": "Không kết luận truyện ra đời năm 1493; không mô tả PDF dịch hiện đại là bản chụp thủ bản thế kỷ XV.",
+      "verified_verbatim": true
+    },
+    {
+      "id": "C13",
+      "claim": "Lời giải bài tập đọc trên VnDoc nhấn vào trồng lúa, nuôi tằm, dệt vải và hiển linh.",
+      "source_id": 7,
+      "source_url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+      "quote": "Chử Đồng Tử và Tiên Dung giúp dân làm nhiều việc lợi ích như dạy cách trồng lúa, nuôi tằm, dệt vải. Sau này ông còn hiển linh giúp dân đánh giặc.",
+      "evidence_path": "/Users/tuyennguyen/project/vn-myth-series/episodes/S2E03-chu-dong-tu/research/v1/evidence/source_07.txt",
+      "kind": "educational_retelling",
+      "allowed_scope": "Lớp kể giáo dục được đăng lại, không dùng để chứng minh ông khai sinh kỹ thuật nông nghiệp.",
+      "verified_verbatim": true
+    }
+  ],
+  "excluded_sources": [
+    {
+      "id": 6,
+      "reason": "Wikipedia chỉ để dò đường, không chứng cứ sản xuất."
+    },
+    {
+      "id": 8,
+      "reason": "Trang danh mục chung không tìm thấy Đa Hòa; không dùng làm chứng cứ cho quyết định."
+    }
+  ]
+}

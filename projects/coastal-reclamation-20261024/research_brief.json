@@ -1,0 +1,195 @@
+{
+  "version": "1.0",
+  "topic": "Lấn biển thay đổi dòng chảy và rừng ngập mặn như thế nào?",
+  "research_date": "2026-10-24",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "Numerical Investigation of Land Reclamation Effects on Hydrodynamics and Mangroves in Shacheng Bay",
+        "url": "https://link.springer.com/article/10.1007/s11802-024-5750-6",
+        "source": "Journal of Ocean University of China (Springer)",
+        "angle": "FVCOM 36-year numerical modeling of bathymetry, current weakening, and mangrove degradation/recovery",
+        "what_it_covers": "Quá trình lấn biển làm giảm lăng kính triều, suy giảm khả năng trao đổi nước và tác động gián tiếp đến rừng ngập mặn; sự phục hồi cục bộ khi hệ thủy động học tái lập cân bằng.",
+        "what_it_misses": "Tập trung vào vịnh kín bán khép khẩu, chưa khái quát hóa cho bờ biển hở chịu tác động mạnh của sóng và dòng ven bờ.",
+        "engagement_signal": "Peer-reviewed journal paper, 2024"
+      },
+      {
+        "title": "Mangrove forests can be an effective coastal defence in the Pearl River Delta",
+        "url": "https://www.nature.com/articles/s43247-022-00672-7",
+        "source": "Nature Communications Earth & Environment",
+        "angle": "Process-based hydrodynamic modeling of wave attenuation and storm surge dampening by mangroves",
+        "what_it_covers": "Khả năng tiêu tán năng lượng sóng (giảm 70-90% qua 50-100m) và giảm nước dâng do bão (18-50 cm/km); sự kết hợp giữa đê biển và rừng ngập mặn (nature-based defense).",
+        "what_it_misses": "Chưa đi sâu vào động lực học bồi tích ngược chiều khi chân công trình lấn biển chặn dòng bùn cát ven bờ.",
+        "engagement_signal": "Nature portfolio citation standard, 2022"
+      },
+      {
+        "title": "Widespread infilling of tidal channels and navigable waterways in the human-modified tidal deltaplain",
+        "url": "https://jonathangilligan.org/files/pubs/pdfs/wilson_2017_infilling.pdf",
+        "source": "LSU / E&S Research Publication",
+        "angle": "Quantitative empirical study of tidal prism loss and channel siltation",
+        "what_it_covers": "Việc quai đê/lấn biển làm giảm hơn 1.4 tỷ m3 lăng kính triều, làm suy giảm vận tốc dòng chảy trong lạch dẫn và dẫn đến bồi lấp tự nhiên hơn 600 km luồng lạch.",
+        "what_it_misses": "Tập trung vào vùng châu thổ Sundarbans, chưa so sánh với các dạng công trình lấn biển dạng đảo nhân tạo hở.",
+        "engagement_signal": "Major estuarine geomorphology study, 2017"
+      }
+    ],
+    "saturated_angles": [
+      "Các bài tranh luận mang tính quy kết cảm tính hoặc phóng đại về thảm họa không thể đảo ngược.",
+      "Các bài viết chỉ liệt kê diện tích lấn biển mà không phân tích cơ chế vật lý thủy động lực học.",
+      "Đồng nhất hiện tượng lấn biển với việc tự động xóa sổ toàn bộ hệ sinh thái mà không xét đến hình học và giải pháp kỹ thuật."
+    ],
+    "underserved_gaps": [
+      "Giải thích trực quan cơ chế thủy động học: Tại sao thu hẹp dòng chảy ở điểm này lại gây bồi lắng ở điểm khác?",
+      "Phân biệt rạch ròi giữa 3 lực biển: Dòng triều (tidal current), Sóng ven bờ (waves & littoral drift), và Nước dâng bão (storm surge).",
+      "Cân bằng bùn cát (Sediment budget): Nguyên lý bảo toàn vật chất - bồi lắng đón dòng (updrift) và thiếu hụt bùn cát gây xói lở khuất dòng (downdrift).",
+      "Cơ chế thích nghi sinh học và điều kiện biên của rừng ngập mặn: Sự thông thoáng dòng triều và ngạt rễ thở."
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "Sự gia tăng các dự án phát triển hướng biển và yêu cầu khoa học trong đánh giá thủy động lực học",
+        "url": "https://www.nature.com/articles/s43247-022-00672-7",
+        "date": "2026",
+        "relevance": "Cộng đồng ngày càng quan tâm đến cơ chế khoa học thực chất thay vì tranh cãi định kiến."
+      }
+    ],
+    "active_discussions": [
+      {
+        "platform": "scientific_community",
+        "topic_or_url": "Coastal hydrodynamic alteration vs nature-based solutions",
+        "sentiment": "Khách quan, nhấn mạnh vào mô hình hóa số trị và giải pháp công trình kết hợp sinh thái.",
+        "key_quotes": [
+          "Mangroves and coastal infrastructure must be analyzed through coupled hydrodynamic-sediment numerical models."
+        ]
+      }
+    ],
+    "timeliness_window": "evergreen"
+  },
+  "data_points": [
+    {
+      "claim": "Rừng ngập mặn có khả năng làm giảm 70% đến trên 80% chiều cao sóng ngắn trong khoảng cách chỉ 50-100m nhờ lực cản thủy lực (vegetation drag) từ hệ thống rễ chằng chịt.",
+      "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0272771419309497",
+      "source_name": "Estuarine, Coastal and Shelf Science / Quartel et al.",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "Việc lấn chiếm các vùng bãi triều làm giảm lăng kính triều (thể tích nước trao đổi qua cửa triều), có thể làm giảm vận tốc dòng chảy trung bình trong kênh dẫn và tăng thời gian lưu nước từ dưới 12 giờ lên hơn 36 giờ ở các vùng vịnh bán kín.",
+      "source_url": "https://frontiersin.org/articles/10.3389/fmars.2025.1626088/full",
+      "source_name": "Frontiers in Marine Science (2025)",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "Cân bằng bùn cát (Sediment Budget) ven bờ tuân thủ định luật bảo toàn: Công trình nhô ra biển chặn dòng vận chuyển ven bờ (longshore drift) sẽ gây bồi tụ ở phía đón dòng (updrift) nhưng đồng thời gây thiếu hụt bùn cát và xói lở ở phía khuất dòng (downdrift).",
+      "source_url": "https://pubs.usgs.gov/of/2003/of03-337/budget.html",
+      "source_name": "USGS Coastal Land Loss Report / Morton et al.",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "Rừng ngập mặn làm giảm độ cao nước dâng do bão với tốc độ từ 18 đến 50 cm trên mỗi km chiều sâu rừng, nhưng đòi hỏi chế độ ngập triều định kỳ để tránh thiếu oxy mô rễ.",
+      "source_url": "https://www.nature.com/articles/s43247-022-00672-7",
+      "source_name": "Nature Communications Earth & Environment (2022)",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "stat_card"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "Lấn biển có nhất thiết làm chết rừng ngập mặn xung quanh không?",
+      "Tại sao xây đê lấn biển ở chỗ này lại có thể gây sạt lở ở bờ biển chỗ khác?",
+      "Dòng thủy triều và sóng biển khác nhau như thế nào khi gặp bờ biển nhân tạo?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "Bất kỳ công trình lấn biển nào cũng gây sụp đổ hoàn toàn hệ sinh thái biển xung quanh.",
+        "reality": "Tác động phụ thuộc vào hình học công trình, chế độ thủy triều, cán cân bùn cát và thiết kế kênh dẫn dòng. Nhiều khu vực sau khi ổn định thủy động lực học có thể tạo bãi bồi mới cho rừng ngập mặn.",
+        "source": "Journal of Ocean University of China (Springer 2024)"
+      },
+      {
+        "myth": "Sóng biển và dòng triều là một hiện tượng duy nhất.",
+        "reality": "Sóng biển do gió tạo ra tác động mạnh nhất ở tầng mặt và vùng ven bờ nông; trong khi dòng triều là chuyển động khối nước 2 chiều luân phiên do lực hấp dẫn thiên thể, tác động sâu suốt cột nước.",
+        "source": "USGS / NOAA Coastal Oceanography"
+      }
+    ],
+    "knowledge_level": "Đại chúng quan tâm khoa học môi trường, kỹ sư xây dựng, sinh viên, người dùng mạng xã hội tìm kiếm kiến thức khách quan không thiên kiến.",
+    "pain_points": [
+      "Các thông tin tranh cãi trên mạng quá nặng tính cảm tính hoặc thiếu cơ sở vật lý.",
+      "Thiếu các hình ảnh minh họa cơ chế rõ ràng (dòng chảy uốn lượn, bồi xói, mặt cắt rễ cây)."
+    ]
+  },
+  "angles_discovered": [
+    {
+      "name": "Bản đồ dòng chảy vô hình: Cơ chế nắn dòng và lăng kính triều",
+      "hook": "Lấn biển không chỉ tạo thêm đất — nó âm thầm vẽ lại những xa lộ ngầm dưới đáy biển.",
+      "type": "evergreen",
+      "why_now": "Cung cấp góc nhìn vật lý trực quan, giúp người xem hiểu cội nguồn thay đổi của dòng chảy.",
+      "grounded_in": [
+        "Lăng kính triều",
+        "Tidal prism reduction",
+        "Wilson et al. 2017",
+        "USGS Sediment budget"
+      ]
+    },
+    {
+      "name": "Chiếc bập bênh bồi - xói: Vì sao đón dòng được bồi mà khuất dòng lại lở?",
+      "hook": "Khi một bờ biển được bồi thêm đất, bờ biển bên cạnh có thể đang âm thầm mất đi cát.",
+      "type": "data_driven",
+      "why_now": "Làm rõ nguyên lý bảo toàn bùn cát ven bờ và hiện tượng downdrift erosion.",
+      "grounded_in": [
+        "Sediment budget balance",
+        "USGS Open-File Report 03-337",
+        "Morton et al."
+      ]
+    },
+    {
+      "name": "Rừng ngập mặn và lá chắn tự nhiên: Khi rễ cây gặp đê nhân tạo",
+      "hook": "Bộ rễ ngập mặn có thể cản đứng sóng dữ, nhưng nó cần dòng thủy triều thở ra sao?",
+      "type": "narrative",
+      "why_now": "Giải thích mối quan hệ tương hỗ và điều kiện biên sinh học của rừng mắm, rừng đước.",
+      "grounded_in": [
+        "Quartel et al. 2007",
+        "Nature Comms Earth & Env 2022",
+        "Frontiers in Marine Science 2025"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://link.springer.com/article/10.1007/s11802-024-5750-6",
+      "title": "Numerical Investigation of Land Reclamation Effects on Hydrodynamics and Mangroves in Shacheng Bay",
+      "used_for": "Hydrodynamic modeling, tidal prism reduction, mangrove response",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://www.nature.com/articles/s43247-022-00672-7",
+      "title": "Mangrove forests can be an effective coastal defence in the Pearl River Delta",
+      "used_for": "Wave attenuation, storm surge dampening, nature-based defences",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://pubs.usgs.gov/of/2003/of03-337/budget.html",
+      "title": "Sediment Budget - Waves, Currents, and Storm Surges (USGS Open File Report 03-337)",
+      "used_for": "Sediment budget equations, updrift accretion, downdrift erosion",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://frontiersin.org/articles/10.3389/fmars.2025.1626088/full",
+      "title": "The response of mangrove degradation to mineral composition and hydrodynamic stagnation",
+      "used_for": "Pneumatophore aeration, residence time, hypoxia in fine sediment",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://jonathangilligan.org/files/pubs/pdfs/wilson_2017_infilling.pdf",
+      "title": "Widespread infilling of tidal channels and waterways in human-modified tidal deltaplain",
+      "used_for": "Channel siltation, tidal prism loss, velocity reduction",
+      "reliability": "primary"
+    }
+  ],
+  "research_summary": "Lấn biển làm thay đổi địa hình đáy biển và đường bờ, từ đó tác động trực tiếp đến ba cơ chế thủy động lực học then chốt: (1) Thay đổi lăng kính triều dẫn đến sự phân bố lại vận tốc dòng chảy (tăng cục bộ ở đoạn thắt hẹp, ứ đọng ở vùng vịnh khuất); (2) Phá vỡ cân bằng bùn cát ven bờ (sediment budget), gây bồi lắng phía đón dòng và đói cát/xói lở ở phía khuất dòng; (3) Tác động tới hệ sinh thái rừng ngập mặn qua chế độ ngập triều, độ mặn và độ thông thoáng oxy của rễ. Tác động này không phải là sự hủy diệt tất yếu mà phụ thuộc chặt chẽ vào quy mô, hình học đê biển, và các giải pháp thiết kế mở thông luồng triều kết hợp kè sinh thái."
+}

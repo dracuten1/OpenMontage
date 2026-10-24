@@ -1,0 +1,2272 @@
+{
+  "version": "1.0",
+  "project_id": "chu-dong-tu",
+  "pipeline_type": "animated-explainer",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-10-19T05:01:59.897624+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "ink-genome",
+      "metadata": {
+        "total_duration_seconds": 869.2666666666667,
+        "scene_count": 63,
+        "scene_types_breakdown": {
+          "text_card": 13,
+          "diagram": 25,
+          "generated": 25
+        },
+        "scene_types_used": [
+          "text_card",
+          "diagram",
+          "generated"
+        ],
+        "consecutive_same_type_max": 4,
+        "renderer_family": "remotion",
+        "render_runtime": "remotion",
+        "composition_mode": "atelier",
+        "speech_lock_note": "M\u1ecdi scene kh\u00f3a anchor phrase nguy\u00ean v\u0103n theo ASR narration_words.json \u00b10,3s \u2014 KH\u00d4NG \u01b0\u1edbc l\u01b0\u1ee3ng; start/end_seconds t\u1ea1m theo script.json section timing (960s), re-snap \u1edf stage edit",
+        "layer_separation_device": "3 v\u1eadt th\u1ec3 ch\u1ee9ng c\u1ee9 xuy\u00ean t\u1eadp: trang gi\u1ea5y d\u00f3 \u2014 d\u00f2ng n\u01b0\u1edbc \u2014 m\u00e1i \u0111\u1ec1n",
+        "focal_visual_rule_compliance": "M\u1ecdi focal visual d\u00f9ng \u1ea3nh gen c\u00f3 s\u1eb5n l\u00e0m base (img-01..img-14 + demo_s03_kho; demo_s03_kho \u0111\u00fang 1 scene setup s03) + overlay TSX/SVG v\u1ebd tay speech-locked tr\u00ean top; secondary visuals thu\u1ea7n code; KH\u00d4NG \u1ea3nh m\u1edbi",
+        "asset_plan": "14 \u1ea3nh kh\u1ea3 d\u1ee5ng t\u00e1i d\u00f9ng: demo_s03_kho focal s03 (1 l\u1ea7n); img-08-gay-non d\u00f9ng nhi\u1ec1u h\u1ed3i (g\u1eady/n\u00f3n) s13\u2013s15, s21, s25; img-11-dam-nhat-da focal H\u1ed3i 4 + climax (s19, s22, s25); img-05-cho-pho-ven-song focal s09\u2013s11; img-01-thuyen-ruc-nuoc s01/s24; KH\u00d4NG sinh \u1ea3nh m\u1edbi",
+        "numbers_whitelist_compliance": "100% s\u1ed1 tr\u00ean m\u00e0n t\u1eeb whitelist: 1492 \u00b7 1493 \u00b7 10\u201312 th\u00e1ng Hai AL \u00b7 11/2 \u00b7 02/02/2023 \u00b7 153/Q\u0110-BVHTTDL \u00b7 01/03/2023 \u00b7 9 l\u00e0ng \u00b7 3 n\u0103m m\u1ed9t l\u1ea7n \u00b7 2023 \u00b7 7\u20139 th\u00e1ng 4 (callback S2E02, t\u1ed1i \u0111a 1 nh\u1ecbp) \u00b7 H\u00f9ng V\u01b0\u01a1ng th\u1ee9 6 (callback, t\u1ed1i \u0111a 1 nh\u1ecbp) \u2014 KH\u00d4NG s\u1ed1 kh\u00e1c",
+        "engine_constraints_acknowledged": "Kh\u00f4ng AI motion clip \u2014 Remotion still-motion + TSX/SVG speech-locked overlays (ink-genome)",
+        "ep_continuity_compliance": "tease S2E04 Li\u1ec5u H\u1ea1nh KH\u00d4NG spoil t\u00ean \u1edf sc crawl cu\u1ed1i \u2014 ch\u1ec9 'm\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef'; T\u1ee9 b\u1ea5t t\u1eed callback \u0111\u00fang 1 nh\u1ecbp (sc061); callback S2E02 '7\u20139 th\u00e1ng 4' + 'H\u00f9ng V\u01b0\u01a1ng th\u1ee9 6' m\u1ed7i c\u00e1i t\u1ed1i \u0111a 1 nh\u1ecbp",
+        "scene_index_note": "scene index + timing snap sinh \u1edf stage edit t\u1eeb narration_words.json ASR (scripts/gen_scene_index.py / gen_scene_timing.py)",
+        "archived_preproduction_vocabulary": [
+          {
+            "scene_id": "sc003",
+            "narrative_role": "central_question"
+          },
+          {
+            "scene_id": "sc005",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc006",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc007",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc010",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc011",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc012",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc013",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc014",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc015",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc016",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc017",
+            "narrative_role": "act_transition"
+          },
+          {
+            "scene_id": "sc018",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc019",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc020",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc021",
+            "narrative_role": "editorial_restraint"
+          },
+          {
+            "scene_id": "sc022",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc023",
+            "narrative_role": "act_transition"
+          },
+          {
+            "scene_id": "sc024",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc025",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc026",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc027",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc028",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc029",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc030",
+            "narrative_role": "evidence_comparison"
+          },
+          {
+            "scene_id": "sc031",
+            "narrative_role": "evidence_introduction"
+          },
+          {
+            "scene_id": "sc032",
+            "narrative_role": "evidence_analysis"
+          },
+          {
+            "scene_id": "sc033",
+            "narrative_role": "evidence_analysis"
+          },
+          {
+            "scene_id": "sc034",
+            "narrative_role": "story_advancement"
+          },
+          {
+            "scene_id": "sc034",
+            "shot_language_field": "camera_movement",
+            "original_value": "pan"
+          },
+          {
+            "scene_id": "sc035",
+            "narrative_role": "pacing_beat"
+          },
+          {
+            "scene_id": "sc036",
+            "narrative_role": "climax_setup"
+          },
+          {
+            "scene_id": "sc037",
+            "narrative_role": "climax"
+          },
+          {
+            "scene_id": "sc040",
+            "narrative_role": "evidence_analysis"
+          },
+          {
+            "scene_id": "sc041",
+            "narrative_role": "evidence_analysis"
+          },
+          {
+            "scene_id": "sc042",
+            "narrative_role": "climax"
+          },
+          {
+            "scene_id": "sc043",
+            "narrative_role": "editorial_frame"
+          },
+          {
+            "scene_id": "sc044",
+            "narrative_role": "evidence_modern"
+          },
+          {
+            "scene_id": "sc045",
+            "narrative_role": "evidence_modern"
+          },
+          {
+            "scene_id": "sc046",
+            "narrative_role": "editorial_frame"
+          },
+          {
+            "scene_id": "sc047",
+            "narrative_role": "act_closing"
+          },
+          {
+            "scene_id": "sc048",
+            "narrative_role": "callback"
+          },
+          {
+            "scene_id": "sc049",
+            "narrative_role": "evidence_modern"
+          },
+          {
+            "scene_id": "sc050",
+            "narrative_role": "montage_callback"
+          },
+          {
+            "scene_id": "sc051",
+            "narrative_role": "editorial_frame"
+          },
+          {
+            "scene_id": "sc052",
+            "narrative_role": "evidence_education"
+          },
+          {
+            "scene_id": "sc053",
+            "narrative_role": "structural_synthesis"
+          },
+          {
+            "scene_id": "sc054",
+            "narrative_role": "evidence_living"
+          },
+          {
+            "scene_id": "sc055",
+            "narrative_role": "evidence_living"
+          },
+          {
+            "scene_id": "sc056",
+            "narrative_role": "thematic_close"
+          },
+          {
+            "scene_id": "sc057",
+            "narrative_role": "series_callback"
+          },
+          {
+            "scene_id": "sc058",
+            "narrative_role": "next_ep_tease"
+          },
+          {
+            "scene_id": "sc058",
+            "shot_language_field": "camera_movement",
+            "original_value": "push_in"
+          },
+          {
+            "scene_id": "sc059",
+            "narrative_role": "next_ep_tease"
+          },
+          {
+            "scene_id": "sc060",
+            "narrative_role": "series_brand"
+          },
+          {
+            "scene_id": "sc061",
+            "narrative_role": "sources"
+          },
+          {
+            "scene_id": "sc062",
+            "narrative_role": "concept_close"
+          },
+          {
+            "scene_id": "sc063",
+            "narrative_role": "credits"
+          }
+        ],
+        "final_metadata_backfill": "Exact approved speech-locked frame ranges; render inputs are unchanged. Original estimate retained in history."
+      },
+      "scenes": [
+        {
+          "id": "sc001",
+          "type": "generated",
+          "description": "M\u1ede T\u1eacP \u2014 T\u1eea HI\u1ec6N T\u1ea0I: \u1ea3nh base img-01-thuyen-ruc-nuoc, \u0111o\u00e0n thuy\u1ec1n r\u01b0\u1edbc n\u01b0\u1edbc s\u01b0\u01a1ng s\u1edbm tr\u00ean s\u00f4ng H\u1ed3ng; overlay TSX v\u1ebd tay d\u00f2ng m\u1ef1c 'du thuy\u1ec1n r\u01b0\u1edbc n\u01b0\u1edbc tr\u00ean s\u00f4ng H\u1ed3ng' hi\u1ec7n d\u1ea7n theo nh\u1ecbp \u0111\u1ecdc \u1edf d\u1ea3i d\u01b0\u1edbi; lu\u1ed3ng m\u1ef1c \u1ea5m ch\u1ea1y d\u1ecdc d\u00f2ng n\u01b0\u1edbc nh\u01b0 m\u1edf m\u1ed9t trang truy\u1ec7n. Render template intent: still-image scene + speech-locked ink overlay. Subject: \u0111o\u00e0n thuy\u1ec1n r\u01b0\u1edbc + lu\u1ed3ng n\u01b0\u1edbc. Subject motion: ken-burns \u0111\u1ea9y ch\u1eadm theo chi\u1ec1u thuy\u1ec1n; d\u00f2ng ch\u1eef overlay tracking-in theo narration. Scene: s\u01b0\u01a1ng s\u1edbm th\u00e1ng Hai, m\u1eb7t n\u01b0\u1edbc t\u0129nh. Camera: dolly_in ch\u1eadm.",
+          "start_seconds": 0.0,
+          "end_seconds": 7.966666666666667,
+          "script_section_id": "s01",
+          "framing": "Thuy\u1ec1n chi\u1ebfm m\u1eb7t n\u1ec1n, d\u00f2ng ch\u1eef overlay d\u1ea3i d\u01b0\u1edbi",
+          "movement": "Slow push-in + caption tracking-in theo narration",
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abthuy\u1ec1n r\u01b0\u1edbc n\u01b0\u1edbc\u00bb \u00b7 \u00abdu thuy\u1ec1n r\u01b0\u1edbc n\u01b0\u1edbc tr\u00ean s\u00f4ng H\u1ed3ng\u00bb \u2014 hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u01b0a kh\u00e1n gi\u1ea3 \u0111\u1ee9ng tr\u00ean s\u00f4ng h\u00f4m nay tr\u01b0\u1edbc khi v\u00e0o truy\u1ec7n",
+          "narrative_role": "establish_context",
+          "information_role": "Nghi l\u1ec5 r\u01b0\u1edbc n\u01b0\u1edbc \u0111ang s\u1ed1ng, di\u1ec5n ra th\u1eadt h\u00f4m nay",
+          "hero_moment": false,
+          "texture_keywords": [
+            "s\u01b0\u01a1ng s\u1edbm",
+            "n\u01b0\u1edbc s\u00f4ng",
+            "m\u1ef1c \u1ea5m overlay",
+            "myth_amber",
+            "grain film m\u1ecfng"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-01-thuyen-ruc-nuoc",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc002",
+          "type": "diagram",
+          "description": "B\u1ea2N \u0110\u1ed2 GI\u1ea4Y D\u1ea6U N\u00c2U: b\u1ea3n \u0111\u1ed3 m\u1ef1c v\u1ebd d\u00f2ng s\u00f4ng H\u1ed3ng ch\u1ea1y d\u1ecdc; khi \u0111\u1ecdc \u00abc\u00e1c l\u00e0ng l\u1ea1i t\u1ed5 ch\u1ee9c\u00bb, ch\u00edn ch\u1ea5m l\u00e0ng (9 l\u00e0ng \u2014 s\u1ed1 whitelist) s\u00e1ng l\u00ean l\u1ea7n l\u01b0\u1ee3t d\u1ecdc hai b\u1edd; \u0111\u01b0\u1eddng n\u01b0\u1edbc m\u1ef1c n\u1ed1i c\u00e1c ch\u1ea5m th\u00e0nh m\u1ed9t lu\u1ed3ng. Render template intent: paper-map reveal + dot ignition. Subject: s\u00f4ng + 9 ch\u1ea5m l\u00e0ng. Subject motion: s\u00f4ng v\u1ebd tr\u01b0\u1edbc, ch\u1ea5m th\u1eafp tu\u1ea7n t\u1ef1 theo narration; nh\u00e3n '9 l\u00e0ng' g\u00f3c tr\u00ean. Scene: gi\u1ea5y d\u1ea7u n\u00e2u, texture n\u1ebfp gi\u1ea5y. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 7.966666666666667,
+          "end_seconds": 30.333333333333332,
+          "script_section_id": "s01",
+          "framing": "D\u00f2ng s\u00f4ng ch\u00e9o gi\u1eefa m\u00e0n, ch\u1ea5m l\u00e0ng hai b\u1edd",
+          "movement": "River draw \u2192 dot ignition tu\u1ea7n t\u1ef1",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abc\u00e1c l\u00e0ng l\u1ea1i t\u1ed5 ch\u1ee9c\u00bb \u00b7 \u00abm\u00fac l\u00ean t\u1eeb s\u00f4ng\u00bb \u2014 ch\u1ea5m l\u00e0ng s\u00e1ng \u0111\u00fang nh\u1ecbp c\u00e2u th\u1ee9 nh\u1ea5t. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u00e0i s\u1ed1 9 l\u00e0ng + h\u00ecnh dung kh\u00f4ng gian l\u1ec5 h\u1ed9i d\u1ecdc s\u00f4ng",
+          "narrative_role": "establish_context",
+          "information_role": "Ph\u1ea1m vi '9 l\u00e0ng' theo l\u1ecbch \u0111\u01b0\u1ee3c \u0111\u0103ng",
+          "hero_moment": false,
+          "texture_keywords": [
+            "gi\u1ea5y d\u1ea7u n\u00e2u",
+            "map_paper",
+            "ch\u1ea5m m\u1ef1c v\u00e0ng",
+            "d\u00f2ng s\u00f4ng m\u1ef1c"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc003",
+          "type": "text_card",
+          "description": "C\u00c2U H\u1eceI TRUNG T\u00c2M: th\u1ebb ch\u1eef m\u1ef1c \u1ea5m tr\u00ean gi\u1ea5y d\u00f3 \u2014 \u00abV\u00ec sao m\u1ed9t ng\u01b0\u1eddi kh\u00f4ng c\u00f3 c\u1ea3 chi\u1ebfc kh\u1ed1 l\u1ea1i \u0111\u01b0\u1ee3c th\u1edd l\u00e0m th\u00e1nh?\u00bb hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc; c\u1ee5m 'kh\u00f4ng c\u00f3 c\u1ea3 chi\u1ebfc kh\u1ed1' accent amber \u0111\u1eadm h\u01a1n ph\u1ea7n c\u00f2n l\u1ea1i; ng\u1eaft 0,8s gi\u1eef th\u1ebb tr\u1ea7m. Render template intent: quote-card typographic reveal. Subject: c\u00e2u h\u1ecfi trung t\u00e2m. Subject motion: ch\u1eef hi\u1ec7n theo nh\u1ecbp \u0111\u1ecdc t\u1eebng v\u1ebf, accent nh\u1ea5n cu\u1ed1i. Scene: gi\u1ea5y d\u00f3 t\u1ed1i \u1ea5m, grain m\u1ecfng. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 30.333333333333332,
+          "end_seconds": 36.13333333333333,
+          "script_section_id": "s02",
+          "framing": "C\u00e2u h\u1ecfi gi\u1eefa m\u00e0n, c\u0103n tr\u00e1i nh\u1eb9",
+          "movement": "Typographic reveal theo narration",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abng\u01b0\u1eddi ngh\u00e8o \u0111\u1ebfn m\u1ee9c kh\u00f4ng c\u00f3 n\u1ed5i m\u1ed9t chi\u1ebfc kh\u1ed1\u00bb \u00b7 \u00ab\u0111\u01b0\u1ee3c th\u1edd l\u00e0m th\u00e1nh\u00bb \u2014 c\u00e2u h\u1ecfi kh\u00f3a \u0111\u00fang l\u00fac \u0111\u1ecdc. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u00f3ng \u0111inh ngh\u1ecbch l\u00fd trung t\u00e2m c\u1ee7a c\u1ea3 t\u1eadp",
+          "information_role": "Kh\u00e1n gi\u1ea3 n\u1eafm c\u00e2u h\u1ecfi s\u1ebd \u0111\u01b0\u1ee3c tr\u1ea3 l\u1eddi \u1edf climax",
+          "hero_moment": false,
+          "texture_keywords": [
+            "gi\u1ea5y d\u00f3",
+            "m\u1ef1c kem",
+            "myth_amber",
+            "typography m\u1ef1c"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc004",
+          "type": "diagram",
+          "description": "CHI\u1ebeC KH\u1ed0 V\u1ebc M\u1ef0C L\u1eb6NG IM: h\u00ecnh chi\u1ebfc kh\u1ed1 v\u1ea3i \u0111\u01a1n gi\u1ea3n v\u1ebd n\u00e9t m\u1ef1c hi\u1ec7n ra gi\u1eefa m\u00e0n, l\u1eb7ng im khi c\u00e2u h\u1ecfi k\u1ebft th\u00fac \u2014 m\u1ed9t v\u1eadt th\u1ec3 duy nh\u1ea5t, kh\u00f4ng trang tr\u00ed, nhi\u1ec1u kho\u1ea3ng tr\u1ed1ng gi\u1ea5y d\u00f3 quanh v\u1eadt; v\u1ec7t m\u1ef1c nh\u1ecf d\u01b0\u1edbi ch\u00e2n kh\u1ed1 nh\u01b0 d\u1ea5u quanting th\u1eddi gian. Render template intent: single-object ink reveal + hold. Subject: chi\u1ebfc kh\u1ed1 n\u00e9t m\u1ef1c. Subject motion: n\u00e9t v\u1ebd kh\u1ed1i ch\u1ea1y m\u1ed9t l\u01b0\u1ee3t r\u1ed3i gi\u1eef t\u0129nh ho\u00e0n to\u00e0n. Scene: gi\u1ea5y d\u00f3 tr\u1ed1ng, t\u0129nh. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 36.13333333333333,
+          "end_seconds": 52.266666666666666,
+          "script_section_id": "s02",
+          "framing": "Kh\u1ed1i v\u1ea3i nh\u1ecf gi\u1eefa m\u00e0n, nhi\u1ec1u kho\u1ea3ng tr\u1ed1ng",
+          "movement": "Ink draw-on r\u1ed3i hold t\u0129nh",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abth\u1edd \u0111\u00e3 l\u00e2u l\u1eafm r\u1ed3i\u00bb \u00b7 \u00abph\u1ea3i h\u1ecfi cho ra\u00bb \u2014 kh\u1ed1 hi\u1ec7n v\u00e0 gi\u1eef im \u0111\u00fang nh\u1ecbp hai v\u1ebf. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Cho v\u1eadt th\u1ec3 \u0111\u1ea7u ti\u00ean c\u1ee7a t\u1eadp im l\u1eb7ng nh\u1eadn tr\u00e1ch nhi\u1ec7m c\u00e2u h\u1ecfi",
+          "narrative_role": "establish_context",
+          "information_role": "Chi\u1ebfc kh\u1ed1 = v\u1eadt ch\u1ee9ng c\u1ee9 s\u1ed1 1 c\u1ee7a series",
+          "hero_moment": false,
+          "texture_keywords": [
+            "kh\u1ed1 v\u1ea3i",
+            "ink_draw",
+            "gi\u1ea5y d\u00f3 tr\u1ed1ng",
+            "t\u0129nh l\u1eb7ng"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc005",
+          "type": "text_card",
+          "description": "QUOTE CARD THEO DEMO STYLE: quote m\u1ef1c \u1ea5m tr\u00ean gi\u1ea5y d\u00f3 \u2014 \u00abm\u1ed9t kh\u1ed1 v\u1ea3i duy nh\u1ea5t, cha con ra v\u00e0o thay nhau m\u00e0 m\u1eb7c\u00bb \u2014 tr\u00ecnh b\u00e0y \u0111\u00fang ch\u1ea5t demo_s03_kho \u0111\u00e3 duy\u1ec7t (t\u00f4ng gi\u1ea5y, c\u1ee1 ch\u1eef, bi\u00ean l\u1ec1). Render template intent: quote-card + ink-frame reveal. Subject: tr\u00edch b\u1ea3n k\u1ec3. Subject motion: ch\u1eef hi\u1ec7n theo nh\u1ecbp \u0111\u1ecdc tr\u00edch, khung m\u1ef1c v\u1ebd quanh. Scene: gi\u1ea5y d\u00f3 \u1ea5m t\u1ed1i. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 52.266666666666666,
+          "end_seconds": 54.166666666666664,
+          "script_section_id": "s03",
+          "framing": "Quote gi\u1eefa m\u00e0n, khung m\u1ef1c m\u1ecfng",
+          "movement": "Quote reveal theo tr\u00edch",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abm\u1ed9t kh\u1ed1 v\u1ea3i duy nh\u1ea5t\u00bb \u2014 hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "B\u1ea3n k\u1ec3 t\u1ef1 n\u00f3i v\u1ec1 s\u1ef1 ngh\u00e8o \u2014 tr\u00edch nguy\u00ean v\u0103n",
+          "information_role": "Gia c\u1ea3nh ch\u00e9p b\u1eb1ng d\u00f2ng g\u1ecdn c\u1ee7a b\u1ea3n k\u1ec3",
+          "hero_moment": false,
+          "texture_keywords": [
+            "quote_card",
+            "gi\u1ea5y d\u00f3",
+            "m\u1ef1c kem",
+            "myth_amber"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc006",
+          "type": "generated",
+          "description": "FOCAL S03 \u2014 \u1ea2NH DEMO \u0110\u00c3 DUY\u1ec6T: \u1ea3nh base demo_s03_kho; overlay TSX m\u1ef1c \u1ea5m: hai b\u00f3ng ng\u01b0\u1eddi cha con \u0111\u01a1n gi\u1ea3n, m\u1ed9t chi\u1ebfc kh\u1ed1 chuy\u1ec3n qua l\u1ea1i gi\u1eefa hai b\u00f3ng theo nh\u1ecbp k\u1ec3; m\u1ea3nh kh\u1ed1 l\u00e0 \u0111i\u1ec3m s\u00e1ng amber duy nh\u1ea5t. Render template intent: still-image scene + speech-locked ink overlay. Subject: kh\u1ed1 + hai b\u00f3ng cha con. Subject motion: kh\u1ed1 swap gi\u1eefa hai v\u1ecb tr\u00ed theo narration; n\u1ec1n image hold. Scene: t\u00f4ng \u1ea5m k\u00edn. Camera: N/A \u2014 overlay Remotion native.",
+          "start_seconds": 54.166666666666664,
+          "end_seconds": 63.9,
+          "script_section_id": "s03",
+          "framing": "Hai b\u00f3ng hai b\u00ean, kh\u1ed1 di chuy\u1ec3n gi\u1eefa",
+          "movement": "Kh\u1ed1 swap theo nh\u1ecbp k\u1ec3",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abCha t\u1eeb, con hi\u1ebfu\u00bb \u00b7 \u00abthay nhau m\u00e0 m\u1eb7c\u00bb \u2014 kh\u1ed1 chuy\u1ec3n \u0111\u00fang nh\u1ecbp v\u1ebf th\u1ee9 hai. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "B\u1eb1ng v\u1eadt th\u1ec3: hai ng\u01b0\u1eddi, m\u1ed9t kh\u1ed1 \u2014 kh\u00f4ng l\u1eddi tho\u1ea1i",
+          "information_role": "S\u1ef1 ngh\u00e8o hi\u1ec7n h\u00ecnh qua vi\u1ec7c trao \u0111\u1ed5i v\u1eadt che th\u00e2n",
+          "hero_moment": false,
+          "texture_keywords": [
+            "myth_amber",
+            "b\u00f3ng m\u1ef1c",
+            "kh\u1ed1 v\u1ea3i",
+            "\u0111\u00eam \u1ea5m"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "demo_s03_kho",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc007",
+          "type": "text_card",
+          "description": "QUOTE L\u1edcI D\u1eb6N C\u1ee6A CHA: quote card m\u1ef1c \u1ea5m \u2014 \u00ab\u0111\u1ec3 tr\u1ea7n m\u00e0 ch\u00f4n, gi\u1eef kh\u1ed1 l\u1ea1i cho con\u00bb hi\u1ec7n khi \u0111\u1ecdc l\u1eddi d\u1eb7n; n\u1ec1n t\u1ed1i h\u01a1n sc005, ch\u1eef nh\u1ecf trang tr\u1ecdng nh\u01b0 trang libro; v\u1ea1ch m\u1ef1c ng\u1eafn d\u01b0\u1edbi quote nh\u01b0 bookmark. Render template intent: quote-card typographic reveal, variant t\u1ed1i. Subject: l\u1eddi d\u1eb7n nguy\u00ean v\u0103n. Subject motion: ch\u1eef hi\u1ec7n ch\u1eadm theo \u0111\u1ecdc. Scene: gi\u1ea5y d\u00f3 s\u1eabm. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 63.9,
+          "end_seconds": 77.46666666666667,
+          "script_section_id": "s03",
+          "framing": "Quote c\u0103n gi\u1eefa, bookmark v\u1ea1ch d\u01b0\u1edbi",
+          "movement": "Quote reveal ch\u1eadm",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00ab\u0111\u1ec3 tr\u1ea7n m\u00e0 ch\u00f4n\u00bb \u00b7 \u00abkh\u1ecfi x\u1ea5u h\u1ed5\u00bb \u2014 hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc l\u1eddi d\u1eb7n. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u00e1i ch\u1ebft c\u1ee7a cha \u0111\u1ed5i l\u1ea5y l\u1edbp che th\u00e2n cho con",
+          "information_role": "Chi ti\u1ebft trao kh\u1ed1 \u2014 m\u1ea5u ch\u1ed1t c\u1ea3m x\u00fac \u0111\u1ea7u t\u1eadp",
+          "hero_moment": false,
+          "texture_keywords": [
+            "quote_card",
+            "gi\u1ea5y d\u00f3 s\u1eabm",
+            "m\u1ef1c kem",
+            "bookmark m\u1ef1c"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc008",
+          "type": "diagram",
+          "description": "S\u01a0 \u0110\u1ed2 HAI L\u1edaP: hai c\u1ed9t c\u1ea1nh nhau tr\u00ean gi\u1ea5y d\u00f3 \u2014 c\u1ed9t amber 'truy\u1ec7n k\u1ec3' (th\u1ebf gi\u1edbi truy\u1ec1n kh\u1ea9u, n\u00e9t m\u1ef1c m\u1ec1m) v\u00e0 c\u1ed9t teal 'ki\u1ec3m ch\u1ee9ng \u0111\u01b0\u1ee3c' (b\u1ea3n s\u00e1ch, b\u00e0i \u0111\u0103ng, l\u1ec5 h\u1ed9i c\u00f3 h\u1ed3 s\u01a1 \u2014 n\u00e9t th\u1eb3ng g\u1ecdn); hai c\u1ed9t hi\u1ec7n theo th\u1ee9 t\u1ef1 \u0111\u1ecdc. Render template intent: two-column compare reveal. Subject: 2 c\u1ed9t l\u1edbp. Subject motion: c\u1ed9t tr\u00e1i fade-in khi \u0111\u1ecdc l\u1edbp 1, c\u1ed9t ph\u1ea3i khi \u0111\u1ecdc l\u1edbp 2. Scene: gi\u1ea5y d\u00f3, chia \u0111\u00f4i \u00eam. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 77.46666666666667,
+          "end_seconds": 90.5,
+          "script_section_id": "s04",
+          "framing": "Hai c\u1ed9t \u0111\u1ed1i x\u1ee9ng, nh\u00e3n tr\u00ean \u0111\u1ea7u c\u1ed9t",
+          "movement": "Column reveal tu\u1ea7n t\u1ef1",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abtruy\u1ec7n k\u1ec3\u00bb \u00b7 \u00abth\u1ee9 ki\u1ec3m ch\u1ee9ng \u0111\u01b0\u1ee3c\u00bb \u2014 c\u1ed9t hi\u1ec7n \u0111\u00fang nh\u1ecbp hai v\u1ebf. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u00e0i khung \u0111\u1ecdc hai l\u1edbp cho c\u1ea3 t\u1eadp",
+          "narrative_role": "establish_context",
+          "information_role": "Kh\u00e1n gi\u1ea3 ph\u00e2n bi\u1ec7t l\u1edbp k\u1ec3 v\u00e0 l\u1edbp ki\u1ec3m ch\u1ee9ng",
+          "hero_moment": false,
+          "texture_keywords": [
+            "amber_vs_teal",
+            "hai c\u1ed9t",
+            "gi\u1ea5y d\u00f3",
+            "so s\u00e1nh"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc009",
+          "type": "diagram",
+          "description": "TR\u1ee4C V\u1eacT TH\u1ec2 D\u1eccC D\u00d2NG S\u00d4NG: d\u1ea3i s\u00f4ng m\u1ef1c ch\u1ea1y ngang d\u01b0\u1edbi m\u00e0n, s\u00e1u v\u1eadt th\u1ec3 neo d\u1ecdc \u2014 kh\u1ed1 \u2192 m\u00e0n \u2192 thuy\u1ec1n \u2192 g\u1eady/n\u00f3n \u2192 \u0111\u1ea7m \u2192 n\u01b0\u1edbc r\u01b0\u1edbc \u2014 t\u1eebng v\u1eadt s\u00e1ng l\u00ean theo th\u1ee9 t\u1ef1 \u0111\u1ecdc; \u0111\u00e2y l\u00e0 x\u01b0\u01a1ng s\u1ed1ng visual c\u1ee7a c\u1ea3 t\u1eadp. Render template intent: object-axis sequential reveal. Subject: 6 v\u1eadt th\u1ec3 tr\u00ean tr\u1ee5c s\u00f4ng. Subject motion: t\u1eebng v\u1eadt pop theo narration, s\u00f4ng lu\u00f4n ch\u1ea3y m\u1edd. Scene: gi\u1ea5y d\u00f3, s\u00f4ng m\u1ef1c \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 90.5,
+          "end_seconds": 112.26666666666667,
+          "script_section_id": "s04",
+          "framing": "Tr\u1ee5c ngang gi\u1eefa m\u00e0n, v\u1eadt th\u1ec3 so le tr\u00ean d\u01b0\u1edbi",
+          "movement": "Object reveal tu\u1ea7n t\u1ef1 theo th\u1ee9 t\u1ef1 \u0111\u1ecdc",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abChi\u1ebfc kh\u1ed1, r\u1ed3i t\u1ea5m m\u00e0n\u00bb \u00b7 \u00abd\u00f2ng s\u00f4ng d\u1eabn ta t\u1edbi \u0111\u00e2u\u00bb \u2014 v\u1eadt s\u00e1ng \u0111\u00fang th\u1ee9 t\u1ef1 nh\u1eafc. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "H\u1ee9a h\u1eb9n c\u1ea5u tr\u00fac: l\u1ea7n theo v\u1eadt th\u1ec3 t\u1edbi cu\u1ed1i d\u00f2ng s\u00f4ng",
+          "narrative_role": "establish_context",
+          "information_role": "B\u1ea3n \u0111\u1ed3 h\u00e0nh tr\u00ecnh 6 v\u1eadt th\u1ec3 c\u1ee7a t\u1eadp",
+          "hero_moment": false,
+          "texture_keywords": [
+            "tr\u1ee5c v\u1eadt th\u1ec3",
+            "d\u00f2ng s\u00f4ng m\u1ef1c",
+            "6 v\u1eadt",
+            "ink-genome"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc010",
+          "type": "generated",
+          "description": "THUY\u1ec0N TI\u00caN DUNG D\u1eeaNG GI\u1eeeA D\u00d2NG: \u1ea3nh base img-03-thuyen-tien-dung, thuy\u1ec1n sang tr\u1ecdng gi\u1eefa s\u00f4ng; overlay TSX m\u1ef1c \u1ea5m: c\u00e1nh m\u00e0n che h\u1ea1 xu\u1ed1ng t\u1eeb t\u1eeb khi \u0111\u1ecdc \u00abh\u1ea1 m\u00e0n xu\u1ed1ng\u00bb \u2014 n\u00e9t m\u1ef1c v\u1ebd \u0111\u01b0\u1eddng m\u00e0n r\u1ee7; ken-burns r\u1ea5t ch\u1eadm. Render template intent: still-image scene + speech-locked ink overlay. Subject: thuy\u1ec1n + m\u00e0n h\u1ea1. Subject motion: push-in nh\u1eb9; n\u00e9t m\u00e0n v\u1ebd theo narration. Scene: chi\u1ec1u v\u00e0ng, n\u01b0\u1edbc t\u0129nh. Camera: dolly_in ch\u1eadm.",
+          "start_seconds": 112.26666666666667,
+          "end_seconds": 123.8,
+          "script_section_id": "s05",
+          "framing": "Thuy\u1ec1n gi\u1eefa khung, m\u00e0n h\u1ea1 d\u1ecdc m\u00e9p \u1ea3nh",
+          "movement": "Slow push-in + m\u00e0n v\u1ebd h\u1ea1",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abTi\u00ean Dung, c\u00f4ng ch\u00faa\u00bb \u00b7 \u00abh\u1ea1 m\u00e0n xu\u1ed1ng\u00bb \u2014 m\u00e0n v\u1ebd \u0111\u00fang l\u00fac \u0111\u1ecdc. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "M\u1edf H\u1ed3i m\u1ed9t b\u1eb1ng s\u1ef1 ri\u00eang t\u01b0 c\u1ee7a c\u00f4ng ch\u00faa \u2014 ch\u1ec9 m\u00e0n, c\u00e1t, n\u01b0\u1edbc",
+          "information_role": "Truy\u1ec7n k\u1ec3 d\u1eebng \u1edf ba ch\u1eef v\u1eadt th\u1ec3, kh\u00f4ng t\u1ea3 h\u01a1n",
+          "hero_moment": false,
+          "texture_keywords": [
+            "m\u00e0n che",
+            "thuy\u1ec1n g\u1ed7",
+            "n\u01b0\u1edbc v\u00e0ng",
+            "myth_amber"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-03-thuyen-tien-dung",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc011",
+          "type": "text_card",
+          "description": "BA CH\u1eee V\u1eacT TH\u1ec2: ba ch\u1eef \u00abm\u00e0n\u00bb \u2014 \u00abc\u00e1t\u00bb \u2014 \u00abn\u01b0\u1edbc\u00bb hi\u1ec7n l\u1ea7n l\u01b0\u1ee3t theo nh\u1ecbp \u0111\u1ecdc, m\u1ed7i ch\u1eef k\u00e8m n\u00e9t v\u1ebd nh\u1ecf v\u1eadt th\u1ec3 (t\u1ea5m m\u00e0n r\u1ee7, \u0111\u1ed3i c\u00e1t, v\u1ec7t s\u00f3ng); b\u1ed1 c\u1ee5c t\u1ed1i gi\u1ea3n ba \u00f4 ngang. Render template intent: triptych word+glyph reveal. Subject: 3 ch\u1eef + 3 glyph. Subject motion: t\u1eebng \u00f4 hi\u1ec7n theo narration. Scene: gi\u1ea5y d\u00f3 tr\u1ed1ng. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 123.8,
+          "end_seconds": 136.4,
+          "script_section_id": "s05",
+          "framing": "Ba \u00f4 ngang gi\u1eefa m\u00e0n",
+          "movement": "Sequential reveal 3 \u00f4",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abCh\u1ec9 c\u00f3 m\u00e0n, c\u00e1t, n\u01b0\u1edbc\u00bb \u2014 ba ch\u1eef hi\u1ec7n \u0111\u00fang chu\u1ed7i nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Kho\u1ea3ng l\u1eb7ng hi\u1ebfm c\u1ee7a truy\u1ec7n \u2014 g\u00f3i b\u1eb1ng ba v\u1eadt",
+          "information_role": "Truy\u1ec7n k\u1ec3 kh\u00f4ng t\u1ea3 g\u00ec h\u01a1n th\u1ebf",
+          "hero_moment": false,
+          "texture_keywords": [
+            "triptych",
+            "glyph m\u1ef1c",
+            "gi\u1ea5y d\u00f3",
+            "t\u1ed1i gi\u1ea3n"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc012",
+          "type": "generated",
+          "description": "NG\u01af\u1edcI TRONG C\u00c1T: \u1ea3nh base img-04-bai-cat-nguoi-vui, b\u00e3i c\u00e1t hoang v\u1eafng v\u1edbi b\u1ee5i lau, b\u00f3ng ng\u01b0\u1eddi n\u1ea5p ch\u1ec9 l\u00e0 d\u00e1ng v\u1ec7t t\u1ed1i \u2014 k\u00edn \u0111\u00e1o, kh\u00f4ng t\u1ea3 th\u00e2n th\u1ec3; overlay TSX m\u1ef1c \u1ea5m: \u0111\u01b0\u1eddng vi\u1ec1n m\u1ef1c qu\u00e9t nh\u1eb9 quanh ch\u1ed7 v\u00f9i khi \u0111\u1ecdc \u00abv\u00f9i m\u00ecnh v\u00e0o c\u00e1t\u00bb. Render template intent: still-image scene + speech-locked ink overlay. Subject: b\u00e3i c\u00e1t + b\u00f3ng n\u1ea5p. Subject motion: ken-burns ch\u1eadm ti\u1ebfn v\u1ec1 ch\u1ed7 v\u00f9i; vi\u1ec1n m\u1ef1c pulse m\u1ed9t nh\u1ecbp. Scene: ho\u00e0ng h\u00f4n, im. Camera: dolly_in.",
+          "start_seconds": 136.4,
+          "end_seconds": 151.43333333333334,
+          "script_section_id": "s06",
+          "framing": "B\u00e3i c\u00e1t r\u1ed9ng, ch\u1ed7 v\u00f9i l\u1ec7ch ph\u1ea3i",
+          "movement": "Slow push-in + vi\u1ec1n m\u1ef1c nh\u1ea5n",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abv\u00f9i m\u00ecnh v\u00e0o c\u00e1t\u00bb \u00b7 \u00abn\u1ea5p sau b\u1ee5i lau\u00bb \u2014 vi\u1ec1n m\u1ef1c \u0111\u00fang l\u00fac \u0111\u1ecdc. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "S\u1ef1 ngh\u00e8o hi\u1ec7n th\u00e2n b\u1eb1ng vi\u1ec7c tr\u1ed1n \u2014 k\u00edn \u0111\u00e1o nh\u1ea5t",
+          "information_role": "Ng\u01b0\u1eddi ngh\u00e8o nh\u1ea5t truy\u1ec7n xu\u1ea5t hi\u1ec7n qua d\u00e1ng n\u1ea5p",
+          "hero_moment": false,
+          "texture_keywords": [
+            "b\u00e3i c\u00e1t",
+            "b\u1ee5i lau",
+            "d\u00e1ng t\u1ed1i",
+            "k\u00edn \u0111\u00e1o"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-04-bai-cat-nguoi-vui",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc013",
+          "type": "diagram",
+          "description": "M\u00c0N CHIA HAI TH\u1ebe GI\u1edaI: \u0111\u01b0\u1eddng m\u1ef1c d\u1ecdc chia m\u00e0n h\u00ecnh l\u00e0m hai n\u1eeda khi \u0111\u1ecdc c\u00e2u ch\u1ed1t \u2014 n\u1eeda tr\u00e1i th\u1ebf gi\u1edbi thuy\u1ec1n sang (n\u00e9t v\u00e0ng \u0111\u1ed3ng), n\u1eeda ph\u1ea3i b\u00e3i c\u00e1t tr\u1ea7n (n\u00e9t m\u1ef1c nh\u1ea1t); \u0111\u01b0\u1eddng m\u1ef1c ch\u00ednh gi\u1eefa l\u00e0 t\u1ea5m m\u00e0n. Render template intent: split-screen ink divide. Subject: 2 n\u1eeda th\u1ebf gi\u1edbi + \u0111\u01b0\u1eddng m\u00e0n. Subject motion: \u0111\u01b0\u1eddng m\u1ef1c v\u1ebd d\u1ecdc theo c\u00e2u ch\u1ed1t, hai n\u1eeda fade \u0111\u1ed3ng th\u1eddi. Scene: gi\u1ea5y d\u00f3 chia \u0111\u00f4i. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 151.43333333333334,
+          "end_seconds": 163.7,
+          "script_section_id": "s06",
+          "framing": "Chia \u0111\u00f4i d\u1ecdc gi\u1eefa m\u00e0n",
+          "movement": "Ink divide draw + dual fade",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abhai th\u1ebf gi\u1edbi c\u00e1ch nhau b\u1edfi m\u1ed9t t\u1ea5m m\u00e0n\u00bb \u2014 \u0111\u01b0\u1eddng m\u1ef1c v\u1ebd \u0111\u00fang c\u00e2u ch\u1ed1t. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u00e2u ch\u1ed1t c\u1ee7a H\u1ed3i m\u1ed9t th\u00e0nh h\u00ecnh: m\u00e0n l\u00e0 bi\u00ean gi\u1edbi",
+          "information_role": "Truy\u1ec7n kh\u00f4ng cho tho\u1ea1i \u2014 ch\u1ec9 cho ph\u1ea3n \u1ee9ng hai b\u00ean m\u00e0n",
+          "hero_moment": false,
+          "texture_keywords": [
+            "split_ink",
+            "m\u00e0n che",
+            "hai th\u1ebf gi\u1edbi",
+            "gi\u1ea5y d\u00f3"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc014",
+          "type": "diagram",
+          "description": "M\u00c0N M\u1ede \u2014 K\u1ebeT DUY\u00caN: hai b\u00f3ng ng\u01b0\u1eddi m\u1ef1c \u0111\u1ee9ng hai b\u00ean t\u1ea5m m\u00e0n (t\u00e1i d\u00f9ng b\u1ed1 c\u1ee5c sc013), m\u00e0n t\u1eeb t\u1eeb m\u1edf ra khi \u0111\u1ecdc \u00abk\u1ebft duy\u00ean\u00bb \u2014 hai n\u00e9t m\u1ef1c ti\u1ebfn l\u1ea1i g\u1ea7n nhau; gi\u1eef t\u00f4ng amber k\u00edn. Render template intent: split-ink resolve \u2192 union. Subject: 2 b\u00f3ng + m\u00e0n m\u1edf. Subject motion: m\u00e0n k\u00e9o sang m\u1ed9t b\u00ean, hai b\u00f3ng h\u1ed9i. Scene: gi\u1ea5y d\u00f3 \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 163.7,
+          "end_seconds": 172.36666666666667,
+          "script_section_id": "s07",
+          "framing": "Hai b\u00f3ng hai b\u00ean, m\u00e0n k\u00e9o m\u1edf",
+          "movement": "Curtain pull + hai b\u00f3ng h\u1ed9i",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abkh\u00f4ng v\u1ec1 cung\u00bb \u00b7 \u00abk\u1ebft duy\u00ean\u00bb \u2014 m\u00e0n m\u1edf \u0111\u00fang l\u00fac \u0111\u1ecdc. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1ef1a ch\u1ecdn c\u1ee7a c\u00f4ng ch\u00faa hi\u1ec7n h\u00ecnh b\u1eb1ng chuy\u1ec3n \u0111\u1ed9ng m\u00e0n",
+          "information_role": "Chi ti\u1ebft l\u1ea1 c\u1ee7a b\u1ea3n k\u1ec3 \u2014 c\u00f4ng ch\u00faa \u1edf l\u1ea1i",
+          "hero_moment": false,
+          "texture_keywords": [
+            "m\u00e0n m\u1edf",
+            "hai b\u00f3ng",
+            "ink-genome",
+            "k\u00edn \u1ea5m"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc015",
+          "type": "text_card",
+          "description": "QUOTE CARD TEAL \u2014 B\u00c0I T\u1eacP \u0110\u1eccC: th\u1ebb teal nh\u01b0 trang s\u00e1ch b\u00e0i t\u1eadp in \u2014 \u00abV\u00ec sao c\u00f4ng ch\u00faa Ti\u00ean Dung k\u1ebft duy\u00ean c\u00f9ng Ch\u1eed \u0110\u1ed3ng T\u1eed?\u00bb hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc c\u00e2u h\u1ecfi; nh\u00e3n nh\u1ecf ngu\u1ed3n 'b\u00e0i t\u1eadp \u0111\u1ecdc l\u1edbp ba' g\u00f3c th\u1ebb; vi\u1ec1n th\u1ebb th\u1eb3ng g\u1ecdn kh\u00e1c ch\u1ea5t quote m\u1ef1c amber. Render template intent: teal evidence-card reveal. Subject: c\u00e2u h\u1ecfi b\u00e0i t\u1eadp. Subject motion: th\u1ebb tr\u01b0\u1ee3t nh\u1eb9 l\u00ean + ch\u1eef hi\u1ec7n. Scene: n\u1ec1n t\u1ed1i teal nh\u1eb9. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 172.36666666666667,
+          "end_seconds": 205.46666666666667,
+          "script_section_id": "s07",
+          "framing": "Th\u1ebb gi\u1eefa m\u00e0n, nh\u00e3n ngu\u1ed3n g\u00f3c tr\u00ean",
+          "movement": "Card slide-up + text reveal",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abin s\u1eb5n trong s\u00e1ch b\u00e0i t\u1eadp \u0111\u1ecdc l\u1edbp ba\u00bb \u00b7 \u00abV\u00ec sao c\u00f4ng ch\u00faa Ti\u00ean Dung k\u1ebft duy\u00ean c\u00f9ng Ch\u1eed \u0110\u1ed3ng T\u1eed?\u00bb \u2014 th\u1ebb hi\u1ec7n \u0111\u00fang c\u00e2u h\u1ecfi. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "C\u00e2u h\u1ecfi l\u1ea1 n\u1eb1m ngay trong s\u00e1ch gi\u00e1o khoa \u2014 b\u1eb1ng ch\u1ee9ng l\u1edbp k\u1ec3",
+          "information_role": "L\u1edbp ki\u1ec3m ch\u1ee9ng: c\u00e2u h\u1ecfi \u0111\u01b0\u1ee3c in s\u1eb5n trong s\u00e1ch l\u1edbp ba",
+          "hero_moment": false,
+          "texture_keywords": [
+            "teal_card",
+            "trang s\u00e1ch in",
+            "evidence",
+            "vi\u1ec1n th\u1eb3ng"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc016",
+          "type": "diagram",
+          "description": "TR\u1ee4C V\u1eacT TH\u1ec2 M\u1ede R\u1ed8NG: t\u00e1i d\u00f9ng tr\u1ee5c sc009 \u2014 ba v\u1eadt \u0111\u00e3 s\u00e1ng (kh\u1ed1, m\u00e0n, thuy\u1ec1n) b\u00ean tr\u00e1i; ba ng\u0103n ti\u1ebfp theo (ch\u1ee3, g\u1eady/n\u00f3n, \u0111\u1ea7m) h\u00e9 m\u1edf m\u1edd d\u1ea7n ph\u00eda tr\u01b0\u1edbc nh\u01b0 ch\u01b0a r\u1ebdocard; \u0111\u01b0\u1eddng s\u00f4ng m\u1ef1c ti\u1ebfp t\u1ee5c ch\u1ea3y v\u1ec1 ph\u1ea3i. Render template intent: object-axis extension reveal. Subject: tr\u1ee5c 6 v\u1eadt + ph\u1ea7n h\u00e9 m\u1edf. Subject motion: ba v\u1eadt c\u0169 nh\u1ea5n l\u1ea1i, ba ng\u0103n m\u1edbi peek m\u1edd. Scene: gi\u1ea5y d\u00f3, chi\u1ec1u s\u00f4ng. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 205.46666666666667,
+          "end_seconds": 210.63333333333333,
+          "script_section_id": "s08",
+          "framing": "Tr\u1ee5c ngang, ph\u1ea7n h\u00e9 m\u1edf l\u1ec7ch ph\u1ea3i",
+          "movement": "Old objects pulse + new slots peek",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abChi\u1ebfc kh\u1ed1 \u0111\u00e3 d\u1eabn ta t\u1edbi t\u1ea5m m\u00e0n\u00bb \u00b7 \u00abgi\u1edd t\u1edbi l\u01b0\u1ee3t g\u1eady, n\u00f3n, v\u00e0 n\u01b0\u1edbc\u00bb \u2014 nh\u1ea5n \u0111\u00fang v\u1ebf. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u00e1m c\u01b0\u1edbi kh\u00f4ng ph\u1ea3i \u0111\u00edch \u2014 tr\u1ee5c v\u1eadt th\u1ec3 c\u00f2n d\u00e0i ph\u00eda tr\u01b0\u1edbc",
+          "information_role": "B\u1ea3n k\u1ec3 ch\u1ea1y r\u1ea5t xa sau \u0111\u00e1m c\u01b0\u1edbi",
+          "hero_moment": false,
+          "texture_keywords": [
+            "tr\u1ee5c v\u1eadt th\u1ec3",
+            "h\u00e9 m\u1edf",
+            "d\u00f2ng s\u00f4ng m\u1ef1c",
+            "ink-genome"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc017",
+          "type": "text_card",
+          "description": "TH\u1eba CHUY\u1ec2N H\u1ed2I: ch\u1eef \u00abH\u1ed3i hai \u2014 Ph\u1ed1 ch\u1ee3\u00bb hi\u1ec7n tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3 khi \u0111\u1ecdc c\u00e2u chuy\u1ec3n; ch\u1eef m\u1ef1c l\u1edbn c\u0103n gi\u1eefa, v\u1ec7t son nh\u1ecf d\u01b0\u1edbi ch\u00e2n nh\u01b0 con d\u1ea5u h\u1ed3i; gi\u1eef 1 nh\u1ecbp r\u1ed3i dissolve. Render template intent: act-title card. Subject: ti\u00eau \u0111\u1ec1 h\u1ed3i. Subject motion: ch\u1eef spring nh\u1eb9 xu\u1ed1ng + seal fade. Scene: gi\u1ea5y d\u00f3 t\u1ed1i \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 210.63333333333333,
+          "end_seconds": 225.4,
+          "script_section_id": "s08",
+          "framing": "Ch\u1eef gi\u1eefa m\u00e0n, seal d\u01b0\u1edbi",
+          "movement": "Title spring-down + seal fade-in",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abH\u1ed3i hai b\u1eaft \u0111\u1ea7u \u1edf ph\u1ed1 ch\u1ee3\u00bb \u2014 th\u1ebb hi\u1ec7n \u0111\u00fang c\u00e2u chuy\u1ec3n. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u1eaft nh\u1ecbp sang \u0111\u1eddi s\u1ed1ng ph\u1ed1 ch\u1ee3",
+          "information_role": "\u0110\u00e1nh d\u1ea5u H\u1ed3i hai",
+          "hero_moment": false,
+          "texture_keywords": [
+            "act_card",
+            "gi\u1ea5y d\u00f3",
+            "con d\u1ea5u son",
+            "m\u1ef1c l\u1edbn"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc018",
+          "type": "text_card",
+          "description": "QUOTE M\u1ede CH\u1ee2: quote card m\u1ef1c \u1ea5m tr\u00ean gi\u1ea5y d\u00f3 \u2014 \u00abTi\u00ean Dung nghe s\u1ee3 kh\u00f4ng d\u00e1m v\u1ec1, b\u00e8n c\u00f9ng \u0110\u1ed3ng T\u1eed m\u1edf ch\u1ee3 b\u00faa, l\u1eadp ph\u1ed1 x\u00e1, c\u00f9ng d\u00e2n bu\u00f4n b\u00e1n\u00bb hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch; hai ch\u1eef \u00abnghe s\u1ee3\u00bb accent nh\u1eb9. Render template intent: quote-card reveal. Subject: tr\u00edch b\u1ea3n k\u1ec3. Subject motion: ch\u1eef hi\u1ec7n theo nh\u1ecbp tr\u00edch. Scene: gi\u1ea5y d\u00f3 \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 225.4,
+          "end_seconds": 236.5,
+          "script_section_id": "s09",
+          "framing": "Quote gi\u1eefa m\u00e0n, accent \u00abnghe s\u1ee3\u00bb",
+          "movement": "Quote reveal theo tr\u00edch",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abm\u1edf ch\u1ee3 b\u00faa, l\u1eadp ph\u1ed1 x\u00e1\u00bb \u00b7 \u00abc\u00f9ng d\u00e2n bu\u00f4n b\u00e1n\u00bb \u2014 hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "B\u1ea3n k\u1ec3 g\u1ecdn s\u1ef1 s\u1ee3 h\u00e3i trong hai ch\u1eef \u2014 r\u1ed3i sang \u0111\u1eddi s\u1ed1ng",
+          "information_role": "Tr\u00edch nguy\u00ean v\u0103n b\u01b0\u1edbc ngo\u1eb7t kh\u00f4ng v\u1ec1 cung",
+          "hero_moment": false,
+          "texture_keywords": [
+            "quote_card",
+            "gi\u1ea5y d\u00f3",
+            "m\u1ef1c kem",
+            "accent nh\u1ea5n"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc019",
+          "type": "generated",
+          "description": "CH\u1ee2 M\u1eccC T\u1eea HAI B\u00c0N TAY TR\u1ed0NG: \u1ea3nh base img-05-cho-pho-ven-song, ph\u1ed1 ch\u1ee3 ven s\u00f4ng \u0111ang n\u1edf; overlay TSX m\u1ef1c \u1ea5m v\u1ebd tay: hai b\u00e0n tay tr\u1ed1ng m\u1edf ra \u1edf g\u00f3c d\u01b0\u1edbi tr\u01b0\u1edbc, t\u1eeb \u0111\u00f3 c\u00e1c n\u00e9t gian h\u00e0ng m\u1ef1c m\u1ecdc lan l\u00ean th\u00e0nh khu ch\u1ee3 theo nh\u1ecbp \u0111\u1ecdc \u2014 kh\u00f4ng m\u01b0a v\u00e0ng, kh\u00f4ng ph\u00e9p m\u00e0u. Render template intent: still-image scene + hand-drawn growth overlay. Subject: ch\u1ee3 + hai b\u00e0n tay. Subject motion: n\u00e9t ch\u1ee3 v\u1ebd lan theo narration; ken-burns nh\u1eb9. Scene: ban ng\u00e0y ven s\u00f4ng, r\u1ed9n. Camera: tilt_up nh\u1eb9.",
+          "start_seconds": 236.5,
+          "end_seconds": 247.73333333333332,
+          "script_section_id": "s09",
+          "framing": "B\u00e0n tay g\u00f3c d\u01b0\u1edbi, ch\u1ee3 lan l\u00ean tr\u00ean",
+          "movement": "Ink growth + tilt-up",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abhai b\u00e0n tay tr\u1ed1ng\u00bb \u00b7 \u00ab\u0111\u1eddi s\u1ed1ng l\u1eb7ng l\u1ebd x\u00e2y l\u1ea1i t\u1eeb \u0111\u1ea7u\u00bb \u2014 n\u00e9t ch\u1ee3 m\u1ecdc \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "T\u00e1i sinh t\u1eeb con s\u1ed1 0 \u2014 b\u1eb1ng m ng\u01b0\u1eddi th\u1eadt",
+          "information_role": "Kh\u00f4ng th\u1ea7n k\u1ef3 \u2014 ch\u1ee3 b\u00faa, ph\u1ed1 x\u00e1, d\u00e2n bu\u00f4n",
+          "hero_moment": false,
+          "texture_keywords": [
+            "ph\u1ed1 ch\u1ee3",
+            "hai b\u00e0n tay",
+            "ink_growth",
+            "myth_amber"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-05-cho-pho-ven-song",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc020",
+          "type": "text_card",
+          "description": "QUOTE PH\u1ed0 CH\u1ee2 L\u1edaN: quote card m\u1ef1c \u1ea5m \u2014 \u00abd\u1ea7n d\u1ea7n tr\u1edf th\u00e0nh ph\u1ed1 ch\u1ee3 l\u1edbn (nay l\u00e0 ch\u1ee3 Th\u00e1m)...\u00bb hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch; chip nh\u1ecf 'nay l\u00e0 ch\u1ee3 Th\u00e1m' t\u00e1ch ri\u00eang d\u01b0\u1edbi quote nh\u01b0 ghi ch\u00fa b\u1ea3n d\u1ecbch. Render template intent: quote-card + annotation chip. Subject: tr\u00edch + chip ghi ch\u00fa. Subject motion: quote reveal, chip pop sau \u0111\u00f3. Scene: gi\u1ea5y d\u00f3 \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 247.73333333333332,
+          "end_seconds": 271.06666666666666,
+          "script_section_id": "s10",
+          "framing": "Quote gi\u1eefa, chip d\u01b0\u1edbi",
+          "movement": "Quote reveal + chip pop",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abtr\u1edf th\u00e0nh ph\u1ed1 ch\u1ee3 l\u1edbn\u00bb \u00b7 \u00abth\u01b0\u01a1ng nh\u00e2n n\u01b0\u1edbc ngo\u00e0i t\u1edbi lui\u00bb \u2014 hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "D\u1ea5u m\u1ed1c \u0111\u1ecba danh c\u00f2n \u0111\u1ecdc \u0111\u01b0\u1ee3c h\u00f4m nay",
+          "information_role": "Ch\u1ee3 Th\u00e1m \u2014 d\u1ea5u m\u1ed1c c\u1ee7a b\u1ea3n k\u1ec3",
+          "hero_moment": false,
+          "texture_keywords": [
+            "quote_card",
+            "chip ghi ch\u00fa",
+            "gi\u1ea5y d\u00f3",
+            "m\u1ef1c kem"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc021",
+          "type": "text_card",
+          "description": "NH\u1ecaP TEAL C\u1ea2NH T\u1ec8NH: m\u00e0u chuy\u1ec3n sang teal g\u1ecdn \u2014 d\u00f2ng ch\u1eef \u00abph\u1ea7n k\u1ec3 ch\u1ec9 d\u1eebng \u1edf \u0111\u00f3\u00bb hi\u1ec7n g\u1ecdn khi \u0111\u1ecdc c\u00e2u c\u1ea3nh t\u1ec9nh; n\u1ec1n t\u1ed1i teal, ch\u1eef t\u1ec9nh t\u00e1o; k\u00e9o d\u00e0i 1 nh\u1ecbp r\u1ed3i cut. Render template intent: teal caution-card. Subject: c\u00e2u c\u1ea3nh t\u1ec9nh. Subject motion: ch\u1eef hi\u1ec7n g\u1ecdn, gi\u1eef, out. Scene: n\u1ec1n teal t\u1ed1i. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 271.06666666666666,
+          "end_seconds": 288.5,
+          "script_section_id": "s10",
+          "framing": "Ch\u1eef gi\u1eefa m\u00e0n, t\u1ed1i gi\u1ea3n",
+          "movement": "Text in-hold-out g\u1ecdn",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abph\u1ea7n k\u1ec3 ch\u1ec9 d\u1eebng \u1edf \u0111\u00f3\u00bb \u00b7 \u00abgi\u1eef cho \u0111\u00fang m\u1ee9c c\u1ee7a b\u1ea3n k\u1ec3\u00bb \u2014 hi\u1ec7n \u0111\u00fang c\u00e2u c\u1ea3nh t\u1ec9nh. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Neo m\u1ee9c k\u1ec3 \u2014 kh\u00f4ng suy di\u1ec5n danh x\u01b0ng l\u1edbn h\u01a1n",
+          "information_role": "Ranh gi\u1edbi kh\u1eb3ng \u0111\u1ecbnh c\u1ee7a ng\u01b0\u1eddi k\u1ec3",
+          "hero_moment": false,
+          "texture_keywords": [
+            "teal_card",
+            "t\u1ec9nh t\u00e1o",
+            "t\u1ed1i gi\u1ea3n",
+            "caution"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc022",
+          "type": "diagram",
+          "description": "S\u00d4NG L\u1ea4Y NH\u1ecaP K\u1ec2: d\u00f2ng s\u00f4ng m\u1ef1c \u1ea5m ch\u1ea3y ngang m\u00e0n h\u00ecnh, thuy\u1ec1n tr\u00e9o s\u00f4ng hai chi\u1ec1u, b\u00e8 h\u00e0ng nh\u1ecf tr\u00f4i theo khi \u0111\u1ecdc \u00abng\u01b0\u1eddi, h\u00e0ng, thuy\u1ec1n\u00bb; m\u1ed7i t\u1eeb kh\u00f3a pop m\u1ed9t v\u1eadt tr\u00ean d\u00f2ng n\u01b0\u1edbc; nh\u1ecbp \u0111\u1ec1u nh\u01b0 th\u1edf. Render template intent: river-rhythm diagram loop. Subject: s\u00f4ng + thuy\u1ec1n hai chi\u1ec1u. Subject motion: n\u01b0\u1edbc ch\u1ea3y li\u00ean t\u1ee5c, v\u1eadt pop theo narration. Scene: gi\u1ea5y d\u00f3, d\u00f2ng n\u01b0\u1edbc \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 288.5,
+          "end_seconds": 309.5,
+          "script_section_id": "s11",
+          "framing": "D\u00f2ng s\u00f4ng ngang gi\u1eefa, v\u1eadt qua l\u1ea1i",
+          "movement": "River loop + object pop theo t\u1eeb kh\u00f3a",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abng\u01b0\u1eddi, h\u00e0ng, thuy\u1ec1n\u00bb \u00b7 \u00abthuy\u1ec1n xu\u00f4i, thuy\u1ec1n ng\u01b0\u1ee3c\u00bb \u2014 v\u1eadt pop \u0111\u00fang chu\u1ed7i. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u1ea3m nh\u1eadn trang s\u00e1ch nh\u01b0 nghe d\u00f2ng n\u01b0\u1edbc ch\u1ea3y",
+          "information_role": "Th\u1ebf gi\u1edbi truy\u1ec7n = b\u00e3i b\u1ed3i, m\u01b0a n\u1eafng, chuy\u1ebfn h\u00e0ng",
+          "hero_moment": false,
+          "texture_keywords": [
+            "d\u00f2ng s\u00f4ng m\u1ef1c",
+            "thuy\u1ec1n hai chi\u1ec1u",
+            "nh\u1ecbp n\u01b0\u1edbc",
+            "ink-genome"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc023",
+          "type": "text_card",
+          "description": "TH\u1eba CHUY\u1ec2N H\u1ed2I BA: ch\u1eef \u00abH\u1ed3i ba \u2014 Chuy\u1ebfn thuy\u1ec1n\u00bb tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3 khi \u0111\u1ecdc c\u00e2u chuy\u1ec3n; c\u00f9ng template act-card sc017 (spring + seal son); d\u00f2ng s\u00f4ng m\u1ef1c m\u1edd ch\u1ea1y qua ch\u00e2n th\u1ebb. Render template intent: act-title card. Subject: ti\u00eau \u0111\u1ec1 h\u1ed3i. Subject motion: title spring-down + seal. Scene: gi\u1ea5y d\u00f3 t\u1ed1i \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 309.5,
+          "end_seconds": 316.43333333333334,
+          "script_section_id": "s11",
+          "framing": "Ch\u1eef gi\u1eefa m\u00e0n, s\u00f4ng m\u1edd ch\u00e2n th\u1ebb",
+          "movement": "Title spring-down + seal fade",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abH\u1ed3i ba b\u1eaft \u0111\u1ea7u t\u1eeb \u0111\u00e2y\u00bb \u2014 th\u1ebb hi\u1ec7n \u0111\u00fang c\u00e2u chuy\u1ec3n. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u1eaft nh\u1ecbp l\u00ean chuy\u1ebfn thuy\u1ec1n bu\u00f4n",
+          "information_role": "\u0110\u00e1nh d\u1ea5u H\u1ed3i ba",
+          "hero_moment": false,
+          "texture_keywords": [
+            "act_card",
+            "gi\u1ea5y d\u00f3",
+            "con d\u1ea5u son",
+            "s\u00f4ng m\u1edd"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc024",
+          "type": "text_card",
+          "description": "QUOTE CHUY\u1ec6N BU\u00d4N: quote card m\u1ef1c \u1ea5m \u2014 \u00ab\u0110\u1ed3ng T\u1eed b\u00e8n c\u00f9ng l\u00e1i bu\u00f4n \u0111i bu\u00f4n b\u00e1n. \u0110\u1ebfn n\u00fai Qu\u1ef3nh Vi, tr\u00ean n\u00fai c\u00f3 am nh\u1ecf...\u00bb hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch; t\u1eeb 'n\u00fai Qu\u1ef3nh Vi' g\u1ea1ch ch\u00e2n m\u1ef1c m\u1ea3nh. Render template intent: quote-card reveal + underline. Subject: tr\u00edch b\u1ea3n k\u1ec3. Subject motion: ch\u1eef hi\u1ec7n theo tr\u00edch, underline v\u1ebd sau. Scene: gi\u1ea5y d\u00f3 \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 316.43333333333334,
+          "end_seconds": 318.76666666666665,
+          "script_section_id": "s12",
+          "framing": "Quote gi\u1eefa m\u00e0n, underline t\u00ean n\u00fai",
+          "movement": "Quote reveal + underline draw",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abc\u00f9ng l\u00e1i bu\u00f4n \u0111i bu\u00f4n b\u00e1n\u00bb \u00b7 \u00abl\u1ea5y u\u1ed1ng n\u01b0\u1edbc\u00bb \u2014 hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "V\u1eabn ch\u1eef r\u1ea5t t\u1ec9nh \u2014 nh\u01b0ng h\u00e9 ra chi\u1ebfc am",
+          "information_role": "Am nh\u1ecf = tr\u1ea1m ngh\u1ec9 \u0111\u01b0\u1eddng bu\u00f4n (t\u00ean n\u00fai \u0111\u1ec3 d\u00e0nh \u0111\u1ed1i chi\u1ebfu)",
+          "hero_moment": false,
+          "texture_keywords": [
+            "quote_card",
+            "underline m\u1ef1c",
+            "gi\u1ea5y d\u00f3",
+            "m\u1ef1c kem"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc025",
+          "type": "generated",
+          "description": "AM NH\u1ece TR\u00caN N\u00daI: \u1ea3nh base img-06-nui-quynh-vi-am, am nh\u1ecf sau c\u00e2y tr\u00ean tri\u1ec1n n\u00fai; overlay TSX: \u0111\u01b0\u1eddng m\u1ef1c d\u1eabn t\u1eeb ch\u00e2n n\u00fai l\u00ean c\u1eeda am \u2014 c\u1eeda am gi\u1eef t\u1ed1i, ch\u01b0a th\u1ea5y ng\u01b0\u1eddi; kh\u00f3i nhang m\u1edd tr\u00f4i. Render template intent: still-image scene + path-draw overlay. Subject: am + \u0111\u01b0\u1eddng m\u00f2n. Subject motion: ken-burns ch\u1eadm ti\u1ebfn l\u00ean n\u00fai; \u0111\u01b0\u1eddng m\u00f2n v\u1ebd theo narration. Scene: s\u01b0\u01a1ng n\u00fai s\u1edbm. Camera: crane_up nh\u1eb9.",
+          "start_seconds": 318.76666666666665,
+          "end_seconds": 346.06666666666666,
+          "script_section_id": "s12",
+          "framing": "Am gi\u1eefa-l\u1ec7ch tr\u00ean, m\u00f2n d\u1eabn t\u1eeb d\u01b0\u1edbi",
+          "movement": "Slow crane-up + path draw",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abtr\u00ean n\u00fai c\u00f3 am nh\u1ecf\u00bb \u00b7 \u00abtrong am c\u00f3 ng\u01b0\u1eddi\u00bb \u2014 c\u1eeda am t\u1ed1i gi\u1eef \u0111\u00fang c\u00e2u cu\u1ed1i. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Tr\u1ea1m ngh\u1ec9 v\u1eafng \u0111\u00e3 kh\u00f4ng c\u00f2n v\u1eafng",
+          "information_role": "Am nh\u1ecf tr\u00ean n\u00fai \u2014 n\u01a1i d\u00e2n bu\u00f4n gh\u00e9 n\u01b0\u1edbc",
+          "hero_moment": false,
+          "texture_keywords": [
+            "am n\u00fai",
+            "s\u01b0\u01a1ng s\u1edbm",
+            "kh\u00f3i nhang",
+            "c\u1eeda t\u1ed1i"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-06-nui-quynh-vi-am",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc026",
+          "type": "text_card",
+          "description": "QUOTE V\u1eca S\u01af: quote card m\u1ef1c \u1ea5m \u2014 \u00abtrong am c\u00f3 s\u01b0 t\u00ean g\u1ecdi Phu Quang truy\u1ec1n ph\u00e9p cho \u0110\u1ed3ng T\u1eed, \u0110\u1ed3ng T\u1eed \u1edf l\u1ea1i h\u1ecdc ph\u00e9p\u00bb hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch; ch\u1eef \u00ab\u1edf l\u1ea1i\u00bb accent amber. Render template intent: quote-card reveal + accent. Subject: tr\u00edch m\u1ed9t d\u00f2ng g\u1ecdn. Subject motion: ch\u1eef hi\u1ec7n theo tr\u00edch. Scene: gi\u1ea5y d\u00f3 \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 346.06666666666666,
+          "end_seconds": 348.23333333333335,
+          "script_section_id": "s13",
+          "framing": "Quote gi\u1eefa m\u00e0n, accent \u00ab\u1edf l\u1ea1i\u00bb",
+          "movement": "Quote reveal theo tr\u00edch",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abtrong am c\u00f3 s\u01b0\u00bb \u2014 hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Ch\u1ec9 m\u1ed9t d\u00f2ng \u2014 nh\u01b0ng \u0111\u1ed5i h\u01b0\u1edbng c\u1ea3 truy\u1ec7n",
+          "information_role": "Ng\u01b0\u1eddi kh\u00f4ng kh\u1ed1 \u1edf l\u1ea1i h\u1ecdc th\u1ee9 kh\u00f4ng mua b\u00e1n \u0111\u01b0\u1ee3c",
+          "hero_moment": false,
+          "texture_keywords": [
+            "quote_card",
+            "accent \u00ab\u1edf l\u1ea1i\u00bb",
+            "gi\u1ea5y d\u00f3",
+            "m\u1ef1c kem"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc027",
+          "type": "generated",
+          "description": "S\u01af TRAO G\u1eacY N\u00d3N: \u1ea3nh base img-07-su-phu-quang, v\u1ecb s\u01b0 gi\u00e0 trao g\u1eady tre v\u00e0 n\u00f3n l\u00e1 cho ng\u01b0\u1eddi qu\u1ef3; overlay TSX: v\u00f2ng h\u00e0o quang m\u1ef1c \u1ea5m pulse khi \u0111\u1ecdc \u00abtruy\u1ec1n ph\u00e9p\u00bb. Render template intent: still-image scene + speech-locked glow overlay. Subject: s\u01b0 + h\u1ecdc tr\u00f2. Subject motion: ken-burns ch\u1eadm; halo pulse theo narration. Scene: \u0111\u00e8n d\u1ea7u \u1ea5m trong am. Camera: dolly_in ch\u1eadm.",
+          "start_seconds": 348.23333333333335,
+          "end_seconds": 386.26666666666665,
+          "script_section_id": "s13",
+          "framing": "Hai b\u00f3ng gi\u1eefa am, \u0111\u00e8n d\u1ea7u g\u00f3c",
+          "movement": "Slow push-in + halo pulse",
+          "transition_in": "dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abg\u1eb7p s\u01b0\u00bb \u00b7 \u00abtruy\u1ec1n ph\u00e9p\u00bb \u2014 halo pulse \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "dolly_in",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Kho\u1ea3nh kh\u1eafc trao \u0111\u1ed5i th\u1ea7m l\u1eb7ng trong am",
+          "information_role": "T\u00ean s\u01b0 t\u1ea1m c\u1ea7m l\u1ea1i \u2014 ch\u1ec9 'm\u1ed9t v\u1ecb s\u01b0'",
+          "hero_moment": false,
+          "texture_keywords": [
+            "s\u01b0 gi\u00e0",
+            "\u0111\u00e8n d\u1ea7u",
+            "am nh\u1ecf",
+            "halo m\u1ef1c"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-07-su-phu-quang",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc028",
+          "type": "text_card",
+          "description": "QUOTE TRAO T\u1eb6NG: quote card m\u1ef1c \u1ea5m \u2014 \u00abS\u01b0 b\u00e8n t\u1eb7ng \u0110\u1ed3ng T\u1eed m\u1ed9t c\u00e2y tr\u01b0\u1ee3ng v\u00e0 m\u1ed9t chi\u1ebfc n\u00f3n m\u00e0 n\u00f3i r\u1eb1ng: 'Linh thi\u00eang \u1edf nh\u1eefng v\u1eadt n\u00e0y \u0111\u00e2y'\u00bb hi\u1ec7n theo tr\u00edch; ch\u1eef \u00abLinh thi\u00eang\u00bb accent amber. G\u00f3c d\u01b0\u1edbi: b\u00f3ng nh\u1ecf chi\u1ebfc kh\u1ed1 m\u1ef1c nh\u1ea1t \u2014 callback v\u1eadt \u0111\u1ea7u ti\u00ean. Render template intent: quote-card reveal + callback silhouette. Subject: tr\u00edch nguy\u00ean v\u0103n. Subject motion: ch\u1eef hi\u1ec7n theo tr\u00edch, b\u00f3ng kh\u1ed1 fade-in cu\u1ed1i. Scene: gi\u1ea5y d\u00f3 \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 386.26666666666665,
+          "end_seconds": 408.2,
+          "script_section_id": "s14",
+          "framing": "Quote gi\u1eefa m\u00e0n, b\u00f3ng kh\u1ed1 g\u00f3c d\u01b0\u1edbi",
+          "movement": "Quote reveal + kh\u1ed1 fade-in",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abm\u00e0 t\u00f4i mu\u1ed1n \u0111\u1ecdc nguy\u00ean v\u0103n\u00bb \u00b7 \u00abLinh thi\u00eang \u1edf nh\u1eefng v\u1eadt n\u00e0y \u0111\u00e2y\u00bb \u2014 hi\u1ec7n \u0111\u00fang l\u00fac \u0111\u1ecdc tr\u00edch. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1eddi trao t\u1eb7ng \u0111\u1ecdc nguy\u00ean v\u0103n \u2014 v\u1eadt nh\u1ecf mang linh thi\u00eang",
+          "information_role": "Hai v\u1eadt m\u1edbi: c\u00e2y tr\u01b0\u1ee3ng v\u00e0 chi\u1ebfc n\u00f3n",
+          "hero_moment": false,
+          "texture_keywords": [
+            "quote_card",
+            "accent \u00abLinh thi\u00eang\u00bb",
+            "b\u00f3ng kh\u1ed1",
+            "gi\u1ea5y d\u00f3"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc029",
+          "type": "generated",
+          "description": "G\u1eacY N\u00d3N TRAO TAY: \u1ea3nh base img-08-gay-non, \u0110\u1ed3ng T\u1eed qu\u1ef3 nh\u1eadn c\u00e2y g\u1eady tre v\u00e0 chi\u1ebfc n\u00f3n l\u00e1 t\u1eeb tay s\u01b0; overlay TSX: hai v\u1eadt ph\u00e1t h\u00e0o quang m\u1ef1c \u1ea5m nh\u1eb9 khi \u0111\u1ecdc \u00abLinh thi\u00eang\u00bb; ch\u1eef nh\u1ecf c\u1ea1nh v\u1eadt: g\u1eady \u2014 \u00ab\u0111\u1ec3 t\u1ef1a\u00bb, n\u00f3n \u2014 \u00ab\u0111\u1ec3 che\u00bb. Render template intent: still-image scene + speech-locked glow + label chips. Subject: hai b\u00e0n tay v\u00e0 hai v\u1eadt. Subject motion: ken-burns ch\u1eadm; glow pulse theo narration. Scene: n\u00fai Qu\u1ef3nh Vi, n\u1eafng xi\u00ean. Camera: slow push-in.",
+          "start_seconds": 408.2,
+          "end_seconds": 424.5,
+          "script_section_id": "s14",
+          "framing": "Hai v\u1eadt gi\u1eefa khung, s\u01b0 v\u00e0 tr\u00f2 hai b\u00ean",
+          "movement": "Slow push-in + glow pulse",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abm\u1ed9t c\u00e2y g\u1eady \u0111\u1ec3 t\u1ef1a\u00bb \u00b7 \u00abm\u1ed9t chi\u1ebfc n\u00f3n \u0111\u1ec3 che\u00bb \u2014 glow \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "dolly_in",
+            "lighting_key": "high_key",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Kh\u00f4ng v\u00e0ng, kh\u00f4ng ru\u1ed9ng \u2014 g\u1eady \u0111\u1ec3 t\u1ef1a, n\u00f3n \u0111\u1ec3 che",
+          "information_role": "Trao gi\u00e1 tr\u1ecb b\u1eb1ng v\u1eadt d\u1ee5ng che ch\u1edf",
+          "hero_moment": false,
+          "texture_keywords": [
+            "g\u1eady tre",
+            "n\u00f3n l\u00e1",
+            "h\u00e0o quang m\u1ef1c",
+            "n\u00fai Qu\u1ef3nh Vi"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-08-gay-non",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc030",
+          "type": "diagram",
+          "description": "BA TRANG \u2014 BA T\u00caN S\u01af: diagram gi\u1ea5y d\u00f3 \u2014 ba trang gi\u1ea5y x\u1ebfp l\u1ec7ch ba l\u1edbp, m\u1ed7i trang ghi m\u1ed9t d\u00f2ng teal: \u00abPhu Quang \u2014 n\u00fai Qu\u1ef3nh Vi (L\u0129nh Nam ch\u00edch qu\u00e1i)\u00bb \u00b7 \u00abPh\u1eadt-Quang \u2014 n\u00fai Qu\u00ecnh-l\u00e3ng (Phan K\u1ebf B\u00ednh)\u00bb \u00b7 \u00abNg\u01b0\u1ee1ng Quang \u2014 n\u00fai Qu\u1ef3nh Vi\u00ean (website b\u1ea3o t\u00e0ng)\u00bb; m\u1ed7i trang hi\u1ec7n \u0111\u00fang nh\u1ecbp \u0111\u1ecdc. Render template intent: TSX staggered page reveal. Subject: ba trang gi\u1ea5y. Subject motion: trang r\u01a1i v\u00e0o ch\u1ed7, ch\u1eef teal fade theo narration. Scene: n\u1ec1n gi\u1ea5y d\u00f3, m\u1ef1c teal. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 424.5,
+          "end_seconds": 445.06666666666666,
+          "script_section_id": "s15",
+          "framing": "Ba trang x\u1ebfp b\u1eadc thang t\u1eeb tr\u00ean xu\u1ed1ng",
+          "movement": "Trang r\u01a1i staggered + text fade",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abm\u1edf ba cu\u1ed1n ra\u00bb \u00b7 \u00abg\u1ecdi v\u1ecb s\u01b0 l\u00e0 Phu Quang\u00bb \u2014 trang 1 hi\u1ec7n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Ba cu\u1ed1n s\u00e1ch \u2014 ba c\u00e2u tr\u1ea3 l\u1eddi cho m\u1ed9t c\u00e2u h\u1ecfi nh\u1ecf",
+          "information_role": "Ba b\u1ea3n k\u1ec3, ba t\u00ean s\u01b0, ba qu\u1ea3 n\u00fai",
+          "hero_moment": false,
+          "texture_keywords": [
+            "trang gi\u1ea5y",
+            "m\u1ef1c teal",
+            "staggered reveal",
+            "b\u1ea3o t\u00e0ng"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc031",
+          "type": "text_card",
+          "description": "BA T\u00caN M\u1ed8T S\u01af: text card \u2014 chu\u1ed7i \u00abPhu Quang \u2014 Ph\u1eadt-Quang \u2014 Ng\u01b0\u1ee1ng Quang\u00bb vi\u1ebft m\u1ef1c l\u1edbn gi\u1eefa m\u00e0n, ba nh\u1ecbp g\u1ea1ch n\u1ed1i; d\u00f2ng d\u01b0\u1edbi m\u1ef1c nh\u1ea1t: \u00abBa c\u00e1i t\u00ean, ba b\u1ea3n k\u1ec3\u00bb. Render template intent: kinetic text card. Subject: ba c\u00e1i t\u00ean. Subject motion: t\u1eebng t\u00ean stroke-in theo nh\u1ecbp \u0111\u1ecdc. Scene: gi\u1ea5y d\u00f3, m\u1ef1c \u1ea5m + teal. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 445.06666666666666,
+          "end_seconds": 464.73333333333335,
+          "script_section_id": "s15",
+          "framing": "Ba t\u00ean gi\u1eefa m\u00e0n, d\u00f2ng ph\u1ee5 d\u01b0\u1edbi",
+          "movement": "Stroke-in t\u1eebng t\u00ean theo nh\u1ecbp",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abPhu Quang \u2014 Ph\u1eadt-Quang \u2014 Ng\u01b0\u1ee1ng Quang\u00bb \u00b7 \u00abBa c\u00e1i t\u00ean, ba b\u1ea3n k\u1ec3\u00bb \u2014 hi\u1ec7n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "Kh\u00f4ng b\u1ea3n n\u00e0o tuy\u00ean b\u1ed1 m\u00ecnh l\u00e0 nguy\u00ean g\u1ed1c duy nh\u1ea5t",
+          "information_role": "Truy\u1ec7n \u0111\u01b0\u1ee3c ch\u00e9p \u0111i ch\u00e9p l\u1ea1i qua nhi\u1ec1u b\u00e0n tay",
+          "hero_moment": false,
+          "texture_keywords": [
+            "kinetic text",
+            "stroke-in",
+            "m\u1ef1c \u1ea5m",
+            "m\u1ef1c teal"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc032",
+          "type": "diagram",
+          "description": "D\u1ea4U TAY NG\u01af\u1edcI CH\u00c9P: diagram \u2014 m\u1ed9t trang gi\u1ea5y ph\u00f3ng to, ba d\u1ea5u tay m\u1ef1c nh\u1ea1t in l\u00ean ba ch\u1ed7 kh\u00e1c nhau; m\u1ed7i d\u1ea5u tay hi\u1ec7n \u0111\u00fang nh\u1ecbp \u0111\u1ecdc \u00abm\u1ed9t l\u1ea7n ng\u01b0\u1eddi ch\u00e9p in d\u1ea5u tay\u00bb. Render template intent: SVG handprint stamp-in. Subject: trang gi\u1ea5y + d\u1ea5u tay. Subject motion: trang ken-burns nh\u1eb9, d\u1ea5u tay \u0111\u00f3ng d\u1ea5u (stamp) t\u1eebng c\u00e1i. Scene: gi\u1ea5y d\u00f3 c\u0169, m\u1ef1c nh\u1ea1t. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 464.73333333333335,
+          "end_seconds": 479.06666666666666,
+          "script_section_id": "s16",
+          "framing": "Trang gi\u1ea5y g\u1ea7n full, d\u1ea5u tay r\u1ea3i ba g\u00f3c",
+          "movement": "Stamp-in t\u1eebng d\u1ea5u tay",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abt\u00f4i th\u1ea5y d\u1ea5u tay\u00bb \u00b7 \u00abm\u1ed7i l\u1ea7n m\u1ed9t b\u1ea3n \u0111\u01b0\u1ee3c ch\u00e9p l\u1ea1i\u00bb \u2014 d\u1ea5u tay \u0111\u1ea7u \u0111\u00f3ng \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Kh\u00f4ng ph\u1ea3i nh\u1ea7m l\u1eabn \u2014 l\u00e0 d\u1ea5u tay ng\u01b0\u1eddi k\u1ec3",
+          "information_role": "Ch\u00e9p l\u1ea1i l\u00e0 in d\u1ea5u tay l\u00ean truy\u1ec7n",
+          "hero_moment": false,
+          "texture_keywords": [
+            "d\u1ea5u tay",
+            "gi\u1ea5y d\u00f3 c\u0169",
+            "stamp-in",
+            "m\u1ef1c nh\u1ea1t"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc033",
+          "type": "diagram",
+          "description": "S\u00c1U TRANG M\u1ed8T NGU\u1ed2N: diagram teal \u2014 s\u00e1u \u00f4 vu\u00f4ng \u0111\u1ea1i di\u1ec7n s\u00e1u trang web x\u1ebfp v\u00f2ng cung, \u0111\u01b0\u1eddng k\u1ebb teal truy v\u1ec1 m\u1ed9t \u00f4 ngu\u1ed3n duy nh\u1ea5t \u1edf t\u00e2m; khi \u0111\u1ecdc \u00abs\u1ef1 \u0111\u1ed3ng thu\u1eadn c\u1ee7a nh\u1eefng trang gi\u1ea5y\u00bb th\u00ec c\u00e1c \u0111\u01b0\u1eddng k\u1ebb pulse. Render template intent: TSX dependency fan-in diagram. Subject: s\u00e1u \u00f4 + m\u1ed9t ngu\u1ed3n. Subject motion: \u00f4 hi\u1ec7n staggered, \u0111\u01b0\u1eddng truy v\u1ebft v\u1ebd d\u1ea7n. Scene: n\u1ec1n t\u1ed1i, m\u1ef1c teal. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 479.06666666666666,
+          "end_seconds": 506.6666666666667,
+          "script_section_id": "s16",
+          "framing": "S\u00e1u \u00f4 v\u00f2ng cung, ngu\u1ed3n \u1edf t\u00e2m",
+          "movement": "Fan-in lines draw-on",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abs\u00e1u trang web\u00bb \u00b7 \u00abkh\u00f4ng ph\u1ea3i thang \u0111o cho \u0111\u1ed9 c\u1ed5\u00bb \u2014 fan-in v\u1ebd \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "\u0110\u1ed3ng thu\u1eadn nhi\u1ec1u trang kh\u00f4ng b\u1eb1ng ch\u1ee9ng \u0111\u1ed9c l\u1eadp",
+          "information_role": "Nhi\u1ec1u b\u1ea3n k\u1ec3 c\u00f3 th\u1ec3 chung m\u1ed9t ngu\u1ed3n c\u0169",
+          "hero_moment": false,
+          "texture_keywords": [
+            "fan-in diagram",
+            "m\u1ef1c teal",
+            "ngu\u1ed3n chung",
+            "v\u00f2ng cung"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc034",
+          "type": "generated",
+          "description": "QU\u00c2N \u0110\u00d3NG TR\u1ea0I \u0110\u00caM: \u1ea3nh base img-09-quan-quan-bai-tu-nhien, h\u00e0ng tr\u1ea1i qu\u00e2n tri\u1ec1u \u0111\u00ecnh b\u00ean b\u00e3i c\u00e1t trong \u0111\u00eam, \u0111u\u1ed1c l\u1eeda th\u01b0a; overlay TSX: \u0111\u01b0\u1eddng m\u1ef1c ch\u1ec9 \u00abb\u00e3i T\u1ef1 Nhi\u00ean\u00bb + nh\u00e3n \u00abc\u00e1ch con s\u00f4ng l\u1edbn\u00bb. Render template intent: still-image scene + speech-locked map pin. Subject: tr\u1ea1i qu\u00e2n trong \u0111\u00eam. Subject motion: ken-burns ngang ch\u1eadm; \u0111u\u1ed1c l\u1ea5p l\u00e1nh procedural. Scene: \u0111\u00eam, b\u00e3i c\u00e1t ven s\u00f4ng. Camera: slow pan.",
+          "start_seconds": 506.6666666666667,
+          "end_seconds": 518.6,
+          "script_section_id": "s17",
+          "framing": "Tr\u1ea1i qu\u00e2n gi\u1eefa, s\u00f4ng \u1edf m\u00e9p khung",
+          "movement": "Slow pan + \u0111u\u1ed1c flicker",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00ab\u0111\u00f3ng tr\u1ea1i \u1edf b\u00e3i T\u1ef1 Nhi\u00ean\u00bb \u00b7 \u00abtr\u1eddi t\u1ed1i kh\u00f4ng k\u1ecbp ti\u1ebfn qu\u00e2n\u00bb \u2014 pin hi\u1ec7n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "M\u1ed9t c\u00e2u h\u00e0nh qu\u00e2n \u2014 kh\u00f4ng tr\u1eadn \u0111\u00e1nh, kh\u00f4ng k\u00e8n tr\u1ed1ng",
+          "information_role": "Qu\u00e2n tri\u1ec1u \u0111\u00ecnh \u0111\u1ebfn sau \u0111\u00e1m c\u01b0\u1edbi",
+          "hero_moment": false,
+          "texture_keywords": [
+            "tr\u1ea1i qu\u00e2n",
+            "\u0111u\u1ed1c \u0111\u00eam",
+            "b\u00e3i c\u00e1t",
+            "map pin"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-09-quan-quan-bai-tu-nhien",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc035",
+          "type": "text_card",
+          "description": "CARD \u00ab\u0110\u1ec2 \u0110\u00caM T\u1ef0 L\u00c0M VI\u1ec6C\u00bb: text card t\u1ed1i gi\u1ea3n n\u1ec1n gi\u1ea5y d\u00f3 \u2014 c\u00e2u \u00ab\u0111\u1ec3 \u0111\u00eam \u1ea5y t\u1ef1 l\u00e0m ph\u1ea7n vi\u1ec7c c\u1ee7a n\u00f3\u00bb vi\u1ebft m\u1ef1c l\u1edbn; ch\u1eef \u00ab\u0111\u00eam\u00bb accent m\u1ef1c tr\u1ea7m. Render template intent: text card v\u1edbi accent. Subject: m\u1ed9t c\u00e2u. Subject motion: fade + ch\u1eef \u00ab\u0111\u00eam\u00bb ch\u1eadm r\u00e3i \u0111\u1eadm th\u00eam. Scene: gi\u1ea5y d\u00f3, kh\u00f4ng v\u1eadt th\u1ec3. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 518.6,
+          "end_seconds": 524.1,
+          "script_section_id": "s17",
+          "framing": "C\u00e2u gi\u1eefa m\u00e0n",
+          "movement": "Fade-in + accent \u0111\u1eadm d\u1ea7n",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00ab\u0111\u1ec3 \u0111\u00eam \u1ea5y t\u1ef1 l\u00e0m ph\u1ea7n vi\u1ec7c c\u1ee7a n\u00f3\u00bb \u2014 nguy\u00ean v\u0103n gi\u1eef nguy\u00ean. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Truy\u1ec7n giao vi\u1ec7c cho m\u00e0n \u0111\u00eam",
+          "information_role": "Kh\u00f4ng tr\u1eadn \u0111\u00e1nh \u2014 \u0111\u00eam t\u1ef1 l\u00e0m ph\u1ea7n vi\u1ec7c",
+          "hero_moment": false,
+          "texture_keywords": [
+            "text card",
+            "accent \u00ab\u0111\u00eam\u00bb",
+            "gi\u1ea5y d\u00f3",
+            "t\u1ed1i gi\u1ea3n"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc036",
+          "type": "generated",
+          "description": "N\u1eecA \u0110\u00caM GI\u00d3 L\u1edaN: \u1ea3nh base img-10-gio-cat-thanh-bay, b\u00e3o c\u00e1t \u0111\u00eam \u2014 c\u00e1t bay ngang, c\u00e2y cong, b\u00f3ng qu\u00e2n h\u1ed7n lo\u1ea1n; overlay TSX: v\u1ec7t gi\u00f3 m\u1ef1c v\u1ebd ch\u00e9o theo h\u01b0\u1edbng cat, ch\u1eef \u00abgi\u00f3 l\u1edbn\u00bb hi\u1ec7n \u0111\u00fang nh\u1ecbp. Render template intent: still-image scene + wind-stroke overlay. Subject: b\u00e3i c\u00e1t trong b\u00e3o. Subject motion: ken-burns ch\u00e9o theo gi\u00f3; v\u1ec7t m\u1ef1c l\u01b0\u1edbt ngang. Scene: n\u1eeda \u0111\u00eam, gi\u00f3 c\u00e1t. Camera: handheld-style drift.",
+          "start_seconds": 524.1,
+          "end_seconds": 528.3666666666667,
+          "script_section_id": "s18",
+          "framing": "C\u00e1t v\u00e0 gi\u00f3 chi\u1ebfm to\u00e0n khung",
+          "movement": "Diagonal drift + wind strokes",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abgi\u00f3 l\u1edbn n\u1ed5i l\u00ean\u00bb \u00b7 \u00abc\u00e1t bay, c\u00e2y \u0111\u1ed5\u00bb \u2014 v\u1ec7t gi\u00f3 \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "handheld",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "T\u1ea5t c\u1ea3 di\u1ec5n ra trong m\u1ed9t h\u01a1i th\u1edf",
+          "information_role": "N\u1eeda \u0111\u00eam b\u00e3o n\u1ed5i, quan qu\u00e2n h\u1ed7n lo\u1ea1n",
+          "hero_moment": false,
+          "texture_keywords": [
+            "b\u00e3o c\u00e1t",
+            "v\u1ec7t gi\u00f3 m\u1ef1c",
+            "\u0111\u00eam",
+            "h\u1ed7n lo\u1ea1n"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-10-gio-cat-thanh-bay",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc037",
+          "type": "diagram",
+          "description": "TH\u00c0NH BAY \u2014 \u0110\u1ea4T S\u1ee4T: diagram hai m\u1eb7t \u2014 n\u1eeda tr\u00ean: th\u00e0nh qu\u00e1ch m\u1ef1c \u1ea5m nh\u1ea5c l\u00ean kh\u1ecfi m\u1eb7t \u0111\u1ea5t (m\u0169i t\u00ean l\u00ean + \u00abbay b\u1ed5ng l\u00ean tr\u1eddi\u00bb); n\u1eeda d\u01b0\u1edbi: \u0111\u1ea5t s\u1ee5t th\u00e0nh l\u00f2ng ch\u1ea3o, m\u1ef1c teal \u0111\u1ed5 \u0111\u1ea7y th\u00e0nh m\u1eb7t n\u01b0\u1edbc \u00abs\u1ee5t xu\u1ed1ng th\u00e0nh c\u00e1i \u0111\u1ea7m l\u1edbn\u00bb. Render template intent: TSX split transformation diagram. Subject: th\u00e0nh bay / \u0111\u1ea5t s\u1ee5t. Subject motion: th\u00e0nh rise-out, \u0111\u1ea5t sink-in hai nh\u1ecbp li\u00ean ti\u1ebfp theo tr\u00edch. Scene: n\u1ec1n gi\u1ea5y d\u00f3 hai t\u1ea7ng. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 528.3666666666667,
+          "end_seconds": 549.0666666666667,
+          "script_section_id": "s18",
+          "framing": "Chia \u0111\u00f4i tr\u00ean-d\u01b0\u1edbi: bay v\u00e0 s\u1ee5t",
+          "movement": "Rise-out + sink-in hai nh\u1ecbp",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abth\u00e0nh qu\u00e1ch ph\u00fat ch\u1ed1c bay b\u1ed5ng l\u00ean tr\u1eddi\u00bb \u00b7 \u00abs\u1ee5t xu\u1ed1ng th\u00e0nh c\u00e1i \u0111\u1ea7m l\u1edbn\u00bb \u2014 hai nh\u1ecbp bi\u1ebfn h\u00ecnh \u0111\u00fang tr\u00edch. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "N\u01a1i \u1edf d\u1ef1ng c\u00f4ng phu bi\u1ebfn m\u1ea5t \u2014 ch\u1ec9 c\u00f2n m\u1eb7t n\u01b0\u1edbc",
+          "information_role": "Kh\u00f4ng ai b\u1ecb tr\u1eebng ph\u1ea1t \u2014 ch\u1ec9 c\u00f2n m\u1eb7t n\u01b0\u1edbc",
+          "hero_moment": true,
+          "texture_keywords": [
+            "bi\u1ebfn h\u00ecnh",
+            "th\u00e0nh bay",
+            "\u0111\u1ea5t s\u1ee5t",
+            "m\u1ef1c teal"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc038",
+          "type": "generated",
+          "description": "S\u00c1NG H\u00d4M SAU \u2014 \u0110\u1ea6M L\u1eb6NG: \u1ea3nh base img-11-dam-nhat-da, m\u1eb7t \u0111\u1ea7m ph\u1eb3ng l\u1eb7ng \u00e1nh n\u1eafng s\u1edbm, kh\u00f4ng c\u00f2n th\u00e0nh qu\u00e1ch; overlay TSX: ch\u1eef \u00abkh\u00f4ng th\u1ea5y th\u00e0nh qu\u00e1ch \u0111\u00e2u c\u1ea3\u00bb m\u1ef1c teal hi\u1ec7n r\u1ed3i tan. Render template intent: still-image scene + dissolve caption. Subject: m\u1eb7t \u0111\u1ea7m b\u00ecnh y\u00ean. Subject motion: ken-burns r\u1ea5t ch\u1eadm; caption tan nh\u01b0 s\u01b0\u01a1ng. Scene: b\u00ecnh minh sau \u0111\u00eam b\u00e3o. Camera: static hold.",
+          "start_seconds": 549.0666666666667,
+          "end_seconds": 554.4,
+          "script_section_id": "s19",
+          "framing": "M\u1eb7t \u0111\u1ea7m full khung, caption m\u1edd",
+          "movement": "Very slow push + caption dissolve",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abkh\u00f4ng th\u1ea5y th\u00e0nh qu\u00e1ch \u0111\u00e2u c\u1ea3\u00bb \u00b7 \u00ab\u0111\u1ec1u cho l\u00e0 linh d\u1ecb\u00bb \u2014 caption \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "high_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "S\u00e1ng h\u00f4m sau \u2014 ch\u1ec9 c\u00f2n m\u1eb7t n\u01b0\u1edbc",
+          "narrative_role": "resolution",
+          "information_role": "D\u00e2n ch\u00fang cho l\u00e0 linh d\u1ecb, l\u1eadp mi\u1ebfu th\u1edd",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u0111\u1ea7m l\u1eb7ng",
+            "b\u00ecnh minh",
+            "caption tan",
+            "linh d\u1ecb"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-11-dam-nhat-da",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc039",
+          "type": "diagram",
+          "description": "T\u00caN G\u1eccI \u2014 \u0110\u1ea6M M\u1ed8T \u0110\u00caM: diagram \u2014 d\u00f2ng m\u1ef1c vi\u1ebft \u00abNh\u1ea5t D\u1ea1 Tr\u1ea1ch\u00bb r\u1ed3i t\u00e1ch th\u00e0nh hai nh\u00e3n: \u00abNh\u1ea5t D\u1ea1 = m\u1ed9t \u0111\u00eam\u00bb \u00b7 \u00abTr\u1ea1ch = \u0111\u1ea7m\u00bb; b\u00ean c\u1ea1nh b\u1ea3n \u0111\u1ed3 gi\u1ea5y d\u1ea7u n\u00e2u nh\u1ecf \u0111\u00e1nh d\u1ea5u v\u1ecb tr\u00ed \u0111\u1ea7m. Render template intent: TSX etymology split + map chip. Subject: c\u00e1i t\u00ean. Subject motion: ch\u1eef t\u00e1ch nh\u00e3n theo nh\u1ecbp; ch\u1ea5m b\u1ea3n \u0111\u1ed3 pulse. Scene: gi\u1ea5y d\u1ea7u n\u00e2u cho map, m\u1ef1c \u1ea5m cho t\u00ean. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 554.4,
+          "end_seconds": 581.3666666666667,
+          "script_section_id": "s19",
+          "framing": "T\u00ean gi\u1eefa m\u00e0n, b\u1ea3n \u0111\u1ed3 b\u00ean ph\u1ea3i",
+          "movement": "Etymology split + map pulse",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abg\u1ecdi \u0111\u1ea7m l\u00e0 \u0111\u1ea7m Nh\u1ea5t D\u1ea1\u00bb \u00b7 \u00ab\u0111\u1ea7m m\u1ed9t \u0111\u00eam\u00bb \u2014 nh\u00e3n t\u00e1ch \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Truy\u1ec7n tr\u1ea3 v\u1ec1 \u0111\u00fang vi\u1ec7c c\u1ee7a n\u00f3: gi\u1ea3i th\u00edch m\u1ed9t c\u00e1i t\u00ean",
+          "narrative_role": "resolution",
+          "information_role": "Nh\u1ea5t D\u1ea1 Tr\u1ea1ch = \u0111\u1ea7m m\u1ed9t \u0111\u00eam",
+          "hero_moment": false,
+          "texture_keywords": [
+            "etymology",
+            "gi\u1ea5y d\u1ea7u n\u00e2u",
+            "b\u1ea3n \u0111\u1ed3",
+            "t\u00e1ch nh\u00e3n"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc040",
+          "type": "diagram",
+          "description": "AI CH\u00c9P \u2014 KHI N\u00c0O: diagram ki\u1ec3m k\u00ea \u2014 thanh th\u1eddi gian m\u1ef1c t\u1eeb \u00abtruy\u1ec7n k\u1ec3\u00bb (m\u1ef1c amber m\u1edd) t\u1edbi \u00abb\u1ea3n d\u1ecbch hi\u1ec7n \u0111\u1ea1i\u00bb (teal r\u00f5); hai c\u1edd m\u1ed1c 1492/1493 c\u1eafm \u1edf \u0111o\u1ea1n \u0111\u1ea7u, c\u1edd \u00abh\u00f4m nay\u00bb \u1edf cu\u1ed1i; nh\u00e3n \u00abkh\u00f4ng ph\u1ea3i \u1ea3nh ch\u1ee5p th\u1ee7 b\u1ea3n c\u1ed5\u00bb \u0111\u1eb7t c\u1ea1nh b\u1ea3n d\u1ecbch. Render template intent: TSX timeline with flags. Subject: chu\u1ed7i th\u1eddi gian. Subject motion: thanh v\u1ebd d\u1ea7n tr\u00e1i\u2192ph\u1ea3i, c\u1edd c\u1eafm theo nh\u1ecbp. Scene: n\u1ec1n gi\u1ea5y d\u00f3. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 581.3666666666667,
+          "end_seconds": 588.4333333333333,
+          "script_section_id": "s20",
+          "framing": "Timeline ngang gi\u1eefa m\u00e0n",
+          "movement": "Draw-on + c\u1edd c\u1eafm staggered",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abb\u1ea3n d\u1ecbch hi\u1ec7n \u0111\u1ea1i\u00bb \u00b7 \u00abkh\u00f4ng ph\u1ea3i \u1ea3nh ch\u1ee5p th\u1ee7 b\u1ea3n c\u1ed5\u00bb \u2014 nh\u00e3n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "Ta v\u1eeba \u0111\u1ecdc theo b\u1ea3n d\u1ecbch \u2014 m\u1ed1c v\u0103n b\u1ea3n, kh\u00f4ng tu\u1ed5i truy\u1ec7n",
+          "information_role": "Ph\u00e2n l\u1edbp: truy\u1ec7n k\u1ec3 vs v\u0103n b\u1ea3n ghi l\u1ea1i",
+          "hero_moment": false,
+          "texture_keywords": [
+            "timeline",
+            "c\u1edd m\u1ed1c",
+            "m\u1ef1c amber",
+            "m\u1ef1c teal"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc041",
+          "type": "text_card",
+          "description": "HAI M\u1ed0C \u2014 1492 & 1493: text card teal \u2014 hai c\u1ed9t m\u1ed1c gi\u1ea5y: \u00abL\u1eddi t\u1ef1a \u2014 V\u0169 Qu\u1ef3nh \u2014 H\u1ed3ng \u0110\u1ee9c 23 \u2192 1492\u00bb \u00b7 \u00abL\u1eddi b\u1ea1t \u2014 Ki\u1ec1u Ph\u00fa \u2014 H\u1ed3ng \u0110\u1ee9c 24 \u2192 1493\u00bb; s\u1ed1 1492/1493 ch\u1eef teal l\u1edbn, hi\u1ec7n \u0111\u00fang nh\u1ecbp \u0111\u1ecdc. D\u00f2ng c\u1ea9n th\u1eadn d\u01b0\u1edbi: \u00abm\u1ed1c v\u0103n b\u1ea3n, kh\u00f4ng ph\u1ea3i tu\u1ed5i c\u1ee7a truy\u1ec7n\u00bb. Render template intent: dual milestone card. Subject: hai m\u1ed1c. Subject motion: hai c\u1ed9t slide-in hai b\u00ean; d\u00f2ng c\u1ea9n th\u1eadn fade cu\u1ed1i. Scene: gi\u1ea5y d\u00f3 + m\u1ef1c teal. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 588.4333333333333,
+          "end_seconds": 613.2,
+          "script_section_id": "s20",
+          "framing": "Hai c\u1ed9t m\u1ed1c \u0111\u1ed1i x\u1ee9ng",
+          "movement": "Slide-in \u0111\u00f4i + fade d\u00f2ng c\u1ea9n th\u1eadn",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abquy \u0111\u1ed5i ra n\u0103m 1492\u00bb \u00b7 \u00abch\u00fa th\u00edch quy \u0111\u1ed5i 1493\u00bb \u2014 s\u1ed1 hi\u1ec7n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "\u0110\u00e2y l\u00e0 ch\u1ed7 c\u1ea7n c\u1ea9n th\u1eadn nh\u1ea5t t\u1ed1i nay",
+          "information_role": "1492/1493 l\u00e0 m\u1ed1c l\u1eddi t\u1ef1a/l\u1eddi b\u1ea1t theo ch\u00fa th\u00edch b\u1ea3n d\u1ecbch",
+          "hero_moment": false,
+          "texture_keywords": [
+            "milestone card",
+            "m\u1ef1c teal",
+            "1492",
+            "1493"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc042",
+          "type": "diagram",
+          "description": "TR\u1ee4C V\u1eacT TH\u1ec2 \u2014 X\u00c2U L\u1ea0I (climax): diagram tr\u1ee5c ngang \u2014 n\u0103m v\u1eadt th\u1ec3 l\u1ea7n l\u01b0\u1ee3t s\u00e1ng l\u00ean theo nh\u1ecbp \u0111\u1ecdc: kh\u1ed1 (\u00abth\u1ee9 duy nh\u1ea5t nh\u00e0 c\u00f3\u00bb) \u00b7 m\u00e0n (\u00abc\u00f4ng ch\u00faa t\u1ef1 ch\u1ecdn\u00bb) \u00b7 ch\u1ee3 (\u00abng\u01b0\u1eddi ngh\u00e8o \u0111\u1ee9ng b\u00e1n\u00bb) \u00b7 g\u1eady+n\u00f3n (\u00abtrao tay\u00bb) \u00b7 m\u1eb7t n\u01b0\u1edbc (\u00abt\u00ean c\u00f2n \u0111\u1ecdc \u0111\u01b0\u1ee3c\u00bb); t\u1ea5t c\u1ea3 n\u1ed1i b\u1eb1ng m\u1ed9t d\u00f2ng m\u1ef1c li\u00ean t\u1ee5c. Render template intent: TSX axis-of-objects montage. Subject: n\u0103m v\u1eadt. Subject motion: t\u1eebng v\u1eadt s\u00e1ng staggered, d\u00f2ng m\u1ef1c ch\u1ea1y qua. Scene: gi\u1ea5y d\u00f3, m\u1ef1c \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 613.2,
+          "end_seconds": 630.9333333333333,
+          "script_section_id": "s21",
+          "framing": "Tr\u1ee5c ngang n\u0103m v\u1eadt",
+          "movement": "Staggered highlight + ink line ch\u1ea1y",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abl\u1ea7n theo t\u1eebng v\u1eadt th\u1ec3\u00bb \u00b7 \u00abChi\u1ebfc g\u1eady, chi\u1ebfc n\u00f3n\u00bb \u2014 v\u1eadt 4 s\u00e1ng \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "T\u1ed1i nay ta \u0111\u00e3 l\u1ea7n theo t\u1eebng v\u1eadt th\u1ec3",
+          "information_role": "N\u0103m v\u1eadt th\u1ec3 \u2014 n\u0103m l\u1edbp \u00fd ngh\u0129a",
+          "hero_moment": true,
+          "texture_keywords": [
+            "tr\u1ee5c v\u1eadt th\u1ec3",
+            "montage",
+            "d\u00f2ng m\u1ef1c",
+            "n\u0103m v\u1eadt"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc043",
+          "type": "text_card",
+          "description": "C\u00c1CH \u0110\u1eccC BI\u00caN T\u1eacP: text card \u2014 c\u00e2u \u00abc\u1ed9ng \u0111\u1ed3ng nh\u1edb Ch\u1eed \u0110\u1ed3ng T\u1eed nh\u01b0 m\u1ed9t kh\u00e1t v\u1ecdng v\u1ec1 \u0111\u1eddi s\u1ed1ng c\u00f3 ph\u1ea9m gi\u00e1\u00bb vi\u1ebft m\u1ef1c l\u1edbn; nh\u00e3n nh\u1ecf d\u01b0\u1edbi: \u00abc\u00e1ch \u0111\u1ecdc bi\u00ean t\u1eadp \u2014 m\u1ed9t \u0111\u1ec1 xu\u1ea5t c\u00f2n ch\u1edd duy\u1ec7t\u00bb. Render template intent: claim card + disclaimer chip. Subject: c\u00e2u c\u00e1ch \u0111\u1ecdc. Subject motion: ch\u1eef hi\u1ec7n d\u00f2ng, chip disclaimer fade cu\u1ed1i. Scene: gi\u1ea5y d\u00f3, m\u1ef1c \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 630.9333333333333,
+          "end_seconds": 654.1333333333333,
+          "script_section_id": "s21",
+          "framing": "C\u00e2u gi\u1eefa m\u00e0n, chip d\u01b0\u1edbi",
+          "movement": "Line reveal + chip fade",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abc\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0\u00bb \u00b7 \u00abkh\u00e1t v\u1ecdng v\u1ec1 \u0111\u1eddi s\u1ed1ng c\u00f3 ph\u1ea9m gi\u00e1\u00bb \u2014 hi\u1ec7n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "T\u00f4i n\u00f3i l\u00e0 \u00abc\u00f3 th\u1ec3 \u0111\u1ecdc\u00bb \u2014 kh\u00f4ng ph\u1ea3i k\u1ebft lu\u1eadn \u0111\u1ed9c quy\u1ec1n",
+          "information_role": "C\u00e1ch \u0111\u1ecdc bi\u00ean t\u1eadp, c\u00f2n ch\u1edd duy\u1ec7t",
+          "hero_moment": false,
+          "texture_keywords": [
+            "claim card",
+            "disclaimer chip",
+            "m\u1ef1c \u1ea5m",
+            "gi\u1ea5y d\u00f3"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc044",
+          "type": "generated",
+          "description": "\u0110\u1ec0N \u0110A H\u00d2A H\u00d4M NAY: \u1ea3nh base img-13-dinh-da-hoa, \u0111\u1ec1n \u0110a H\u00f2a trong n\u1eafng, m\u00e1i \u0111\u1ec1n l\u1edbp l\u1edbp; overlay TSX: th\u1ebb teal \u00ab153/Q\u0110-BVHTTDL \u00b7 02/02/2023\u00bb g\u1eafn c\u1ea1nh m\u00e1i \u0111\u1ec1n \u0111\u00fang nh\u1ecbp \u0111\u1ecdc; chip nh\u1ecf \u00abghi danh qu\u1ed1c gia \u2014 kh\u00f4ng ph\u1ea3i UNESCO\u00bb. Render template intent: still-image scene + speech-locked stat chip. Subject: m\u00e1i \u0111\u1ec1n. Subject motion: ken-burns \u0111\u1ea9y nh\u1eb9 l\u00ean m\u00e1i; th\u1ebb teal slide-in. Scene: ng\u00e0y h\u1ed9i, c\u1edd l\u1ec5. Camera: tilt-up ch\u1eadm.",
+          "start_seconds": 654.1333333333333,
+          "end_seconds": 673.1666666666666,
+          "script_section_id": "s22",
+          "framing": "M\u00e1i \u0111\u1ec1n chi\u1ebfm n\u1eeda tr\u00ean, th\u1ebb teal c\u1ea1nh",
+          "movement": "Tilt-up + chip slide-in",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abQuy\u1ebft \u0111\u1ecbnh 153/Q\u0110-BVHTTDL\u00bb \u00b7 \u00abng\u00e0y 02/02/2023\u00bb \u2014 th\u1ebb hi\u1ec7n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "tilt_up",
+            "lighting_key": "high_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Ng\u01b0\u1eddi th\u1edd h\u00f4m nay v\u1eabn gi\u1eef ch\u1eef k\u00fd c\u1ee7a m\u00ecnh",
+          "information_role": "Ghi danh di s\u1ea3n phi v\u1eadt th\u1ec3 qu\u1ed1c gia 2023",
+          "hero_moment": false,
+          "texture_keywords": [
+            "m\u00e1i \u0111\u1ec1n",
+            "th\u1ebb teal",
+            "\u0111\u1ec1n \u0110a H\u00f2a",
+            "chip ph\u00e1p l\u00fd"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-13-dinh-da-hoa",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc045",
+          "type": "diagram",
+          "description": "NH\u1ecaP H\u1ed8I \u2014 9 L\u00c0NG / 3 N\u0102M M\u1ed8T L\u1ea6N: diagram teal \u2014 v\u00f2ng tr\u00f2n ba nh\u1ecbp \u00ab3 n\u0103m m\u1ed9t l\u1ea7n\u00bb, quanh v\u00e0nh ghi \u00ab9 l\u00e0ng \u00b7 T\u1ed5ng M\u1ec5 x\u01b0a\u00bb; m\u1ed9t nh\u1ecbp pulse khi \u0111\u1ecdc \u00abv\u1eabn \u0111ang ch\u1ea1y\u00bb. Render template intent: TSX rhythm ring. Subject: v\u00f2ng nh\u1ecbp h\u1ed9i. Subject motion: v\u00f2ng quay r\u1ea5t ch\u1eadm, nh\u1ecbp pulse theo narration. Scene: n\u1ec1n t\u1ed1i, m\u1ef1c teal. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 673.1666666666666,
+          "end_seconds": 684.8333333333334,
+          "script_section_id": "s22",
+          "framing": "V\u00f2ng tr\u00f2n gi\u1eefa m\u00e0n",
+          "movement": "Ring rotate + pulse",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abch\u00edn l\u00e0ng, ba n\u0103m m\u1ed9t l\u1ea7n\u00bb \u00b7 \u00abT\u1ed5ng M\u1ec5 x\u01b0a\u00bb \u2014 v\u00f2ng pulse \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Nh\u1ecbp \u1ea5y v\u1eabn \u0111ang ch\u1ea1y \u2014 kh\u00f4ng c\u1ea7n ch\u1ee9ng minh th\u1ea7n k\u1ef3",
+          "information_role": "9 l\u00e0ng \u00b7 3 n\u0103m m\u1ed9t l\u1ea7n \u00b7 h\u00e0ng t\u1ed5ng",
+          "hero_moment": false,
+          "texture_keywords": [
+            "rhythm ring",
+            "m\u1ef1c teal",
+            "9 l\u00e0ng",
+            "3 n\u0103m m\u1ed9t l\u1ea7n"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc046",
+          "type": "diagram",
+          "description": "S\u1ed0 PH\u1eacN C\u00c2U CHUY\u1ec6N: diagram \u2014 ba nh\u1ecbp proof \u0111ang ch\u1ea1y: \u00abr\u01b0\u1edbc n\u01b0\u1edbc m\u1ed7i k\u1ef3 h\u1ed9i\u00bb \u00b7 \u00abch\u00edn l\u00e0ng h\u1eb9n nhau\u00bb \u00b7 \u00ab\u0111\u1ea7m m\u1ed9t \u0111\u00eam c\u00f2n \u0111\u1ecdc \u0111\u01b0\u1ee3c tr\u00ean b\u1ea3n \u0111\u1ed3\u00bb \u2014 ba d\u00f2ng m\u1ef1c ch\u1ea3y ngang kh\u00f4ng d\u1eebng, g\u1eb7p nhau v\u1ec1 m\u1ed9t ch\u1eef \u00abk\u1ec3\u00bb. Render template intent: TSX flowing lines converge. Subject: ba d\u00f2ng \u0111\u1eddi s\u1ed1ng. Subject motion: d\u00f2ng ch\u1ea3y li\u00ean t\u1ee5c, h\u1ed9i t\u1ee5 cu\u1ed1i scene. Scene: n\u1ec1n t\u1ed1i, m\u1ef1c \u1ea5m + teal. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 684.8333333333334,
+          "end_seconds": 700.9666666666667,
+          "script_section_id": "s23",
+          "framing": "Ba d\u00f2ng ngang, h\u1ed9i t\u1ee5 ph\u1ea3i",
+          "movement": "Flowing lines converge",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abv\u1eabn c\u00f3 ng\u01b0\u1eddi r\u01b0\u1edbc n\u01b0\u1edbc\u00bb \u00b7 \u00abv\u1eabn c\u00f3 ng\u01b0\u1eddi c\u1ea7n k\u1ec3 n\u00f3\u00bb \u2014 d\u00f2ng ch\u1ea3y \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "S\u1ed1ng v\u00ec v\u1eabn c\u00f3 ng\u01b0\u1eddi c\u1ea7n k\u1ec3 n\u00f3",
+          "information_role": "S\u1ed1 ph\u1eadn truy\u1ec7n n\u1eb1m \u1edf ng\u01b0\u1eddi k\u1ec3, kh\u00f4ng \u1edf ph\u00e9p m\u00e0u",
+          "hero_moment": false,
+          "texture_keywords": [
+            "d\u00f2ng ch\u1ea3y",
+            "h\u1ed9i t\u1ee5",
+            "m\u1ef1c \u1ea5m",
+            "ng\u01b0\u1eddi k\u1ec3"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc047",
+          "type": "text_card",
+          "description": "CARD CH\u1ed0T \u2014 D\u00d2NG S\u00d4NG V\u1eaaN CH\u1ea2Y: text card \u2014 c\u00e2u \u00ab\u0110\u00eam c\u00f2n d\u00e0i, v\u00e0 d\u00f2ng s\u00f4ng th\u00ec v\u1eabn ch\u1ea3y\u00bb vi\u1ebft m\u1ef1c l\u1edbn; ba ch\u1eef \u00abv\u1eabn ch\u1ea3y\u00bb accent amber, g\u1ee3n s\u00f3ng m\u1ef1c nh\u1ea1t d\u01b0\u1edbi ch\u1eef. Render template intent: text card + wave underline. Subject: c\u00e2u ch\u1ed1t. Subject motion: fade-in, s\u00f3ng m\u1ef1c l\u0103n nh\u1eb9 li\u00ean t\u1ee5c. Scene: gi\u1ea5y d\u00f3, m\u1ef1c \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 700.9666666666667,
+          "end_seconds": 706.8333333333334,
+          "script_section_id": "s23",
+          "framing": "C\u00e2u gi\u1eefa m\u00e0n, s\u00f3ng d\u01b0\u1edbi",
+          "movement": "Fade + wave underline l\u0103n nh\u1eb9",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abd\u00f2ng s\u00f4ng th\u00ec v\u1eabn ch\u1ea3y\u00bb \u2014 nguy\u00ean v\u0103n gi\u1eef nguy\u00ean. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Ch\u1ed1t H\u1ed3i 5 \u2014 d\u00f2ng s\u00f4ng v\u1eabn ch\u1ea3y",
+          "information_role": "\u0110\u00eam c\u00f2n d\u00e0i, s\u00f4ng v\u1eabn ch\u1ea3y",
+          "hero_moment": false,
+          "texture_keywords": [
+            "text card",
+            "s\u00f3ng m\u1ef1c",
+            "accent amber",
+            "ch\u1ed1t h\u1ed3i"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc048",
+          "type": "text_card",
+          "description": "C\u00c2U H\u1eceI B\u00c0I T\u1eacP \u0110\u1eccC: text card \u2014 c\u00e2u h\u1ecfi \u00abNh\u00e2n d\u00e2n l\u00e0m g\u00ec \u0111\u1ec3 t\u01b0\u1edfng nh\u1edb \u00f4ng?\u00bb hi\u1ec7n nh\u01b0 trang b\u00e0i t\u1eadp \u0111\u1ecdc l\u1edbp ba (khung trang, l\u1ec1 \u0111\u1ecf nh\u1ea1t); \u0111\u00e1p \u00e1n \u0111\u1ec3 tr\u1ed1ng m\u1ed9t nh\u1ecbp r\u1ed3i ch\u1eef m\u1ef1c teal \u00abN\u00f3 n\u1eb1m tr\u00ean s\u00f4ng\u00bb vi\u1ebft tay v\u00e0o ch\u1ed7 tr\u1ed1ng. Render template intent: worksheet card + handwritten answer. Subject: trang b\u00e0i t\u1eadp. Subject motion: c\u00e2u h\u1ecfi in s\u1eb5n, \u0111\u00e1p \u00e1n vi\u1ebft tay theo narration. Scene: gi\u1ea5y v\u1edf h\u1ecdc tr\u00f2. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 706.8333333333334,
+          "end_seconds": 712.0666666666667,
+          "script_section_id": "s24",
+          "framing": "Trang b\u00e0i t\u1eadp gi\u1eefa m\u00e0n",
+          "movement": "Handwrite-in \u0111\u00e1p \u00e1n",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abc\u00e2u tr\u1ea3 l\u1eddi kh\u00f4ng n\u1eb1m tr\u00ean trang s\u00e1ch\u00bb \u00b7 \u00abN\u00f3 n\u1eb1m tr\u00ean s\u00f4ng\u00bb \u2014 vi\u1ebft tay \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lighting_key": "high_key",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "C\u00e2u tr\u1ea3 l\u1eddi c\u1ee7a b\u00e0i t\u1eadp \u0111\u1ecdc n\u1eb1m ngo\u00e0i trang s\u00e1ch",
+          "information_role": "T\u01b0\u1edfng nh\u1edb b\u1eb1ng n\u01b0\u1edbc \u2014 th\u1ee9 t\u1eebng che cho hai ng\u01b0\u1eddi",
+          "hero_moment": false,
+          "texture_keywords": [
+            "worksheet",
+            "vi\u1ebft tay",
+            "l\u1ec1 \u0111\u1ecf",
+            "m\u1ef1c teal"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc049",
+          "type": "generated",
+          "description": "L\u1ecaCH H\u1ed8I \u2014 THUY\u1ec0N R\u01af\u1edaC N\u01af\u1edaC: \u1ea3nh base img-01-thuyen-ruc-nuoc t\u00e1i d\u00f9ng, \u0111o\u00e0n thuy\u1ec1n r\u01b0\u1edbc n\u01b0\u1edbc s\u00e1ng s\u1edbm; overlay TSX: th\u1ebb l\u1ecbch \u00ab10\u201312 th\u00e1ng Hai \u00e2m l\u1ecbch\u00bb + nh\u1ecbp \u00abs\u00e1ng 11/2 \u00b7 9 l\u00e0ng du thuy\u1ec1n r\u01b0\u1edbc n\u01b0\u1edbc\u00bb hi\u1ec7n \u0111\u00fang nh\u1ecbp; ngu\u1ed3n chip nh\u1ecf \u00abl\u1ecbch c\u1ed5ng du l\u1ecbch H\u01b0ng Y\u00ean \u0111\u0103ng\u00bb. Render template intent: still-image scene + speech-locked schedule chip. Subject: thuy\u1ec1n r\u01b0\u1edbc n\u01b0\u1edbc. Subject motion: ken-burns ch\u1eadm; chip slide theo nh\u1ecbp. Scene: s\u01b0\u01a1ng s\u1edbm s\u00f4ng H\u1ed3ng. Camera: dolly_in ch\u1eadm.",
+          "start_seconds": 712.0666666666667,
+          "end_seconds": 731.2666666666667,
+          "script_section_id": "s24",
+          "framing": "Thuy\u1ec1n n\u1ec1n, th\u1ebb l\u1ecbch g\u00f3c ph\u1ea3i",
+          "movement": "Slow push + chip slide-in",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00ab10\u201312 th\u00e1ng Hai \u00e2m l\u1ecbch\u00bb \u00b7 \u00abs\u00e1ng ng\u00e0y 11/2\u00bb \u2014 th\u1ebb hi\u1ec7n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lighting_key": "high_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "C\u00e2u tr\u1ea3 l\u1eddi h\u00f3a ra l\u00e0 ch\u00ednh d\u00f2ng n\u01b0\u1edbc \u1ea5y",
+          "information_role": "L\u1ecbch h\u1ed9i \u0111\u0103ng: 10\u201312/2 AL, s\u00e1ng 11/2, 9 l\u00e0ng r\u01b0\u1edbc n\u01b0\u1edbc",
+          "hero_moment": false,
+          "texture_keywords": [
+            "th\u1ebb l\u1ecbch",
+            "thuy\u1ec1n r\u01b0\u1edbc",
+            "s\u01b0\u01a1ng s\u1edbm",
+            "9 l\u00e0ng"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-01-thuyen-ruc-nuoc",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc050",
+          "type": "diagram",
+          "description": "MONTAGE CALLBACK \u2014 V\u1eacT TH\u1ec2 X\u01afA&NAY (ch\u1ea1y nhanh): diagram montage \u2014 n\u0103m c\u1eb7p nh\u1ecf \u00abx\u01b0a \u2192 nay\u00bb l\u01b0\u1edbt qua theo nh\u1ecbp: m\u00e0n che \u2192 l\u1ec5 \u00b7 ph\u1ed1 ch\u1ee3 \u2192 h\u1ed9i \u00b7 thuy\u1ec1n bu\u00f4n \u2192 du thuy\u1ec1n \u00b7 \u0111\u1ea7m \u2192 \u0111\u1ecba danh \u00b7 kh\u1ed1 \u2192 m\u1edf \u0111\u1ea7u truy\u1ec7n; m\u1ed7i c\u1eb7p m\u1ed9t d\u00f2ng m\u1ef1c chuy\u1ec3n amber sang teal. Render template intent: TSX then-now flip montage. Subject: n\u0103m c\u1eb7p chuy\u1ec3n \u0111\u1ed5i. Subject motion: t\u1eebng c\u1eb7p flip staggered nhanh theo narration. Scene: gi\u1ea5y d\u00f3 hai m\u1ef1c. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 731.2666666666667,
+          "end_seconds": 749.0333333333333,
+          "script_section_id": "s25",
+          "framing": "L\u01b0\u1edbi c\u1eb7p x\u01b0a-nay l\u01b0\u1edbt qua",
+          "movement": "Flip montage staggered",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abXin nh\u00ecn l\u1ea1i c\u00e1c v\u1eadt th\u1ec3\u00bb \u00b7 \u00abch\u1ec9 c\u00f3 n\u01b0\u1edbc l\u00e0 ch\u1ea3y li\u00ean t\u1ee5c\u00bb \u2014 c\u1eb7p cu\u1ed1i ch\u1ed1t \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "Truy\u1ec7n k\u1ec3 v\u00e0 \u0111\u1eddi s\u1ed1ng g\u1eb7p nhau \u1edf \u0111\u00fang m\u1ed9t d\u00f2ng n\u01b0\u1edbc",
+          "information_role": "M\u1ed7i v\u1eadt th\u1ec3 x\u01b0a c\u00f3 m\u1ed9t h\u00ecnh th\u00e1i nay",
+          "hero_moment": false,
+          "texture_keywords": [
+            "montage",
+            "x\u01b0a-nay",
+            "amber-teal",
+            "flip"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc051",
+          "type": "diagram",
+          "description": "CH\u1ec8 C\u00d3 N\u01af\u1edaC CH\u1ea2Y LI\u00caN T\u1ee4C: diagram \u2014 c\u00e1c v\u1eadt th\u1ec3 (kh\u1ed1, m\u00e0n, ch\u1ee3, g\u1eady, n\u00f3n) v\u1ebd m\u1ef1c t\u0129nh d\u1ea7n nh\u1ea1t; m\u1ed9t d\u00f2ng n\u01b0\u1edbc teal duy nh\u1ea5t ch\u1ea1y xuy\u00ean qua t\u1ea5t c\u1ea3 v\u00e0 v\u1eabn ch\u1ea3y ra m\u00e9p ph\u1ea3i khung. Render template intent: TSX continuity line. Subject: d\u00f2ng n\u01b0\u1edbc xuy\u00ean su\u1ed1t. Subject motion: v\u1eadt kh\u00e1c \u0111\u1eadm-nh\u1ea1t theo nh\u1ecbp, d\u00f2ng n\u01b0\u1edbc ch\u1ea3y kh\u00f4ng d\u1eebng. Scene: gi\u1ea5y d\u00f3, m\u1ef1c teal. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 749.0333333333333,
+          "end_seconds": 763.1666666666666,
+          "script_section_id": "s25",
+          "framing": "D\u00f2ng n\u01b0\u1edbc ngang xuy\u00ean n\u0103m v\u1eadt",
+          "movement": "Objects fade, line flows",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abch\u1ec9 c\u00f3 n\u01b0\u1edbc l\u00e0 ch\u1ea3y li\u00ean t\u1ee5c\u00bb \u00b7 \u00abt\u1eeb truy\u1ec7n t\u1edbi h\u00f4m nay\u00bb \u2014 d\u00f2ng ch\u1ea3y \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "\u0110\u00f3 l\u00e0 c\u00e2u bi\u00ean t\u1eadp \u2014 kh\u00f4ng ph\u1ea3i b\u1eb1ng ch\u1ee9ng l\u1ecbch s\u1eed",
+          "information_role": "N\u01b0\u1edbc l\u00e0 ch\u1ea5t li\u1ec7u li\u00ean t\u1ee5c duy nh\u1ea5t c\u1ee7a truy\u1ec7n",
+          "hero_moment": false,
+          "texture_keywords": [
+            "d\u00f2ng n\u01b0\u1edbc",
+            "li\u00ean t\u1ee5c",
+            "m\u1ef1c teal",
+            "bi\u00ean t\u1eadp"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc052",
+          "type": "text_card",
+          "description": "QUOTE C13 \u2014 L\u1edaP K\u1ec2 GI\u00c1O D\u1ee4C: quote card gi\u1ea5y d\u00f3, m\u1ef1c teal, ch\u1eef \u00abgi\u00fap d\u00e2n l\u00e0m nhi\u1ec1u vi\u1ec7c l\u1ee3i \u00edch nh\u01b0 d\u1ea1y c\u00e1ch tr\u1ed3ng l\u00faa, nu\u00f4i t\u1eb1m, d\u1ec7t v\u1ea3i\u00bb hi\u1ec7n d\u00f2ng d\u00f2ng theo nh\u1ecbp \u0111\u1ecdc; nh\u00e3n nh\u1ecf g\u00f3c tr\u00ean \u00abl\u1edbp k\u1ec3 gi\u00e1o d\u1ee5c\u00bb m\u00e0u teal, ngu\u1ed3n chip \u00abtrang b\u00e0i t\u1eadp \u0111\u1ecdc\u00bb. Render template intent: quote card + label chip, speech-locked. Subject: trang b\u00e0i t\u1eadp \u0111\u1ecdc. Subject motion: ch\u1eef hi\u1ec7n theo nh\u1ecbp narration. Scene: gi\u1ea5y d\u00f3, m\u1ef1c teal. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 763.1666666666666,
+          "end_seconds": 777.4333333333333,
+          "script_section_id": "s26",
+          "framing": "Quote gi\u1eefa khung, nh\u00e3n teal g\u00f3c tr\u00ean",
+          "movement": "Lines reveal theo nh\u1ecbp",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abgi\u00fap d\u00e2n l\u00e0m nhi\u1ec1u vi\u1ec7c l\u1ee3i \u00edch\u00bb \u00b7 \u00abd\u1ea1y c\u00e1ch tr\u1ed3ng l\u00faa, nu\u00f4i t\u1eb1m, d\u1ec7t v\u1ea3i\u00bb \u2014 \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "high_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "L\u1edbp k\u1ec3 cu\u1ed1i c\u00f9ng l\u00e0 l\u1edbp gi\u00e1o d\u1ee5c \u2014 c\u0169ng \u0111\u00e1ng qu\u00fd theo c\u00e1ch c\u1ee7a n\u00f3",
+          "information_role": "Quote nguy\u00ean v\u0103n trang b\u00e0i t\u1eadp \u0111\u1ecdc, nh\u00e3n l\u1edbp k\u1ec3",
+          "hero_moment": false,
+          "texture_keywords": [
+            "quote card",
+            "m\u1ef1c teal",
+            "b\u00e0i t\u1eadp \u0111\u1ecdc",
+            "gi\u00e1o d\u1ee5c"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc053",
+          "type": "diagram",
+          "description": "S\u01a0 \u0110\u1ed2 L\u1edaP K\u1ec2 CH\u1ed2NG GI\u1ea4Y: diagram \u2014 b\u1ed1n l\u1edbp gi\u1ea5y d\u00f3 x\u1ebfp ch\u1ed3ng hi\u1ec7n \u0111\u00fang nh\u1ecbp \u0111\u1ecdc: bi\u00ean so\u1ea1n (ghi t\u01b0 li\u1ec7u) \u2014 ch\u1ee9c s\u1eafc (ghi nghi th\u1ee9c) \u2014 du l\u1ecbch (ghi l\u1ecbch h\u1ed9i) \u2014 gi\u00e1o d\u1ee5c (ghi b\u00e0i h\u1ecdc); m\u1ed7i l\u1edbp m\u1ed9t m\u1ef1c h\u01a1i kh\u00e1c, ch\u1ed3ng l\u00ean nhau nh\u01b0 t\u1edd gi\u1ea5y l\u00f3t; d\u00f2ng ch\u00e2n \u00abkh\u00f4ng l\u1edbp n\u00e0o l\u00e0 l\u1ecbch s\u1eed k\u1ef9 thu\u1eadt\u00bb. Render template intent: TSX stacked-layers reveal. Subject: b\u1ed1n l\u1edbp gi\u1ea5y. Subject motion: t\u1eebng l\u1edbp slide-in + drop shadow theo narration. Scene: gi\u1ea5y d\u00f3 nhi\u1ec1u l\u1edbp. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 777.4333333333333,
+          "end_seconds": 802.6,
+          "script_section_id": "s26",
+          "framing": "L\u1edbp gi\u1ea5y x\u1ebfp ch\u1ed3ng l\u1ec7ch g\u00f3c",
+          "movement": "Layer slide-in staggered",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abl\u1edbp bi\u00ean so\u1ea1n ghi t\u01b0 li\u1ec7u\u00bb \u00b7 \u00abl\u1edbp n\u00e0o c\u0169ng \u0111\u00e1ng qu\u00fd\u00bb \u00b7 \u00abkh\u00f4ng l\u1edbp n\u00e0o l\u00e0 l\u1ecbch s\u1eed k\u1ef9 thu\u1eadt\u00bb \u2014 l\u1edbp cu\u1ed1i + d\u00f2ng ch\u00e2n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "high_key",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "M\u1ed7i l\u1edbp k\u1ec3 l\u1ea1i th\u00eam \u0111i\u1ec1u n\u00f3 mu\u1ed1n nh\u1edb \u2014 v\u00e0 gi\u1edbi h\u1ea1n c\u1ee7a n\u00f3",
+          "information_role": "B\u1ed1n l\u1edbp k\u1ec3 v\u00e0 ch\u1ee9c n\u0103ng t\u1eebng l\u1edbp",
+          "hero_moment": false,
+          "texture_keywords": [
+            "l\u1edbp gi\u1ea5y",
+            "ch\u1ed3ng",
+            "b\u1ed1n l\u1edbp k\u1ec3",
+            "d\u00f2ng ch\u00e2n"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc054",
+          "type": "diagram",
+          "description": "BA V\u00d2NG S\u00d3NG \u00abV\u1eaaN\u00bb: diagram \u2014 m\u1eb7t n\u01b0\u1edbc ph\u1eb3ng l\u1eb7ng m\u1ef1c \u1ea5m; ba v\u00f2ng s\u00f3ng lan nh\u1ecf hi\u1ec7n \u0111\u00fang nh\u1ecbp chu\u1ed7i \u00abv\u1eabn r\u01b0\u1edbc n\u01b0\u1edbc \u2026 v\u1eabn gh\u00e9 \u0111\u1ec1n \u2026 v\u1eabn k\u1ec3\u00bb: m\u1ed7i v\u00f2ng k\u00e8m h\u00ecnh ph\u00e1c h\u1ecda nh\u1ecf (thuy\u1ec1n \u2014 \u0111\u1ec1n \u2014 ng\u01b0\u1eddi k\u1ec3) m\u1ef1c \u1ea5m. Render template intent: TSX ripple reveal + mini icons. Subject: ba v\u00f2ng s\u00f3ng. Subject motion: ripple lan theo nh\u1ecbp, icon fade-in khi v\u00f2ng t\u1edbi. Scene: m\u1eb7t n\u01b0\u1edbc gi\u1ea5y d\u00f3. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 802.6,
+          "end_seconds": 808.6333333333333,
+          "script_section_id": "s27",
+          "framing": "V\u00f2ng s\u00f3ng gi\u1eefa, icon ven v\u00f2ng",
+          "movement": "Ripple staggered + icon fade",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abv\u1eabn r\u01b0\u1edbc n\u01b0\u1edbc\u00bb \u00b7 \u00abv\u1eabn gh\u00e9 \u0111\u1ec1n, th\u1eafp h\u01b0\u01a1ng, k\u1ec3 l\u1ea1i\u00bb \u2014 v\u00f2ng hi\u1ec7n \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Nh\u1eefng \u0111i\u1ec1u ta bi\u1ebft r\u00f5: d\u00e2n gian v\u1eabn l\u00e0m, \u0111\u1ec1u \u0111\u1eb7n",
+          "information_role": "Ba th\u1ef1c h\u00e0nh s\u1ed1ng c\u00f2n ti\u1ebfp di\u1ec5n h\u00f4m nay",
+          "hero_moment": false,
+          "texture_keywords": [
+            "v\u00f2ng s\u00f3ng",
+            "v\u1eabn",
+            "thuy\u1ec1n",
+            "\u0111\u1ec1n",
+            "ng\u01b0\u1eddi k\u1ec3"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc055",
+          "type": "diagram",
+          "description": "CH\u1ed6 TH\u1edc K\u1eba NGH\u00c8O NH\u1ea4T X\u00d3M B\u00c3I: diagram \u2014 g\u00f3c \u0111\u1ec1n nh\u1ecf ph\u00e1c h\u1ecda m\u1ef1c \u1ea5m; m\u1ed9t \u00f4 th\u1edd nh\u1ecf \u0111\u01a1n gi\u1ea3n hi\u1ec7n \u0111\u00fang nh\u1ecbp \u00abd\u00e0nh m\u1ed9t ch\u1ed7 th\u1edd cho k\u1ebb ngh\u00e8o nh\u1ea5t x\u00f3m b\u00e3i\u00bb; d\u00f2ng m\u1ea3nh \u00abkh\u00f4ng ph\u1ea3i v\u00ec th\u1ea7n t\u00edch \u2014 m\u00e0 v\u00ec c\u00e1ch truy\u1ec7n \u1ea5y nh\u00ecn ng\u01b0\u1eddi ngh\u00e8o\u00bb m\u1ef1c teal hi\u1ec7n \u0111\u00fang nh\u1ecbp. Render template intent: TSX shrine-niche reveal. Subject: \u00f4 th\u1edd nh\u1ecf trong g\u00f3c \u0111\u1ec1n. Subject motion: g\u00f3c \u0111\u1ec1n v\u1ebd m\u1ef1c, \u00f4 th\u1edd s\u00e1ng d\u1ea7n \u0111\u00fang nh\u1ecbp. Scene: \u0111\u1ec1n m\u1ef1c \u1ea5m, g\u00f3c t\u1ed1i. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 808.6333333333333,
+          "end_seconds": 818.5,
+          "script_section_id": "s27",
+          "framing": "\u00d4 th\u1edd nh\u1ecf g\u00f3c tr\u00e1i d\u01b0\u1edbi",
+          "movement": "Corner shine reveal",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abd\u00e0nh m\u1ed9t ch\u1ed7 th\u1edd cho k\u1ebb ngh\u00e8o nh\u1ea5t x\u00f3m b\u00e3i\u00bb \u00b7 \u00abc\u00e1ch truy\u1ec7n \u1ea5y nh\u00ecn ng\u01b0\u1eddi ngh\u00e8o\u00bb \u2014 \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Ng\u01b0\u1eddi ngh\u00e8o nh\u1ea5t x\u00f3m b\u00e3i v\u1eabn c\u00f3 ch\u1ed7 trong \u0111\u1ec1n \u2014 v\u00e0 trong truy\u1ec7n",
+          "information_role": "Th\u1ef1c h\u00e0nh th\u1edd c\u00fang d\u00e0nh cho ng\u01b0\u1eddi ngh\u00e8o nh\u1ea5t x\u00f3m b\u00e3i",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u00f4 th\u1edd",
+            "g\u00f3c \u0111\u1ec1n",
+            "k\u1ebb ngh\u00e8o nh\u1ea5t x\u00f3m b\u00e3i",
+            "m\u1ef1c teal"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc056",
+          "type": "text_card",
+          "description": "CH\u1eee TAN V\u00c0O M\u1eb6T N\u01af\u1edaC: text card \u2014 d\u00f2ng \u00abc\u00f2n ng\u01b0\u1eddi k\u1ec3, v\u00e0 c\u00f2n ng\u01b0\u1eddi nghe\u00bb hi\u1ec7n \u0111\u00fang nh\u1ecbp \u0111\u1ecdc, sau \u0111\u00f3 tan d\u1ea7n v\u00e0o m\u1eb7t n\u01b0\u1edbc m\u1ef1c \u1ea5m (dissolve ch\u1eef \u2192 g\u1ee3n m\u1ef1c); n\u1ec1n l\u00e0 m\u1eb7t n\u01b0\u1edbc ph\u1eb3ng l\u1eb7ng. Render template intent: text-on-water dissolve card. Subject: d\u00f2ng ch\u1eef cu\u1ed1i. Subject motion: ch\u1eef reveal r\u1ed3i dissolve nh\u01b0 m\u1ef1c loang. Scene: m\u1eb7t n\u01b0\u1edbc m\u1ef1c \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 818.5,
+          "end_seconds": 825.2666666666667,
+          "script_section_id": "s27",
+          "framing": "Ch\u1eef gi\u1eefa m\u1eb7t n\u01b0\u1edbc",
+          "movement": "Reveal r\u1ed3i ink-dissolve",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abch\u1eafc ch\u1eafn, kh\u00f4ng ph\u1ea3i v\u00ec ph\u00e9p m\u00e0u\u00bb \u00b7 \u00abc\u00f2n ng\u01b0\u1eddi k\u1ec3, v\u00e0 c\u00f2n ng\u01b0\u1eddi nghe\u00bb \u2014 \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Truy\u1ec7n s\u1ed1ng v\u00ec c\u00f2n ng\u01b0\u1eddi k\u1ec3 v\u00e0 c\u00f2n ng\u01b0\u1eddi nghe",
+          "information_role": "Ch\u1ed1t \u00fd: s\u1ef1 s\u1ed1ng c\u00f2n c\u1ee7a truy\u1ec1n thuy\u1ebft",
+          "hero_moment": false,
+          "texture_keywords": [
+            "tan v\u00e0o n\u01b0\u1edbc",
+            "m\u1ef1c \u1ea5m",
+            "ng\u01b0\u1eddi k\u1ec3",
+            "ng\u01b0\u1eddi nghe"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc057",
+          "type": "diagram",
+          "description": "T\u1ee8 B\u1ea4T T\u1eec \u2014 B\u1ed0N CH\u00c2N \u0110\u00c8N: diagram \u2014 b\u1ed1n ch\u00e2n \u0111\u00e8n trong t\u1ed1i; ba ch\u00e2n \u0111\u00e3 ch\u00e1y s\u00e1ng \u0111\u00fang nh\u1ecbp \u0111\u1ecdc (T\u1ea3n Vi\u00ean \u2014 Ph\u00f9 \u0110\u1ed5ng \u2014 Ch\u1eed \u0110\u1ed3ng T\u1eed, ph\u00e1c h\u1ecda m\u1ef1c); ch\u00e2n th\u1ee9 t\u01b0 c\u00f2n t\u1ed1i, ch\u1ec9 hi\u1ec7n r\u00f5 \u0111\u00fang nh\u1ecbp \u00abC\u00f2n m\u1ed9t ng\u01b0\u1eddi\u00bb. Render template intent: TSX lamp-lit reveal, speech-locked. Subject: b\u1ed1n ch\u00e2n \u0111\u00e8n. Subject motion: ba ch\u00e2n s\u00e1ng tu\u1ea7n t\u1ef1, ch\u00e2n t\u01b0 gi\u1eef t\u1ed1i. Scene: n\u1ec1n t\u1ed1i, m\u1ef1c \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 825.2666666666667,
+          "end_seconds": 828.6,
+          "script_section_id": "s28",
+          "framing": "B\u1ed1n ch\u00e2n \u0111\u00e8n ngang khung",
+          "movement": "Lamp lights staggered",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchor: \u00abT\u1ee9 b\u1ea5t t\u1eed\u00bb \u2014 hi\u1ec7n \u0111\u00fang nh\u1ecbp m\u1edf. Speech-lock \u00b10,3s theo ASR narration_words. Callback T\u1ee9 b\u1ea5t t\u1eed: \u0111\u00fang 1 nh\u1ecbp, kh\u00f4ng l\u1eb7p.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Ba v\u1ecb \u0111\u00e3 k\u1ec3 \u2014 c\u00f2n m\u1ed9t ng\u01b0\u1eddi ch\u01b0a",
+          "information_role": "T\u1ee9 b\u1ea5t t\u1eed: ba v\u1ecb \u0111\u00e3 k\u1ec3 trong series",
+          "hero_moment": false,
+          "texture_keywords": [
+            "T\u1ee9 b\u1ea5t t\u1eed",
+            "ch\u00e2n \u0111\u00e8n",
+            "ba s\u00e1ng m\u1ed9t t\u1ed1i",
+            "callback"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc058",
+          "type": "generated",
+          "description": "M\u1ed8T NG\u01af\u1edcI PH\u1ee4 N\u1eee \u2014 B\u00d3NG M\u1ef0C: \u1ea3nh base img-14-bon-chan-den t\u00e1i d\u00f9ng cho c\u1ea3nh n\u00e0y: ch\u00e2n \u0111\u00e8n th\u1ee9 t\u01b0 th\u1eafp s\u00e1ng th\u00e0nh b\u00f3ng ph\u00e1c h\u1ecda m\u1ef1c c\u1ee7a m\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef \u0111\u1ee9ng \u2014 KH\u00d4NG t\u00ean, KH\u00d4NG nh\u00e3n t\u00ean; ch\u1ec9 d\u00f2ng ch\u1eef m\u1ea3nh \u00abc\u00f2n m\u1ed9t ng\u01b0\u1eddi\u00bb hi\u1ec7n \u0111\u00fang nh\u1ecbp. Render template intent: still-image scene + speech-locked caption. Subject: b\u00f3ng ng\u01b0\u1eddi ph\u1ee5 n\u1eef. Subject motion: ken-burns r\u1ea5t ch\u1eadm, s\u00e1ng d\u1ea7n t\u1eeb ch\u00e2n \u0111\u00e8n. Scene: t\u1ed1i, m\u1ef1c \u1ea5m. Camera: push_in nh\u1eb9.",
+          "start_seconds": 828.6,
+          "end_seconds": 829.8,
+          "script_section_id": "s28",
+          "framing": "B\u00f3ng \u0111\u1ee9ng gi\u1eefa, \u0111\u00e8n th\u1ee9 t\u01b0 d\u01b0\u1edbi",
+          "movement": "Slow push + glow rise",
+          "transition_in": "cut",
+          "transition_out": "dissolve",
+          "overlay_notes": "anchors: \u00abC\u00f2n m\u1ed9t ng\u01b0\u1eddi\u00bb \u00b7 \u00abm\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef\u00bb \u2014 KH\u00d4NG hi\u1ec7n t\u00ean, KH\u00d4NG spoil S2E04. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "lighting_key": "low_key",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "H\u1eb9n t\u1eadp sau \u2014 ch\u1ec9 m\u1ed9t b\u00f3ng, kh\u00f4ng t\u00ean",
+          "information_role": "Tease S2E04: m\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef, kh\u00f4ng spoil",
+          "hero_moment": false,
+          "texture_keywords": [
+            "b\u00f3ng m\u1ef1c",
+            "ng\u01b0\u1eddi ph\u1ee5 n\u1eef",
+            "ch\u00e2n \u0111\u00e8n t\u01b0",
+            "tease"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "img-14-bon-chan-den",
+              "source": "provided"
+            }
+          ]
+        },
+        {
+          "id": "sc059",
+          "type": "text_card",
+          "description": "H\u1eb8N T\u1eacP SAU \u2014 KH\u00d4NG T\u00caN: text card gi\u1ea5y d\u00f3 t\u1ed1i \u2014 d\u00f2ng \u00abh\u1eb9n b\u1ea1n \u1edf t\u1eadp sau\u00bb hi\u1ec7n \u0111\u00fang nh\u1ecbp; d\u01b0\u1edbi n\u00f3 m\u1ed9t d\u00f2ng m\u1ea3nh \u00abm\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef \u2014 t\u1ef1 vi\u1ebft l\u1ea1i nh\u00e2n d\u1ea1ng c\u1ee7a truy\u1ec7n\u00bb m\u1ef1c teal, KH\u00d4NG t\u00ean nh\u00e2n v\u1eadt, KH\u00d4NG hi\u1ec7n ch\u1eef Li\u1ec5u H\u1ea1nh. Render template intent: tease text card, speech-locked. Subject: th\u1ebb h\u1eb9n. Subject motion: hai d\u00f2ng reveal theo nh\u1ecbp. Scene: gi\u1ea5y d\u00f3 t\u1ed1i. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 829.8,
+          "end_seconds": 845.3333333333334,
+          "script_section_id": "s28",
+          "framing": "Hai d\u00f2ng gi\u1eefa khung",
+          "movement": "Two-line reveal",
+          "transition_in": "dissolve",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abH\u1eb9n b\u1ea1n \u1edf t\u1eadp sau\u00bb \u00b7 \u00abm\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef\u00bb \u2014 KH\u00d4NG spoil t\u00ean S2E04. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u00e2u h\u1ecfi \u0111\u1ec3 ng\u1ecf \u2014 l\u00fd do quay l\u1ea1i t\u1eadp sau",
+          "information_role": "Tease n\u1ed9i dung S2E04 kh\u00f4ng ti\u1ebft l\u1ed9",
+          "hero_moment": false,
+          "texture_keywords": [
+            "h\u1eb9n t\u1eadp sau",
+            "tease",
+            "m\u1ef1c teal",
+            "kh\u00f4ng t\u00ean"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc060",
+          "type": "text_card",
+          "description": "TH\u1eba SERIES: th\u1ebb series tr\u00ean gi\u1ea5y d\u00f3 \u2014 \u00abNh\u1eefng v\u1ecb th\u1ea7n \u1edf l\u1ea1i \u2014 m\u1ed7i t\u1eadp m\u1ed9t truy\u1ec1n thuy\u1ebft \u00b7 m\u1ed9t b\u1eb1ng ch\u1ee9ng th\u1eadt\u00bb hi\u1ec7n \u0111\u00fang nh\u1ecbp \u0111\u1ecdc, k\u00e8m series mark m\u1ef1c \u1ea5m nh\u1ecf. Render template intent: series title card, speech-locked. Subject: th\u1ebb series. Subject motion: ch\u1eef + mark reveal theo nh\u1ecbp. Scene: gi\u1ea5y d\u00f3. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 845.3333333333334,
+          "end_seconds": 854.3333333333334,
+          "script_section_id": "s29",
+          "framing": "Th\u1ebb series gi\u1eefa khung",
+          "movement": "Title reveal + mark fade",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "anchors: \u00abm\u1ed7i t\u1eadp, m\u1ed9t truy\u1ec1n thuy\u1ebft, m\u1ed9t b\u1eb1ng ch\u1ee9ng th\u1eadt\u00bb \u2014 \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "high_key",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "Kh\u1eb3ng \u0111\u1ecbnh format series \u2014 truy\u1ec1n thuy\u1ebft + b\u1eb1ng ch\u1ee9ng",
+          "information_role": "T\u00ean series v\u00e0 l\u1eddi h\u1ee9a format",
+          "hero_moment": false,
+          "texture_keywords": [
+            "series card",
+            "gi\u1ea5y d\u00f3",
+            "series mark"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc061",
+          "type": "text_card",
+          "description": "CARD NGU\u1ed2N: card ngu\u1ed3n tr\u00ean gi\u1ea5y d\u00f3 \u2014 li\u1ec7t k\u00ea t\u0129nh \u0111\u1ec3 ng\u01b0\u1eddi xem t\u1ef1 \u0111\u1ecdc: \u00abNgu\u1ed3n: L\u0129nh Nam ch\u00edch qu\u00e1i (b\u1ea3n d\u1ecbch) \u00b7 Phan K\u1ebf B\u00ednh (Wikisource) \u00b7 B\u1ea3o t\u00e0ng L\u1ecbch s\u1eed qu\u1ed1c gia \u00b7 C\u1ed5ng du l\u1ecbch & C\u1ed5ng h\u00e0nh ch\u00ednh H\u01b0ng Y\u00ean \u00b7 VnDoc\u00bb; c\u1ee1 ch\u1eef nh\u1ecf, m\u1ef1c t\u0129nh, kh\u00f4ng reveal theo nh\u1ecbp. Render template intent: static source card. Subject: danh s\u00e1ch ngu\u1ed3n. Subject motion: t\u0129nh, ch\u1ec9 fade-in \u0111\u1ea7u scene. Scene: gi\u1ea5y d\u00f3. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 854.3333333333334,
+          "end_seconds": 862.0666666666667,
+          "script_section_id": "s30",
+          "framing": "Danh s\u00e1ch ngu\u1ed3n gi\u1eefa khung",
+          "movement": "Static fade-in",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "anchor: \u00abT\u1ea5t c\u1ea3 nh\u1eefng g\u00ec t\u00f4i k\u1ec3 t\u1ed1i nay \u0111\u1ec1u c\u00f3 ngu\u1ed3n\u00bb \u2014 card hi\u1ec7n tr\u1ecdn v\u1eb9n \u0111\u1ec3 t\u1ef1 \u0111\u1ecdc. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "high_key",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "M\u1ecdi tuy\u00ean b\u1ed1 t\u1ed1i nay \u0111\u1ec1u truy \u0111\u01b0\u1ee3c ngu\u1ed3n",
+          "information_role": "Danh s\u00e1ch ngu\u1ed3n \u0111\u1ea7y \u0111\u1ee7 c\u1ee7a t\u1eadp",
+          "hero_moment": false,
+          "texture_keywords": [
+            "card ngu\u1ed3n",
+            "gi\u1ea5y d\u00f3",
+            "li\u1ec7t k\u00ea t\u0129nh"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc062",
+          "type": "diagram",
+          "description": "D\u00d2NG N\u01af\u1edaC KH\u00c9P T\u1eacP: diagram \u2014 d\u00f2ng n\u01b0\u1edbc m\u1ef1c \u1ea5m ch\u1ea3y ngang m\u00e0n h\u00ecnh, mang theo v\u1ec7t m\u1edd c\u1ee7a c\u00e1c v\u1eadt th\u1ec3 c\u1ee7a t\u1eadp (kh\u1ed1 \u2014 m\u00e0n che \u2014 ch\u1ee3 \u2014 g\u1eady \u2014 n\u00f3n \u2014 \u0111\u1ea7m \u2014 \u0111\u1ec1n) r\u1ed3i t\u1eebng v\u1ec7t tan h\u1ebft, cu\u1ed1i ch\u1ec9 c\u00f2n n\u01b0\u1edbc ch\u1ea3y ra m\u00e9p ph\u1ea3i; kh\u00e9p tr\u1ecdn concept \u00abd\u00f2ng s\u00f4ng c\u00f2n ch\u1ea3y\u00bb. Render template intent: TSX flowing-water close. Subject: d\u00f2ng n\u01b0\u1edbc + v\u1ec7t v\u1eadt th\u1ec3. Subject motion: n\u01b0\u1edbc ch\u1ea3y li\u00ean t\u1ee5c, v\u1ec7t tan tu\u1ea7n t\u1ef1. Scene: gi\u1ea5y d\u00f3, m\u1ef1c \u1ea5m. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 862.0666666666667,
+          "end_seconds": 865.7333333333333,
+          "script_section_id": "s31",
+          "framing": "D\u00f2ng n\u01b0\u1edbc ngang xuy\u00ean khung",
+          "movement": "Flow + trace dissolve",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "anchor: \u00abn\u00f3 ch\u1ea3y ti\u1ebfp, nh\u01b0 d\u00f2ng n\u01b0\u1edbc \u0111\u01b0\u1ee3c r\u01b0\u1edbc m\u1ed7i n\u0103m\u00bb \u2014 d\u00f2ng ch\u1ea3y \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u00e2u chuy\u1ec7n kh\u00f4ng d\u1eebng \u2014 d\u00f2ng s\u00f4ng c\u00f2n ch\u1ea3y",
+          "information_role": "Kh\u00e1i ni\u1ec7m xuy\u00ean t\u1eadp: d\u00f2ng n\u01b0\u1edbc li\u00ean t\u1ee5c",
+          "hero_moment": false,
+          "texture_keywords": [
+            "d\u00f2ng n\u01b0\u1edbc",
+            "v\u1ec7t m\u1edd",
+            "tan h\u1ebft",
+            "kh\u00e9p t\u1eadp"
+          ],
+          "required_assets": []
+        },
+        {
+          "id": "sc063",
+          "type": "text_card",
+          "description": "CREDITS \u2014 C\u1ea2M \u01a0N: credits card gi\u1ea5y d\u00f3 t\u1ed1i \u2014 \u00abNh\u1eefng v\u1ecb th\u1ea7n \u1edf l\u1ea1i \u00b7 S2E03 \u2014 Ch\u1eed \u0110\u1ed3ng T\u1eed\u00bb + series mark m\u1ef1c \u1ea5m hi\u1ec7n \u0111\u00fang nh\u1ecbp \u0111\u1ecdc \u00abC\u1ea3m \u01a1n b\u1ea1n \u0111\u00e3 xem\u00bb; gi\u1eef khung t\u0129nh \u0111\u1ec3 k\u1ebft. Render template intent: credits card, speech-locked. Subject: credits. Subject motion: title + mark reveal. Scene: gi\u1ea5y d\u00f3 t\u1ed1i. Camera: N/A \u2014 Remotion native.",
+          "start_seconds": 865.7333333333333,
+          "end_seconds": 869.2666666666667,
+          "script_section_id": "s32",
+          "framing": "Credits gi\u1eefa khung",
+          "movement": "Credits reveal",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "anchor: \u00abC\u1ea3m \u01a1n b\u1ea1n \u0111\u00e3 xem\u00bb \u2014 \u0111\u00fang nh\u1ecbp. Speech-lock \u00b10,3s theo ASR narration_words.",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "K\u1ebft tr\u1ecdn v\u1eb9n \u2014 l\u1eddi c\u1ea3m \u01a1n ng\u01b0\u1eddi xem",
+          "information_role": "T\u00ean t\u1eadp v\u00e0 series",
+          "hero_moment": false,
+          "texture_keywords": [
+            "credits",
+            "gi\u1ea5y d\u00f3 t\u1ed1i",
+            "series mark",
+            "S2E03"
+          ],
+          "required_assets": []
+        }
+      ]
+    }
+  },
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "session_id": "20261019_020840_82fb79",
+    "owner_approval_text": "Duy\u1ec7t",
+    "approval_scope": "Final directive confirms full draft approval: renders/s2e03_draft_hud_720p_50mb.mp4, TG 384\u2013386.",
+    "approval_recorded_at": "2026-10-19T11:44:41+07:00",
+    "approval_exact_reply_time": "not provided; timestamp is receipt-recorded time, not an inferred reply time",
+    "no_auto_post": true,
+    "approved_source_unchanged": true,
+    "prior_state_archive": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/history/pre_native_final_closeout_20261019T050159Z"
+  }
+}

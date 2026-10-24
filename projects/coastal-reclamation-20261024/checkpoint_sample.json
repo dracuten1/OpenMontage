@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "project_id": "coastal-reclamation-20261024",
+  "stage": "proposal",
+  "status": "awaiting_human",
+  "timestamp": "2026-10-24T07:55:07.523420+00:00",
+  "pipeline_type": "animated-explainer",
+  "style_playbook": "clean-professional",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {
+    "demo_video": "projects/coastal-reclamation-20261024/renders/coastal_demo_s1_draft_hud_720p.mp4",
+    "thumbnail_png": "projects/coastal-reclamation-20261024/exports/thumbnails/coastal-demo-1080x1920.png",
+    "sc01_bg_image": "projects/coastal-reclamation-20261024/assets/images/sc01_bg.png",
+    "sc01_voice_audio": "projects/coastal-reclamation-20261024/assets/audio/sc01_voice.wav",
+    "sc01_bgm_audio": "projects/coastal-reclamation-20261024/assets/audio/sc01_bgm.wav",
+    "narration_words": "projects/coastal-reclamation-20261024/assets/audio/narration_words.json",
+    "scene_component": "remotion-composer/src/coastal-reclamation-20261024/Scene01Demo.tsx"
+  },
+  "cost_snapshot": {
+    "total_spent_usd": 0.0,
+    "total_reserved_usd": 0.0,
+    "budget_remaining_usd": 2.0
+  },
+  "metadata": {
+    "sub_stage": "sample_demo_scene01",
+    "ffprobe": {
+      "duration": 10.048,
+      "resolution": "720x1280",
+      "fps": 30,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "file_size_bytes": 9950219
+    },
+    "thumbnail": {
+      "resolution": "1080x1920",
+      "format": "PNG",
+      "vision_qc": "pass"
+    }
+  }
+}

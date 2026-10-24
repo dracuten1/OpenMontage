@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "project_id": "coastal-reclamation-20261024",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-10-24T08:20:10.840864+00:00",
+  "pipeline_type": "animated-explainer",
+  "style_playbook": "clean-professional",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": true,
+  "artifacts": {
+    "render_report": "projects/coastal-reclamation-20261024/render_report.json"
+  },
+  "cost_snapshot": {
+    "total_spent_usd": 0.0,
+    "total_reserved_usd": 0.0,
+    "budget_remaining_usd": 2.0
+  },
+  "metadata": {
+    "composition_id": "CoastalReclamationEpisode",
+    "resolution": "720x1280",
+    "duration_seconds": 97.05,
+    "total_frames": 2910,
+    "scenes_count": 6
+  }
+}

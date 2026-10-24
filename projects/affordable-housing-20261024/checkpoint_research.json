@@ -1,0 +1,239 @@
+{
+  "version": "1.0",
+  "project_id": "affordable-housing-20261024",
+  "pipeline_type": "animated-explainer",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-10-24T10:44:16.582017+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "\u0110\u1ec1 xu\u1ea5t nh\u00e0 \u1edf th\u01b0\u01a1ng m\u1ea1i gi\u00e1 ph\u00f9 h\u1ee3p 60 - 70 tri\u1ec7u/m\u00b2 cho ng\u01b0\u1eddi thu nh\u1eadp th\u1ea5p: Ngh\u1ecbch l\u00fd gi\u00e1 nh\u00e0 v\u00e0 kho\u1ea3ng c\u00e1ch an c\u01b0 \u0111\u00f4 th\u1ecb",
+      "research_date": "2026-10-24",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "HoREA \u0111\u1ec1 xu\u1ea5t \u0111\u01b0a ph\u00e2n kh\u00fac nh\u00e0 \u1edf th\u01b0\u01a1ng m\u1ea1i gi\u00e1 ph\u00f9 h\u1ee3p v\u00e0o lu\u1eadt",
+            "url": "https://cafef.vn/horea-de-xuat-nha-o-thuong-mai-gia-phu-hop.chn",
+            "source": "B\u00e1o \u0111i\u1ec7n t\u1eed CafeF / B\u1ea5t \u0111\u1ed9ng s\u1ea3n",
+            "angle": "B\u00e1o ch\u00ed ch\u00ednh th\u1ed1ng t\u01b0\u1eddng thu\u1eadt n\u1ed9i dung v\u0103n b\u1ea3n ki\u1ebfn ngh\u1ecb c\u1ee7a HoREA g\u1eedi Th\u1ee7 t\u01b0\u1edbng v\u00e0 B\u1ed9 X\u00e2y d\u1ef1ng",
+            "what_it_covers": "N\u1ed9i dung ki\u1ebfn ngh\u1ecb b\u1ed5 sung ph\u00e2n kh\u00fac nh\u00e0 \u1edf th\u01b0\u01a1ng m\u1ea1i gi\u00e1 ph\u00f9 h\u1ee3p 60-70 tri\u1ec7u/m2 t\u1ea1i \u0111\u00f4 th\u1ecb l\u1edbn, g\u00f3i t\u00edn d\u1ee5ng \u01b0u \u0111\u00e3i th\u1ea5p h\u01a1n 1.5-2% l\u00e3i su\u1ea5t th\u1ecb tr\u01b0\u1eddng, v\u00e0 th\u1ea9m quy\u1ec1n c\u1ee7a H\u0110ND c\u1ea5p t\u1ec9nh.",
+            "what_it_misses": "Ch\u01b0a \u0111\u00e0o s\u00e2u v\u00e0o ph\u00e9p t\u00ednh thu nh\u1eadp th\u1ef1c t\u1ebf c\u1ee7a ng\u01b0\u1eddi tr\u1ebb 25-35 tu\u1ed5i v\u00e0 ngh\u1ecbch l\u00fd \u0111\u1ecbnh ngh\u0129a 50 tri\u1ec7u/th\u00e1ng l\u00e0 thu nh\u1eadp th\u1ea5p.",
+            "engagement_signal": "Ch\u1ee7 \u0111\u1ec1 thu h\u00fat h\u00e0ng tr\u0103m b\u00ecnh lu\u1eadn tranh c\u00e3i tr\u00ean m\u1ea1ng x\u00e3 h\u1ed9i trong ng\u00e0y 24/10/2026."
+          },
+          {
+            "title": "B\u00e1o c\u00e1o th\u1ecb tr\u01b0\u1eddng b\u1ea5t \u0111\u1ed9ng s\u1ea3n c\u0103n h\u1ed9 H\u00e0 N\u1ed9i & TP.HCM Qu\u00fd 3/2026",
+            "url": "https://www.cbrevietnam.com/insights/reports/q3-2026-vietnam-real-estate-market",
+            "source": "CBRE Vietnam Research",
+            "angle": "Nghi\u00ean c\u1ee9u \u0111\u1ecbnh l\u01b0\u1ee3ng th\u1ecb tr\u01b0\u1eddng s\u01a1 c\u1ea5p v\u00e0 bi\u1ebfn \u0111\u1ed9ng gi\u00e1 c\u0103n h\u1ed9 chung c\u01b0",
+            "what_it_covers": "Gi\u00e1 s\u01a1 c\u1ea5p b\u00ecnh qu\u00e2n to\u00e0n th\u1ecb tr\u01b0\u1eddng H\u00e0 N\u1ed9i 86 tri\u1ec7u/m2, n\u1ed9i \u0111\u00f4 102-107 tri\u1ec7u/m2; TP.HCM 80% ngu\u1ed3n cung v\u01b0\u1ee3t 100 tri\u1ec7u/m2; ph\u00e2n kh\u00fac b\u00ecnh d\u00e2n h\u1ea1ng C ch\u1ec9 c\u00f2n 4% ngu\u1ed3n cung.",
+            "what_it_misses": "Ch\u01b0a li\u00ean k\u1ebft tr\u1ef1c ti\u1ebfp v\u1edbi c\u00e1c ch\u00ednh s\u00e1ch nh\u00e0 \u1edf x\u00e3 h\u1ed9i v\u00e0 r\u00e0o c\u1ea3n tr\u1ea7n thu nh\u1eadp h\u1ed9 gia \u0111\u00ecnh.",
+            "engagement_signal": "B\u00e1o c\u00e1o qu\u00fd uy t\u00edn chu\u1ea9n ng\u00e0nh c\u1ee7a t\u1ed5 ch\u1ee9c t\u01b0 v\u1ea5n qu\u1ed1c t\u1ebf."
+          },
+          {
+            "title": "Property Price to Income Ratio in Hanoi and Ho Chi Minh City 2026",
+            "url": "https://www.numbeo.com/property-investment/in/Hanoi",
+            "source": "Numbeo Global Database",
+            "angle": "Th\u1ed1ng k\u00ea \u0111\u1ecbnh l\u01b0\u1ee3ng so s\u00e1nh g\u00e1nh n\u1eb7ng gi\u00e1 nh\u00e0 tr\u00ean thu nh\u1eadp h\u1ed9 gia \u0111\u00ecnh to\u00e0n c\u1ea7u",
+            "what_it_covers": "Ch\u1ec9 s\u1ed1 gi\u00e1 nh\u00e0 tr\u00ean thu nh\u1eadp t\u1ea1i H\u00e0 N\u1ed9i \u0111\u1ea1t 38.3 - 38.9 n\u0103m v\u00e0 TP.HCM \u0111\u1ea1t 32.4 - 33.6 n\u0103m, thu\u1ed9c top cao nh\u1ea5t ch\u00e2u \u00c1 so v\u1edbi ng\u01b0\u1ee1ng l\u00e0nh m\u1ea1nh d\u01b0\u1edbi 5.0.",
+            "what_it_misses": "D\u1eef li\u1ec7u d\u1ef1a tr\u00ean kh\u1ea3o s\u00e1t c\u1ed9ng \u0111\u1ed3ng v\u00e0 th\u1ed1ng k\u00ea m\u1edf, c\u1ea7n \u0111\u1ed1i chi\u1ebfu v\u1edbi s\u1ed1 li\u1ec7u thu nh\u1eadp n\u1ed9i \u0111\u1ecba.",
+            "engagement_signal": "Ngu\u1ed3n d\u1eef li\u1ec7u tham chi\u1ebfu qu\u1ed1c t\u1ebf \u0111\u01b0\u1ee3c tr\u00edch d\u1eabn r\u1ed9ng r\u00e3i b\u1edfi b\u00e1o ch\u00ed kinh t\u1ebf."
+          }
+        ],
+        "saturated_angles": [
+          "C\u00e1c b\u00e0i vi\u1ebft than v\u00e3n chung chung v\u1ec1 gi\u00e1 nh\u00e0 t\u0103ng cao m\u00e0 kh\u00f4ng ph\u00e2n t\u00edch c\u01a1 ch\u1ebf chi ph\u00ed c\u1ea5u th\u00e0nh gi\u00e1.",
+          "Quy k\u1ebft tr\u00e1ch nhi\u1ec7m ho\u00e0n to\u00e0n cho doanh nghi\u1ec7p b\u1ea5t \u0111\u1ed9ng s\u1ea3n m\u00e0 kh\u00f4ng x\u00e9t \u0111\u1ebfn chi ph\u00ed ti\u1ec1n s\u1eed d\u1ee5ng \u0111\u1ea5t theo b\u1ea3ng gi\u00e1 \u0111\u1ea5t m\u1edbi v\u00e0 th\u1ee7 t\u1ee5c ph\u00e1p l\u00fd.",
+          "K\u00eau g\u1ecdi mua nh\u00e0 b\u1eb1ng m\u1ecdi gi\u00e1 m\u00e0 b\u1ecf qua r\u1ee7i ro l\u00e3i su\u1ea5t th\u1ea3 n\u1ed5i 12-14% sau th\u1eddi gian \u01b0u \u0111\u00e3i."
+        ],
+        "underserved_gaps": [
+          "Gi\u1ea3i th\u00edch b\u1ea3n ch\u1ea5t ngh\u1ecbch l\u00fd The Missing Middle: T\u1ea1i sao thu nh\u1eadp 50 tri\u1ec7u/th\u00e1ng \u1edf \u0111\u00f4 th\u1ecb l\u1ea1i tr\u1edf th\u00e0nh t\u1ea7ng l\u1edbp b\u1ecb b\u1ecf r\u01a1i gi\u1eefa nh\u00e0 x\u00e3 h\u1ed9i v\u00e0 nh\u00e0 th\u01b0\u01a1ng m\u1ea1i?",
+          "B\u00f3c t\u00e1ch b\u00e0i to\u00e1n d\u00f2ng ti\u1ec1n th\u1ef1c t\u1ebf: M\u1ed9t c\u0103n h\u1ed9 60-70 tri\u1ec7u/m2 (t\u1ed5ng 3.2 - 4.5 t\u1ef7) \u0111\u00f2i h\u1ecfi tr\u1ea3 g\u00f3p bao nhi\u00eau ti\u1ec1n m\u1ed7i th\u00e1ng, v\u00e0 ai th\u1ef1c s\u1ef1 c\u00f3 th\u1ec3 mua?",
+          "So s\u00e1nh \u0111\u1ed1i chi\u1ebfu gi\u1eefa 3 chu\u1ea9n gi\u00e1: Gi\u00e1 nh\u00e0 \u1edf x\u00e3 h\u1ed9i (18-25 tr/m2), Gi\u00e1 nh\u00e0 th\u01b0\u01a1ng m\u1ea1i gi\u00e1 ph\u00f9 h\u1ee3p HoREA \u0111\u1ec1 xu\u1ea5t (60-70 tr/m2), v\u00e0 Gi\u00e1 chung c\u01b0 s\u01a1 c\u1ea5p th\u1ef1c t\u1ebf n\u1ed9i \u0111\u00f4 (105-120 tr/m2).",
+          "Ph\u00e2n t\u00edch gi\u1ea3i ph\u00e1p b\u1ec1n v\u1eefng: Xu h\u01b0\u1edbng ph\u00e1t tri\u1ec3n TOD (Transit-Oriented Development) v\u00e0 b\u00e0i to\u00e1n giao th\u00f4ng c\u00f4ng c\u1ed9ng \u0111\u1ec3 k\u00e9o ng\u01b0\u1eddi tr\u1ebb ra v\u00f9ng ven thay v\u00ec chen ch\u00fac n\u1ed9i \u0111\u00f4."
+        ]
+      },
+      "trending": {
+        "recent_developments": [
+          {
+            "headline": "HoREA ch\u00ednh th\u1ee9c ki\u1ebfn ngh\u1ecb Qu\u1ed1c h\u1ed9i v\u00e0 Ch\u00ednh ph\u1ee7 lu\u1eadt h\u00f3a ph\u00e2n kh\u00fac nh\u00e0 \u1edf th\u01b0\u01a1ng m\u1ea1i gi\u00e1 ph\u00f9 h\u1ee3p",
+            "url": "https://thanhnien.vn/horea-kien-nghi-bo-sung-khung-phap-ly-nha-o-thuong-mai-gia-re.html",
+            "date": "2026-10-24",
+            "relevance": "S\u1ef1 ki\u1ec7n tr\u1ef1c ti\u1ebfp k\u00edch ho\u1ea1t cu\u1ed9c th\u1ea3o lu\u1eadn c\u00f4ng ch\u00fang v\u1ec1 \u0111\u1ecbnh ngh\u0129a gi\u00e1 nh\u00e0 v\u00e0 kh\u1ea3 n\u0103ng chi tr\u1ea3 c\u1ee7a ng\u01b0\u1eddi lao \u0111\u1ed9ng."
+          },
+          {
+            "headline": "Qu\u1ed1c h\u1ed9i th\u1ea3o lu\u1eadn d\u1ef1 th\u1ea3o s\u1eeda \u0111\u1ed5i li\u00ean quan \u0111\u1ebfn ch\u00ednh s\u00e1ch \u0111\u1ea5t \u0111ai, nh\u00e0 \u1edf v\u00e0 ph\u00e1t tri\u1ec3n \u0111\u00f4 th\u1ecb",
+            "url": "https://quochoi.vn/tintuc/Pages/tin-hoat-dong-cua-quoc-hoi.aspx",
+            "date": "2026-10-24",
+            "relevance": "Th\u1eddi \u0111i\u1ec3m nh\u1ea1y c\u1ea3m v\u1ec1 ch\u00ednh s\u00e1ch khi c\u00e1c \u0111\u1ea1i bi\u1ec3u th\u1ea3o lu\u1eadn v\u1ec1 c\u00e1c gi\u1ea3i ph\u00e1p ki\u1ec1m ch\u1ebf s\u1ed1t gi\u00e1 b\u1ea5t \u0111\u1ed9ng s\u1ea3n."
+          }
+        ],
+        "active_discussions": [
+          {
+            "platform": "m\u1ea1ng x\u00e3 h\u1ed9i & di\u1ec5n \u0111\u00e0n kinh t\u1ebf ng\u01b0\u1eddi tr\u1ebb",
+            "topic_or_url": "https://threads.net/topics/gia-nha-ha-noi-tphcm-2026",
+            "sentiment": "B\u1ea5t ng\u1edd, s\u1ed1c, tranh c\u00e3i gay g\u1eaft v\u00e0 c\u1ea3m gi\u00e1c b\u1ea5t an t\u00e0i ch\u00ednh",
+            "key_quotes": [
+              "L\u01b0\u01a1ng 50 tri\u1ec7u/th\u00e1ng m\u00e0 gi\u1edd ch\u00ednh th\u1ee9c x\u1ebfp v\u00e0o di\u1ec7n thu nh\u1eadp th\u1ea5p c\u1ea7n tr\u1ee3 c\u1ea5p mua nh\u00e0!",
+              "C\u0103n 50 m\u00e9t vu\u00f4ng gi\u00e1 3,5 t\u1ef7 \u0111\u1ed3ng m\u00e0 g\u1ecdi l\u00e0 gi\u00e1 v\u1eeba t\u00fai ti\u1ec1n th\u00ec ng\u01b0\u1eddi \u0111i l\u00e0m 15-20 tri\u1ec7u bi\u1ebft s\u1ed1ng sao?",
+              "\u0110\u1ec1 xu\u1ea5t n\u00e0y th\u1ef1c ch\u1ea5t l\u00e0 th\u1eeba nh\u1eadn m\u1eb7t b\u1eb1ng gi\u00e1 nh\u00e0 \u0111\u00e3 ho\u00e0n to\u00e0n \u0111\u1ee9t g\u00e3y kh\u1ecfi thu nh\u1eadp c\u1ee7a \u0111\u1ea1i ch\u00fang."
+            ]
+          }
+        ],
+        "timeliness_window": "days"
+      },
+      "data_points": [
+        {
+          "claim": "M\u1ee9c gi\u00e1 \u0111\u1ec1 xu\u1ea5t c\u1ee7a HoREA cho ph\u00e2n kh\u00fac nh\u00e0 \u1edf th\u01b0\u01a1ng m\u1ea1i gi\u00e1 ph\u00f9 h\u1ee3p l\u00e0 60 - 70 tri\u1ec7u \u0111\u1ed3ng/m\u00b2 t\u1ea1i H\u00e0 N\u1ed9i v\u00e0 TP.HCM, v\u00e0 25 - 30 tri\u1ec7u \u0111\u1ed3ng/m\u00b2 t\u1ea1i c\u00e1c \u0111\u1ecba ph\u01b0\u01a1ng kh\u00e1c.",
+          "source_url": "https://cafef.vn/horea-de-xuat-nha-o-thuong-mai-gia-phu-hop.chn",
+          "source_name": "V\u0103n b\u1ea3n ki\u1ebfn ngh\u1ecb HoREA (10/2026)",
+          "credibility": "primary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "hook"
+        },
+        {
+          "claim": "Theo Savills v\u00e0 CBRE Q3/2026, gi\u00e1 ch\u00e0o b\u00e1n chung c\u01b0 s\u01a1 c\u1ea5p trung b\u00ecnh t\u1ea1i n\u1ed9i \u0111\u00f4 H\u00e0 N\u1ed9i \u0111\u00e3 \u0111\u1ea1t 102 - 107 tri\u1ec7u \u0111\u1ed3ng/m\u00b2, v\u00e0 kho\u1ea3ng 80% ngu\u1ed3n cung s\u01a1 c\u1ea5p t\u1ea1i TP.HCM v\u01b0\u1ee3t ng\u01b0\u1ee1ng 100 tri\u1ec7u \u0111\u1ed3ng/m\u00b2.",
+          "source_url": "https://www.cbrevietnam.com/insights/reports/q3-2026-vietnam-real-estate-market",
+          "source_name": "CBRE / Savills Vietnam Market Reports Q3/2026",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "stat_card"
+        },
+        {
+          "claim": "Theo Numbeo 2026, t\u1ef7 l\u1ec7 gi\u00e1 nh\u00e0 tr\u00ean thu nh\u1eadp (Price to Income Ratio) t\u1ea1i H\u00e0 N\u1ed9i l\u00e0 38.3 - 38.9 n\u0103m v\u00e0 TP.HCM l\u00e0 32.4 - 33.6 n\u0103m, thu\u1ed9c nh\u00f3m cao nh\u1ea5t ch\u00e2u \u00c1 so v\u1edbi ng\u01b0\u1ee1ng chu\u1ea9n th\u1ebf gi\u1edbi l\u00e0 d\u01b0\u1edbi 5 n\u0103m.",
+          "source_url": "https://www.numbeo.com/property-investment/in/Hanoi",
+          "source_name": "Numbeo Property Index 2026",
+          "credibility": "secondary_source",
+          "surprise_factor": "counterintuitive",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "M\u1ed9t c\u0103n h\u1ed9 50m\u00b2 \u1edf m\u1ee9c gi\u00e1 65 tri\u1ec7u \u0111\u1ed3ng/m\u00b2 c\u00f3 t\u1ed5ng gi\u00e1 tr\u1ecb 3,25 t\u1ef7 \u0111\u1ed3ng. N\u1ebfu vay ng\u00e2n h\u00e0ng 70% (kho\u1ea3ng 2,3 t\u1ef7) trong 20 n\u0103m, ti\u1ec1n tr\u1ea3 g\u1ed1c v\u00e0 l\u00e3i trung b\u00ecnh th\u00e1ng \u0111\u1ea7u ti\u00ean l\u00ean t\u1edbi 27 - 29 tri\u1ec7u \u0111\u1ed3ng/th\u00e1ng.",
+          "source_url": "https://vietnamnet.vn/tai-chinh-tinh-toan-dong-tien-mua-nha.html",
+          "source_name": "\u01af\u1edbc t\u00ednh t\u00e0i ch\u00ednh ng\u00e2n h\u00e0ng th\u01b0\u01a1ng m\u1ea1i 2026",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "stat_card"
+        },
+        {
+          "claim": "Tr\u1ea7n thu nh\u1eadp \u0111\u1ec3 \u0111\u01b0\u1ee3c x\u00e9t duy\u1ec7t mua Nh\u00e0 \u1edf X\u00e3 h\u1ed9i hi\u1ec7n h\u00e0nh l\u00e0 kh\u00f4ng qu\u00e1 25 tri\u1ec7u \u0111\u1ed3ng/th\u00e1ng \u0111\u1ed1i v\u1edbi ng\u01b0\u1eddi \u0111\u1ed9c th\u00e2n v\u00e0 50 tri\u1ec7u \u0111\u1ed3ng/th\u00e1ng \u0111\u1ed1i v\u1edbi h\u1ed9 gia \u0111\u00ecnh hai v\u1ee3 ch\u1ed3ng.",
+          "source_url": "https://thuvienphapluat.vn/van-ban/Bat-dong-san/Nghi-dinh-quy-dinh-chi-tiet-Luat-Nha-o-2024.html",
+          "source_name": "Ngh\u1ecb \u0111\u1ecbnh h\u01b0\u1edbng d\u1eabn thi h\u00e0nh Lu\u1eadt Nh\u00e0 \u1edf",
+          "credibility": "primary_source",
+          "surprise_factor": "expected",
+          "usable_as": "script_anchor"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "T\u1ea1i sao thu nh\u1eadp 50 tri\u1ec7u/th\u00e1ng \u1edf Vi\u1ec7t Nam l\u1ea1i b\u1ecb coi l\u00e0 c\u1ea7n h\u1ed7 tr\u1ee3 mua nh\u00e0?",
+          "M\u1ed9t c\u0103n chung c\u01b0 60-70 tri\u1ec7u/m\u00b2 th\u00ec gia \u0111\u00ecnh tr\u1ebb thu nh\u1eadp bao nhi\u00eau m\u1edbi d\u00e1m mua v\u00e0 tr\u1ea3 g\u00f3p?",
+          "C\u00f3 gi\u1ea3i ph\u00e1p n\u00e0o gi\u00fap ng\u01b0\u1eddi tr\u1ebb c\u00f3 nh\u00e0 \u1edf khi gi\u00e1 chung c\u01b0 s\u01a1 c\u1ea5p \u0111\u00e3 v\u01b0\u1ee3t 100 tri\u1ec7u/m\u00b2?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "Doanh nghi\u1ec7p b\u1ea5t \u0111\u1ed9ng s\u1ea3n c\u00f3 th\u1ec3 d\u1ec5 d\u00e0ng x\u00e2y c\u0103n h\u1ed9 gi\u00e1 25-30 tri\u1ec7u/m\u00b2 ngay trong n\u1ed9i \u0111\u00f4 n\u1ebfu mu\u1ed1n.",
+            "reality": "Chi ph\u00ed ti\u1ec1n s\u1eed d\u1ee5ng \u0111\u1ea5t theo b\u1ea3ng gi\u00e1 m\u1edbi, chi ph\u00ed gi\u1ea3i ph\u00f3ng m\u1eb7t b\u1eb1ng, l\u00e3i vay v\u00e0 gi\u00e1 v\u1eadt li\u1ec7u khi\u1ebfn chi ph\u00ed gi\u00e1 th\u00e0nh x\u00e2y d\u1ef1ng chung c\u01b0 cao t\u1ea7ng t\u1ea1i n\u1ed9i \u0111\u00f4 \u0111\u00e3 v\u01b0\u1ee3t 40-50 tri\u1ec7u/m\u00b2 tr\u01b0\u1edbc khi t\u00ednh l\u1ee3i nhu\u1eadn.",
+            "source": "B\u00e1o c\u00e1o c\u01a1 c\u1ea5u chi ph\u00ed ph\u00e1t tri\u1ec3n d\u1ef1 \u00e1n c\u1ee7a Hi\u1ec7p h\u1ed9i B\u0110S"
+          },
+          {
+            "myth": "C\u1ee9 c\u00f3 thu nh\u1eadp 50 tri\u1ec7u/th\u00e1ng l\u00e0 d\u1ec5 d\u00e0ng mua \u0111\u01b0\u1ee3c chung c\u01b0 3,5 t\u1ef7 \u0111\u1ed3ng.",
+            "reality": "V\u1edbi t\u1ef7 l\u1ec7 tr\u1ea3 g\u00f3p 25-29 tri\u1ec7u/th\u00e1ng, kho\u1ea3n n\u1ee3 chi\u1ebfm t\u1edbi 50-60% t\u1ed5ng thu nh\u1eadp h\u00e0ng th\u00e1ng, \u0111\u1eb7t gia \u0111\u00ecnh v\u00e0o tr\u1ea1ng th\u00e1i r\u1ee7i ro t\u00e0i ch\u00ednh cao n\u1ebfu c\u00f3 bi\u1ebfn c\u1ed1 vi\u1ec7c l\u00e0m ho\u1eb7c l\u00e3i su\u1ea5t th\u1ea3 n\u1ed5i t\u0103ng.",
+            "source": "Khuy\u1ebfn c\u00e1o qu\u1ea3n l\u00fd t\u00e0i ch\u00ednh c\u00e1 nh\u00e2n t\u1eeb chuy\u00ean gia ng\u00e2n h\u00e0ng"
+          }
+        ],
+        "knowledge_level": "Kh\u00e1n gi\u1ea3 ng\u01b0\u1eddi \u0111i l\u00e0m 25-35 tu\u1ed5i \u0111\u00e3 bi\u1ebft gi\u00e1 nh\u00e0 r\u1ea5t cao, nh\u01b0ng ch\u01b0a h\u00ecnh dung r\u00f5 con s\u1ed1 d\u00f2ng ti\u1ec1n tr\u1ea3 g\u00f3p h\u00e0ng th\u00e1ng v\u00e0 l\u00fd do t\u1ea1i sao ch\u00ednh s\u00e1ch l\u1ea1i t\u1ea1o ra kho\u1ea3ng tr\u1ed1ng The Missing Middle.",
+        "pain_points": [
+          "C\u1ea3m gi\u00e1c b\u1ebf t\u1eafc v\u00e0 v\u1ee1 m\u1ed9ng mua nh\u00e0 d\u00f9 l\u00e0m vi\u1ec7c n\u1ed7 l\u1ef1c v\u00e0 thu nh\u1eadp t\u0103ng tr\u01b0\u1edfng.",
+          "B\u1ecb k\u1eb9t \u1edf gi\u1eefa: Thu nh\u1eadp v\u01b0\u1ee3t tr\u1ea7n mua nh\u00e0 \u1edf x\u00e3 h\u1ed9i nh\u01b0ng kh\u00f4ng th\u1ec3 mua n\u1ed5i nh\u00e0 th\u01b0\u01a1ng m\u1ea1i.",
+          "N\u1ed7i lo v\u1ec1 l\u00e3i su\u1ea5t th\u1ea3 n\u1ed5i sau th\u1eddi gian \u01b0u \u0111\u00e3i ng\u1eafn ng\u1ee7i."
+        ]
+      },
+      "expert_voices": [
+        {
+          "name": "L\u00ea Ho\u00e0ng Ch\u00e2u",
+          "title_or_affiliation": "Ch\u1ee7 t\u1ecbch Hi\u1ec7p h\u1ed9i B\u1ea5t \u0111\u1ed9ng s\u1ea3n TP.HCM (HoREA)",
+          "position": "C\u1ea7n lu\u1eadt h\u00f3a ph\u00e2n kh\u00fac nh\u00e0 \u1edf th\u01b0\u01a1ng m\u1ea1i gi\u00e1 ph\u00f9 h\u1ee3p v\u00e0 c\u00f3 g\u00f3i t\u00edn d\u1ee5ng \u01b0u \u0111\u00e3i ri\u00eang cho ng\u01b0\u1eddi c\u00f3 thu nh\u1eadp t\u1eeb 35-50 tri\u1ec7u/th\u00e1ng \u0111\u1ec3 kh\u01a1i th\u00f4ng ngu\u1ed3n cung \u1edf th\u1ef1c.",
+          "source_url": "https://cafef.vn/horea-de-xuat-nha-o-thuong-mai-gia-phu-hop.chn",
+          "contrarian": false
+        },
+        {
+          "name": "Chuy\u00ean gia kinh t\u1ebf \u0111\u1ed9c l\u1eadp",
+          "title_or_affiliation": "Vi\u1ec7n Nghi\u00ean c\u1ee9u \u0110\u00f4 th\u1ecb & B\u1ea5t \u0111\u1ed9ng s\u1ea3n",
+          "position": "G\u1ecdi 60-70 tri\u1ec7u/m2 l\u00e0 gi\u00e1 ph\u00f9 h\u1ee3p cho ng\u01b0\u1eddi thu nh\u1eadp th\u1ea5p l\u00e0 ngh\u1ecbch l\u00fd ng\u1eef ngh\u0129a. C\u1ed1t l\u00f5i ph\u1ea3i l\u00e0 ph\u00e1t tri\u1ec3n m\u1ea1ng l\u01b0\u1edbi t\u00e0u \u0111i\u1ec7n Metro (TOD) \u0111\u1ec3 gi\u00e3n d\u00e2n ra b\u00e1n k\u00ednh 20-30km n\u01a1i c\u00f3 gi\u00e1 \u0111\u1ea5t 20-30 tri\u1ec7u/m2.",
+          "source_url": "https://thesaigontimes.vn/bai-toan-nha-o-do-thi-va-tod.html",
+          "contrarian": true
+        }
+      ],
+      "angles_discovered": [
+        {
+          "name": "Ngh\u1ecbch l\u00fd 50 tri\u1ec7u: Khi t\u1ea7ng l\u1edbp trung l\u01b0u th\u00e0nh ng\u01b0\u1eddi thu nh\u1eadp th\u1ea5p",
+          "hook": "N\u1ebfu b\u1ea1n v\u00e0 ng\u01b0\u1eddi b\u1ea1n \u0111\u1eddi ki\u1ebfm \u0111\u01b0\u1ee3c 50 tri\u1ec7u m\u1ed9t th\u00e1ng, xin ch\u00fac m\u1eebng, b\u1ea1n v\u1eeba ch\u00ednh th\u1ee9c \u0111\u01b0\u1ee3c x\u1ebfp v\u00e0o nh\u00f3m c\u1ea7n nh\u00e0 n\u01b0\u1edbc h\u1ed7 tr\u1ee3 mua nh\u00e0.",
+          "type": "data_driven",
+          "why_now": "\u0110\u1ec1 xu\u1ea5t m\u1edbi c\u1ee7a HoREA ng\u00e0y 24/10/2026 l\u00e0m b\u00f9ng n\u1ed5 tranh c\u00e3i v\u1ec1 \u0111\u1ecbnh ngh\u0129a gi\u00e0u ngh\u00e8o v\u00e0 gi\u00e1 nh\u00e0 t\u1ea1i c\u00e1c \u0111\u00f4 th\u1ecb l\u1edbn.",
+          "grounded_in": [
+            "CLM-001",
+            "CLM-004",
+            "Kho\u1ea3ng tr\u1ed1ng The Missing Middle"
+          ]
+        },
+        {
+          "name": "B\u00f3c t\u00e1ch b\u00e0i to\u00e1n d\u00f2ng ti\u1ec1n: Mua c\u0103n h\u1ed9 60 tri\u1ec7u/m\u00b2 c\u1ea7n bao nhi\u00eau ti\u1ec1n m\u1ed7i th\u00e1ng?",
+          "hook": "M\u1ed9t c\u0103n h\u1ed9 50m\u00b2 gi\u00e1 3,2 t\u1ef7 \u0111\u1ed3ng: M\u1ed7i th\u00e1ng b\u1ea1n ph\u1ea3i tr\u1ea3 ng\u00e2n h\u00e0ng bao nhi\u00eau v\u00e0 ai th\u1ef1c s\u1ef1 \u0111\u1ee7 s\u1ee9c g\u00e1nh kho\u1ea3n n\u1ee3 n\u00e0y?",
+          "type": "narrative",
+          "why_now": "Kh\u00e1n gi\u1ea3 c\u1ea7n nh\u00ecn th\u1ea5y c\u00e1c con s\u1ed1 t\u00e0i ch\u00ednh tr\u1ea7n tr\u1ee5i thay v\u00ec nh\u1eefng tranh c\u00e3i l\u00fd thuy\u1ebft tr\u00ean b\u00e1o ch\u00ed.",
+          "grounded_in": [
+            "CLM-002",
+            "S\u1ed1 li\u1ec7u tr\u1ea3 g\u00f3p ng\u00e2n h\u00e0ng"
+          ]
+        },
+        {
+          "name": "V\u00ec sao kh\u00f4ng c\u00f2n c\u0103n h\u1ed9 30 tri\u1ec7u/m\u00b2 \u1edf n\u1ed9i \u0111\u00f4: S\u1ef1 th\u1eadt v\u1ec1 c\u01a1 c\u1ea5u gi\u00e1 nh\u00e0",
+          "hook": "T\u1ea1i sao doanh nghi\u1ec7p kh\u00f4ng th\u1ec3 x\u00e2y nh\u00e0 30 tri\u1ec7u/m\u00b2 \u1edf H\u00e0 N\u1ed9i hay S\u00e0i G\u00f2n? 70 tri\u1ec7u/m\u00b2 c\u00f3 th\u1ef1c s\u1ef1 l\u00e0 m\u1ee9c gi\u00e1 t\u1ed1i thi\u1ec3u?",
+          "type": "contrarian",
+          "why_now": "Gi\u00fap ng\u01b0\u1eddi xem hi\u1ec3u c\u01a1 ch\u1ebf chi ph\u00ed \u0111\u1ea5t, th\u1ee7 t\u1ee5c ph\u00e1p l\u00fd v\u00e0 l\u00fd do t\u1ea1i sao ngu\u1ed3n cung nh\u00e0 b\u00ecnh d\u00e2n bi\u1ebfn m\u1ea5t ho\u00e0n to\u00e0n.",
+          "grounded_in": [
+            "CLM-003",
+            "B\u00e1o c\u00e1o chi ph\u00ed ph\u00e1t tri\u1ec3n B\u0110S"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://cafef.vn/horea-de-xuat-nha-o-thuong-mai-gia-phu-hop.chn",
+          "title": "HoREA ki\u1ebfn ngh\u1ecb \u0111\u01b0a nh\u00e0 \u1edf th\u01b0\u01a1ng m\u1ea1i gi\u00e1 ph\u00f9 h\u1ee3p v\u00e0o khung kh\u1ed5 ph\u00e1p l\u00fd",
+          "used_for": "N\u1ed9i dung \u0111\u1ec1 xu\u1ea5t ch\u00ednh s\u00e1ch, tr\u1ea7n gi\u00e1 60-70 tri\u1ec7u/m2 v\u00e0 ki\u1ebfn ngh\u1ecb t\u00edn d\u1ee5ng",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.cbrevietnam.com/insights/reports/q3-2026-vietnam-real-estate-market",
+          "title": "B\u00e1o c\u00e1o th\u1ecb tr\u01b0\u1eddng b\u1ea5t \u0111\u1ed9ng s\u1ea3n CBRE Vi\u1ec7t Nam Qu\u00fd 3/2026",
+          "used_for": "D\u1eef li\u1ec7u gi\u00e1 s\u01a1 c\u1ea5p trung b\u00ecnh H\u00e0 N\u1ed9i 86-107 tri\u1ec7u/m2 v\u00e0 TP.HCM",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.savills.com.vn/research/vietnam-market-reports.aspx",
+          "title": "B\u00e1o c\u00e1o th\u1ecb tr\u01b0\u1eddng nh\u00e0 \u1edf Savills Vi\u1ec7t Nam Q3/2026",
+          "used_for": "Th\u1ecb ph\u1ea7n c\u0103n h\u1ed9 h\u1ea1ng C ch\u1ec9 chi\u1ebfm 4%, c\u0103n h\u1ed9 s\u01a1 c\u1ea5p v\u01b0\u1ee3t 100 tri\u1ec7u",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.numbeo.com/property-investment/in/Hanoi",
+          "title": "Numbeo Property Price to Income Ratio 2026 - Hanoi and Ho Chi Minh City",
+          "used_for": "Ch\u1ec9 s\u1ed1 gi\u00e1 nh\u00e0 tr\u00ean thu nh\u1eadp 38 n\u0103m t\u1ea1i H\u00e0 N\u1ed9i v\u00e0 33 n\u0103m t\u1ea1i TP.HCM",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://thuvienphapluat.vn/van-ban/Bat-dong-san/Nghi-dinh-quy-dinh-chi-tiet-Luat-Nha-o-2024.html",
+          "title": "Ngh\u1ecb \u0111\u1ecbnh h\u01b0\u1edbng d\u1eabn chi ti\u1ebft \u0111i\u1ec1u ki\u1ec7n thu nh\u1eadp mua Nh\u00e0 \u1edf X\u00e3 h\u1ed9i",
+          "used_for": "Tr\u1ea7n thu nh\u1eadp 25 tri\u1ec7u (\u0111\u1ed9c th\u00e2n) v\u00e0 50 tri\u1ec7u (h\u1ed9 gia \u0111\u00ecnh)",
+          "reliability": "primary"
+        }
+      ],
+      "research_summary": "\u0110\u1ec1 xu\u1ea5t nh\u00e0 \u1edf th\u01b0\u01a1ng m\u1ea1i 60-70 tri\u1ec7u/m\u00b2 c\u1ee7a HoREA ph\u1ea3n \u00e1nh m\u1ed9t th\u1ef1c tr\u1ea1ng nghi\u1ec7t ng\u00e3: M\u1eb7t b\u1eb1ng gi\u00e1 chung c\u01b0 \u0111\u00f4 th\u1ecb \u0111\u00e3 t\u0103ng t\u1edbi m\u1ee9c m\u1ed9t h\u1ed9 gia \u0111\u00ecnh thu nh\u1eadp 50 tri\u1ec7u/th\u00e1ng (thu\u1ed9c top 10-15% thu nh\u1eadp cao nh\u1ea5t x\u00e3 h\u1ed9i) c\u0169ng tr\u1edf th\u00e0nh \u0111\u1ed1i t\u01b0\u1ee3ng c\u1ea7n h\u1ed7 tr\u1ee3 an c\u01b0. \u0110\u00e2y l\u00e0 kho\u1ea3ng tr\u1ed1ng The Missing Middle l\u1edbn nh\u1ea5t trong l\u1ecbch s\u1eed th\u1ecb tr\u01b0\u1eddng b\u1ea5t \u0111\u1ed9ng s\u1ea3n Vi\u1ec7t Nam."
+    }
+  },
+  "style_playbook": "clean-professional"
+}

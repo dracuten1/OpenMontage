@@ -1,0 +1,684 @@
+{
+  "version": "1.0",
+  "project_id": "thanh-giong",
+  "pipeline_type": "animated-explainer",
+  "stage": "assets",
+  "status": "completed",
+  "timestamp": "2026-10-17T00:46:55.205730+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "asset_manifest": {
+      "version": "1.0",
+      "assets": [
+        {
+          "id": "narr_s01",
+          "type": "narration",
+          "path": "assets/audio/s01.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s01",
+          "cost_usd": 0.0,
+          "duration_seconds": 23.54,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s01",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s02",
+          "type": "narration",
+          "path": "assets/audio/s02.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s02",
+          "cost_usd": 0.0,
+          "duration_seconds": 45.35,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s02",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s03",
+          "type": "narration",
+          "path": "assets/audio/s03.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s03",
+          "cost_usd": 0.0,
+          "duration_seconds": 45.6,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s03",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s04",
+          "type": "narration",
+          "path": "assets/audio/s04.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s04",
+          "cost_usd": 0.0,
+          "duration_seconds": 45.93,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s04",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s05",
+          "type": "narration",
+          "path": "assets/audio/s05.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s05",
+          "cost_usd": 0.0,
+          "duration_seconds": 40.84,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s05",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s06",
+          "type": "narration",
+          "path": "assets/audio/s06.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s06",
+          "cost_usd": 0.0,
+          "duration_seconds": 42.85,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s06",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s07",
+          "type": "narration",
+          "path": "assets/audio/s07.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s07",
+          "cost_usd": 0.0,
+          "duration_seconds": 41.13,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s07",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s08",
+          "type": "narration",
+          "path": "assets/audio/s08.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s08",
+          "cost_usd": 0.0,
+          "duration_seconds": 36.44,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s08",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s09",
+          "type": "narration",
+          "path": "assets/audio/s09.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s09",
+          "cost_usd": 0.0,
+          "duration_seconds": 56.61,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s09",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s10",
+          "type": "narration",
+          "path": "assets/audio/s10.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s10",
+          "cost_usd": 0.0,
+          "duration_seconds": 33.17,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s10",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s11",
+          "type": "narration",
+          "path": "assets/audio/s11.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s11",
+          "cost_usd": 0.0,
+          "duration_seconds": 34.98,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s11",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s12",
+          "type": "narration",
+          "path": "assets/audio/s12.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s12",
+          "cost_usd": 0.0,
+          "duration_seconds": 35.57,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s12",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s13",
+          "type": "narration",
+          "path": "assets/audio/s13.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s13",
+          "cost_usd": 0.0,
+          "duration_seconds": 33.1,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s13",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s14",
+          "type": "narration",
+          "path": "assets/audio/s14.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s14",
+          "cost_usd": 0.0,
+          "duration_seconds": 35.17,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s14",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s15",
+          "type": "narration",
+          "path": "assets/audio/s15.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s15",
+          "cost_usd": 0.0,
+          "duration_seconds": 38.04,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s15",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s16",
+          "type": "narration",
+          "path": "assets/audio/s16.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s16",
+          "cost_usd": 0.0,
+          "duration_seconds": 25.28,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s16",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s17",
+          "type": "narration",
+          "path": "assets/audio/s17.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s17",
+          "cost_usd": 0.0,
+          "duration_seconds": 32.03,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s17",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s18",
+          "type": "narration",
+          "path": "assets/audio/s18.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s18",
+          "cost_usd": 0.0,
+          "duration_seconds": 34.17,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s18",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s19",
+          "type": "narration",
+          "path": "assets/audio/s19.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s19",
+          "cost_usd": 0.0,
+          "duration_seconds": 32.24,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s19",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s20",
+          "type": "narration",
+          "path": "assets/audio/s20.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s20",
+          "cost_usd": 0.0,
+          "duration_seconds": 31.86,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s20",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s21",
+          "type": "narration",
+          "path": "assets/audio/s21.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s21",
+          "cost_usd": 0.0,
+          "duration_seconds": 31.47,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s21",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s22",
+          "type": "narration",
+          "path": "assets/audio/s22.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s22",
+          "cost_usd": 0.0,
+          "duration_seconds": 34.07,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s22",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s23",
+          "type": "narration",
+          "path": "assets/audio/s23.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s23",
+          "cost_usd": 0.0,
+          "duration_seconds": 32.94,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s23",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s24",
+          "type": "narration",
+          "path": "assets/audio/s24.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s24",
+          "cost_usd": 0.0,
+          "duration_seconds": 17.79,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s24",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s25",
+          "type": "narration",
+          "path": "assets/audio/s25.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s25",
+          "cost_usd": 0.0,
+          "duration_seconds": 24.4,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s25",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s26",
+          "type": "narration",
+          "path": "assets/audio/s26.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s26",
+          "cost_usd": 0.0,
+          "duration_seconds": 15.83,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s26",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s27",
+          "type": "narration",
+          "path": "assets/audio/s27.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s27",
+          "cost_usd": 0.0,
+          "duration_seconds": 12.0,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s27",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narr_s28",
+          "type": "narration",
+          "path": "assets/audio/s28.wav",
+          "source_tool": "vieneu_tts",
+          "scene_id": "s28",
+          "cost_usd": 0.0,
+          "duration_seconds": 10.48,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "Default news voice, delivery_cues.provider_text, threads 6",
+          "voice_performance": {
+            "source_section_id": "s28",
+            "delivery_cues_applied": true,
+            "provider_text_used": true
+          }
+        },
+        {
+          "id": "narration_full",
+          "type": "narration",
+          "subtype": "full_mix",
+          "path": "assets/audio/narration_full.wav",
+          "source_tool": "wave-concat",
+          "scene_id": "all",
+          "cost_usd": 0.0,
+          "duration_seconds": 941.48,
+          "format": "wav",
+          "provider": "vieneu",
+          "generation_summary": "28 sections concatenated with delivery_cues.pause_after_seconds; delta vs 870s budget: +71.48s (no trim/stretch \u2014 compose uses actual timestamps)"
+        },
+        {
+          "id": "transcripts-words",
+          "type": "subtitle",
+          "subtype": "word_timestamps",
+          "path": "assets/audio/transcripts/narration_words.json",
+          "source_tool": "transcriber",
+          "provider": "faster-whisper small vi + canonical alignment",
+          "scene_id": "all",
+          "cost_usd": 0.0,
+          "generation_summary": "28 sections s01..s28, per-word global start/end mapped to canonical script text (dict per-section format)"
+        },
+        {
+          "id": "subtitles-srt",
+          "type": "subtitle",
+          "subtype": "srt",
+          "path": "assets/subtitles.srt",
+          "source_tool": "gen_s2a_audio",
+          "scene_id": "all",
+          "cost_usd": 0.0,
+          "generation_summary": "661 cues from global canonical words; 1-8 words, max 42 chars"
+        },
+        {
+          "id": "img-01",
+          "type": "image",
+          "path": "assets/images/img-01-giong-tre.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-02",
+          "type": "image",
+          "path": "assets/images/img-02-cu-gia.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-03",
+          "type": "image",
+          "path": "assets/images/img-03-su-gia.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-04",
+          "type": "image",
+          "path": "assets/images/img-04-nong-com.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-05",
+          "type": "image",
+          "path": "assets/images/img-05-giong-trang-si.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-06",
+          "type": "image",
+          "path": "assets/images/img-06-tre-dang-nga.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-07",
+          "type": "image",
+          "path": "assets/images/img-07-co-thu-vdult.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-08",
+          "type": "image",
+          "path": "assets/images/img-08-co-thu-lncq.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-09",
+          "type": "image",
+          "path": "assets/images/img-09-co-thu-dvsktt.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-10",
+          "type": "image",
+          "path": "assets/images/img-10-den-phu-dong.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-11",
+          "type": "image",
+          "path": "assets/images/img-11-den-soc.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-12",
+          "type": "image",
+          "path": "assets/images/img-12-bay-ve-troi.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "img-13",
+          "type": "image",
+          "path": "assets/images/img-13-hoi-hom-nay.png",
+          "source_tool": "gen_s2b_images.py (9router ag/gemini-3.1-flash-image, $0)",
+          "scene_id": "multiple",
+          "generation_summary": "ink-genome plate, style suffix S1, PIL-verified PNG"
+        },
+        {
+          "id": "f07-hung-vuong",
+          "type": "image",
+          "path": "assets/reference/f07-hung-vuong.png",
+          "source_tool": "reuse vn-myth S1 (nguon-goc-dan-toc capture)",
+          "scene_id": "setup-callback",
+          "generation_summary": "silhouette/tranh c\u1ed5 only \u2014 1 l\u1ea7n tho\u00e1ng, kh\u00f4ng v\u1ebd l\u1ea1i"
+        },
+        {
+          "id": "bgm-floating-cities",
+          "type": "music",
+          "path": "assets/music/background_music.mp3",
+          "source_tool": "ffmpeg build_bgm.py (loop acrossfade 4s, loudnorm I=-24 TP=-2, fade-out 4s)",
+          "scene_id": "all",
+          "duration_seconds": 944.0,
+          "license": "CC BY 4.0",
+          "provider": "Kevin MacLeod (incompetech.com) \u2014 media-library catalog",
+          "generation_summary": "Floating Cities 3:04 body loop \u2014 d-005; credit v\u00e0o youtube.json"
+        }
+      ],
+      "total_cost_usd": 0.0,
+      "metadata": {
+        "narration_total_seconds": 922.88,
+        "narration_full_seconds": 941.48,
+        "subtitle_cues_count": 661,
+        "project": "thanh-giong (VN-Myth S2E02)",
+        "generation_summary": {
+          "narration_segments": 28,
+          "full_narration": 1,
+          "transcripts": 28,
+          "subtitles": 1
+        },
+        "duration_delta_vs_script_budget": {
+          "script_total_seconds": 870.0,
+          "actual_full_seconds": 941.48,
+          "delta_seconds": 71.48,
+          "policy": "no auto-trim; compose stage must use actual narration_full timestamps"
+        },
+        "voice_performance": {
+          "performance_intent": "Ng\u01b0\u1eddi k\u1ec3 b\u1ea3o t\u00e0ng \u0111\u00eam c\u1ea7m chi\u1ebfc nong g\u1ea1o: hook t\u00f2 m\u00f2 tr\u1ea7m b\u1eb1ng ngh\u1ecbch l\u00fd '\u0111\u1ee9a tr\u1ebb im l\u1eb7ng xin v\u0169 kh\u00ed'; Setup m\u1edf \u1ea5m t\u1eeb h\u1ed9i l\u00e0ng h\u00f4m nay (tr\u1ed1ng, m\u00e2m c\u1ed7, h\u1ea1t g\u1ea1o, \u0111\u1ec1n) r\u1ed3i l\u00f9i v\u00e0o l\u1edbp SGK th\u00e2n thu\u1ed9c v\u00e0 s\u1eafc d\u1ea7n th\u00e0nh c\u00e2u h\u1ecfi m\u00f9a; H\u1ed3i m\u1ed9t ch\u1eadm r\u00e3i nh\u01b0 l\u1eadt t\u1eebng trang gi\u1ea5y d\u00f3 \u2014 tr\u00edch c\u1ed5 th\u01b0 ch\u1eadm, r\u00f5 t\u1eebng ch\u1eef, kh\u00f4ng ph\u00e1n x\u00e9t; H\u1ed3i hai \u1ea5m d\u1ea7n theo nh\u1ecbp g\u1ea1o \u0111\u1ed5 v\u00e0o nong, n\u00e2ng l\u00ean \u1edf tr\u00e1ng s\u0129 xu\u1ea5t tr\u1eadn, h\u1ea1 nh\u1eb9 \u1edf ph\u00fat c\u1edfi \u00e1o bay v\u1ec1 tr\u1eddi (kh\u00f4ng bi k\u1ecbch h\u00f3a); H\u1ed3i ba r\u1ed9n r\u00e0ng hai m\u00f9a h\u1ed9i r\u1ed3i t\u1ec9nh t\u00e1o \u1edf ranh gi\u1edbi 't\u00edn ng\u01b0\u1ee1ng kh\u00f4ng ch\u1ee9ng minh tr\u1eadn \u0111\u00e1nh'; climax d\u1ed3n n\u00e9n, gi\u1eef \u0111\u00f3ng khung 'c\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0\u2026' v\u00e0 l\u1eafng h\u1eb3n cho c\u00e2u ch\u1ed1t 'C\u1ea3 l\u00e0ng nu\u00f4i n\u00f3 l\u1edbn'; landing tr\u00e2n tr\u1ecdng kh\u00e9p b\u1eb1ng ca dao; CTA m\u1eddi g\u1ecdi, g\u1ecdn.",
+          "pacing_profile": "conversational",
+          "energy_curve": "Hook (t\u00f2 m\u00f2 tr\u1ea7m, ngh\u1ecbch l\u00fd) -> Setup (\u1ea5m h\u00f4m nay \u2192 th\u00e2n t\u00ecnh SGK \u2192 s\u1eafc th\u00e0nh c\u00e2u h\u1ecfi) -> H\u1ed3i m\u1ed9t (ch\u1eadm r\u00e3i l\u1eadt trang c\u1ed5 th\u01b0) -> H\u1ed3i hai (\u1ea5m d\u1ea7n theo h\u1ea1t g\u1ea1o, l\u00ean \u1edf xu\u1ea5t tr\u1eadn, h\u1ea1 nh\u1eb9 khi bay v\u1ec1 tr\u1eddi) -> H\u1ed3i ba (r\u1ed9n r\u00e0ng hai m\u00f9a h\u1ed9i, t\u1ec9nh t\u00e1o ranh gi\u1edbi) -> Climax (d\u1ed3n n\u00e9n, l\u1eafng h\u1eb3n \u1edf c\u00e2u ch\u1ed1t S2-C2) -> Landing (tr\u00e2n tr\u1ecdng kh\u00e9p v\u00f2ng h\u00f4m nay) -> CTA (m\u1eddi g\u1ecdi, g\u1ecdn)",
+          "pause_policy": "Pause 0,5\u20130,7 gi\u00e2y tr\u01b0\u1edbc m\u1ed7i b\u01b0\u1edbc chuy\u1ec3n h\u1ed3i (ch\u00e8n '...' trong provider_text); tr\u00edch nguy\u00ean v\u0103n c\u1ed5 th\u01b0 \u0111\u1ecdc ch\u1eadm h\u01a1n nh\u1ecbp th\u01b0\u1eddng, ng\u1eaft sau m\u1ed7i v\u1ebf; c\u00e2u ch\u1ed1t 'Th\u00e1nh Gi\u00f3ng kh\u00f4ng t\u1ef1 l\u1edbn. C\u1ea3 l\u00e0ng nu\u00f4i n\u00f3 l\u1edbn.' \u1edf Climax ng\u1eaft 0,8 gi\u00e2y tr\u01b0\u1edbc khi \u0111\u1ecdc v\u00e0 \u0111\u1ecdc ch\u1eadm nh\u1ea5t t\u1eadp; kh\u00f4ng SSML (vieneu).",
+          "provider_notes": {
+            "vieneu": "v3 Turbo 48kHz, voice m\u1eb7c \u0111\u1ecbnh (news) \u2014 gi\u1ecdng duy\u1ec7t series S1 Ep.01\u201306 + S2E01. K\u1ecbch b\u1ea3n ~3.700 t\u1eeb cho 870 gi\u00e2y. M\u1ecdi s\u1ed1 trong provider_text spelled-out b\u1eb1ng ch\u1eef (m\u1ed9t ngh\u00ecn ba tr\u0103m hai m\u01b0\u01a1i ch\u00edn, ng\u00e0y m\u01b0\u1eddi s\u00e1u th\u00e1ng m\u01b0\u1eddi m\u1ed9t n\u0103m hai ngh\u00ecn kh\u00f4ng tr\u0103m m\u01b0\u1eddi); KH\u00d4NG d\u1ea5u '/', KH\u00d4NG d\u1ea5u ';', KH\u00d4NG en dash; KH\u00d4NG vi\u1ebft t\u1eaft \u0110VSKTT, LNCQ, V\u0110ULT trong provider_text (\u0111\u1ecdc t\u00ean s\u00e1ch \u0111\u1ea7y \u0111\u1ee7); \u0111\u1ecba danh Ph\u00f9 \u0110\u1ed5ng, V\u00f5 Gi\u00e0ng, V\u00f5 Ninh, Ki\u1ebfn S\u01a1, V\u1ec7 Linh, \u0110\u1eb1ng Ng\u00e0, Ninh S\u00f3c, S\u00f3c, Soi Bia, M\u1ed9c D\u1ee5c, c\u1ea7u h\u00fac, Ti\u00ean Du, Gia B\u00ecnh, hai tr\u01b0\u1ee3ng, thi\u00ean t\u01b0\u1edbng GI\u1eee NGUY\u00caN V\u0102N (Gate A d-004 pass, 0 term ph\u1ea3i respell); 'm\u00f9ng 9 th\u00e1ng T\u01b0' \u0111\u1ecdc 'm\u1ed3ng Ch\u00edn th\u00e1ng T\u01b0'; ch\u1eef display tr\u00ean overlay kh\u00f4ng c\u00f3 trong provider_text th\u00ec ph\u1ea3i \u0111\u01b0\u1ee3c narration c\u00f9ng section \u0111\u1ecdc l\u00ean."
+          }
+        },
+        "session_note": "S2a audio-only draft (2026-10-16, d-000 full-run). PENDING S2b: images + BGM items to be appended."
+      }
+    }
+  },
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "notes": "d-000 full-run. S2a audio (28 sections, 941.5s narration, 661 srt cues, vieneu v3 local), BGM 'Floating Cities' (Kevin MacLeod CC BY 4.0, 944.0s, I=-24 TP=-2, d-005), 13 PNG via 9router ag/gemini $0 (4 vision-QC pass no-text: img-01/04/05/12) + f07 reuse. Duration gi\u1eef t\u1ef1 nhi\u00ean (d-007)."
+  }
+}

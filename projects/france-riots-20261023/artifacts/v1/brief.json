@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "title": "Bạo loạn Pháp 10/2026 — đêm 17/10",
+  "core_message": "Đêm 17/10/2026 là đợt bạo loạn đắt nhất lịch sử hiện đại Pháp (~1 tỷ € ước tính bảo hiểm), bùng từ phong trào học sinh + lời kêu gọi TikTok, và chưa kết thúc: tổng huy động mới được kêu gọi thứ Bảy 24/10.",
+  "hook": "Cách Điện tổng thống Pháp 200m, đám đông đã dựng barricade. Đây là chuyện đã xảy ra. (owner duyệt nguyên văn — H2 trong brief)",
+  "selected_angle": "Deep-dive single-topic: gốc rễ → đỉnh điểm 17/10 → bilan số liệu + chart bảo hiểm → phản ứng chính phủ → cliffhanger 24/10 + góc người Việt → NHẬN ĐỊNH → CTA. Giữ 100% số liệu trong whitelist brief đã duyệt.",
+  "target_duration_seconds": 118,
+  "target_platform": "tiktok",
+  "target_audience": "người đi làm 25-35 Việt Nam",
+  "tone": "trung tính, kỷ luật số liệu; không giật gân, không hưng phấn; BGM trung tính không vui nhộn",
+  "style": "flat-motion-graphics 9:16 (1080x1920), navy #0F172A + coral #FF7F6E như lane news; camera tĩnh tuyệt đối; reveal theo word timestamps thật (speech-lock); charts: bar zero-based 256/795/~1.000 triệu € (2026 ghi 'ước tính'), timeline ngang T9→24/10, stat card đêm 17/10, map Pháp 4 thành phố (MINH HỌA)",
+  "key_points": [
+    "Hook 200m barricade (duyệt)",
+    "Gốc rễ T9: thiếu giáo viên, budget 2027, Parcoursup",
+    "Lan toàn quốc + áo vàng + hack 16/10 + lời kêu gọi TikTok V2 + bản đồ cộng tác",
+    "Đêm 17/10: 550.000-800.000 người, 110 tuần hành, Paris 110.000",
+    "Paris 200m Élysée, Champs-Élysées barricade, hàng chục cửa hàng bị cướp",
+    "Limoges 1883 cháy (thảm họa di sản), Lyon 200-300, Marseille",
+    "Bilan: 1.200 đêm đó (855 Paris) → gần 2.400 theo tổng kê giới chức, 997 cảnh sát, ~3.000 cửa hàng",
+    "Chart bảo hiểm: 256 → 795 → ~1.000 triệu € (ước tính) = đắt nhất lịch sử hiện đại",
+    "Chính phủ: Macron cơn giận + không khoan nhượng, Nuñez bị giữ lại, cấm biểu tình bất hợp pháp 22/10",
+    "Cliffhanger: 23/10 hội đồng quốc phòng, 24/10 tổng huy động mới; Lyon/Marseille/Nice cấm sẵn",
+    "Góc VN: Trịnh Minh Hằng ở Nice",
+    "NHẬN ĐỊNH (badge): 6 tháng trước bầu cử 2027, chi phí sinh hoạt thành khủng hoảng chính trị",
+    "CTA: theo dõi xem 24/10"
+  ],
+  "reference_material": [
+    "inputs/research_brief.md — research brief đã duyệt (sources whitelist S1-S5, timeline, chart specs, cấu trúc, QA flags)",
+    "inputs/evidence_manifest.txt — 13 file evidence (Wikipedia FR, The Guardian, Thanh Niên, 24h, 9x grounded)"
+  ],
+  "metadata": {
+    "project_id": "france-riots-20261023",
+    "lane": "news deep-dive (news-video-pipeline contract)",
+    "pipeline": "hybrid",
+    "style_playbook": "flat-motion-graphics",
+    "render_runtime": "remotion",
+    "voice": "vieneu Turbo default 48kHz, atempo 1.15",
+    "bgm": "media-library risk/explainer — trung tính, KHÔNG vui nhộn; CC BY 4.0 credit trong description",
+    "duration_policy": "target ~118s; chấp nhận đến 125s nếu TTS chậm hơn ước lượng, KHÔNG trim worker chỉ vì độ dài (owner rule)"
+  }
+}

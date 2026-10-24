@@ -1,0 +1,203 @@
+{
+ "version": "1.0",
+ "project_id": "news-daily-20261023",
+ "pipeline_type": "hybrid",
+ "stage": "idea",
+ "status": "completed",
+ "timestamp": "2026-10-23T18:09:36.089725+07:00",
+ "checkpoint_policy": "guided",
+ "human_approval_required": true,
+ "human_approved": true,
+ "artifacts": {
+  "brief": {
+   "version": "1.0",
+   "title": "5 tin đáng chú ý ngày 23/10/2026",
+   "hook": "Bộ Giáo dục và Đào tạo đề xuất thi vào lớp 10 chỉ còn hai môn Toán và Văn, nhằm giảm áp lực thi cử. Phương án hiện chưa phải quy định chính thức.",
+   "key_points": [
+    "Bộ Giáo dục và Đào tạo đề xuất thi vào lớp 10 chỉ còn hai môn Toán và Văn, nhằm giảm áp lực thi cử. Phương án hiện chưa phải quy định chính thức.",
+    "Chính phủ trình Quốc hội đề xuất đánh thuế 0,2% với đất bỏ hoang, áp thuế trên toàn bộ diện tích đất thuộc diện này, không áp dụng hạn mức.",
+    "Công an Hà Nội khởi tố đường dây gần 1.500 văn bằng, chứng chỉ giả với 10 bị can, trong đó có 2 giảng viên đại học; khoản thu lời bất chính gần 3 tỷ đồng.",
+    "TP.HCM ghi nhận hơn 40.000 ca tay chân miệng từ đầu năm; số ca tăng 32,2% trong một tuần. Bác sĩ khuyến cáo phụ huynh nhận biết sớm dấu hiệu nặng.",
+    "Sân bay Long Thành có 4 gói thầu nguy cơ trễ hẹn vì thiếu nhân lực và chậm thanh toán, đe dọa tiến độ trước ngày dự kiến khai thác 24/12.",
+    "Với người có đất: nếu đề xuất được thông qua, giữ đất bỏ hoang sẽ tốn thêm thuế. Vì áp dụng trên toàn bộ diện tích và không có hạn mức, diện tích càng lớn thì số thuế càng cao.",
+    "Với nhà có con sắp thi lớp 10: hai môn Toán và Văn có thể giảm áp lực thi cử, nhưng đây vẫn là đề xuất, chưa phải quy định. Với nhà có trẻ nhỏ: số ca tay chân miệng đang tăng — nhận biết sớm dấu hiệu nặng là khuyến cáo của bác sĩ.",
+    "Theo dõi để cập nhật bản tin tiếp theo."
+   ],
+   "core_message": "Năm tin ấn tượng giảm dần (thi lớp 10 2 môn mở video); segment NHẬN ĐỊNH riêng trước outro; mọi số liệu truy về 2 file whitelist niêm phong.",
+   "tone": "Trung tính, ngắn gọn, dễ hiểu; không giật tít, không cường điệu.",
+   "sources": [
+    "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-vn.md",
+    "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-world.md"
+   ],
+   "source_sha256": {
+    "latest-vn.md": "da5b0d11da9f3e32482770c1e720ef72568c5267196f7b157df8a795c33403ae",
+    "latest-world.md": "1ddaa4da90ea8155ce204c25c5b98f096385b06340d012d52a6d5907fd1a25d6"
+   },
+   "sealed_inputs": "inputs/20261023T180936+0700",
+   "approval_quote": "Video tin tức ngày 2026-10-23 — từ bản tin 17h40–17h42 ... Deliver video + thumbnail (riêng biệt) + QC numbers + caption TikTok ... qua Telegram DM Tuyên, trạng thái awaiting_human — KHÔNG tự đăng TikTok.",
+   "delivery_contract": "draft HUD 720p + master 1080x1920 + standalone thumbnail 1080x1920 PNG + copyable TikTok caption + description via Telegram DM; awaiting_human; KHÔNG auto-post."
+  },
+  "whitelist": {
+   "status": "brief_authorized_draft_run",
+   "editorial_draft_only": false,
+   "line_numbering": "1-based physical lines including blanks",
+   "source_manifest": [
+    "inputs/20261023T180936+0700/latest-vn.md",
+    "inputs/20261023T180936+0700/latest-world.md"
+   ],
+   "source_sha256": {
+    "latest-vn.md": "da5b0d11da9f3e32482770c1e720ef72568c5267196f7b157df8a795c33403ae",
+    "latest-world.md": "1ddaa4da90ea8155ce204c25c5b98f096385b06340d012d52a6d5907fd1a25d6"
+   },
+   "evidence_level": "sealed_local_digest_only; 2 whitelist files are the ONLY permitted facts",
+   "claims": [
+    {
+     "id": "VN-l10-exam",
+     "section": "S1",
+     "classification": "source_supported_news",
+     "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-vn.md",
+     "sealed_file": "inputs/20261023T180936+0700/latest-vn.md",
+     "line": 11,
+     "exact_quote": "- **Đề xuất thi lớp 10 chỉ còn Toán và Văn:** Bộ GD&ĐT cho biết phương án nhằm giảm áp lực thi cử, hiện chưa phải quy định chính thức.",
+     "qualifiers": [
+      "đề xuất — CHƯA phải quy định chính thức (bắt buộc giữ trong narration + hiển thị trên hình)",
+      "'nhằm giảm áp lực thi cử' là mục tiêu nêu trong nguồn"
+     ],
+     "forbidden": [
+      "đã áp dụng/năm nay thi 2 môn",
+      "Bộ ban hành quy định",
+      "bỏ hẳn các môn khác vĩnh viễn"
+     ]
+    },
+    {
+     "id": "VN-vacant-land-tax",
+     "section": "S2",
+     "classification": "source_supported_news",
+     "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-vn.md",
+     "sealed_file": "inputs/20261023T180936+0700/latest-vn.md",
+     "line": 4,
+     "exact_quote": "- **Đề xuất đánh thuế 0,2% với đất bỏ hoang:** Chính phủ trình Quốc hội phương án áp thuế trên toàn bộ diện tích đất thuộc diện này, không áp dụng hạn mức.",
+     "qualifiers": [
+      "Chính phủ TRÌNH Quốc hội — chưa thông qua",
+      "0,2% trên đất bỏ hoang; nguồn KHÔNG nêu kỳ hạn thuế (không nói /năm)",
+      "không áp dụng hạn mức"
+     ],
+     "forbidden": [
+      "thuế đã có hiệu lực",
+      "0,2%/năm",
+      "áp dụng cho đất ở/đất nông nghiệp đang sử dụng"
+     ]
+    },
+    {
+     "id": "VN-fake-degrees",
+     "section": "S3",
+     "classification": "source_supported_news",
+     "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-vn.md",
+     "sealed_file": "inputs/20261023T180936+0700/latest-vn.md",
+     "line": 12,
+     "exact_quote": "- **Khởi tố đường dây gần 1.500 văn bằng, chứng chỉ giả:** Công an Hà Nội khởi tố 10 bị can, trong đó có 2 giảng viên đại học; khoản thu lời bất chính gần 3 tỷ đồng.",
+     "qualifiers": [
+      "khởi tố bị can — nguồn không nêu tội danh cụ thể, không nêu tên trường",
+      "'gần 1.500' và 'gần 3 tỷ đồng' giữ từ 'gần'"
+     ],
+     "forbidden": [
+      "nêu tên trường/bị can",
+      "tất cả bằng đại học là giả",
+      "đã xét xử"
+     ]
+    },
+    {
+     "id": "VN-hfm",
+     "section": "S4",
+     "classification": "source_supported_news",
+     "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-vn.md",
+     "sealed_file": "inputs/20261023T180936+0700/latest-vn.md",
+     "line": 15,
+     "exact_quote": "- **TP.HCM ghi nhận hơn 40.000 ca tay chân miệng từ đầu năm:** Số ca tăng 32,2% trong một tuần, bác sĩ khuyến cáo phụ huynh nhận biết sớm dấu hiệu nặng.",
+     "qualifiers": [
+      "hơn 40.000 ca là TP.HCM từ đầu năm",
+      "32,2% tăng trong MỘT tuần",
+      "'nhận biết sớm dấu hiệu nặng' là khuyến cáo của bác sĩ"
+     ],
+     "forbidden": [
+      "dịch toàn quốc",
+      "số ca tử vong",
+      "trường học phải đóng cửa"
+     ]
+    },
+    {
+     "id": "VN-longthanh",
+     "section": "S5",
+     "classification": "source_supported_news",
+     "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-vn.md",
+     "sealed_file": "inputs/20261023T180936+0700/latest-vn.md",
+     "line": 7,
+     "exact_quote": "- **Sân bay Long Thành có 4 gói thầu nguy cơ trễ hẹn:** Thiếu nhân lực và chậm thanh toán đe dọa tiến độ trước ngày dự kiến khai thác 24/12.",
+     "qualifiers": [
+      "NGUY CƠ trễ — chưa trễ chắc chắn",
+      "24/12 là ngày DỰ KIẾN khai thác",
+      "nguyên nhân theo nguồn: thiếu nhân lực + chậm thanh toán"
+     ],
+     "forbidden": [
+      "Long Thành chắc chắn trễ",
+      "sân bay đã khai thác",
+      "thêm nguyên nhân ngoài nguồn"
+     ]
+    }
+   ],
+   "commentary": {
+    "id": "commentary",
+    "section": "S6a+S6b",
+    "classification": "editorial_commentary",
+    "rule": "chỉ diễn giải fact đã có trong whitelist; KHÔNG thêm fact/số/nguồn mới; badge NHẬN ĐỊNH persist suốt scene; giọng trung tính; góc nhìn người đi làm 25-35 (tiền, chi phí, gia đình, việc học của con)",
+    "derived_from": [
+     "VN-vacant-land-tax (chi phí giữ đất nếu thông qua; toàn bộ diện tích + không hạn mức → đất càng lớn thuế càng cao)",
+     "VN-l10-exam (2 môn → giảm áp lực NHƯNG vẫn là đề xuất)",
+     "VN-hfm (ca đang tăng → khuyến cáo nhận biết sớm dấu hiệu nặng)"
+    ]
+   },
+   "cta": {
+    "id": "cta",
+    "section": "S7",
+    "classification": "editorial_date_count_or_cta",
+    "text": "Theo dõi để cập nhật bản tin tiếp theo."
+   },
+   "not_selected": [
+    {
+     "id": "W-starlink",
+     "reason": "trục trặc kết nối — không có cú sốc/quy mô mới so với 5 tin đã chọn"
+    },
+    {
+     "id": "W-lula",
+     "reason": "bầu cử Brazil xa khán giả VN, không chạm túi tiền/đời sống trực tiếp"
+    },
+    {
+     "id": "W-diesel",
+     "reason": "phân tích chi phí (Reuters) — không có số cứng, mờ hơn Long Thành cho khán giả VN"
+    },
+    {
+     "id": "W-canada-tariff",
+     "reason": "thương mại Canada-Mỹ trừu tượng với người đi làm VN"
+    },
+    {
+     "id": "W-india-ai",
+     "reason": "AI quân sự nội địa Ấn Độ — công nghệ nhưng không chạm việc làm/chi phí của khán giả"
+    },
+    {
+     "id": "W-australia-flood",
+     "reason": "thiên tai xa, không có liên kết VN trong nguồn"
+    },
+    {
+     "id": "VN-metro2",
+     "reason": "6 ga metro số 2 — tin quy hoạch thường, ấn tượng yếu hơn 5 tin đã chọn"
+    },
+    {
+     "id": "VN-(rest)",
+     "reason": "các tin VN còn lại đều đã được chọn hoặc rơi vào not_selected trên"
+    }
+   ]
+  },
+  "selection_rule": "owner mandate 19/10 — 5 tin giảm dần, hook = thi lớp 10 2 môn",
+  "sealed_inputs": "inputs/20261023T180936+0700"
+ }
+}

@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "local_export",
+      "status": "pending_review",
+      "export_path": "projects/coastal-reclamation-20261024/renders/coastal_reclamation_draft_hud_720p.mp4",
+      "timestamp": "2026-10-24T08:20:42.203825+00:00",
+      "metadata_used": {
+        "title": "Lấn Biển & Thủy Động Lực: Dòng hải lưu và rừng ngập mặn thay đổi ra sao?",
+        "description": "Infographic khoa học giải thích nguyên lý thủy động lực học ven bờ, lăng kính triều, cân bằng bùn cát và sinh thái rễ thở rừng ngập mặn khi có công trình lấn biển.",
+        "hashtags": [
+          "KhoaHoc",
+          "DiaLy",
+          "ThuyDongLuc",
+          "LanBien",
+          "RungNgapMan",
+          "MoiTruong",
+          "HocMoiNgay"
+        ],
+        "chapters": [
+          {
+            "title": "Hook & Đặt vấn đề",
+            "start_time": "00:00"
+          },
+          {
+            "title": "Lăng kính triều & Biến đổi độ sâu",
+            "start_time": "00:10"
+          },
+          {
+            "title": "Cân bằng bùn cát & Xói lở ven bờ",
+            "start_time": "00:28"
+          },
+          {
+            "title": "Rừng ngập mặn thở thế nào?",
+            "start_time": "00:47"
+          },
+          {
+            "title": "Kỹ thuật sinh thái thích ứng",
+            "start_time": "01:07"
+          },
+          {
+            "title": "Cân bằng động & Kết luận",
+            "start_time": "01:23"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "gate_status": "awaiting_human_approval",
+    "description_file": "projects/coastal-reclamation-20261024/scene_index_reclamation.md",
+    "thumbnail_file": "projects/coastal-reclamation-20261024/exports/thumbnails/coastal-reclamation-1080x1920.png",
+    "crf26_preview_file": "projects/coastal-reclamation-20261024/renders/coastal_reclamation_draft_hud_720p_crf26.mp4"
+  }
+}

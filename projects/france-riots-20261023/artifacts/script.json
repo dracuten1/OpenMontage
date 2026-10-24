@@ -1,0 +1,210 @@
+{
+  "version": "1.0",
+  "title": "Bạo loạn Pháp 10/2026 — đêm 17/10",
+  "total_duration_seconds": 370,
+  "metadata": {
+    "project_id": "france-riots-20261023",
+    "language": "vi",
+    "platform": "tiktok",
+    "aspect": "9:16",
+    "audience": "người đi làm 25-35",
+    "revision": "v2 — nguồn đã kiểm chứng độc lập theo history/revision-source-audit.md (23/10/2026); thay brief cũ",
+    "sources": "history/revision-source-audit.md (Guardian/RFI/Élysée/TF1/Le Parisien/CNews-Le Soir/AFP/FT-Morningstar/franceinfo) + evidence/ tham chiếu",
+    "hook_owner_approved": "Cách Điện tổng thống Pháp 200m, đám đông đã dựng barricade. Đây là chuyện đã xảy ra.",
+    "qa_notes": "KHÔNG nói 'đắt nhất lịch sử hiện đại' (Nouvelle-Calédonie 2024 ~1 tỷ €) — chỉ 'đắt nhất tại chính quốc/ước tính'. 2.397 là RIÊNG ngày 17/10; lũy kế ~2.500 đến 22/10. 997 gồm cả lính cứu hỏa. Marseille: dẫn theo bài phát biểu của Tổng thống Macron ngày 18/10. 2 ca tử vong Paris: 'probable malaise' tạm thời, đang điều tra — không kết luận. Saint-Étienne: lựu đạn chưa rõ loại + IGPN. KHÔNG quy toàn bộ người biểu tình là bạo loạn (Macron: 'jamais confondre'). KHÔNG chạm dân tộc/xuất nhập cư. Bỏ (không hồi sinh): 900 trường học, hack trang đảng LR 16/10 (wiki-only), Nice barricade Masséna + Grenoble 13.000 (wiki-only), 'hội đồng quốc phòng 23/10 đã diễn ra' (agenda chưa xác nhận — chỉ nói 'theo kế hoạch').",
+    "verification": "Lead spot-verified trực tiếp 23/10: Élysée 18/10 full text; Guardian 22/10; RFI 22/10; DW 22/10; CNews 18/10 (2.397/997); franceinfo (550k/800k/110k/110); Courrier International/FT/Morningstar (1-1,2 tỷ; 2023 730-798; NC2024 1 tỷ); TF1 LCI 17/10 (200m; Lille/Marseille mairies); Café pédagogique (budget +1,2 tỷ/1.588 posts/180k élèves); La Croix 13/10 (800 lycées 6/10); Wikipedia FR refs (Limoges 1883 + prefect). Subagent-verified có URL+quote: TF1 VÉRIF/La Croix 14/10 (v2.95), Élysée 22/10, Euronews (Nuñez), Le Parisien Limoges, 17octobregiletjaune.net.",
+    "media_policy": "Ảnh JJxFile (CC BY-SA 4.0, license direct): credit trên hình + description; caption tư liệu ghi nguồn khai báo (Commons/EXIF 17/10/2026) — ngày chưa độc lập xác thực 100%, ghi rõ xuất xứ. Clip CC0 Aix-en-Provence: chỉ gắn nhãn cảnh tập hợp, KHÔNG gọi bạo loạn. KHÔNG dùng ảnh AP/Getty/Reuters/AFP.",
+    "duration_policy": "Owner override 23/10/2026: 3-5 phút nhịp tự nhiên, không nén, không lặp/nhồi; total là ước tính kế hoạch — final = audio thật."
+  },
+  "sections": [
+    {
+      "id": "S1",
+      "label": "HOOK (owner duyệt nguyên văn)",
+      "text": "Cách Điện tổng thống Pháp 200m, đám đông đã dựng barricade. Đây là chuyện đã xảy ra. Đêm 17/10, ở Paris.",
+      "start_seconds": 0,
+      "end_seconds": 8,
+      "speaker_directions": "Hook nguyên văn owner; đọc chậm rãi, dứt khoát; không giật gân thêm.",
+      "source_ref": "whitelist.json#W-elysee-200m"
+    },
+    {
+      "id": "S2",
+      "label": "Khung vấn đề — thiệt hại ước tính",
+      "text": "Một đêm mà ngành bảo hiểm Pháp ước tính thiệt hại hơn 1 tỷ euro, và có thể lên tới 1,2 tỷ. Theo báo Financial Times, đây nằm trong nhóm những đợt biểu tình tốn kém nhất từng ghi nhận với ngành bảo hiểm Pháp. Nhưng để hiểu vì sao, phải bóc tách ba lớp nguyên nhân.",
+      "start_seconds": 8,
+      "end_seconds": 24,
+      "speaker_directions": "Trung tính; 'ước tính' nhấn nhẹ; câu cuối mở phân tích.",
+      "source_ref": "whitelist.json#W-insurance-range"
+    },
+    {
+      "id": "S3",
+      "label": "Nguyên nhân lớp 1 — ngòi nổ TikTok",
+      "text": "Lớp một: ngòi nổ. Đầu tháng 9, một video TikTok của tài khoản ẩn danh v2.95 than giá xăng: 1,60 euro một lít từng khiến người ta phát điên, giờ là 2,25 euro. Video thu hút hàng triệu lượt xem, rồi chốt ngày xuống đường: thứ Bảy, ngày nghỉ học, ai cũng có thể đến. Phân tích độc lập và cơ quan Viginum của Pháp đều không tìm thấy dấu hiệu điều phối của một tổ chức nào.",
+      "start_seconds": 24,
+      "end_seconds": 44,
+      "speaker_directions": "Kể như trinh sát; 'ẩn danh' và 'không tổ chức đứng sau' là hai điểm nhấn.",
+      "source_ref": "whitelist.json#W-tiktok-origin"
+    },
+    {
+      "id": "S4",
+      "label": "Nguyên nhân lớp 2a — phong trào học sinh",
+      "text": "Lớp hai: bất mãn nền. Giữa tháng 9, phong trào học sinh bùng lên từ một trường ở Créteil, ngoại ô Paris: lớp học thiếu giáo viên nhiều tuần, trường học xuống cấp. Học sinh đòi bỏ nền tảng tuyển sinh đại học Parcoursup, và một kế hoạch 10 tỷ euro cho các trường lycée. Ngày 6/10, đỉnh điểm, 800 trường lycée phải đóng cửa theo Bộ Giáo dục.",
+      "start_seconds": 44,
+      "end_seconds": 64,
+      "speaker_directions": "Giọng kể; phân biệt yêu sách người biểu tình với số của Bộ Giáo dục.",
+      "source_ref": "whitelist.json#W-lyceen-movement"
+    },
+    {
+      "id": "S5",
+      "label": "Nguyên nhân lớp 2b — ngân sách 2027 + sức mua",
+      "text": "Ngân sách 2027 đổ thêm dầu: giáo dục được tăng 1,2 tỷ euro, nhưng đồng thời cắt 1.588 vị trí giáo viên, trong bối cảnh số học sinh giảm 180 nghìn. Còn với người lao động, cái nhức nhối là giá sinh hoạt và giá xăng. Mối lo có từ trước, xuyên suốt từ thời áo vàng 2018.",
+      "start_seconds": 64,
+      "end_seconds": 82,
+      "speaker_directions": "'Tăng ngân sách nhưng cắt vị trí' — đọc chậm, không bình luận.",
+      "source_ref": "whitelist.json#W-budget2027"
+    },
+    {
+      "id": "S6",
+      "label": "Nguyên nhân lớp 3 — cơ chế leo thang",
+      "text": "Lớp ba: cơ chế leo thang. Ngày 17/10, nhiều dòng đổ về cùng lúc: học sinh, người lao động, áo vàng cũ, công đoàn. Một site điều phối đăng bản đồ liệt kê các điểm tập kết trên toàn nước. Rìa các đoàn tuần hành, các nhóm quá khích trà trộn. Theo nhà chức trách, đó là cực tả và tội phạm, kèm cả nhóm cực hữu. Ở nhiều thành phố, cảnh sát bị vượt tầm. Bộ trưởng Nội vụ sau đó thừa nhận lực lượng đã mất kiểm soát đêm đó.",
+      "start_seconds": 82,
+      "end_seconds": 106,
+      "speaker_directions": "'Theo nhà chức trách' attribute rõ; 'mất kiểm soát' là lời thừa nhận chính thức.",
+      "source_ref": "whitelist.json#W-escalation"
+    },
+    {
+      "id": "S7",
+      "label": "HIỆN TRƯỜNG — ảnh thật đã xác minh (media)",
+      "text": "Và đây là hiện trường thật ngày 17/10 ở Paris: một xe ô tô cháy giữa phố, lính cứu hỏa Paris dập lửa; và đám đông trước quảng trường Cộng Hòa trong màn khói.",
+      "start_seconds": 106,
+      "end_seconds": 120,
+      "speaker_directions": "Mô tả trung tính những gì trong ảnh; không suy diễn thêm.",
+      "source_ref": "whitelist.json#W-media-photos"
+    },
+    {
+      "id": "S8",
+      "label": "Quy mô 17/10 (stat card)",
+      "text": "Thứ Bảy 17/10: 550.000 người ra đường theo Bộ Nội vụ, ban tổ chức nói 800.000, trong 110 cuộc tuần hành trên toàn nước. Riêng Paris là 110.000 người.",
+      "start_seconds": 120,
+      "end_seconds": 134,
+      "speaker_directions": "Số liệu đọc rõ; tách nguồn 'Bộ Nội vụ' vs 'ban tổ chức'.",
+      "source_ref": "whitelist.json#W-scale"
+    },
+    {
+      "id": "S9",
+      "label": "Paris — Élysée 200m",
+      "text": "Tại Paris, các nhóm đối đầu cảnh sát ngay cách Điện Élysée 200 mét, trong khu vực vốn đã bị cấm biểu tình từ trước. Barricade dựng bằng rào chắn công trình trên đại lộ Champs-Élysées. Khi các đoàn tan, cướp phá lan dọc các con phố.",
+      "start_seconds": 134,
+      "end_seconds": 150,
+      "speaker_directions": "Nhấn 'khu vực đã bị cấm từ trước'; không nói 'xông tới Élysée'.",
+      "source_ref": "whitelist.json#W-elysee-200m"
+    },
+    {
+      "id": "S10",
+      "label": "Limoges — tòa thị chính 1883",
+      "text": "Limoges: nhóm người đeo mặt nạ đập kính xông vào tòa thị chính khánh thành năm 1883, rồi phóng hỏa. Tháp chuông sụp trước 21 giờ. Tỉnh trưởng nói tòa nhà mất phần lớn, và giới chức gọi đây là thảm họa di sản.",
+      "start_seconds": 150,
+      "end_seconds": 168,
+      "speaker_directions": "Nặng nề, chậm; 'mất phần lớn' đúng nguồn, không nói 'toàn bộ'.",
+      "source_ref": "whitelist.json#W-limoges"
+    },
+    {
+      "id": "S11",
+      "label": "Lyon + Marseille — thiệt hại theo The Guardian và bài phát biểu Macron",
+      "text": "Lyon: 200 đến 300 cửa hàng bị đập phá và cướp, văn phòng du lịch bị đốt, theo The Guardian. Tại Marseille, cửa tòa thị chính bị đập mở, theo bài phát biểu của Tổng thống Macron ngày 18/10.",
+      "start_seconds": 168,
+      "end_seconds": 190,
+      "speaker_directions": "Dẫn nguồn rõ ràng: The Guardian và bài phát biểu Tổng thống Macron.",
+      "source_ref": "whitelist.json#W-lyon-marseille"
+    },
+    {
+      "id": "S12",
+      "label": "Các thành phố khác — lan rộng (Macron 18/10 điểm tên)",
+      "text": "Paris không phải nơi duy nhất. Bordeaux: công trình nơi nữ tỉnh trưởng ở bị tấn công. Lille và Marseille: cửa tòa thị chính bị đập mở. Tất cả được Tổng thống Macron điểm tên trong bài phát biểu đêm 18/10.",
+      "start_seconds": 190,
+      "end_seconds": 216,
+      "speaker_directions": "Chậm nhất video; không kết luận nguyên nhân; 'đang điều tra' là trạng thái chính xác.",
+      "source_ref": "whitelist.json#W-deaths"
+    },
+    {
+      "id": "S13",
+      "label": "Bắt giữ (stat card)",
+      "text": "Riêng đêm 17/10: 2.397 người bị bắt, trong đó 855 ở Paris. Đến 22/10, tổng kể từ cuối tuần lên khoảng 2.500: 174 người bị tạm giam, hơn 900 bị truy tố, theo Bộ trưởng Tư pháp.",
+      "start_seconds": 216,
+      "end_seconds": 232,
+      "speaker_directions": "'Riêng đêm 17/10' nhấn; 'theo Bộ trưởng Tư pháp' attribute.",
+      "source_ref": "whitelist.json#W-arrests"
+    },
+    {
+      "id": "S14",
+      "label": "Lực lượng bị thương",
+      "text": "Về phía lực lượng: 997 cảnh sát, hiến binh và lính cứu hỏa bị thương chỉ trong ngày 17/10, trong đó 7 ca nghiêm trọng, theo tổng kê của Bộ Nội vụ.",
+      "start_seconds": 232,
+      "end_seconds": 244,
+      "speaker_directions": "Đọc rõ 'gồm cả lính cứu hỏa'.",
+      "source_ref": "whitelist.json#W-police-injured"
+    },
+    {
+      "id": "S15",
+      "label": "Cửa hàng + chart bảo hiểm (diagram)",
+      "text": "Khu vực thương mại gánh nặng: liên đoàn phân phối đếm 1.500 cửa hàng bị ảnh hưởng; bộ trưởng thương mại nói con số tạm thời là 3.000. Với ngành bảo hiểm, thiệt hại ước tính vượt 1 tỷ euro và có thể tới 1,2 tỷ, theo Financial Times và Morningstar. So với 730 đến 798 triệu euro của đợt bạo loạn 2023, và khoảng 220 triệu của áo vàng 2018-19.",
+      "start_seconds": 244,
+      "end_seconds": 266,
+      "speaker_directions": "Chart hiện khoảng số, không cột chốt; 'ước tính' bắt buộc.",
+      "source_ref": "whitelist.json#W-shops-insurance"
+    },
+    {
+      "id": "S16",
+      "label": "Chính phủ phản ứng",
+      "text": "Chủ nhật 18/10, Tổng thống Macron lên truyền hình: nói mình giận và thẹn, hứa không khoan nhượng với kẻ đập phá. Nhưng ông cũng nói rõ: không được đồng hóa hàng trăm nghìn người biểu tình ôn hòa với thiểu số bạo lực. Bộ trưởng Nội vụ Nuñez nộp đơn từ chức, Macron từ chối, theo Euronews. Paris áp đặt giới nghiêm từng khu vực.",
+      "start_seconds": 266,
+      "end_seconds": 288,
+      "speaker_directions": "Cân bằng: lập trường chính phủ + lập trường phân biệt của chính Macron.",
+      "source_ref": "whitelist.json#W-macron-response"
+    },
+    {
+      "id": "S17",
+      "label": "22/10 — cấm + toà hủy cấm",
+      "text": "Thứ Năm 22/10, sau hội đồng an ninh, Macron tuyên bố cấm các cuộc biểu tình không chính danh. Cùng ngày, toà hành chính Paris hủy lệnh cấm tuần hành của sinh viên, và hàng nghìn người vẫn ra đường. Lyon cấm mọi biểu tình Thứ Bảy; Marseille, Nice, Toulon cũng ra lệnh cấm tương tự.",
+      "start_seconds": 288,
+      "end_seconds": 308,
+      "speaker_directions": "Nhịp nhanh dần; 'toà hủy lệnh cấm' là nghịch lý đáng nhớ.",
+      "source_ref": "whitelist.json#W-bans-court"
+    },
+    {
+      "id": "S18",
+      "label": "Thứ Bảy 24/10 — hồi hai (timeline)",
+      "text": "Thứ Bảy 24/10 sẽ là hồi hai: bản đồ các điểm hành động mới đã xuất hiện trên site điều phối của các nhóm áo vàng, tập trung vào trạm xăng và nhà máy lọc dầu. Lực lượng an ninh được tăng cường mạnh cho cuối tuần này, theo báo chí Pháp.",
+      "start_seconds": 308,
+      "end_seconds": 324,
+      "speaker_directions": "Cliffhanger có kiểm chứng; không phóng đại.",
+      "source_ref": "whitelist.json#W-oct24"
+    },
+    {
+      "id": "S19",
+      "label": "Góc người Việt",
+      "text": "Người Việt ở Pháp cũng sống trong làn sóng ấy. Du học sinh ở Nice kể trường đóng cửa, sinh hoạt đảo lộn. Người Việt lâu năm nói họ không ngạc nhiên. Còn người mới đến thì sốc, khi thấy cảnh đốt phá giữa nước Pháp.",
+      "start_seconds": 324,
+      "end_seconds": 340,
+      "speaker_directions": "Giọng gần gũi, đồng cảm.",
+      "source_ref": "whitelist.json#W-vietnamese"
+    },
+    {
+      "id": "S20",
+      "label": "NHẬN ĐỊNH (badge riêng)",
+      "text": "Nhận định: sáu tháng trước bầu cử tổng thống tháng 4 năm 2027, cái giá sinh hoạt đã biến thành khủng hoảng chính trị. Nhưng đừng quy cả trăm nghìn người biểu tình là bạo loạn. Bạo lực là của thiểu số, và đang được điều tra. Với người đi làm, bài học vẫn là: đệm chi phí cá nhân, trước khi cú sốc tới.",
+      "start_seconds": 340,
+      "end_seconds": 362,
+      "speaker_directions": "Chậm, dứt khoát; badge NHẬN ĐỊNH tách phần biên tập khỏi tin.",
+      "source_ref": "whitelist.json#W-analysis"
+    },
+    {
+      "id": "S21",
+      "label": "CTA",
+      "text": "Thứ Bảy 24/10, chuyện gì sẽ xảy ra? Theo dõi để cập nhật.",
+      "start_seconds": 362,
+      "end_seconds": 370,
+      "speaker_directions": "Ngắn, không giật gân.",
+      "source_ref": "whitelist.json#W-oct24"
+    }
+  ]
+}

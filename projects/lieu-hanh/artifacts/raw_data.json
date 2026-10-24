@@ -1,0 +1,82 @@
+{
+ "version": "1.0",
+ "episode": "S2E04",
+ "numeric_whitelist": [
+  {
+   "display": "1557",
+   "claim_id": "C01",
+   "scope": "Mốc mở truyện bản Phan Kế Bính («thời vua Anh-tôn nhà Lê (1557)») và bản kể dân gian («năm Thiêu Hựu»); không phải năm sinh lịch sử."
+  },
+  {
+   "display": "3 tháng 3 âm lịch",
+   "claim_id": "C03",
+   "scope": "Ngày mất trong bản kể; trùng ngày hội Phủ Dầy."
+  },
+  {
+   "display": "21 (tuổi)",
+   "claim_id": "C03",
+   "scope": "Theo bản kể Phan Kế Bính."
+  },
+  {
+   "display": "40 (tuổi)",
+   "claim_id": "C01",
+   "scope": "«Ngoài 40 tuổi» sinh con — tình tiết bản kể."
+  },
+  {
+   "display": "07/09/1557 (15/8/Đinh Tỵ); 21/03/1577 (3/3/Đinh Sửu)",
+   "claim_id": "C09",
+   "scope": "Infobox bách khoa; chỉ hiển thị kèm khung «theo cách kể/bách khoa», không đọc như sử liệu."
+  },
+  {
+   "display": "1781",
+   "claim_id": "C14",
+   "scope": "Niên đại Quảng Cung linh từ phả ký theo nghiên cứu trích dẫn."
+  },
+  {
+   "display": "1/12/2016",
+   "claim_id": "C10",
+   "scope": "Ngày UNESCO ghi danh (17h15 địa phương) theo tường thuật vi.wiki; bản gốc ich.unesco.org chưa tải được (captcha)."
+  },
+  {
+   "display": "lần thứ 11",
+   "claim_id": "C10",
+   "scope": "Phiên Ủy ban Liên Chính phủ UNESCO."
+  },
+  {
+   "display": "14 (tỉnh)",
+   "claim_id": "C11",
+   "scope": "Phạm vi hồ sơ ghi danh theo vi.wiki."
+  },
+  {
+   "display": "3 (nghi thức)",
+   "claim_id": "C12",
+   "scope": "Ba nghi thức chính hội Phủ Dầy theo vi.wiki."
+  }
+ ],
+ "variant_names": [
+  {
+   "source_id": 1,
+   "heroine": "Giáng-tiên (tên đặt) / Quỳnh-hoa (tên tiên)",
+   "village": "Vân-cát, xã Yên-thái",
+   "edition": "Phan Kế Bính, Nam Hải dị nhân liệt truyện, mục 45"
+  },
+  {
+   "source_id": 2,
+   "heroine": "không nêu tên gọi khác",
+   "village": "thôn An Thái, làng Vân Cát",
+   "edition": "Bản kể «của không rõ» trên Wikisource"
+  },
+  {
+   "source_id": 4,
+   "heroine": "Liễu Hạnh Công chúa / Mẫu nghi thiên hạ",
+   "village": "Tiên Hương, Kim Thái, Vụ Bản",
+   "edition": "Bách khoa vi.wiki (infobox tổng hợp)"
+  }
+ ],
+ "unverified_rumors_avoided": [
+  "«Tứ bất tử là 4 vị thần tối cao cố định từ xưa» — chỉ dẫn như danh sách phổ biến đương đại (C08).",
+  "«UNESCO ghi danh truyền thuyết Liễu Hạnh» — ghi danh dành cho thực hành thờ Mẫu (C10).",
+  "«Bà là người thật sinh 1557 mất 1577» — mốc tổng hợp từ bản kể (C09).",
+  "Phủ Dầy «di tích quốc gia đặc biệt» — chưa xác minh qua quyết định gốc trong lần này, KHÔNG dùng."
+ ]
+}

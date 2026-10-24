@@ -1,0 +1,307 @@
+{
+  "version": "1.0",
+  "project_id": "thanh-giong",
+  "pipeline_type": "animated-explainer",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-10-16T23:55:36.258917+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "Th\u00e1nh Gi\u00f3ng: v\u00ec sao ng\u01b0\u1eddi c\u1ee9u n\u01b0\u1edbc l\u1ea1i l\u00e0 m\u1ed9t \u0111\u1ee9a tr\u1ebb? (VN-Myth S2E02)",
+      "research_date": "2026-10-17",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "SGK Ng\u1eef v\u0103n + k\u1ec3 mi\u1ec7ng ph\u1ed5 bi\u1ebfn",
+            "source": "L\u1edbp d\u00e2n gian\u2013SGK sau n\u00e0y",
+            "angle": "\u0110\u1ee9a tr\u1ebb 3 tu\u1ed5i bi\u1ebft n\u00f3i nh\u1edd m\u1eb9 gi\u1ee1n, 7 nong c\u01a1m 3 chum c\u00e0, ng\u1ef1a s\u1eaft phun l\u1eeda, \u0111\u00e1nh gi\u1eb7c \u00c2n r\u1ed3i bay v\u1ec1 tr\u1eddi",
+            "what_it_covers": "C\u1ed1t truy\u1ec7n em nh\u1ecf h\u1ecdc; s\u1ed1 '7 nong/3 chum' l\u00e0 l\u1edbp k\u1ec3 th\u00eam KH\u00d4NG c\u00f3 trong b\u1ea3n g\u1ed1c"
+          },
+          {
+            "title": "C\u1ed5 th\u01b0 3 l\u1edbp (V\u0110ULT 1329 \u00b7 LNCQ 1492 \u00b7 \u0110VSKTT 1479/1697)",
+            "source": "Nguy\u00ean v\u0103n \u0111\u00e3 l\u1ea5y \u0111\u1ea7y \u0111\u1ee7",
+            "angle": "Ba l\u1ea7n ch\u00e9p, ba c\u00e2u chuy\u1ec7n kh\u00e1c nhau \u2014 trang c\u0169 nh\u1ea5t ch\u1ec9 c\u00f3 th\u1ed5 th\u1ea7n l\u00e0ng, kh\u00f4ng c\u00f3 tr\u1eadn \u0111\u00e1nh",
+            "what_it_covers": "L\u1edbp v\u0103n b\u1ea3n \u00edt ai \u0111\u1eb7t c\u1ea1nh nhau theo th\u1ee9 t\u1ef1 th\u1eddi gian NG\u01af\u1ee2C"
+          },
+          {
+            "title": "H\u1ed3 s\u01a1 2 l\u1ec5 h\u1ed9i Gi\u00f3ng + UNESCO 2010",
+            "source": "scov.gov.vn, dsvh.gov.vn, hanoimoi.vn, chinhphu.vn",
+            "angle": "H\u1ed9i tr\u1eadn Ph\u00f9 \u0110\u1ed5ng th\u00e1ng T\u01b0, h\u1ed9i \u0111\u00eam cu\u1ed1i S\u00f3c th\u00e1ng Gi\u00eang, di s\u1ea3n nh\u00e2n lo\u1ea1i",
+            "what_it_covers": "Th\u1ef1c h\u00e0nh th\u1edd h\u00f4m nay, hi\u1ebfm khi \u0111\u01b0\u1ee3c \u0111\u1ecdc nh\u01b0 'm\u1ed9t \u0111\u1eddi th\u00e1nh, hai k\u1ef7 ni\u1ec7m'"
+          }
+        ],
+        "saturated_angles": [
+          "K\u1ec3 l\u1ea1i truy\u1ec7n SGK ph\u1ee5c v\u1ee5 b\u00e0i ki\u1ec3m tra (g\u1eafn th\u00eam '7 nong c\u01a1m 3 chum c\u00e0' nh\u01b0 th\u1ec3 \u0111\u00f3 l\u00e0 s\u00e1ch c\u1ed5).",
+          "Gi\u1ea3ng b\u00e0i h\u1ecdc \u0111\u1ea1o \u0111\u1ee9c 'c\u1eadu b\u00e9 gi\u1ecfi \u0111\u00e1nh gi\u1eb7c c\u1ee9u n\u01b0\u1edbc' \u2014 anh h\u00f9ng ca thi\u1ebfu ni\u00ean, b\u1ecf qua ch\u1eef 'x\u00f3m l\u00e0ng chung g\u00f3p g\u1ea1o v\u1ea3i'.",
+          "D\u00f9ng l\u1ec5 h\u1ed9i/UNESCO/\u0111\u1ec1n \u0111\u00e0i \u0111\u1ec3 'ch\u1ee9ng minh' Th\u00e1nh Gi\u00f3ng l\u00e0 nh\u00e2n v\u1eadt l\u1ecbch s\u1eed ho\u1eb7c tr\u1eadn \u0111\u00e1nh c\u00f3 th\u1eadt."
+        ],
+        "underserved_gaps": [
+          "\u0110\u1eb7t 3 trang s\u00e1ch theo th\u1ee9 t\u1ef1 NG\u01af\u1ee2C th\u1eddi gian (1697\u21921492\u21921329): c\u00e0ng l\u00f9i c\u00e0ng \u00edt \u0111\u00e1nh nhau \u2014 trang c\u0169 nh\u1ea5t ch\u1ec9 c\u00f3 m\u1ed9t v\u1ecb th\u1ed5 th\u1ea7n c\u1ea1nh ch\u00f9a l\u00e0ng.",
+          "\u0110\u1ecdc k\u1ef9 c\u00e2u ch\u1eef LNCQ v\u1ec1 vi\u1ec7c NU\u00d4I: nh\u00e0 gi\u00e0u nh\u1ea5t l\u00e0ng 'kh\u00f4ng \u0111\u1ee7 g\u1ea1o' \u2014 s\u1ee9c m\u1ea1nh anh h\u00f9ng = c\u1ea3 l\u00e0ng nu\u00f4i l\u1edbn (canon S2-C2).",
+          "M\u1ed9t \u0111\u1eddi th\u00e1nh, hai k\u1ef7 ni\u1ec7m: \u0111\u1ec1n sinh gi\u1eef tr\u1eadn \u0111\u00e1nh (th\u00e1ng T\u01b0), \u0111\u1ec1n bay gi\u1eef \u0111\u00eam cu\u1ed1i (th\u00e1ng Gi\u00eang) \u2014 hai m\u00f9a h\u1ed9i t\u00e1ch bi\u1ec7t \u00edt ai k\u1ec3 c\u1ea1nh nhau.",
+          "C\u00e2u h\u1ecfi \u0111\u00f3ng khung v\u1ec1 v\u0169 kh\u00ed s\u1eaft + ng\u1ef1a s\u1eaft: gi\u1ed1ng th\u1ebf gi\u1edbi NG\u01af\u1edcI CH\u00c9P h\u01a1n th\u1ebf gi\u1edbi \u0111\u01b0\u1ee3c k\u1ec3."
+        ]
+      },
+      "data_points": [
+        {
+          "claim": "Vi\u1ec7t \u0110i\u1ec7n U Linh T\u1eadp (L\u00fd T\u1ebf Xuy\u00ean, 1329) \u2014 b\u1ea3n ghi S\u1edaM NH\u1ea4T: Ph\u00f9 \u0110\u1ed5ng Thi\u00ean V\u01b0\u01a1ng KH\u00d4NG \u0111\u01b0\u1ee3c k\u1ec3 l\u00e0 c\u1eadu b\u00e9 \u0111\u00e1nh gi\u1eb7c. Theo truy\u1ec7n B\u00e1o C\u1ef1c, th\u1ea7n v\u1ed1n l\u00e0 v\u1ecb th\u1ea7n Th\u1ed5 \u0111\u1ecba b\u00ean ch\u00f9a Ki\u1ebfn S\u01a1, h\u01b0\u01a1ng Ph\u00f9 \u0110\u1ed5ng, huy\u1ec7n Ti\u00ean Du \u2014 v\u1ecb th\u1ea7n \u0111\u1ecba ph\u01b0\u01a1ng g\u1eafn v\u1edbi thi\u1ec1n s\u01b0 (Ch\u00ed Th\u00e0nh, \u0110a B\u1ea3o), nhi\u1ec1u l\u1ea7n hi\u1ec3n linh qua th\u01a1 k\u1ec7, t\u1eebng ph\u00f9 tr\u1ee3 nh\u00e0 L\u00fd. M\u0129 hi\u1ec7u th\u1eddi Tr\u1ea7n: 'Xung Thi\u00ean D\u0169ng Li\u1ec7t Chi\u00eau \u1ee8ng Uy T\u00edn \u0110\u1ea1i V\u01b0\u01a1ng' (gia phong H\u01b0ng Long 21 = 1313). N\u0103m 1329, 'Ph\u00f9 \u0110\u1ed5ng Thi\u00ean V\u01b0\u01a1ng' l\u00e0 T\u00caN TH\u1ea6N c\u1ee7a m\u1ed9t l\u00e0ng \u2014 ch\u01b0a l\u00e0 TRUY\u1ec6N m\u1ed9t \u0111\u1eddi anh h\u00f9ng.",
+          "source_url": "https://verified.data.internal/dp_0",
+          "source_name": "Vi\u1ec7t \u0110i\u1ec7n U Linh T\u1eadp (L\u00fd T\u1ebf Xuy\u00ean, 1329) \u00b7 truy\u1ec7n B\u00e1o C\u1ef1c (quangduc.com, nghiencuulichsu.com, wikisource V\u0110ULT)",
+          "credibility": "primary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "mini_reveal"
+        },
+        {
+          "claim": "L\u0129nh Nam ch\u00edch qu\u00e1i (g\u1ed1c Tr\u1ea7n Th\u1ebf Ph\u00e1p TK XIV; V\u0169 Qu\u1ef3nh \u2013 Ki\u1ec1u Ph\u00fa hi\u1ec7u ch\u00ednh 1492) \u2014 b\u1ea3n \u0111\u1ea7y \u0111\u1ee7 k\u1ef3 \u1ea3o nh\u1ea5t: \u0111\u1eddi H\u00f9ng V\u01b0\u01a1ng th\u1ee9 6, vua kh\u00f4ng tri\u1ec1u c\u1ed1ng nh\u00e0 \u00c2n \u2192 Long Qu\u00e2n h\u00f3a c\u1ee5 gi\u00e0 t\u00f3c b\u1ea1c ng\u1ed3i ng\u00e3 ba \u0111\u01b0\u1eddng b\u00e1o tr\u01b0\u1edbc 3 n\u0103m s\u1ebd c\u00f3 gi\u1eb7c, d\u1eb7n t\u00ecm ng\u01b0\u1eddi k\u1ef3 t\u00e0i. L\u00e0ng Ph\u00f9 \u0110\u1ed5ng, huy\u1ec7n V\u00f5 Ninh, nh\u00e0 gi\u00e0u v\u1ee3 ch\u1ed3ng ngo\u00e0i 60 tu\u1ed5i sinh con trai 3 tu\u1ed5i ch\u01b0a bi\u1ebft n\u00f3i, ch\u1ec9 n\u1eb1m ng\u1eeda. Nghe m\u1eb9 n\u00f3i gi\u1ee1n, c\u1eadu c\u1ea5t ti\u1ebfng \u0111\u1ea7u ti\u00ean: g\u1ecdi s\u1ee9 gi\u1ea3 \u2014 xin ng\u1ef1a s\u1eaft cao 18 th\u01b0\u1edbc, thanh ki\u1ebfm d\u00e0i 7 th\u01b0\u1edbc, c\u00e1i n\u00f3n s\u1eaft; c\u00e2u tho\u1ea1i 'Ta l\u00e0 thi\u00ean t\u01b0\u1edbng nh\u00e0 Tr\u1eddi \u0111\u00e2y!'. Ki\u1ebfm g\u00e3y \u2192 nh\u1ed5 b\u1ee5i tre v\u1ec7 \u0111\u01b0\u1eddng qu\u1ea5t gi\u1eb7c; n\u00fai Ninh S\u00f3c: c\u1edfi \u00e1o b\u00e0o, c\u01b0\u1ee1i ng\u1ef1a bay l\u00ean Tr\u1eddi. Vua phong Ph\u00f9 \u0110\u1ed5ng Thi\u00ean V\u01b0\u01a1ng, ban 100 m\u1eabu ru\u1ed9ng t\u1ef1 \u0111i\u1ec1n. \u0110\u1eddi L\u00fd gia phong 'Sung Thi\u00ean Th\u1ea7n V\u01b0\u01a1ng'; tre \u0110\u1eb1ng Ng\u00e0 (Gia B\u00ecnh) m\u1ecdc t\u1eeb ch\u1ed7 tre \u0111\u00e1nh gi\u1eb7c; l\u00e0ng Ch\u00e1y \u2014 n\u01a1i ng\u1ef1a s\u1eaft h\u00e9t ra l\u1eeda.",
+          "source_url": "https://verified.data.internal/dp_1",
+          "source_name": "L\u0129nh Nam ch\u00edch qu\u00e1i \u00b7 truy\u1ec1n k\u1ef3 'Ph\u00f9 \u0110\u1ed5ng Thi\u00ean V\u01b0\u01a1ng' (vi.wikisource 2026-10-17, nguy\u00ean v\u0103n \u0111\u1ea7y \u0111\u1ee7)",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "\u0110\u1ea1i Vi\u1ec7t s\u1eed k\u00fd to\u00e0n th\u01b0 (Ng\u00f4 S\u0129 Li\u00ean 1479, b\u1ea3n Ch\u00ednh hi\u1ec7u 1697) \u2014 ch\u00ednh s\u1eed, ch\u1ec9 v\u00e0i d\u00f2ng: '\u00f4ng nh\u00e0 gi\u00e0u... sinh m\u1ed9t con trai. H\u01a1n ba tu\u1ed5i, \u0103n u\u1ed1ng, to b\u00e9o, kh\u00f4ng bi\u1ebft n\u00f3i c\u01b0\u1eddi. X\u1ea3y khi trong n\u01b0\u1edbc c\u00f3 gi\u1eb7c... \u0111\u1ee9a tr\u1ebb b\u1ed7ng n\u00f3i \u0111\u01b0\u1ee3c... Xin cho m\u1ed9t thanh g\u01b0\u01a1m, m\u1ed9t con ng\u1ef1a v\u00e0 m\u1ed9t roi s\u1eaft, nh\u00e0 vua kh\u00f4ng ph\u1ea3i lo g\u00ec c\u1ea3!... Gi\u1eb7c t\u1ef1 quay gi\u00e1o \u0111\u00e1nh l\u1eabn nhau... \u0110\u1ee9a tr\u1ebb nh\u1ea3y ng\u1ef1a l\u00ean kh\u00f4ng m\u00e0 \u0111i. Nh\u00e0 vua sai s\u1eeda sang n\u01a1i v\u01b0\u1eddn nh\u00e0 n\u00f3 \u1edf, l\u1eadp \u0111\u1ec1n th\u1edd ph\u1ee5ng.' Kh\u00f4ng Long Qu\u00e2n, kh\u00f4ng tre, kh\u00f4ng ru\u1ed9ng ban; 'n\u00f3n s\u1eaft' (truy\u1ec1n k\u1ef3) \u0111\u1ed5i th\u00e0nh 'roi s\u1eaft' (ch\u00ednh s\u1eed).",
+          "source_url": "https://verified.data.internal/dp_2",
+          "source_name": "\u0110VSKTT \u00b7 Ngo\u1ea1i k\u1ef7 \u00b7 Tri\u1ec1u h\u1ecd H\u1ed3ng B\u00e0ng \u00b7 H\u00f9ng V\u01b0\u01a1ng (b\u1ea3n d\u1ecbch Vi\u1ec7n KH XH VN)",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "BA l\u1edbp v\u0103n b\u1ea3n c\u00f3 ni\u00ean \u0111\u1ea1i (1329 / 1492 / 1479\u20131697) \u2014 b\u1eb1ng ch\u1ee9ng truy\u1ec7n \u0110\u1ed4I THEO NG\u01af\u1edcI CH\u00c9P: mini-reveal H\u1ed3i 1 'c\u00e0ng l\u00f9i v\u1ec1 tr\u01b0\u1edbc, ti\u1ebfng g\u01b0\u01a1m c\u00e0ng nh\u1ecf d\u1ea7n' \u2014 1697 v\u00e0i d\u00f2ng kh\u00f4 g\u1ecdt k\u1ef3 \u1ea3o; 1492 truy\u1ec1n k\u1ef3 r\u1ef1c r\u1ee1 (Long Qu\u00e2n, tre, ru\u1ed9ng ban); 1329 ch\u1ec9 c\u00f2n m\u1ed9t v\u1ecb th\u1ed5 th\u1ea7n c\u1ea1nh ch\u00f9a l\u00e0ng, CH\u01afA c\u00f3 truy\u1ec7n \u0111\u00e1nh gi\u1eb7c. \u0110i\u1ec1u b\u1ea5t bi\u1ebfn qua c\u1ea3 3 l\u1edbp: \u0111\u1ee9a tr\u1ebb \u2014 ti\u1ebfng n\u00f3i \u0111\u1ea7u ti\u00ean \u2014 v\u0169 kh\u00ed \u2014 bay v\u1ec1 tr\u1eddi \u2014 \u0111\u01b0\u1ee3c th\u1edd. (\u0110\u00f3ng khung: quan s\u00e1t v\u0103n b\u1ea3n; KH\u00d4NG k\u1ebft lu\u1eadn truy\u1ec7n 'b\u1ecba sau'.)",
+          "source_url": "https://verified.data.internal/dp_3",
+          "source_name": "\u0110\u1ed1i chi\u1ebfu 3 l\u1edbp v\u0103n b\u1ea3n (sources/07 m\u1ee5c 1)",
+          "credibility": "primary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "mini_reveal"
+        },
+        {
+          "claim": "Canon S2-C2 n\u1eb1m ngay trong nguy\u00ean v\u0103n truy\u1ec1n k\u1ef3 LNCQ: 'Gia \u0111\u00ecnh c\u1eadu tuy gi\u00e0u c\u00f3 nh\u01b0ng kh\u00f4ng \u0111\u1ee7 g\u1ea1o cho c\u1eadu \u0103n no, kh\u00f4ng \u0111\u1ee7 v\u1ea3i \u0111\u1ec3 may \u00e1o qu\u1ea7n. X\u00f3m l\u00e0ng ph\u1ea3i chung g\u00f3p g\u1ea1o v\u1ea3i v\u1edbi gia \u0111\u00ecnh \u0111\u1ec3 nu\u00f4i c\u1eadu.' + ph\u1ea3i c\u1ea5t nh\u00e0 to \u0111\u1ec3 \u1edf. Ng\u01b0\u1eddi c\u1ee9u n\u01b0\u1edbc KH\u00d4NG t\u1ef1 l\u1edbn l\u00ean: nh\u00e0 gi\u00e0u nh\u1ea5t l\u00e0ng c\u0169ng kh\u00f4ng \u0111\u1ee7 \u2014 ph\u1ea3i t\u1eebng nh\u00e0 g\u00f3p g\u1ea1o. S\u1ee9c m\u1ea1nh anh h\u00f9ng = c\u1ed9ng \u0111\u1ed3ng nu\u00f4i.",
+          "source_url": "https://verified.data.internal/dp_4",
+          "source_name": "LNCQ nguy\u00ean v\u0103n (sources/07 m\u1ee5c 2)",
+          "credibility": "primary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "central_scene"
+        },
+        {
+          "claim": "HAI ng\u00f4i \u0111\u1ec1n, HAI m\u00f9a h\u1ed9i (\u0111a ngu\u1ed3n ki\u1ec3m ch\u1ee9ng): Ph\u00f9 \u0110\u1ed5ng (Gia L\u00e2m, H\u00e0 N\u1ed9i) \u2014 n\u01a1i SINH, h\u1ed9i 7\u20139/4 AL ch\u00ednh h\u1ed9i 9/4, H\u1ed8I TR\u1eacN l\u1edbn b\u1eadc nh\u1ea5t: r\u01b0\u1edbc n\u01b0\u1edbc (lau r\u1eeda kh\u00ed gi\u1edbi), r\u01b0\u1edbc c\u1edd, kh\u00e1m \u0111\u01b0\u1eddng, duy\u1ec7t t\u01b0\u1edbng, t\u00e1i hi\u1ec7n tr\u1eadn \u0111\u00e1nh t\u1ea1i b\u00e3i Soi Bia. S\u00f3c (S\u00f3c S\u01a1n) \u2014 n\u01a1i BAY V\u1ec0 TR\u1edcI (n\u00fai S\u00f3c/V\u1ec7 Linh), h\u1ed9i 6\u20138 th\u00e1ng Gi\u00eang: \u0111\u00eam m\u00f9ng 5 M\u1ed9c D\u1ee5c t\u1eafm t\u01b0\u1ee3ng; m\u00f9ng 6 r\u01b0\u1edbc 8 l\u1ec5 v\u1eadt (tr\u1ea7u cau, c\u1ea7u h\u00fac, ng\u00e0 voi, c\u1ecf voi, ng\u1ef1a s\u1eaft th\u1ea7n m\u00e3, voi chi\u1ebfn, ki\u1ec7u n\u1eef t\u01b0\u1edbng tr\u1ebb, gi\u00f2 hoa tre l\u00e0ng V\u1ec7 Linh); h\u1ed9i v\u00f5 v\u1eadt c\u1ea7u h\u00fac/k\u00e9o m\u1ecf/\u0111\u1ea5u v\u1eadt/c\u1edd t\u01b0\u1edbng. Ca dao: 'Ai \u01a1i m\u1ed3ng Ch\u00edn th\u00e1ng T\u01b0 / Kh\u00f4ng \u0111i h\u1ed9i Gi\u00f3ng c\u0169ng h\u01b0 m\u1ea5t \u0111\u1eddi.'",
+          "source_url": "https://verified.data.internal/dp_5",
+          "source_name": "H\u1ed3 s\u01a1 h\u1ed9i Gi\u00f3ng \u0111\u1ec1n Ph\u00f9 \u0110\u1ed5ng + \u0111\u1ec1n S\u00f3c (scov.gov.vn, dsvh.gov.vn, hanoimoi.vn, chinhphu.vn)",
+          "credibility": "secondary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "landing"
+        },
+        {
+          "claim": "16/11/2010 (Nairobi): UNESCO ghi danh 'H\u1ed9i Gi\u00f3ng \u0111\u1ec1n Ph\u00f9 \u0110\u1ed5ng v\u00e0 \u0111\u1ec1n S\u00f3c' v\u00e0o danh s\u00e1ch Di s\u1ea3n v\u0103n h\u00f3a phi v\u1eadt th\u1ec3 \u0111\u1ea1i di\u1ec7n c\u1ee7a nh\u00e2n lo\u1ea1i \u2014 v\u00ec gi\u00e1 tr\u1ecb c\u1ee7a h\u1ed9i n\u1eb1m \u1edf vi\u1ec7c C\u1ea2 L\u00c0NG nh\u1eadp vai. (L\u01b0u \u00fd anti-rule: UNESCO/l\u1ec5 h\u1ed9i KH\u00d4NG ch\u1ee9ng minh tr\u1eadn \u0111\u00e1nh c\u00f3 th\u1eadt.)",
+          "source_url": "https://verified.data.internal/dp_6",
+          "source_name": "UNESCO 2010 (chinhphu.vn, scov.gov.vn, baotanglichsu.vn)",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "Kho\u1ea3ng c\u00e1ch ni\u00ean \u0111\u1ea1i \u2014 ch\u1ec9 c\u00f3 th\u1ec3 tr\u1ea3 b\u1eb1ng C\u00c2U H\u1eceI \u0111\u00f3ng khung: truy\u1ec7n \u0111\u1eb7t \u0111\u1ec3 \u0111\u1eddi H\u00f9ng V\u01b0\u01a1ng th\u1ee9 6 (huy\u1ec1n s\u1eed \u2014 S1 \u0111\u00e3 thi\u1ebft l\u1eadp, kh\u00f4ng \u0111\u1ecbnh ni\u00ean \u0111\u1ea1i \u0111\u01b0\u1ee3c); 'gi\u1eb7c \u00c2n' = nh\u00e0 Th\u01b0\u01a1ng trong truy\u1ec7n k\u1ec3. V\u0169 kh\u00ed S\u1eaeT + NG\u1ef0A trong tay c\u1eadu b\u00e9: roadmap C\u1ea4M d\u00f9ng \u0111\u1ec3 g\u00e1n ni\u00ean \u0111\u1ea1i \u2014 ch\u1ec9 \u0111\u01b0\u1ee3c tr\u00ecnh b\u00e0y nh\u01b0 c\u00e2u h\u1ecfi: chi ti\u1ebft \u0111\u00f3 gi\u1ed1ng th\u1ebf gi\u1edbi c\u1ee7a NG\u01af\u1edcI CH\u00c9P (TK XIV\u2013XV, khi roi s\u1eaft v\u00e0 k\u1ef5 m\u00e3 l\u00e0 c\u00f4ng ngh\u1ec7 qu\u00e2n s\u1ef1 quen thu\u1ed9c) h\u01a1n l\u00e0 th\u1ebf gi\u1edbi \u0111\u01b0\u1ee3c k\u1ec3. KH\u00d4NG k\u1ebft lu\u1eadn hai chi\u1ec1u. D\u1ea5u v\u1ec7t \u0111\u1ecba danh c\u00f2n \u0111\u1ecdc \u0111\u01b0\u1ee3c h\u00f4m nay (Ph\u00f9 \u0110\u1ed5ng/V\u00f5 Gi\u00e0ng, n\u00fai S\u00f3c, tre \u0110\u1eb1ng Ng\u00e0 Gia B\u00ecnh, l\u00e0ng Ch\u00e1y) d\u00f9ng l\u00e0m B\u1ed0I C\u1ea2NH, kh\u00f4ng ch\u1ee9ng minh s\u1ef1 ki\u1ec7n.",
+          "source_url": "https://verified.data.internal/dp_7",
+          "source_name": "sources/07 m\u1ee5c 4 (kho\u1ea3ng c\u00e1ch ni\u00ean \u0111\u1ea1i + \u0111\u1ecba danh)",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "anti_rule_guard"
+        },
+        {
+          "claim": "D\u1ecb b\u1ea3n & t\u00ean g\u1ecdi: '7 nong c\u01a1m, 3 chum c\u00e0...' l\u00e0 l\u1edbp k\u1ec3 d\u00e2n gian\u2013SGK SAU n\u00e0y, KH\u00d4NG c\u00f3 trong LNCQ/\u0110VSKTT nguy\u00ean b\u1ea3n \u2192 n\u1ebfu d\u00f9ng ph\u1ea3i \u0111\u00f3ng khung 'd\u00e2n gian k\u1ec3 th\u00eam' (khuy\u1ebfn ngh\u1ecb d\u00f9ng nguy\u00ean v\u0103n LNCQ v\u1ec1 x\u00f3m l\u00e0ng g\u00f3p g\u1ea1o \u2014 m\u1ea1nh h\u01a1n v\u00e0 \u0111\u00fang ngu\u1ed3n). T\u00ean g\u1ecdi: Ph\u00f9 \u0110\u1ed5ng Thi\u00ean V\u01b0\u01a1ng = Sung Thi\u00ean Th\u1ea7n V\u01b0\u01a1ng (\u0111\u1eddi L\u00fd) = Xung Thi\u00ean D\u0169ng Li\u1ec7t Chi\u00eau \u1ee8ng Uy T\u00edn \u0110\u1ea1i V\u01b0\u01a1ng (\u0111\u1eddi Tr\u1ea7n) = Th\u00e1nh Gi\u00f3ng/\u0110\u1ee9c Th\u00e1nh Gi\u00f3ng (t\u00ean d\u00e2n gian). Gi\u00f3ng thu\u1ed9c T\u1ee9 b\u1ea5t t\u1eed (T\u1ea3n Vi\u00ean \u2013 Ph\u00f9 \u0110\u1ed5ng \u2013 Ch\u1eed \u0110\u1ed3ng T\u1eed \u2013 Li\u1ec5u H\u1ea1nh), \u0111\u1ee9ng th\u1ee9 hai sau T\u1ea3n Vi\u00ean.",
+          "source_url": "https://verified.data.internal/dp_8",
+          "source_name": "\u0110\u1ed1i chi\u1ebfu d\u1ecb b\u1ea3n + t\u00ean g\u1ecdi (sources/07 m\u1ee5c 5)",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "anti_rule_guard"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "Th\u00e1nh Gi\u00f3ng, m\u1eb9 Gi\u00f3ng c\u00f3 th\u1eadt kh\u00f4ng? 'Gi\u1eb7c \u00c2n' l\u00e0 ai \u2014 nh\u00e0 Th\u01b0\u01a1ng th\u1eadt \u00e0?",
+          "V\u00ec sao ng\u01b0\u1eddi c\u1ee9u n\u01b0\u1edbc l\u00e0 m\u1ed9t \u0111\u1ee9a tr\u1ebb 3 tu\u1ed5i ch\u01b0a bi\u1ebft n\u00f3i \u2014 v\u00e0 ti\u1ebfng \u0111\u1ea7u ti\u00ean l\u00e0 xin v\u0169 kh\u00ed?",
+          "S\u00e1ch gi\u00e1o khoa k\u1ec3 '7 nong c\u01a1m 3 chum c\u00e0' \u2014 s\u00e1ch c\u1ed5 c\u00f3 ch\u00e9p v\u1eady kh\u00f4ng?",
+          "V\u00ec sao c\u00f3 t\u1edbi hai h\u1ed9i Gi\u00f3ng \u1edf hai \u0111\u1ec1n, hai m\u00f9a kh\u00e1c nhau?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "'7 nong c\u01a1m, 3 chum c\u00e0, 3 v\u00f2 r\u01b0\u1ee3u' c\u00f3 trong s\u00e1ch c\u1ed5.",
+            "reality": "L\u1edbp k\u1ec3 d\u00e2n gian\u2013SGK sau n\u00e0y; v\u0103n b\u1ea3n g\u1ed1c ch\u1ec9 ch\u00e9p nh\u00e0 gi\u00e0u 'kh\u00f4ng \u0111\u1ee7 g\u1ea1o... x\u00f3m l\u00e0ng chung g\u00f3p g\u1ea1o v\u1ea3i'.",
+            "source": "sources/07 m\u1ee5c 5"
+          },
+          {
+            "myth": "Th\u00e1nh Gi\u00f3ng ch\u1ebft sau tr\u1eadn \u0111\u00e1nh.",
+            "reality": "V\u0103n b\u1ea3n n\u00f3i 'c\u1edfi \u00e1o b\u00e0o \u0111\u1ec3 l\u1ea1i, c\u01b0\u1ee1i ng\u1ef1a bay l\u00ean Tr\u1eddi / nh\u1ea3y ng\u1ef1a l\u00ean kh\u00f4ng m\u00e0 \u0111i' \u2014 bay v\u1ec1 tr\u1eddi, kh\u00f4ng ph\u1ea3i ch\u1ebft.",
+            "source": "sources/07 anti-rules"
+          },
+          {
+            "myth": "\u0110\u1ec1n \u0111\u00e0i, l\u1ec5 h\u1ed9i, UNESCO ch\u1ee9ng minh tr\u1eadn \u0111\u00e1nh c\u00f3 th\u1eadt.",
+            "reality": "B\u1eb1ng ch\u1ee9ng t\u00edn ng\u01b0\u1ee1ng ch\u1ec9 n\u00f3i v\u1ec1 NG\u01af\u1edcI TH\u1edc v\u00e0 \u0111i\u1ec1u h\u1ecd ch\u1ecdn ghi nh\u1edb \u2014 sinh \u1edf \u0111\u00e2u, bay \u1edf \u0111\u00e2u, m\u00f9a n\u00e0o nh\u1edb g\u00ec.",
+            "source": "sources/07 anti-rules"
+          },
+          {
+            "myth": "V\u0169 kh\u00ed s\u1eaft, ng\u1ef1a s\u1eaft cho bi\u1ebft truy\u1ec7n r\u1ea5t c\u1ed5 (ho\u1eb7c ng\u01b0\u1ee3c l\u1ea1i, r\u1ea5t mu\u1ed9n).",
+            "reality": "KH\u00d4NG \u0111\u01b0\u1ee3c d\u00f9ng \u0111\u1ec3 g\u00e1n ni\u00ean \u0111\u1ea1i theo b\u1ea5t k\u1ef3 chi\u1ec1u n\u00e0o; ch\u1ec9 l\u00e0 c\u00e2u h\u1ecfi \u0111\u00f3ng khung v\u1ec1 th\u1ebf gi\u1edbi ng\u01b0\u1eddi ch\u00e9p TK XIV\u2013XV.",
+            "source": "sources/07 m\u1ee5c 4"
+          }
+        ],
+        "knowledge_level": "Kh\u00e1n gi\u1ea3 h\u1ecdc SGK thu\u1ed9c truy\u1ec7n Gi\u00f3ng v\u00e0 k\u1ebft 'bay v\u1ec1 tr\u1eddi'; ng\u01b0\u1eddi xem S2E01 bi\u1ebft T\u1ee9 b\u1ea5t t\u1eed c\u00f3 T\u1ea3n Vi\u00ean \u0111\u1ea7u ti\u00ean. T\u1eadp xem \u0111\u1ed9c l\u1eadp \u0111\u01b0\u1ee3c \u2014 kh\u00f4ng b\u1eaft xem S1/S2E01.",
+        "pain_points": [
+          "D\u1ec5 sa v\u00e0o anh h\u00f9ng ca thi\u1ebfu ni\u00ean ho\u1eb7c gi\u1ea3ng s\u1eed tu\u1ea7n t\u1ef1; S2 \u0111\u00f2i k\u1ec3 qua V\u1eacT TH\u1ec2 (h\u1ea1t g\u1ea1o, nong, tre, \u0111\u1ec1n) m\u1edf t\u1eeb h\u00f4m nay \u0111i ng\u01b0\u1ee3c v\u00e0o th\u1ea7n tho\u1ea1i.",
+          "D\u1ec5 vi ph\u1ea1m anti-rule: ch\u1ee9ng minh tr\u1eadn \u0111\u00e1nh b\u1eb1ng l\u1ec5 h\u1ed9i, ho\u1eb7c g\u00e1n ni\u00ean \u0111\u1ea1i b\u1eb1ng v\u0169 kh\u00ed s\u1eaft."
+        ]
+      },
+      "angles_discovered": [
+        {
+          "name": "Ti\u1ebfng n\u00f3i \u0111\u1ea7u ti\u00ean l\u00e0 m\u1ed9t l\u1eddi xin v\u0169 kh\u00ed",
+          "hook": "3 n\u0103m im l\u1eb7ng \u2014 r\u1ed3i m\u1edf mi\u1ec7ng kh\u00f4ng ph\u1ea3i g\u1ecdi m\u1eb9, m\u00e0 l\u00e0 g\u1ecdi s\u1ee9 gi\u1ea3: 'cho t\u00f4i thanh ki\u1ebfm'. V\u00ec sao ng\u01b0\u1eddi x\u01b0a ch\u1ecdn M\u1ed8T \u0110\u1ee8A TR\u1eba IM L\u1eb6NG l\u00e0m ng\u01b0\u1eddi c\u1ee9u n\u01b0\u1edbc?",
+          "type": "narrative",
+          "why_now": "C\u00e2u h\u1ecfi m\u1edf t\u1eadp, g\u1eafn tr\u1ef1c ti\u1ebfp hook \u2194 climax tr\u1ea3 l\u1eddi.",
+          "grounded_in": [
+            "dp_1",
+            "dp_2"
+          ]
+        },
+        {
+          "name": "Ba trang s\u00e1ch l\u1eadt ng\u01b0\u1ee3c th\u1eddi gian",
+          "hook": "C\u00e0ng l\u00f9i v\u1ec1 tr\u01b0\u1edbc, ti\u1ebfng g\u01b0\u01a1m c\u00e0ng nh\u1ecf d\u1ea7n \u2014 v\u00e0 g\u1ea7n nh\u1ea5t v\u1edbi \u0111i\u1ec3m xu\u1ea5t ph\u00e1t, ch\u1ec9 c\u00f2n m\u1ed9t ng\u00f4i \u0111\u1ec1n nh\u1ecf c\u1ea1nh ch\u00f9a l\u00e0ng Ph\u00f9 \u0110\u1ed5ng.",
+          "type": "contrarian",
+          "why_now": "Mini-reveal H\u1ed3i 1; 3 l\u1edbp v\u0103n b\u1ea3n \u0111\u1ec1u c\u00f3 ni\u00ean \u0111\u1ea1i r\u00f5 (1329/1492/1697).",
+          "grounded_in": [
+            "dp_0",
+            "dp_3"
+          ]
+        },
+        {
+          "name": "H\u1ea1t g\u1ea1o c\u1ee7a c\u1ea3 l\u00e0ng",
+          "hook": "Nh\u00e0 gi\u00e0u nh\u1ea5t l\u00e0ng 'kh\u00f4ng \u0111\u1ee7 g\u1ea1o' \u2014 Th\u00e1nh Gi\u00f3ng kh\u00f4ng t\u1ef1 l\u1edbn: C\u1ea2 L\u00c0NG nu\u00f4i n\u00f3 l\u1edbn.",
+          "type": "data_driven",
+          "why_now": "Scene trung t\u00e2m + canon S2-C2; nguy\u00ean v\u0103n LNCQ l\u00ean m\u00e0n h\u00ecnh.",
+          "grounded_in": [
+            "dp_4"
+          ]
+        },
+        {
+          "name": "M\u1ed9t \u0111\u1eddi th\u00e1nh, hai k\u1ef7 ni\u1ec7m",
+          "hook": "Th\u00e1ng T\u01b0, Ph\u00f9 \u0110\u1ed5ng d\u1ea1y l\u1ea1i tr\u1eadn \u0111\u00e1nh; th\u00e1ng Gi\u00eang, S\u00f3c nh\u1edb \u0111\u00eam cu\u1ed1i \u2014 hai ng\u00f4i \u0111\u1ec1n gi\u1eef hai k\u1ef7 ni\u1ec7m c\u1ee7a c\u00f9ng m\u1ed9t c\u00e2u chuy\u1ec7n.",
+          "type": "evergreen",
+          "why_now": "H\u1ed3i 3 + landing; h\u1ed3 s\u01a1 l\u1ec5 h\u1ed9i \u0111a ngu\u1ed3n + UNESCO 16/11/2010.",
+          "grounded_in": [
+            "dp_5",
+            "dp_6"
+          ]
+        },
+        {
+          "name": "V\u0169 kh\u00ed c\u1ee7a ng\u01b0\u1eddi ch\u00e9p",
+          "hook": "Roi s\u1eaft v\u00e0 ng\u1ef1a s\u1eaft trong tay c\u1eadu b\u00e9 \u2014 gi\u1ed1ng th\u1ebf gi\u1edbi c\u1ee7a NG\u01af\u1edcI VI\u1ebeT (TK XIV\u2013XV) h\u01a1n th\u1ebf gi\u1edbi \u0111\u01b0\u1ee3c k\u1ec3.",
+          "type": "contrarian",
+          "why_now": "C\u00e2u h\u1ecfi \u0111\u00f3ng khung duy nh\u1ea5t v\u1ec1 ni\u00ean \u0111\u1ea1i; tr\u1ea3 n\u1ee3 research th\u1ee9 3 kh\u00f4ng vi ph\u1ea1m roadmap.",
+          "grounded_in": [
+            "dp_7"
+          ]
+        }
+      ],
+      "visual_references": [
+        {
+          "description": "Scene trung t\u00e2m: h\u1ea1t g\u1ea1o bay t\u1eeb t\u1eebng m\u00e1i nh\u00e0 l\u00e0ng Ph\u00f9 \u0110\u1ed5ng v\u00e0o chi\u1ebfc nong tre ng\u00e0y m\u1ed9t \u0111\u1ea7y; nong \u2192 tr\u00e1ng s\u0129 gi\u00e1p s\u1eaft xanh r\u00eau tr\u00ean ng\u1ef1a s\u1eaft phun l\u1eeda; v\u1eadt th\u1ec3 k\u1ec3 chuy\u1ec7n (nong/tre/\u0111\u1ec1n), KH\u00d4NG DNA.",
+          "what_works": "Visual tr\u1ee5c m\u00f9a S2 (v\u1eadt th\u1ec3); style S1 ink-genome amber"
+        },
+        {
+          "description": "3 trang gi\u1ea5y d\u00f3 3 t\u00f4ng (1329/1492/1697) \u0111\u1eb7t c\u1ea1nh nhau l\u1eadt ng\u01b0\u1ee3c; hai ng\u00f4i \u0111\u1ec1n hai m\u00f9a (Ph\u00f9 \u0110\u1ed5ng \u0111\u1ecf son ng\u00e0y h\u1ed9i tr\u1eadn vs S\u00f3c tr\u00ean n\u00fai + gi\u00f2 hoa tre); silhouette H\u00f9ng V\u01b0\u01a1ng f07 reuse.",
+          "what_works": "Evidence teal + myth amber; callback S1 nh\u1eb9 \u0111\u00fang quy t\u1eafc reuse silhouette/tranh c\u1ed5"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://verified.data.internal/src_0",
+          "title": "Vi\u1ec7t \u0110i\u1ec7n U Linh T\u1eadp (L\u00fd T\u1ebf Xuy\u00ean, 1329) \u00b7 truy\u1ec7n B\u00e1o C\u1ef1c \u2014 th\u1ea7n Th\u1ed5 \u0111\u1ecba ch\u00f9a Ki\u1ebfn S\u01a1",
+          "used_for": "dp_0, dp_3: l\u1edbp s\u1edbm nh\u1ea5t, gia phong 1313, ch\u01b0a c\u00f3 truy\u1ec7n \u0111\u00e1nh gi\u1eb7c",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://verified.data.internal/src_1",
+          "title": "L\u0129nh Nam ch\u00edch qu\u00e1i \u00b7 truy\u1ec1n k\u1ef3 'Ph\u00f9 \u0110\u1ed5ng Thi\u00ean V\u01b0\u01a1ng' (1492) \u2014 nguy\u00ean v\u0103n \u0111\u1ea7y \u0111\u1ee7 vi.wikisource",
+          "used_for": "dp_1, dp_4: Long Qu\u00e2n c\u1ee5 gi\u00e0, v\u0169 kh\u00ed s\u1eaft, 'x\u00f3m l\u00e0ng chung g\u00f3p g\u1ea1o v\u1ea3i', bay v\u1ec1 tr\u1eddi, 100 m\u1eabu, tre \u0110\u1eb1ng Ng\u00e0",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://verified.data.internal/src_2",
+          "title": "\u0110\u1ea1i Vi\u1ec7t s\u1eed k\u00fd to\u00e0n th\u01b0 \u00b7 Ngo\u1ea1i k\u1ef7 (1479/1697; b\u1ea3n d\u1ecbch Vi\u1ec7n KH XH VN)",
+          "used_for": "dp_2, dp_3: \u0111o\u1ea1n Ph\u00f9 \u0110\u1ed5ng nguy\u00ean v\u0103n v\u00e0i d\u00f2ng kh\u00f4, n\u00fai V\u0169 Ninh, 'l\u1eadp \u0111\u1ec1n th\u1edd ph\u1ee5ng'",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://verified.data.internal/src_3",
+          "title": "H\u1ed3 s\u01a1 h\u1ed9i Gi\u00f3ng \u0111\u1ec1n Ph\u00f9 \u0110\u1ed5ng (scov.gov.vn, dsvh.gov.vn, chinhphu.vn, baotanglichsu.vn)",
+          "used_for": "dp_5: 7\u20139/4 AL, h\u1ed9i tr\u1eadn, r\u01b0\u1edbc n\u01b0\u1edbc, b\u00e3i Soi Bia, ca dao",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://verified.data.internal/src_4",
+          "title": "H\u1ed3 s\u01a1 h\u1ed9i Gi\u00f3ng \u0111\u1ec1n S\u00f3c (hanoimoi.vn, nguoihanoi.vn, dsvh.gov.vn)",
+          "used_for": "dp_5: 6\u20138 th\u00e1ng Gi\u00eang, M\u1ed9c D\u1ee5c m\u00f9ng 5, 8 l\u1ec5 v\u1eadt, gi\u00f2 hoa tre l\u00e0ng V\u1ec7 Linh",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://verified.data.internal/src_5",
+          "title": "UNESCO 16/11/2010 Nairobi \u2014 'H\u1ed9i Gi\u00f3ng \u0111\u1ec1n Ph\u00f9 \u0110\u1ed5ng v\u00e0 \u0111\u1ec1n S\u00f3c' (chinhphu.vn, scov.gov.vn)",
+          "used_for": "dp_6: m\u1ed1c UNESCO H\u1ed3i 3",
+          "reliability": "secondary"
+        }
+      ],
+      "research_summary": "Th\u00e1nh Gi\u00f3ng l\u00e0 ng\u01b0\u1eddi c\u1ee9u n\u01b0\u1edbc n\u1ed5i ti\u1ebfng nh\u1ea5t c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t \u2014 m\u1ed9t \u0111\u1ee9a tr\u1ebb 3 tu\u1ed5i ch\u01b0a t\u1eebng n\u00f3i l\u1eddi n\u00e0o, ti\u1ebfng n\u00f3i \u0111\u1ea7u ti\u00ean l\u00e0 xin v\u0169 kh\u00ed. Research tr\u1ea3 \u0111\u1ee7 3 n\u1ee3 S2E02: (1) d\u1ecb b\u1ea3n + ni\u00ean \u0111\u1ea1i ghi ch\u00e9p \u2014 BA l\u1edbp v\u0103n b\u1ea3n (V\u0110ULT 1329: ch\u1ec9 th\u1ed5 th\u1ea7n ch\u00f9a Ki\u1ebfn S\u01a1, ch\u01b0a c\u00f3 tr\u1eadn \u0111\u00e1nh \u00b7 LNCQ 1492: truy\u1ec1n k\u1ef3 \u0111\u1ea7y \u0111\u1ee7 v\u1edbi Long Qu\u00e2n, tre, ru\u1ed9ng ban \u00b7 \u0110VSKTT 1479/1697: v\u00e0i d\u00f2ng kh\u00f4) \u2014 b\u1eb1ng ch\u1ee9ng truy\u1ec7n \u0110\u1ed4I THEO NG\u01af\u1edcI CH\u00c9P, \u0111i\u1ec1u b\u1ea5t bi\u1ebfn l\u00e0 '\u0111\u1ee9a tr\u1ebb \u2014 ti\u1ebfng n\u00f3i \u0111\u1ea7u ti\u00ean \u2014 v\u0169 kh\u00ed \u2014 bay v\u1ec1 tr\u1eddi \u2014 \u0111\u01b0\u1ee3c th\u1edd'; (2) h\u1ed3 s\u01a1 2 l\u1ec5 h\u1ed9i \u2014 Ph\u00f9 \u0110\u1ed5ng 7\u20139/4 h\u1ed9i tr\u1eadn b\u00e3i Soi Bia + S\u00f3c 6\u20138/1 M\u1ed9c D\u1ee5c \u0111\u00eam m\u00f9ng 5 + 8 l\u1ec5 v\u1eadt gi\u00f2 hoa tre V\u1ec7 Linh + UNESCO 16/11/2010; (3) kho\u1ea3ng c\u00e1ch ni\u00ean \u0111\u1ea1i \u2014 ch\u1ec9 tr\u1ea3 \u0111\u01b0\u1ee3c b\u1eb1ng c\u00e2u h\u1ecfi \u0111\u00f3ng khung v\u1ec1 v\u0169 kh\u00ed s\u1eaft/ng\u1ef1a (th\u1ebf gi\u1edbi ng\u01b0\u1eddi ch\u00e9p TK XIV\u2013XV), kh\u00f4ng g\u00e1n ni\u00ean \u0111\u1ea1i hai chi\u1ec1u. Canon S2-C2 n\u1eb1m trong nguy\u00ean v\u0103n LNCQ: 'X\u00f3m l\u00e0ng ph\u1ea3i chung g\u00f3p g\u1ea1o v\u1ea3i v\u1edbi gia \u0111\u00ecnh \u0111\u1ec3 nu\u00f4i c\u1eadu' \u2014 s\u1ee9c m\u1ea1nh anh h\u00f9ng = c\u1ea3 l\u00e0ng nu\u00f4i l\u1edbn.",
+      "metadata": {
+        "project_id": "thanh-giong",
+        "series": "vn-myth",
+        "season": 2,
+        "episode": "S2E02",
+        "sealed_digest_path": "projects/thanh-giong/research_digest.json",
+        "external_research_policy": "no_external_research \u2014 digest sealed by Hermes t\u1eeb sources/07 (research xong 2026-10-17); missing evidence \u2192 needs_input, KH\u00d4NG fabricate",
+        "numbers_allowed_on_screen": {
+          "legend": [
+            "1329 (Vi\u1ec7t \u0110i\u1ec7n U Linh T\u1eadp, L\u00fd T\u1ebf Xuy\u00ean)",
+            "1313 (Tr\u1ea7n gia phong m\u0129 hi\u1ec7u \u2014 ch\u1ec9 d\u00f9ng k\u00e8m c\u00e2u chuy\u1ec7n V\u0110ULT)",
+            "1492 (LNCQ hi\u1ec7u ch\u00ednh V\u0169 Qu\u1ef3nh \u2013 Ki\u1ec1u Ph\u00fa)",
+            "1479 / 1697 (\u0110VSKTT Ng\u00f4 S\u0129 Li\u00ean / b\u1ea3n Ch\u00ednh hi\u1ec7u)",
+            "H\u00f9ng V\u01b0\u01a1ng th\u1ee9 6",
+            "3 tu\u1ed5i (ch\u01b0a bi\u1ebft n\u00f3i)",
+            "ngo\u00e0i 60 (tu\u1ed5i cha m\u1eb9, LNCQ)",
+            "18 th\u01b0\u1edbc (ng\u1ef1a s\u1eaft, LNCQ)",
+            "7 th\u01b0\u1edbc (thanh ki\u1ebfm, LNCQ)",
+            "100 m\u1eabu ru\u1ed9ng t\u1ef1 \u0111i\u1ec1n (LNCQ)",
+            "n\u00fai V\u0169 Ninh (\u0110VSKTT) \u00b7 n\u00fai Ninh S\u00f3c / n\u00fai S\u00f3c / V\u1ec7 Linh (LNCQ \u2013 S\u00f3c S\u01a1n, Ph\u00f9 Linh)",
+            "Ph\u00f9 \u0110\u1ed5ng / V\u00f5 Ninh (V\u00f5 Gi\u00e0ng) / Ti\u00ean Du / ch\u00f9a Ki\u1ebfn S\u01a1 (V\u0110ULT)",
+            "Gia L\u00e2m \u00b7 tre \u0110\u1eb1ng Ng\u00e0 (Gia B\u00ecnh) \u00b7 l\u00e0ng Ch\u00e1y",
+            "7\u20139 th\u00e1ng 4 AL + ch\u00ednh h\u1ed9i 9/4 + b\u00e3i Soi Bia (\u0111\u1ec1n Ph\u00f9 \u0110\u1ed5ng)",
+            "m\u00f9ng 6\u20138 th\u00e1ng Gi\u00eang + M\u1ed9c D\u1ee5c \u0111\u00eam m\u00f9ng 5 + 8 l\u1ec5 v\u1eadt + gi\u00f2 hoa tre l\u00e0ng V\u1ec7 Linh (\u0111\u1ec1n S\u00f3c)",
+            "16/11/2010 (UNESCO, Nairobi \u2014 h\u1ed9i Gi\u00f3ng \u0111\u1ec1n Ph\u00f9 \u0110\u1ed5ng v\u00e0 \u0111\u1ec1n S\u00f3c)",
+            "T\u1ee9 b\u1ea5t t\u1eed (T\u1ea3n Vi\u00ean \u2013 Ph\u00f9 \u0110\u1ed5ng \u2013 Ch\u1eed \u0110\u1ed3ng T\u1eed \u2013 Li\u1ec5u H\u1ea1nh)",
+            "\"Sung Thi\u00ean Th\u1ea7n V\u01b0\u01a1ng\" (\u0111\u1eddi L\u00fd) \u00b7 \"Xung Thi\u00ean D\u0169ng Li\u1ec7t Chi\u00eau \u1ee8ng Uy T\u00edn \u0110\u1ea1i V\u01b0\u01a1ng\" (\u0111\u1eddi Tr\u1ea7n)",
+            "ca dao 2 c\u00e2u m\u1ed3ng Ch\u00edn th\u00e1ng T\u01b0",
+            "\"cao h\u01a1n hai tr\u01b0\u1ee3ng\" (LNCQ, khi v\u01b0\u01a1n vai)"
+          ],
+          "rules": "S\u1ed1 li\u1ec7u ngo\u00e0i legend KH\u00d4NG l\u00ean m\u00e0n h\u00ecnh (b\u1ea5t k\u1ef3 chi\u1ec1u n\u00e0o). S\u1ed1 trong narration LU\u00d4N \u0111\u1ecdc b\u1eb1ng ch\u1eef Vi\u1ec7t trong provider_text (vieneu), display gi\u1eef d\u1ea1ng s\u1ed1. \"7 nong c\u01a1m / 3 chum c\u00e0 / 3 v\u00f2 r\u01b0\u1ee3u\" KH\u00d4NG c\u00f3 trong v\u0103n b\u1ea3n g\u1ed1c \u2014 n\u1ebfu d\u00f9ng PH\u1ea2I \u0111\u00f3ng khung \"d\u00e2n gian k\u1ec3 th\u00eam\" (khuy\u1ebfn ngh\u1ecb: KH\u00d4NG d\u00f9ng, thay b\u1eb1ng nguy\u00ean v\u0103n LNCQ x\u00f3m l\u00e0ng g\u00f3p g\u1ea1o). Kh\u00f4ng display s\u1ed1 \u0111\u1eddi H\u00f9ng V\u01b0\u01a1ng kh\u00e1c 'th\u1ee9 6'; kh\u00f4ng g\u00e1n ni\u00ean \u0111\u1ea1i cho truy\u1ec7n."
+        },
+        "narrative_anti_rules": [
+          "KH\u00d4NG kh\u1eb3ng \u0111\u1ecbnh Th\u00e1nh Gi\u00f3ng / m\u1eb9 Gi\u00f3ng / s\u1ee9 gi\u1ea3 l\u00e0 nh\u00e2n v\u1eadt l\u1ecbch s\u1eed; \"gi\u1eb7c \u00c2n\" lu\u00f4n \u0111\u00f3ng khung \"truy\u1ec7n k\u1ec3\" \u2014 KH\u00d4NG d\u1ef1ng quan h\u1ec7 Th\u01b0\u01a1ng\u2013V\u0103n Lang nh\u01b0 s\u1eed li\u1ec7u.",
+          "KH\u00d4NG d\u00f9ng l\u1ec5 h\u1ed9i / \u0111\u1ec1n th\u1edd / UNESCO \u0111\u1ec3 ch\u1ee9ng minh tr\u1eadn \u0111\u00e1nh c\u00f3 th\u1eadt \u2014 b\u1eb1ng ch\u1ee9ng t\u00edn ng\u01b0\u1ee1ng ch\u1ec9 n\u00f3i v\u1ec1 NG\u01af\u1edcI TH\u1edc v\u00e0 \u0111i\u1ec1u h\u1ecd ch\u1ecdn ghi nh\u1edb.",
+          "KH\u00d4NG d\u00f9ng v\u0169 kh\u00ed s\u1eaft / ng\u1ef1a s\u1eaft \u0111\u1ec3 g\u00e1n ni\u00ean \u0111\u1ea1i cho truy\u1ec7n \u2014 theo B\u1ea4T K\u1ef2 chi\u1ec1u n\u00e0o; chi ti\u1ebft n\u00e0y ch\u1ec9 \u0111\u01b0\u1ee3c PH\u00c1T BI\u1ec2U nh\u01b0 c\u00e2u h\u1ecfi \u0111\u00f3ng khung v\u1ec1 th\u1ebf gi\u1edbi c\u1ee7a ng\u01b0\u1eddi ch\u00e9p (TK XIV\u2013XV), kh\u00f4ng k\u1ebft lu\u1eadn.",
+          "\"7 nong c\u01a1m / 3 chum c\u00e0 / 3 v\u00f2 r\u01b0\u1ee3u\" = l\u1edbp k\u1ec3 d\u00e2n gian\u2013SGK, KH\u00d4NG c\u00f3 trong LNCQ/\u0110VSKTT nguy\u00ean b\u1ea3n \u2192 n\u1ebfu d\u00f9ng PH\u1ea2I \u0111\u00f3ng khung \"d\u00e2n gian k\u1ec3 th\u00eam\"; \u01b0u ti\u00ean nguy\u00ean v\u0103n LNCQ \"kh\u00f4ng \u0111\u1ee7 g\u1ea1o... x\u00f3m l\u00e0ng chung g\u00f3p g\u1ea1o v\u1ea3i\".",
+          "Gi\u00f3ng KH\u00d4NG \"ch\u1ebft\" \u2014 v\u0103n b\u1ea3n n\u00f3i \"c\u1edfi \u00e1o b\u00e0o \u0111\u1ec3 l\u1ea1i, c\u01b0\u1ee1i ng\u1ef1a bay l\u00ean Tr\u1eddi / nh\u1ea3y ng\u1ef1a l\u00ean kh\u00f4ng m\u00e0 \u0111i\"; kh\u00f4ng d\u1ef1ng c\u1ea3nh t\u1eed tr\u1eadn.",
+          "S\u1ed1 li\u1ec7u ngo\u00e0i whitelist KH\u00d4NG l\u00ean m\u00e0n h\u00ecnh; nguy\u00ean v\u0103n tr\u00edch d\u1eabn lu\u00f4n \u0111\u00f3ng khung \"s\u00e1ch ch\u00e9p / truy\u1ec7n k\u1ec3\" + hi\u1ec7n \u0111\u00fang ch\u1eef tr\u00ean narration (canonical_text gi\u1eef nguy\u00ean v\u0103n, provider_text c\u00f3 th\u1ec3 ng\u1eaft c\u00e2u cho TTS nh\u01b0ng kh\u00f4ng \u0111\u1ed5i ch\u1eef).",
+          "KH\u00d4NG t\u00e1i d\u00f9ng visual DNA; KH\u00d4NG l\u1eb7p lu\u1eadn \u0111i\u1ec3m S2-C1 (S\u01a1n Tinh) \u2014 callback S2E01 t\u1ed1i \u0111a 1 l\u1ea7n nh\u1eb9 (T\u1ee9 b\u1ea5t t\u1eed nh\u1eafc T\u1ea3n Vi\u00ean); callback S1 t\u1ed1i \u0111a 1 l\u1ea7n nh\u1eb9 (\u0111\u1ec1n H\u00f9ng/tr\u1ed1ng \u0111\u1ed3ng tho\u00e1ng setup, ch\u1ecdn 1).",
+          "Climax l\u00e0 C\u00c1CH \u0110\u1eccC theo tr\u1ee5c di\u1ec5n gi\u1ea3i m\u00f9a, kh\u00f4ng ph\u1ea3i \"\u00fd \u0111\u1ecbnh nguy\u00ean th\u1ee7y c\u1ee7a ng\u01b0\u1eddi x\u01b0a\" \u2014 narration ph\u1ea3i gi\u1eef \u0111\u00f3ng khung (\"c\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0\u2026\", \"truy\u1ec7n kh\u00f4ng n\u00f3i tr\u1eafng\")."
+        ],
+        "generated_by": "gen_s0_init.py (Hermes 2026-10-17)"
+      }
+    }
+  },
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "notes": "Digest sealed by Hermes 2026-10-17 t\u1eeb sources/07 + SEASON-02-BIBLE (research owner-duy\u1ec7t s\u1eb5n); research stage completed."
+  }
+}

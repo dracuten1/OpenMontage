@@ -1,0 +1,401 @@
+{
+  "version": "1.0",
+  "project_id": "france-riots-20261023",
+  "pipeline_type": "hybrid",
+  "stage": "edit",
+  "status": "completed",
+  "timestamp": "2026-10-23T08:13:19.311314+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": true,
+  "artifacts": {
+    "edit_decisions": {
+      "version": "1.0",
+      "composition_mode": "atelier",
+      "render_runtime": "remotion",
+      "renderer_family": "explainer-data",
+      "bespoke": {
+        "entry": "remotion-composer/src/france-riots-20261023/v2/entryV2.tsx",
+        "composition_id": "FranceRiots20261023V2Final",
+        "art_direction": "Existing bespoke V2 factual graphics, source media and burned-in debug HUD."
+      },
+      "cuts": [
+        {
+          "id": "cut_s01",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s01.wav",
+          "in_seconds": 0,
+          "out_seconds": 5.637854,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s02",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s02.wav",
+          "in_seconds": 0,
+          "out_seconds": 11.857542,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s03",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s03.wav",
+          "in_seconds": 0,
+          "out_seconds": 18.12225,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s04",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s04.wav",
+          "in_seconds": 0,
+          "out_seconds": 15.831583,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s05",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s05.wav",
+          "in_seconds": 0,
+          "out_seconds": 15.287083,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s06",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s06.wav",
+          "in_seconds": 0,
+          "out_seconds": 19.527417,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s07",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s07.wav",
+          "in_seconds": 0,
+          "out_seconds": 7.313396,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s08",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s08.wav",
+          "in_seconds": 0,
+          "out_seconds": 8.422604,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s09",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s09.wav",
+          "in_seconds": 0,
+          "out_seconds": 10.723271,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s10",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s10.wav",
+          "in_seconds": 0,
+          "out_seconds": 9.954833,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s11",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s11.wav",
+          "in_seconds": 0,
+          "out_seconds": 9.1205,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s12",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s12.wav",
+          "in_seconds": 0,
+          "out_seconds": 9.60325,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s13",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s13.wav",
+          "in_seconds": 0,
+          "out_seconds": 11.995854,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s14",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s14.wav",
+          "in_seconds": 0,
+          "out_seconds": 7.526708,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s15",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s15.wav",
+          "in_seconds": 0,
+          "out_seconds": 19.894333,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s16",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s16.wav",
+          "in_seconds": 0,
+          "out_seconds": 14.184917,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s17",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s17.wav",
+          "in_seconds": 0,
+          "out_seconds": 12.830729,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s18",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s18.wav",
+          "in_seconds": 0,
+          "out_seconds": 10.651729,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s19",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s19.wav",
+          "in_seconds": 0,
+          "out_seconds": 8.902375,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s20",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s20.wav",
+          "in_seconds": 0,
+          "out_seconds": 13.923292,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        },
+        {
+          "id": "cut_s21",
+          "source": "remotion-composer/public/france-riots-20261023/v2/voice_s21.wav",
+          "in_seconds": 0,
+          "out_seconds": 3.550833,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "Actual WAV duration; scene hold/padding stored separately in V2 timing."
+        }
+      ],
+      "audio": {
+        "narration": {
+          "segments": [
+            {
+              "asset_id": "narration-s01",
+              "start_seconds": 0.0,
+              "end_seconds": 5.637854
+            },
+            {
+              "asset_id": "narration-s02",
+              "start_seconds": 6.466666666666667,
+              "end_seconds": 18.324208666666667
+            },
+            {
+              "asset_id": "narration-s03",
+              "start_seconds": 19.133333333333333,
+              "end_seconds": 37.255583333333334
+            },
+            {
+              "asset_id": "narration-s04",
+              "start_seconds": 38.06666666666667,
+              "end_seconds": 53.89824966666667
+            },
+            {
+              "asset_id": "narration-s05",
+              "start_seconds": 54.7,
+              "end_seconds": 69.987083
+            },
+            {
+              "asset_id": "narration-s06",
+              "start_seconds": 70.8,
+              "end_seconds": 90.327417
+            },
+            {
+              "asset_id": "narration-s07",
+              "start_seconds": 91.13333333333334,
+              "end_seconds": 98.44672933333334
+            },
+            {
+              "asset_id": "narration-s08",
+              "start_seconds": 99.26666666666667,
+              "end_seconds": 107.68927066666666
+            },
+            {
+              "asset_id": "narration-s09",
+              "start_seconds": 108.5,
+              "end_seconds": 119.223271
+            },
+            {
+              "asset_id": "narration-s10",
+              "start_seconds": 120.03333333333333,
+              "end_seconds": 129.98816633333334
+            },
+            {
+              "asset_id": "narration-s11",
+              "start_seconds": 130.8,
+              "end_seconds": 139.9205
+            },
+            {
+              "asset_id": "narration-s12",
+              "start_seconds": 140.73333333333332,
+              "end_seconds": 150.33658333333332
+            },
+            {
+              "asset_id": "narration-s13",
+              "start_seconds": 151.16666666666666,
+              "end_seconds": 163.16252066666667
+            },
+            {
+              "asset_id": "narration-s14",
+              "start_seconds": 163.96666666666667,
+              "end_seconds": 171.49337466666668
+            },
+            {
+              "asset_id": "narration-s15",
+              "start_seconds": 172.3,
+              "end_seconds": 192.194333
+            },
+            {
+              "asset_id": "narration-s16",
+              "start_seconds": 193.0,
+              "end_seconds": 207.184917
+            },
+            {
+              "asset_id": "narration-s17",
+              "start_seconds": 208.0,
+              "end_seconds": 220.830729
+            },
+            {
+              "asset_id": "narration-s18",
+              "start_seconds": 221.63333333333333,
+              "end_seconds": 232.28506233333331
+            },
+            {
+              "asset_id": "narration-s19",
+              "start_seconds": 233.1,
+              "end_seconds": 242.002375
+            },
+            {
+              "asset_id": "narration-s20",
+              "start_seconds": 242.83333333333334,
+              "end_seconds": 256.7566253333333
+            },
+            {
+              "asset_id": "narration-s21",
+              "start_seconds": 257.56666666666666,
+              "end_seconds": 261.1174996666667
+            }
+          ]
+        },
+        "music": {
+          "asset_id": "music-bed",
+          "volume": 0.7,
+          "fade_in_seconds": 0.8,
+          "fade_out_seconds": 1.5
+        }
+      },
+      "metadata": {
+        "scene_timing_ref": "remotion-composer/public/france-riots-20261023/v2/scene_timing.json",
+        "captions_ref": "remotion-composer/public/france-riots-20261023/v2/captions_display.json",
+        "draft_only": false,
+        "approval": {
+          "quote": "approve, nh\u01b0ng m\u00e0 ko c\u1ea7n render ph\u1ee5 \u0111\u1ec1.",
+          "owner_timestamp": "2026-10-23 14:54 Asia/Ho_Chi_Minh",
+          "scope": "France V2 final export only; HUD OFF, narration captions OFF; editorial text/audio/timing unchanged; NO PUBLISH"
+        },
+        "debug_hud": false,
+        "narration_captions": false
+      },
+      "subtitles": {
+        "enabled": false
+      }
+    }
+  },
+  "style_playbook": "flat-motion-graphics",
+  "metadata": {
+    "approval": {
+      "quote": "approve, nh\u01b0ng m\u00e0 ko c\u1ea7n render ph\u1ee5 \u0111\u1ec1.",
+      "owner_timestamp": "2026-10-23 14:54 Asia/Ho_Chi_Minh",
+      "scope": "France V2 final export only; HUD OFF, narration captions OFF; editorial text/audio/timing unchanged; NO PUBLISH"
+    },
+    "publication_performed": false,
+    "acceptance": "final export only",
+    "timing_validation_warnings": [
+      "Manifest asset narration-s01 path 'remotion-composer/public/france-riots-20261023/v2/voice_s01.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s02 path 'remotion-composer/public/france-riots-20261023/v2/voice_s02.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s03 path 'remotion-composer/public/france-riots-20261023/v2/voice_s03.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s04 path 'remotion-composer/public/france-riots-20261023/v2/voice_s04.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s05 path 'remotion-composer/public/france-riots-20261023/v2/voice_s05.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s06 path 'remotion-composer/public/france-riots-20261023/v2/voice_s06.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s07 path 'remotion-composer/public/france-riots-20261023/v2/voice_s07.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s08 path 'remotion-composer/public/france-riots-20261023/v2/voice_s08.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s09 path 'remotion-composer/public/france-riots-20261023/v2/voice_s09.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s10 path 'remotion-composer/public/france-riots-20261023/v2/voice_s10.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s11 path 'remotion-composer/public/france-riots-20261023/v2/voice_s11.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s12 path 'remotion-composer/public/france-riots-20261023/v2/voice_s12.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s13 path 'remotion-composer/public/france-riots-20261023/v2/voice_s13.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s14 path 'remotion-composer/public/france-riots-20261023/v2/voice_s14.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s15 path 'remotion-composer/public/france-riots-20261023/v2/voice_s15.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s16 path 'remotion-composer/public/france-riots-20261023/v2/voice_s16.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s17 path 'remotion-composer/public/france-riots-20261023/v2/voice_s17.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s18 path 'remotion-composer/public/france-riots-20261023/v2/voice_s18.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s19 path 'remotion-composer/public/france-riots-20261023/v2/voice_s19.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s20 path 'remotion-composer/public/france-riots-20261023/v2/voice_s20.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+      "Manifest asset narration-s21 path 'remotion-composer/public/france-riots-20261023/v2/voice_s21.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json)."
+    ]
+  }
+}

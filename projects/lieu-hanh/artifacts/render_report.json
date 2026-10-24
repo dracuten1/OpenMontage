@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/out/lieu-hanh-final-1080p.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1920x1080",
+      "duration_seconds": 900.16,
+      "fps": 30.0,
+      "file_size_bytes": 741914048,
+      "platform_target": "youtube_upload_master"
+    },
+    {
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/out/lieu-hanh-preview-720p.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1280x720",
+      "duration_seconds": 900.16,
+      "fps": 30.0,
+      "file_size_bytes": 37210724,
+      "platform_target": "telegram_preview"
+    },
+    {
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/out/lieu-hanh-draft-hud-720p.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1280x720",
+      "duration_seconds": 900.16,
+      "fps": 30.0,
+      "file_size_bytes": 432312684,
+      "platform_target": "internal_qc_draft"
+    }
+  ],
+  "render_grammar": "explainer-data",
+  "verification_notes": [
+    "LieuHanh comp (draftHud unset -> false) rendered from same locked timing as draft; 27003 frames = 900.16s matches engine exactly.",
+    "Draft QC: scene_sweep 100 stills edge_clip=0 panel_clip=0; 8-point vision incl. HUD scene/section mapping, Sc015 invented-subtitle fix, Sc024 caption overlap fix.",
+    "Final QC: 3-point vision no-HUD (f8454/f12300/f26900); caption max 2 lines after cue split + provider_text re-align (43 cues) + UNESCO display map.",
+    "Loudness I=-15.2 LUFS LRA 2.1; delta vs draft 0.0 LU / 0.000s.",
+    "BGM 'Mesmerize' Kevin MacLeod CC BY 4.0 (incompetech.com), ISRC USUAN1500005, loudnorm -24 LUFS, loop 902s, bed 0.32; machine audition only (2 silences 3.4s/9.5s noted).",
+    "No auto-post; owner uploads manually (full-run approval forbidden list intact)."
+  ],
+  "decision_log_ref": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/decision_log.json",
+  "metadata": {
+    "final_qc": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/qc/gate_a_probe.json",
+    "scene_index": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/scene_index_S2E04.md",
+    "description": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/deliverables/YOUTUBE_DESCRIPTION.md",
+    "telegram_delivery": {
+      "chat_id": 615761638,
+      "video_message_id": 420,
+      "description_message_id": 421,
+      "report_message_id": 422,
+      "sent_at": "2026-10-21T04:10:00+00:00"
+    }
+  }
+}

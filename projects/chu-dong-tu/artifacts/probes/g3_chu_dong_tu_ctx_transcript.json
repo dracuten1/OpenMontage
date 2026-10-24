@@ -1,0 +1,128 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.84,
+      "text": "\u0110\u1ebfn th\u1eddi tr\u1eeb \u0111\u1ed3ng t\u1eed \u1edf l\u0103ng chi\u1ec1u x\u00e1c.",
+      "words": [
+        {
+          "word": " \u0110\u1ebfn",
+          "start": 0.0,
+          "end": 0.26,
+          "probability": 0.904
+        },
+        {
+          "word": " th\u1eddi",
+          "start": 0.26,
+          "end": 0.4,
+          "probability": 0.352
+        },
+        {
+          "word": " tr\u1eeb",
+          "start": 0.4,
+          "end": 0.58,
+          "probability": 0.341
+        },
+        {
+          "word": " \u0111\u1ed3ng",
+          "start": 0.58,
+          "end": 0.76,
+          "probability": 0.503
+        },
+        {
+          "word": " t\u1eed",
+          "start": 0.76,
+          "end": 1.02,
+          "probability": 0.75
+        },
+        {
+          "word": " \u1edf",
+          "start": 1.02,
+          "end": 1.16,
+          "probability": 0.96
+        },
+        {
+          "word": " l\u0103ng",
+          "start": 1.16,
+          "end": 1.34,
+          "probability": 0.228
+        },
+        {
+          "word": " chi\u1ec1u",
+          "start": 1.34,
+          "end": 1.52,
+          "probability": 0.448
+        },
+        {
+          "word": " x\u00e1c.",
+          "start": 1.52,
+          "end": 1.84,
+          "probability": 0.618
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " \u0110\u1ebfn",
+      "start": 0.0,
+      "end": 0.26,
+      "probability": 0.904
+    },
+    {
+      "word": " th\u1eddi",
+      "start": 0.26,
+      "end": 0.4,
+      "probability": 0.352
+    },
+    {
+      "word": " tr\u1eeb",
+      "start": 0.4,
+      "end": 0.58,
+      "probability": 0.341
+    },
+    {
+      "word": " \u0111\u1ed3ng",
+      "start": 0.58,
+      "end": 0.76,
+      "probability": 0.503
+    },
+    {
+      "word": " t\u1eed",
+      "start": 0.76,
+      "end": 1.02,
+      "probability": 0.75
+    },
+    {
+      "word": " \u1edf",
+      "start": 1.02,
+      "end": 1.16,
+      "probability": 0.96
+    },
+    {
+      "word": " l\u0103ng",
+      "start": 1.16,
+      "end": 1.34,
+      "probability": 0.228
+    },
+    {
+      "word": " chi\u1ec1u",
+      "start": 1.34,
+      "end": 1.52,
+      "probability": 0.448
+    },
+    {
+      "word": " x\u00e1c.",
+      "start": 1.52,
+      "end": 1.84,
+      "probability": 0.618
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 2.0,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

@@ -1,0 +1,209 @@
+{
+  "version": "1.0",
+  "project_id": "coastal-reclamation-20261024",
+  "pipeline_type": "animated-explainer",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-10-24T07:31:38.771701+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": true,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "L\u1ea5n bi\u1ec3n thay \u0111\u1ed5i d\u00f2ng ch\u1ea3y v\u00e0 r\u1eebng ng\u1eadp m\u1eb7n nh\u01b0 th\u1ebf n\u00e0o?",
+      "research_date": "2026-10-24",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "Numerical Investigation of Land Reclamation Effects on Hydrodynamics and Mangroves in Shacheng Bay",
+            "url": "https://link.springer.com/article/10.1007/s11802-024-5750-6",
+            "source": "Journal of Ocean University of China (Springer)",
+            "angle": "FVCOM 36-year numerical modeling of bathymetry, current weakening, and mangrove degradation/recovery",
+            "what_it_covers": "Qu\u00e1 tr\u00ecnh l\u1ea5n bi\u1ec3n l\u00e0m gi\u1ea3m l\u0103ng k\u00ednh tri\u1ec1u, suy gi\u1ea3m kh\u1ea3 n\u0103ng trao \u0111\u1ed5i n\u01b0\u1edbc v\u00e0 t\u00e1c \u0111\u1ed9ng gi\u00e1n ti\u1ebfp \u0111\u1ebfn r\u1eebng ng\u1eadp m\u1eb7n; s\u1ef1 ph\u1ee5c h\u1ed3i c\u1ee5c b\u1ed9 khi h\u1ec7 th\u1ee7y \u0111\u1ed9ng h\u1ecdc t\u00e1i l\u1eadp c\u00e2n b\u1eb1ng.",
+            "what_it_misses": "T\u1eadp trung v\u00e0o v\u1ecbnh k\u00edn b\u00e1n kh\u00e9p kh\u1ea9u, ch\u01b0a kh\u00e1i qu\u00e1t h\u00f3a cho b\u1edd bi\u1ec3n h\u1edf ch\u1ecbu t\u00e1c \u0111\u1ed9ng m\u1ea1nh c\u1ee7a s\u00f3ng v\u00e0 d\u00f2ng ven b\u1edd.",
+            "engagement_signal": "Peer-reviewed journal paper, 2024"
+          },
+          {
+            "title": "Mangrove forests can be an effective coastal defence in the Pearl River Delta",
+            "url": "https://www.nature.com/articles/s43247-022-00672-7",
+            "source": "Nature Communications Earth & Environment",
+            "angle": "Process-based hydrodynamic modeling of wave attenuation and storm surge dampening by mangroves",
+            "what_it_covers": "Kh\u1ea3 n\u0103ng ti\u00eau t\u00e1n n\u0103ng l\u01b0\u1ee3ng s\u00f3ng (gi\u1ea3m 70-90% qua 50-100m) v\u00e0 gi\u1ea3m n\u01b0\u1edbc d\u00e2ng do b\u00e3o (18-50 cm/km); s\u1ef1 k\u1ebft h\u1ee3p gi\u1eefa \u0111\u00ea bi\u1ec3n v\u00e0 r\u1eebng ng\u1eadp m\u1eb7n (nature-based defense).",
+            "what_it_misses": "Ch\u01b0a \u0111i s\u00e2u v\u00e0o \u0111\u1ed9ng l\u1ef1c h\u1ecdc b\u1ed3i t\u00edch ng\u01b0\u1ee3c chi\u1ec1u khi ch\u00e2n c\u00f4ng tr\u00ecnh l\u1ea5n bi\u1ec3n ch\u1eb7n d\u00f2ng b\u00f9n c\u00e1t ven b\u1edd.",
+            "engagement_signal": "Nature portfolio citation standard, 2022"
+          },
+          {
+            "title": "Widespread infilling of tidal channels and navigable waterways in the human-modified tidal deltaplain",
+            "url": "https://jonathangilligan.org/files/pubs/pdfs/wilson_2017_infilling.pdf",
+            "source": "LSU / E&S Research Publication",
+            "angle": "Quantitative empirical study of tidal prism loss and channel siltation",
+            "what_it_covers": "Vi\u1ec7c quai \u0111\u00ea/l\u1ea5n bi\u1ec3n l\u00e0m gi\u1ea3m h\u01a1n 1.4 t\u1ef7 m3 l\u0103ng k\u00ednh tri\u1ec1u, l\u00e0m suy gi\u1ea3m v\u1eadn t\u1ed1c d\u00f2ng ch\u1ea3y trong l\u1ea1ch d\u1eabn v\u00e0 d\u1eabn \u0111\u1ebfn b\u1ed3i l\u1ea5p t\u1ef1 nhi\u00ean h\u01a1n 600 km lu\u1ed3ng l\u1ea1ch.",
+            "what_it_misses": "T\u1eadp trung v\u00e0o v\u00f9ng ch\u00e2u th\u1ed5 Sundarbans, ch\u01b0a so s\u00e1nh v\u1edbi c\u00e1c d\u1ea1ng c\u00f4ng tr\u00ecnh l\u1ea5n bi\u1ec3n d\u1ea1ng \u0111\u1ea3o nh\u00e2n t\u1ea1o h\u1edf.",
+            "engagement_signal": "Major estuarine geomorphology study, 2017"
+          }
+        ],
+        "saturated_angles": [
+          "C\u00e1c b\u00e0i tranh lu\u1eadn mang t\u00ednh quy k\u1ebft c\u1ea3m t\u00ednh ho\u1eb7c ph\u00f3ng \u0111\u1ea1i v\u1ec1 th\u1ea3m h\u1ecda kh\u00f4ng th\u1ec3 \u0111\u1ea3o ng\u01b0\u1ee3c.",
+          "C\u00e1c b\u00e0i vi\u1ebft ch\u1ec9 li\u1ec7t k\u00ea di\u1ec7n t\u00edch l\u1ea5n bi\u1ec3n m\u00e0 kh\u00f4ng ph\u00e2n t\u00edch c\u01a1 ch\u1ebf v\u1eadt l\u00fd th\u1ee7y \u0111\u1ed9ng l\u1ef1c h\u1ecdc.",
+          "\u0110\u1ed3ng nh\u1ea5t hi\u1ec7n t\u01b0\u1ee3ng l\u1ea5n bi\u1ec3n v\u1edbi vi\u1ec7c t\u1ef1 \u0111\u1ed9ng x\u00f3a s\u1ed5 to\u00e0n b\u1ed9 h\u1ec7 sinh th\u00e1i m\u00e0 kh\u00f4ng x\u00e9t \u0111\u1ebfn h\u00ecnh h\u1ecdc v\u00e0 gi\u1ea3i ph\u00e1p k\u1ef9 thu\u1eadt."
+        ],
+        "underserved_gaps": [
+          "Gi\u1ea3i th\u00edch tr\u1ef1c quan c\u01a1 ch\u1ebf th\u1ee7y \u0111\u1ed9ng h\u1ecdc: T\u1ea1i sao thu h\u1eb9p d\u00f2ng ch\u1ea3y \u1edf \u0111i\u1ec3m n\u00e0y l\u1ea1i g\u00e2y b\u1ed3i l\u1eafng \u1edf \u0111i\u1ec3m kh\u00e1c?",
+          "Ph\u00e2n bi\u1ec7t r\u1ea1ch r\u00f2i gi\u1eefa 3 l\u1ef1c bi\u1ec3n: D\u00f2ng tri\u1ec1u (tidal current), S\u00f3ng ven b\u1edd (waves & littoral drift), v\u00e0 N\u01b0\u1edbc d\u00e2ng b\u00e3o (storm surge).",
+          "C\u00e2n b\u1eb1ng b\u00f9n c\u00e1t (Sediment budget): Nguy\u00ean l\u00fd b\u1ea3o to\u00e0n v\u1eadt ch\u1ea5t - b\u1ed3i l\u1eafng \u0111\u00f3n d\u00f2ng (updrift) v\u00e0 thi\u1ebfu h\u1ee5t b\u00f9n c\u00e1t g\u00e2y x\u00f3i l\u1edf khu\u1ea5t d\u00f2ng (downdrift).",
+          "C\u01a1 ch\u1ebf th\u00edch nghi sinh h\u1ecdc v\u00e0 \u0111i\u1ec1u ki\u1ec7n bi\u00ean c\u1ee7a r\u1eebng ng\u1eadp m\u1eb7n: S\u1ef1 th\u00f4ng tho\u00e1ng d\u00f2ng tri\u1ec1u v\u00e0 ng\u1ea1t r\u1ec5 th\u1edf."
+        ]
+      },
+      "trending": {
+        "recent_developments": [
+          {
+            "headline": "S\u1ef1 gia t\u0103ng c\u00e1c d\u1ef1 \u00e1n ph\u00e1t tri\u1ec3n h\u01b0\u1edbng bi\u1ec3n v\u00e0 y\u00eau c\u1ea7u khoa h\u1ecdc trong \u0111\u00e1nh gi\u00e1 th\u1ee7y \u0111\u1ed9ng l\u1ef1c h\u1ecdc",
+            "url": "https://www.nature.com/articles/s43247-022-00672-7",
+            "date": "2026",
+            "relevance": "C\u1ed9ng \u0111\u1ed3ng ng\u00e0y c\u00e0ng quan t\u00e2m \u0111\u1ebfn c\u01a1 ch\u1ebf khoa h\u1ecdc th\u1ef1c ch\u1ea5t thay v\u00ec tranh c\u00e3i \u0111\u1ecbnh ki\u1ebfn."
+          }
+        ],
+        "active_discussions": [
+          {
+            "platform": "scientific_community",
+            "topic_or_url": "Coastal hydrodynamic alteration vs nature-based solutions",
+            "sentiment": "Kh\u00e1ch quan, nh\u1ea5n m\u1ea1nh v\u00e0o m\u00f4 h\u00ecnh h\u00f3a s\u1ed1 tr\u1ecb v\u00e0 gi\u1ea3i ph\u00e1p c\u00f4ng tr\u00ecnh k\u1ebft h\u1ee3p sinh th\u00e1i.",
+            "key_quotes": [
+              "Mangroves and coastal infrastructure must be analyzed through coupled hydrodynamic-sediment numerical models."
+            ]
+          }
+        ],
+        "timeliness_window": "evergreen"
+      },
+      "data_points": [
+        {
+          "claim": "R\u1eebng ng\u1eadp m\u1eb7n c\u00f3 kh\u1ea3 n\u0103ng l\u00e0m gi\u1ea3m 70% \u0111\u1ebfn tr\u00ean 80% chi\u1ec1u cao s\u00f3ng ng\u1eafn trong kho\u1ea3ng c\u00e1ch ch\u1ec9 50-100m nh\u1edd l\u1ef1c c\u1ea3n th\u1ee7y l\u1ef1c (vegetation drag) t\u1eeb h\u1ec7 th\u1ed1ng r\u1ec5 ch\u1eb1ng ch\u1ecbt.",
+          "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0272771419309497",
+          "source_name": "Estuarine, Coastal and Shelf Science / Quartel et al.",
+          "credibility": "primary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "stat_card"
+        },
+        {
+          "claim": "Vi\u1ec7c l\u1ea5n chi\u1ebfm c\u00e1c v\u00f9ng b\u00e3i tri\u1ec1u l\u00e0m gi\u1ea3m l\u0103ng k\u00ednh tri\u1ec1u (th\u1ec3 t\u00edch n\u01b0\u1edbc trao \u0111\u1ed5i qua c\u1eeda tri\u1ec1u), c\u00f3 th\u1ec3 l\u00e0m gi\u1ea3m v\u1eadn t\u1ed1c d\u00f2ng ch\u1ea3y trung b\u00ecnh trong k\u00eanh d\u1eabn v\u00e0 t\u0103ng th\u1eddi gian l\u01b0u n\u01b0\u1edbc t\u1eeb d\u01b0\u1edbi 12 gi\u1edd l\u00ean h\u01a1n 36 gi\u1edd \u1edf c\u00e1c v\u00f9ng v\u1ecbnh b\u00e1n k\u00edn.",
+          "source_url": "https://frontiersin.org/articles/10.3389/fmars.2025.1626088/full",
+          "source_name": "Frontiers in Marine Science (2025)",
+          "credibility": "primary_source",
+          "surprise_factor": "counterintuitive",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "C\u00e2n b\u1eb1ng b\u00f9n c\u00e1t (Sediment Budget) ven b\u1edd tu\u00e2n th\u1ee7 \u0111\u1ecbnh lu\u1eadt b\u1ea3o to\u00e0n: C\u00f4ng tr\u00ecnh nh\u00f4 ra bi\u1ec3n ch\u1eb7n d\u00f2ng v\u1eadn chuy\u1ec3n ven b\u1edd (longshore drift) s\u1ebd g\u00e2y b\u1ed3i t\u1ee5 \u1edf ph\u00eda \u0111\u00f3n d\u00f2ng (updrift) nh\u01b0ng \u0111\u1ed3ng th\u1eddi g\u00e2y thi\u1ebfu h\u1ee5t b\u00f9n c\u00e1t v\u00e0 x\u00f3i l\u1edf \u1edf ph\u00eda khu\u1ea5t d\u00f2ng (downdrift).",
+          "source_url": "https://pubs.usgs.gov/of/2003/of03-337/budget.html",
+          "source_name": "USGS Coastal Land Loss Report / Morton et al.",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "hook"
+        },
+        {
+          "claim": "R\u1eebng ng\u1eadp m\u1eb7n l\u00e0m gi\u1ea3m \u0111\u1ed9 cao n\u01b0\u1edbc d\u00e2ng do b\u00e3o v\u1edbi t\u1ed1c \u0111\u1ed9 t\u1eeb 18 \u0111\u1ebfn 50 cm tr\u00ean m\u1ed7i km chi\u1ec1u s\u00e2u r\u1eebng, nh\u01b0ng \u0111\u00f2i h\u1ecfi ch\u1ebf \u0111\u1ed9 ng\u1eadp tri\u1ec1u \u0111\u1ecbnh k\u1ef3 \u0111\u1ec3 tr\u00e1nh thi\u1ebfu oxy m\u00f4 r\u1ec5.",
+          "source_url": "https://www.nature.com/articles/s43247-022-00672-7",
+          "source_name": "Nature Communications Earth & Environment (2022)",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "stat_card"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "L\u1ea5n bi\u1ec3n c\u00f3 nh\u1ea5t thi\u1ebft l\u00e0m ch\u1ebft r\u1eebng ng\u1eadp m\u1eb7n xung quanh kh\u00f4ng?",
+          "T\u1ea1i sao x\u00e2y \u0111\u00ea l\u1ea5n bi\u1ec3n \u1edf ch\u1ed7 n\u00e0y l\u1ea1i c\u00f3 th\u1ec3 g\u00e2y s\u1ea1t l\u1edf \u1edf b\u1edd bi\u1ec3n ch\u1ed7 kh\u00e1c?",
+          "D\u00f2ng th\u1ee7y tri\u1ec1u v\u00e0 s\u00f3ng bi\u1ec3n kh\u00e1c nhau nh\u01b0 th\u1ebf n\u00e0o khi g\u1eb7p b\u1edd bi\u1ec3n nh\u00e2n t\u1ea1o?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "B\u1ea5t k\u1ef3 c\u00f4ng tr\u00ecnh l\u1ea5n bi\u1ec3n n\u00e0o c\u0169ng g\u00e2y s\u1ee5p \u0111\u1ed5 ho\u00e0n to\u00e0n h\u1ec7 sinh th\u00e1i bi\u1ec3n xung quanh.",
+            "reality": "T\u00e1c \u0111\u1ed9ng ph\u1ee5 thu\u1ed9c v\u00e0o h\u00ecnh h\u1ecdc c\u00f4ng tr\u00ecnh, ch\u1ebf \u0111\u1ed9 th\u1ee7y tri\u1ec1u, c\u00e1n c\u00e2n b\u00f9n c\u00e1t v\u00e0 thi\u1ebft k\u1ebf k\u00eanh d\u1eabn d\u00f2ng. Nhi\u1ec1u khu v\u1ef1c sau khi \u1ed5n \u0111\u1ecbnh th\u1ee7y \u0111\u1ed9ng l\u1ef1c h\u1ecdc c\u00f3 th\u1ec3 t\u1ea1o b\u00e3i b\u1ed3i m\u1edbi cho r\u1eebng ng\u1eadp m\u1eb7n.",
+            "source": "Journal of Ocean University of China (Springer 2024)"
+          },
+          {
+            "myth": "S\u00f3ng bi\u1ec3n v\u00e0 d\u00f2ng tri\u1ec1u l\u00e0 m\u1ed9t hi\u1ec7n t\u01b0\u1ee3ng duy nh\u1ea5t.",
+            "reality": "S\u00f3ng bi\u1ec3n do gi\u00f3 t\u1ea1o ra t\u00e1c \u0111\u1ed9ng m\u1ea1nh nh\u1ea5t \u1edf t\u1ea7ng m\u1eb7t v\u00e0 v\u00f9ng ven b\u1edd n\u00f4ng; trong khi d\u00f2ng tri\u1ec1u l\u00e0 chuy\u1ec3n \u0111\u1ed9ng kh\u1ed1i n\u01b0\u1edbc 2 chi\u1ec1u lu\u00e2n phi\u00ean do l\u1ef1c h\u1ea5p d\u1eabn thi\u00ean th\u1ec3, t\u00e1c \u0111\u1ed9ng s\u00e2u su\u1ed1t c\u1ed9t n\u01b0\u1edbc.",
+            "source": "USGS / NOAA Coastal Oceanography"
+          }
+        ],
+        "knowledge_level": "\u0110\u1ea1i ch\u00fang quan t\u00e2m khoa h\u1ecdc m\u00f4i tr\u01b0\u1eddng, k\u1ef9 s\u01b0 x\u00e2y d\u1ef1ng, sinh vi\u00ean, ng\u01b0\u1eddi d\u00f9ng m\u1ea1ng x\u00e3 h\u1ed9i t\u00ecm ki\u1ebfm ki\u1ebfn th\u1ee9c kh\u00e1ch quan kh\u00f4ng thi\u00ean ki\u1ebfn.",
+        "pain_points": [
+          "C\u00e1c th\u00f4ng tin tranh c\u00e3i tr\u00ean m\u1ea1ng qu\u00e1 n\u1eb7ng t\u00ednh c\u1ea3m t\u00ednh ho\u1eb7c thi\u1ebfu c\u01a1 s\u1edf v\u1eadt l\u00fd.",
+          "Thi\u1ebfu c\u00e1c h\u00ecnh \u1ea3nh minh h\u1ecda c\u01a1 ch\u1ebf r\u00f5 r\u00e0ng (d\u00f2ng ch\u1ea3y u\u1ed1n l\u01b0\u1ee3n, b\u1ed3i x\u00f3i, m\u1eb7t c\u1eaft r\u1ec5 c\u00e2y)."
+        ]
+      },
+      "angles_discovered": [
+        {
+          "name": "B\u1ea3n \u0111\u1ed3 d\u00f2ng ch\u1ea3y v\u00f4 h\u00ecnh: C\u01a1 ch\u1ebf n\u1eafn d\u00f2ng v\u00e0 l\u0103ng k\u00ednh tri\u1ec1u",
+          "hook": "L\u1ea5n bi\u1ec3n kh\u00f4ng ch\u1ec9 t\u1ea1o th\u00eam \u0111\u1ea5t \u2014 n\u00f3 \u00e2m th\u1ea7m v\u1ebd l\u1ea1i nh\u1eefng xa l\u1ed9 ng\u1ea7m d\u01b0\u1edbi \u0111\u00e1y bi\u1ec3n.",
+          "type": "evergreen",
+          "why_now": "Cung c\u1ea5p g\u00f3c nh\u00ecn v\u1eadt l\u00fd tr\u1ef1c quan, gi\u00fap ng\u01b0\u1eddi xem hi\u1ec3u c\u1ed9i ngu\u1ed3n thay \u0111\u1ed5i c\u1ee7a d\u00f2ng ch\u1ea3y.",
+          "grounded_in": [
+            "L\u0103ng k\u00ednh tri\u1ec1u",
+            "Tidal prism reduction",
+            "Wilson et al. 2017",
+            "USGS Sediment budget"
+          ]
+        },
+        {
+          "name": "Chi\u1ebfc b\u1eadp b\u00eanh b\u1ed3i - x\u00f3i: V\u00ec sao \u0111\u00f3n d\u00f2ng \u0111\u01b0\u1ee3c b\u1ed3i m\u00e0 khu\u1ea5t d\u00f2ng l\u1ea1i l\u1edf?",
+          "hook": "Khi m\u1ed9t b\u1edd bi\u1ec3n \u0111\u01b0\u1ee3c b\u1ed3i th\u00eam \u0111\u1ea5t, b\u1edd bi\u1ec3n b\u00ean c\u1ea1nh c\u00f3 th\u1ec3 \u0111ang \u00e2m th\u1ea7m m\u1ea5t \u0111i c\u00e1t.",
+          "type": "data_driven",
+          "why_now": "L\u00e0m r\u00f5 nguy\u00ean l\u00fd b\u1ea3o to\u00e0n b\u00f9n c\u00e1t ven b\u1edd v\u00e0 hi\u1ec7n t\u01b0\u1ee3ng downdrift erosion.",
+          "grounded_in": [
+            "Sediment budget balance",
+            "USGS Open-File Report 03-337",
+            "Morton et al."
+          ]
+        },
+        {
+          "name": "R\u1eebng ng\u1eadp m\u1eb7n v\u00e0 l\u00e1 ch\u1eafn t\u1ef1 nhi\u00ean: Khi r\u1ec5 c\u00e2y g\u1eb7p \u0111\u00ea nh\u00e2n t\u1ea1o",
+          "hook": "B\u1ed9 r\u1ec5 ng\u1eadp m\u1eb7n c\u00f3 th\u1ec3 c\u1ea3n \u0111\u1ee9ng s\u00f3ng d\u1eef, nh\u01b0ng n\u00f3 c\u1ea7n d\u00f2ng th\u1ee7y tri\u1ec1u th\u1edf ra sao?",
+          "type": "narrative",
+          "why_now": "Gi\u1ea3i th\u00edch m\u1ed1i quan h\u1ec7 t\u01b0\u01a1ng h\u1ed7 v\u00e0 \u0111i\u1ec1u ki\u1ec7n bi\u00ean sinh h\u1ecdc c\u1ee7a r\u1eebng m\u1eafm, r\u1eebng \u0111\u01b0\u1edbc.",
+          "grounded_in": [
+            "Quartel et al. 2007",
+            "Nature Comms Earth & Env 2022",
+            "Frontiers in Marine Science 2025"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://link.springer.com/article/10.1007/s11802-024-5750-6",
+          "title": "Numerical Investigation of Land Reclamation Effects on Hydrodynamics and Mangroves in Shacheng Bay",
+          "used_for": "Hydrodynamic modeling, tidal prism reduction, mangrove response",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.nature.com/articles/s43247-022-00672-7",
+          "title": "Mangrove forests can be an effective coastal defence in the Pearl River Delta",
+          "used_for": "Wave attenuation, storm surge dampening, nature-based defences",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://pubs.usgs.gov/of/2003/of03-337/budget.html",
+          "title": "Sediment Budget - Waves, Currents, and Storm Surges (USGS Open File Report 03-337)",
+          "used_for": "Sediment budget equations, updrift accretion, downdrift erosion",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://frontiersin.org/articles/10.3389/fmars.2025.1626088/full",
+          "title": "The response of mangrove degradation to mineral composition and hydrodynamic stagnation",
+          "used_for": "Pneumatophore aeration, residence time, hypoxia in fine sediment",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://jonathangilligan.org/files/pubs/pdfs/wilson_2017_infilling.pdf",
+          "title": "Widespread infilling of tidal channels and waterways in human-modified tidal deltaplain",
+          "used_for": "Channel siltation, tidal prism loss, velocity reduction",
+          "reliability": "primary"
+        }
+      ],
+      "research_summary": "L\u1ea5n bi\u1ec3n l\u00e0m thay \u0111\u1ed5i \u0111\u1ecba h\u00ecnh \u0111\u00e1y bi\u1ec3n v\u00e0 \u0111\u01b0\u1eddng b\u1edd, t\u1eeb \u0111\u00f3 t\u00e1c \u0111\u1ed9ng tr\u1ef1c ti\u1ebfp \u0111\u1ebfn ba c\u01a1 ch\u1ebf th\u1ee7y \u0111\u1ed9ng l\u1ef1c h\u1ecdc then ch\u1ed1t: (1) Thay \u0111\u1ed5i l\u0103ng k\u00ednh tri\u1ec1u d\u1eabn \u0111\u1ebfn s\u1ef1 ph\u00e2n b\u1ed1 l\u1ea1i v\u1eadn t\u1ed1c d\u00f2ng ch\u1ea3y (t\u0103ng c\u1ee5c b\u1ed9 \u1edf \u0111o\u1ea1n th\u1eaft h\u1eb9p, \u1ee9 \u0111\u1ecdng \u1edf v\u00f9ng v\u1ecbnh khu\u1ea5t); (2) Ph\u00e1 v\u1ee1 c\u00e2n b\u1eb1ng b\u00f9n c\u00e1t ven b\u1edd (sediment budget), g\u00e2y b\u1ed3i l\u1eafng ph\u00eda \u0111\u00f3n d\u00f2ng v\u00e0 \u0111\u00f3i c\u00e1t/x\u00f3i l\u1edf \u1edf ph\u00eda khu\u1ea5t d\u00f2ng; (3) T\u00e1c \u0111\u1ed9ng t\u1edbi h\u1ec7 sinh th\u00e1i r\u1eebng ng\u1eadp m\u1eb7n qua ch\u1ebf \u0111\u1ed9 ng\u1eadp tri\u1ec1u, \u0111\u1ed9 m\u1eb7n v\u00e0 \u0111\u1ed9 th\u00f4ng tho\u00e1ng oxy c\u1ee7a r\u1ec5. T\u00e1c \u0111\u1ed9ng n\u00e0y kh\u00f4ng ph\u1ea3i l\u00e0 s\u1ef1 h\u1ee7y di\u1ec7t t\u1ea5t y\u1ebfu m\u00e0 ph\u1ee5 thu\u1ed9c ch\u1eb7t ch\u1ebd v\u00e0o quy m\u00f4, h\u00ecnh h\u1ecdc \u0111\u00ea bi\u1ec3n, v\u00e0 c\u00e1c gi\u1ea3i ph\u00e1p thi\u1ebft k\u1ebf m\u1edf th\u00f4ng lu\u1ed3ng tri\u1ec1u k\u1ebft h\u1ee3p k\u00e8 sinh th\u00e1i."
+    }
+  },
+  "style_playbook": "clean-professional"
+}

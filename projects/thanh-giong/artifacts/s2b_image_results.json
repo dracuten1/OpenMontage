@@ -1,0 +1,117 @@
+[
+ {
+  "id": "img-01-giong-tre",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 11.0,
+  "bytes": 906937,
+  "resolution": "1264x848",
+  "path": "assets/images/img-01-giong-tre.png"
+ },
+ {
+  "id": "img-02-cu-gia",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 11.6,
+  "bytes": 1079941,
+  "resolution": "1264x848",
+  "path": "assets/images/img-02-cu-gia.png"
+ },
+ {
+  "id": "img-03-su-gia",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 10.8,
+  "bytes": 1156419,
+  "resolution": "1264x848",
+  "path": "assets/images/img-03-su-gia.png"
+ },
+ {
+  "id": "img-04-nong-com",
+  "status": "cached",
+  "bytes": 1413889,
+  "resolution": "1264x848",
+  "path": "assets/images/img-04-nong-com.png"
+ },
+ {
+  "id": "img-05-giong-trang-si",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 11.3,
+  "bytes": 1192821,
+  "resolution": "1264x848",
+  "path": "assets/images/img-05-giong-trang-si.png"
+ },
+ {
+  "id": "img-06-tre-dang-nga",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 9.8,
+  "bytes": 1125837,
+  "resolution": "1264x848",
+  "path": "assets/images/img-06-tre-dang-nga.png"
+ },
+ {
+  "id": "img-07-co-thu-vdult",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 9.9,
+  "bytes": 1128941,
+  "resolution": "1264x848",
+  "path": "assets/images/img-07-co-thu-vdult.png"
+ },
+ {
+  "id": "img-08-co-thu-lncq",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 12.8,
+  "bytes": 1020164,
+  "resolution": "1264x848",
+  "path": "assets/images/img-08-co-thu-lncq.png"
+ },
+ {
+  "id": "img-09-co-thu-dvsktt",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 10.4,
+  "bytes": 930809,
+  "resolution": "1264x848",
+  "path": "assets/images/img-09-co-thu-dvsktt.png"
+ },
+ {
+  "id": "img-10-den-phu-dong",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 11.4,
+  "bytes": 1108493,
+  "resolution": "1264x848",
+  "path": "assets/images/img-10-den-phu-dong.png"
+ },
+ {
+  "id": "img-11-den-soc",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 10.0,
+  "bytes": 1049569,
+  "resolution": "1264x848",
+  "path": "assets/images/img-11-den-soc.png"
+ },
+ {
+  "id": "img-12-bay-ve-troi",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 10.2,
+  "bytes": 982302,
+  "resolution": "1264x848",
+  "path": "assets/images/img-12-bay-ve-troi.png"
+ },
+ {
+  "id": "img-13-hoi-hom-nay",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 26.0,
+  "bytes": 1239508,
+  "resolution": "1264x848",
+  "path": "assets/images/img-13-hoi-hom-nay.png"
+ }
+]

@@ -1,0 +1,285 @@
+{
+  "version": "1.0",
+  "topic": "VN-Myth S2E03 — Chử Đồng Tử: vì sao người không có cả chiếc khố lại được thờ làm thánh?",
+  "research_date": "2026-10-19",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "Sự tích lễ hội Chử Đồng Tử — bài tập đọc/câu hỏi SGK được VnDoc đăng lại",
+        "url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+        "source": "Bài tập đọc/câu hỏi giáo dục được VnDoc đăng lại",
+        "angle": "Nghèo khó, gặp công chúa, giúp dân và tưởng nhớ",
+        "what_it_covers": "Chiếc khố, kết duyên, công đức, lễ hội.",
+        "what_it_misses": "Không đối chiếu chuỗi lập chợ–học đạo–hóa đầm giữa các bản.",
+        "engagement_signal": "Không đo mức phổ biến/lượt xem."
+      },
+      {
+        "title": "Truyền thuyết Chử Đồng Tử đi tu đạo Phật — bài Phan Duy Kha đăng lại trên Bảo tàng Lịch sử quốc gia",
+        "url": "https://baotanglichsu.vn/vi/Articles/3096/10118/truyen-thuyet-chu-djong-tu-dji-tu-djao-phat.html",
+        "source": "Bài Phan Duy Kha đăng lại trên website bảo tàng",
+        "angle": "Dùng truyền thuyết lập luận về Phật giáo thời Hùng",
+        "what_it_covers": "Tên sư Ngưỡng Quang, núi Quỳnh Viên, diễn giải nguồn gốc.",
+        "what_it_misses": "Bước suy từ truyện sang niên đại lịch sử chưa được chứng thực trong gói này.",
+        "engagement_signal": "Thương hiệu website không bảo chứng kết luận của bài."
+      },
+      {
+        "title": "Khai mạc Lễ hội truyền thống Chử Đồng Tử - Tiên Dung — 01/03/2023, nguồn Báo Hưng Yên",
+        "url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+        "source": "Cổng hành chính Hưng Yên, ghi nguồn Báo Hưng Yên, 01/03/2023",
+        "angle": "Tin lễ hội và công bố di sản đền Đa Hòa",
+        "what_it_covers": "Lịch năm 2023, rước nước, quy mô hàng tổng và quyết định được dẫn.",
+        "what_it_misses": "Không đối chiếu cổ thư, không xác nhận chuyện thần kỳ.",
+        "engagement_signal": "Không suy lượng người dự hay độ phổ biến."
+      }
+    ],
+    "saturated_angles": [
+      "Trong mẫu đã truy cập: kể riêng hôn nhân thần kỳ/công đức; không tuyên bố đã khảo sát toàn thị trường."
+    ],
+    "underserved_gaps": [
+      "Đặt cuộc đời sau hôn nhân cạnh lễ hội thật, không biến truyện thành sử liệu.",
+      "Phân biệt bản dịch, dị bản và diễn giải hiện đại bằng chi tiết truy xuất được."
+    ]
+  },
+  "trending": {
+    "recent_developments": [],
+    "active_discussions": [],
+    "timeliness_window": "evergreen"
+  },
+  "data_points": [
+    {
+      "claim": "Bản dịch LNCQ kể cha con chung một khố; Đồng Tử dùng khố liệm cha.",
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "source_name": "Lĩnh Nam Chích Quái — bản dịch Nguyễn Hữu Vinh, bình Trần Đình Hoành; PDF 2015",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C01; Chỉ là tình tiết bản truyện, không xác nhận nhân vật/sự kiện lịch sử."
+    },
+    {
+      "claim": "Bản dịch LNCQ tiếp tục sau hôn nhân bằng việc hai người lập chợ và buôn bán.",
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "source_name": "Lĩnh Nam Chích Quái — bản dịch Nguyễn Hữu Vinh, bình Trần Đình Hoành; PDF 2015",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C02; Không suy ra người khai sinh thương mại Việt Nam hay niên đại chợ."
+    },
+    {
+      "claim": "Bản dịch LNCQ có chuyến buôn, gặp sư Phu Quang, nhận trượng và nón, trở về giảng đạo.",
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "source_name": "Lĩnh Nam Chích Quái — bản dịch Nguyễn Hữu Vinh, bình Trần Đình Hoành; PDF 2015",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C03; Tên trong bản này là Phu Quang. Không tự đổi thành Phật Quang trong trích dẫn; không định niên đại Phật giáo bằng truyện."
+    },
+    {
+      "claim": "Bản LNCQ kể thành quách bay lên, nơi cũ thành đầm Nhất Dạ và dân lập miếu.",
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "source_name": "Lĩnh Nam Chích Quái — bản dịch Nguyễn Hữu Vinh, bình Trần Đình Hoành; PDF 2015",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C04; Truyện giải thích địa danh; không phải báo cáo địa chất hay bằng chứng biến cố có thật."
+    },
+    {
+      "claim": "Bản Phan Kế Bính trên Wikisource gọi vị sư là Phật-Quang và cũng có gậy/nón.",
+      "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/38",
+      "source_name": "Nam Hải dị nhân liệt truyện/38 — Sử-đồng-Tử, Phan Kế Bính, bản chép Wikisource",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C05; Dùng đối chiếu tên/chi tiết; chưa xác minh năm ấn bản nên không nêu mốc xuất bản cụ thể."
+    },
+    {
+      "claim": "Bài Phan Duy Kha đăng lại trên trang bảo tàng dẫn tên Ngưỡng Quang.",
+      "source_url": "https://baotanglichsu.vn/vi/Articles/3096/10118/truyen-thuyet-chu-djong-tu-dji-tu-djao-phat.html",
+      "source_name": "Truyền thuyết Chử Đồng Tử đi tu đạo Phật — bài Phan Duy Kha đăng lại trên Bảo tàng Lịch sử quốc gia",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C06; Bài diễn giải hiện đại, không phải chứng cứ độc lập xác nhận nhân vật hoặc Phật giáo thời Hùng."
+    },
+    {
+      "claim": "Cổng du lịch Hưng Yên ghi khoảng hội 10–12 tháng Hai âm lịch.",
+      "source_url": "https://dulich.hungyen.gov.vn/vi/detailevents/?t=le-hoi-chu-dong-tu-tien-dung&id=event_971",
+      "source_name": "Lễ hội Chử Đồng Tử – Tiên Dung — Cổng du lịch Hưng Yên (lịch sự kiện 2018)",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C07; Nguồn có lịch sự kiện 2018. Không coi lịch nghi lễ chi tiết là lịch năm 2026."
+    },
+    {
+      "claim": "Lịch được cổng du lịch đăng có nghi thức du thuyền rước nước trên sông Hồng.",
+      "source_url": "https://dulich.hungyen.gov.vn/vi/detailevents/?t=le-hoi-chu-dong-tu-tien-dung&id=event_971",
+      "source_name": "Lễ hội Chử Đồng Tử – Tiên Dung — Cổng du lịch Hưng Yên (lịch sự kiện 2018)",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C08; Nếu nêu ngày 11, phải nói theo lịch đăng trong nguồn; không gộp thành ngày rước chung mọi đền/mọi năm."
+    },
+    {
+      "claim": "Bài ngày 01/03/2023 nêu quyết định 153/QĐ-BVHTTDL ngày 02/02/2023 ghi danh Lễ hội đền Đa Hòa.",
+      "source_url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+      "source_name": "Khai mạc Lễ hội truyền thống Chử Đồng Tử - Tiên Dung — 01/03/2023, nguồn Báo Hưng Yên",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C09; Phạm vi đúng tên Lễ hội đền Đa Hòa theo bài công bố, KHÔNG nói UNESCO, không mở rộng sang mọi đền. Chưa tải bản quyết định gốc."
+    },
+    {
+      "claim": "Bài năm 2023 mô tả quy mô hàng tổng ba năm một lần và chín làng/thôn.",
+      "source_url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+      "source_name": "Khai mạc Lễ hội truyền thống Chử Đồng Tử - Tiên Dung — 01/03/2023, nguồn Báo Hưng Yên",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C10; Chỉ nói sự kiện được tường thuật năm 2023; địa danh hành chính theo thời bài viết, không coi là bản đồ hành chính 2026."
+    },
+    {
+      "claim": "Bản dịch có lời tựa Vũ Quỳnh đề Hồng Đức 23, chú thích quy đổi 1492.",
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "source_name": "Lĩnh Nam Chích Quái — bản dịch Nguyễn Hữu Vinh, bình Trần Đình Hoành; PDF 2015",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C11; Mốc của lời tựa được truyền trong sách, không phải tuổi nhân vật/tuổi truyện hoặc bản in gốc đang còn."
+    },
+    {
+      "claim": "Bản dịch có lời bạt Kiều Phú đề Hồng Đức 24, chú thích quy đổi 1493.",
+      "source_url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "source_name": "Lĩnh Nam Chích Quái — bản dịch Nguyễn Hữu Vinh, bình Trần Đình Hoành; PDF 2015",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C12; Không kết luận truyện ra đời năm 1493; không mô tả PDF dịch hiện đại là bản chụp thủ bản thế kỷ XV."
+    },
+    {
+      "claim": "Lời giải bài tập đọc trên VnDoc nhấn vào trồng lúa, nuôi tằm, dệt vải và hiển linh.",
+      "source_url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+      "source_name": "Sự tích lễ hội Chử Đồng Tử — bài tập đọc/câu hỏi SGK được VnDoc đăng lại",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "C13; Lớp kể giáo dục được đăng lại, không dùng để chứng minh ông khai sinh kỹ thuật nông nghiệp."
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "Cuộc gặp gỡ kì lạ giữa Chử Đồng Tử và Tiên Dung diễn ra như thế nào?",
+      "Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?",
+      "Nhân dân làm gì để tưởng nhớ ông?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "Tình tiết học đạo trong truyện tự chứng minh Phật giáo vào thời Hùng.",
+        "reality": "Chỉ xác nhận nội dung bản kể/bài diễn giải; chưa có chứng cứ định niên đại lịch sử.",
+        "source": "https://baotanglichsu.vn/vi/Articles/3096/10118/truyen-thuyet-chu-djong-tu-dji-tu-djao-phat.html"
+      },
+      {
+        "myth": "Nhiều URL đồng nghĩa nhiều chứng cứ độc lập cho nhân vật.",
+        "reality": "Các bản kể có thể chung nguồn; là chứng cứ văn bản, không tự xác nhận nhân vật.",
+        "source": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf"
+      },
+      {
+        "myth": "Ghi danh di sản xác thực toàn bộ truyền thuyết hoặc đồng nghĩa UNESCO.",
+        "reality": "Bài chỉ nói di sản phi vật thể quốc gia với Lễ hội đền Đa Hòa.",
+        "source": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html"
+      }
+    ],
+    "knowledge_level": "Giả định biên tập: người xem biết cuộc gặp công chúa. Không có khảo sát. Các câu hỏi là bài tập đọc đăng lại, không phải forum/thống kê.",
+    "pain_points": []
+  },
+  "angles_discovered": [
+    {
+      "name": "Sau đám cưới, dòng sông còn chảy",
+      "hook": "Chàng nghèo gặp công chúa; vì sao câu chuyện không dừng ở đám cưới?",
+      "type": "narrative",
+      "why_now": "Evergreen theo roadmap; chuỗi chợ–thuyền–học đạo–đầm nối về lễ hội hôm nay.",
+      "grounded_in": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C07",
+        "C08"
+      ]
+    },
+    {
+      "name": "Một chiếc khố, hai lựa chọn",
+      "hook": "Chiếc khố dành cho cha; ai được quyết định cuộc đời mình sau đó?",
+      "type": "narrative",
+      "why_now": "Phẩm giá và lựa chọn qua hành động cụ thể; phải nói là cách đọc, không kết luận xã hội cổ.",
+      "grounded_in": [
+        "C01",
+        "C02",
+        "Q02"
+      ]
+    },
+    {
+      "name": "Một truyện, nhiều tên người thầy",
+      "hook": "Phu Quang, Phật Quang hay Ngưỡng Quang — ta đang đọc bản nào?",
+      "type": "evergreen",
+      "why_now": "Ba bản đã truy cập ghi tên khác nhau, đủ minh họa giới hạn suy luận từ văn bản.",
+      "grounded_in": [
+        "C03",
+        "C05",
+        "C06",
+        "C11",
+        "C12"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://baotanglichsu.vn/vi/Articles/3096/10118/truyen-thuyet-chu-djong-tu-dji-tu-djao-phat.html",
+      "title": "Truyền thuyết Chử Đồng Tử đi tu đạo Phật — bài Phan Duy Kha đăng lại trên Bảo tàng Lịch sử quốc gia",
+      "used_for": "C06 — tên Ngưỡng Quang và giới hạn suy luận bài hiện đại, không nhận kết luận lịch sử.",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://dulich.hungyen.gov.vn/vi/detailevents/?t=le-hoi-chu-dong-tu-tien-dung&id=event_971",
+      "title": "Lễ hội Chử Đồng Tử – Tiên Dung — Cổng du lịch Hưng Yên (lịch sự kiện 2018)",
+      "used_for": "C07–08 — khoảng hội/rước nước theo lịch được đăng, không lịch hiện tại.",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://hanhchinhcong.hungyen.gov.vn/khai-mac-le-hoi-truyen-thong-chu-dong-tu-tien-dung-c26720.html",
+      "title": "Khai mạc Lễ hội truyền thống Chử Đồng Tử - Tiên Dung — 01/03/2023, nguồn Báo Hưng Yên",
+      "used_for": "C09–10 — công bố 2023, tên/phạm vi di sản và quy mô hàng tổng.",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://dotchuoinon.com/wp-content/uploads/2010/11/linhnamchichquai_march18_2015.pdf",
+      "title": "Lĩnh Nam Chích Quái — bản dịch Nguyễn Hữu Vinh, bình Trần Đình Hoành; PDF 2015",
+      "used_for": "C01–04, C11–12 — bản dịch truyện và lời tựa/bạt; tách bình giải.",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/38",
+      "title": "Nam Hải dị nhân liệt truyện/38 — Sử-đồng-Tử, Phan Kế Bính, bản chép Wikisource",
+      "used_for": "C05 — dị bản tên Phật-Quang, gậy/nón; chưa chốt năm ấn bản.",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://vndoc.com/tap-doc-lop-3-su-tich-le-hoi-chu-dong-tu-2993",
+      "title": "Sự tích lễ hội Chử Đồng Tử — bài tập đọc/câu hỏi SGK được VnDoc đăng lại",
+      "used_for": "Q01–03, C13 — câu hỏi giáo dục có thật, không khảo sát/forum.",
+      "reliability": "secondary"
+    }
+  ],
+  "research_summary": "Hôn nhân là điểm ngoặt chứ không kết thúc: khố, lựa chọn, chợ, thuyền, gậy/nón, đầm và lễ hội nối nhau. Bằng chứng chắc chắn là nội dung các bản kể đối chiếu được và sự thực hành lễ hội được tường thuật. Chưa thể biến nhân vật thành người khai sinh thương mại/Phật giáo. Cách đọc về đời sống có phẩm giá là đề xuất biên tập chờ duyệt.",
+  "metadata": {
+    "episode": "S2E03",
+    "package_version": "v1",
+    "claim_ledger": "claim_ledger.json",
+    "raw_data": "raw_data.json",
+    "approval_policy": "approval_policy.json",
+    "evidence_dir": "evidence/",
+    "source_independence": "6 URL không đồng nghĩa 6 chứng cứ lịch sử độc lập.",
+    "audience_question_provenance": {
+      "source_id": 7,
+      "kind": "published_educational_questions",
+      "claim_ids": [
+        "Q01",
+        "Q02",
+        "Q03"
+      ],
+      "not_forum_or_survey": true
+    },
+    "limitations": [
+      "Chưa tải quyết định gốc; chỉ dùng thông báo ghi số/ngày đúng phạm vi.",
+      "Chưa chốt năm ấn bản Phan Kế Bính.",
+      "Không xác định thứ tự hình thành các lớp truyện từ ba tên sư.",
+      "Lịch du lịch cũ không chứng minh ngày/giờ nghi lễ năm 2026."
+    ],
+    "approval_status": "pending_owner_research_script"
+  }
+}

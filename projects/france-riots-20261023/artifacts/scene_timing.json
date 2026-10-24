@@ -1,0 +1,151 @@
+{
+  "fps": 30,
+  "tail_pad_seconds": 0.8,
+  "total_frames": 3557,
+  "total_duration_seconds": 118.566667,
+  "scenes": [
+    {
+      "scene_id": "s01",
+      "section_id": "S1",
+      "duration_frames": 190,
+      "start_frame": 0,
+      "end_frame": 189,
+      "start_seconds": 0.0,
+      "end_seconds": 6.333333,
+      "duration_seconds": 6.333333,
+      "voice_seconds": 5.501
+    },
+    {
+      "scene_id": "s02",
+      "section_id": "S2",
+      "duration_frames": 227,
+      "start_frame": 190,
+      "end_frame": 416,
+      "start_seconds": 6.333333,
+      "end_seconds": 13.9,
+      "duration_seconds": 7.566667,
+      "voice_seconds": 6.744708
+    },
+    {
+      "scene_id": "s03",
+      "section_id": "S3",
+      "duration_frames": 231,
+      "start_frame": 417,
+      "end_frame": 647,
+      "start_seconds": 13.9,
+      "end_seconds": 21.6,
+      "duration_seconds": 7.7,
+      "voice_seconds": 6.895813
+    },
+    {
+      "scene_id": "s04",
+      "section_id": "S4",
+      "duration_frames": 290,
+      "start_frame": 648,
+      "end_frame": 937,
+      "start_seconds": 21.6,
+      "end_seconds": 31.266667,
+      "duration_seconds": 9.666667,
+      "voice_seconds": 8.838896
+    },
+    {
+      "scene_id": "s05",
+      "section_id": "S5",
+      "duration_frames": 248,
+      "start_frame": 938,
+      "end_frame": 1185,
+      "start_seconds": 31.266667,
+      "end_seconds": 39.533333,
+      "duration_seconds": 8.266667,
+      "voice_seconds": 7.453042
+    },
+    {
+      "scene_id": "s06",
+      "section_id": "S6",
+      "duration_frames": 367,
+      "start_frame": 1186,
+      "end_frame": 1552,
+      "start_seconds": 39.533333,
+      "end_seconds": 51.766667,
+      "duration_seconds": 12.233333,
+      "voice_seconds": 11.433042
+    },
+    {
+      "scene_id": "s07",
+      "section_id": "S7",
+      "duration_frames": 367,
+      "start_frame": 1553,
+      "end_frame": 1919,
+      "start_seconds": 51.766667,
+      "end_seconds": 64.0,
+      "duration_seconds": 12.233333,
+      "voice_seconds": 11.419938
+    },
+    {
+      "scene_id": "s08",
+      "section_id": "S8",
+      "duration_frames": 409,
+      "start_frame": 1920,
+      "end_frame": 2328,
+      "start_seconds": 64.0,
+      "end_seconds": 77.633333,
+      "duration_seconds": 13.633333,
+      "voice_seconds": 12.810083
+    },
+    {
+      "scene_id": "s09",
+      "section_id": "S9",
+      "duration_frames": 342,
+      "start_frame": 2329,
+      "end_frame": 2670,
+      "start_seconds": 77.633333,
+      "end_seconds": 89.033333,
+      "duration_seconds": 11.4,
+      "voice_seconds": 10.580583
+    },
+    {
+      "scene_id": "s10",
+      "section_id": "S10",
+      "duration_frames": 296,
+      "start_frame": 2671,
+      "end_frame": 2966,
+      "start_seconds": 89.033333,
+      "end_seconds": 98.9,
+      "duration_seconds": 9.866667,
+      "voice_seconds": 9.050917
+    },
+    {
+      "scene_id": "s11",
+      "section_id": "S11",
+      "duration_frames": 248,
+      "start_frame": 2967,
+      "end_frame": 3214,
+      "start_seconds": 98.9,
+      "end_seconds": 107.166667,
+      "duration_seconds": 8.266667,
+      "voice_seconds": 7.443958
+    },
+    {
+      "scene_id": "s12",
+      "section_id": "S12",
+      "duration_frames": 227,
+      "start_frame": 3215,
+      "end_frame": 3441,
+      "start_seconds": 107.166667,
+      "end_seconds": 114.733333,
+      "duration_seconds": 7.566667,
+      "voice_seconds": 6.761333
+    },
+    {
+      "scene_id": "s13",
+      "section_id": "S13",
+      "duration_frames": 115,
+      "start_frame": 3442,
+      "end_frame": 3556,
+      "start_seconds": 114.733333,
+      "end_seconds": 118.566667,
+      "duration_seconds": 3.833333,
+      "voice_seconds": 3.006125
+    }
+  ]
+}

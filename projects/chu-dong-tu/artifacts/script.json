@@ -1,0 +1,1256 @@
+{
+ "version": "1.0",
+ "title": "Chử Đồng Tử: vì sao người không có cả chiếc khố lại được thờ làm thánh? (VN-Myth S2E03)",
+ "total_duration_seconds": 960,
+ "voice_performance": {
+  "performance_intent": "Người kể bảo tàng đêm đứng bên mặt nước: hook tò mò trầm từ đoàn thuyền rước nước hôm nay và nghịch lý 'người không có chiếc khố được thờ làm thánh'; setup chậm rãi, trân trọng kể chuyện chiếc khố của cha con; Hồi một giữ nhịp kín đáo nhất của tập — màn che, bãi cát, lựa chọn của công chúa kể qua vật thể và cảm xúc, không tả thân thể; Hồi hai ấm dần theo nhịp phố chợ mở; Hồi ba lắng xuống thành giọng đọc sách khi lên am núi, rồi tỉnh táo ở nhịp đối chiếu ba bản kể; Hồi bốn dồn cơn gió một đêm rồi lắng hoàn toàn trên mặt đầm; climax trả lời câu hỏi mở bằng giọng chậm nhất tập, giữ đóng khung 'có thể đọc là'; landing nhẹ như nước xuôi, khép vòng vật thể; CTA mời gọi, gọn.",
+  "pacing_profile": "conversational",
+  "energy_curve": "Hook (tò mò trầm) -> Setup (trân trọng, chậm) -> Hồi 1 (kín đáo, ấm) -> Hồi 2 (rộn dần theo chợ) -> Hồi 3 (lắng, đọc sách, rồi tỉnh táo đối chiếu) -> Hồi 4 (dồn, rồi lặng) -> Climax (chậm nhất tập, đóng khung) -> Landing (nhẹ, nước xuôi) -> CTA (mời gọi, gọn)",
+  "pause_policy": "Pause 0,5–0,7 giây trước mỗi bước chuyển hồi (chèn '...' trong provider_text); trích nguyên văn đọc chậm hơn nhịp thường, ngắt sau mỗi vế; câu hỏi trung tâm ở hook ngắt 0,8 giây sau khi đọc; câu 'có thể đọc là' ở climax ngắt 0,8 giây trước khi đọc và đọc chậm nhất tập; không SSML (vieneu).",
+  "provider_notes": {
+   "vieneu": "v3 Turbo 48kHz, voice mặc định (news) — giọng duyệt series. Mọi số trong narration spelled-out bằng chữ; tên riêng (Chử Đồng Tử, Tiên Dung, Phu Quang, Phật-Quang, Ngưỡng Quang, Quỳnh Vi, Quỳnh Viên, Quình-lãng, Nhất Dạ, Đa Hòa, Khoái Châu, Mễ Sở) giữ nguyên văn, Gate A probe sau; không dấu '/'; không en dash trong provider_text; viết tắt thư tịch phải mở rõ (Lĩnh Nam chích quái)."
+  }
+ },
+ "sections": [
+  {
+   "id": "s01",
+   "label": "Hook a — Hôm nay, trên sông",
+   "text": "Hôm nay, giữa tháng Hai âm lịch, trên sông Hồng vẫn có những chuyến thuyền rước nước. Theo lịch được cổng du lịch đăng, cứ đến ngày mười một tháng Hai, từ chín giờ sáng, các làng lại tổ chức du thuyền rước nước trên sông Hồng. Sáng nay, những chiếc thuyền ấy lại ra khơi giữa dòng. Nước được múc lên từ sông, đưa vào đình, vào đền. Chuyến thuyền này không chở gạo, không chở khách. Nó chở nước — một loại nước được rước, như rước một vị khách quan trọng.",
+   "start_seconds": 0.0,
+   "end_seconds": 25.0,
+   "speaker_directions": "Mở đầu tò mò trầm, chậm theo dòng nước; nhấn ở \"chở nước\" và cụm rước; không vội giải thích.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "curious-calm",
+    "emphasis_words": [
+     "thuyền rước nước",
+     "du thuyền rước nước",
+     "chở nước",
+     "rước"
+    ],
+    "pause_before_seconds": 0.0,
+    "pause_after_seconds": 0.6,
+    "delivery_note": "Giọng người kể bảo tàng đứng bên mặt nước, mở truyện bằng điều đang xảy ra hôm nay.",
+    "provider_text": "Hôm nay, giữa tháng Hai âm lịch, trên sông Hồng vẫn có những chuyến thuyền rước nước. Theo lịch được cổng du lịch đăng, cứ đến ngày mười một tháng Hai, từ chín giờ sáng, các làng lại tổ chức du thuyền rước nước trên sông Hồng. Sáng nay, những chiếc thuyền ấy lại ra khơi giữa dòng. Nước được múc lên từ sông, đưa vào đình, vào đền ... Chuyến thuyền này không chở gạo, không chở khách. Nó chở nước. Một loại nước được rước, như rước một vị khách quan trọng."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Dòng chữ 'du thuyền rước nước trên sông Hồng' hiện dần theo nhịp đọc",
+     "timestamp_seconds": 9.0
+    },
+    {
+     "type": "animation",
+     "description": "Bản đồ giấy dầu nâu: chấm chín làng sáng lên dọc sông Hồng khi đọc 'các làng lại tổ chức'",
+     "timestamp_seconds": 14.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C07/C08 (lịch cổng du lịch, đúng phạm vi 'theo lịch được đăng') — research_notes"
+  },
+  {
+   "id": "s02",
+   "label": "Hook b — Câu hỏi trung tâm",
+   "text": "Rước nước để làm gì? Nghi lễ này thuộc về một lễ hội đền thờ một nhân vật rất lạ. Ở cuối tập trước, tôi đã hẹn với bạn một người được thờ tiếp theo — người nghèo đến mức không có nổi một chiếc khố. Nghiêm túc đấy. Người ta thờ một người từng không có nổi một chiếc khố, và thờ đã lâu lắm rồi. Vậy thì phải hỏi cho ra: Vì sao một người không có cả chiếc khố lại được thờ làm thánh?",
+   "start_seconds": 25.0,
+   "end_seconds": 50.0,
+   "speaker_directions": "Vẫn trầm; callback tập trước đọc nhẹ, một lần thôi; câu hỏi trung tâm đọc chậm, rõ từng chữ, ngắt 0,8 giây sau đó — không trả lời sớm.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "curious-probing",
+    "emphasis_words": [
+     "không có nổi một chiếc khố",
+     "thờ làm thánh",
+     "Vì sao"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Câu hỏi trung tâm là điểm neo của cả tập — đọc chậm nhất hook, lặng hoàn toàn 0,8 giây sau khi hỏi xong.",
+    "provider_text": "Rước nước để làm gì? ... Nghi lễ này thuộc về một lễ hội đền thờ một nhân vật rất lạ. Ở cuối tập trước, tôi đã hẹn với bạn một người được thờ tiếp theo. Người nghèo đến mức không có nổi một chiếc khố. Nghiêm túc đấy. Người ta thờ một người từng không có nổi một chiếc khố, và thờ đã lâu lắm rồi. Vậy thì phải hỏi cho ra ... Vì sao một người không có cả chiếc khố lại được thờ làm thánh?"
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Câu hỏi trung tâm hiện lên màn hình chữ mực ấm trên giấy dó: 'Vì sao một người không có cả chiếc khố lại được thờ làm thánh?' đúng lúc đọc",
+     "timestamp_seconds": 16.0
+    },
+    {
+     "type": "animation",
+     "description": "Hình chiếc khố vải đơn giản vẽ nét mực hiện ra rồi lặng im khi câu hỏi kết thúc",
+     "timestamp_seconds": 19.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "Tease S2E02 + câu hỏi trung tâm (không dùng quote ngoài part) — research_notes"
+  },
+  {
+   "id": "s03",
+   "label": "Setup a — Một chiếc khố cho hai người",
+   "text": "Trước khi hỏi vì sao người ta thờ, phải biết người ấy nghèo đến mức nào. Bản kể chép lại gia cảnh ấy bằng vài dòng rất gọn: \"Cha từ, con hiếu, nhà gặp hỏa hoạn, của cải sạch không, chỉ còn lại một khố vải duy nhất, cha con ra vào thay nhau mà mặc.\" Một vụ cháy. Của cải sạch không. Cha và con, hai người, thay nhau mặc một chiếc khố duy nhất. Rồi người cha lâm bệnh. Trước khi mất, ông dặn con: \"Cha chết cứ để trần mà chôn, giữ khố lại cho con, để khỏi xấu hổ.\" Để trần mà chôn — đổi lấy cho con một lớp che thân khi ra khỏi nhà. Nhưng người con không nỡ làm theo, liệm khố rồi đem chôn.",
+   "start_seconds": 50.0,
+   "end_seconds": 95.0,
+   "speaker_directions": "Trân trọng, chậm rãi; hai đoạn trích nguyên văn đọc chậm hơn nhịp thường, ngắt sau mỗi vế; giọng hạ xuống ở câu cuối về người con.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "một khố vải duy nhất",
+     "thay nhau mà mặc",
+     "để trần mà chôn",
+     "liệm khố rồi đem chôn"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Đây là đoạn thánh ca của setup — không kịch tính hóa, chỉ kể đúng và chậm.",
+    "provider_text": "Trước khi hỏi vì sao người ta thờ, phải biết người ấy nghèo đến mức nào. Bản kể chép lại gia cảnh ấy bằng vài dòng rất gọn. Cha từ, con hiếu, nhà gặp hỏa hoạn, của cải sạch không, chỉ còn lại một khố vải duy nhất, cha con ra vào thay nhau mà mặc. Một vụ cháy. Của cải sạch không. Cha và con, hai người, thay nhau mặc một chiếc khố duy nhất. Rồi người cha lâm bệnh. Trước khi mất, ông dặn con ... Cha chết cứ để trần mà chôn, giữ khố lại cho con, để khỏi xấu hổ. Để trần mà chôn, đổi lấy cho con một lớp che thân khi ra khỏi nhà. Nhưng người con không nỡ làm theo, liệm khố rồi đem chôn."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Quote card mực ấm trên giấy dó: 'một khố vải duy nhất, cha con ra vào thay nhau mà mặc' hiện khi đọc đoạn trích đầu",
+     "timestamp_seconds": 8.0
+    },
+    {
+     "type": "animation",
+     "description": "Visual amber: mảnh vải nhỏ, hai bóng người cha con, một chiếc khố chuyển qua lại giữa hai người theo nhịp kể",
+     "timestamp_seconds": 16.0
+    },
+    {
+     "type": "overlay",
+     "description": "Quote card lời dặn của cha hiện khi đọc: 'để trần mà chôn, giữ khố lại cho con'",
+     "timestamp_seconds": 34.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C01 (quote nguyên văn) — research_notes §2A"
+  },
+  {
+   "id": "s04",
+   "label": "Setup b — Hai lớp của một câu chuyện",
+   "text": "Từ chiếc khố ấy trở đi, câu chuyện có hai lớp. Lớp thứ nhất: truyện kể — thứ bản kể giữ lại bằng lời, thế giới màu hổ phách của truyền khẩu. Lớp thứ hai: thứ kiểm chứng được — bản sách chép, bài đăng, lễ hội có hồ sơ. Tối nay, tôi sẽ đi theo cách của một người kiểm kê: lần theo những vật nhỏ mà cả hai lớp cùng giữ. Chiếc khố, rồi tấm màn. Chuyến thuyền, rồi cây gậy và chiếc nón. Cái đầm, và cuối cùng là nước rước. Mỗi vật là một câu hỏi nhỏ: nó có thật không, hay chỉ là hình ảnh đẹp? Tôi sẽ không khẳng định cho bạn nhân vật này là ai trong lịch sử. Tôi chỉ lần theo các vật, và xem dòng sông dẫn ta tới đâu.",
+   "start_seconds": 95.0,
+   "end_seconds": 140.0,
+   "speaker_directions": "Chuyển sang giọng tỉnh táo hơn, như người sắp xếp hiện vật; hai lớp đọc rõ tương phản với nhau; danh sách vật đọc chậm, đếm từng vật một.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "archival-calm",
+    "emphasis_words": [
+     "truyện kể",
+     "kiểm chứng được",
+     "những vật nhỏ",
+     "không khẳng định"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Đây là bản đồ của tập — đọc như người hướng dẫn viện bảo tàng chỉ trên sơ đồ, không vội.",
+    "provider_text": "Từ chiếc khố ấy trở đi, câu chuyện có hai lớp. Lớp thứ nhất: truyện kể. Thứ bản kể giữ lại bằng lời, thế giới màu hổ phách của truyền miệng. Lớp thứ hai: thứ kiểm chứng được. Bản sách chép, bài đăng, lễ hội có hồ sơ. Tối nay, tôi sẽ đi theo cách của một người kiểm kê: lần theo những vật nhỏ mà cả hai lớp cùng giữ. Chiếc khố, rồi tấm màn. Chuyến thuyền, rồi cây gậy và chiếc nón. Cái đầm, và cuối cùng là nước rước. Mỗi vật là một câu hỏi nhỏ: nó có thật không, hay chỉ là hình ảnh đẹp? Tôi sẽ không khẳng định cho bạn nhân vật này là ai trong lịch sử. Tôi chỉ lần theo các vật, và xem dòng sông dẫn ta tới đâu."
+   },
+   "enhancement_cues": [
+    {
+     "type": "diagram",
+     "description": "Sơ đồ hai lớp: cột amber 'truyện kể' và cột teal 'kiểm chứng được' hiện cạnh nhau khi đọc hai lớp",
+     "timestamp_seconds": 8.0
+    },
+    {
+     "type": "animation",
+     "description": "Trục vật thể dọc dòng sông: khố → màn → thuyền → gậy/nón → đầm → nước rước, từng vật sáng lên theo thứ tự đọc",
+     "timestamp_seconds": 25.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C04 arc (framed 'truyện kể') — khuôn khổ kiểm chứng của tập"
+  },
+  {
+   "id": "s05",
+   "label": "Hồi 1a — Thuyền dừng giữa dòng",
+   "text": "Truyện kể bắt đầu từ phía bên kia của câu chuyện chiếc khố — từ một chiếc thuyền sang trọng trên sông. Trên thuyền là Tiên Dung, công chúa. Thuyền đi giữa dòng thì dừng lại. Công chúa muốn tắm, nhưng không muốn nơi đông người; bà chọn một bãi cát vắng, hạ màn xuống, cho nước sông vồng lên quanh mình. Truyện kể không tả gì hơn thế. Chỉ có màn, cát, nước, và một khoảng lặng hiếm thấy trên dòng sông.",
+   "start_seconds": 140.0,
+   "end_seconds": 170.0,
+   "speaker_directions": "Kín đáo nhất từ đầu tập; kể chậm, qua vật thể — màn, cát, nước; giọng giữ phẩm giá, không gợi cảm-thịt; câu cuối hạ nhẹ.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "quiet-reverent",
+    "emphasis_words": [
+     "Tiên Dung",
+     "bãi cát vắng",
+     "hạ màn xuống",
+     "màn, cát, nước"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Hồi một mở đầu kín đáo — mọi hình ảnh đi qua vật thể che chắn, không trực diện.",
+    "provider_text": "Truyện kể bắt đầu từ phía bên kia của câu chuyện chiếc khố. Từ một chiếc thuyền sang trọng trên sông. Trên thuyền là Tiên Dung, công chúa. Thuyền đi giữa dòng thì dừng lại. Công chúa muốn tắm, nhưng không muốn nơi đông người ... Bà chọn một bãi cát vắng, hạ màn xuống, cho nước sông vồng lên quanh mình. Truyện kể không tả gì hơn thế. Chỉ có màn, cát, nước, và một khoảng lặng hiếm thấy trên dòng sông."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Visual amber mực ấm: thuyền sang trọng dừng giữa dòng sông, cánh màn che hạ xuống từ từ khi đọc 'hạ màn xuống'",
+     "timestamp_seconds": 14.0
+    },
+    {
+     "type": "overlay",
+     "description": "Ba chữ nhỏ hiện lần lượt theo nhịp đọc: 'màn' - 'cát' - 'nước' trên mặt hình",
+     "timestamp_seconds": 24.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C04 arc (framed 'truyện kể') — chi tiết tắm kể tự do trong đóng khung, không quote"
+  },
+  {
+   "id": "s06",
+   "label": "Hồi 1b — Người trong cát",
+   "text": "Nhưng bãi cát vắng ấy không hoàn toàn vắng. Ở đó có một người — người nghèo nhất của truyện kể. Sau vụ cháy, anh không còn gì che mình, nên khi nghe tiếng thuyền và tiếng người, anh vùi mình vào cát, nấp sau bụi lau. Rồi anh bị phát hiện. Truyện kể không cho ta lời thoại nào của khoảnh khắc đó — chỉ cho ta phản ứng của hai con người: sự kinh ngạc, rồi sự nghẹn ngào, của người được tắm trong màn kín khi nhận ra ngoài kia có kẻ không có nổi man vải. Khoảnh khắc hai thế giới cách nhau bởi một tấm màn, chạm nhau trên một bãi cát.",
+   "start_seconds": 170.0,
+   "end_seconds": 200.0,
+   "speaker_directions": "Sức căng giữ kín; kể qua vật thể (cát, lau, bóng người) và cảm xúc (kinh ngạc, nghẹn ngào); KHÔNG tả thân thể; nhấn câu chốt về hai thế giới.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "tense-contained",
+    "emphasis_words": [
+     "vùi mình vào cát",
+     "bị phát hiện",
+     "kinh ngạc",
+     "nghẹn ngào"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Đỉnh điểm kín đáo của Hồi một — cảm xúc thay cho lời thoại, vật thể thay cho thân thể.",
+    "provider_text": "Nhưng bãi cát vắng ấy không hoàn toàn vắng. Ở đó có một người. Người nghèo nhất của truyện kể. Sau vụ cháy, anh không còn gì che mình, nên khi nghe tiếng thuyền và tiếng người, anh vùi mình vào cát, nấp sau bụi lau. Rồi anh bị phát hiện. Truyện kể không cho ta lời thoại nào của khoảnh khắc đó. Chỉ cho ta phản ứng của hai con người. Sự kinh ngạc, rồi sự nghẹn ngào, của người được tắm trong màn kín khi nhận ra ngoài kia có kẻ không có nổi man vải ... Khoảnh khắc hai thế giới cách nhau bởi một tấm màn, chạm nhau trên một bãi cát."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Visual amber: bãi cát, bụi lau, một bóng người vùi trong cát — chỉ dáng bóng, không tả thân thể",
+     "timestamp_seconds": 6.0
+    },
+    {
+     "type": "overlay",
+     "description": "Đường mực chia màn hình làm hai nửa khi đọc câu chốt 'hai thế giới cách nhau bởi một tấm màn'",
+     "timestamp_seconds": 24.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C04 arc (framed 'truyện kể') — phản ứng kể bằng hành động/cảm xúc, không bịa lời thoại nguyên văn"
+  },
+  {
+   "id": "s07",
+   "label": "Hồi 1c — Lựa chọn của Tiên Dung",
+   "text": "Truyện kể đưa ra một chi tiết mà mỗi lần đọc tôi vẫn thấy lạ: Tiên Dung biết rõ sự thật — người vừa bị phát hiện là kẻ không có nổi chiếc khố. Vậy mà công chúa không về cung. Bà ở lại bãi cát, kết duyên với người không có gì che mình. Đây không phải chi tiết do tôi nghĩ ra để đẹp truyện — câu hỏi về nó được in sẵn trong sách bài tập đọc lớp ba dành cho học sinh: \"Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?\" Cô giáo và trò nhỏ đã trả lời câu hỏi này cả trăm năm, mỗi đứa theo một cách. Tôi chỉ đọc lại lựa chọn ấy, không phán xét: một công chúa, trước cửa màn, đã chọn ở lại.",
+   "start_seconds": 200.0,
+   "end_seconds": 230.0,
+   "speaker_directions": "Ấm và tôn trọng; quote Q02 đọc chậm, đúng chữ; câu chốt 'đã chọn ở lại' đọc nhẹ, lắng — không phán xét, không tông cao.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-respectful",
+    "emphasis_words": [
+     "không về cung",
+     "kết duyên",
+     "Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?",
+     "chọn ở lại"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Lựa chọn của Tiên Dung là trái tim của Hồi một — đọc như kể một quyết định đã làm, không như khen chê.",
+    "provider_text": "Truyện kể đưa ra một chi tiết mà mỗi lần đọc tôi vẫn thấy lạ ... Tiên Dung biết rõ sự thật. Người vừa bị phát hiện là kẻ không có nổi chiếc khố. Vậy mà công chúa không về cung. Bà ở lại bãi cát, kết duyên với người không có gì che mình. Đây không phải chi tiết do tôi nghĩ ra để đẹp truyện. Câu hỏi về nó được in sẵn trong sách bài tập đọc lớp ba dành cho học sinh. Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử? Cô giáo và trò nhỏ đã trả lời câu hỏi này cả trăm năm, mỗi đứa theo một cách. Tôi chỉ đọc lại lựa chọn ấy, không phán xét ... Một công chúa, trước cửa màn, đã chọn ở lại."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Quote card teal (bài tập đọc — lớp kiểm chứng được): 'Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?' hiện đúng lúc đọc câu hỏi",
+     "timestamp_seconds": 20.0
+    },
+    {
+     "type": "animation",
+     "description": "Visual amber: hai bóng người đứng hai bên tấm màn, màn từ từ mở ra khi đọc 'kết duyên'",
+     "timestamp_seconds": 12.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "Q02 (bài tập đọc, quote nguyên văn) — retelling C01–C04 arc (framed 'truyện kể')"
+  },
+  {
+   "id": "s08",
+   "label": "Hồi 1d — Đám cưới không phải đích",
+   "text": "Nếu truyện kể dừng ở đây, ta sẽ chỉ còn một chuyện tình đẹp giữa công chúa và kẻ nghèo. Nhưng bản kể không dừng. Ngay sau đám cưới, truyện tiếp tục chạy về phía trước — và chạy rất xa. Phía trước là một khu phố chợ mở trên bãi bồi ven sông. Là một chuyến thuyền đưa hai người đi buôn bán. Là một đêm cuối cùng, khi mặt nước bỗng hóa thành đầm. Chiếc khố đã dẫn ta tới tấm màn, tấm màn tới chuyến thuyền. Giờ tới lượt gậy, nón, và nước. Hồi hai bắt đầu ở phố chợ.",
+   "start_seconds": 230.0,
+   "end_seconds": 260.0,
+   "speaker_directions": "Nhịp mở ra, dọn chuyển hồi; ba vật tease đọc chậm rãi gợi mở (chợ, thuyền, đầm) không vén màn; câu cuối ghi dấu chuyển Hồi hai.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "opening-forward",
+    "emphasis_words": [
+     "không dừng",
+     "phố chợ",
+     "hóa thành đầm",
+     "Hồi hai"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Chuyển hồi bằng chính các vật thể — danh sách tease đọc như mở từng ngăn kéo hiện vật.",
+    "provider_text": "Nếu truyện kể dừng ở đây, ta sẽ chỉ còn một chuyện tình đẹp giữa công chúa và kẻ nghèo. Nhưng bản kể không dừng. Ngay sau đám cưới, truyện tiếp tục chạy về phía trước, và chạy rất xa. Phía trước là một khu phố chợ mở trên bãi bồi ven sông. Là một chuyến thuyền đưa hai người đi buôn. Là một đêm cuối cùng, khi mặt nước bỗng hóa thành đầm ... Chiếc khố đã dẫn ta tới tấm màn, tấm màn tới chuyến thuyền. Giờ tới lượt gậy, nón, và nước. Hồi hai bắt đầu ở phố chợ."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Trục vật thể amber: khố → màn → thuyền đã sáng, ba ngăn tiếp theo (chợ, gậy/nón, đầm) hé mở mờ dần phía trước",
+     "timestamp_seconds": 12.0
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'Hồi hai — Phố chợ' hiện trên nền giấy dó khi đọc câu chuyển",
+     "timestamp_seconds": 27.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C04 arc (framed 'truyện kể') — tease 3 vật bằng tên vật (chợ, gậy/nón, nước), không quote"
+  },
+  {
+   "id": "s09",
+   "label": "Hồi 2a — Chợ từ hai bàn tay trống",
+   "text": "Đám cưới trên bãi cát, nếu là chuyện cổ tích kiểu khác, hẳn đã là chỗ kết đẹp nhất. Nhưng bản kể không chốt ở đó. Ngay dòng sau, truyện rẽ sang đời sống, chép bằng những chữ rất tỉnh: \"Tiên Dung nghe sợ không dám về, bèn cùng Đồng Tử mở chợ búa, lập phố xá, cùng dân buôn bán.\" Sợ gì, sợ ai — truyện chỉ gói trong hai chữ: nghe sợ. Công chúa không về cung nữa. Bà ở lại bãi bồi ven sông, cùng người không có chiếc khố, bắt đầu lại từ hai bàn tay trống. Không mưa vàng, không phép biến ra của. Chỉ có chợ búa, phố xá, và người dân buôn bán — đời sống lặng lẽ xây lại từ đầu.",
+   "start_seconds": 260.0,
+   "end_seconds": 295.0,
+   "speaker_directions": "Chuyển từ nhịp kín đáo của Hồi một sang ấm dần; đoạn trích nguyên văn đọc chậm hơn nhịp thường, ngắt sau mỗi vế; cụm 'hai bàn tay trống' nhấn nhẹ, giọng cảm phục chứ không thương hại.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-steady",
+    "emphasis_words": [
+     "nghe sợ không dám về",
+     "mở chợ búa, lập phố xá",
+     "hai bàn tay trống"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Hồi hai mở bằng đời thường sau đám cưới — đọc như người kiểm kê đặt lên bàn một hiện vật mới: không kịch tính hóa.",
+    "provider_text": "Đám cưới trên bãi cát, nếu là chuyện cổ tích kiểu khác, hẳn đã là chỗ kết đẹp nhất. Nhưng bản kể không chốt ở đó. Ngay dòng sau, truyện rẽ sang đời sống, chép bằng những chữ rất tỉnh ... Tiên Dung nghe sợ không dám về, bèn cùng Đồng Tử mở chợ búa, lập phố xá, cùng dân buôn bán ... Sợ gì, sợ ai, truyện chỉ gói trong hai chữ: nghe sợ. Công chúa không về cung nữa. Bà ở lại bãi bồi ven sông, cùng người không có chiếc khố, bắt đầu lại từ hai bàn tay trống. Không mưa vàng, không phép biến ra của. Chỉ có chợ búa, phố xá, và người dân buôn bán. Đời sống lặng lẽ xây lại từ đầu."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Quote card mực ấm trên giấy dó: 'Tiên Dung nghe sợ không dám về, bèn cùng Đồng Tử mở chợ búa, lập phố xá, cùng dân buôn bán' hiện đúng lúc đọc trích",
+     "timestamp_seconds": 8.0
+    },
+    {
+     "type": "animation",
+     "description": "Visual amber: hai bàn tay trống mở ra trên bãi bồi, từ đó gian hàng mực ấm mọc lên dần thành khu chợ theo nhịp đọc 'hai bàn tay trống'",
+     "timestamp_seconds": 22.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C02 (quote nguyên văn đoạn đầu) — research_notes"
+  },
+  {
+   "id": "s10",
+   "label": "Hồi 2b — Phố chợ lớn và một câu cảnh tỉnh",
+   "text": "Chợ lớn dần lên theo đúng nhịp của một dòng sông biết nuôi dưỡng: \"dần dần trở thành phố chợ lớn (nay là chợ Thám). Thương nhân nước ngoài tới lui buôn bán, kính nể tôn Tiên Dung và Chử Đồng Tử làm chủ.\" Bản kể còn lưu một dấu mốc nhỏ: nơi ấy, nay người ta gọi là chợ Thám. Hãy dừng lại một nhịp ở hình ảnh này: công chúa không dám về cung, và người từng không có chiếc khố — hai người ấy đứng làm chủ một phố chợ, và thương nhân nước ngoài kính nể. Phố chợ lớn, có chủ, có người nước ngoài tới lui — bản kể khoe đủ. Nhưng phần kể chỉ dừng ở đó. Buôn bán sầm uất là một chuyện; suy từ đó ra một danh xưng lớn hơn thì là chuyện khác. Tối nay tôi chỉ giữ cho đúng mức của bản kể: một phố chợ lớn ven sông.",
+   "start_seconds": 295.0,
+   "end_seconds": 330.0,
+   "speaker_directions": "Nửa đầu ấm, phóng ra theo nhịp chợ; câu cảnh tỉnh chuyển giọng tỉnh táo hơn, chậm lại — không trách bản kể, chỉ giữ cân bằng; câu chốt về 'một phố chợ lớn ven sông' đọc gọn, dứt.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-then-clear-eyed",
+    "emphasis_words": [
+     "phố chợ lớn",
+     "kính nể tôn",
+     "chỉ dừng ở đó",
+     "một phố chợ lớn ven sông"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Nhịp teal ngắn duy nhất của Hồi hai — đọc như đặt một viên đá cân: ghi nhận cái bản kể có, không gắn thêm cái nó không nói.",
+    "provider_text": "Chợ lớn dần lên theo đúng nhịp của một dòng sông biết nuôi dưỡng ... Dần dần trở thành phố chợ lớn, nay là chợ Thám. Thương nhân nước ngoài tới lui buôn bán, kính nể tôn Tiên Dung và Chử Đồng Tử làm chủ ... Bản kể còn lưu một dấu mốc nhỏ. Nơi ấy, nay người ta gọi là chợ Thám. Hãy dừng lại một nhịp ở hình ảnh này ... Công chúa không dám về cung, và người từng không có chiếc khố. Hai người ấy đứng làm chủ một phố chợ, và thương nhân nước ngoài kính nể. Phố chợ lớn, có chủ, có người nước ngoài tới lui. Bản kể khoe đủ. Nhưng phần kể chỉ dừng ở đó. Buôn bán sầm uất là một chuyện. Suy từ đó ra một danh xưng lớn hơn thì là chuyện khác. Tối nay tôi chỉ giữ cho đúng mức của bản kể ... Một phố chợ lớn ven sông."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Quote card mực ấm trên giấy dó: 'dần dần trở thành phố chợ lớn (nay là chợ Thám)...' hiện đúng lúc đọc trích",
+     "timestamp_seconds": 6.0
+    },
+    {
+     "type": "animation",
+     "description": "Visual amber: phố chợ nở rộng dọc bãi bồi, thuyền buôn lớn nhỏ cập bến, hai bóng người đứng chủ chợ khi đọc 'kính nể tôn'",
+     "timestamp_seconds": 12.0
+    },
+    {
+     "type": "overlay",
+     "description": "Nhịp teal ngắn: màu chuyển sang teal, dòng chữ 'phần kể chỉ dừng ở đó' hiện gọn khi đọc câu cảnh tỉnh",
+     "timestamp_seconds": 22.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C02 (quote nguyên văn đoạn sau) — research_notes"
+  },
+  {
+   "id": "s11",
+   "label": "Hồi 2c — Câu chuyện lấy nhịp từ dòng sông",
+   "text": "Có một điều đáng nghe ở cách bản kể dẫn truyện: nhịp của nó chính là nhịp con sông. Chợ mở ven sông, thương nhân tới lui bằng sông. Người, hàng, thuyền — cứ thế qua lại. Nếu đặt tay lên trang sách, ta gần như nghe được dòng nước chảy: thuyền xuôi, thuyền ngược, hàng lên, hàng xuống. Ở đoạn này, truyện kể không nói một chữ nào về cung vàng điện ngọc nữa. Thế giới của nó là bãi bồi, mưa nắng, và những chuyến hàng. Rồi đến một ngày, dòng sông đưa truyện sang khúc mới: Đồng Tử cùng lái buôn đi buôn bán. Chuyến thuyền ấy rời phố chợ, xuôi dòng — và Hồi ba bắt đầu từ đây.",
+   "start_seconds": 330.0,
+   "end_seconds": 365.0,
+   "speaker_directions": "Chậm ra, đều như nhịp nước; các cặp 'thuyền xuôi, thuyền ngược / hàng lên, hàng xuống' đọc nhịp nhẹ như vỗ; câu chuyển hồi cuối hơi nhấc lên, mở đường cho Hồi ba.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "river-calm",
+    "emphasis_words": [
+     "người, hàng, thuyền",
+     "bãi bồi, mưa nắng",
+     "đi buôn bán",
+     "Hồi ba"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Đoạn du dương duy nhất của Hồi hai — đọc như miêu tả một dòng chảy, không vội tới đích.",
+    "provider_text": "Có một điều đáng nghe ở cách bản kể dẫn truyện. Nhịp của nó chính là nhịp con sông. Chợ mở ven sông, thương nhân tới lui bằng sông. Người, hàng, thuyền, cứ thế qua lại. Nếu đặt tay lên trang sách, ta gần như nghe được dòng nước chảy ... Thuyền xuôi, thuyền ngược. Hàng lên, hàng xuống. Ở đoạn này, truyện kể không nói một chữ nào về cung vàng điện ngọc nữa. Thế giới của nó là bãi bồi, mưa nắng, và những chuyến hàng. Rồi đến một ngày, dòng sông đưa truyện sang khúc mới ... Đồng Tử cùng lái buôn đi buôn bán. Chuyến thuyền ấy rời phố chợ, xuôi dòng. Và Hồi ba bắt đầu từ đây."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Visual amber: dòng sông mực ấm chảy chảy ngang màn hình, thuyền tréo sông hai chiều, bè hàng nhỏ trôi theo khi đọc 'người, hàng, thuyền'",
+     "timestamp_seconds": 10.0
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'Hồi ba — Chuyến thuyền' hiện trên nền giấy dó khi đọc câu chuyển hồi",
+     "timestamp_seconds": 30.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C02–C03 arc (framed 'truyện kể') — đoạn qua lại kể tự do, không quote"
+  },
+  {
+   "id": "s12",
+   "label": "Hồi 3a — Chuyến thuyền buôn và chiếc am nhỏ",
+   "text": "Hồi ba mở đầu bằng một chuyến đi buôn. Bản kể chép tiếp, vẫn bằng những chữ rất tỉnh: \"Đồng Tử bèn cùng lái buôn đi buôn bán. Đến núi Quỳnh Vi, trên núi có am nhỏ, bọn lái buôn thường ghé lại đó lấy uống nước.\" Hình ảnh đáng ngừng lại nhất ở đây không phải chuyện buôn bán — mà là chiếc am nhỏ trên núi. Nó hiện ra như một trạm nghỉ quen thuộc của đường buôn: thuyền cập bãi, người lên lấy nước, rồi đi. Tối nay, khi kể tổng hợp, tôi chỉ giữ đúng mức ấy: một am nhỏ trên núi, nơi dân buôn ghé lấy nước — còn tên núi, xin để dành cho phần đối chiếu phía sau. Vì trong bản kể, chiếc am vắng ấy không còn vắng: trong am có người.",
+   "start_seconds": 365.0,
+   "end_seconds": 400.0,
+   "speaker_directions": "Giọng lắng xuống thành giọng đọc sách — Hồi ba mở như mở một trang mới; đoạn trích đọc chậm, ngắt sau mỗi vế; câu cuối 'trong am có người' đọc khẽ, treo nhẹ.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "bookish-calm",
+    "emphasis_words": [
+     "đi buôn bán",
+     "am nhỏ",
+     "lấy uống nước",
+     "trong am có người"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Chuyển hồi bằng giọng đọc sách — không kịch tính, chỉ mở trang và treo nhẹ ở câu cuối.",
+    "provider_text": "Hồi ba mở đầu bằng một chuyến đi buôn. Bản kể chép tiếp, vẫn bằng những chữ rất tỉnh ... Đồng Tử bèn cùng lái buôn đi buôn bán. Đến núi Quỳnh Vi, trên núi có am nhỏ, bọn lái buôn thường ghé lại đó lấy uống nước ... Hình ảnh đáng ngừng lại nhất ở đây không phải chuyện buôn bán, mà là chiếc am nhỏ trên núi. Nó hiện ra như một trạm nghỉ quen thuộc của đường buôn. Thuyền cập bãi, người lên lấy nước, rồi đi. Tối nay, khi kể tổng hợp, tôi chỉ giữ đúng mức ấy ... Một am nhỏ trên núi, nơi dân buôn ghé lấy nước. Còn tên núi, xin để dành cho phần đối chiếu phía sau. Vì trong bản kể, chiếc am vắng ấy không còn vắng ... Trong am có người."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Quote card mực ấm trên giấy dó: 'Đồng Tử bèn cùng lái buôn đi buôn bán... lấy uống nước' hiện đúng lúc đọc trích",
+     "timestamp_seconds": 7.0
+    },
+    {
+     "type": "animation",
+     "description": "Visual amber: thuyền buôn xuôi dòng đến chân núi, mái am nhỏ hé sau cây — cửa am tối, chưa thấy người",
+     "timestamp_seconds": 18.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C03 (quote nguyên văn đoạn 1) — research_notes"
+  },
+  {
+   "id": "s13",
+   "label": "Hồi 3b — Trong am có một vị sư",
+   "text": "Người trong am, bản kể giới thiệu rất gọn: \"trong am có sư tên gọi Phu Quang truyền phép cho Đồng Tử, Đồng Tử ở lại học phép.\" Chỉ một dòng. Người lái buôn lên am lấy nước, thì gặp sư. Người từng không có chiếc khố, thì ở lại học phép. Truyện không nói học gì, học bao lâu, phép ấy để làm gì — chỉ nói ở lại. Và ở lại, với truyện này, là một chữ đáng nghe: người ta đã từng thay nhau mặc một chiếc khố để ra khỏi nhà; giờ người con ấy ở lại một nơi, để học một thứ không mua bán được ở chợ vừa rồi. Tên vị sư — Phu Quang — tôi xin cầm lại một lát. Ba bản kể sau này gọi ngài bằng ba cái tên khác nhau, và phần đối chiếu phía sau sẽ đặt ba tên ấy cạnh nhau. Tạm tối nay, truyện chỉ cần: một vị sư, một người ở lại học phép.",
+   "start_seconds": 400.0,
+   "end_seconds": 435.0,
+   "speaker_directions": "Vẫn giọng đọc sách, ấm hơn một chút; đoạn trích ngắn đọc chậm, rõ; chữ 'ở lại' đọc nhẹ nhấn hai lần; câu cuối gọn, dứt — như gấp lại một trang.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-bookish",
+    "emphasis_words": [
+     "truyền phép",
+     "ở lại học phép",
+     "ở lại",
+     "một vị sư"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Trọng tâm đặt vào chữ 'ở lại' — sự đổi chiều của người từng không có gì; tên sư được cầm lại có chủ đích, đọc như một lời hẹn.",
+    "provider_text": "Người trong am, bản kể giới thiệu rất gọn ... Trong am có sư tên gọi Phu Quang truyền phép cho Đồng Tử, Đồng Tử ở lại học phép ... Chỉ một dòng. Người lái buôn lên am lấy nước, thì gặp sư. Người từng không có chiếc khố, thì ở lại học phép. Truyện không nói học gì, học bao lâu, phép ấy để làm gì. Chỉ nói ở lại. Và ở lại, với truyện này, là một chữ đáng nghe ... Người ta đã từng thay nhau mặc một chiếc khố để ra khỏi nhà. Giờ người con ấy ở lại một nơi, để học một thứ không mua bán được ở chợ vừa rồi. Tên vị sư, Phu Quang, tôi xin cầm lại một lát. Ba bản kể sau này gọi ngài bằng ba cái tên khác nhau, và phần đối chiếu phía sau sẽ đặt ba tên ấy cạnh nhau. Tạm tối nay, truyện chỉ cần ... Một vị sư, một người ở lại học phép."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Quote card mực ấm trên giấy dó: 'trong am có sư tên gọi Phu Quang truyền phép cho Đồng Tử, Đồng Tử ở lại học phép' hiện đúng lúc đọc trích",
+     "timestamp_seconds": 6.0
+    },
+    {
+     "type": "animation",
+     "description": "Visual amber: trong am, một bóng sư ngồi quay lưng về phía nến, bóng người học trò ngồi xuống bên cạnh khi đọc 'ở lại học phép'",
+     "timestamp_seconds": 14.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C03 (quote nguyên văn) — research_notes"
+  },
+  {
+   "id": "s14",
+   "label": "Hồi 3c — Gậy và nón",
+   "text": "Học phép xong, đến lúc chia tay, bản kể chép một đoạn trao tặng mà tôi muốn đọc nguyên văn: \"Sư bèn tặng Đồng Tử một cây trượng và một chiếc nón mà nói rằng: 'Linh thiêng ở những vật này đây'. Đồng Tử trở về, giảng đạo lại cho Tiên Dung.\" Hãy nhớ lại vật đầu tiên của tập: một chiếc khố — thứ người cha giữ lại bằng cả cái chết, để con khỏi xấu hổ. Giờ, ở cuối chuyến đi, hai vật mới vào tay: một cây trượng, một chiếc nón. Không phải vàng, không phải ruộng. Người ta trao cho người từng trần trụi một cây gậy để tựa, và một chiếc nón để che — che cho người, như chiếc khố từng che. Và câu của vị sư nghe như một lời bàn về cách truyện này trao giá trị: linh thiêng không nằm ở chỗ nào khác — ở những vật này đây.",
+   "start_seconds": 435.0,
+   "end_seconds": 470.0,
+   "speaker_directions": "Giọng trân trọng, chậm; trích nguyên văn đọc chậm nhất đoạn, ngắt sau 'mà nói rằng'; callback chiếc khố đọc nhỏ giọng, thân tình; câu chốt lắng hẳn.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "một cây trượng và một chiếc nón",
+     "Linh thiêng ở những vật này đây",
+     "chiếc khố",
+     "ở những vật này đây"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Callback vật thể trung tâm của tập — khố với gậy và nón đặt cạnh nhau; đọc như khép một vòng tròn nhỏ.",
+    "provider_text": "Học phép xong, đến lúc chia tay, bản kể chép một đoạn trao tặng mà tôi muốn đọc nguyên văn ... Sư bèn tặng Đồng Tử một cây trượng và một chiếc nón mà nói rằng ... Linh thiêng ở những vật này đây. Đồng Tử trở về, giảng đạo lại cho Tiên Dung ... Hãy nhớ lại vật đầu tiên của tập ... Một chiếc khố, thứ người cha giữ lại bằng cả cái chết, để con khỏi xấu hổ. Giờ, ở cuối chuyến đi, hai vật mới vào tay ... Một cây trượng, một chiếc nón. Không phải vàng, không phải ruộng. Người ta trao cho người từng trần trụi một cây gậy để tựa, và một chiếc nón để che. Che cho người, như chiếc khố từng che. Và câu của vị sư nghe như một lời bàn về cách truyện này trao giá trị ... Linh thiêng không nằm ở chỗ nào khác, ở những vật này đây."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Quote card mực ấm trên giấy dó: 'Linh thiêng ở những vật này đây' hiện đúng lúc đọc câu của vị sư",
+     "timestamp_seconds": 8.0
+    },
+    {
+     "type": "animation",
+     "description": "Visual callback: mảnh khố đã mờ từ đầu tập hiện lại bên trái, cây gậy và chiếc nón mực ấm đặt xuống bên phải — ba vật nằm cạnh nhau trên cùng một tấm giấy dó",
+     "timestamp_seconds": 20.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C03 (quote nguyên văn) — research_notes; callback s03 (vật thể nội tập)"
+  },
+  {
+   "id": "s15",
+   "label": "Hồi 3d — Ba bản kể, ba cái tên",
+   "text": "Giờ là lúc trả lời lời hẹn phía trước: vị sư ấy tên gì? Câu hỏi tưởng nhỏ — nhưng mở ba cuốn ra, ta được ba câu trả lời. Bản dịch Lĩnh Nam chích quái gọi vị sư là Phu Quang, am ở núi Quỳnh Vi. Bản chép của Phan Kế Bính gọi ngài là Phật-Quang, am ở núi Quình-lãng, và vẫn là hai vật ấy: \"Phật-Quang tặng cho một cái gậy, một cái nón.\" Còn bài trên website bảo tàng dẫn một tên thứ ba: \"có tiểu tăng tên là Ngưỡng Quang truyền phép cho Đồng Tử\", nơi đây ghi là núi Quỳnh Viên. Phu Quang — Phật-Quang — Ngưỡng Quang. Ba cái tên, ba bản kể. Không có bản nào trong ba bản ấy đứng ra tuyên bố mình là nguyên gốc duy nhất. Điều ta có được khi đặt ba trang cạnh nhau không phải một câu trả lời đúng — mà là một cảnh thật: truyện này đã được chép đi, chép lại, qua nhiều bàn tay.",
+   "start_seconds": 470.0,
+   "end_seconds": 510.0,
+   "speaker_directions": "Chuyển hẳn sang giọng tỉnh táo của phần đối chiếu — chậm, rõ, không kịch tính; ba cái tên đọc chậm rãi, ngắt giữa mỗi tên như đặt ba viên đá cạnh nhau; trích C05, C06 đọc đúng chữ; câu chốt lắng.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-eyed-archival",
+    "emphasis_words": [
+     "Phu Quang",
+     "Phật-Quang",
+     "Ngưỡng Quang",
+     "nguyên gốc duy nhất"
+    ],
+    "pause_before_seconds": 0.6,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Nhịp teal chính của tập — đây là giờ làm việc của người kiểm kê: đặt ba trang cạnh nhau, không chọn thay người xem.",
+    "provider_text": "Giờ là lúc trả lời lời hẹn phía trước ... Vị sư ấy tên gì? Câu hỏi tưởng nhỏ, nhưng mở ba cuốn ra, ta được ba câu trả lời. Bản dịch Lĩnh Nam chích quái gọi vị sư là Phu Quang, am ở núi Quỳnh Vi. Bản chép của Phan Kế Bính gọi ngài là Phật-Quang, am ở núi Quình-lãng, và vẫn là hai vật ấy ... Phật-Quang tặng cho một cái gậy, một cái nón ... Còn bài trên website bảo tàng dẫn một tên thứ ba ... Có tiểu tăng tên là Ngưỡng Quang truyền phép cho Đồng Tử, nơi đây ghi là núi Quỳnh Viên. Phu Quang. Phật-Quang. Ngưỡng Quang. Ba cái tên, ba bản kể. Không có bản nào trong ba bản ấy đứng ra tuyên bố mình là nguyên gốc duy nhất. Điều ta có được khi đặt ba trang cạnh nhau không phải một câu trả lời đúng, mà là một cảnh thật ... Truyện này đã được chép đi, chép lại, qua nhiều bàn tay."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Visual teal: ba trang giấy ba tông màu hiện cạnh nhau — trang trái ghi 'Phu Quang — núi Quỳnh Vi', trang giữa 'Phật-Quang — núi Quình-lãng', trang phải 'Ngưỡng Quang — núi Quỳnh Viên', lần lượt sáng theo nhịp đọc",
+     "timestamp_seconds": 10.0
+    },
+    {
+     "type": "overlay",
+     "description": "Quote card teal nhỏ chèn dưới trang giữa: 'Phật-Quang tặng cho một cái gậy, một cái nón' đúng lúc đọc trích Phan Kế Bính",
+     "timestamp_seconds": 17.0
+    },
+    {
+     "type": "overlay",
+     "description": "Quote card teal nhỏ chèn dưới trang phải: 'có tiểu tăng tên là Ngưỡng Quang truyền phép cho Đồng Tử' đúng lúc đọc trích bài bảo tàng",
+     "timestamp_seconds": 23.0
+    },
+    {
+     "type": "overlay",
+     "description": "Ba tên 'Phu Quang — Phật-Quang — Ngưỡng Quang' hiện thành hàng ngang lớn khi đọc chuỗi ba tên",
+     "timestamp_seconds": 30.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C03 + C05 (quote nguyên văn) + C06 (quote nguyên văn) — đối chiếu ba bản kể"
+  },
+  {
+   "id": "s16",
+   "label": "Hồi 3e — Dấu tay người chép",
+   "text": "Đặt ba trang cạnh nhau, tôi không thấy một sự nhầm lẫn cần sửa — tôi thấy dấu tay. Mỗi lần một bản được chép lại là một lần người chép in dấu tay mình lên truyện: cách gọi một cái tên, cách ghi một quả núi, cách nhớ một chi tiết theo thứ tự mình từng nghe. Đó là việc làm của người kể, không phải tội của người biên. Có một điều nữa đáng ghi: sáu trang web không đồng nghĩa sáu chứng cứ độc lập. Nhiều bản kể hôm nay có thể chung một nguồn cũ — sự đồng thuận của những trang giấy không phải thang đo cho độ cổ. Vì vậy, tối nay tôi kể tổng hợp thì gọi ngài là một vị sư — cách gọi trung thành nhất với cách đọc thận trọng: giữ truyện, không đặt thay một cái tên mà chính các bản chưa thống nhất. Còn chuyến thuyền thì chưa cập bến. Về đến nhà, câu chuyện còn một đêm cuối cùng — Hồi bốn.",
+   "start_seconds": 510.0,
+   "end_seconds": 540.0,
+   "speaker_directions": "Giọng tỉnh táo dịu lại thành chiêm nghiệm — không giảng đạo, chỉ ghi chú; cụm 'in dấu tay' nhấn nhẹ; câu về sáu trang web đọc chậm, rõ; hai câu cuối chuyển nhịp mở về Hồi bốn.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "reflective-clear",
+    "emphasis_words": [
+     "in dấu tay",
+     "sáu trang web không đồng nghĩa sáu chứng cứ độc lập",
+     "một vị sư",
+     "một đêm cuối cùng"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Đóng nhịp teal bằng một quan sát về người chép — quan sát, không phán xét; kết bằng chuyển hồi gọn về đêm cuối.",
+    "provider_text": "Đặt ba trang cạnh nhau, tôi không thấy một sự nhầm lẫn cần sửa. Tôi thấy dấu tay. Mỗi lần một bản được chép lại là một lần người chép in dấu tay mình lên truyện ... Cách gọi một cái tên, cách ghi một quả núi, cách nhớ một chi tiết theo thứ tự mình từng nghe. Đó là việc làm của người kể, không phải tội của người biên. Có một điều nữa đáng ghi ... Sáu trang web không đồng nghĩa sáu chứng cứ độc lập. Nhiều bản kể hôm nay có thể chung một nguồn cũ. Sự đồng thuận của những trang giấy không phải thang đo cho độ cổ. Vì vậy, tối nay tôi kể tổng hợp thì gọi ngài là một vị sư ... Cách gọi trung thành nhất với cách đọc thận trọng. Giữ truyện, không đặt thay một cái tên mà chính các bản chưa thống nhất. Còn chuyến thuyền thì chưa cập bến. Về đến nhà, câu chuyện còn một đêm cuối cùng ... Hồi bốn."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Visual teal chuyển amber: ba trang giấy từ s15 đặt cạnh nhau, một bàn tay mực ấm lướt qua mỗi trang, để lại vệt son khác nhau trên từng trang khi đọc 'in dấu tay'",
+     "timestamp_seconds": 6.0
+    },
+    {
+     "type": "overlay",
+     "description": "Dòng chữ teal hiện gọn khi đọc: 'sáu trang web không đồng nghĩa sáu chứng cứ độc lập'",
+     "timestamp_seconds": 17.0
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'Hồi bốn — Một đêm cuối cùng' hiện trên nền giấy dó khi đọc câu chuyển",
+     "timestamp_seconds": 27.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "đóng khung quan sát đối chiếu từ C03/C05/C06 — cách đọc thận trọng của tập; không quote mới"
+  },
+  {
+   "id": "s17",
+   "label": "Hồi 4a — Quân tới bãi Tự Nhiên",
+   "text": "Trở lại truyện. Chuyện cưới xong thì quân triều đình xuất hiện. Sách chép: \"Quan quân tới, đóng trại ở bãi Tự Nhiên, chỉ còn cách con sông lớn thì trời tối không kịp tiến quân.\" Chỉ một câu hành quân, không trận đánh, không kèn trống. Truyện không quan tâm đến việc ai đánh ai — nó để quân lại bên bãi cát, trong đêm, và để đêm ấy tự làm phần việc của nó.",
+   "start_seconds": 540.0,
+   "end_seconds": 575.0,
+   "speaker_directions": "đọc chậm, giọng kể đều như dòng nước; câu quote đọc rời từng nhóm chữ, lặng một nhịp sau 'tiến quân' rồi nói câu nhận xét bằng giọng hạ xuống, gần tư lự",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "đóng trại ở bãi Tự Nhiên",
+     "trời tối",
+     "không kịp tiến quân"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Không kịch hóa quân sự — giữ nguyên nhịp truyện kể, quote là trọng tâm rồi buông câu nhận xét nhẹ.",
+    "provider_text": "Trở lại truyện. Chuyện cưới xong thì quân triều đình xuất hiện. Sách chép ... Quan quân tới, đóng trại ở bãi Tự Nhiên, chỉ còn cách con sông lớn thì trời tối không kịp tiến quân. ... Chỉ một câu hành quân, không trận đánh, không kèn trống. Truyện không quan tâm đến việc ai đánh ai. Nó để quân lại bên bãi cát, trong đêm, và để đêm ấy tự làm phần việc của nó."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Thẻ mực ấm trên giấy dó: 'Quan quân tới, đóng trại ở bãi Tự Nhiên... trời tối không kịp tiến quân' hiện theo nhịp đọc",
+     "timestamp_seconds": 9.0
+    },
+    {
+     "type": "animation",
+     "description": "Bản đồ giấy dầu nâu: dòng sông lớn, bãi cát Tự Nhiên sáng lên một chấm trại nhỏ bên bãi — không quân sính, không mũi tên tấn công",
+     "timestamp_seconds": 18.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C04 (quote nguyên văn đoạn 1) — research_notes §2D"
+  },
+  {
+   "id": "s18",
+   "label": "Hồi 4b — Một đêm, gió lớn nổi lên",
+   "text": "Và nửa đêm ấy đến. Bản kể tiếp: \"Nửa đêm, bỗng nhiên gió lớn nổi lên, cát bay, cây đổ, quan quân hỗn loạn. Tiên Dung cùng thủ hạ, thành quách phút chốc bay bổng lên trời. Đất chỗ đó sụt xuống thành cái đầm lớn.\" Tất cả diễn ra trong một hơi thở. Nơi ở mà truyện đã mất công dựng lên — thành quách, nền nhà, mảnh đất vừa thành nơi phiêu dạt của công chúa và người chồng không khố — biến mất. Không ai bị trừng phạt, không ai chiến thắng. Chỉ còn mặt nước, nơi chỗ đứng cũ từng là.",
+   "start_seconds": 575.0,
+   "end_seconds": 610.0,
+   "speaker_directions": "vào quote bằng hơi thở sâu, đọc nhanh dần theo cơn gió rồi chựng lại ở 'sụt xuống thành cái đầm lớn'; đoạn sau đọc chậm hẳn, từng câu rơi nhẹ như giọt nước, lặng sau 'biến mất'",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "awed-quiet",
+    "emphasis_words": [
+     "gió lớn nổi lên",
+     "bay bổng lên trời",
+     "sụt xuống thành cái đầm lớn"
+    ],
+    "pause_before_seconds": 0.6,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Cao trào duy nhất của hồi — đọc bằng sức gió rồi hạ về mặt nước phẳng lặng; tuyệt đối không narration kịch tính ép thêm.",
+    "provider_text": "Và nửa đêm ấy đến. Bản kể tiếp ... Nửa đêm, bỗng nhiên gió lớn nổi lên, cát bay, cây đổ, quan quân hỗn loạn. Tiên Dung cùng thủ hạ, thành quách phút chốc bay bổng lên trời. Đất chỗ đó sụt xuống thành cái đầm lớn. ... Tất cả diễn ra trong một hơi thở. Nơi ở mà truyện đã mất công dựng lên. Thành quách, nền nhà, mảnh đất vừa thành nơi phiêu dạt của công chúa và người chồng không khố. Biến mất. Không ai bị trừng phạt, không ai chiến thắng. Chỉ còn mặt nước, nơi chỗ đứng cũ từng là."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Mực loang: gió-cát quét ngang khung giấy dó, nét vẽ thành quách rung rồi tan thành vệt mực bay lên khỏi mặt giấy khi đọc 'bay bổng lên trời'",
+     "timestamp_seconds": 8.0
+    },
+    {
+     "type": "animation",
+     "description": "Nước tràn: mực xanh loang từ mép dưới lên lấp chỗ thành quách vừa biến mất, mặt nước phẳng dần khi đọc câu cuối",
+     "timestamp_seconds": 22.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C04 (quote nguyên văn đoạn 2) — research_notes §2D"
+  },
+  {
+   "id": "s19",
+   "label": "Hồi 4c — Đầm một đêm",
+   "text": "Sáng hôm sau, bản kể chép: \"Ngày hôm sau, dân chúng không thấy thành quách đâu cả, đều cho là linh dị. Về sau, dân lập miếu thờ, bốn mùa cúng tế, gọi đầm là đầm Nhất Dạ (Nhất Dạ Trạch, nghĩa là đầm một đêm).\" Câu chuyện đến đây trả về đúng việc của nó: giải thích một cái tên. Đầm Nhất Dạ — đầm một đêm — không phải báo cáo về một biến cố địa chất; đó là tên dân gian gắn cho mặt nước, để mỗi lần gọi tên là một lần kể lại đêm ấy. Truyện khép lại bằng việc người dân lập miếu, bốn mùa cúng tế — và cái tên thì còn đọc được đến hôm nay.",
+   "start_seconds": 610.0,
+   "end_seconds": 645.0,
+   "speaker_directions": "giọng sáng sớm thanh nhẹ, quote đọc rõ rành mạch; cụm 'giải thích một cái tên' nhấn chắc; câu 'không phải báo cáo về một biến cố địa chất' đọc bằng giọng thiện chí đính chính, không tranh luận; câu cuối buông dài như vệt nước",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "đều cho là linh dị",
+     "giải thích một cái tên",
+     "đầm một đêm"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Section có nhiệm vụ đính chính thể loại truyện — một câu, dứt khoát và dịu, rồi quay về cái tên.",
+    "provider_text": "Sáng hôm sau, bản kể chép ... Ngày hôm sau, dân chúng không thấy thành quách đâu cả, đều cho là linh dị. Về sau, dân lập miếu thờ, bốn mùa cúng tế, gọi đầm là đầm Nhất Dạ. Nhất Dạ Trạch, nghĩa là đầm một đêm. ... Câu chuyện đến đây trả về đúng việc của nó. Giải thích một cái tên. Đầm Nhất Dạ, đầm một đêm, không phải báo cáo về một biến cố địa chất. Đó là tên dân gian gắn cho mặt nước, để mỗi lần gọi tên là một lần kể lại đêm ấy. Truyện khép lại bằng việc người dân lập miếu, bốn mùa cúng tế. Và cái tên thì còn đọc được đến hôm nay."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Mặt nước mực xanh phẳng lặng trong nắng sớm mực ấm; bên bờ, nét vẽ nhỏ miếu thờ hiện lên khi đọc 'dân lập miếu thờ'",
+     "timestamp_seconds": 10.0
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ Hán-Việt 'Nhất Dạ Trạch' viết bằng mực hiện dần cạnh dòng 'đầm một đêm' khi đọc câu giải thích tên",
+     "timestamp_seconds": 20.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C04 (quote nguyên văn đoạn 3) — research_notes §2D"
+  },
+  {
+   "id": "s20",
+   "label": "Hồi 4d — Mốc của bản kể (teal)",
+   "text": "Nhưng bản kể ta vừa đọc là ai chép, chép khi nào? Đây là chỗ cần cẩn thận nhất tối nay. Ta vừa đọc theo một bản dịch hiện đại — không phải ảnh chụp thủ bản cổ. Bản dịch đó dẫn lời tựa của Vũ Quỳnh đề năm Hồng Đức hai mươi ba — chú thích bản dịch quy đổi ra năm 1492; và lời bạt của Kiều Phú đề Hồng Đức hai mươi bốn — chú thích quy đổi 1493. Hai con số này là mốc của lời tựa và lời bạt, theo chú thích bản dịch. Xin nói rõ một câu: đó là mốc văn bản, không phải tuổi của truyện. Còn phần bình của người dịch hiện đại thì là lời bình hôm nay — không nằm trong truyện.",
+   "start_seconds": 645.0,
+   "end_seconds": 680.0,
+   "speaker_directions": "chuyển giọng teal: chậm, rõ, không câu nhịp; số đọc rành rẽ từng chữ một; câu 'đó là mốc văn bản, không phải tuổi của truyện' đọc chậm gấp rưỡi, đây là câu quan trọng nhất section; câu cuối gọn, tách bạch",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "reflective-clear",
+    "emphasis_words": [
+     "bản dịch hiện đại",
+     "mốc văn bản, không phải tuổi của truyện",
+     "lời bình hôm nay"
+    ],
+    "pause_before_seconds": 0.6,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Trung tâm của nhịp teal: chỉ ra đúng phạm vi của con số — mốc lời tựa, không phải năm sinh truyện; không đọc số nhanh luợt qua.",
+    "provider_text": "Nhưng bản kể ta vừa đọc là ai chép, chép khi nào. Đây là chỗ cần cẩn thận nhất tối nay. Ta vừa đọc theo một bản dịch hiện đại. Không phải ảnh chụp thủ bản cổ. Bản dịch đó dẫn lời tựa của Vũ Quỳnh đề năm Hồng Đức hai mươi ba. Chú thích bản dịch quy đổi ra năm một nghìn bốn trăm chín mươi hai. Và lời bạt của Kiều Phú đề Hồng Đức hai mươi bốn. Chú thích quy đổi một nghìn bốn trăm chín mươi ba. Hai con số này là mốc của lời tựa và lời bạt, theo chú thích bản dịch. Xin nói rõ một câu ... Đó là mốc văn bản, không phải tuổi của truyện. Còn phần bình của người dịch hiện đại thì là lời bình hôm nay. Không nằm trong truyện."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Visual teal: trang sách bản dịch hiện đại lật nhẹ, dòng lời tựa 'Vũ Quỳnh' và dòng lời bạt 'Kiều Phú' sáng lên theo thứ tự đọc",
+     "timestamp_seconds": 12.0
+    },
+    {
+     "type": "overlay",
+     "description": "Con số teal '1492' hiện cạnh dòng Vũ Quỳnh, '1493' hiện cạnh dòng Kiều Phú, kèm nhãn nhỏ 'theo chú thích bản dịch'",
+     "timestamp_seconds": 22.0
+    },
+    {
+     "type": "overlay",
+     "description": "Dòng chữ teal hiện đúng lúc đọc câu mấu chốt: 'mốc lời tựa, không phải tuổi truyện'",
+     "timestamp_seconds": 32.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C11/C12 (mốc theo đúng phạm vi: lời tựa Vũ Quỳnh HĐ23→1492, lời bạt Kiều Phú HĐ24→1493, theo chú thích bản dịch) — research_notes §3"
+  },
+  {
+   "id": "s21",
+   "label": "Climax a — Vì sao thờ người không có chiếc khố?",
+   "text": "Trở lại câu hỏi mở đầu tập: vì sao dân làng lại thờ một người nghèo đến mức không có nổi một chiếc khố? Tối nay ta đã lần theo từng vật thể. Chiếc khố — thứ duy nhất nhà có, và nó được đem cho cha. Lựa chọn của Tiên Dung — công chúa tự chọn người mình lấy, không hỏi xuất thân. Cái chợ — nơi người nghèo được đứng bán giữa cộng đồng. Chiếc gậy, chiếc nón — điều được trao tay, làm nên cuộc hành trình. Và mặt nước — tên gọi còn đọc được đến hôm nay. Xâu lại, có thể đọc là: cộng đồng nhớ Chử Đồng Tử như một khát vọng về đời sống có phẩm giá, vượt khỏi xuất thân. Tôi nói là \"có thể đọc\" — vì đây là cách đọc biên tập, một đề xuất còn chờ duyệt, không phải kết luận độc quyền về tín ngưỡng, cũng không thay lời người thờ.",
+   "start_seconds": 680.0,
+   "end_seconds": 710.0,
+   "speaker_directions": "giọng chậm, gần như thì thầm của người tổng kết đêm; năm vật thể đọc rành từng cặp với nhịp lặng rất ngắn giữa các vế như xâu hạt; cụm 'có thể đọc là' nhấn chắc rồi hạ giọng; câu cuối đọc chậm rãi, tôn trọng",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "không có nổi một chiếc khố",
+     "có thể đọc là",
+     "đời sống có phẩm giá",
+     "đề xuất còn chờ duyệt"
+    ],
+    "pause_before_seconds": 0.6,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Trả lời phải là đề xuất đóng khung, không tuyên ngôn — giọng đề xuất ở 'có thể đọc là' quyết định toàn bộ ý nghĩa section.",
+    "provider_text": "Trở lại câu hỏi mở đầu tập. Vì sao dân làng lại thờ một người nghèo đến mức không có nổi một chiếc khố. Tối nay ta đã lần theo từng vật thể. Chiếc khố ... thứ duy nhất nhà có, và nó được đem cho cha. Lựa chọn của Tiên Dung ... công chúa tự chọn người mình lấy, không hỏi xuất thân. Cái chợ ... nơi người nghèo được đứng bán giữa cộng đồng. Chiếc gậy, chiếc nón ... điều được trao tay, làm nên cuộc hành trình. Và mặt nước ... tên gọi còn đọc được đến hôm nay. Xâu lại, có thể đọc là ... cộng đồng nhớ Chử Đồng Tử như một khát vọng về đời sống có phẩm giá, vượt khỏi xuất thân. Tôi nói là có thể đọc. Vì đây là cách đọc biên tập, một đề xuất còn chờ duyệt. Không phải kết luận độc quyền về tín ngưỡng, cũng không thay lời người thờ."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Trục nước mực ấm chạy ngang: năm nét vẽ vật thể hiện lần lượt theo nhịp đọc — khố, thuyền/công chúa, chợ, gậy nón, mặt đầm — mỗi vật sáng lên rồi mờ về phía dòng nước",
+     "timestamp_seconds": 7.0
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'có thể đọc là…' hiện trên giấy dó đúng lúc cụm được đọc, kèm dòng nhỏ 'cách đọc biên tập — còn chờ duyệt'",
+     "timestamp_seconds": 21.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C04 arc (framed 'truyện kể') — S2-C3 đề xuất đang chờ duyệt, không canon"
+  },
+  {
+   "id": "s22",
+   "label": "Climax b — Chữ ký của người thờ hôm nay",
+   "text": "Và người thờ hôm nay vẫn giữ chữ ký của mình. Một bài tin năm 2023 tường thuật lễ công bố ghi danh \"Lễ hội đền Đa Hòa\" vào Danh mục di sản văn hóa phi vật thể quốc gia, theo Quyết định 153/QĐ-BVHTTDL ngày 02/02/2023. Xin nói rõ: tôi dẫn theo bài công bố — tôi chưa đọc bản quyết định gốc, và đây không phải ghi danh UNESCO. Bài tin năm ấy còn ghi quy mô của lễ: tổ chức theo quy mô hàng tổng, ba năm một lần, với sự tham gia của chín làng trong Tổng Mễ xưa — địa danh theo thời điểm bài viết. Chín làng, ba năm một lần — nhịp ấy vẫn đang chạy, không cần ai chứng minh thần kỳ.",
+   "start_seconds": 710.0,
+   "end_seconds": 740.0,
+   "speaker_directions": "giọng teal vững, đọc số chậm và rành từng chữ một; câu đính chính đọc nhẹ nhàng nhưng dứt khoát, không hạ uy tín nguồn; cụm 'chín làng' và 'ba năm một lần' nhấn gọn làm điểm rơi",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "reflective-clear",
+    "emphasis_words": [
+     "theo bài công bố",
+     "153/QĐ-BVHTTDL",
+     "chín làng",
+     "ba năm một lần"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Mọi con số gắn chặt cụm 'theo bài công bố' — đọc số như đọc một chứng từ, không phải một khen tặng.",
+    "provider_text": "Và người thờ hôm nay vẫn giữ chữ ký của mình. Một bài tin năm hai nghìn lẻ hai mươi ba tường thuật lễ công bố ghi danh Lễ hội đền Đa Hòa vào Danh mục di sản văn hóa phi vật thể quốc gia. Theo Quyết định một trăm năm mươi ba, ký hiệu Q Đ, B V H T T D L, ngày mùng hai tháng hai năm hai nghìn lẻ hai mươi ba. Xin nói rõ ... Tôi dẫn theo bài công bố. Tôi chưa đọc bản quyết định gốc, và đây không phải ghi danh của U N E S C O. Bài tin năm ấy còn ghi quy mô của lễ. Tổ chức theo quy mô hàng tổng, ba năm một lần, với sự tham gia của chín làng trong Tổng Mễ xưa. Địa danh theo thời điểm bài viết. Chín làng, ba năm một lần ... Nhịp ấy vẫn đang chạy, không cần ai chứng minh thần kỳ."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Visual teal: thẻ giấy đăng bài tin 2023 hiện lên, dòng số '153/QĐ-BVHTTDL' và '02/02/2023' sáng theo nhịp đọc, gắn nhãn nhỏ 'theo bài công bố'",
+     "timestamp_seconds": 8.0
+    },
+    {
+     "type": "overlay",
+     "description": "Dòng chữ nhỏ teal: 'chưa đọc bản quyết định gốc — không phải UNESCO' hiện khi đọc câu đính chính",
+     "timestamp_seconds": 17.0
+    },
+    {
+     "type": "animation",
+     "description": "Bản đồ giấy dầu nâu: chín chấm làng quanh đền thắp sáng lần lượt thành vòng, kèm nhãn '9 làng; 3 năm một lần' và nhãn nhỏ 'địa danh theo năm bài viết'",
+     "timestamp_seconds": 24.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C09 (quote/số theo bài công bố) + C10 (quy mô 9 làng, 3 năm một lần) — research_notes §4"
+  },
+  {
+   "id": "s23",
+   "label": "Climax c — Số phận của một câu chuyện",
+   "text": "Nên số phận của một câu chuyện không nằm ở việc chứng minh đêm ấy có thật hay không. Nó nằm ở chỗ: vẫn có người rước nước mỗi kỳ hội, vẫn có chín làng cùng hẹn nhau ba năm một lần, vẫn có một cái tên — đầm một đêm — còn đọc được trên bản đồ và trên môi người kể. Câu chuyện sống được tới hôm nay, không vì thần kỳ, mà vì vẫn có người cần kể nó. Tối nay tôi đã kể một lượt. Đêm còn dài, và dòng sông thì vẫn chảy.",
+   "start_seconds": 740.0,
+   "end_seconds": 765.0,
+   "speaker_directions": "giọng hạ về tối ấm của bảo tàng đêm: chậm nhất tập, câu cuối rời nhau từng ý; 'dòng sông thì vẫn chảy' buông nhẹ rồi lặng hẳn — không nhạc dồn, không câu kết vang",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "vẫn có người rước nước",
+     "vẫn có người cần kể nó",
+     "dòng sông thì vẫn chảy"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 1.0,
+    "delivery_note": "Câu chuyển landing: tuyệt đối không khẳng định truyện có thật — để lời kết mở trên hình ảnh nước chảy, không tổng kết đạo đức.",
+    "provider_text": "Nên số phận của một câu chuyện không nằm ở việc chứng minh đêm ấy có thật hay không. Nó nằm ở chỗ ... Vẫn có người rước nước mỗi kỳ hội. Vẫn có chín làng cùng hẹn nhau ba năm một lần. Vẫn có một cái tên, đầm một đêm, còn đọc được trên bản đồ và trên môi người kể. Câu chuyện sống được tới hôm nay, không vì thần kỳ, mà vì vẫn có người cần kể nó. Tối nay tôi đã kể một lượt. Đêm còn dài, và dòng sông thì vẫn chảy."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Dòng nước mực ấm trôi chậm ngang khung, các vật thể của tập — khố, gậy, nón, đầm — nhấn nhá rồi tan vào dòng nước theo nhịp ba vế 'vẫn có'",
+     "timestamp_seconds": 6.0
+    },
+    {
+     "type": "overlay",
+     "description": "Dòng chữ cuối mực ấm tan dần vào dòng nước: 'dòng sông thì vẫn chảy' đúng lúc đọc, rồi màn hình về mặt nước phẳng lặng",
+     "timestamp_seconds": 19.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C04 arc (framed 'truyện kể') — câu chuyển landing, không xác nhận thần kỳ"
+  },
+  {
+   "id": "s24",
+   "label": "Landing a — Nước trở về (theo lịch được đăng)",
+   "text": "Và câu hỏi bài tập đọc năm ấy — 'Nhân dân làm gì để tưởng nhớ ông?' — có một câu trả lời không nằm trên trang sách. Nó nằm trên sông. Theo lịch được cổng du lịch Hưng Yên đăng, hội mở vào khoảng 10–12 tháng Hai âm lịch. Trong lịch được đăng ấy có ghi: sáng ngày 11/2, chín làng tổ chức du thuyền rước nước trên sông Hồng. Tôi không dựng lại nghi thức ấy như một đoạn tư liệu — chỉ nói rằng nó đã được ghi nhận, và vẫn được duy trì. Câu trả lời cho câu hỏi bài tập đọc, hóa ra, là chính dòng nước ấy: người ta tưởng nhớ ông bằng nước — thứ từng che cho hai người.",
+   "start_seconds": 765.0,
+   "end_seconds": 795.0,
+   "speaker_directions": "giọng gọn và tò mò như lật một trang hồ sơ mới: đều, chậm; nhấn khung 'theo lịch được đăng' cả hai lần; đọc số 'mười đến mười hai' rời từng chữ; câu cuối hạ ấm",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "Theo lịch được cổng du lịch Hưng Yên đăng",
+     "rước nước trên sông Hồng",
+     "tưởng nhớ ông bằng nước"
+    ],
+    "pause_before_seconds": 0.6,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Mọi mốc thời gian đều gắn khung 'theo lịch được đăng' — tuyệt đối không gọi là lịch năm nay, không dựng phong cách tư liệu.",
+    "provider_text": "Và câu hỏi bài tập đọc năm ấy ... Nhân dân làm gì để tưởng nhớ ông? ... có một câu trả lời không nằm trên trang sách. Nó nằm trên sông. Theo lịch được cổng du lịch Hưng Yên đăng, hội mở vào khoảng mười đến mười hai tháng Hai âm lịch. Trong lịch được đăng ấy có ghi ... sáng ngày mười một tháng Hai, chín làng tổ chức du thuyền rước nước trên sông Hồng. Tôi không dựng lại nghi thức ấy như một đoạn tư liệu. Chỉ nói rằng nó đã được ghi nhận, và vẫn được duy trì. Câu trả lời cho câu hỏi bài tập đọc, hóa ra, là chính dòng nước ấy. Người ta tưởng nhớ ông bằng nước, thứ từng che cho hai người."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Thẻ trích dẫn câu hỏi bài tập đọc: 'Nhân dân làm gì để tưởng nhớ ông?' kèm nhãn nguồn 'bài tập đọc (VnDoc)'",
+     "timestamp_seconds": 2.0
+    },
+    {
+     "type": "overlay",
+     "description": "Dòng dữ liệu trên giấy dầu nâu: 'Theo lịch được đăng — 10–12 tháng Hai âm lịch · rước nước: 11/2' và nhãn nhỏ 'lịch được đăng, không phải lịch năm nay'",
+     "timestamp_seconds": 13.0
+    },
+    {
+     "type": "animation",
+     "description": "Minh họa phác họa mực (góc màn ghi 'ảnh minh họa'): thuyền giấy trôi trên sóng mực, chín chấm làng sáng dần hai bên bờ — không dựng phong cách tư liệu",
+     "timestamp_seconds": 19.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "Q03 (quote nguyên văn, VnDoc) + C07/C08 (số theo lịch được đăng) — research_notes §4"
+  },
+  {
+   "id": "s25",
+   "label": "Landing b — Vòng vật thể khép lại",
+   "text": "Xin nhìn lại các vật thể của câu chuyện tối nay. Nước được rước về hôm nay. Đầm một đêm — còn đó, như một địa danh. Chuyến thuyền buôn năm nào — giờ là du thuyền rước nước. Phố chợ từng nhộn nhịp quanh lụa — nay là hội. Màn che bãi cát năm xưa — thành lễ. Và một chiếc khố — nhỏ đến thế, mà mở ra cả câu chuyện. Trong tất cả, chỉ có nước là chảy liên tục — từ truyện tới hôm nay. Đó là một câu biên tập của tôi, không phải một bằng chứng lịch sử. Nhưng nhìn theo cách ấy, thì truyện kể và đời sống gặp nhau ở đúng một dòng nước.",
+   "start_seconds": 795.0,
+   "end_seconds": 825.0,
+   "speaker_directions": "nhịp montage chậm, mỗi vật một hơi thở, giọng trầm ấm như điểm danh từng hiện vật; nhấn chữ 'nước' cả hai lần; câu 'câu biên tập ... không phải bằng chứng lịch sử' đọc rõ, thẳng — thành thật biên tập",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "chỉ có nước là chảy liên tục",
+     "câu biên tập",
+     "gặp nhau ở đúng một dòng nước"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Callback montage: mỗi vật được nhắc đúng thứ tự, hình hiện đúng lúc đọc; câu biên tập phải nói ra thành thật, không lấp bằng âm nhạc.",
+    "provider_text": "Xin nhìn lại các vật thể của câu chuyện tối nay. Nước được rước về hôm nay. Đầm một đêm, còn đó, như một địa danh. Chuyến thuyền buôn năm nào, giờ là du thuyền rước nước. Phố chợ từng nhộn nhịp quanh lụa, nay là hội. Màn che bãi cát năm xưa, thành lễ. Và một chiếc khố, nhỏ đến thế, mà mở ra cả câu chuyện. Trong tất cả, chỉ có nước là chảy liên tục, từ truyện tới hôm nay. Đó là một câu biên tập của tôi, không phải một bằng chứng lịch sử. Nhưng nhìn theo cách ấy, thì truyện kể và đời sống gặp nhau ở đúng một dòng nước."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Montage callback phác họa mực trầm: nước rước → đầm → thuyền → phố chợ → màn che → chiếc khố, mỗi vật vẽ lại đúng nhịp câu đọc, sau đó tất cả tan vào dòng nước mực ấm",
+     "timestamp_seconds": 4.0
+    },
+    {
+     "type": "overlay",
+     "description": "Nhãn nhỏ cuối màn: 'câu biên tập — không phải bằng chứng lịch sử' đúng lúc đọc",
+     "timestamp_seconds": 23.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C04 arc (framed 'truyện kể') — câu biên tập đóng khung, không chứng minh lịch sử"
+  },
+  {
+   "id": "s26",
+   "label": "Landing c — Lớp kể sau cùng",
+   "text": "Rồi còn một lớp kể nữa — lớp cuối cùng tối nay. Trang bài tập đọc ghi thêm rằng hai người 'giúp dân làm nhiều việc lợi ích như dạy cách trồng lúa, nuôi tằm, dệt vải'. Đó là lớp kể giáo dục — và cũng đáng quý, theo cách của nó. Trẻ con học câu đó để thấy hai vị thần không chỉ cưới nhau, mà ở lại làm việc. Rồi mỗi lớp kể lại thêm điều nó muốn nhớ: lớp biên soạn ghi tư liệu, lớp chức sắc ghi nghi thức, lớp du lịch ghi lịch hội. Lớp nào cũng đáng quý. Nhưng không lớp nào là lịch sử kỹ thuật. Ta không có công trình, không biên niên, không dòng chữ đương thời nào dạy lúa hay tằm cho ai cả — ta chỉ có những người kể, nối nhau qua bao thế hệ.",
+   "start_seconds": 825.0,
+   "end_seconds": 860.0,
+   "speaker_directions": "giọng người dẫn xem hiện vật cuối gian: chậm, tôn trọng từng lớp kể; đọc quote nguyên văn rõ từng chữ; cụm 'không lớp nào là lịch sử kỹ thuật' nhấn thẳng, không chế nhạo; câu cuối buông",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "lớp kể giáo dục",
+     "không lớp nào là lịch sử kỹ thuật",
+     "những người kể, nối nhau qua bao thế hệ"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "C13 được đóng khung 'bài tập đọc ghi' và dán nhãn lớp kể giáo dục; tôn trọng mọi lớp kể nhưng tách rõ khỏi lịch sử kỹ thuật.",
+    "provider_text": "Rồi còn một lớp kể nữa, lớp cuối cùng tối nay. Trang bài tập đọc ghi thêm rằng hai người ... giúp dân làm nhiều việc lợi ích như dạy cách trồng lúa, nuôi tằm, dệt vải. Đó là lớp kể giáo dục, và cũng đáng quý, theo cách của nó. Trẻ con học câu đó để thấy hai vị thần không chỉ cưới nhau, mà ở lại làm việc. Rồi mỗi lớp kể lại thêm điều nó muốn nhớ. Lớp biên soạn ghi tư liệu. Lớp chức sắc ghi nghi thức. Lớp du lịch ghi lịch hội. Lớp nào cũng đáng quý. Nhưng không lớp nào là lịch sử kỹ thuật. Ta không có công trình, không biên niên, không dòng chữ đương thời nào dạy lúa hay tằm cho ai cả. Ta chỉ có những người kể, nối nhau qua bao thế hệ."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Thẻ quote C13: 'giúp dân làm nhiều việc lợi ích như dạy cách trồng lúa, nuôi tằm, dệt vải' kèm nhãn 'lớp kể giáo dục' màu teal",
+     "timestamp_seconds": 6.0
+    },
+    {
+     "type": "animation",
+     "description": "Sơ đồ lớp kể như các lớp giấy dó xếp chồng: biên soạn — chức sắc — du lịch — giáo dục, mỗi lớp hiện đúng nhịp đọc; dòng chân 'không lớp nào là lịch sử kỹ thuật'",
+     "timestamp_seconds": 26.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C13 (quote nguyên văn, framed 'lớp kể giáo dục') — research_notes §2B"
+  },
+  {
+   "id": "s27",
+   "label": "Landing d — Khép lại câu hỏi mở",
+   "text": "Nên khép lại đúng chỗ ta bắt đầu. Người đàn ông ấy có thật không? Ta không biết. Cũng không cần biết — để hiểu vì sao truyện này sống. Nhưng có những điều ta biết rõ lắm: người Việt vẫn rước nước trên sông mỗi kỳ hội. Vẫn ghé đền, thắp hương, kể lại — dù chỉ thành tiếng thì thầm. Và vẫn dành một chỗ thờ cho kẻ nghèo nhất xóm bãi — không phải vì thần tích, mà vì cách truyện ấy nhìn người nghèo. Tối nay bạn đã nghe một câu chuyện. Vậy là dòng nước lại thêm một lần được mang đi. Chắc chắn, không phải vì phép màu — mà vì còn người kể, và còn người nghe.",
+   "start_seconds": 860.0,
+   "end_seconds": 885.0,
+   "speaker_directions": "giọng gần Micro nhất của tập, như nói riêng với người xem; hai câu 'không biết / không cần biết' ngắt rõ; chuỗi 'vẫn rước nước, vẫn ghé đền, vẫn kể' rời từng ý; câu cuối chậm hẳn, hơi buông",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "Ta không biết",
+     "không cần biết",
+     "còn người kể, và còn người nghe"
+    ],
+    "pause_before_seconds": 0.6,
+    "pause_after_seconds": 0.9,
+    "delivery_note": "KHÔNG lịch sử hóa: 'có thật không — không biết' phải nói rõ ràng, không né, không ngả; kết bằng người kể và người nghe, không kết bằng thần.",
+    "provider_text": "Nên khép lại đúng chỗ ta bắt đầu. Người đàn ông ấy có thật không? Ta không biết. Cũng không cần biết, để hiểu vì sao truyện này sống. Nhưng có những điều ta biết rõ lắm. Người Việt vẫn rước nước trên sông mỗi kỳ hội. Vẫn ghé đền, thắp hương, kể lại, dù chỉ thành tiếng thì thầm. Và vẫn dành một chỗ thờ cho kẻ nghèo nhất xóm bãi, không phải vì thần tích, mà vì cách truyện ấy nhìn người nghèo. Tối nay bạn đã nghe một câu chuyện. Vậy là dòng nước lại thêm một lần được mang đi. Chắc chắn không phải vì phép màu, mà vì còn người kể, và còn người nghe."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Mặt nước phẳng lặng mực ấm; ba vòng sóng lan nhỏ hiện đúng nhịp chuỗi 'vẫn rước nước ... vẫn ghé đền ... vẫn kể', mỗi vòng kèm hình phác họa nhỏ (thuyền, đền, người kể)",
+     "timestamp_seconds": 7.0
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ cuối tan vào mặt nước: 'còn người kể, và còn người nghe' đúng lúc đọc",
+     "timestamp_seconds": 20.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C04 arc (framed 'truyện kể') — câu mở được đóng mở, không lịch sử hóa nhân vật"
+  },
+  {
+   "id": "s28",
+   "label": "CTA a — Tứ bất tử còn một người",
+   "text": "Trước khi bạn đi, còn một chuyện nhỏ. Tứ bất tử — bốn vị còn ở lại với đất nước này — tối nay tôi đã kể ba. Còn một người. Một người phụ nữ. Bà Liễu Hạnh. Người con ấy không cưới ai, không làm nghề gì cho dân — và vẫn đứng ngang hàng trong Tứ bất tử. Vì sao? Hẹn bạn ở tập sau — nơi một người phụ nữ bị viết là giáng trần, rồi tự mình viết lại nhân dạng của truyện.",
+   "start_seconds": 885.0,
+   "end_seconds": 915.0,
+   "speaker_directions": "chuyển giọng từ kể sang mời: nhẹ hơn, nhanh hơn một nhịp, có chút tinh nghịch của người để dành điều hay; 'Một người phụ nữ' — ba chữ rời nhau, lặng nửa nhịp trước; câu cuối chậm lại, kéo tò mò",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-inviting",
+    "emphasis_words": [
+     "Còn một người",
+     "Một người phụ nữ",
+     "Bà Liễu Hạnh"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Chỉ nhắc tên và tư thế 'đứng trong Tứ bất tử' của Liễu Hạnh — KHÔNG spoil câu chuyện S2E04; hook tự viết, không trùng nguyên văn đề tài khác.",
+    "provider_text": "Trước khi bạn đi, còn một chuyện nhỏ. Tứ bất tử, bốn vị còn ở lại với đất nước này, tối nay tôi đã kể ba. Còn một người. Một người phụ nữ. Bà Liễu Hạnh. Người con ấy không cưới ai, không làm nghề gì cho dân, và vẫn đứng ngang hàng trong Tứ bất tử. Vì sao? Hẹn bạn ở tập sau, nơi một người phụ nữ bị viết là giáng trần, rồi tự mình viết lại nhân dạng của truyện."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Bốn chân đèn trong tối: ba chân đã cháy sáng (Tản Viên, Phù Đổng, Chử Đồng Tử — phác họa mực), chân thứ tư còn tối, hiện đúng nhịp 'Còn một người'",
+     "timestamp_seconds": 7.0
+    },
+    {
+     "type": "overlay",
+     "description": "Chân đèn thứ tư thắp sáng thành bóng phác họa mực của một người phụ nữ đứng — kèm dòng chữ 'Liễu Hạnh · Tứ bất tử' đúng lúc đọc",
+     "timestamp_seconds": 14.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "series bible Tứ bất tử (tease S2E04, không spoil) — không claim mới"
+  },
+  {
+   "id": "s29",
+   "label": "CTA b — Những vị thần ở lại",
+   "text": "Đây là series 'Những vị thần ở lại' — mỗi tập, một truyền thuyết, một bằng chứng thật. Nếu bạn muốn biết người phụ nữ ấy là ai, hãy theo dõi để không lỡ tập sau. Cảm ơn bạn đã ngồi nghe tôi kể tối nay.",
+   "start_seconds": 915.0,
+   "end_seconds": 935.0,
+   "speaker_directions": "giọng chào ấm, thật, không vội: nửa đầu rõ ràng mời gọi; câu cảm ơn cuối chậm lại, mỉm cười nghe được",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-inviting",
+    "emphasis_words": [
+     "một truyền thuyết, một bằng chứng thật",
+     "Cảm ơn bạn"
+    ],
+    "pause_before_seconds": 0.4,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Micro-section CTA: 2 câu ngắn; 'bằng chứng thật' phải nghe được trọng lượng của series — không quảng cáo ồn.",
+    "provider_text": "Đây là series ... Những vị thần ở lại ... mỗi tập, một truyền thuyết, một bằng chứng thật. Nếu bạn muốn biết người phụ nữ ấy là ai, hãy theo dõi để không lỡ tập sau. Cảm ơn bạn đã ngồi nghe tôi kể tối nay."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Thẻ series trên giấy dó: 'Những vị thần ở lại — mỗi tập một truyền thuyết · một bằng chứng thật' đúng lúc đọc",
+     "timestamp_seconds": 3.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "series bible (CTA series, không claim nội dung) — không cần claim"
+  },
+  {
+   "id": "s30",
+   "label": "CTA c — Nguồn tham khảo",
+   "text": "Tất cả những gì tôi kể tối nay đều có nguồn: sách cũ, trang cổng thông tin, và những trang bài học đã in.",
+   "start_seconds": 935.0,
+   "end_seconds": 950.0,
+   "speaker_directions": "giọng gọn, rõ, như người dẫn xem tấm bảng cảm ơn cuối chương trình; không đọc các dòng chữ trên màn — chỉ đọc một câu tương ứng",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-closing",
+    "emphasis_words": [
+     "có nguồn"
+    ],
+    "pause_before_seconds": 0.4,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Narration đọc đúng 1 câu tương ứng; KHÔNG đọc URL hay danh sách nguồn trên màn.",
+    "provider_text": "Tất cả những gì tôi kể tối nay đều có nguồn ... sách cũ, trang cổng thông tin, và những trang bài học đã in."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Card nguồn trên giấy dó, liệt kê tĩnh cho người xem tự đọc: 'Nguồn: Lĩnh Nam chích quái (bản dịch) · Phan Kế Bính (Wikisource) · Bảo tàng Lịch sử quốc gia · Cổng du lịch & Cổng hành chính Hưng Yên · VnDoc'",
+     "timestamp_seconds": 2.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "citation_ledger research/v1 — sources 01–07 tổng hợp trên màn"
+  },
+  {
+   "id": "s31",
+   "label": "Chốt — Câu cuối của tập",
+   "text": "Câu chuyện không dừng ở đám cưới — nó chảy tiếp, như dòng nước được rước mỗi năm.",
+   "start_seconds": 950.0,
+   "end_seconds": 955.0,
+   "speaker_directions": "một câu duy nhất, chậm nhất có thể mà vẫn tự nhiên; lặng trước nửa nhịp; đọc xong để mặt nước giữ màn hình",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "chảy tiếp"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 1.0,
+    "delivery_note": "Micro-section: đúng 1 câu chốt tự viết, không quote; đúng 5 giây.",
+    "provider_text": "Câu chuyện không dừng ở đám cưới ... nó chảy tiếp, như dòng nước được rước mỗi năm."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Dòng nước mực ấm chảy qua màn hình, mang theo vệt mờ của các vật thể của tập rồi tan hết — chỉ còn nước",
+     "timestamp_seconds": 0.5
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C04 arc (framed 'truyện kể') — câu chốt tự viết, không quote"
+  },
+  {
+   "id": "s32",
+   "label": "Credits — Im lặng nhạc, cảm ơn",
+   "text": "Cảm ơn bạn đã xem.",
+   "start_seconds": 955.0,
+   "end_seconds": 960.0,
+   "speaker_directions": "một câu cảm ơn ngắn, gần như thì thầm ấm; nhạc đã lui về im lặng từ cuối s31 — câu này nổi trên khoảng lặng",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-closing",
+    "emphasis_words": [
+     "Cảm ơn bạn"
+    ],
+    "pause_before_seconds": 0.8,
+    "pause_after_seconds": 1.0,
+    "delivery_note": "Micro-section: đúng 1 câu; nhạc im, chỉ narration + credits card; hết 960 giây.",
+    "provider_text": "Cảm ơn bạn đã xem."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Credits card giấy dó tối: 'Những vị thần ở lại · S2E03 — Chử Đồng Tử' + series mark mực ấm, hiện đúng lúc đọc",
+     "timestamp_seconds": 0.5
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "series bible (credits card) — không cần claim"
+  }
+ ],
+ "metadata": {
+  "status": "canonical_from_draft_gateB",
+  "series": "vn-myth",
+  "season": 2,
+  "episode": "S2E03",
+  "language": "vi",
+  "section_count": 32,
+  "target_duration_seconds": 960,
+  "narration_words_estimate": 3648,
+  "timing_blocks_seconds": {
+   "hook": 50,
+   "setup": 90,
+   "hoi_1": 120,
+   "hoi_2": 105,
+   "hoi_3": 175,
+   "hoi_4": 140,
+   "climax": 85,
+   "landing": 120,
+   "cta": 75
+  },
+  "block_section_ids": {
+   "hook": [
+    "s01",
+    "s02"
+   ],
+   "setup": [
+    "s03",
+    "s04"
+   ],
+   "hoi_1": [
+    "s05",
+    "s06",
+    "s07",
+    "s08"
+   ],
+   "hoi_2": [
+    "s09",
+    "s10",
+    "s11"
+   ],
+   "hoi_3": [
+    "s12",
+    "s13",
+    "s14",
+    "s15",
+    "s16"
+   ],
+   "hoi_4": [
+    "s17",
+    "s18",
+    "s19",
+    "s20"
+   ],
+   "climax": [
+    "s21",
+    "s22",
+    "s23"
+   ],
+   "landing": [
+    "s24",
+    "s25",
+    "s26",
+    "s27"
+   ],
+   "cta": [
+    "s28",
+    "s29",
+    "s30",
+    "s31",
+    "s32"
+   ]
+  },
+  "canon_proposed": "S2-C3 (PENDING owner) — 'có thể đọc là khát vọng về đời sống có phẩm giá, vượt khỏi xuất thân'; đóng khung biên tập, KHÔNG tự sửa bible",
+  "numbers_source": "research/v1/raw_data.json numeric_whitelist — chỉ 1492, 1493, 10–12 tháng Hai âm lịch, 11/2, 02/02/2023, 153/QĐ-BVHTTDL, 01/03/2023, 9 làng, 3 năm một lần",
+  "lexicon_applied": "base tts_lexicon S2E02 + tên riêng S2E03 giữ nguyên văn chờ Gate A probe",
+  "anti_rules_status": {
+   "no_historical_confirmation": "OK — s21/s23/s27 nêu rõ 'ta không biết người ấy có thật không', không xác nhận nhân vật lịch sử",
+   "no_commerce_buddhism_agriculture_founding": "OK — không khai sinh thương mại/Phật giáo/nghề nông VN; C13 (s26) đóng khung 'lớp kể giáo dục'",
+   "da_geology": "OK — hóa đầm chỉ kể trong khung 'truyện kể' (s18–s19), không giải thích địa chất",
+   "no_unesco": "OK — chỉ ghi 'Lễ hội đền Đa Hòa ghi danh theo bài công bố 2023' (s22, C09), không UNESCO, chưa đọc bản quyết định gốc",
+   "calendar_framing": "OK — s24 luôn nói 'theo lịch được đăng' cho 10–12 tháng Hai âm lịch và 11/2, không gọi là lịch năm nay",
+   "place_names_as_published": "OK — địa danh theo năm bài viết (s20, s22)",
+   "six_urls_not_six_independent": "OK — s04/s15 phân biệt nguồn bản kể vs URL; 6 URL không trình bày như 6 chứng cứ độc lập",
+   "q01_q03_published_reading_exercise": "OK — Q03 (s24) trích nguyên văn kèm nhãn 'bài tập đọc (VnDoc)', không coi là văn bản cổ",
+   "s2c3_editorial_frame": "OK — khát vọng phẩm giá (s21) nêu như cách đọc đề xuất, không chốt giáo điều",
+   "bathing_scene_dignity": "OK — s05–s07 (P2) kể qua màn/cát/nước, giữ phẩm giá; P4 không tái dựng trực diện"
+  },
+  "needs_input": [],
+  "canonicalized_at": "2026-10-19",
+  "source": "drafts/script_draft.json (owner Gate B + demo approved)"
+ }
+}

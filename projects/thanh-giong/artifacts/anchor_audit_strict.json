@@ -1,0 +1,3015 @@
+{
+  "pass": true,
+  "scenesChecked": 70,
+  "passingScenes": 70,
+  "totalCalls": 171,
+  "inWindowCalls": 171,
+  "overflowCount": 0,
+  "badFractions": 0,
+  "failingScenes": [],
+  "timelineErrors": [],
+  "retentionChecks": [],
+  "scenes": [
+    {
+      "sceneId": "sc001",
+      "sectionId": "s01",
+      "window": [
+        0.0,
+        13.4
+      ],
+      "startFrame": 0,
+      "durationInFrames": 402,
+      "calls": [
+        {
+          "phrase": "Một roi sắt",
+          "occ": 1,
+          "start": 11.119,
+          "end": 11.698,
+          "rawFraction": 0.8308,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Một thanh gươm",
+          "occ": 1,
+          "start": 9.149,
+          "end": 10.035,
+          "rawFraction": 0.6816,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc002",
+      "sectionId": "s01",
+      "window": [
+        13.4,
+        30.133
+      ],
+      "startFrame": 402,
+      "durationInFrames": 502,
+      "calls": [
+        {
+          "phrase": "ba trang sách",
+          "occ": 1,
+          "start": 13.722,
+          "end": 14.184,
+          "rawFraction": 0.0199,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "hai ngôi đền",
+          "occ": 1,
+          "start": 18.273,
+          "end": 18.723,
+          "rawFraction": 0.2908,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc003",
+      "sectionId": "s02",
+      "window": [
+        30.133,
+        34.267
+      ],
+      "startFrame": 904,
+      "durationInFrames": 124,
+      "calls": [
+        {
+          "phrase": "Trống hội dồn",
+          "occ": 1,
+          "start": 30.461,
+          "end": 31.312,
+          "rawFraction": 0.0806,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Cờ hiệu giương",
+          "occ": 1,
+          "start": 31.378,
+          "end": 32.413,
+          "rawFraction": 0.2984,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc004",
+      "sectionId": "s02",
+      "window": [
+        34.267,
+        52.067
+      ],
+      "startFrame": 1028,
+      "durationInFrames": 534,
+      "calls": [
+        {
+          "phrase": "cả làng nhập vai",
+          "occ": 1,
+          "start": 34.601,
+          "end": 35.215,
+          "rawFraction": 0.0187,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 1,
+      "inWindowCount": 1,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc005",
+      "sectionId": "s02",
+      "window": [
+        52.067,
+        72.1
+      ],
+      "startFrame": 1562,
+      "durationInFrames": 601,
+      "calls": [
+        {
+          "phrase": "khói đền",
+          "occ": 1,
+          "start": 53.187,
+          "end": 53.457,
+          "rawFraction": 0.0566,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "hạt gạo",
+          "occ": 1,
+          "start": 52.373,
+          "end": 53.06,
+          "rawFraction": 0.015,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "ngôi đền",
+          "occ": 1,
+          "start": 54.986,
+          "end": 55.256,
+          "rawFraction": 0.1464,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "về lại làng",
+          "occ": 1,
+          "start": 61.292,
+          "end": 61.991,
+          "rawFraction": 0.4609,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 4,
+      "inWindowCount": 4,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc006",
+      "sectionId": "s03",
+      "window": [
+        72.1,
+        92.467
+      ],
+      "startFrame": 2163,
+      "durationInFrames": 611,
+      "calls": [
+        {
+          "phrase": "Đời Hùng Vương thứ 6",
+          "occ": 1,
+          "start": 72.436,
+          "end": 73.571,
+          "rawFraction": 0.0164,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "chưa biết nói, chưa biết cười",
+          "occ": 1,
+          "start": 79.215,
+          "end": 80.549,
+          "rawFraction": 0.3486,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc007",
+      "sectionId": "s03",
+      "window": [
+        92.467,
+        105.5
+      ],
+      "startFrame": 2774,
+      "durationInFrames": 391,
+      "calls": [
+        {
+          "phrase": "người khách quân xanh",
+          "occ": 1,
+          "start": 92.799,
+          "end": 93.449,
+          "rawFraction": 0.0256,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "núi Hùng",
+          "occ": 1,
+          "start": 99.274,
+          "end": 99.982,
+          "rawFraction": 0.5217,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc008",
+      "sectionId": "s03",
+      "window": [
+        105.5,
+        123.4
+      ],
+      "startFrame": 3165,
+      "durationInFrames": 537,
+      "calls": [
+        {
+          "phrase": "Gọn trong một bài học",
+          "occ": 1,
+          "start": 105.828,
+          "end": 107.124,
+          "rawFraction": 0.0186,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "đứa trẻ chưa từng nói một lời",
+          "occ": 1,
+          "start": 114.493,
+          "end": 115.79,
+          "rawFraction": 0.5028,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc009",
+      "sectionId": "s04",
+      "window": [
+        123.4,
+        136.967
+      ],
+      "startFrame": 3702,
+      "durationInFrames": 407,
+      "calls": [
+        {
+          "phrase": "vị thần ở lại",
+          "occ": 1,
+          "start": 123.728,
+          "end": 124.196,
+          "rawFraction": 0.0246,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "trong trống hội, mâm cỗ",
+          "occ": 1,
+          "start": 124.296,
+          "end": 125.829,
+          "rawFraction": 0.0663,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc010",
+      "sectionId": "s04",
+      "window": [
+        136.967,
+        155.1
+      ],
+      "startFrame": 4109,
+      "durationInFrames": 544,
+      "calls": [
+        {
+          "phrase": "Ai đã viết",
+          "occ": 1,
+          "start": 142.473,
+          "end": 143.51,
+          "rawFraction": 0.3033,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "một đứa trẻ 3 tuổi",
+          "occ": 1,
+          "start": 137.275,
+          "end": 138.099,
+          "rawFraction": 0.0165,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "một đứa trẻ 3 tuổi",
+          "occ": 1,
+          "start": 137.275,
+          "end": 138.099,
+          "rawFraction": 0.0165,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "một đứa trẻ 3 tuổi",
+          "occ": 1,
+          "start": 137.275,
+          "end": 138.099,
+          "rawFraction": 0.0165,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "cha mẹ đã ngoài 60",
+          "occ": 1,
+          "start": 140.233,
+          "end": 141.113,
+          "rawFraction": 0.1801,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "cha mẹ đã ngoài 60",
+          "occ": 1,
+          "start": 140.233,
+          "end": 141.113,
+          "rawFraction": 0.1801,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "cha mẹ đã ngoài 60",
+          "occ": 1,
+          "start": 140.233,
+          "end": 141.113,
+          "rawFraction": 0.1801,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 7,
+      "inWindowCount": 7,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc011",
+      "sectionId": "s04",
+      "window": [
+        155.1,
+        163.5
+      ],
+      "startFrame": 4653,
+      "durationInFrames": 252,
+      "calls": [
+        {
+          "phrase": "đọc ngược",
+          "occ": 1,
+          "start": 155.409,
+          "end": 156.223,
+          "rawFraction": 0.0357,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "không có trận đánh nào",
+          "occ": 1,
+          "start": 161.513,
+          "end": 162.35,
+          "rawFraction": 0.7619,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc012",
+      "sectionId": "s05",
+      "window": [
+        163.5,
+        184.233
+      ],
+      "startFrame": 4905,
+      "durationInFrames": 622,
+      "calls": [
+        {
+          "phrase": "ba trang sách",
+          "occ": 1,
+          "start": 163.826,
+          "end": 164.38,
+          "rawFraction": 0.0161,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "vắn vọn vài dòng khô",
+          "occ": 1,
+          "start": 177.552,
+          "end": 178.331,
+          "rawFraction": 0.6785,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc013",
+      "sectionId": "s05",
+      "window": [
+        184.233,
+        208.367
+      ],
+      "startFrame": 5527,
+      "durationInFrames": 724,
+      "calls": [
+        {
+          "phrase": "Hơn ba tuổi, ăn uống, to béo, không biết nói cười",
+          "occ": 1,
+          "start": 184.54,
+          "end": 187.164,
+          "rawFraction": 0.0124,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "im lặng",
+          "occ": 1,
+          "start": 193.076,
+          "end": 193.993,
+          "rawFraction": 0.366,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc014",
+      "sectionId": "s06",
+      "window": [
+        208.367,
+        216.0
+      ],
+      "startFrame": 6251,
+      "durationInFrames": 229,
+      "calls": [
+        {
+          "phrase": "ghé qua làng",
+          "occ": 1,
+          "start": 208.682,
+          "end": 209.176,
+          "rawFraction": 0.0393,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "cất tiếng",
+          "occ": 1,
+          "start": 211.225,
+          "end": 211.775,
+          "rawFraction": 0.3755,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc015",
+      "sectionId": "s06",
+      "window": [
+        216.0,
+        231.867
+      ],
+      "startFrame": 6480,
+      "durationInFrames": 476,
+      "calls": [
+        {
+          "phrase": "Xin cho một thanh gươm",
+          "occ": 1,
+          "start": 216.333,
+          "end": 217.286,
+          "rawFraction": 0.021,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Không xin ngôi báu",
+          "occ": 1,
+          "start": 221.608,
+          "end": 222.743,
+          "rawFraction": 0.3529,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc016",
+      "sectionId": "s06",
+      "window": [
+        231.867,
+        250.433
+      ],
+      "startFrame": 6956,
+      "durationInFrames": 557,
+      "calls": [
+        {
+          "phrase": "Vài dòng",
+          "occ": 1,
+          "start": 241.092,
+          "end": 241.662,
+          "rawFraction": 0.4973,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Giặc tự quay giáo đánh lẫn nhau",
+          "occ": 1,
+          "start": 232.171,
+          "end": 233.826,
+          "rawFraction": 0.0162,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "nhảy ngựa lên không",
+          "occ": 1,
+          "start": 234.822,
+          "end": 235.597,
+          "rawFraction": 0.1598,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 3,
+      "inWindowCount": 3,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc017",
+      "sectionId": "s07",
+      "window": [
+        250.433,
+        266.1
+      ],
+      "startFrame": 7513,
+      "durationInFrames": 470,
+      "calls": [
+        {
+          "phrase": "Năm 1492",
+          "occ": 1,
+          "start": 250.762,
+          "end": 251.878,
+          "rawFraction": 0.0213,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Lĩnh Nam chích quái",
+          "occ": 1,
+          "start": 253.442,
+          "end": 254.437,
+          "rawFraction": 0.1915,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc018",
+      "sectionId": "s07",
+      "window": [
+        266.1,
+        276.5
+      ],
+      "startFrame": 7983,
+      "durationInFrames": 312,
+      "calls": [
+        {
+          "phrase": "ngã ba đường",
+          "occ": 1,
+          "start": 266.413,
+          "end": 266.972,
+          "rawFraction": 0.0288,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "ngoài 60",
+          "occ": 1,
+          "start": 269.481,
+          "end": 269.757,
+          "rawFraction": 0.3237,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc019",
+      "sectionId": "s07",
+      "window": [
+        276.5,
+        295.8
+      ],
+      "startFrame": 8295,
+      "durationInFrames": 579,
+      "calls": [
+        {
+          "phrase": "ra phá giặc cho nước",
+          "occ": 1,
+          "start": 276.81,
+          "end": 277.585,
+          "rawFraction": 0.0155,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "lời hẹn của thần",
+          "occ": 1,
+          "start": 288.458,
+          "end": 289.19,
+          "rawFraction": 0.62,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc020",
+      "sectionId": "s08",
+      "window": [
+        295.8,
+        302.933
+      ],
+      "startFrame": 8874,
+      "durationInFrames": 214,
+      "calls": [
+        {
+          "phrase": "Ta là thiên tướng nhà Trời đây",
+          "occ": 1,
+          "start": 296.12,
+          "end": 297.744,
+          "rawFraction": 0.0467,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "tự xưng là thiên tướng",
+          "occ": 1,
+          "start": 298.781,
+          "end": 299.564,
+          "rawFraction": 0.4159,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc021",
+      "sectionId": "s08",
+      "window": [
+        302.933,
+        314.5
+      ],
+      "startFrame": 9088,
+      "durationInFrames": 347,
+      "calls": [
+        {
+          "phrase": "ngựa sắt cao 18 thước",
+          "occ": 1,
+          "start": 303.265,
+          "end": 304.241,
+          "rawFraction": 0.0288,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "thanh kiếm dài 7 thước",
+          "occ": 1,
+          "start": 304.298,
+          "end": 305.228,
+          "rawFraction": 0.1182,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc022",
+      "sectionId": "s08",
+      "window": [
+        314.5,
+        327.767
+      ],
+      "startFrame": 9435,
+      "durationInFrames": 398,
+      "calls": [
+        {
+          "phrase": "hai cách chép",
+          "occ": 1,
+          "start": 314.827,
+          "end": 315.848,
+          "rawFraction": 0.0251,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "gương mặt của người chép",
+          "occ": 1,
+          "start": 317.765,
+          "end": 318.578,
+          "rawFraction": 0.2462,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc023",
+      "sectionId": "s09",
+      "window": [
+        327.767,
+        340.467
+      ],
+      "startFrame": 9833,
+      "durationInFrames": 381,
+      "calls": [
+        {
+          "phrase": "trang cổ nhất",
+          "occ": 1,
+          "start": 328.087,
+          "end": 328.492,
+          "rawFraction": 0.0262,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Việt Điện U Linh Tập",
+          "occ": 1,
+          "start": 331.827,
+          "end": 332.86,
+          "rawFraction": 0.3202,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc024",
+      "sectionId": "s09",
+      "window": [
+        340.467,
+        363.833
+      ],
+      "startFrame": 10214,
+      "durationInFrames": 701,
+      "calls": [
+        {
+          "phrase": "vị thần Thổ địa",
+          "occ": 1,
+          "start": 340.776,
+          "end": 341.336,
+          "rawFraction": 0.0128,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Không có trận đánh",
+          "occ": 1,
+          "start": 344.402,
+          "end": 345.494,
+          "rawFraction": 0.1683,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc025",
+      "sectionId": "s09",
+      "window": [
+        363.833,
+        385.1
+      ],
+      "startFrame": 10915,
+      "durationInFrames": 638,
+      "calls": [
+        {
+          "phrase": "tiếng gươm nhỏ dần",
+          "occ": 1,
+          "start": 364.147,
+          "end": 365.268,
+          "rawFraction": 0.0141,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "năm điều không đổi",
+          "occ": 1,
+          "start": 366.568,
+          "end": 367.124,
+          "rawFraction": 0.1285,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc026",
+      "sectionId": "s10",
+      "window": [
+        385.1,
+        397.067
+      ],
+      "startFrame": 11553,
+      "durationInFrames": 359,
+      "calls": [
+        {
+          "phrase": "hạt gạo",
+          "occ": 1,
+          "start": 385.412,
+          "end": 386.171,
+          "rawFraction": 0.0251,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "kể lướt",
+          "occ": 1,
+          "start": 389.889,
+          "end": 390.573,
+          "rawFraction": 0.4011,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc027",
+      "sectionId": "s10",
+      "window": [
+        397.067,
+        421.6
+      ],
+      "startFrame": 11912,
+      "durationInFrames": 736,
+      "calls": [
+        {
+          "phrase": "không đủ gạo",
+          "occ": 1,
+          "start": 397.381,
+          "end": 397.954,
+          "rawFraction": 0.0122,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "gạo của nhiều nhà",
+          "occ": 1,
+          "start": 416.874,
+          "end": 417.53,
+          "rawFraction": 0.8071,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc028",
+      "sectionId": "s11",
+      "window": [
+        421.6,
+        432.6
+      ],
+      "startFrame": 12648,
+      "durationInFrames": 330,
+      "calls": [
+        {
+          "phrase": "thả một lời nguyện",
+          "occ": 1,
+          "start": 428.951,
+          "end": 429.655,
+          "rawFraction": 0.6697,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 1,
+      "inWindowCount": 1,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc029",
+      "sectionId": "s11",
+      "window": [
+        432.6,
+        444.933
+      ],
+      "startFrame": 12978,
+      "durationInFrames": 370,
+      "calls": [
+        {
+          "phrase": "cất nhà to hơn",
+          "occ": 1,
+          "start": 432.935,
+          "end": 433.58,
+          "rawFraction": 0.027,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "cao hơn hai trượng",
+          "occ": 1,
+          "start": 437.461,
+          "end": 438.707,
+          "rawFraction": 0.3946,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc030",
+      "sectionId": "s11",
+      "window": [
+        444.933,
+        457.867
+      ],
+      "startFrame": 13348,
+      "durationInFrames": 388,
+      "calls": [
+        {
+          "phrase": "Thánh Gióng không tự lớn",
+          "occ": 1,
+          "start": 445.255,
+          "end": 446.836,
+          "rawFraction": 0.0258,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "những bàn tay góp vào nong",
+          "occ": 1,
+          "start": 452.163,
+          "end": 453.1,
+          "rawFraction": 0.5593,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc031",
+      "sectionId": "s12",
+      "window": [
+        457.867,
+        466.967
+      ],
+      "startFrame": 13736,
+      "durationInFrames": 273,
+      "calls": [
+        {
+          "phrase": "giáp sắt xanh rêu",
+          "occ": 1,
+          "start": 458.186,
+          "end": 458.868,
+          "rawFraction": 0.0366,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "phun lửa đỏ từ miệng",
+          "occ": 1,
+          "start": 460.753,
+          "end": 461.787,
+          "rawFraction": 0.3187,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc032",
+      "sectionId": "s12",
+      "window": [
+        466.967,
+        473.433
+      ],
+      "startFrame": 14009,
+      "durationInFrames": 194,
+      "calls": [
+        {
+          "phrase": "làng Cháy",
+          "occ": 1,
+          "start": 467.296,
+          "end": 467.688,
+          "rawFraction": 0.0515,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Võ Ninh",
+          "occ": 1,
+          "start": 469.837,
+          "end": 470.228,
+          "rawFraction": 0.4433,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc033",
+      "sectionId": "s12",
+      "window": [
+        473.433,
+        492.233
+      ],
+      "startFrame": 14203,
+      "durationInFrames": 564,
+      "calls": [
+        {
+          "phrase": "Cả một làng",
+          "occ": 1,
+          "start": 473.742,
+          "end": 474.636,
+          "rawFraction": 0.016,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "đong bằng nong",
+          "occ": 1,
+          "start": 486.639,
+          "end": 487.258,
+          "rawFraction": 0.7021,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc034",
+      "sectionId": "s13",
+      "window": [
+        492.233,
+        498.033
+      ],
+      "startFrame": 14767,
+      "durationInFrames": 174,
+      "calls": [
+        {
+          "phrase": "Roi sắt quất đến gãy",
+          "occ": 1,
+          "start": 492.564,
+          "end": 493.872,
+          "rawFraction": 0.0575,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "vồ luôn bụi tre",
+          "occ": 1,
+          "start": 494.532,
+          "end": 495.126,
+          "rawFraction": 0.3966,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Tre ngả vàng",
+          "occ": 1,
+          "start": 495.801,
+          "end": 496.647,
+          "rawFraction": 0.6149,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 3,
+      "inWindowCount": 3,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc035",
+      "sectionId": "s13",
+      "window": [
+        498.033,
+        504.9
+      ],
+      "startFrame": 14941,
+      "durationInFrames": 206,
+      "calls": [
+        {
+          "phrase": "tre Đằng Ngà",
+          "occ": 1,
+          "start": 498.361,
+          "end": 498.825,
+          "rawFraction": 0.0485,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Gia Bình",
+          "occ": 1,
+          "start": 499.024,
+          "end": 499.401,
+          "rawFraction": 0.1456,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc036",
+      "sectionId": "s13",
+      "window": [
+        504.9,
+        528.733
+      ],
+      "startFrame": 15147,
+      "durationInFrames": 715,
+      "calls": [
+        {
+          "phrase": "quay giáo đánh lẫn nhau",
+          "occ": 1,
+          "start": 505.213,
+          "end": 506.061,
+          "rawFraction": 0.0126,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "tre vệ đường",
+          "occ": 1,
+          "start": 522.48,
+          "end": 523.05,
+          "rawFraction": 0.7371,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc037",
+      "sectionId": "s14",
+      "window": [
+        528.733,
+        544.733
+      ],
+      "startFrame": 15862,
+      "durationInFrames": 480,
+      "calls": [
+        {
+          "phrase": "cởi áo bào để lại",
+          "occ": 1,
+          "start": 529.049,
+          "end": 530.311,
+          "rawFraction": 0.0187,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "cưỡi ngựa bay lên Trời",
+          "occ": 1,
+          "start": 531.258,
+          "end": 532.097,
+          "rawFraction": 0.1583,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc038",
+      "sectionId": "s14",
+      "window": [
+        544.733,
+        550.8
+      ],
+      "startFrame": 16342,
+      "durationInFrames": 182,
+      "calls": [
+        {
+          "phrase": "100 mẫu ruộng tự điền",
+          "occ": 1,
+          "start": 545.057,
+          "end": 546.198,
+          "rawFraction": 0.0549,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Không phải cho mẹ cậu",
+          "occ": 1,
+          "start": 547.209,
+          "end": 548.415,
+          "rawFraction": 0.4066,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc039",
+      "sectionId": "s14",
+      "window": [
+        550.8,
+        566.4
+      ],
+      "startFrame": 16524,
+      "durationInFrames": 468,
+      "calls": [
+        {
+          "phrase": "cả hương Phù Đổng",
+          "occ": 1,
+          "start": 551.13,
+          "end": 552.198,
+          "rawFraction": 0.0214,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "ruộng trả về làng",
+          "occ": 1,
+          "start": 556.455,
+          "end": 557.852,
+          "rawFraction": 0.3632,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc040",
+      "sectionId": "s15",
+      "window": [
+        566.4,
+        582.933
+      ],
+      "startFrame": 16992,
+      "durationInFrames": 496,
+      "calls": [
+        {
+          "phrase": "cao 18 thước",
+          "occ": 1,
+          "start": 568.561,
+          "end": 569.685,
+          "rawFraction": 0.131,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "cao 18 thước",
+          "occ": 1,
+          "start": 568.561,
+          "end": 569.685,
+          "rawFraction": 0.131,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "dài 7 thước",
+          "occ": 1,
+          "start": 567.624,
+          "end": 568.414,
+          "rawFraction": 0.0746,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "dài 7 thước",
+          "occ": 1,
+          "start": 567.624,
+          "end": 568.414,
+          "rawFraction": 0.0746,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Kiếm dài",
+          "occ": 1,
+          "start": 567.49,
+          "end": 567.735,
+          "rawFraction": 0.0665,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "quen thuộc nhất",
+          "occ": 1,
+          "start": 578.238,
+          "end": 579.358,
+          "rawFraction": 0.7157,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "thuộc về thời được kể",
+          "occ": 1,
+          "start": 581.378,
+          "end": 582.676,
+          "rawFraction": 0.9052,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 7,
+      "inWindowCount": 7,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc041",
+      "sectionId": "s15",
+      "window": [
+        582.933,
+        599.233
+      ],
+      "startFrame": 17488,
+      "durationInFrames": 489,
+      "calls": [
+        {
+          "phrase": "Đây là câu hỏi",
+          "occ": 1,
+          "start": 584.55,
+          "end": 585.499,
+          "rawFraction": 0.1002,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "trí nhớ của người chép",
+          "occ": 1,
+          "start": 583.245,
+          "end": 584.505,
+          "rawFraction": 0.0184,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "không phải kết luận",
+          "occ": 1,
+          "start": 585.514,
+          "end": 586.547,
+          "rawFraction": 0.1575,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Gạo đến từ xóm làng",
+          "occ": 1,
+          "start": 595.288,
+          "end": 596.517,
+          "rawFraction": 0.7587,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 4,
+      "inWindowCount": 4,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc042",
+      "sectionId": "s16",
+      "window": [
+        599.233,
+        606.133
+      ],
+      "startFrame": 17977,
+      "durationInFrames": 207,
+      "calls": [
+        {
+          "phrase": "tách làm hai nơi",
+          "occ": 1,
+          "start": 603.789,
+          "end": 604.7,
+          "rawFraction": 0.6618,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Hai ngôi đền",
+          "occ": 1,
+          "start": 599.548,
+          "end": 600.424,
+          "rawFraction": 0.0435,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc043",
+      "sectionId": "s16",
+      "window": [
+        606.133,
+        628.233
+      ],
+      "startFrame": 18184,
+      "durationInFrames": 663,
+      "calls": [
+        {
+          "phrase": "đền Phù Đổng, đồng bằng",
+          "occ": 1,
+          "start": 606.449,
+          "end": 607.597,
+          "rawFraction": 0.0136,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "giữ tiếng gươm",
+          "occ": 1,
+          "start": 622.161,
+          "end": 622.962,
+          "rawFraction": 0.7255,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc044",
+      "sectionId": "s17",
+      "window": [
+        628.233,
+        634.033
+      ],
+      "startFrame": 18847,
+      "durationInFrames": 174,
+      "calls": [
+        {
+          "phrase": "chính hội ngày 9 tháng Tư",
+          "occ": 1,
+          "start": 628.556,
+          "end": 630.015,
+          "rawFraction": 0.0575,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "hội trận",
+          "occ": 1,
+          "start": 630.687,
+          "end": 631.093,
+          "rawFraction": 0.4253,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc045",
+      "sectionId": "s17",
+      "window": [
+        634.033,
+        642.167
+      ],
+      "startFrame": 19021,
+      "durationInFrames": 244,
+      "calls": [
+        {
+          "phrase": "rước nước",
+          "occ": 1,
+          "start": 634.361,
+          "end": 634.664,
+          "rawFraction": 0.041,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "khám đường, duyệt tướng",
+          "occ": 1,
+          "start": 638.973,
+          "end": 640.181,
+          "rawFraction": 0.6066,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc046",
+      "sectionId": "s17",
+      "window": [
+        642.167,
+        661.5
+      ],
+      "startFrame": 19265,
+      "durationInFrames": 580,
+      "calls": [
+        {
+          "phrase": "bãi Soi Bia",
+          "occ": 1,
+          "start": 642.499,
+          "end": 642.97,
+          "rawFraction": 0.0172,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Không phải diễn viên",
+          "occ": 1,
+          "start": 645.911,
+          "end": 646.891,
+          "rawFraction": 0.1931,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Cả làng",
+          "occ": 1,
+          "start": 646.932,
+          "end": 647.733,
+          "rawFraction": 0.2466,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "chuyện của chúng ta",
+          "occ": 1,
+          "start": 655.673,
+          "end": 656.3,
+          "rawFraction": 0.6983,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 4,
+      "inWindowCount": 4,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc047",
+      "sectionId": "s18",
+      "window": [
+        661.5,
+        669.4
+      ],
+      "startFrame": 19845,
+      "durationInFrames": 237,
+      "calls": [
+        {
+          "phrase": "mùng 6 đến mùng 8",
+          "occ": 1,
+          "start": 661.82,
+          "end": 662.402,
+          "rawFraction": 0.0422,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "lễ Mộc Dục",
+          "occ": 1,
+          "start": 664.661,
+          "end": 665.521,
+          "rawFraction": 0.4008,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc048",
+      "sectionId": "s18",
+      "window": [
+        669.4,
+        688.933
+      ],
+      "startFrame": 20082,
+      "durationInFrames": 586,
+      "calls": [
+        {
+          "phrase": "8 lễ vật truyền thống",
+          "occ": 1,
+          "start": 669.712,
+          "end": 670.463,
+          "rawFraction": 0.0154,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "giò hoa tre",
+          "occ": 1,
+          "start": 677.588,
+          "end": 678.813,
+          "rawFraction": 0.4198,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc049",
+      "sectionId": "s18",
+      "window": [
+        688.933,
+        692.9
+      ],
+      "startFrame": 20668,
+      "durationInFrames": 119,
+      "calls": [
+        {
+          "phrase": "tiếng trống trận",
+          "occ": 1,
+          "start": 689.249,
+          "end": 690.264,
+          "rawFraction": 0.0756,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "đêm tưởng niệm",
+          "occ": 1,
+          "start": 690.704,
+          "end": 691.23,
+          "rawFraction": 0.4454,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc050",
+      "sectionId": "s19",
+      "window": [
+        692.9,
+        702.933
+      ],
+      "startFrame": 20787,
+      "durationInFrames": 301,
+      "calls": [
+        {
+          "phrase": "16 tháng 11 năm 2010",
+          "occ": 1,
+          "start": 693.209,
+          "end": 695.312,
+          "rawFraction": 0.0299,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Hội Gióng đền Phù Đổng",
+          "occ": 1,
+          "start": 700.81,
+          "end": 701.862,
+          "rawFraction": 0.7874,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc051",
+      "sectionId": "s19",
+      "window": [
+        702.933,
+        735.0
+      ],
+      "startFrame": 21088,
+      "durationInFrames": 962,
+      "calls": [
+        {
+          "phrase": "Một vị thánh, hai loại kỷ niệm",
+          "occ": 1,
+          "start": 702.979,
+          "end": 704.71,
+          "rawFraction": 0.001,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "không ai là khán giả",
+          "occ": 1,
+          "start": 722.568,
+          "end": 724.04,
+          "rawFraction": 0.6123,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc052",
+      "sectionId": "s20",
+      "window": [
+        735.0,
+        743.867
+      ],
+      "startFrame": 22050,
+      "durationInFrames": 266,
+      "calls": [
+        {
+          "phrase": "Bằng chứng tín ngưỡng",
+          "occ": 1,
+          "start": 736.808,
+          "end": 738.032,
+          "rawFraction": 0.203,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "năm xưa có thật",
+          "occ": 1,
+          "start": 736.065,
+          "end": 736.771,
+          "rawFraction": 0.1203,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "điều họ chọn ghi nhớ",
+          "occ": 1,
+          "start": 738.982,
+          "end": 740.256,
+          "rawFraction": 0.4474,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "không chứng minh trận đánh",
+          "occ": 1,
+          "start": 735.336,
+          "end": 736.044,
+          "rawFraction": 0.0376,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "chỉ nói về người thờ",
+          "occ": 1,
+          "start": 738.061,
+          "end": 738.774,
+          "rawFraction": 0.3459,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 5,
+      "inWindowCount": 5,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc053",
+      "sectionId": "s20",
+      "window": [
+        743.867,
+        757.9
+      ],
+      "startFrame": 22316,
+      "durationInFrames": 421,
+      "calls": [
+        {
+          "phrase": "câu hỏi mở đầu",
+          "occ": 1,
+          "start": 746.688,
+          "end": 747.321,
+          "rawFraction": 0.2019,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Để trả lời",
+          "occ": 1,
+          "start": 752.14,
+          "end": 753.383,
+          "rawFraction": 0.5891,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Chọn ghi nhớ gạo của cả làng",
+          "occ": 1,
+          "start": 744.202,
+          "end": 745.892,
+          "rawFraction": 0.0238,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "đọc chậm",
+          "occ": 1,
+          "start": 756.001,
+          "end": 756.42,
+          "rawFraction": 0.8646,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 4,
+      "inWindowCount": 4,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc054",
+      "sectionId": "s21",
+      "window": [
+        757.9,
+        775.867
+      ],
+      "startFrame": 22737,
+      "durationInFrames": 539,
+      "calls": [
+        {
+          "phrase": "đứa trẻ im lặng",
+          "occ": 1,
+          "start": 758.23,
+          "end": 759.456,
+          "rawFraction": 0.0186,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "nín thở chờ đợi",
+          "occ": 1,
+          "start": 768.141,
+          "end": 768.893,
+          "rawFraction": 0.5696,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc055",
+      "sectionId": "s21",
+      "window": [
+        775.867,
+        783.733
+      ],
+      "startFrame": 23276,
+      "durationInFrames": 236,
+      "calls": [
+        {
+          "phrase": "Chi tiết thứ hai",
+          "occ": 1,
+          "start": 776.187,
+          "end": 776.814,
+          "rawFraction": 0.0424,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Nó xin vũ khí",
+          "occ": 1,
+          "start": 781.29,
+          "end": 782.814,
+          "rawFraction": 0.6907,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc056",
+      "sectionId": "s21",
+      "window": [
+        783.733,
+        789.433
+      ],
+      "startFrame": 23512,
+      "durationInFrames": 171,
+      "calls": [
+        {
+          "phrase": "đòi cho người khác",
+          "occ": 1,
+          "start": 784.059,
+          "end": 784.636,
+          "rawFraction": 0.0585,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "nhà vua không phải lo gì cả",
+          "occ": 1,
+          "start": 787.638,
+          "end": 788.84,
+          "rawFraction": 0.6842,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc057",
+      "sectionId": "s22",
+      "window": [
+        789.433,
+        805.7
+      ],
+      "startFrame": 23683,
+      "durationInFrames": 488,
+      "calls": [
+        {
+          "phrase": "Chi tiết thứ ba",
+          "occ": 1,
+          "start": 789.77,
+          "end": 790.646,
+          "rawFraction": 0.0205,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "nong của cả làng",
+          "occ": 1,
+          "start": 798.534,
+          "end": 799.684,
+          "rawFraction": 0.5594,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc058",
+      "sectionId": "s22",
+      "window": [
+        805.7,
+        819.833
+      ],
+      "startFrame": 24171,
+      "durationInFrames": 424,
+      "calls": [
+        {
+          "phrase": "không về đâu cả",
+          "occ": 1,
+          "start": 806.028,
+          "end": 807.057,
+          "rawFraction": 0.0236,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "bay về trời",
+          "occ": 1,
+          "start": 814.42,
+          "end": 815.594,
+          "rawFraction": 0.6179,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Áo bào để lại trên núi",
+          "occ": 1,
+          "start": 809.684,
+          "end": 810.89,
+          "rawFraction": 0.283,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "100 mẫu ruộng",
+          "occ": 1,
+          "start": 810.91,
+          "end": 811.352,
+          "rawFraction": 0.3679,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "100 mẫu ruộng",
+          "occ": 1,
+          "start": 810.91,
+          "end": 811.352,
+          "rawFraction": 0.3679,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "100 mẫu ruộng",
+          "occ": 1,
+          "start": 810.91,
+          "end": 811.352,
+          "rawFraction": 0.3679,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "không cho một ai",
+          "occ": 1,
+          "start": 812.485,
+          "end": 813.3,
+          "rawFraction": 0.4811,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 7,
+      "inWindowCount": 7,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc059",
+      "sectionId": "s22",
+      "window": [
+        819.833,
+        824.767
+      ],
+      "startFrame": 24595,
+      "durationInFrames": 148,
+      "calls": [
+        {
+          "phrase": "trả về mọi nhà",
+          "occ": 1,
+          "start": 820.141,
+          "end": 821.466,
+          "rawFraction": 0.0608,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Không một chữ nào",
+          "occ": 1,
+          "start": 821.496,
+          "end": 822.166,
+          "rawFraction": 0.3378,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc060",
+      "sectionId": "s23",
+      "window": [
+        824.767,
+        835.5
+      ],
+      "startFrame": 24743,
+      "durationInFrames": 322,
+      "calls": [
+        {
+          "phrase": "câu trả lời của tối nay",
+          "occ": 1,
+          "start": 825.072,
+          "end": 825.819,
+          "rawFraction": 0.028,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "không phải là một cá nhân",
+          "occ": 1,
+          "start": 829.654,
+          "end": 831.027,
+          "rawFraction": 0.4565,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc061",
+      "sectionId": "s23",
+      "window": [
+        835.5,
+        839.933
+      ],
+      "startFrame": 25065,
+      "durationInFrames": 133,
+      "calls": [
+        {
+          "phrase": "Thánh Gióng không tự lớn",
+          "occ": 1,
+          "start": 835.805,
+          "end": 837.131,
+          "rawFraction": 0.0677,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Cả làng nuôi nó lớn",
+          "occ": 1,
+          "start": 837.189,
+          "end": 838.525,
+          "rawFraction": 0.3835,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc062",
+      "sectionId": "s23",
+      "window": [
+        839.933,
+        862.867
+      ],
+      "startFrame": 25198,
+      "durationInFrames": 688,
+      "calls": [
+        {
+          "phrase": "gặp nhau trong một chiếc nong",
+          "occ": 1,
+          "start": 840.266,
+          "end": 841.465,
+          "rawFraction": 0.0145,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "cùng lớn lên một lần",
+          "occ": 1,
+          "start": 856.341,
+          "end": 857.28,
+          "rawFraction": 0.7151,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc063",
+      "sectionId": "s24",
+      "window": [
+        862.867,
+        866.367
+      ],
+      "startFrame": 25886,
+      "durationInFrames": 105,
+      "calls": [
+        {
+          "phrase": "Ai ơi mồng Chín tháng Tư",
+          "occ": 1,
+          "start": 863.192,
+          "end": 864.876,
+          "rawFraction": 0.0952,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "không đi hội",
+          "occ": 1,
+          "start": 864.894,
+          "end": 865.285,
+          "rawFraction": 0.581,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc064",
+      "sectionId": "s24",
+      "window": [
+        866.367,
+        878.6
+      ],
+      "startFrame": 25991,
+      "durationInFrames": 367,
+      "calls": [
+        {
+          "phrase": "bãi Soi Bia",
+          "occ": 1,
+          "start": 868.509,
+          "end": 869.383,
+          "rawFraction": 0.1744,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Trẻ con làng Phù Đổng",
+          "occ": 1,
+          "start": 866.676,
+          "end": 867.585,
+          "rawFraction": 0.0245,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Cùng một hạt gạo",
+          "occ": 1,
+          "start": 874.071,
+          "end": 874.659,
+          "rawFraction": 0.6294,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 3,
+      "inWindowCount": 3,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc065",
+      "sectionId": "s25",
+      "window": [
+        878.6,
+        885.767
+      ],
+      "startFrame": 26358,
+      "durationInFrames": 215,
+      "calls": [
+        {
+          "phrase": "Tứ bất tử",
+          "occ": 1,
+          "start": 878.911,
+          "end": 879.289,
+          "rawFraction": 0.0419,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Tản Viên Sơn Thánh",
+          "occ": 1,
+          "start": 881.401,
+          "end": 882.454,
+          "rawFraction": 0.3907,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Phù Đổng Thiên Vương",
+          "occ": 1,
+          "start": 882.49,
+          "end": 883.359,
+          "rawFraction": 0.5442,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Chử Đồng Tử",
+          "occ": 1,
+          "start": 883.391,
+          "end": 883.787,
+          "rawFraction": 0.6698,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Liễu Hạnh",
+          "occ": 1,
+          "start": 884.097,
+          "end": 884.577,
+          "rawFraction": 0.7674,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "và Liễu Hạnh",
+          "occ": 1,
+          "start": 883.81,
+          "end": 884.577,
+          "rawFraction": 0.7256,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 6,
+      "inWindowCount": 6,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc066",
+      "sectionId": "s25",
+      "window": [
+        885.767,
+        901.567
+      ],
+      "startFrame": 26573,
+      "durationInFrames": 474,
+      "calls": [
+        {
+          "phrase": "ngay sau Tản Viên",
+          "occ": 1,
+          "start": 886.098,
+          "end": 887.169,
+          "rawFraction": 0.0211,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "ai sẽ đứng ra",
+          "occ": 1,
+          "start": 898.693,
+          "end": 899.811,
+          "rawFraction": 0.8186,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc067",
+      "sectionId": "s26",
+      "window": [
+        901.567,
+        914.1
+      ],
+      "startFrame": 27047,
+      "durationInFrames": 376,
+      "calls": [
+        {
+          "phrase": "Đêm hội tàn",
+          "occ": 1,
+          "start": 901.87,
+          "end": 902.429,
+          "rawFraction": 0.0239,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "hạt gạo về kho",
+          "occ": 1,
+          "start": 904.53,
+          "end": 905.322,
+          "rawFraction": 0.2367,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc068",
+      "sectionId": "s26",
+      "window": [
+        914.1,
+        919.667
+      ],
+      "startFrame": 27423,
+      "durationInFrames": 167,
+      "calls": [
+        {
+          "phrase": "chưa bao giờ lớn lên một mình",
+          "occ": 1,
+          "start": 914.422,
+          "end": 916.112,
+          "rawFraction": 0.0599,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "chưa bao giờ bị bỏ quên",
+          "occ": 1,
+          "start": 916.569,
+          "end": 917.41,
+          "rawFraction": 0.4431,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc069",
+      "sectionId": "s27",
+      "window": [
+        919.667,
+        935.5
+      ],
+      "startFrame": 27590,
+      "durationInFrames": 475,
+      "calls": [
+        {
+          "phrase": "người được thờ tiếp theo",
+          "occ": 1,
+          "start": 919.994,
+          "end": 920.679,
+          "rawFraction": 0.0211,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "một chiếc khố",
+          "occ": 1,
+          "start": 926.077,
+          "end": 926.69,
+          "rawFraction": 0.4042,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    },
+    {
+      "sceneId": "sc070",
+      "sectionId": "s28",
+      "window": [
+        935.5,
+        943.5
+      ],
+      "startFrame": 28065,
+      "durationInFrames": 240,
+      "calls": [
+        {
+          "phrase": "Cảm ơn bạn đã xem",
+          "occ": 1,
+          "start": 938.208,
+          "end": 939.646,
+          "rawFraction": 0.3375,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        },
+        {
+          "phrase": "Hẹn gặp lại",
+          "occ": 1,
+          "start": 939.701,
+          "end": 940.564,
+          "rawFraction": 0.525,
+          "underflowSec": 0.0,
+          "overflowSec": 0.0,
+          "spanOk": true,
+          "fractionOk": true
+        }
+      ],
+      "callCount": 2,
+      "inWindowCount": 2,
+      "maxOverflowSec": 0.0,
+      "pass": true
+    }
+  ]
+}

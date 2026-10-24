@@ -1,0 +1,197 @@
+{
+  "version": "1.0",
+  "project_id": "news-daily-20261022",
+  "pipeline_type": "hybrid",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-10-22T13:42:19.167770+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "flat-motion-graphics",
+      "scenes": [
+        {
+          "id": "S1",
+          "type": "diagram",
+          "description": "Hook Champi. SVG xo\u00e1y b\u00e3o tr\u1eebu t\u01b0\u1ee3ng line-art (MINH H\u1eccA, nh\u00e3n MINH H\u1eccA) sau v\u00f9ng title. Title 'SI\u00caU B\u00c3O CHAMPI' + sub 'M\u1ea1nh nh\u1ea5t h\u00e0nh tinh n\u0103m 2026'; stat '210 km/h \u2014 c\u1ea5p 16, gi\u1eadt tr\u00ean c\u1ea5p 17' (s\u1ed1 coral, nguy\u00ean gi\u00e1 tr\u1ecb, kh\u00f4ng countup); chips: \u0110\u00e0i Loan \u0111\u00f3ng c\u1eeda ch\u1ee9ng kho\u00e1n/tr\u01b0\u1eddng h\u1ecdc \u2014 chuy\u1ebfn bay \u0111\u1ea3o l\u1ed9n; H\u01b0\u1edbng sang Nh\u1eadt B\u1ea3n; stat 'Bi\u1ec3n \u0110\u00f4ng: \u00edt kh\u1ea3 n\u0103ng b\u00e3o v\u00e0o \u2014 gi\u00f3 c\u1ea5p 8\u20139, s\u00f3ng 4\u20136 m'. N\u1ec1n navy t\u0129nh.",
+          "script_section_id": "S1",
+          "movement": "Reveal t\u1eebng element theo word timestamps th\u1eadt (speech-lock); camera T\u0128NH tuy\u1ec7t \u0111\u1ed1i trong shot",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "Captions nguy\u00ean v\u0103n section; Ngu\u1ed3n: b\u1ea3n tin t\u1ed5ng h\u1ee3p ng\u00e0y 22/10/2026; badge NH\u1eacN \u0110\u1ecaNH \u1edf S6a/S6b",
+          "narrative_role": "introduce_subject",
+          "required_assets": [],
+          "start_seconds": 0,
+          "end_seconds": 15
+        },
+        {
+          "id": "S2",
+          "type": "text_card",
+          "description": "N\u00e3o m\u00f4 c\u1ea7u TPHCM: title 'CH\u00d9M 5 CA N\u00c3O M\u00d4 C\u1ea6U', sub t\u1eed vong h\u1ecdc sinh 12 tu\u1ed5i; 2 stat rows (g\u1ea7n 100 ng\u01b0\u1eddi kh\u00e1ng sinh d\u1ef1 ph\u00f2ng; h\u01a1n 50.000 m\u0169i vaccine trong 6 ng\u00e0y). Kh\u00f4ng h\u00ecnh y t\u1ebf g\u00e2y s\u1ee3.",
+          "script_section_id": "S2",
+          "movement": "Reveal t\u1eebng element theo word timestamps th\u1eadt (speech-lock); camera T\u0128NH tuy\u1ec7t \u0111\u1ed1i trong shot",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "Captions nguy\u00ean v\u0103n section; Ngu\u1ed3n: b\u1ea3n tin t\u1ed5ng h\u1ee3p ng\u00e0y 22/10/2026; badge NH\u1eacN \u0110\u1ecaNH \u1edf S6a/S6b",
+          "narrative_role": "deliver_payload",
+          "required_assets": [],
+          "start_seconds": 15,
+          "end_seconds": 26
+        },
+        {
+          "id": "S3",
+          "type": "diagram",
+          "description": "Hormuz: SVG eo bi\u1ec3n + m\u0169i t\u00ean line-art (MINH H\u1eccA). Title '7 T\u00c0U CH\u1ede D\u1ea6U B\u1eca T\u1ea4N C\u00d4NG', sub b\u1ed1c ch\u00e1y; chips Aramco s\u01a1 t\u00e1n Dhahran; gi\u00e1 d\u1ea7u th\u1ebf gi\u1edbi b\u1eadt m\u1ea1nh. Kh\u00f4ng n\u00eau b\u00ean t\u1ea5n c\u00f4ng.",
+          "script_section_id": "S3",
+          "movement": "Reveal t\u1eebng element theo word timestamps th\u1eadt (speech-lock); camera T\u0128NH tuy\u1ec7t \u0111\u1ed1i trong shot",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "Captions nguy\u00ean v\u0103n section; Ngu\u1ed3n: b\u1ea3n tin t\u1ed5ng h\u1ee3p ng\u00e0y 22/10/2026; badge NH\u1eacN \u0110\u1ecaNH \u1edf S6a/S6b",
+          "narrative_role": "deliver_payload",
+          "required_assets": [],
+          "start_seconds": 26,
+          "end_seconds": 35
+        },
+        {
+          "id": "S4",
+          "type": "text_card",
+          "description": "X\u0103ng/d\u1ea7u: title 'X\u0102NG GI\u1ea2M, D\u1ea6U T\u0102NG' + badge hi\u1ec7u l\u1ef1c 15 gi\u1edd; 2 stat: E10 kh\u00f4ng cao h\u01a1n 25.213 \u0111\u1ed3ng/l\u00edt; d\u1ea7u t\u0103ng 444\u20131.238 \u0111\u1ed3ng/l\u00edt. Kh\u00f4ng v\u1ebd bi\u1ec3u \u0111\u1ed3 gi\u00e1 b\u1ecba.",
+          "script_section_id": "S4",
+          "movement": "Reveal t\u1eebng element theo word timestamps th\u1eadt (speech-lock); camera T\u0128NH tuy\u1ec7t \u0111\u1ed1i trong shot",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "Captions nguy\u00ean v\u0103n section; Ngu\u1ed3n: b\u1ea3n tin t\u1ed5ng h\u1ee3p ng\u00e0y 22/10/2026; badge NH\u1eacN \u0110\u1ecaNH \u1edf S6a/S6b",
+          "narrative_role": "deliver_payload",
+          "required_assets": [],
+          "start_seconds": 35,
+          "end_seconds": 43
+        },
+        {
+          "id": "S5",
+          "type": "text_card",
+          "description": "Nasdaq: title 'NASDAQ GI\u1ea2M G\u1ea6N 2%'; chip nghi ng\u1edd chi ti\u00eau AI + gi\u00e1 d\u1ea7u; stats Tesla/Meta lao d\u1ed1c, IBM \u22127% d\u00f9 doanh thu v\u01b0\u1ee3t d\u1ef1 b\u00e1o. Gi\u1eef 'g\u1ea7n' v\u00e0 'd\u00f9'.",
+          "script_section_id": "S5",
+          "movement": "Reveal t\u1eebng element theo word timestamps th\u1eadt (speech-lock); camera T\u0128NH tuy\u1ec7t \u0111\u1ed1i trong shot",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "Captions nguy\u00ean v\u0103n section; Ngu\u1ed3n: b\u1ea3n tin t\u1ed5ng h\u1ee3p ng\u00e0y 22/10/2026; badge NH\u1eacN \u0110\u1ecaNH \u1edf S6a/S6b",
+          "narrative_role": "evidence",
+          "required_assets": [],
+          "start_seconds": 43,
+          "end_seconds": 52
+        },
+        {
+          "id": "S6a",
+          "type": "text_card",
+          "description": "Panel NH\u1eacN \u0110\u1ecaNH (vi\u1ec1n coral tr\u00e1i, badge coral su\u1ed1t scene): b\u00e3o \u00edt v\u00e0o Bi\u1ec3n \u0110\u00f4ng nh\u01b0ng s\u00f3ng 4\u20136 m v\u1eabn nguy hi\u1ec3m; h\u1ebft th\u00e1ng 10 ch\u01b0a c\u00f3 b\u00e3o m\u1edbi.",
+          "script_section_id": "S6a",
+          "movement": "Reveal t\u1eebng element theo word timestamps th\u1eadt (speech-lock); camera T\u0128NH tuy\u1ec7t \u0111\u1ed1i trong shot",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "Captions nguy\u00ean v\u0103n section; Ngu\u1ed3n: b\u1ea3n tin t\u1ed5ng h\u1ee3p ng\u00e0y 22/10/2026; badge NH\u1eacN \u0110\u1ecaNH \u1edf S6a/S6b",
+          "narrative_role": "resolution",
+          "required_assets": [],
+          "start_seconds": 52,
+          "end_seconds": 61
+        },
+        {
+          "id": "S6b",
+          "type": "text_card",
+          "description": "Panel NH\u1eacN \u0110\u1ecaNH ti\u1ebfp: x\u0103ng gi\u1ea3m \u2014 d\u1ea7u t\u0103ng, chi ph\u00ed v\u1eadn chuy\u1ec3n ch\u01b0a ch\u1eafc h\u1ea1; n\u00e3o m\u00f4 c\u1ea7u 50.000 m\u0169i/6 ng\u00e0y, ch\u1ee7 \u0111\u1ed9ng ti\u00eam ch\u1ee7ng.",
+          "script_section_id": "S6b",
+          "movement": "Reveal t\u1eebng element theo word timestamps th\u1eadt (speech-lock); camera T\u0128NH tuy\u1ec7t \u0111\u1ed1i trong shot",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "Captions nguy\u00ean v\u0103n section; Ngu\u1ed3n: b\u1ea3n tin t\u1ed5ng h\u1ee3p ng\u00e0y 22/10/2026; badge NH\u1eacN \u0110\u1ecaNH \u1edf S6a/S6b",
+          "narrative_role": "resolution",
+          "required_assets": [],
+          "start_seconds": 61,
+          "end_seconds": 72
+        },
+        {
+          "id": "S7",
+          "type": "text_card",
+          "description": "Outro trung t\u00ednh: 'TIN NHANH 22/10/2026' + chip theo d\u00f5i.",
+          "script_section_id": "S7",
+          "movement": "Reveal t\u1eebng element theo word timestamps th\u1eadt (speech-lock); camera T\u0128NH tuy\u1ec7t \u0111\u1ed1i trong shot",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "Captions nguy\u00ean v\u0103n section; Ngu\u1ed3n: b\u1ea3n tin t\u1ed5ng h\u1ee3p ng\u00e0y 22/10/2026; badge NH\u1eacN \u0110\u1ecaNH \u1edf S6a/S6b",
+          "narrative_role": "call_to_action",
+          "required_assets": [],
+          "start_seconds": 72,
+          "end_seconds": 75
+        }
+      ],
+      "metadata": {
+        "status": "brief_authorized_draft_run",
+        "editorial_draft_only": false,
+        "native_human_approved": true,
+        "stage_advancement": true,
+        "generate_assets": true,
+        "render_allowed": true,
+        "timing_status": "Numeric timeline values are editorial budgets pending real per-word audio timestamps; no proportional frame inference.",
+        "anchor_rules": "narration_led_graphics; sealed local digest text is evidence; SVG minh h\u1ecda ph\u1ea3i g\u1eafn nh\u00e3n MINH H\u1eccA, kh\u00f4ng ph\u1ea3i b\u1eb1ng ch\u1ee9ng",
+        "support_rules": "source/support blend never represents illustration as evidence",
+        "overlay_density_limits": "One main claim card, one status/illustration badge, one source line and captions; HUD debug ri\u00eang d\u01b0\u1edbi panel",
+        "safe_zones": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "fps": 30,
+          "content_x_min": 70,
+          "content_x_max": 930,
+          "panel_bottom_max": 1550,
+          "captions_box": [
+            70,
+            1240,
+            930,
+            1450
+          ],
+          "source_box": [
+            70,
+            1480,
+            930,
+            1530
+          ],
+          "hud_box": [
+            70,
+            1570,
+            930,
+            1620
+          ],
+          "notes": "Planning bounds. Editorial content ends 1550; debug HUD below panel, draft-only."
+        },
+        "variant_rules": "Vertical only; no unrequested square/horizontal variants",
+        "palette": {
+          "navy": "#0F172A",
+          "coral": "#FF7F6E",
+          "text": "#F8FAFC"
+        },
+        "quality_requirements": [
+          "Contrast >=4.5:1 cho captions/source/HUD",
+          "D\u1ea5u ti\u1ebfng Vi\u1ec7t \u0111\u1ecdc \u0111\u01b0\u1ee3c tr\u00ean mobile",
+          "S\u1ed1 li\u1ec7u hi\u1ec3n th\u1ecb NGUY\u00caN V\u0102N whitelist, kh\u00f4ng countup s\u1ed1 hook",
+          "Reveal sync \u00b10.3s theo word timestamps th\u1eadt",
+          "Badge NH\u1eacN \u0110\u1ecaNH scene-persistent \u1edf S6a/S6b"
+        ],
+        "music": {
+          "demo": "none",
+          "full": "voice-only (lane precedent)"
+        },
+        "runtime": "remotion (standing news-lane standard, brief 'camera/compose theo chu\u1ea9n hi\u1ec7n h\u00e0nh')",
+        "display_whitelist": "whitelist.json; captions inherit exact script section text",
+        "approval": "Owner brief 2026-10-22 (draft-HUD delivery authorized)"
+      }
+    }
+  },
+  "style_playbook": "flat-motion-graphics",
+  "metadata": {
+    "owner_authorization": "Owner brief 2026-10-22 (backup run, cron 18h00 timeout)",
+    "quote": "Video tin t\u1ee9c ng\u00e0y 2026-10-22 \u2014 t\u1eeb b\u1ea3n tin 17h40\u201317h42 (b\u1ea3n b\u00f9 cron 18h00 l\u1ed7i timeout): Deliver video (DRAFT HUD, \u226450MB Telegram) + QC numbers + caption TikTok qua Telegram DM Tuy\u00ean, tr\u1ea1ng th\u00e1i awaiting_human \u2014 KH\u00d4NG t\u1ef1 \u0111\u0103ng TikTok."
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "version": "1.0",
+  "title": "Lấn biển thay đổi dòng chảy và rừng ngập mặn như thế nào?",
+  "total_duration_seconds": 118.0,
+  "voice_performance": {
+    "performance_intent": "Khách quan, khoa học, điềm tĩnh và trang trọng",
+    "pacing_profile": "technical",
+    "energy_curve": "stable-informative",
+    "pause_policy": "0.4s between key clauses, 0.6s between scenes",
+    "sample_section_id": "sec-01"
+  },
+  "sections": [
+    {
+      "id": "sec-01",
+      "label": "Hook & Mở đầu",
+      "text": "Khi lấn một mét đất ra biển, dòng hải lưu và rừng ngập mặn xung quanh sẽ thay đổi ra sao?",
+      "start_seconds": 0.0,
+      "end_seconds": 10.0,
+      "speaker_directions": "Giọng điềm tĩnh, gợi mở sự tò mò khoa học",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "engaging",
+        "emphasis_words": [
+          "lấn",
+          "hải lưu",
+          "rừng ngập mặn",
+          "thay đổi"
+        ],
+        "provider_text": "Khi lấn một mét đất ra biển, dòng hải lưu và rừng ngập mặn xung quanh sẽ thay đổi ra sao?"
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Lát cắt 3D isometric bờ biển nguyên sơ với đường đẳng sâu bathymetry và hạt dòng hải lưu chuyển động"
+        }
+      ],
+      "source_ref": "https://www.nature.com/articles/s43017-022-00272-5"
+    },
+    {
+      "id": "sec-02",
+      "label": "Lăng kính triều & Biến đổi độ sâu",
+      "text": "Mỗi mét đất san lấp làm biến đổi trực tiếp địa hình đáy biển và thu hẹp thể tích lăng kính triều. Khi diện tích vịnh hẹp lại, cùng một khối lượng nước biển phải dồn qua mặt cắt nhỏ hơn, khiến vận tốc dòng chảy tăng vọt tại eo thắt và tạo ra các vùng nước quẩn tù đọng.",
+      "start_seconds": 10.0,
+      "end_seconds": 32.0,
+      "speaker_directions": "Giải thích rõ ràng cơ chế vật lý thủy động lực",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "informative",
+        "emphasis_words": [
+          "lăng kính triều",
+          "thu hẹp",
+          "vận tốc",
+          "eo thắt",
+          "tù đọng"
+        ],
+        "provider_text": "Mỗi mét đất san lấp làm biến đổi trực tiếp địa hình đáy biển và thu hẹp thể tích lăng kính triều. Khi diện tích vịnh hẹp lại, cùng một khối lượng nước biển phải dồn qua mặt cắt nhỏ hơn, khiến vận tốc dòng chảy tăng vọt tại eo thắt và tạo ra các vùng nước quẩn tù đọng."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Sơ đồ thu hẹp mặt cắt lăng kính triều, vector dòng chảy đổi từ xanh lam sang đỏ cam biểu thị gia tốc vận tốc"
+        }
+      ],
+      "source_ref": "https://doi.org/10.1007/s11852-017-0536-1"
+    },
+    {
+      "id": "sec-03",
+      "label": "Cân bằng bùn cát & Xói lở ven bờ",
+      "text": "Dòng chảy dọc bờ mang theo hàng triệu tấn cát bồi đắp tự nhiên mỗi năm. Nhưng khi một công trình lấn biển nhô ra, nó hoạt động như con đê chặn dòng: cát bồi lắng dày đặc ở phía đón dòng, trong khi bờ biển phía khuất dòng bị bỏ đói cát, dẫn tới sạt lở dữ dội.",
+      "start_seconds": 32.0,
+      "end_seconds": 56.0,
+      "speaker_directions": "Nhấn mạnh tính quy luật hai mặt: bồi một bên và xói lở bên đối diện",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "informative",
+        "emphasis_words": [
+          "dọc bờ",
+          "chặn dòng",
+          "đón dòng",
+          "đói cát",
+          "sạt lở"
+        ],
+        "provider_text": "Dòng chảy dọc bờ mang theo hàng triệu tấn cát bồi đắp tự nhiên mỗi năm. Nhưng khi một công trình lấn biển nhô ra, nó hoạt động như con đê chặn dòng: cát bồi lắng dày đặc ở phía đón dòng, trong khi bờ biển phía khuất dòng bị bỏ đói cát, dẫn tới sạt lở dữ dội."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Mô hình mũi đê kè nhô ra biển, tích tụ cát bồi màu vàng phía đón dòng và bờ biển thụt lùi xói lở màu đỏ phía khuất dòng"
+        }
+      ],
+      "source_ref": "https://pubs.usgs.gov/circ/2003/c1075/"
+    },
+    {
+      "id": "sec-04",
+      "label": "Rừng ngập mặn thở thế nào?",
+      "text": "Rừng ngập mặn là lá chắn sống tiêu tán tới hơn bảy mươi phần trăm năng lượng sóng. Nhưng loài cây này thở bằng hệ thống rễ khí sinh nhô khỏi mặt nước. Nếu dòng chảy bị nắn hướng khiến phù sa bồi lấp quá nhanh hoặc nước ngập tù đọng không rút, rễ cây sẽ ngạt thở và suy thoái.",
+      "start_seconds": 56.0,
+      "end_seconds": 80.0,
+      "speaker_directions": "Giọng truyền cảm, đi sâu vào cấu trúc rễ thở và nhu cầu tuần hoàn nước",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "engaging",
+        "emphasis_words": [
+          "tiêu tán",
+          "rễ khí sinh",
+          "ngạt thở",
+          "suy thoái"
+        ],
+        "provider_text": "Rừng ngập mặn là lá chắn sống tiêu tán tới hơn bảy mươi phần trăm năng lượng sóng. Nhưng loài cây này thở bằng hệ thống rễ khí sinh nhô khỏi mặt nước. Nếu dòng chảy bị nắn hướng khiến phù sa bồi lấp quá nhanh hoặc nước ngập tù đọng không rút, rễ cây sẽ ngạt thở và suy thoái."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Lát cắt hiển vi và cận cảnh 3D rễ thở đước, mắm chọc lên khỏi bùn triều, luồng oxy trao đổi khí và sóng biển suy giảm dần"
+        }
+      ],
+      "source_ref": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2025.1581452/full"
+    },
+    {
+      "id": "sec-05",
+      "label": "Kỹ thuật công trình sinh thái thích ứng",
+      "text": "Để giảm thiểu tác động, kỹ thuật hiện đại ưu tiên giải pháp thích ứng: thiết kế đảo nổi có kênh lưu thông triều, nuôi bãi bùn cát định kỳ, và phục hồi đai rừng ngập mặn đệm phía ngoài để hấp thụ năng lượng sóng thay vì dựng đê cứng.",
+      "start_seconds": 80.0,
+      "end_seconds": 102.0,
+      "speaker_directions": "Tích cực, mang tính xây dựng, đề cao khoa học công trình thích ứng",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "constructive",
+        "emphasis_words": [
+          "thích ứng",
+          "kênh lưu thông triều",
+          "nuôi bãi",
+          "đai rừng ngập mặn"
+        ],
+        "provider_text": "Để giảm thiểu tác động, kỹ thuật hiện đại ưu tiên giải pháp thích ứng: thiết kế đảo nổi có kênh lưu thông triều, nuôi bãi bùn cát định kỳ, và phục hồi đai rừng ngập mặn đệm phía ngoài để hấp thụ năng lượng sóng thay vì dựng đê cứng."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Mô hình đảo nhân tạo hiện đại với kênh hở lưu thông dòng triều, đai rừng ngập mặn bảo vệ mặt ngoài và kè mềm bồi cát"
+        }
+      ],
+      "source_ref": "https://doi.org/10.1007/s11852-017-0536-1"
+    },
+    {
+      "id": "sec-06",
+      "label": "Cân bằng động & Thông điệp kết",
+      "text": "Bờ biển không phải đường biên cố định, mà là một hệ thống cân bằng động nhạy cảm. Thấu hiểu dòng chảy tự nhiên là chìa khóa để phát triển bền vững mà không đánh đổi hệ sinh thái bảo vệ chúng ta.",
+      "start_seconds": 102.0,
+      "end_seconds": 118.0,
+      "speaker_directions": "Trang trọng, súc tích, đúc kết thông điệp cốt lõi",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "concluding",
+        "emphasis_words": [
+          "cân bằng động",
+          "thấu hiểu",
+          "bền vững",
+          "bảo vệ"
+        ],
+        "provider_text": "Bờ biển không phải đường biên cố định, mà là một hệ thống cân bằng động nhạy cảm. Thấu hiểu dòng chảy tự nhiên là chìa khóa để phát triển bền vững mà không đánh đổi hệ sinh thái bảo vệ chúng ta."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Toàn cảnh isometric bờ biển hài hòa giữa dòng triều lưu thông và vành đai rừng xanh, dòng chữ thông điệp cân bằng động"
+        }
+      ],
+      "source_ref": "https://www.nature.com/articles/s43017-022-00272-5"
+    }
+  ]
+}

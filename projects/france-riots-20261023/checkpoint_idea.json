@@ -1,0 +1,205 @@
+{
+  "version": "1.0",
+  "project_id": "france-riots-20261023",
+  "pipeline_type": "hybrid",
+  "stage": "idea",
+  "status": "completed",
+  "timestamp": "2026-10-23T03:00:32.176299+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "brief": {
+      "version": "1.0",
+      "title": "B\u1ea1o lo\u1ea1n Ph\u00e1p 10/2026 \u2014 \u0111\u00eam 17/10",
+      "core_message": "\u0110\u00eam 17/10/2026 l\u00e0 \u0111\u1ee3t b\u1ea1o lo\u1ea1n \u0111\u1eaft nh\u1ea5t l\u1ecbch s\u1eed hi\u1ec7n \u0111\u1ea1i Ph\u00e1p (~1 t\u1ef7 \u20ac \u01b0\u1edbc t\u00ednh b\u1ea3o hi\u1ec3m), b\u00f9ng t\u1eeb phong tr\u00e0o h\u1ecdc sinh + l\u1eddi k\u00eau g\u1ecdi TikTok, v\u00e0 ch\u01b0a k\u1ebft th\u00fac: t\u1ed5ng huy \u0111\u1ed9ng m\u1edbi \u0111\u01b0\u1ee3c k\u00eau g\u1ecdi th\u1ee9 B\u1ea3y 24/10.",
+      "hook": "C\u00e1ch \u0110i\u1ec7n t\u1ed5ng th\u1ed1ng Ph\u00e1p 200m, \u0111\u00e1m \u0111\u00f4ng \u0111\u00e3 d\u1ef1ng barricade. \u0110\u00e2y l\u00e0 chuy\u1ec7n \u0111\u00e3 x\u1ea3y ra. (owner duy\u1ec7t nguy\u00ean v\u0103n \u2014 H2 trong brief)",
+      "selected_angle": "Deep-dive single-topic: g\u1ed1c r\u1ec5 \u2192 \u0111\u1ec9nh \u0111i\u1ec3m 17/10 \u2192 bilan s\u1ed1 li\u1ec7u + chart b\u1ea3o hi\u1ec3m \u2192 ph\u1ea3n \u1ee9ng ch\u00ednh ph\u1ee7 \u2192 cliffhanger 24/10 + g\u00f3c ng\u01b0\u1eddi Vi\u1ec7t \u2192 NH\u1eacN \u0110\u1ecaNH \u2192 CTA. Gi\u1eef 100% s\u1ed1 li\u1ec7u trong whitelist brief \u0111\u00e3 duy\u1ec7t.",
+      "target_duration_seconds": 118,
+      "target_platform": "tiktok",
+      "target_audience": "ng\u01b0\u1eddi \u0111i l\u00e0m 25-35 Vi\u1ec7t Nam",
+      "tone": "trung t\u00ednh, k\u1ef7 lu\u1eadt s\u1ed1 li\u1ec7u; kh\u00f4ng gi\u1eadt g\u00e2n, kh\u00f4ng h\u01b0ng ph\u1ea5n; BGM trung t\u00ednh kh\u00f4ng vui nh\u1ed9n",
+      "style": "flat-motion-graphics 9:16 (1080x1920), navy #0F172A + coral #FF7F6E nh\u01b0 lane news; camera t\u0129nh tuy\u1ec7t \u0111\u1ed1i; reveal theo word timestamps th\u1eadt (speech-lock); charts: bar zero-based 256/795/~1.000 tri\u1ec7u \u20ac (2026 ghi '\u01b0\u1edbc t\u00ednh'), timeline ngang T9\u219224/10, stat card \u0111\u00eam 17/10, map Ph\u00e1p 4 th\u00e0nh ph\u1ed1 (MINH H\u1eccA)",
+      "key_points": [
+        "Hook 200m barricade (duy\u1ec7t)",
+        "G\u1ed1c r\u1ec5 T9: thi\u1ebfu gi\u00e1o vi\u00ean, budget 2027, Parcoursup",
+        "Lan to\u00e0n qu\u1ed1c + \u00e1o v\u00e0ng + hack 16/10 + l\u1eddi k\u00eau g\u1ecdi TikTok V2 + b\u1ea3n \u0111\u1ed3 c\u1ed9ng t\u00e1c",
+        "\u0110\u00eam 17/10: 550.000-800.000 ng\u01b0\u1eddi, 110 tu\u1ea7n h\u00e0nh, Paris 110.000",
+        "Paris 200m \u00c9lys\u00e9e, Champs-\u00c9lys\u00e9es barricade, h\u00e0ng ch\u1ee5c c\u1eeda h\u00e0ng b\u1ecb c\u01b0\u1edbp",
+        "Limoges 1883 ch\u00e1y (th\u1ea3m h\u1ecda di s\u1ea3n), Lyon 200-300, Marseille",
+        "Bilan: 1.200 \u0111\u00eam \u0111\u00f3 (855 Paris) \u2192 g\u1ea7n 2.400 theo t\u1ed5ng k\u00ea gi\u1edbi ch\u1ee9c, 997 c\u1ea3nh s\u00e1t, ~3.000 c\u1eeda h\u00e0ng",
+        "Chart b\u1ea3o hi\u1ec3m: 256 \u2192 795 \u2192 ~1.000 tri\u1ec7u \u20ac (\u01b0\u1edbc t\u00ednh) = \u0111\u1eaft nh\u1ea5t l\u1ecbch s\u1eed hi\u1ec7n \u0111\u1ea1i",
+        "Ch\u00ednh ph\u1ee7: Macron c\u01a1n gi\u1eadn + kh\u00f4ng khoan nh\u01b0\u1ee3ng, Nu\u00f1ez b\u1ecb gi\u1eef l\u1ea1i, c\u1ea5m bi\u1ec3u t\u00ecnh b\u1ea5t h\u1ee3p ph\u00e1p 22/10",
+        "Cliffhanger: 23/10 h\u1ed9i \u0111\u1ed3ng qu\u1ed1c ph\u00f2ng, 24/10 t\u1ed5ng huy \u0111\u1ed9ng m\u1edbi; Lyon/Marseille/Nice c\u1ea5m s\u1eb5n",
+        "G\u00f3c VN: Tr\u1ecbnh Minh H\u1eb1ng \u1edf Nice",
+        "NH\u1eacN \u0110\u1ecaNH (badge): 6 th\u00e1ng tr\u01b0\u1edbc b\u1ea7u c\u1eed 2027, chi ph\u00ed sinh ho\u1ea1t th\u00e0nh kh\u1ee7ng ho\u1ea3ng ch\u00ednh tr\u1ecb",
+        "CTA: theo d\u00f5i xem 24/10"
+      ],
+      "reference_material": [
+        "inputs/research_brief.md \u2014 research brief \u0111\u00e3 duy\u1ec7t (sources whitelist S1-S5, timeline, chart specs, c\u1ea5u tr\u00fac, QA flags)",
+        "inputs/evidence_manifest.txt \u2014 13 file evidence (Wikipedia FR, The Guardian, Thanh Ni\u00ean, 24h, 9x grounded)"
+      ],
+      "metadata": {
+        "project_id": "france-riots-20261023",
+        "lane": "news deep-dive (news-video-pipeline contract)",
+        "pipeline": "hybrid",
+        "style_playbook": "flat-motion-graphics",
+        "render_runtime": "remotion",
+        "voice": "vieneu Turbo default 48kHz, atempo 1.15",
+        "bgm": "media-library risk/explainer \u2014 trung t\u00ednh, KH\u00d4NG vui nh\u1ed9n; CC BY 4.0 credit trong description",
+        "duration_policy": "target ~118s; ch\u1ea5p nh\u1eadn \u0111\u1ebfn 125s n\u1ebfu TTS ch\u1eadm h\u01a1n \u01b0\u1edbc l\u01b0\u1ee3ng, KH\u00d4NG trim worker ch\u1ec9 v\u00ec \u0111\u1ed9 d\u00e0i (owner rule)"
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "france-riots-20261023",
+      "decisions": [
+        {
+          "decision_id": "idea-france-riots-20261023-1",
+          "stage": "idea",
+          "category": "pipeline_selection",
+          "subject": "Pipeline and anchor medium",
+          "options_considered": [
+            {
+              "option_id": "hybrid",
+              "label": "Hybrid narration_led_graphics",
+              "score": 1,
+              "reason": "Narration t\u1eeb sealed research brief d\u1eabn \u0111\u01b0\u1eddng bespoke factual graphics; lane precedent news-daily 20261016-20261022."
+            },
+            {
+              "option_id": "animated-explainer",
+              "label": "Animated explainer",
+              "score": 0.8,
+              "reason": "Kh\u1edbp d\u1ea1ng explainer nh\u01b0ng lane news \u0111ang ch\u1ea1y hybrid + engine k\u1ebf th\u1eeba news-daily.",
+              "rejected_because": "\u0110\u1ed5i pipeline kh\u1ecfi lane chu\u1ea9n news c\u1ea7n owner duy\u1ec7t."
+            }
+          ],
+          "selected": "hybrid",
+          "reason": "News-lane standing pipeline; brief owner ch\u1ec9 \u0111\u1ecbnh 'chu\u1ea9n news-video-pipeline'.",
+          "user_visible": true,
+          "user_approved": true
+        },
+        {
+          "decision_id": "idea-france-riots-20261023-2",
+          "stage": "idea",
+          "category": "render_runtime_selection",
+          "subject": "Composition runtime",
+          "options_considered": [
+            {
+              "option_id": "remotion",
+              "label": "Remotion",
+              "score": 1,
+              "reason": "Frame-accurate speech-locked factual graphics + charts SVG + captions; engine words.json/scene_timing/scene_elements \u0111\u00e3 prove 5 episode lane news."
+            },
+            {
+              "option_id": "hyperframes",
+              "label": "HyperFrames",
+              "score": 0.7,
+              "reason": "Viable cho typographic callouts.",
+              "rejected_because": "Kh\u00f4ng ph\u1ea3i chu\u1ea9n hi\u1ec7n h\u00e0nh c\u1ee7a news lane; \u0111\u1ed5i runtime c\u1ea7n owner duy\u1ec7t."
+            },
+            {
+              "option_id": "ffmpeg",
+              "label": "FFmpeg only",
+              "score": 0.3,
+              "reason": "Cut/concat/subtitle.",
+              "rejected_because": "Kh\u00f4ng c\u00f3 speech-locked chart animation."
+            }
+          ],
+          "selected": "remotion",
+          "reason": "Standing lane runtime (owner d\u00f9ng li\u00ean t\u1ee5c news-daily 20261018-22); brief y\u00eau c\u1ea7u chart + speech-lock.",
+          "user_visible": true,
+          "user_approved": true
+        },
+        {
+          "decision_id": "idea-france-riots-20261023-3",
+          "stage": "idea",
+          "category": "concept_selection",
+          "subject": "Hook opening line",
+          "options_considered": [
+            {
+              "option_id": "H2",
+              "label": "C\u00e1ch \u0110i\u1ec7n t\u1ed5ng th\u1ed1ng Ph\u00e1p 200m\u2026",
+              "score": 1,
+              "reason": "Owner DUY\u1ec6T NGUY\u00caN V\u0102N trong brief dispatch \u2014 b\u1eaft bu\u1ed9c m\u1edf video."
+            },
+            {
+              "option_id": "H1",
+              "label": "1 t\u1ef7 \u20ac + video TikTok",
+              "score": 0.8,
+              "reason": "\u0110\u1ec1 xu\u1ea5t khuy\u1ebfn ngh\u1ecb trong research brief.",
+              "rejected_because": "Owner \u0111\u00e3 ch\u1ecdn H2 \u2014 aesthetic/editorial veto c\u1ee7a owner l\u00e0 quy\u1ebft \u0111\u1ecbnh cu\u1ed1i."
+            },
+            {
+              "option_id": "H3",
+              "label": "To\u00e0 th\u1ecb ch\u00ednh 143 n\u0103m tu\u1ed5i",
+              "score": 0.6,
+              "reason": "M\u1ea1nh nh\u01b0ng \u00edt tr\u1ef1c di\u1ec7n.",
+              "rejected_because": "Owner \u0111\u00e3 ch\u1ecdn H2."
+            }
+          ],
+          "selected": "H2",
+          "reason": "Ch\u1ec9 \u0111\u1ecbnh tr\u1ef1c ti\u1ebfp c\u1ee7a owner trong brief: 'HOOK \u0110\u00c3 DUY\u1ec6T (b\u1eaft bu\u1ed9c m\u1edf video)'.",
+          "user_visible": true,
+          "user_approved": true
+        },
+        {
+          "decision_id": "idea-france-riots-20261023-4",
+          "stage": "idea",
+          "category": "music_source",
+          "subject": "BGM bed",
+          "options_considered": [
+            {
+              "option_id": "mesmerize",
+              "label": "Mesmerize (explainer/ambient)",
+              "score": 1,
+              "reason": "Ambient trung t\u00ednh \u2014 kh\u00f4ng vui nh\u1ed9n, kh\u00f4ng thriller; \u0111\u00fang y\u00eau c\u1ea7u 'BGM trung t\u00ednh' cho n\u1ed9i dung b\u1ea5t \u1ed5n (news skill: no cheerful bed for distress). CC BY 4.0, credit v\u00e0o description."
+            },
+            {
+              "option_id": "lightless_dawn",
+              "label": "Lightless Dawn (risk)",
+              "score": 0.7,
+              "reason": "Somber \u0111\u00fang ch\u1ea5t nh\u01b0ng 'eerie/unnerving' c\u00f3 nguy c\u01a1 l\u1ec7ch sang gi\u1eadt g\u00e2n.",
+              "rejected_because": "README th\u01b0 vi\u1ec7n c\u1ea3nh b\u00e1o kh\u00f4ng d\u00f9ng cho gi\u1eadt g\u00e2n; ambient an to\u00e0n h\u01a1n."
+            },
+            {
+              "option_id": "none",
+              "label": "Voice-only",
+              "score": 0.5,
+              "reason": "Precedent news-daily voice-only.",
+              "rejected_because": "Brief episode n\u00e0y y\u00eau c\u1ea7u BGM trung t\u00ednh r\u00f5 r\u00e0ng."
+            }
+          ],
+          "selected": "mesmerize",
+          "reason": "Ambient trung t\u00ednh cho n\u1ed9i dung b\u1ea5t \u1ed5n; measure RMS tr\u01b0\u1edbc mix (bed 15-20 dB d\u01b0\u1edbi voice).",
+          "user_visible": true,
+          "user_approved": true
+        },
+        {
+          "decision_id": "idea-france-riots-20261023-5",
+          "stage": "idea",
+          "category": "voice_selection",
+          "subject": "Narration TTS",
+          "options_considered": [
+            {
+              "option_id": "vieneu_default",
+              "label": "VieNeu Turbo default 48kHz, atempo 1.15",
+              "score": 1,
+              "reason": "Chu\u1ea9n lane news (news-video-pipeline): VieNeu Turbo default 48kHz, speed 1.15, voice=None."
+            }
+          ],
+          "selected": "vieneu_default",
+          "reason": "Standing lane default (5 episode li\u00ean ti\u1ebfp); brief ch\u1ec9 \u0111\u1ecbnh TTS chu\u1ea9n news-video-pipeline.",
+          "user_visible": true,
+          "user_approved": true
+        }
+      ]
+    }
+  },
+  "style_playbook": "flat-motion-graphics",
+  "metadata": {
+    "owner_authorization": "Brief user 2026-10-23: s\u1ea3n xu\u1ea5t draft + g\u1eedi Telegram chat Tuy\u00ean duy\u1ec7t; KH\u00d4NG t\u1ef1 publish. Research brief Gate 2 \u0111\u00e3 duy\u1ec7t t\u1ea1i ~/project/research/france-riots-2026-10-23/research_brief.md.",
+    "sealed_inputs": "inputs/research_brief.md + inputs/evidence_manifest.txt (13 files)",
+    "delivery": "draft HUD 720p + description TikTok (copiable) \u2192 Telegram DM; publish = owner manual sau duy\u1ec7t"
+  }
+}

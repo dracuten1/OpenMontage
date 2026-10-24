@@ -1,0 +1,1203 @@
+{
+ "version": "1.0",
+ "title": "Liễu Hạnh: vì sao một người phụ nữ được đứng trong hàng Tứ bất tử? (VN-Myth S2E04)",
+ "total_duration_seconds": 960,
+ "voice_performance": {
+  "performance_intent": "Người kể đứng bên ngưỡng cửa đền tháng Ba: hook tò mò trầm từ hội Phủ Dầy hôm nay và câu hỏi 'vì sao một người phụ nữ được đứng trong hàng Tứ bất tử'; setup chậm rãi dựng khung ba lớp (bản kể / đền thờ / ghi danh di sản) — tỉnh táo, không giảng bài; Hồi một kể chén ngọc bằng nhịp trôi như mây tiên rồi lắng hẳn ở ngày mất 3/3; Hồi hai ấm lại khi tiên chúa trở về, giữ khoảng khách quan ở đoạn đối đáp Trạng Bùng và nhịp teal 'mỗi bản gọi khác'; Hồi ba (phố Cát) là hồi kịch tính nhất NHƯNG giữ tông phẩm giá tuyệt đối — trừng trị kể bằng ngôn từ bản kể, không nhục cảm, không khoái khí, không tả trực diện; Hồi bốn sạch và sáng — lớp chứng cứ đền thờ; climax chậm nhất tập: 'hai chiều của danh xưng Mẫu' và UNESCO ghi danh thực hành đọc trang nghiêm; landing khép vòng về tháng Ba hôm nay, mốc số cẩn thận đọc tỉnh; CTA mời gọi, gọn.",
+  "pacing_profile": "conversational",
+  "energy_curve": "Hook (tò mò trầm) -> Setup (dựng khung, tỉnh) -> Hồi 1 (trôi mây, rồi lặng) -> Hồi 2 (ấm, khách quan) -> Hồi 3 (kịch tính giữ phẩm giá) -> Hồi 4 (sạch, sáng) -> Climax (chậm nhất tập, trang nghiêm) -> Landing (nhẹ, khép vòng) -> CTA (mời gọi, gọn)",
+  "pause_policy": "Pause 0,5–0,7 giây trước mỗi bước chuyển hồi (chèn ' ... ' trong provider_text); trích nguyên văn đọc chậm hơn nhịp thường, ngắt sau mỗi vế; câu hỏi trung tâm ở hook ngắt 0,8 giây sau khi đọc; câu 'có thể đọc là' ở climax ngắt 0,8 giây trước khi đọc và đọc chậm nhất tập; đoạn phố Cát KHÔNG đọc nhanh/nhấn giật gân — giữ đều, trầm; không SSML (vieneu).",
+  "provider_notes": {
+   "vieneu": "v3 Turbo 48kHz, voice mặc định (news) — giọng duyệt series. Mọi số trong narration spelled-out bằng chữ; tên riêng (Liễu Hạnh, Phủ Dầy, Vân Cát, Yên Thái, An Thái, đèo Ngang, phố Cát, Sùng Sơn, Nam Giao, Phùng Khắc Khoan, Trạng Bùng, Giáng Tiên, Quỳnh Hoa, Addis Ababa) giữ nguyên văn — Gate A probe SAU khi owner duyệt; không dấu '/'; không en dash; câu đối Hán-Việt đọc phiên âm Latin; viết tắt thư tịch phải mở rõ (Nam Hải dị nhân liệt truyện; Vũ trung tùy bút)."
+  }
+ },
+ "sections": [
+  {
+   "id": "s01",
+   "label": "Hook a — Tháng Ba, ở đền · nâu→teal",
+   "text": "Ghi chép về lễ hội cho biết: \"Hội Phủ Dầy được tổ chức hàng năm vào ngày 3 tháng 3 âm lịch. Lễ hội nhằm tổ chức nghi lễ, thắp hương biết ơn Thánh Mẫu Liễu Hạnh.\" Hãy hình dung một ngưỡng cửa đền để minh họa cho lời kể; đây không phải cảnh quan sát tại chỗ. Từ ghi chép về nghi lễ và việc thắp hương, ta đặt câu hỏi về danh xưng Thánh Mẫu Liễu Hạnh. Người được gọi là Mẫu trong ghi chép ấy cũng là nhân vật người phụ nữ mà tập này sẽ lần theo qua các lớp tư liệu.",
+   "start_seconds": 0,
+   "end_seconds": 25.61,
+   "speaker_directions": "Mở đầu chậm rãi, giọng ấm trầm; câu trích đọc đều và trang nghiêm như đọc tấm bảng ghi ở đền; hai câu cuối chậm hẳn lại, chữ 'Mẫu' thả nhẹ — không huyền bí hóa.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "Phủ Dầy",
+     "3 tháng 3 âm lịch",
+     "thắp hương biết ơn",
+     "Mẫu"
+    ],
+    "pause_before_seconds": 0.3,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Câu trích đọc nhịp đều, không lên giọng cuối câu; giữ tông lễ hội trang nghiêm.",
+    "provider_text": "Ghi chép về lễ hội cho biết ... Hội Phủ Dầy được tổ chức hàng năm vào ngày ba tháng ba âm lịch. Lễ hội nhằm tổ chức nghi lễ, thắp hương biết ơn Thánh Mẫu Liễu Hạnh. Hãy hình dung một ngưỡng cửa đền để minh họa cho lời kể ... đây không phải cảnh quan sát tại chỗ. Từ ghi chép về nghi lễ và việc thắp hương, ta đặt câu hỏi về danh xưng Thánh Mẫu Liễu Hạnh. Người được gọi là Mẫu trong ghi chép ấy cũng là nhân vật người phụ nữ mà tập này sẽ lần theo qua các lớp tư liệu."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Phủ Dầy — 3 tháng 3 âm lịch; Thánh Mẫu Liễu Hạnh. Ngưỡng cửa đền là hình minh họa, không quan sát tại chỗ.",
+     "timestamp_seconds": 5
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C12 (quote nguyên văn) — vi.wiki Phủ Dầy"
+  },
+  {
+   "id": "s02",
+   "label": "Hook b — Câu hỏi trung tâm · amber",
+   "text": "Nếu bạn đã xem những tập trước của series, hẳn còn nhớ bốn cái tên mà người đời gọi là Tứ bất tử: vị thần núi Sơn Tinh, cậu bé khổng lồ Thánh Gióng, Chử Đồng Tử kẻ mang duy nhất chiếc khố trong tay — và một vị nữa. Đó là người phụ nữ duy nhất trong danh sách: Liễu Hạnh Công Chúa. Danh sách này là cách kể phổ biến ngày nay, không phải bảng khắc cố định từ ngàn xưa. Nhưng chính điều đó càng làm câu hỏi thêm nặng: Vì sao một người phụ nữ được đứng trong hàng Tứ bất tử? Và: Một người phụ nữ trở lại trần gian — vì sao người đời tiếp tục gọi bà là Mẫu? Tập này sẽ đi theo hai câu hỏi đó.",
+   "start_seconds": 25.61,
+   "end_seconds": 58.1,
+   "speaker_directions": "Nhịp kể tự nhiên như nhắc lại chuyện mùa trước; liệt kê bốn vị tên rõ ràng, không dồn; câu hỏi trung tâm đọc CHẬM, nhấn từng vế, lặng 0,8 giây sau mỗi câu hỏi — tuyệt đối không trả lời sớm.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "curious-solemn",
+    "emphasis_words": [
+     "Tứ bất tử",
+     "người phụ nữ duy nhất",
+     "Vì sao",
+     "Mẫu"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Hai câu hỏi là đỉnh của hook — đọc chậm nhất section, lặng hoàn toàn sau câu hỏi thứ hai.",
+    "provider_text": "Nếu bạn đã xem những tập trước của series, hẳn còn nhớ bốn cái tên mà người đời gọi là Tứ bất tử ... vị thần núi Sơn Tinh, cậu bé khổng lồ Thánh Gióng, Chử Đồng Tử kẻ mang duy nhất chiếc khố trong tay ... và một vị nữa. Đó là người phụ nữ duy nhất trong danh sách ... Liễu Hạnh Công Chúa. Danh sách này là cách kể phổ biến ngày nay, không phải bảng khắc cố định từ ngàn xưa. Nhưng chính điều đó càng làm câu hỏi thêm nặng ... Vì sao một người phụ nữ được đứng trong hàng Tứ bất tử? ... Một người phụ nữ trở lại trần gian, vì sao người đời tiếp tục gọi bà là Mẫu? Tập này sẽ đi theo hai câu hỏi đó."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Bốn con dấu mực amber hiện dần theo narration: núi (Sơn Tinh), đứa trẻ cầm ngọn roi (Thánh Gióng), người với chiếc khố (Chử Đồng Tử) — ba dấu đầu mờ hơn, dấu thứ tư để trống",
+     "timestamp_seconds": 7.8
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'Tứ bất tử — cách kể phổ biến ngày nay' nhỏ dưới bốn con dấu khi narration nói câu đó",
+     "timestamp_seconds": 18.19
+    },
+    {
+     "type": "overlay",
+     "description": "Câu hỏi 'Vì sao một người phụ nữ được đứng trong hàng Tứ bất tử?' hiện từng chữ mực amber khi narration đọc",
+     "timestamp_seconds": 25.99
+    },
+    {
+     "type": "overlay",
+     "description": "Câu hỏi thứ hai 'Một người phụ nữ trở lại trần gian — vì sao người đời gọi bà là Mẫu?' hiện dưới câu hỏi đầu, chữ 'Mẫu' nhấn đậm",
+     "timestamp_seconds": 31.99
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C08 (Tứ bất tử — danh sách phổ biến đương đại) + câu hỏi biên tập Q01/Q02"
+  },
+  {
+   "id": "s03",
+   "label": "Setup a — Bản kể mở ở Vân Cát · amber",
+   "text": "Câu chuyện của chúng ta mở ra từ một trang sách. Phan Kế Bính chép lại trong Nam Hải dị nhân liệt truyện một mục mang tên \"Liễu-Hạnh tiên-chúa\". Bản kể mở đầu như sau: \"Về thời vua Anh-tôn nhà Lê (1557) ở về thôn Vân-cát, xã Yên-thái, huyện Vụ-bản, tỉnh Nam-định, có một người gọi là Lê Thái công tiên tổ tích đức đã ba đời, đến đời Lê Thái-công cũng hay làm phúc.\" Xin lưu ý từ đầu: con số 1557 ở đây là mốc mở truyện của bản kể — nó đặt bối cảnh cho câu chuyện, nhưng không đủ để xác nhận năm sinh lịch sử. Cẩn thận với các con số là cách tôi sẽ đọc suốt tập này.",
+   "start_seconds": 58.1,
+   "end_seconds": 91.06,
+   "speaker_directions": "Giọng tỉnh táo, chậm rãi như mở một cuốn sách cũ; câu trích nguyên văn đọc chậm hơn nhịp thường, ngắt sau từng vế; đoạn lưu ý về 1557 đọc rõ, chắc, như đặt một viên đá đánh dấu.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "clear-checking",
+    "emphasis_words": [
+     "Phan Kế Bính",
+     "Vân-cát",
+     "mốc mở truyện",
+     "năm sinh sử liệu"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Trích dẫn đọc như đọc trang sách — đều, không kịch; câu chốt 'Cẩn thận với các con số' hơi chậm lại, tự nhận xét biên tập.",
+    "provider_text": "Câu chuyện của chúng ta mở ra từ một trang sách. Phan Kế Bính chép lại trong Nam Hải dị nhân liệt truyện một mục mang tên Liễu-Hạnh tiên-chúa. Bản kể mở đầu như sau ... Về thời vua Anh-tôn nhà Lê, năm một nghìn năm trăm năm mươi bảy, ở về thôn Vân-cát, xã Yên-thái, huyện Vụ-bản, tỉnh Nam-định, có một người gọi là Lê Thái công tiên tổ tích đức đã ba đời, đến đời Lê Thái-công cũng hay làm phúc. ... Xin lưu ý từ đầu ... con số một nghìn năm trăm năm mươi bảy ở đây là mốc mở truyện của bản kể. Nó đặt bối cảnh cho câu chuyện, nhưng không đủ để xác nhận năm sinh lịch sử. Cẩn thận với các con số là cách tôi sẽ đọc suốt tập này."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Trang giấy dó amber mở ra, nét mực viết tự nhiên hiện chữ 'Phan Kế Bính — Nam Hải dị nhân liệt truyện' khi narration giới thiệu",
+     "timestamp_seconds": 5.86
+    },
+    {
+     "type": "diagram",
+     "description": "Bản đồ nhỏ phong cách giấy dầu: ba chấm amber nối đường về một điểm 'Vân Cát' với nhãn 'huyện Vụ Bản · tỉnh Nam Định' theo từng vế câu trích",
+     "timestamp_seconds": 13.18
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ '1557 — mốc mở truyện bản kể (không đủ xác nhận năm sinh lịch sử)' hiện cạnh con dấu amber khi narration đọc lưu ý",
+     "timestamp_seconds": 23.44
+    },
+    {
+     "type": "overlay",
+     "description": "Nhà tranh ba gian vẽ mực ấm trên đồi thấp khi câu trích chép về nơi Lê Thái công làm phúc",
+     "timestamp_seconds": 27.83
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C01 (quote nguyên văn) — NHDNLT 45 Phan Kế Bính"
+  },
+  {
+   "id": "s04",
+   "label": "Setup b — Ba lớp của một câu chuyện · 3 lớp",
+   "text": "Trước khi bước vào truyện, tôi cần trao cho bạn một chiếc chìa khóa — là khuôn khổ đọc cho cả tập này. Câu chuyện Liễu Hạnh thực ra là ba lớp chồng lên nhau. Lớp thứ nhất: bản kể — truyện được chép lại và kể lại bằng lời, nằm trong các trang sách như ta vừa thấy. Lớp thứ hai: đền thờ và thực hành — những ghi chép phong tục, những lễ hội còn sống, có hồ sơ rõ ràng. Lớp thứ ba: ghi danh di sản — những hồ sơ, những danh hiệu của thời nay. Ba lớp này không phải một sự thật duy nhất, và tôi sẽ không trộn chúng thành một. Phương pháp của tôi rất đơn giản: tôi sẽ không khẳng định bà là ai trong lịch sử — tôi chỉ chỉ cho bạn xem mỗi lớp giữ lại điều gì. Trên chặng đường tới, ta lần theo bốn dấu vết: một chiếc chén ngọc vỡ, một tấm biển vàng, một chiếc đèo, và ngưỡng cửa đền tháng Ba.",
+   "start_seconds": 91.06,
+   "end_seconds": 133.27,
+   "speaker_directions": "Tông giảng giải nhẹ, tỉnh táo — không giảng bài; ba lớp đọc thành ba nhịp rõ rệt, mỗi lớp ngắt một nhịp; câu phương pháp đọc chậm, chân thành; bốn dấu vết cuối đọc như đưa từng vật vào tay người nghe.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-checking",
+    "emphasis_words": [
+     "bản kể",
+     "đền thờ và thực hành",
+     "ghi danh di sản",
+     "mỗi lớp giữ lại điều gì"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Section khuôn khổ — đọc dừng đúng sau mỗi lớp để khán giả kịp hình dung; không lên giọng thuyết giáo.",
+    "provider_text": "Trước khi bước vào truyện, tôi cần trao cho bạn một chiếc chìa khóa ... là khuôn khổ đọc cho cả tập này. Câu chuyện Liễu Hạnh thực ra là ba lớp chồng lên nhau. Lớp thứ nhất ... bản kể, truyện được chép lại và kể lại bằng lời, nằm trong các trang sách như ta vừa thấy. Lớp thứ hai ... đền thờ và thực hành, những ghi chép phong tục, những lễ hội còn sống, có hồ sơ rõ ràng. Lớp thứ ba ... ghi danh di sản, những hồ sơ, những danh hiệu của thời nay. Ba lớp này không phải một sự thật duy nhất, và tôi sẽ không trộn chúng thành một. Phương pháp của tôi rất đơn giản ... tôi sẽ không khẳng định bà là ai trong lịch sử, tôi chỉ chỉ cho bạn xem mỗi lớp giữ lại điều gì. Trên chặng đường tới, ta lần theo bốn dấu vết ... một chiếc chén ngọc vỡ, một tấm biển vàng, một chiếc đèo, và ngưỡng cửa đền tháng Ba."
+   },
+   "enhancement_cues": [
+    {
+     "type": "diagram",
+     "description": "Ba tờ giấy xếp lớp hiện dần: tờ amber 'Bản kể — truyện kể bằng lời', tờ teal 'Đền thờ · thực hành — phong tục, lễ hội có hồ sơ', tờ nâu giấy dầu 'Ghi danh di sản — hồ sơ, danh hiệu thời nay', mỗi tờ hiện đúng lúc narration đọc lớp đó",
+     "timestamp_seconds": 9.38
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'Tôi sẽ không khẳng định bà là ai trong lịch sử — chỉ chỉ cho bạn xem mỗi lớp giữ lại điều gì' hiện dòng mực nhỏ dưới ba tờ giấy",
+     "timestamp_seconds": 28.14
+    },
+    {
+     "type": "animation",
+     "description": "Bốn vật thể mực nhỏ trôi qua theo narration: chén ngọc sứt góc, tấm biển vàng hai chữ, dãy đèo, ngưỡng cửa đền",
+     "timestamp_seconds": 35.64
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "editorial frame — research_notes §1 (khung 3 lớp)"
+  },
+  {
+   "id": "s05",
+   "label": "Hồi 1a — Chén ngọc vỡ · amber",
+   "text": "Bây giờ, trang sách đưa ta vào một giấc mơ trong lời kể. Cảnh trời tiên là cảnh trong mơ của Thái-công, không phải toàn bộ phần mở truyện. Trong cảnh ấy có một tai nạn rất đời. Truyện kể: \"Sực có một người con gái mặc áo đỏ, bâng chén ngọc dâng rượu thọ, nhỡ tay rơi chén, sứt mất một góc.\" Chén ngọc rơi, sứt một góc — và mọi thứ bắt đầu xoay chuyển. \"Tả-ban có một viên mở ngay sổ ra biên vài chữ, rồi thấy hai người sứ-giả và vài chục người thị nữ xúm lại dắt nàng mặc áo đỏ tự cửa nam đi ra. Mé trước có một cái biển vàng, trên có hai chữ « Sắc-giáng », giữa có hai chữ « Nam nam », còn các khoản dưới thì mập mờ không rõ\" Rồi một lực sĩ lên tiếng: \"— Đây là bà tiên-chúa thứ hai tên là Quỳnh-hoa, chuyến này chắc là phải đầy xuống trần.\" Cảnh trong mơ kể một tai nạn rất đời — một chiếc chén vỡ. Còn chuyện bà là con gái Ngọc Hoàng hay không, đó là mô-típ của truyện, và là câu hỏi biên tập mà ta sẽ trở lại khi xem từng lớp.",
+   "start_seconds": 133.27,
+   "end_seconds": 182.36,
+   "speaker_directions": "Nhịp trôi như mây — chậm, đều, có khoảng thở; câu trích đầu (chén vỡ) đọc chậm nhất, nhấn 'nhỡ tay rơi chén'; đoạn biển vàng đọc như đọc văn bản công văn, từng vế ngắt rõ; câu lực sĩ đọc trầm, chắc; hai câu nhận xét cuối tách khỏi nhịp truyện — tỉnh lại, giọng biên tập.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "floating-solemn",
+    "emphasis_words": [
+     "bâng chén ngọc dâng rượu thọ",
+     "nhỡ tay rơi chén",
+     "Sắc-giáng",
+     "Quỳnh-hoa"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Đây là khoảnh khắc mở Hồi 1 — chén rơi là nhịp cắt của section, lặng nửa giây đúng ở đó.",
+    "provider_text": "Bây giờ, trang sách đưa ta vào một giấc mơ trong lời kể. Cảnh trời tiên là cảnh trong mơ của Thái-công, không phải toàn bộ phần mở truyện. Trong cảnh ấy có một tai nạn rất đời. Truyện kể ... Sực có một người con gái mặc áo đỏ, bâng chén ngọc dâng rượu thọ, nhỡ tay rơi chén, sứt mất một góc. Chén ngọc rơi, sứt một góc, và mọi thứ bắt đầu xoay chuyển. Tả-ban có một viên mở ngay sổ ra biên vài chữ. Rồi thấy hai người sứ-giả và vài chục người thị nữ xúm lại dắt nàng mặc áo đỏ tự cửa nam đi ra. Mé trước có một cái biển vàng, trên có hai chữ Sắc-giáng, giữa có hai chữ Nam nam, còn các khoản dưới thì mập mờ không rõ. ... Rồi một lực sĩ lên tiếng ... Đây là bà tiên-chúa thứ hai tên là Quỳnh-hoa, chuyến này chắc là phải đầy xuống trần. Cảnh trong mơ kể một tai nạn rất đời ... một chiếc chén vỡ. Còn chuyện bà là con gái Ngọc Hoàng hay không, đó là mô-típ của truyện, và là câu hỏi biên tập mà ta sẽ trở lại khi xem từng lớp."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Trang sách amber lật ngược lên thành khoảng trời mực ấm; chén ngọc trôi vào khung, nghiêng, rơi và sứt một góc đúng nhịp 'nhỡ tay rơi chén'",
+     "timestamp_seconds": 14.03
+    },
+    {
+     "type": "overlay",
+     "description": "Viên quan chấm mực viết vài chữ vào sổ — nét mực hiện theo lời 'mở ngay sổ ra biên vài chữ'",
+     "timestamp_seconds": 22.44
+    },
+    {
+     "type": "diagram",
+     "description": "Biển vàng hiện rõ: hai chữ 'Sắc-giáng' trên, 'Nam nam' giữa, phần dưới vẽ nhòe mờ mực — đúng như câu trích mô tả",
+     "timestamp_seconds": 33.66
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'Quỳnh-hoa — tiên-chúa thứ hai' hiện nhỏ cạnh chén khi lực sĩ lên tiếng",
+     "timestamp_seconds": 42.08
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C02 (quote nguyên văn) — NHDNLT 45 Phan Kế Bính"
+  },
+  {
+   "id": "s06",
+   "label": "Hồi 1b — Giáng sinh ở Vân Cát · amber",
+   "text": "Theo bản Phan Kế Bính, câu chuyện đặt nhà Lê Thái công ở thôn Vân-cát, xã Yên-thái. Đoạn chén ngọc gọi tiên-chúa thứ hai là Quỳnh-hoa; đoạn kể ngày mất dùng tên Giáng tiên. Ta giữ từng tên ở đúng đoạn nguồn đã chép, không dùng chúng để dựng thêm chuyện tuổi thơ hay việc lựa chọn gia đình. Bản dân gian không rõ tác giả lại ghi thôn An Thái, làng Vân Cát. Đó là các cách gọi cần được gắn với từng nguồn, không ép thành một tên hay một địa danh duy nhất. Ở đây, ta chỉ đi tiếp theo những tình tiết đã có trong gói tư liệu.",
+   "start_seconds": 182.36,
+   "end_seconds": 209.4,
+   "speaker_directions": "Nhịp ấm dần — truyện về nhà, về đứa trẻ; câu 'ngoài bốn mươi tuổi' đọc nhẹ, như kể chuyện nhà; đoạn hai cái tên đọc chậm, tách bạch, không chọn tên nào là 'đúng'; câu cuối êm, đều.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-gentle",
+    "emphasis_words": [
+     "Vân Cát",
+     "ngoài bốn mươi tuổi",
+     "Giáng Tiên",
+     "Quỳnh Hoa"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.6,
+    "delivery_note": "Giữ sự tách bạch hai tên — đây là rule về dị bản, đọc hai tên với trọng lượng bằng nhau.",
+    "provider_text": "Theo bản Phan Kế Bính, câu chuyện đặt nhà Lê Thái công ở thôn Vân-cát, xã Yên-thái. Đoạn chén ngọc gọi tiên-chúa thứ hai là Quỳnh-hoa ... đoạn kể ngày mất dùng tên Giáng tiên. Ta giữ từng tên ở đúng đoạn nguồn đã chép, không dùng chúng để dựng thêm chuyện tuổi thơ hay việc lựa chọn gia đình. Bản dân gian không rõ tác giả lại ghi thôn An Thái, làng Vân Cát. Đó là các cách gọi cần được gắn với từng nguồn ... không ép thành một tên hay một địa danh duy nhất. Ở đây, ta chỉ đi tiếp theo những tình tiết đã có trong gói tư liệu."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Tên theo từng nguồn: Quỳnh Hoa; Giáng Tiên; Yên Thái; An Thái — không hợp nhất",
+     "timestamp_seconds": 9.01
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C01 + C02 + C03 + C06 — đối chiếu tên gọi, không hợp nhất dị bản"
+  },
+  {
+   "id": "s07",
+   "label": "Hồi 1c — Mùng ba tháng Ba · amber",
+   "text": "Rồi đến một ngày, trang sách đột nhiên lặng đi. Bản kể chỉ chép đúng một câu, ngắn đến mức người đọc phải dừng lại: \"Hôm mồng ba tháng ba, Giáng tiên tự nhiên vô bệnh mà mất, bấy giờ mới hai mươi mốt tuổi.\" Mồng ba tháng ba. Vô bệnh. Hai mươi mốt tuổi. Câu trích để lại một khoảng lặng. Ngày mất trong bản kể là mồng ba tháng ba; ghi chép về hội Phủ Dầy cũng nêu ngày ba tháng ba âm lịch. Sự trùng ngày trong hai ghi chép này đáng để đặt cạnh nhau, nhưng không đủ chứng minh nguồn gốc lịch sử của lễ hội. Ta giữ riêng tình tiết của truyện và ghi chép về thực hành tưởng nhớ.",
+   "start_seconds": 209.4,
+   "end_seconds": 239.99,
+   "speaker_directions": "Đọc chậm nhất từ đầu tập — câu trích nguyên văn như đọc bia mộ, mỗi vế một hơi; sau câu trích lặng hẳn 0,8 giây; ba cụm 'Mồng ba tháng ba. Vô bệnh. Hai mươi mốt tuổi.' đọc rời rạc, chậm; đoạn nhận xét trở lại giọng biên tập tỉnh táo nhưng rất nhẹ.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "hushed-solemn",
+    "emphasis_words": [
+     "vô bệnh mà mất",
+     "hai mươi mốt tuổi",
+     "mồng ba tháng ba",
+     "điểm ổn định nhất"
+    ],
+    "pause_before_seconds": 0.6,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Đỉnh lặng của Hồi 1 — không đọc buồn rầu diễn kịch, chỉ chậm và đều; sự trùng ngày là nhận xét biên tập, đọc như một phát hiện.",
+    "provider_text": "Rồi đến một ngày, trang sách đột nhiên lặng đi. Bản kể chỉ chép đúng một câu, ngắn đến mức người đọc phải dừng lại ... Hôm mồng ba tháng ba, Giáng tiên tự nhiên vô bệnh mà mất, bấy giờ mới hai mươi mốt tuổi. ... Mồng ba tháng ba. Vô bệnh. Hai mươi mốt tuổi. Câu trích để lại một khoảng lặng. Ngày mất trong bản kể là mồng ba tháng ba ... ghi chép về hội Phủ Dầy cũng nêu ngày ba tháng ba âm lịch. Sự trùng ngày trong hai ghi chép này đáng để đặt cạnh nhau, nhưng không đủ chứng minh nguồn gốc lịch sử của lễ hội. Ta giữ riêng tình tiết của truyện và ghi chép về thực hành tưởng nhớ."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Mọi hình amber thu về một trang sách im lìm; chỉ còn dòng mực cuối trang hiện dần đúng câu trích khi narration đọc",
+     "timestamp_seconds": 6.12
+    },
+    {
+     "type": "animation",
+     "description": "Chuông đền vẽ mực teal gợn một vòng khi narration đọc lại 'Mồng ba tháng ba' — dấu kết nối về ngày hội hôm nay",
+     "timestamp_seconds": 16.31
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ '3 tháng 3 âm lịch' hiện kèm nhãn nhỏ 'theo bản kể' khi narration nói về ngày mất trong bản kể",
+     "timestamp_seconds": 22.43
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C03 (quote nguyên văn) — NHDNLT 45 Phan Kế Bính; liên hệ ngày hội = research note (biên tập)"
+  },
+  {
+   "id": "s08",
+   "label": "Hồi 1d — Chuyện chưa dừng · amber",
+   "text": "Nếu đây là một câu chuyện thường, nó sẽ kết thúc ở đây — một người con gái mất ở tuổi hai mươi mốt, truyện buông, trang sách khép lại. Nhưng bản kể này không dừng. Nó kể tiếp rằng nàng trở về. Bản kể dùng chữ hiển thánh. Ta giữ chữ ấy trong khung truyện, không xem đó là một ghi nhận quan sát. Cái chết ở mồng ba tháng ba hóa ra chỉ là dấu ngắt, không phải dấu chấm hết. Đoạn tiếp trong bản Phan Kế Bính kể tiên chúa hiển thánh ở đèo Ngang phố Cát, rồi dẫn đến việc lập đền trên núi Sùng-sơn. Lời chép đến giờ vẫn còn thuộc thời người viết, chưa phải xác minh ngôi đền hiện nay. Ta không suy rằng mỗi nơi trong hành trình đều để lại một ngôi đền còn thấy hôm nay. Hồi một khép lại. Hồi hai bắt đầu: tiên chúa trở về trần gian.",
+   "start_seconds": 239.99,
+   "end_seconds": 280.07,
+   "speaker_directions": "Nhịp nhổm dậy sau đoạn lặng — đều, ấm, hơi nhanh hơn s07 nhưng không vội; chữ 'hiển thánh' đọc rõ, trầm; câu tease chặng đường đọc như mở bản đồ; hai câu cuối ngắt rõ ranh giới hồi.",
+   "delivery_cues": {
+    "pace": "conversational",
+    "energy": "warm-rising",
+    "emphasis_words": [
+     "không dừng",
+     "trở về",
+     "hiển thánh",
+     "đền"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Chuyển hồi — câu cuối 'Hồi hai bắt đầu' đọc gọn, thả lặng sau đó đúng pause_policy.",
+    "provider_text": "Nếu đây là một câu chuyện thường, nó sẽ kết thúc ở đây ... một người con gái mất ở tuổi hai mươi mốt, truyện buông, trang sách khép lại. Nhưng bản kể này không dừng. Nó kể tiếp rằng nàng trở về. Bản kể dùng chữ hiển thánh. Ta giữ chữ ấy trong khung truyện, không xem đó là một ghi nhận quan sát. Cái chết ở mồng ba tháng ba hóa ra chỉ là dấu ngắt, không phải dấu chấm hết. Đoạn tiếp trong bản Phan Kế Bính kể tiên chúa hiển thánh ở đèo Ngang phố Cát, rồi dẫn đến việc lập đền trên núi Sùng-sơn. Lời chép đến giờ vẫn còn thuộc thời người viết ... chưa phải xác minh ngôi đền hiện nay. Ta không suy rằng mỗi nơi trong hành trình đều để lại một ngôi đền còn thấy hôm nay. Hồi một khép lại. Hồi hai bắt đầu ... tiên chúa trở về trần gian."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Trang sách mở tiếp, địa danh đèo Ngang phố Cát và đền Sùng Sơn chỉ trong khung bản kể; không tạo bản đồ hành trình đã xác minh.",
+     "timestamp_seconds": 8
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C03 arc + C05 (đèo Ngang phố Cát, đền Sùng-sơn); lời còn tồn tại thuộc thời người chép, chưa xác minh hiện nay"
+  },
+  {
+   "id": "s09",
+   "label": "Hồi 2a — Người con gái trở về · amber",
+   "text": "Theo truyện kể, tiên chúa không ở lại cõi trên. Nàng trở về trần gian, về lại vùng Vân Cát. Chỉ cần dừng ở chuyển động ấy, ta đã thấy câu chuyện đổi hướng: rời đi rồi trở lại, mất đi mà truyện vẫn kể tiếp. Ở đây, tôi xin đặt một nhận xét biên tập: nếu cái chết thường khép chuyện người con gái, bản kể này lại mở đường cho nàng trở về. Đặt cạnh ba vị còn lại trong danh sách Tứ bất tử phổ biến ngày nay, đó là nét lạ mà tập này muốn lần theo. Không phải bằng chứng về một cuộc trở về có thật, mà là cách truyện giữ người con gái ở lại với cõi người.",
+   "start_seconds": 280.07,
+   "end_seconds": 310.19,
+   "speaker_directions": "Ấm lại sau khoảng lặng, nhấn nhẹ trở về; chuyển sang giọng tỉnh ở nhận xét biên tập, không diễn cảnh đoàn tụ.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-reflective",
+    "emphasis_words": [
+     "trở về",
+     "nhận xét biên tập",
+     "cõi người"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 0.6,
+    "delivery_note": "Tách cảm xúc của truyện khỏi lời nhận xét bằng một khoảng nghỉ.",
+    "provider_text": "Theo truyện kể, tiên chúa không ở lại cõi trên. Nàng trở về trần gian, về lại vùng Vân Cát. Chỉ cần dừng ở chuyển động ấy, ta đã thấy câu chuyện đổi hướng ... rời đi rồi trở lại, mất đi mà truyện vẫn kể tiếp. Ở đây, tôi xin đặt một nhận xét biên tập ... nếu cái chết thường khép chuyện người con gái, bản kể này lại mở đường cho nàng trở về. Đặt cạnh ba vị còn lại trong danh sách Tứ bất tử phổ biến ngày nay, đó là nét lạ mà tập này muốn lần theo. Không phải bằng chứng về một cuộc trở về có thật, mà là cách truyện giữ người con gái ở lại với cõi người."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Đường mực amber quay về nhà tranh Vân Cát trên giấy dó, không dựng cảnh gặp gỡ hay thêm lời thoại.",
+     "timestamp_seconds": 3.01
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'trở về' hiện bằng mực ấm theo narration.",
+     "timestamp_seconds": 7.03
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "retelling C01–C02 arc (framed 'truyện kể'); đối chiếu Tứ bất tử = nhận xét biên tập"
+  },
+  {
+   "id": "s10",
+   "label": "Hồi 2b — Đối đáp với Trạng Bùng · amber",
+   "text": "Nam Hải dị nhân liệt truyện kể: \"Xảy có Phùng-khắc-Khoan (Trạng Bùng) đi sứ về qua. hai bên đối báp với nhau.\" Phùng-công ra câu: \"Tam mộc sâm đình; tọa chước hảo hề nữ tử.\" Tiên chúa đối: \"Trùng sơn xuất lộ; tẩu lai sứ giả lại nhân.\" Nói nôm na theo cách biên tập: chữ đối chữ, người đoán người. Rồi bản kể chép: \"Phùng-công thấy vậy, muốn hỏi lai lịch thì đã biến mất rồi,\" Cuộc đối đáp khép ở chỗ người hỏi chưa biết người trước mặt. Tên Trạng Bùng, tức Phùng Khắc Khoan, xuất hiện trong bản kể. Chỉ riêng việc nêu tên không đủ xác nhận cuộc gặp từng có thật.",
+   "start_seconds": 310.19,
+   "end_seconds": 340.78,
+   "speaker_directions": "Đọc nguyên chính tả đối báp; câu đối phiên âm chậm, cân vế; câu kết về lịch sử đọc rõ và khách quan.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-warm",
+    "emphasis_words": [
+     "đối báp",
+     "chữ đối chữ",
+     "nhân vật lịch sử thật"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Không diễn hai vai, để nhịp câu đối tạo sự gặp gỡ trong trang sách.",
+    "provider_text": "Nam Hải dị nhân liệt truyện kể ... Xảy có Phùng-khắc-Khoan, Trạng Bùng, đi sứ về qua. hai bên đối báp với nhau. Phùng-công ra câu ... Tam mộc sâm đình ... tọa chước hảo hề nữ tử. Tiên chúa đối ... Trùng sơn xuất lộ ... tẩu lai sứ giả lại nhân. Nói nôm na theo cách biên tập ... chữ đối chữ, người đoán người. Rồi bản kể chép ... Phùng-công thấy vậy, muốn hỏi lai lịch thì đã biến mất rồi, ... Cuộc đối đáp khép ở chỗ người hỏi chưa biết người trước mặt. Tên Trạng Bùng, tức Phùng Khắc Khoan, xuất hiện trong bản kể. Chỉ riêng việc nêu tên không đủ xác nhận cuộc gặp từng có thật."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Trên giấy dó amber, hiện 'Tam mộc sâm đình; tọa chước hảo hề nữ tử.' đúng lúc đọc câu đối, không thêm chữ Hán.",
+     "timestamp_seconds": 7.65
+    },
+    {
+     "type": "overlay",
+     "description": "Hiện 'Trùng sơn xuất lộ; tẩu lai sứ giả lại nhân.' theo câu đáp, giữ nét mực ấm.",
+     "timestamp_seconds": 13.0
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C04 (quote nguyên văn) — NHDNLT 45 Phan Kế Bính"
+  },
+  {
+   "id": "s11",
+   "label": "Hồi 2c — Mỗi bản gọi khác · teal",
+   "text": "Ở lớp kiểm chứng, hãy đặt các tên cạnh nhau. Bản Phan Kế Bính gọi xã Yên-thái. Bản dân gian, tác giả không rõ, mở: \"Ngày xưa, vào năm Thiêu Hựu, đời Hậu Lê (1557) ở thôn An Thái, làng Vân Cát, huyện Vụ Bản,\" Đây vẫn là mốc mở truyện. Tổng hợp bách khoa ghi Tiên Hương, Kim Thái, cùng danh xưng Liễu Hạnh Công chúa, Mẫu nghi thiên hạ. Trong bản Phan Kế Bính, Giáng-tiên là tên đặt, Quỳnh-hoa là tên tiên. Nhận xét biên tập là: cùng một vùng Vân Cát, mỗi bản gọi khác. Ta giữ cách gọi theo từng nguồn, không ép mọi tên thành một tên đúng duy nhất.",
+   "start_seconds": 340.78,
+   "end_seconds": 371.14,
+   "speaker_directions": "Giọng kiểm chứng sáng và đều; tách các tên bằng khoảng thở, không chọn tên nào có trọng lượng cao hơn.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-checking",
+    "emphasis_words": [
+     "Yên-thái",
+     "An Thái",
+     "Tiên Hương",
+     "mỗi bản gọi khác"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.6,
+    "delivery_note": "Đọc mốc năm trong khung mở truyện, không như thông tin hộ tịch.",
+    "provider_text": "Ở lớp kiểm chứng, hãy đặt các tên cạnh nhau. Bản Phan Kế Bính gọi xã Yên-thái. Bản dân gian, tác giả không rõ, mở ... Ngày xưa, vào năm Thiêu Hựu, đời Hậu Lê, một nghìn năm trăm năm mươi bảy, ở thôn An Thái, làng Vân Cát, huyện Vụ Bản, ... Đây vẫn là mốc mở truyện. Tổng hợp bách khoa ghi Tiên Hương, Kim Thái, cùng danh xưng Liễu Hạnh Công chúa, Mẫu nghi thiên hạ. Trong bản Phan Kế Bính, Giáng-tiên là tên đặt, Quỳnh-hoa là tên tiên. Nhận xét biên tập là ... cùng một vùng Vân Cát, mỗi bản gọi khác. Ta giữ cách gọi theo từng nguồn, không ép mọi tên thành một tên đúng duy nhất."
+   },
+   "enhancement_cues": [
+    {
+     "type": "diagram",
+     "description": "Các thẻ giấy nét teal 'Yên-thái', 'An Thái', 'Tiên Hương' hiện lần lượt theo lời đọc, đặt ngang nhau, không gộp địa danh.",
+     "timestamp_seconds": 2.85
+    },
+    {
+     "type": "overlay",
+     "description": "Nhãn teal 'mỗi bản gọi khác' hiện khi narration kết luận, giữ nguyên các thẻ tên.",
+     "timestamp_seconds": 22.77
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C06a (quote nguyên văn) — bản dân gian, tác giả không rõ; C01 + variant_names — đối chiếu tên gọi theo gói P2"
+  },
+  {
+   "id": "s12",
+   "label": "Hồi 2d — Lần thứ hai? · teal",
+   "text": "Vẫn ở lớp kiểm chứng, ta gặp một cách đếm trong truyện. Bản dân gian chép: \"Dân cũng lập đền thờ Bà Chúa Liễu ở Phố Cát và Đền Sòng tại Thanh Hóa, nơi nàng xuống trần lần thứ hai.\" Lần thứ hai là cấu trúc của cách kể, không phải hồ sơ thiên giới. Nghiên cứu tóm tắt rằng các văn bản Nho học từ thế kỷ mười tám đến thế kỷ hai mươi đều kể hai lần giáng sinh. Đó là nhận định về văn bản, không xác nhận một hành trình ngoài đời. Từ đây, truyện dẫn đến đền: đền được kể là mọc lên ở những nơi nàng từng đến. Muốn bước sang lớp đền thờ, ta phải giữ ranh giới ấy.",
+   "start_seconds": 371.14,
+   "end_seconds": 401.73,
+   "speaker_directions": "Đọc câu trích rõ, nhấn cách kể; phần nghiên cứu tỉnh và gọn, cuối câu mở nhẹ sang đền thờ.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-checking",
+    "emphasis_words": [
+     "lần thứ hai",
+     "cấu trúc của cách kể",
+     "truyện dẫn đến đền"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Không tạo giọng hoài nghi tín ngưỡng, chỉ phân biệt loại chứng cứ.",
+    "provider_text": "Vẫn ở lớp kiểm chứng, ta gặp một cách đếm trong truyện. Bản dân gian chép ... Dân cũng lập đền thờ Bà Chúa Liễu ở Phố Cát và Đền Sòng tại Thanh Hóa, nơi nàng xuống trần lần thứ hai. ... Lần thứ hai là cấu trúc của cách kể, không phải hồ sơ thiên giới. Nghiên cứu tóm tắt rằng các văn bản Nho học từ thế kỷ mười tám đến thế kỷ hai mươi đều kể hai lần giáng sinh. Đó là nhận định về văn bản, không xác nhận một hành trình ngoài đời. Từ đây, truyện dẫn đến đền ... đền được kể là mọc lên ở những nơi nàng từng đến. Muốn bước sang lớp đền thờ, ta phải giữ ranh giới ấy."
+   },
+   "enhancement_cues": [
+    {
+     "type": "diagram",
+     "description": "Hai thẻ teal 'Phố Cát' và 'Đền Sòng' hiện theo câu trích trên nền trang sách, không dựng bản đồ hành trình xác thực.",
+     "timestamp_seconds": 5.46
+    },
+    {
+     "type": "animation",
+     "description": "Trang sách nối bằng nét mực teal tới hình mái đền khi đọc 'truyện dẫn đến đền'.",
+     "timestamp_seconds": 22.94
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C06b (quote nguyên văn) — bản dân gian, tác giả không rõ; C14 — Nghiên cứu Tôn giáo, nghiên cứu tóm tắt"
+  },
+  {
+   "id": "s13",
+   "label": "Hồi 3a — Đèo Ngang · amber",
+   "text": "Ta trở lại lớp bản kể. Từ vùng Vân Cát, trang sách đưa tiên chúa đi xa, tới không gian núi đèo và quán nước bên đường. Nam Hải dị nhân liệt truyện chép đoạn mở: \"Về sau Tiên-chúa hiển thánh ở đèo Ngang phố Cát, tỉnh Thanh-hóa\". Hãy giữ địa danh trong khung lời kể ấy, chưa biến nó thành chứng cứ của một hành trình. Trên trang giấy, nhà tranh Vân Cát lùi lại, nhường chỗ cho đèo Ngang và phố Cát. Quán nước sẽ là nơi câu chuyện đổi giọng. Từ cuộc trở về và lời đối đáp, bản kể sắp chuyển sang việc trừng phạt kẻ vô lễ. Ta đọc tiếp, nhưng không cần biến đoạn truyện thành cảnh giật gân.",
+   "start_seconds": 401.73,
+   "end_seconds": 431.85,
+   "speaker_directions": "Chuyển hồi bằng giọng trầm, mở không gian núi đèo chậm rãi; không lên giọng báo hiểm ở câu cuối.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "solemn-contained",
+    "emphasis_words": [
+     "lớp bản kể",
+     "đèo Ngang phố Cát",
+     "quán nước"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 0.6,
+    "delivery_note": "Trích đúng đoạn được giao dù điểm cắt nằm giữa câu nguồn.",
+    "provider_text": "Ta trở lại lớp bản kể. Từ vùng Vân Cát, trang sách đưa tiên chúa đi xa, tới không gian núi đèo và quán nước bên đường. Nam Hải dị nhân liệt truyện chép đoạn mở ... Về sau Tiên-chúa hiển thánh ở đèo Ngang phố Cát, tỉnh Thanh-hóa ... Hãy giữ địa danh trong khung lời kể ấy, chưa biến nó thành chứng cứ của một hành trình. Trên trang giấy, nhà tranh Vân Cát lùi lại, nhường chỗ cho đèo Ngang và phố Cát. Quán nước sẽ là nơi câu chuyện đổi giọng. Từ cuộc trở về và lời đối đáp, bản kể sắp chuyển sang việc trừng phạt kẻ vô lễ. Ta đọc tiếp, nhưng không cần biến đoạn truyện thành cảnh giật gân."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Núi đèo và mây vẽ bằng mực amber trên giấy dó, quán nước nhỏ bên đường hiện theo lời kể, không dựng nhân vật hiện hình.",
+     "timestamp_seconds": 4.02
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'đèo Ngang phố Cát' hiện trong trang sách amber khi trích đoạn mở.",
+     "timestamp_seconds": 11.04
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C05 (quote nguyên văn, trích đoạn mở theo phân công P2) — NHDNLT 45 Phan Kế Bính"
+  },
+  {
+   "id": "s14",
+   "label": "Hồi 3b — Trừng trị · amber",
+   "text": "Tiếp đoạn vừa đọc, bản kể chép thế: \"hiện ra làm con gái đẹp bán nước những kẻ đùa bỡn chết hại rất nhiều\". Đó là ngôn từ của trang sách, không phải lời mời nhìn một cảnh trừng phạt. Trong lớp truyện này, những kẻ đùa bỡn, thiếu lễ độ với người phụ nữ nơi quán nước phải chịu hậu quả. Ta có thể kể đến đó rồi giữ khoảng cách. Không cần tả thân thể, không cần dựng cảnh hiện hình, cũng không lấy đau đớn làm điều gây thích thú. Điều cần nhận ra là hướng kể đã đổi: người con gái trở về giờ được kể như một quyền lực buộc kẻ vô lễ phải trả giá. Đây vẫn là lớp bản kể.",
+   "start_seconds": 431.85,
+   "end_seconds": 462.68,
+   "speaker_directions": "Đọc đều và trầm toàn đoạn, không nhấn vào chữ chết hay vẻ đẹp, giữ phẩm giá và khoảng cách.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "solemn-restrained",
+    "emphasis_words": [
+     "bản kể chép thế",
+     "giữ khoảng cách",
+     "lớp bản kể"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Không giật giọng trong trích dẫn và không diễn sự trừng trị.",
+    "provider_text": "Tiếp đoạn vừa đọc, bản kể chép thế ... hiện ra làm con gái đẹp bán nước những kẻ đùa bỡn chết hại rất nhiều ... Đó là ngôn từ của trang sách, không phải lời mời nhìn một cảnh trừng phạt. Trong lớp truyện này, những kẻ đùa bỡn, thiếu lễ độ với người phụ nữ nơi quán nước phải chịu hậu quả. Ta có thể kể đến đó rồi giữ khoảng cách. Không cần tả thân thể. Không cần dựng cảnh hiện hình. Cũng không lấy đau đớn làm điều gây thích thú. Điều cần nhận ra là hướng kể đã đổi ... người con gái trở về giờ được kể như một quyền lực buộc kẻ vô lễ phải trả giá. Đây vẫn là lớp bản kể."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Giữ khung xa quán nước bằng mực amber và vật thể chén nước trên giấy dó, tuyệt đối không minh họa thân thể, hiện hình hay hậu quả chết chóc.",
+     "timestamp_seconds": 1.76
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'lớp bản kể' hiện nhỏ bên trang sách khi narration nhắc lại ranh giới cuối đoạn.",
+     "timestamp_seconds": 27.31
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C05 (quote nguyên văn, trích đoạn tiếp theo phân công P2) — NHDNLT 45 Phan Kế Bính"
+  },
+  {
+   "id": "s15",
+   "label": "Hồi 3c — Quân triều đình · amber",
+   "text": "Bản kể đẩy xung đột xa hơn khi triều đình bước vào. Sách chép: \"Triều-đình nghi là yêu quái, sai thầy phù-thủy và Trịnh hoàng-thúc đem quân đi tiễu. Quan quân bắn vào trong núi, tan phá đền đài.\" Ở đây có một nghịch lý để người biên tập dừng lại: người được truyện gọi là tiên chúa lại bị triều đình trong chính truyện ấy nghi là yêu quái. Cách gọi thay đổi theo phía đang nhìn. Ta không nhận lấy lời nghi ấy làm kết luận về bà, cũng không biến cuộc tiễu trừ thành một trận đánh lịch sử đã được xác nhận. Chỉ giữ hình ảnh mà câu văn để lại: đền đài tan phá, và câu chuyện chưa khép.",
+   "start_seconds": 462.68,
+   "end_seconds": 493.04,
+   "speaker_directions": "Tăng sức nặng nhưng không tăng tốc; trích dẫn rõ và kìm, sau tan phá đền đài nghỉ một nhịp.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "tense-contained",
+    "emphasis_words": [
+     "nghi là yêu quái",
+     "nghịch lý",
+     "đền đài tan phá"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Kịch tính đến từ sự đổi cách gọi, không từ âm lượng hay hiệu ứng giật.",
+    "provider_text": "Bản kể đẩy xung đột xa hơn khi triều đình bước vào. Sách chép ... Triều-đình nghi là yêu quái, sai thầy phù-thủy và Trịnh hoàng-thúc đem quân đi tiễu. Quan quân bắn vào trong núi, tan phá đền đài. ... Ở đây có một nghịch lý để người biên tập dừng lại ... người được truyện gọi là tiên chúa lại bị triều đình trong chính truyện ấy nghi là yêu quái. Cách gọi thay đổi theo phía đang nhìn. Ta không nhận lấy lời nghi ấy làm kết luận về bà, cũng không biến cuộc tiễu trừ thành một trận đánh lịch sử đã được xác nhận. Chỉ giữ hình ảnh mà câu văn để lại ... đền đài tan phá, và câu chuyện chưa khép."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Mái đền vẽ mực amber mất dần đường nét khi câu trích nói tan phá đền đài, không cảnh chiến đấu trực diện, không chớp giật.",
+     "timestamp_seconds": 9.49
+    },
+    {
+     "type": "overlay",
+     "description": "Cụm 'nghi là yêu quái' nằm trong trang sách amber, hiện khi được đọc, không dùng như nhãn xác nhận nhân vật.",
+     "timestamp_seconds": 4.74
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C05 (quote nguyên văn) — NHDNLT 45 Phan Kế Bính"
+  },
+  {
+   "id": "s16",
+   "label": "Hồi 3d — Dân cầu khấn, triều đình phong vương · amber→teal",
+   "text": "Bản kể tiếp: \"Được vài tháng, dân xứ ấy dịch tễ, lập đàn cầu khấn, thì mới biết là Tiên-chúa hiển thánh tâu lên triều-đình, vua sai sửa sang lại đền miếu, phong làm Mã-vàng công chúa. Sau lại có công giúp nước phá giặc Mán, được phong làm Chế-thắng bảo hòa-diệu đại vương, lập đền trên núi Sùng-sơn đến giờ vẫn còn, anh linh.\" Trong chuỗi kể ấy, dân cầu khấn trước, triều đình phong sau. Cụm \"đến giờ vẫn còn\" là lời của bản kể ở thời người chép, không tự động là xác minh hôm nay. Nhưng nó hướng ta tới một vật thể: đền. Từ đây, ta rời lớp truyện để bước sang lớp đền thờ, với chứng cứ riêng.",
+   "start_seconds": 493.04,
+   "end_seconds": 523.16,
+   "speaker_directions": "Trích dẫn trang nghiêm và đều, ngắt hơi ở các tước hiệu; nhấn nhẹ đến giờ vẫn còn rồi đổi sang giọng kiểm chứng.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "solemn-clear",
+    "emphasis_words": [
+     "dân cầu khấn trước",
+     "triều đình phong sau",
+     "đến giờ vẫn còn",
+     "chứng cứ riêng"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Không đọc dịch tễ hay phong vương như sự kiện lịch sử đã xác minh.",
+    "provider_text": "Bản kể tiếp ... Được vài tháng, dân xứ ấy dịch tễ, lập đàn cầu khấn, thì mới biết là Tiên-chúa hiển thánh tâu lên triều-đình, vua sai sửa sang lại đền miếu, phong làm Mã-vàng công chúa. Sau lại có công giúp nước phá giặc Mán, được phong làm Chế-thắng bảo hòa-diệu đại vương, lập đền trên núi Sùng-sơn đến giờ vẫn còn, anh linh. ... Trong chuỗi kể ấy, dân cầu khấn trước, triều đình phong sau. Cụm đến giờ vẫn còn là lời của bản kể ở thời người chép, không tự động là xác minh hôm nay. Nhưng nó hướng ta tới một vật thể ... đền. Từ đây, ta rời lớp truyện để bước sang lớp đền thờ, với chứng cứ riêng."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Mái đền Sùng-sơn được vẽ lại bằng nét amber trên giấy dó theo đoạn trích, không minh họa dịch tễ hay chiến trận.",
+     "timestamp_seconds": 13.69
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'đến giờ vẫn còn' hiện trong trang sách khi được nhắc lại, không đặt trên ảnh đền hiện tại.",
+     "timestamp_seconds": 20.08
+    },
+    {
+     "type": "animation",
+     "description": "Nét mái đền amber dừng ở mép trang sách, một khung teal mở bên cạnh khi đọc 'lớp đền thờ, với chứng cứ riêng'.",
+     "timestamp_seconds": 27.38
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C05 (quote nguyên văn) — NHDNLT 45 Phan Kế Bính"
+  },
+  {
+   "id": "s17",
+   "label": "Hồi 4a — Đến giờ vẫn còn · teal",
+   "text": "Ta bước sang lớp đền thờ và thực hành. Vừa rồi, lời kể của Phan Kế Bính đã hướng về ngôi đền trên núi Sùng Sơn, một nơi được người chép nói là còn tồn tại ở thời mình. Theo cách đọc biên tập, câu chữ ấy đưa một vật thể ngoài trang sách vào cuối truyện. Nhưng lời chỉ dẫn của người chép chưa thay cho việc kiểm chứng ngôi đền hôm nay. Ta cần giữ ranh giới đó. Truyện kể và đền thờ từ đây đi cạnh nhau, chứ không làm chứng thay nhau. Muốn biết người đời đã thờ Liễu Hạnh ra sao, ta phải tìm một loại ghi chép khác: ghi chép về chính việc thờ.",
+   "start_seconds": 523.16,
+   "end_seconds": 552.09,
+   "speaker_directions": "Chuyển sang giọng sáng, tỉnh; nhấn ranh giới chứng cứ, không đọc như tuyên bố đã khảo sát đền.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-reflective",
+    "emphasis_words": [
+     "đền thờ và thực hành",
+     "đi cạnh nhau",
+     "chính việc thờ"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Tách lời chỉ dẫn của bản kể khỏi xác minh hiện tại bằng nhịp nghỉ rõ.",
+    "provider_text": "Ta bước sang lớp đền thờ và thực hành. Vừa rồi, lời kể của Phan Kế Bính đã hướng về ngôi đền trên núi Sùng Sơn, một nơi được người chép nói là còn tồn tại ở thời mình. Theo cách đọc biên tập, câu chữ ấy đưa một vật thể ngoài trang sách vào cuối truyện. Nhưng lời chỉ dẫn của người chép chưa thay cho việc kiểm chứng ngôi đền hôm nay. Ta cần giữ ranh giới đó. ... Truyện kể và đền thờ từ đây đi cạnh nhau, chứ không làm chứng thay nhau. Muốn biết người đời đã thờ Liễu Hạnh ra sao, ta phải tìm một loại ghi chép khác ... ghi chép về chính việc thờ."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Trang truyện amber lùi lại, phơi tờ giấy chứng cứ nét teal trên nền giấy dó, không dùng ảnh đền hiện tại làm xác nhận.",
+     "timestamp_seconds": 1.81
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'đi cạnh nhau' nét teal hiện giữa trang sách và mái đền theo narration.",
+     "timestamp_seconds": 19.89
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C05 — Nam Hải dị nhân liệt truyện, nhắc lại ý kết s16, không trích dẫn mới; phân tích biên tập"
+  },
+  {
+   "id": "s18",
+   "label": "Hồi 4b — Chứng cứ Nam Giao · teal",
+   "text": "Ở lớp thực hành, Vũ trung tùy bút đem lại một mảnh ghi chép phong tục thời Nguyễn. Qua bản dịch hiện đại, sách chép: \"Lần cửa thứ ba ở nền Nam Giao có một cái đền thờ bà công chúa Liễu Hạnh\". Rồi ghi rõ: \"từ khi nhà Lê mất, những kẻ lân cận coi đền Nam Giao và những kẻ đồng cốt làm ra cái đền ấy\". Điều đáng giữ ở đây là việc lập đền, cùng những người quanh vùng và người đồng cốt được ghi là tham gia. Đây là chứng cứ về việc thờ được ghi chép, không phải chứng minh người trong truyền thuyết từng sống. Mảnh ghép lịch sử thực hành nằm ở sự phân biệt ấy.",
+   "start_seconds": 552.09,
+   "end_seconds": 582.45,
+   "speaker_directions": "Đọc hai trích dẫn chậm, rõ từng vế; câu phân biệt việc thờ và nhân vật chắc nhưng không gay gắt.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-checking",
+    "emphasis_words": [
+     "Vũ trung tùy bút",
+     "việc lập đền",
+     "lịch sử thực hành"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Giữ tông đọc tư liệu, không biến câu trích thành cảnh tái hiện đã xác minh.",
+    "provider_text": "Ở lớp thực hành, Vũ trung tùy bút đem lại một mảnh ghi chép phong tục thời Nguyễn. Qua bản dịch hiện đại, sách chép ... Lần cửa thứ ba ở nền Nam Giao có một cái đền thờ bà công chúa Liễu Hạnh. ... Rồi ghi rõ ... từ khi nhà Lê mất, những kẻ lân cận coi đền Nam Giao và những kẻ đồng cốt làm ra cái đền ấy. ... Điều đáng giữ ở đây là việc lập đền, cùng những người quanh vùng và người đồng cốt được ghi là tham gia. Đây là chứng cứ về việc thờ được ghi chép, không phải chứng minh người trong truyền thuyết từng sống. Mảnh ghép lịch sử thực hành nằm ở sự phân biệt ấy."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Tờ chứng cứ teal hiện tên 'Vũ trung tùy bút' khi narration giới thiệu, không thêm năm xuất bản.",
+     "timestamp_seconds": 2.6
+    },
+    {
+     "type": "animation",
+     "description": "Nét teal phác nền Nam Giao và mái đền trên tờ giấy khi đọc câu trích về đền thờ, không dựng nhân vật đồng cốt.",
+     "timestamp_seconds": 8.67
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'lịch sử thực hành' hiện dưới tờ chứng cứ theo câu kết.",
+     "timestamp_seconds": 26.89
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C07a + C07b (quote nguyên văn) — Vũ trung tùy bút, bản dịch hiện đại của ghi chép phong tục"
+  },
+  {
+   "id": "s19",
+   "label": "Hồi 4c — Bà không đứng một mình · teal",
+   "text": "Vẫn ở lớp thực hành, cần tránh một cách hiểu quá gọn: không phải nữ thần nào cũng là Liễu Hạnh. Một cách hiểu của nghiên cứu viết rằng: \"tục thờ Nữ thần và Mẫu thần bản địa đã kết hợp với ảnh hưởng của Đạo giáo để hình thành nên đạo Tam phủ, Tứ phủ, mà Thánh Mẫu Liễu Hạnh là một thần chủ.\" Xin dừng ở chữ một: hệ Mẫu có nhiều vị, bà không thay cho tất cả. Câu hỏi biên tập của tập này là: \"Thờ Mẫu Tam phủ và truyền thuyết Liễu Hạnh là một hay hai chuyện khác nhau?\" Ta đặt chúng cạnh nhau để hiểu mối liên hệ, không gộp truyền thuyết với toàn bộ tín ngưỡng.",
+   "start_seconds": 582.45,
+   "end_seconds": 613.28,
+   "speaker_directions": "Đọc nghiên cứu rõ và bình thản; nhấn nhẹ một thần chủ; câu hỏi mang giọng mời suy nghĩ, không chất vấn.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-respectful",
+    "emphasis_words": [
+     "Một cách hiểu của nghiên cứu",
+     "một thần chủ",
+     "Câu hỏi biên tập"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Không trình bày cách hiểu nghiên cứu như định nghĩa độc quyền về tín ngưỡng.",
+    "provider_text": "Vẫn ở lớp thực hành, cần tránh một cách hiểu quá gọn ... không phải nữ thần nào cũng là Liễu Hạnh. Một cách hiểu của nghiên cứu viết rằng ... tục thờ Nữ thần và Mẫu thần bản địa đã kết hợp với ảnh hưởng của Đạo giáo để hình thành nên đạo Tam phủ, Tứ phủ, mà Thánh Mẫu Liễu Hạnh là một thần chủ. ... Xin dừng ở chữ một ... hệ Mẫu có nhiều vị, bà không thay cho tất cả. Câu hỏi biên tập của tập này là ... Thờ Mẫu Tam phủ và truyền thuyết Liễu Hạnh là một hay hai chuyện khác nhau? ... Ta đặt chúng cạnh nhau để hiểu mối liên hệ, không gộp truyền thuyết với toàn bộ tín ngưỡng."
+   },
+   "enhancement_cues": [
+    {
+     "type": "diagram",
+     "description": "Sơ đồ teal trên giấy dó gồm các dấu vị thần không gắn tên mới, nhãn 'Liễu Hạnh' đặt ở một dấu, không bao trùm các dấu khác.",
+     "timestamp_seconds": 14.01
+    },
+    {
+     "type": "overlay",
+     "description": "Hiện 'Câu hỏi biên tập' rồi câu 'Thờ Mẫu Tam phủ và truyền thuyết Liễu Hạnh là một hay hai chuyện khác nhau?' theo lời đọc.",
+     "timestamp_seconds": 21.49
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C13 (quote nguyên văn) — Nghiên cứu Tôn giáo 10/2010, một cách hiểu của nghiên cứu; Q03 (câu hỏi biên tập)"
+  },
+  {
+   "id": "s20",
+   "label": "Hồi 4d — Hội tháng Ba · teal",
+   "text": "Từ trang ghi chép, ta trở về lớp thực hành ở hội Phủ Dầy tháng Ba. Mục bách khoa về lễ hội viết: \"Có 3 nghi thức quan trọng nhất trong Lễ hội Phủ Dầy bao gồm:\n\nLễ Rước Mẫu Thỉnh Kinh,\nLễ Rước Đuốc tại Phủ Chính ,\nLễ kéo chữ Hoa Trượng Hội.\" Ta đọc từng tên, chậm và trang nghiêm: rước kinh, rước đuốc, kéo chữ. Chỉ riêng những tên gọi ấy đã giúp câu chuyện trở về với việc người đời cùng thực hành nghi lễ. Không cần thêm một cảnh huyền bí để làm cho việc thờ có sức nặng. Nếu dùng hình lễ hội trong tập này, đó là ảnh minh họa, không phải chứng cứ xác nhận những diễn biến của truyền thuyết.",
+   "start_seconds": 613.28,
+   "end_seconds": 645.3,
+   "speaker_directions": "Ba tên nghi thức đọc ngang trọng lượng, trang nghiêm, không tạo nhịp cao trào huyền bí.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "hội Phủ Dầy",
+     "rước kinh",
+     "rước đuốc",
+     "kéo chữ"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Ngắt trọn hơi giữa các nghi thức, giữ sự bình thản của người đứng bên cửa đền.",
+    "provider_text": "Từ trang ghi chép, ta trở về lớp thực hành ở hội Phủ Dầy tháng Ba. Mục bách khoa về lễ hội viết ... Có ba nghi thức quan trọng nhất trong Lễ hội Phủ Dầy bao gồm ... Lễ Rước Mẫu Thỉnh Kinh. ... Lễ Rước Đuốc tại Phủ Chính. ... Lễ kéo chữ Hoa Trượng Hội. ... Ta đọc từng tên, chậm và trang nghiêm ... rước kinh, rước đuốc, kéo chữ. Chỉ riêng những tên gọi ấy đã giúp câu chuyện trở về với việc người đời cùng thực hành nghi lễ. Không cần thêm một cảnh huyền bí để làm cho việc thờ có sức nặng. Nếu dùng hình lễ hội trong tập này, đó là ảnh minh họa, không phải chứng cứ xác nhận những diễn biến của truyền thuyết."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Các thẻ giấy nét teal hiện lần lượt 'Lễ Rước Mẫu Thỉnh Kinh', 'Lễ Rước Đuốc tại Phủ Chính', 'Lễ kéo chữ Hoa Trượng Hội' đúng thứ tự đọc, không thêm mô tả nghi lễ.",
+     "timestamp_seconds": 8.0
+    },
+    {
+     "type": "overlay",
+     "description": "Nếu dùng hình lễ hội, gắn 'ảnh minh họa' khi narration đọc cụm này; không dựng cảnh lên đồng hay hiệu ứng huyền bí.",
+     "timestamp_seconds": 26.02
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C12b (quote nguyên văn) — vi.wiki Phủ Dầy"
+  },
+  {
+   "id": "s21",
+   "label": "Climax a — Hai chiều của danh xưng · teal+amber",
+   "text": "Từ lớp đền thờ, ta nhìn lại danh xưng trong lớp kể, nhưng không nhập chúng làm một. Nghiên cứu tóm tắt: \"tôn vinh Liễu Hạnh Thánh Mẫu là Mẫu nghi thiên hạ. Còn triều đình không những không bắt tội Bà, mà còn tôn phong là Mạ vàng chế thắng đại vương; xếp vào hạng thượng đẳng thần\". Sắc phong gốc chưa đối chiếu, nên ta giữ đây là lời nghiên cứu tóm tắt. Theo cách đọc biên tập, danh xưng Mẫu có hai chiều: dân thờ trước, triều đình chính danh sau trong mạch kể ấy. Một phía là đền và hội. Một phía là tôn phong và xếp hạng. Không nên thu tiếng Mẫu về một văn kiện duy nhất ra lệnh cho người đời gọi như vậy.",
+   "start_seconds": 645.3,
+   "end_seconds": 677.08,
+   "speaker_directions": "Chậm và trang nghiêm; tách lời nghiên cứu khỏi diễn giải biên tập, đọc rõ giới hạn chưa đối chiếu sắc phong.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "solemn-reflective",
+    "emphasis_words": [
+     "Mẫu nghi thiên hạ",
+     "Sắc phong gốc chưa đối chiếu",
+     "hai chiều",
+     "dân thờ trước"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Không đọc tôn phong như kết quả đã kiểm tra văn bản gốc.",
+    "provider_text": "Từ lớp đền thờ, ta nhìn lại danh xưng trong lớp kể, nhưng không nhập chúng làm một. Nghiên cứu tóm tắt ... tôn vinh Liễu Hạnh Thánh Mẫu là Mẫu nghi thiên hạ. Còn triều đình không những không bắt tội Bà, mà còn tôn phong là Mạ vàng chế thắng đại vương. Xếp vào hạng thượng đẳng thần. ... Sắc phong gốc chưa đối chiếu, nên ta giữ đây là lời nghiên cứu tóm tắt. Theo cách đọc biên tập, danh xưng Mẫu có hai chiều ... dân thờ trước, triều đình chính danh sau trong mạch kể ấy. Một phía là đền và hội. Một phía là tôn phong và xếp hạng. Không nên thu tiếng Mẫu về một văn kiện duy nhất ra lệnh cho người đời gọi như vậy."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Chữ 'Mẫu nghi thiên hạ' hiện khi đọc trong trích dẫn, nền giấy dó, không giả lập sắc phong gốc.",
+     "timestamp_seconds": 7.26
+    },
+    {
+     "type": "overlay",
+     "description": "Hiện 'Sắc phong gốc chưa đối chiếu' theo lời đọc.",
+     "timestamp_seconds": 16.34
+    },
+    {
+     "type": "diagram",
+     "description": "Hai nhánh tách biệt: mái đền nét teal 'đền và hội', trang kể amber 'tôn phong và xếp hạng', xuất hiện theo narration, không dựng một trục niên đại xác minh.",
+     "timestamp_seconds": 23.61
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C15 (quote nguyên văn) — Nghiên cứu Tôn giáo 10/2010, nghiên cứu tóm tắt; sắc phong gốc chưa đối chiếu; hai chiều = cách đọc biên tập"
+  },
+  {
+   "id": "s22",
+   "label": "Climax b — Có thể đọc là · amber",
+   "text": "Trở lại lớp bản kể, tôi xin đề xuất một cách đọc biên tập: có thể đọc là câu chuyện cộng đồng muốn giữ lại một người phụ nữ. Bản kể cũng có tình tiết giúp nước. Ở đây, cách đọc biên tập chú ý riêng đến sự trở về và việc thờ, không phủ nhận tình tiết ấy. Trong truyện, nàng mất rồi trở về. Bên ngoài truyện, người đời thờ Mẫu. Đền và danh xưng có thể được đọc như cách người đời trả lời nỗi muốn giữ lại ấy. Đây không phải kết luận duy nhất, càng không chứng minh một nhân vật lịch sử. Mỗi người xem có thể tự quyết cách hiểu, miễn đừng dùng lớp này để xác nhận lớp kia.",
+   "start_seconds": 677.08,
+   "end_seconds": 707.2,
+   "speaker_directions": "Đọc chậm nhất phần, lặng trước có thể đọc là; chân thành, không lên giọng kết luận chân lý.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-contemplative",
+    "emphasis_words": [
+     "cách đọc biên tập",
+     "có thể đọc là",
+     "sự hiện diện tiếp diễn",
+     "không phải kết luận duy nhất"
+    ],
+    "pause_before_seconds": 0.8,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Đặt cảm xúc trong lời đề xuất, không biến cảm xúc thành chứng cứ lịch sử.",
+    "provider_text": "Trở lại lớp bản kể, tôi xin đề xuất một cách đọc biên tập: có thể đọc là câu chuyện cộng đồng muốn giữ lại một người phụ nữ. Bản kể cũng có tình tiết giúp nước. Ở đây, cách đọc biên tập chú ý riêng đến sự trở về và việc thờ, không phủ nhận tình tiết ấy. Trong truyện, nàng mất rồi trở về. Bên ngoài truyện, người đời thờ Mẫu. Đền và danh xưng có thể được đọc như cách người đời trả lời nỗi muốn giữ lại ấy. Đây không phải kết luận duy nhất, càng không chứng minh một nhân vật lịch sử. Mỗi người xem có thể tự quyết cách hiểu, miễn đừng dùng lớp này để xác nhận lớp kia."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Chữ 'cách đọc biên tập' rồi 'có thể đọc là' hiện trên giấy dó amber khi được đọc, không gắn dấu xác nhận.",
+     "timestamp_seconds": 3.44
+    },
+    {
+     "type": "animation",
+     "description": "Đường mực amber rời rồi trở về nhà tranh khi narration kể nàng mất rồi trở về; mái đền nằm trên tờ giấy riêng, không biến nhân vật thành chứng cứ.",
+     "timestamp_seconds": 13.77
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'không phải kết luận duy nhất' hiện theo câu giới hạn cách đọc.",
+     "timestamp_seconds": 21.51
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "S2-C4 proposed canon — PROPOSAL.md §6; cách đọc biên tập đề xuất, pending owner; Q02 được trả lời bằng tách lớp"
+  },
+  {
+   "id": "s23",
+   "label": "Climax c — Ghi danh di sản · nâu",
+   "text": "Bây giờ là lớp ghi danh di sản, lớp hồ sơ thời nay. Bản tổng hợp bách khoa ghi: \"di sản \"Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt\" tại 14 tỉnh đã chính thức được UNESCO ghi danh tại Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại.\" Việc ghi danh diễn ra ngày 1/12/2016, tại phiên lần thứ 11 của Ủy ban Liên Chính phủ UNESCO ở Addis Ababa, Ethiopia. Hồ sơ gồm 14 tỉnh thành. Danh sách mở bằng Ninh Bình, Hà Nội, Hưng Yên, Hải Phòng, Bắc Ninh, Phú Thọ, và còn những địa phương khác. Đọc tên di sản một lần nữa để thấy trọng tâm của lớp này: Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt. Đó là điều hồ sơ gọi tên.",
+   "start_seconds": 707.2,
+   "end_seconds": 745.62,
+   "speaker_directions": "Giọng đọc hồ sơ sạch và trang nghiêm; tên di sản đọc trọn, không nuốt chữ thực hành; mốc ngày đọc chậm rõ.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "formal-clear",
+    "emphasis_words": [
+     "lớp ghi danh di sản",
+     "Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt",
+     "14 tỉnh thành"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Không đọc danh hiệu như sự xác nhận truyền thuyết hay nhân vật.",
+    "provider_text": "Bây giờ là lớp ghi danh di sản, lớp hồ sơ thời nay. Bản tổng hợp bách khoa ghi ... di sản Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt tại mười bốn tỉnh đã chính thức được u nét cô ghi danh tại Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại. ... Việc ghi danh diễn ra ngày mùng một tháng mười hai năm hai nghìn không trăm mười sáu, tại phiên lần thứ mười một của Ủy ban Liên Chính phủ u nét cô ở Addis Ababa, Ethiopia. Hồ sơ gồm mười bốn tỉnh thành. Danh sách mở bằng Ninh Bình, Hà Nội, Hưng Yên, Hải Phòng, Bắc Ninh, Phú Thọ, và còn những địa phương khác. ... Đọc tên di sản một lần nữa để thấy trọng tâm của lớp này ... Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt. Đó là điều hồ sơ gọi tên."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Thẻ hồ sơ nâu giấy dầu hiện 'Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt' theo câu trích, không dùng chân dung làm đối tượng ghi danh.",
+     "timestamp_seconds": 5.12
+    },
+    {
+     "type": "overlay",
+     "description": "Thẻ hồ sơ hiện tuần tự '1/12/2016', 'lần thứ 11', '14 tỉnh' khi narration đọc từng mốc, không thêm giờ.",
+     "timestamp_seconds": 15.37
+    },
+    {
+     "type": "overlay",
+     "description": "Tên 'Ninh Bình, Hà Nội, Hưng Yên, Hải Phòng, Bắc Ninh, Phú Thọ' hiện theo đúng thứ tự narration trên nền hồ sơ nâu.",
+     "timestamp_seconds": 26.89
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C10 (quote nguyên văn, chuỗi con được phép) + C11 (liệt kê đầu danh sách đúng thứ tự) — vi.wiki Tín ngưỡng thờ Mẫu của người Việt"
+  },
+  {
+   "id": "s24",
+   "label": "Climax d — Ghi danh gì, không ghi danh gì · nâu",
+   "text": "Ở lớp hồ sơ di sản, điều quan trọng nhất không phải chỉ là danh hiệu, mà là đối tượng được ghi danh. UNESCO ghi danh thực hành tín ngưỡng, cách người Việt thờ Mẫu Tam phủ. Không phải ghi danh truyện Liễu Hạnh. Cũng không phải chứng thực nhân vật trong truyện từng sống. Sự tách bạch ấy không làm mất đi lòng kính trọng. Nó giúp ta nhận ra giá trị riêng của từng lớp: bản kể giữ một câu chuyện. Đền thờ giữ dấu vết của việc thờ. Ghi danh di sản gọi tên một thực hành sống. Đặt cạnh nhau, chúng làm câu chuyện dày hơn. Nhưng không lớp nào cần mượn danh lớp khác để có giá trị.",
+   "start_seconds": 745.62,
+   "end_seconds": 775.98,
+   "speaker_directions": "Rõ và ấm, không sửa sai bằng giọng phán xét; nghỉ sau từng giới hạn, câu cuối hạ nhẹ.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-clear",
+    "emphasis_words": [
+     "đối tượng được ghi danh",
+     "thực hành tín ngưỡng",
+     "giá trị riêng",
+     "một thực hành sống"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Ba lớp đọc thành các câu riêng, không trộn thành lời xác nhận lịch sử.",
+    "provider_text": "Ở lớp hồ sơ di sản, điều quan trọng nhất không phải chỉ là danh hiệu, mà là đối tượng được ghi danh. U nét cô ghi danh thực hành tín ngưỡng, cách người Việt thờ Mẫu Tam phủ. ... Không phải ghi danh truyện Liễu Hạnh. Cũng không phải chứng thực nhân vật trong truyện từng sống. ... Sự tách bạch ấy không làm mất đi lòng kính trọng. Nó giúp ta nhận ra giá trị riêng của từng lớp ... bản kể giữ một câu chuyện. Đền thờ giữ dấu vết của việc thờ. Ghi danh di sản gọi tên một thực hành sống. Đặt cạnh nhau, chúng làm câu chuyện dày hơn. Nhưng không lớp nào cần mượn danh lớp khác để có giá trị."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Trên thẻ hồ sơ nâu giấy dầu, chữ 'thực hành tín ngưỡng' hiện khi narration xác định đối tượng ghi danh; không đặt dấu ghi danh lên trang truyện hay nhân vật.",
+     "timestamp_seconds": 6.51
+    },
+    {
+     "type": "diagram",
+     "description": "Các tờ giấy tách riêng: amber 'bản kể', teal 'đền thờ', nâu giấy dầu 'ghi danh di sản', lần lượt hiện theo các câu tương ứng cuối section.",
+     "timestamp_seconds": 18.43
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C10 — vi.wiki Tín ngưỡng thờ Mẫu của người Việt; misconception #2, diễn giải biên tập về đối tượng ghi danh, không trích dẫn mới"
+  },
+  {
+   "id": "s25",
+   "label": "Landing a — Trở về tháng Ba · nâu→teal",
+   "text": "Từ lớp hồ sơ, ta trở về với thực hành ở Phủ Dầy hôm nay. Ngày mùng ba tháng Ba âm lịch lại đưa người đi hội về bên ngưỡng cửa đền. Trong bản kể, đó là ngày tiên chúa mất. Trong ghi chép lễ hội, đó là ngày hội Phủ Dầy. Hai lớp chạm nhau ở một ngày, nhưng không vì thế mà trở thành cùng một sự thật. Một bên giữ nhịp câu chuyện. Một bên ghi nhận việc người đời tưởng nhớ và thực hành tín ngưỡng. Đứng ở đây, ta có thể lắng nghe cả hai mà không bắt trang truyện phải làm công việc của một hồ sơ lịch sử.",
+   "start_seconds": 775.98,
+   "end_seconds": 803.73,
+   "speaker_directions": "Ấm và nhẹ như trở về cảnh mở đầu; ngắt rõ giữa bản kể và ghi chép lễ hội, hạ giọng ở câu cuối.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-reverent",
+    "emphasis_words": [
+     "Phủ Dầy",
+     "Hai lớp",
+     "một ngày",
+     "hồ sơ lịch sử"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Không đọc sự trùng ngày như bằng chứng xác nhận truyện.",
+    "provider_text": "Từ lớp hồ sơ, ta trở về với thực hành ở Phủ Dầy hôm nay. Ngày mùng ba tháng Ba âm lịch lại đưa người đi hội về bên ngưỡng cửa đền. Trong bản kể, đó là ngày tiên chúa mất. ... Trong ghi chép lễ hội, đó là ngày hội Phủ Dầy. Hai lớp chạm nhau ở một ngày, nhưng không vì thế mà trở thành cùng một sự thật. Một bên giữ nhịp câu chuyện. Một bên ghi nhận việc người đời tưởng nhớ và thực hành tín ngưỡng. ... Đứng ở đây, ta có thể lắng nghe cả hai mà không bắt trang truyện phải làm công việc của một hồ sơ lịch sử."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Tờ hồ sơ nâu giấy dầu nhường chỗ cho ngưỡng cửa đền nét teal trên giấy dó; nếu dùng ảnh hội Phủ Dầy, chỉ dùng ảnh minh họa, không thêm chữ ngoài narration.",
+     "timestamp_seconds": 1.11
+    },
+    {
+     "type": "diagram",
+     "description": "Hai tờ giấy riêng amber và teal cùng hướng về chữ 'mùng ba tháng Ba âm lịch' theo narration, không nhập làm một.",
+     "timestamp_seconds": 6.66
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C03 + C12 (nhắc nội dung, không trích dẫn mới) — Nam Hải dị nhân liệt truyện; vi.wiki Phủ Dầy"
+  },
+  {
+   "id": "s26",
+   "label": "Landing b — Cẩn thận với những con số · nâu",
+   "text": "Ở lớp tổng hợp bách khoa, ta còn gặp những ngày tháng rất cụ thể. Theo cách kể/bách khoa, mục ngày sinh ghi \"07/09/1557 (15/8/Đinh Tỵ)\", mục ngày mất ghi \"21/03/1577 (3/3/Đinh Sửu)\". Đó là cách bách khoa tổng hợp các bản kể, không phải chứng cứ để xác nhận ngày sinh và ngày mất của một nhân vật lịch sử. Bản kể Phan Kế Bính chỉ mở truyện ở thời vua Anh-tôn nhà Lê, với mốc 1557. Một ngày được ghi đầy đủ chưa tự nó thành sử liệu. Vì thế, khi nhìn những con số ấy, xin giữ bên cạnh chúng chiếc khung đã đọc: theo cách kể, theo bách khoa.",
+   "start_seconds": 803.73,
+   "end_seconds": 841.91,
+   "speaker_directions": "Đọc ngày tháng rõ và tỉnh; nhấn khung bách khoa trước các mốc, không tạo giọng công bố sử liệu.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-checking",
+    "emphasis_words": [
+     "tổng hợp bách khoa",
+     "không phải chứng cứ",
+     "mốc 1557"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Đọc đủ cả lịch dương và phần lịch âm, giữ khung nguồn ở hai đầu.",
+    "provider_text": "Ở lớp tổng hợp bách khoa, ta còn gặp những ngày tháng rất cụ thể. Theo cách kể, theo bách khoa ... mục ngày sinh ghi ngày bảy tháng chín năm một nghìn năm trăm năm mươi bảy, tức ngày mười lăm tháng tám năm Đinh Tỵ. Mục ngày mất ghi ngày hai mươi mốt tháng ba năm một nghìn năm trăm bảy mươi bảy, tức ngày ba tháng ba năm Đinh Sửu. ... Đó là cách bách khoa tổng hợp các bản kể, không phải chứng cứ để xác nhận ngày sinh và ngày mất của một nhân vật lịch sử. Bản kể Phan Kế Bính chỉ mở truyện ở thời vua Anh-tôn nhà Lê, với mốc một nghìn năm trăm năm mươi bảy. Một ngày được ghi đầy đủ chưa tự nó thành sử liệu. Vì thế, khi nhìn những con số ấy, xin giữ bên cạnh chúng chiếc khung đã đọc ... theo cách kể, theo bách khoa."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Trên giấy dầu nâu, nhãn 'theo cách kể/bách khoa' xuất hiện trước và giữ cạnh hai mốc '07/09/1557 (15/8/Đinh Tỵ)' và '21/03/1577 (3/3/Đinh Sửu)', lần lượt theo narration.",
+     "timestamp_seconds": 5.09
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'không phải chứng cứ' hiện khi narration nêu giới hạn, không dùng dấu xác nhận lịch sử.",
+     "timestamp_seconds": 21.64
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C09 (quote nguyên văn) — vi.wiki Liễu Hạnh Công chúa; C01 nhắc mốc mở truyện, không trích dẫn mới"
+  },
+  {
+   "id": "s27",
+   "label": "Landing c — Lớp văn bản · nâu",
+   "text": "Ở lớp tư liệu văn bản, nghiên cứu cũng nhắc ta đọc chậm. Nghiên cứu ghi: \"có thể coi Quảng Cung linh từ phả ký của Vũ Huy Trác (1781) có niên đại gần với Vân Cát thần nữ của Đoàn Thị Điểm.\" Mốc 1781 ở đây là niên đại văn bản, không phải niên đại nhân vật. Đó là trang viết thuộc thế kỷ mười tám, muộn hơn thời điểm mà bản kể đặt câu chuyện vào. Theo một cách hiểu của nghiên cứu, các văn bản gần nhau giúp ta nhìn việc ghi chép và kể lại qua các thế hệ. Mỗi trang giữ một bản kể, chứ không xóa khoảng cách giữa truyện và lịch sử.",
+   "start_seconds": 841.91,
+   "end_seconds": 873.69,
+   "speaker_directions": "Đọc tên văn bản chậm rõ, ngắt sau câu trích; nhấn niên đại văn bản, không niên đại nhân vật.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "clear-checking",
+    "emphasis_words": [
+     "nghiên cứu",
+     "niên đại văn bản",
+     "không phải niên đại nhân vật"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Đặt nhận xét diễn giải trong khung nghiên cứu, không suy thành xác nhận lịch sử.",
+    "provider_text": "Ở lớp tư liệu văn bản, nghiên cứu cũng nhắc ta đọc chậm. Nghiên cứu ghi ... có thể coi Quảng Cung linh từ phả ký của Vũ Huy Trác, năm một nghìn bảy trăm tám mươi mốt, có niên đại gần với Vân Cát thần nữ của Đoàn Thị Điểm. ... Mốc một nghìn bảy trăm tám mươi mốt ở đây là niên đại văn bản, không phải niên đại nhân vật. Đó là trang viết thuộc thế kỷ mười tám, muộn hơn thời điểm mà bản kể đặt câu chuyện vào. Theo một cách hiểu của nghiên cứu, các văn bản gần nhau giúp ta nhìn việc ghi chép và kể lại qua các thế hệ. Mỗi trang giữ một bản kể, chứ không xóa khoảng cách giữa truyện và lịch sử."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Trên giấy dầu nâu, tên 'Quảng Cung linh từ phả ký' và 'Vân Cát thần nữ' hiện theo câu trích, không thêm niên đại cho tác phẩm thứ hai.",
+     "timestamp_seconds": 4.71
+    },
+    {
+     "type": "overlay",
+     "description": "Nhãn '1781 — niên đại văn bản' hiện khi narration giải thích, không gắn mốc lên hình nhân vật.",
+     "timestamp_seconds": 15.3
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C14 (quote nguyên văn) — Nghiên cứu Tôn giáo 10/2010"
+  },
+  {
+   "id": "s28",
+   "label": "Landing d — Tứ bất tử · nâu",
+   "text": "Trở lại lớp danh mục đương đại, bách khoa ghi: \"Tín ngưỡng thờ Tứ Bất Tử của Việt Nam bao gồm bốn vị tiên thánh:\n\nSơn Tinh\nChử Đồng Tử\nThánh Gióng\nLiễu Hạnh Công Chúa\". Đây là danh sách phổ biến đương đại, không phải thứ bậc cố định từ ngàn xưa. Những tập trước đã đưa ta gặp các vị trong hàng ấy. Trong danh sách này, Liễu Hạnh là người phụ nữ duy nhất. Câu hỏi biên tập mở đầu có một nét trả lời: người đời hôm nay đặt bà cạnh các vị thần bảo vệ làng, chống ngoại xâm. Có thể đọc sự hiện diện tiếp diễn ấy như một cách người đời giữ bà ở lại.",
+   "start_seconds": 873.69,
+   "end_seconds": 903.57,
+   "speaker_directions": "Đọc đúng thứ tự danh sách, mỗi tên một nhịp; câu trả lời giữ mở, không lên giọng kết luận.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-reflective",
+    "emphasis_words": [
+     "danh sách phổ biến đương đại",
+     "người phụ nữ duy nhất",
+     "Có thể đọc"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Phân biệt câu trích danh mục với cách đọc biên tập ở cuối.",
+    "provider_text": "Trở lại lớp danh mục đương đại, bách khoa ghi ... Tín ngưỡng thờ Tứ Bất Tử của Việt Nam bao gồm bốn vị tiên thánh ... Sơn Tinh. Chử Đồng Tử. Thánh Gióng. Liễu Hạnh Công Chúa. ... Đây là danh sách phổ biến đương đại, không phải thứ bậc cố định từ ngàn xưa. Những tập trước đã đưa ta gặp các vị trong hàng ấy. Trong danh sách này, Liễu Hạnh là người phụ nữ duy nhất. Câu hỏi biên tập mở đầu có một nét trả lời ... người đời hôm nay đặt bà cạnh các vị thần bảo vệ làng, chống ngoại xâm. Có thể đọc sự hiện diện tiếp diễn ấy như một cách người đời giữ bà ở lại."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Danh mục mực nâu giấy dầu hiện từng dòng theo thứ tự được đọc: 'Sơn Tinh', 'Chử Đồng Tử', 'Thánh Gióng', 'Liễu Hạnh Công Chúa'.",
+     "timestamp_seconds": 5.98
+    },
+    {
+     "type": "overlay",
+     "description": "Chữ 'danh sách phổ biến đương đại' hiện dưới danh mục đúng câu narration, không mô phỏng bia cổ xác nhận thứ bậc.",
+     "timestamp_seconds": 13.15
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "C08 (quote nguyên văn) — vi.wiki Liễu Hạnh Công chúa; Q01 (câu hỏi biên tập), diễn giải mở"
+  },
+  {
+   "id": "s29",
+   "label": "Landing e — Câu trả lời · amber, đối chiếu teal và nâu",
+   "text": "Lớp bản kể trao ta chén ngọc, ngày mùng ba tháng Ba và cuộc trở về ở phố Cát. Lớp đền thờ trao ta dấu vết thực hành ở Nam Giao, Phủ Dầy. Lớp di sản trao ta sự ghi nhận của hôm nay: UNESCO ghi danh thực hành thờ Mẫu Tam phủ, không ghi danh nhân vật trong truyện. Với câu hỏi biên tập vì sao gọi là Mẫu, có thể đọc là: dân thờ và triều đình chính danh, hai chiều cùng góp vào danh xưng. Rồi mỗi thế hệ vẫn kể tiếp câu chuyện người con gái trở về. Đó là một cách đọc, không phải câu trả lời độc quyền về Mẫu.",
+   "start_seconds": 903.57,
+   "end_seconds": 932.74,
+   "speaker_directions": "Ba câu đầu tách rõ từng lớp; lặng trước có thể đọc là, câu cuối ấm và không khép nghĩa.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-reflective",
+    "emphasis_words": [
+     "Lớp bản kể",
+     "Lớp đền thờ",
+     "Lớp di sản",
+     "có thể đọc là"
+    ],
+    "pause_before_seconds": 0.8,
+    "pause_after_seconds": 0.8,
+    "delivery_note": "Hai chiều là cách đọc biên tập đã đề xuất, không khẳng định căn nguyên duy nhất.",
+    "provider_text": "Lớp bản kể trao ta chén ngọc, ngày mùng ba tháng Ba và cuộc trở về ở phố Cát. ... Lớp đền thờ trao ta dấu vết thực hành ở Nam Giao, Phủ Dầy. ... Lớp di sản trao ta sự ghi nhận của hôm nay ... U nét cô ghi danh thực hành thờ Mẫu Tam phủ, không ghi danh nhân vật trong truyện. Với câu hỏi biên tập vì sao gọi là Mẫu ... có thể đọc là ... dân thờ và triều đình chính danh, hai chiều cùng góp vào danh xưng. Rồi mỗi thế hệ vẫn kể tiếp câu chuyện người con gái trở về. Đó là một cách đọc, không phải câu trả lời độc quyền về Mẫu."
+   },
+   "enhancement_cues": [
+    {
+     "type": "diagram",
+     "description": "Ba tờ giấy tách biệt lần lượt được soi theo narration: amber 'Lớp bản kể' cùng chén ngọc, teal 'Lớp đền thờ' cùng ngưỡng đền, nâu giấy dầu 'Lớp di sản' cùng hồ sơ thực hành.",
+     "timestamp_seconds": 1.17
+    },
+    {
+     "type": "overlay",
+     "description": "Trở về giấy dó amber, chữ 'có thể đọc là' rồi 'dân thờ' và 'triều đình chính danh' hiện theo lời đọc, không dùng dấu bằng độc quyền.",
+     "timestamp_seconds": 16.34
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "Q02 (câu hỏi biên tập) — tổng kết cách đọc đề xuất S2-C4; nhắc C01–C05 arc, C06–C07, C10, C12–C13, không trích dẫn mới; C15 hai chiều danh xưng; Q01 câu hỏi biên tập"
+  },
+  {
+   "id": "s30",
+   "label": "CTA a — Tập sau · nâu, dẫn chuyện biên tập",
+   "text": "Tập sau, ta đến với Hai Bà Trưng: một cuộc khởi nghĩa kết thúc — nhưng chuyện tiếp tục trong đền. Nếu chưa xem, mời bạn trở lại các tập về Sơn Tinh, Chử Đồng Tử và Thánh Gióng để nối mạch Tứ bất tử.",
+   "start_seconds": 932.74,
+   "end_seconds": 943.65,
+   "speaker_directions": "Mời gọi nhẹ, ngắt sau Hai Bà Trưng; không đọc như quảng cáo giật gân.",
+   "delivery_cues": {
+    "pace": "measured",
+    "energy": "warm-inviting",
+    "emphasis_words": [
+     "Hai Bà Trưng",
+     "chuyện tiếp tục trong đền",
+     "Tứ bất tử"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Đây là lời hẹn biên tập, không triển khai thêm chi tiết tập sau.",
+    "provider_text": "Tập sau, ta đến với Hai Bà Trưng ... một cuộc khởi nghĩa kết thúc, nhưng chuyện tiếp tục trong đền. ... Nếu chưa xem, mời bạn trở lại các tập về Sơn Tinh, Chử Đồng Tử và Thánh Gióng để nối mạch Tứ bất tử."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Trên giấy dầu nâu, chữ 'Hai Bà Trưng' hiện theo lời hẹn; sau đó lần lượt hiện 'Sơn Tinh', 'Chử Đồng Tử', 'Thánh Gióng' khi được đọc, không thêm số tập.",
+     "timestamp_seconds": 1.21
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "Roadmap S2E05 — lời dẫn biên tập theo TASK_SCRIPT_P4; C08 nhắc danh mục, không trích dẫn mới"
+  },
+  {
+   "id": "s31",
+   "label": "CTA b — Những vị thần ở lại · nâu, dẫn chuyện biên tập",
+   "text": "Mùa Những vị thần ở lại theo dấu những câu chuyện tưởng xa xưa mà vẫn sống trong đời thường hôm nay. Nếu muốn cùng đi tiếp, mời bạn theo dõi mùa này, để mỗi lần trở về lại nghe thêm một cách kể.",
+   "start_seconds": 943.65,
+   "end_seconds": 954.32,
+   "speaker_directions": "Ấm, gần gũi, đọc tên mùa rõ rồi thả nhẹ lời mời theo dõi.",
+   "delivery_cues": {
+    "pace": "conversational",
+    "energy": "warm-inviting",
+    "emphasis_words": [
+     "Những vị thần ở lại",
+     "đời thường",
+     "một cách kể"
+    ],
+    "pause_before_seconds": 0.5,
+    "pause_after_seconds": 0.7,
+    "delivery_note": "Giữ lời mời gọn và tự nhiên, không tăng năng lượng đột ngột.",
+    "provider_text": "Mùa Những vị thần ở lại theo dấu những câu chuyện tưởng xa xưa mà vẫn sống trong đời thường hôm nay. ... Nếu muốn cùng đi tiếp, mời bạn theo dõi mùa này, để mỗi lần trở về lại nghe thêm một cách kể."
+   },
+   "enhancement_cues": [
+    {
+     "type": "overlay",
+     "description": "Tên mùa 'Những vị thần ở lại' hiện bằng mực nâu trên giấy dầu theo narration; ngưỡng cửa đền nằm phía sau, không thêm khẩu hiệu.",
+     "timestamp_seconds": 0.89
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "Dẫn chuyện biên tập — tên mùa theo TASK_SCRIPT_P4, không thêm claim tư liệu"
+  },
+  {
+   "id": "s32",
+   "label": "CTA c — Ngưỡng cửa tháng Ba · teal, khép biên tập",
+   "text": "Bên ngưỡng cửa đền tháng Ba, ta khép trang truyện lại, để lời kể lắng xuống bên một thực hành vẫn đang sống.",
+   "start_seconds": 954.32,
+   "end_seconds": 960,
+   "speaker_directions": "Một câu rất nhẹ, hạ giọng ở đang sống rồi im, không thêm lời chào.",
+   "delivery_cues": {
+    "pace": "slow",
+    "energy": "warm-quiet",
+    "emphasis_words": [
+     "ngưỡng cửa đền tháng Ba",
+     "thực hành vẫn đang sống"
+    ],
+    "pause_before_seconds": 0.7,
+    "pause_after_seconds": 1.0,
+    "delivery_note": "Khép trang truyện nhưng giữ ngưỡng cửa thực hành ở lớp teal, kết bằng im lặng.",
+    "provider_text": "Bên ngưỡng cửa đền tháng Ba, ta khép trang truyện lại ... để lời kể lắng xuống bên một thực hành vẫn đang sống."
+   },
+   "enhancement_cues": [
+    {
+     "type": "animation",
+     "description": "Trang truyện amber khép ở tiền cảnh, ngưỡng cửa đền nét teal còn lại trên giấy dó, mực lắng dần sau câu cuối; không thêm chữ.",
+     "timestamp_seconds": 0.71
+    }
+   ],
+   "pronunciation_guides": [],
+   "source_ref": "Khép biên tập — callback C12 về thực hành Phủ Dầy, không trích dẫn mới"
+  }
+ ],
+ "metadata": {
+  "series": "vn-myth",
+  "season": 2,
+  "episode": "S2E04",
+  "concept": "c1 — Người con gái trở về (approved)",
+  "status": "owner_approved",
+  "research_package": "vnmyth-s2e04-research-v1",
+  "canon_proposed": "S2-C4 (PENDING owner) — đóng khung 'có thể đọc là'",
+  "numbers_whitelist_ref": "research/v1/raw_data.json",
+  "three_layers": "amber = bản kể | teal = đền thờ-thực hành | nâu = ghi danh di sản",
+  "target_duration_seconds": 960,
+  "narration_words_target": 3700,
+  "note": "Timing fields remain editorial estimates; real durations come from measured TTS audio at assets stage.",
+  "timing_note": "Editorial estimate only, 960s total. Real duration and speech-locked reveals pending owner approval and actual audio; no TTS generated.",
+  "approved_at": "2026-10-21T00:40:12.983866+00:00",
+  "approval_evidence": "projects/lieu-hanh/owner_full_run_approval.json"
+ }
+}

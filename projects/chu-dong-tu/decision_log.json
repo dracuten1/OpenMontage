@@ -1,0 +1,273 @@
+{
+  "decisions": [
+    {
+      "decision_id": "d-000",
+      "stage": "proposal",
+      "category": "approval_policy",
+      "subject": "Scoped authorization S2E03: research import + proposal + kịch bản chờ duyệt — DỪNG ở awaiting_human",
+      "options_considered": [
+        {
+          "option_id": "scoped_to_script_review",
+          "label": "Import research sealed → proposal (pending) → script draft chờ duyệt; KHÔNG TTS/ảnh/render",
+          "score": 0.95,
+          "reason": "Owner dispatch 2026-10-19: 'Tiếp tục làm vnmyth ep3 ss2' kèm approval_policy v1 — gate_B allowed_now đúng 3 việc, requires_explicit_approval: TTS batch / image batch / full render."
+        },
+        {
+          "option_id": "full_run_like_s2e02",
+          "label": "Full-run 8 stage như dispatch S2E02",
+          "score": 0.1,
+          "reason": "Sai phạm vi: S2E02 có d-000 full-run riêng; S2E03 policy yêu cầu owner duyệt research/proposal/script trước khi sinh tài sản."
+        }
+      ],
+      "selected": "scoped_to_script_review",
+      "reason": "DISPATCH 2026-10-19 + approval_policy.json gate_B là bằng chứng; checkpoint proposal giữ awaiting_human, script nằm drafts/, không generated assets.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "d-001",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Render runtime S2E03 = Remotion (continuation mùa S2, khuyến nghị) — HyperFrames available, trình bày cả hai cho owner chốt",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion atelier continuation (engine S2E01/S2E02)",
+          "score": 0.95,
+          "reason": "SEASON-02-BIBLE §5 + BRIEF S2E03: giữ runtime đã dùng cho mùa; speech-lock/scene_sweep/anchor QC tooling cả mùa dựa trên artifacts Remotion."
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames HTML/GSAP composition",
+          "score": 0.35,
+          "reason": "PREFLIGHT 2026-10-19: hyperframes AVAILABLE trên máy (registry render_engines True) — trình bày đúng HARD RULE present-both. Không khuyến nghị: series S2 chưa từng dùng runtime này, đổi runtime giữa mùa phá continuity QC."
+        },
+        {
+          "option_id": "ffmpeg_stills",
+          "label": "FFmpeg stills/Ken Burns",
+          "score": 0.05,
+          "reason": "Không đạt treatment motion của series — chỉ là fallback degrade, không phải lựa chọn ngang hàng."
+        }
+      ],
+      "selected": "remotion",
+      "reason": "Continuation engine mùa (khuyến nghị của Hermes + bible §5); cả hai runtime được trình bày trong PROPOSAL.md cho owner chốt ở Gate B; FFmpeg không thay thế treatment.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Concept S2E03 = c1 'Sau đám cưới, dòng sông còn chảy' (khuyến nghị) — chờ owner duyệt",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "Sau đám cưới, dòng sông còn chảy — narrative, trục vật thể + nước, mở từ hôm nay",
+          "score": 0.92,
+          "reason": "Trả lời thẳng câu hỏi trung tâm; đúng hướng ưu tiên BRIEF + research_notes §5 góc 1; gắn nhịp phẩm giá (c2) và dị bản tên sư (c3) làm nhịp bên trong."
+        },
+        {
+          "option_id": "c2",
+          "label": "Một chiếc khố, hai lựa chọn — so sánh hành động, dòng cảm xúc phẩm giá",
+          "score": 0.7,
+          "reason": "Cảm xúc mạnh nhưng lệch trọng tâm khỏi 'vì sao được thờ'; phần sau hôn nhân + lễ hội bị nén."
+        },
+        {
+          "option_id": "c3",
+          "label": "Một truyện, nhiều tên người thầy — đối chiếu ba bản",
+          "score": 0.55,
+          "reason": "Rèn kiểm chứng nhưng xoay quanh một đoạn; không trả lời câu hỏi trung tâm."
+        }
+      ],
+      "selected": "c1",
+      "reason": "Đề xuất của Hermes theo BRIEF; owner chốt ở Gate B cùng proposal packet + PROPOSAL.md.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "script",
+      "category": "canon_proposal",
+      "subject": "S2-C3 (đề xuất, KHÔNG tự sửa bible): cộng đồng nhớ Chử Đồng Tử như khát vọng đời sống có phẩm giá, vượt xuất thân",
+      "options_considered": [
+        {
+          "option_id": "propose_framed",
+          "label": "Đưa vào climax với đóng khung 'có thể đọc là…', ghi PENDING trong packet + script draft",
+          "score": 0.9,
+          "reason": "BRIEF chốt đây là đề xuất cần owner duyệt; đóng khung giữ đúng tinh thần 'diễn giải không áp kết luận'."
+        },
+        {
+          "option_id": "omit",
+          "label": "Bỏ hẳn S2-C3 khỏi tập",
+          "score": 0.3,
+          "reason": "Mất câu trả lời cho hook; bible yêu cầu mỗi tập thiết lập đúng 1 canon mới."
+        },
+        {
+          "option_id": "assert",
+          "label": "Nói trắng như kết luận",
+          "score": 0.0,
+          "reason": "Vi phạm anti-rule: không kết luận độc quyền về tín ngưỡng."
+        }
+      ],
+      "selected": "propose_framed",
+      "reason": "Chờ owner duyệt; nếu duyệt, bible bump version + changelog do owner/lead ghi, không tự sửa.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "assets",
+      "category": "music_licensing",
+      "subject": "BGM S2E03 = đề xuất REUSE 'Mesmerize' (Kevin MacLeod, CC BY 4.0, đã QC S2E01/E02) — chờ owner duyệt",
+      "options_considered": [
+        {
+          "option_id": "reuse_mesmerize",
+          "label": "Reuse Mesmerize với credit đầy đủ",
+          "score": 0.85,
+          "reason": "Track đã QC ở 2 tập trước, license CC BY 4.0 cho phép tái sử dụng có credit; nhất quán giọng mùa."
+        },
+        {
+          "option_id": "new_track_verified",
+          "label": "Track mới từ media-library đã qua nghe review",
+          "score": 0.5,
+          "reason": "Hầu hết catalog chưa qua tai — vi phạm 'không kế thừa track chưa kiểm tra' nếu chọn vội."
+        },
+        {
+          "option_id": "silent",
+          "label": "Không BGM",
+          "score": 0.2,
+          "reason": "Giảm chất cảm xúc tập 16 phút."
+        }
+      ],
+      "selected": "reuse_mesmerize",
+      "reason": "Đề xuất theo pattern d-001 S2E02; owner chốt ở Gate B. Chưa copy track — assets stage sau duyệt.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "script",
+      "category": "execution_mechanism",
+      "subject": "Kịch bản chia 4 phiên CC part + scaffold-append sau khi phiên đơn treo 2 lần",
+      "options_considered": [
+        {
+          "option_id": "split_scaffold_append",
+          "label": "4 phiên part (P1–P4), skeleton + marker, mỗi section 1 Edit nhỏ, MAX_THINKING_TOKENS=4000",
+          "score": 0.9,
+          "reason": "Phiên đơn (B, B1) treo tại bước sinh output dài sau khi đọc xong — jsonl đóng băng, CPU 0%, TCP mở; chia nhỏ output + giới hạn thinking giữ stream sống. Session A (proposal, nhiều Write vừa) đã chứng minh pattern này chạy được."
+        },
+        {
+          "option_id": "single_session_retry",
+          "label": "Retry phiên đơn lớn",
+          "score": 0.15,
+          "reason": "2 lần treo liên tiếp (B 02:24, B1 02:46) cùng một điểm; chi phí chờ mỗi lần 15–20 phút."
+        },
+        {
+          "option_id": "hermes_writes_script",
+          "label": "Lead tự viết narration",
+          "score": 0.1,
+          "reason": "Vi phạm phân vai pipeline: script là việc CC, lead chỉ spec + QC."
+        }
+      ],
+      "selected": "split_scaffold_append",
+      "reason": "4/4 phiên part hoàn tất exit 0, 32/32 sections, schema VALID. Ghi lại để tái dùng cho các tập sau.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "proposal",
+      "category": "gate_approval",
+      "subject": "Gate B APPROVED — owner terse 'Duyệt' (DM 2026-10-19): c1 + Remotion + BGM Mesmerize + S2-C3 + 2 điểm biên tập",
+      "options_considered": [
+        {
+          "option_id": "approve_all",
+          "label": "Duyệt toàn bộ 5 item theo đề xuất",
+          "score": 1.0,
+          "reason": "Owner trả lời 'Duyệt', không item bị từ chối, không yêu cầu sửa."
+        }
+      ],
+      "selected": "approve_all",
+      "reason": "Terse-approve toàn bộ item awaiting_human lane S2E03. Bible bumped v1.1. Gate sau (demo) KHÔNG tự mở.",
+      "user_visible": true,
+      "user_approved": true,
+      "approved_at": "2026-10-19T04:00:00+07:00",
+      "confidence": 0.98
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "assets",
+      "category": "tts_pronunciation_probe",
+      "subject": "Gate A probe S2E03 (16 clip isolate, whisper round-trip): 0 term cần respell",
+      "options_considered": [
+        {
+          "option_id": "keep_verbatim_all",
+          "label": "Giữ nguyên văn 16/16 tên riêng — sai lệch chỉ là whisper noise",
+          "score": 0.9,
+          "reason": "Chuẩn S2E02 d-004: skeleton âm đúng (chu-đồng-tử, tiên-dung đồng âm d/r Bắc, đà-hòa tone noise...); bằng chứng quyết định: 'Phật-Quang' perfect round-trip cùng engine với 'Phu Quang' bị nghe 'phụ quân'."
+        },
+        {
+          "option_id": "respell_outliers",
+          "label": "Respell 13 clip auto-verdict sai",
+          "score": 0.2,
+          "reason": "Auto-verdict string-match đánh false 13/16; respell sẽ làm sai chính tả hiển thị và không sửa được lỗi thuộc về whisper."
+        }
+      ],
+      "selected": "keep_verbatim_all",
+      "reason": "Lexicon ghi asr_variants cho gate ASR-QC sau; provider_text giữ nguyên tên theo lexicon.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.9
+    },
+    {
+      "id": "batch_full_production",
+      "ts": "2026-10-19T03:51:26+00:00Z",
+      "context": "Sau demo s03 approved — batch toàn tập 32 section",
+      "decisions": [
+        "TTS: engine/style/lexicon giữ nguyên bản demo (18/18 probe pass); s08 DP 89% = floor thấp nhất được duyệt, không re-gen",
+        "Ảnh: 13 plates (12 batch + demo_s03_kho.jpg reuse); KHÔNG DNA theo BRIEF; mô-tả vật-thể theo S2-BIBLE §4",
+        "Anchor fix vòng 1-3: 25 A() phrase đổi sang occurrences in-window; 1 tham chiếu ảnh .png→.jpg (demo_s03_kho)",
+        "2 retention cuts (sc005/sc026) chấp nhận + khai báo: câu chia giữa 2 scene, element kế speech-locked — không mất chữ, không overflow",
+        "scene_timing public export format dict {fps, scenes} cho scene_sweep",
+        "Draft HUD render 720p (--scale 0.6667) crf 26 nếu >50MB"
+      ]
+    },
+    {
+      "id": "final_render_approved",
+      "ts": "2026-10-19T11:44:41+07:00",
+      "context": "Owner APPROVE draft toàn tập → FINAL",
+      "decisions": [
+        "Final = ChuDongTuDraft với --props draftHud:false (đúng nguồn đã duyệt; KHÔNG regenerate TTS/ảnh/timing)",
+        "Master 1080p crf 22 + preview 720p (nén ffmpeg nếu >50MB, pattern draft)",
+        "Draft files giữ nguyên rollback (không ghi đè)",
+        "QC final: ffprobe + loudness ±0.5LU vs draft + vision 3 điểm (không ASR lại — nguồn không đổi)",
+        "KHÔNG auto-post; owner tự upload"
+      ]
+    },
+    {
+      "decision_id": "d-008-final-delivered",
+      "stage": "publish",
+      "category": "visual_accuracy_check",
+      "subject": "FINAL S2E03 — approved draft minus HUD, local render, manual upload",
+      "options_considered": [
+        {
+          "option_id": "approved_source_hud_off",
+          "label": "ChuDongTuDraft draftHud=false; master 1080p + <=50MB preview",
+          "score": 1,
+          "reason": "Explicit FINAL directive; no TTS/image/timing or caption changes."
+        }
+      ],
+      "selected": "approved_source_hud_off",
+      "reason": "Owner 'Duyệt', receipt-recorded 2026-10-19T11:44:41+07:00; final QC PASS and DM verified. Master 159321981 bytes; preview 42217805 bytes. No auto-post.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1
+    }
+  ]
+}

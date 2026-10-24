@@ -1,0 +1,1556 @@
+{
+ "generated": "2026-10-21T02:26:35+00:00",
+ "note": "occ 1-based per section; exact engine parity (anchors.ts greedy join + normalization); boundaries firstAnchor-0.32s",
+ "scenes": {
+  "sc001": {
+   "section": "s01",
+   "firstAnchor": "Ghi chép về",
+   "firstAnchorStart": 0.0,
+   "anchors": [
+    {
+     "phrase": "Ghi chép về",
+     "occ": 1,
+     "start": 0.0,
+     "end": 0.58,
+     "protectionEnd": 4.14
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "ngày ba tháng ba",
+     "occ": 1,
+     "start": 3.16,
+     "end": 3.86
+    },
+    {
+     "phrase": "biết ơn",
+     "occ": 1,
+     "start": 6.38,
+     "end": 6.64
+    },
+    {
+     "phrase": "hàng năm",
+     "occ": 1,
+     "start": 2.64,
+     "end": 3.0
+    },
+    {
+     "phrase": "thắp hương",
+     "occ": 1,
+     "start": 6.12,
+     "end": 6.38
+    }
+   ]
+  },
+  "sc002": {
+   "section": "s01",
+   "firstAnchor": "Từ ghi chép",
+   "firstAnchorStart": 12.6,
+   "anchors": [
+    {
+     "phrase": "Từ ghi chép",
+     "occ": 1,
+     "start": 12.6,
+     "end": 13.14,
+     "protectionEnd": 16.9
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Từ ghi chép",
+     "occ": 1,
+     "start": 12.6,
+     "end": 13.14
+    },
+    {
+     "phrase": "danh xưng",
+     "occ": 1,
+     "start": 15.72,
+     "end": 16.22
+    }
+   ]
+  },
+  "sc003": {
+   "section": "s02",
+   "firstAnchor": "Nếu bạn đã",
+   "firstAnchorStart": 22.57,
+   "anchors": [
+    {
+     "phrase": "Nếu bạn đã",
+     "occ": 1,
+     "start": 22.57,
+     "end": 23.11,
+     "protectionEnd": 34.27
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "bốn cái tên",
+     "occ": 1,
+     "start": 25.25,
+     "end": 25.91
+    },
+    {
+     "phrase": "một vị nữa",
+     "occ": 1,
+     "start": 33.69,
+     "end": 34.27
+    }
+   ]
+  },
+  "sc004": {
+   "section": "s02",
+   "firstAnchor": "Nhưng chính điều",
+   "firstAnchorStart": 43.15,
+   "anchors": [
+    {
+     "phrase": "Nhưng chính điều",
+     "occ": 1,
+     "start": 43.15,
+     "end": 43.67,
+     "protectionEnd": 47.71
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Vì sao",
+     "occ": 1,
+     "start": 45.41,
+     "end": 45.73
+    },
+    {
+     "phrase": "gọi bà là Mẫu",
+     "occ": 1,
+     "start": 50.87,
+     "end": 51.59
+    },
+    {
+     "phrase": "Vì sao một người phụ nữ",
+     "occ": 1,
+     "start": 45.41,
+     "end": 46.43
+    },
+    {
+     "phrase": "tiếp tục gọi bà là Mẫu",
+     "occ": 1,
+     "start": 50.63,
+     "end": 51.59
+    }
+   ]
+  },
+  "sc005": {
+   "section": "s03",
+   "firstAnchor": "Câu chuyện của",
+   "firstAnchorStart": 53.93,
+   "anchors": [
+    {
+     "phrase": "Câu chuyện của",
+     "occ": 1,
+     "start": 53.93,
+     "end": 54.47,
+     "protectionEnd": 55.97
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "một trang sách",
+     "occ": 1,
+     "start": 55.47,
+     "end": 55.97
+    },
+    {
+     "phrase": "Phan Kế Bính",
+     "occ": 1,
+     "start": 56.51,
+     "end": 56.95
+    },
+    {
+     "phrase": "Nam Hải dị nhân liệt truyện",
+     "occ": 1,
+     "start": 57.47,
+     "end": 58.55
+    }
+   ]
+  },
+  "sc006": {
+   "section": "s03",
+   "firstAnchor": "Xin lưu ý",
+   "firstAnchorStart": 73.99,
+   "anchors": [
+    {
+     "phrase": "Xin lưu ý",
+     "occ": 1,
+     "start": 73.99,
+     "end": 74.43,
+     "protectionEnd": 78.31
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Xin lưu ý từ đầu",
+     "occ": 1,
+     "start": 73.99,
+     "end": 74.71
+    },
+    {
+     "phrase": "con số một nghìn năm trăm",
+     "occ": 1,
+     "start": 75.29,
+     "end": 76.69
+    },
+    {
+     "phrase": "Xin lưu ý",
+     "occ": 1,
+     "start": 73.99,
+     "end": 74.43
+    },
+    {
+     "phrase": "không đủ để xác nhận năm sinh",
+     "occ": 1,
+     "start": 80.41,
+     "end": 81.75
+    }
+   ]
+  },
+  "sc007": {
+   "section": "s04",
+   "firstAnchor": "Trước khi bước",
+   "firstAnchorStart": 85.23,
+   "anchors": [
+    {
+     "phrase": "Trước khi bước",
+     "occ": 1,
+     "start": 85.23,
+     "end": 85.65,
+     "protectionEnd": 89.69
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Trước khi bước",
+     "occ": 1,
+     "start": 85.23,
+     "end": 85.65
+    }
+   ]
+  },
+  "sc008": {
+   "section": "s04",
+   "firstAnchor": "Ba lớp này",
+   "firstAnchorStart": 107.61,
+   "anchors": [
+    {
+     "phrase": "Ba lớp này",
+     "occ": 1,
+     "start": 107.61,
+     "end": 108.01,
+     "protectionEnd": 111.03
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "tôi sẽ không khẳng định",
+     "occ": 1,
+     "start": 112.93,
+     "end": 114.31
+    }
+   ]
+  },
+  "sc009": {
+   "section": "s05",
+   "firstAnchor": "Bây giờ, trang",
+   "firstAnchorStart": 124.7,
+   "anchors": [
+    {
+     "phrase": "Bây giờ, trang",
+     "occ": 1,
+     "start": 124.7,
+     "end": 125.3,
+     "protectionEnd": 127.06
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "một giấc mơ",
+     "occ": 1,
+     "start": 126.0,
+     "end": 126.52
+    },
+    {
+     "phrase": "người con gái",
+     "occ": 1,
+     "start": 134.68,
+     "end": 135.16
+    },
+    {
+     "phrase": "chén ngọc",
+     "occ": 1,
+     "start": 136.14,
+     "end": 136.52
+    }
+   ]
+  },
+  "sc010": {
+   "section": "s05",
+   "firstAnchor": "Mé trước có",
+   "firstAnchorStart": 150.76,
+   "anchors": [
+    {
+     "phrase": "Mé trước có",
+     "occ": 1,
+     "start": 150.76,
+     "end": 151.3,
+     "protectionEnd": 156.52
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Mé trước có một cái biển vàng",
+     "occ": 1,
+     "start": 150.76,
+     "end": 152.0
+    },
+    {
+     "phrase": "biển vàng",
+     "occ": 1,
+     "start": 151.54,
+     "end": 152.0
+    },
+    {
+     "phrase": "Quỳnh-hoa",
+     "occ": 1,
+     "start": 160.04,
+     "end": 160.24
+    }
+   ]
+  },
+  "sc011": {
+   "section": "s06",
+   "firstAnchor": "Theo bản Phan",
+   "firstAnchorStart": 172.32,
+   "anchors": [
+    {
+     "phrase": "Theo bản Phan",
+     "occ": 1,
+     "start": 172.32,
+     "end": 172.78,
+     "protectionEnd": 175.98
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Theo bản Phan",
+     "occ": 1,
+     "start": 172.32,
+     "end": 172.78
+    }
+   ]
+  },
+  "sc012": {
+   "section": "s07",
+   "firstAnchor": "Rồi đến một",
+   "firstAnchorStart": 199.42,
+   "anchors": [
+    {
+     "phrase": "Rồi đến một",
+     "occ": 1,
+     "start": 199.42,
+     "end": 199.84,
+     "protectionEnd": 201.2
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Rồi đến một",
+     "occ": 1,
+     "start": 199.42,
+     "end": 199.84
+    },
+    {
+     "phrase": "Rồi đến một",
+     "occ": 1,
+     "start": 199.42,
+     "end": 199.84
+    },
+    {
+     "phrase": "mồng ba tháng ba",
+     "occ": 1,
+     "start": 205.04,
+     "end": 205.7
+    }
+   ]
+  },
+  "sc013": {
+   "section": "s07",
+   "firstAnchor": "Sự trùng ngày",
+   "firstAnchorStart": 218.52,
+   "anchors": [
+    {
+     "phrase": "Sự trùng ngày",
+     "occ": 1,
+     "start": 218.52,
+     "end": 219.1,
+     "protectionEnd": 223.38
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Sự trùng ngày",
+     "occ": 1,
+     "start": 218.52,
+     "end": 219.1
+    }
+   ]
+  },
+  "sc014": {
+   "section": "s08",
+   "firstAnchor": "Nếu đây là",
+   "firstAnchorStart": 226.86,
+   "anchors": [
+    {
+     "phrase": "Nếu đây là",
+     "occ": 1,
+     "start": 226.86,
+     "end": 227.4,
+     "protectionEnd": 232.96
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Nếu đây là",
+     "occ": 1,
+     "start": 226.86,
+     "end": 227.4
+    },
+    {
+     "phrase": "hiển thánh",
+     "occ": 1,
+     "start": 237.48,
+     "end": 237.86
+    },
+    {
+     "phrase": "dấu ngắt",
+     "occ": 1,
+     "start": 243.82,
+     "end": 244.22
+    },
+    {
+     "phrase": "kể tiếp rằng nàng trở về",
+     "occ": 1,
+     "start": 234.96,
+     "end": 236.2
+    }
+   ]
+  },
+  "sc015": {
+   "section": "s09",
+   "firstAnchor": "Theo truyện kể,",
+   "firstAnchorStart": 263.79,
+   "anchors": [
+    {
+     "phrase": "Theo truyện kể,",
+     "occ": 1,
+     "start": 263.79,
+     "end": 264.35,
+     "protectionEnd": 265.67
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "không ở lại cõi trên",
+     "occ": 1,
+     "start": 264.87,
+     "end": 265.67
+    },
+    {
+     "phrase": "trở về trần gian",
+     "occ": 1,
+     "start": 266.47,
+     "end": 267.39
+    },
+    {
+     "phrase": "đường",
+     "occ": 1,
+     "start": 279.89,
+     "end": 280.11
+    },
+    {
+     "phrase": "Vân Cát",
+     "occ": 1,
+     "start": 268.03,
+     "end": 268.49
+    }
+   ]
+  },
+  "sc016": {
+   "section": "s10",
+   "firstAnchor": "Nam Hải dị",
+   "firstAnchorStart": 291.5,
+   "anchors": [
+    {
+     "phrase": "Nam Hải dị",
+     "occ": 1,
+     "start": 291.5,
+     "end": 292.06,
+     "protectionEnd": 295.4
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Phùng-khắc-Khoan",
+     "occ": 1,
+     "start": 293.52,
+     "end": 293.68
+    },
+    {
+     "phrase": "Tam mộc sâm đình",
+     "occ": 1,
+     "start": 298.3,
+     "end": 298.96
+    },
+    {
+     "phrase": "Trùng sơn",
+     "occ": 1,
+     "start": 301.68,
+     "end": 301.94
+    },
+    {
+     "phrase": "biến mất",
+     "occ": 1,
+     "start": 310.5,
+     "end": 310.88
+    }
+   ]
+  },
+  "sc017": {
+   "section": "s11",
+   "firstAnchor": "Ở lớp kiểm",
+   "firstAnchorStart": 320.08,
+   "anchors": [
+    {
+     "phrase": "Ở lớp kiểm",
+     "occ": 1,
+     "start": 320.08,
+     "end": 320.56,
+     "protectionEnd": 322.12
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Ở lớp kiểm",
+     "occ": 1,
+     "start": 320.08,
+     "end": 320.56
+    },
+    {
+     "phrase": "mỗi bản gọi khác",
+     "occ": 1,
+     "start": 344.6,
+     "end": 345.42
+    }
+   ]
+  },
+  "sc018": {
+   "section": "s12",
+   "firstAnchor": "Vẫn ở lớp",
+   "firstAnchorStart": 349.21,
+   "anchors": [
+    {
+     "phrase": "Vẫn ở lớp",
+     "occ": 1,
+     "start": 349.21,
+     "end": 349.79,
+     "protectionEnd": 351.81
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Vẫn ở lớp",
+     "occ": 1,
+     "start": 349.21,
+     "end": 349.79
+    },
+    {
+     "phrase": "hai lần",
+     "occ": 1,
+     "start": 357.95,
+     "end": 358.91
+    }
+   ]
+  },
+  "sc019": {
+   "section": "s13",
+   "firstAnchor": "Ta trở lại",
+   "firstAnchorStart": 378.81,
+   "anchors": [
+    {
+     "phrase": "Ta trở lại",
+     "occ": 1,
+     "start": 378.81,
+     "end": 379.29,
+     "protectionEnd": 379.81
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Ta trở lại",
+     "occ": 1,
+     "start": 378.81,
+     "end": 379.29
+    },
+    {
+     "phrase": "quán nước",
+     "occ": 1,
+     "start": 383.77,
+     "end": 384.09
+    }
+   ]
+  },
+  "sc020": {
+   "section": "s14",
+   "firstAnchor": "Tiếp đoạn vừa",
+   "firstAnchorStart": 408.96,
+   "anchors": [
+    {
+     "phrase": "Tiếp đoạn vừa",
+     "occ": 1,
+     "start": 408.96,
+     "end": 409.48,
+     "protectionEnd": 417.66
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Tiếp đoạn vừa",
+     "occ": 1,
+     "start": 408.96,
+     "end": 409.48
+    },
+    {
+     "phrase": "bán nước",
+     "occ": 1,
+     "start": 412.22,
+     "end": 412.5
+    },
+    {
+     "phrase": "không cần tả",
+     "occ": 1,
+     "start": 424.9,
+     "end": 425.38
+    }
+   ]
+  },
+  "sc021": {
+   "section": "s15",
+   "firstAnchor": "Bản kể đẩy",
+   "firstAnchorStart": 437.05,
+   "anchors": [
+    {
+     "phrase": "Bản kể đẩy",
+     "occ": 1,
+     "start": 437.05,
+     "end": 437.63,
+     "protectionEnd": 439.41
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Bản kể đẩy",
+     "occ": 1,
+     "start": 437.05,
+     "end": 437.63
+    },
+    {
+     "phrase": "nghi là yêu quái",
+     "occ": 1,
+     "start": 440.99,
+     "end": 441.67
+    },
+    {
+     "phrase": "nghi là yêu quái",
+     "occ": 1,
+     "start": 440.99,
+     "end": 441.67
+    },
+    {
+     "phrase": "tan phá",
+     "occ": 1,
+     "start": 445.85,
+     "end": 446.35
+    }
+   ]
+  },
+  "sc022": {
+   "section": "s16",
+   "firstAnchor": "Bản kể tiếp",
+   "firstAnchorStart": 465.46,
+   "anchors": [
+    {
+     "phrase": "Bản kể tiếp",
+     "occ": 1,
+     "start": 465.46,
+     "end": 466.0,
+     "protectionEnd": 474.54
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Bản kể tiếp",
+     "occ": 1,
+     "start": 465.46,
+     "end": 466.0
+    },
+    {
+     "phrase": "Mã-vàng",
+     "occ": 1,
+     "start": 473.72,
+     "end": 473.92
+    },
+    {
+     "phrase": "Chế-thắng",
+     "occ": 1,
+     "start": 477.3,
+     "end": 477.54
+    },
+    {
+     "phrase": "đến giờ vẫn còn",
+     "occ": 1,
+     "start": 480.16,
+     "end": 480.78
+    }
+   ]
+  },
+  "sc023": {
+   "section": "s17",
+   "firstAnchor": "Ta bước sang",
+   "firstAnchorStart": 496.54,
+   "anchors": [
+    {
+     "phrase": "Ta bước sang",
+     "occ": 1,
+     "start": 496.54,
+     "end": 497.1,
+     "protectionEnd": 498.14
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Ta bước sang",
+     "occ": 1,
+     "start": 496.54,
+     "end": 497.1
+    },
+    {
+     "phrase": "đi cạnh nhau",
+     "occ": 1,
+     "start": 515.6,
+     "end": 516.1
+    }
+   ]
+  },
+  "sc024": {
+   "section": "s18",
+   "firstAnchor": "Ở lớp thực",
+   "firstAnchorStart": 523.38,
+   "anchors": [
+    {
+     "phrase": "Ở lớp thực",
+     "occ": 1,
+     "start": 523.38,
+     "end": 523.84,
+     "protectionEnd": 527.0
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Ở lớp thực",
+     "occ": 1,
+     "start": 523.38,
+     "end": 523.84
+    },
+    {
+     "phrase": "Nam Giao",
+     "occ": 1,
+     "start": 530.12,
+     "end": 530.58
+    },
+    {
+     "phrase": "đền thờ bà",
+     "occ": 1,
+     "start": 531.02,
+     "end": 531.64
+    }
+   ]
+  },
+  "sc025": {
+   "section": "s19",
+   "firstAnchor": "Vẫn ở lớp",
+   "firstAnchorStart": 551.5,
+   "anchors": [
+    {
+     "phrase": "Vẫn ở lớp",
+     "occ": 1,
+     "start": 551.5,
+     "end": 552.12,
+     "protectionEnd": 556.0
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Vẫn ở lớp",
+     "occ": 1,
+     "start": 551.5,
+     "end": 552.12
+    },
+    {
+     "phrase": "một hệ Mẫu",
+     "occ": 1,
+     "start": 566.14,
+     "end": 567.18
+    },
+    {
+     "phrase": "thần chủ",
+     "occ": 1,
+     "start": 564.76,
+     "end": 565.16
+    }
+   ]
+  },
+  "sc026": {
+   "section": "s20",
+   "firstAnchor": "Từ trang ghi",
+   "firstAnchorStart": 578.47,
+   "anchors": [
+    {
+     "phrase": "Từ trang ghi",
+     "occ": 1,
+     "start": 578.47,
+     "end": 579.11,
+     "protectionEnd": 581.73
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Từ trang ghi",
+     "occ": 1,
+     "start": 578.47,
+     "end": 579.11
+    }
+   ]
+  },
+  "sc027": {
+   "section": "s20",
+   "firstAnchor": "Chỉ riêng những",
+   "firstAnchorStart": 595.59,
+   "anchors": [
+    {
+     "phrase": "Chỉ riêng những",
+     "occ": 1,
+     "start": 595.59,
+     "end": 596.17,
+     "protectionEnd": 599.63
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Chỉ riêng những",
+     "occ": 1,
+     "start": 595.59,
+     "end": 596.17
+    }
+   ]
+  },
+  "sc028": {
+   "section": "s21",
+   "firstAnchor": "Từ lớp đền",
+   "firstAnchorStart": 608.9,
+   "anchors": [
+    {
+     "phrase": "Từ lớp đền",
+     "occ": 1,
+     "start": 608.9,
+     "end": 609.42,
+     "protectionEnd": 612.42
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Từ lớp đền",
+     "occ": 1,
+     "start": 608.9,
+     "end": 609.42
+    },
+    {
+     "phrase": "Mẫu nghi thiên hạ",
+     "occ": 1,
+     "start": 615.1,
+     "end": 615.8
+    },
+    {
+     "phrase": "Mẫu nghi thiên hạ",
+     "occ": 1,
+     "start": 615.1,
+     "end": 615.8
+    },
+    {
+     "phrase": "tôn phong",
+     "occ": 1,
+     "start": 618.3,
+     "end": 618.72
+    },
+    {
+     "phrase": "đền và hội",
+     "occ": 1,
+     "start": 631.86,
+     "end": 632.42
+    }
+   ]
+  },
+  "sc029": {
+   "section": "s22",
+   "firstAnchor": "Trở lại lớp",
+   "firstAnchorStart": 638.19,
+   "anchors": [
+    {
+     "phrase": "Trở lại lớp",
+     "occ": 1,
+     "start": 638.19,
+     "end": 638.65,
+     "protectionEnd": 643.65
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Trở lại lớp",
+     "occ": 1,
+     "start": 638.19,
+     "end": 638.65
+    },
+    {
+     "phrase": "giữ lại",
+     "occ": 1,
+     "start": 642.73,
+     "end": 643.03
+    },
+    {
+     "phrase": "Đền và danh xưng",
+     "occ": 1,
+     "start": 655.01,
+     "end": 655.61
+    }
+   ]
+  },
+  "sc030": {
+   "section": "s23",
+   "firstAnchor": "Bây giờ là",
+   "firstAnchorStart": 666.34,
+   "anchors": [
+    {
+     "phrase": "Bây giờ là",
+     "occ": 1,
+     "start": 666.34,
+     "end": 666.86,
+     "protectionEnd": 668.98
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Bây giờ là",
+     "occ": 1,
+     "start": 666.34,
+     "end": 666.86
+    },
+    {
+     "phrase": "thực hành",
+     "occ": 1,
+     "start": 671.44,
+     "end": 671.74
+    },
+    {
+     "phrase": "mười bốn tỉnh",
+     "occ": 1,
+     "start": 673.76,
+     "end": 674.36
+    },
+    {
+     "phrase": "Addis Ababa",
+     "occ": 1,
+     "start": 686.12,
+     "end": 686.86
+    }
+   ]
+  },
+  "sc031": {
+   "section": "s24",
+   "firstAnchor": "Ở lớp hồ",
+   "firstAnchorStart": 702.51,
+   "anchors": [
+    {
+     "phrase": "Ở lớp hồ",
+     "occ": 1,
+     "start": 702.51,
+     "end": 702.99,
+     "protectionEnd": 707.09
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Ở lớp hồ",
+     "occ": 1,
+     "start": 702.51,
+     "end": 702.99
+    },
+    {
+     "phrase": "thực hành tín ngưỡng",
+     "occ": 1,
+     "start": 708.47,
+     "end": 709.25
+    },
+    {
+     "phrase": "truyện Liễu Hạnh",
+     "occ": 1,
+     "start": 711.83,
+     "end": 712.43
+    }
+   ]
+  },
+  "sc032": {
+   "section": "s24",
+   "firstAnchor": "Sự tách bạch",
+   "firstAnchorStart": 715.59,
+   "anchors": [
+    {
+     "phrase": "Sự tách bạch",
+     "occ": 1,
+     "start": 715.59,
+     "end": 716.05,
+     "protectionEnd": 717.97
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Sự tách bạch",
+     "occ": 1,
+     "start": 715.59,
+     "end": 716.05
+    },
+    {
+     "phrase": "Sự tách bạch",
+     "occ": 1,
+     "start": 715.59,
+     "end": 716.05
+    }
+   ]
+  },
+  "sc033": {
+   "section": "s24",
+   "firstAnchor": "Đền thờ giữ",
+   "firstAnchorStart": 722.39,
+   "anchors": [
+    {
+     "phrase": "Đền thờ giữ",
+     "occ": 1,
+     "start": 722.39,
+     "end": 722.87,
+     "protectionEnd": 723.71
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Đền thờ giữ",
+     "occ": 1,
+     "start": 722.39,
+     "end": 722.87
+    }
+   ]
+  },
+  "sc034": {
+   "section": "s25",
+   "firstAnchor": "Từ lớp hồ",
+   "firstAnchorStart": 731.4,
+   "anchors": [
+    {
+     "phrase": "Từ lớp hồ",
+     "occ": 1,
+     "start": 731.4,
+     "end": 731.92,
+     "protectionEnd": 734.1
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Từ lớp hồ",
+     "occ": 1,
+     "start": 731.4,
+     "end": 731.92
+    }
+   ]
+  },
+  "sc035": {
+   "section": "s25",
+   "firstAnchor": "Trong bản kể,",
+   "firstAnchorStart": 737.94,
+   "anchors": [
+    {
+     "phrase": "Trong bản kể,",
+     "occ": 1,
+     "start": 737.94,
+     "end": 738.46,
+     "protectionEnd": 739.72
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Trong bản kể,",
+     "occ": 1,
+     "start": 737.94,
+     "end": 738.46
+    }
+   ]
+  },
+  "sc036": {
+   "section": "s25",
+   "firstAnchor": "Một bên ghi",
+   "firstAnchorStart": 748.16,
+   "anchors": [
+    {
+     "phrase": "Một bên ghi",
+     "occ": 1,
+     "start": 748.16,
+     "end": 748.58,
+     "protectionEnd": 750.78
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Một bên ghi",
+     "occ": 1,
+     "start": 748.16,
+     "end": 748.58
+    }
+   ]
+  },
+  "sc037": {
+   "section": "s26",
+   "firstAnchor": "Ở lớp tổng",
+   "firstAnchorStart": 756.17,
+   "anchors": [
+    {
+     "phrase": "Ở lớp tổng",
+     "occ": 1,
+     "start": 756.17,
+     "end": 756.77,
+     "protectionEnd": 759.19
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Ở lớp tổng",
+     "occ": 1,
+     "start": 756.17,
+     "end": 756.77
+    },
+    {
+     "phrase": "ngày sinh",
+     "occ": 1,
+     "start": 761.49,
+     "end": 761.89
+    },
+    {
+     "phrase": "bách khoa",
+     "occ": 1,
+     "start": 756.87,
+     "end": 757.35
+    }
+   ]
+  },
+  "sc038": {
+   "section": "s26",
+   "firstAnchor": "Đó là cách",
+   "firstAnchorStart": 771.77,
+   "anchors": [
+    {
+     "phrase": "Đó là cách",
+     "occ": 1,
+     "start": 771.77,
+     "end": 772.25,
+     "protectionEnd": 777.39
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Đó là cách",
+     "occ": 1,
+     "start": 771.77,
+     "end": 772.25
+    },
+    {
+     "phrase": "không phải chứng cứ",
+     "occ": 1,
+     "start": 774.03,
+     "end": 774.69
+    }
+   ]
+  },
+  "sc039": {
+   "section": "s26",
+   "firstAnchor": "Một ngày được",
+   "firstAnchorStart": 782.95,
+   "anchors": [
+    {
+     "phrase": "Một ngày được",
+     "occ": 1,
+     "start": 782.95,
+     "end": 783.39,
+     "protectionEnd": 785.13
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Một ngày được",
+     "occ": 1,
+     "start": 782.95,
+     "end": 783.39
+    },
+    {
+     "phrase": "theo bách khoa",
+     "occ": 2,
+     "start": 790.13,
+     "end": 790.71
+    }
+   ]
+  },
+  "sc040": {
+   "section": "s27",
+   "firstAnchor": "Ở lớp tư",
+   "firstAnchorStart": 790.89,
+   "anchors": [
+    {
+     "phrase": "Ở lớp tư",
+     "occ": 1,
+     "start": 790.89,
+     "end": 791.41,
+     "protectionEnd": 793.47
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Ở lớp tư",
+     "occ": 1,
+     "start": 790.89,
+     "end": 791.41
+    },
+    {
+     "phrase": "Quảng Cung linh từ phả ký",
+     "occ": 1,
+     "start": 795.17,
+     "end": 796.37
+    },
+    {
+     "phrase": "Quảng Cung linh từ phả ký",
+     "occ": 1,
+     "start": 795.17,
+     "end": 796.37
+    },
+    {
+     "phrase": "đọc chậm",
+     "occ": 1,
+     "start": 793.03,
+     "end": 793.47
+    }
+   ]
+  },
+  "sc041": {
+   "section": "s27",
+   "firstAnchor": "Đó là trang",
+   "firstAnchorStart": 806.79,
+   "anchors": [
+    {
+     "phrase": "Đó là trang",
+     "occ": 1,
+     "start": 806.79,
+     "end": 807.27,
+     "protectionEnd": 810.59
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Đó là trang",
+     "occ": 1,
+     "start": 806.79,
+     "end": 807.27
+    },
+    {
+     "phrase": "Đó là trang viết",
+     "occ": 1,
+     "start": 806.79,
+     "end": 807.49
+    },
+    {
+     "phrase": "ghi chép và kể lại",
+     "occ": 1,
+     "start": 814.37,
+     "end": 815.39
+    }
+   ]
+  },
+  "sc042": {
+   "section": "s27",
+   "firstAnchor": "Mỗi trang giữ",
+   "firstAnchorStart": 816.13,
+   "anchors": [
+    {
+     "phrase": "Mỗi trang giữ",
+     "occ": 1,
+     "start": 816.13,
+     "end": 817.35,
+     "protectionEnd": 820.27
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Mỗi trang giữ",
+     "occ": 1,
+     "start": 816.13,
+     "end": 817.35
+    },
+    {
+     "phrase": "Mỗi trang giữ",
+     "occ": 1,
+     "start": 816.13,
+     "end": 817.35
+    }
+   ]
+  },
+  "sc043": {
+   "section": "s28",
+   "firstAnchor": "Trở lại lớp",
+   "firstAnchorStart": 820.44,
+   "anchors": [
+    {
+     "phrase": "Trở lại lớp",
+     "occ": 1,
+     "start": 820.44,
+     "end": 820.96,
+     "protectionEnd": 826.38
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Trở lại lớp",
+     "occ": 1,
+     "start": 820.44,
+     "end": 820.96
+    }
+   ]
+  },
+  "sc044": {
+   "section": "s28",
+   "firstAnchor": "Trong danh sách",
+   "firstAnchorStart": 835.34,
+   "anchors": [
+    {
+     "phrase": "Trong danh sách",
+     "occ": 1,
+     "start": 835.34,
+     "end": 835.84,
+     "protectionEnd": 838.0
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Trong danh sách",
+     "occ": 1,
+     "start": 835.34,
+     "end": 835.84
+    }
+   ]
+  },
+  "sc045": {
+   "section": "s28",
+   "firstAnchor": "Có thể đọc",
+   "firstAnchorStart": 843.72,
+   "anchors": [
+    {
+     "phrase": "Có thể đọc",
+     "occ": 1,
+     "start": 843.72,
+     "end": 844.68,
+     "protectionEnd": 847.7
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Có thể đọc",
+     "occ": 1,
+     "start": 843.72,
+     "end": 844.68
+    },
+    {
+     "phrase": "giữ bà ở lại",
+     "occ": 1,
+     "start": 846.8,
+     "end": 847.7
+    },
+    {
+     "phrase": "tiếp diễn",
+     "occ": 1,
+     "start": 845.2,
+     "end": 845.54
+    }
+   ]
+  },
+  "sc046": {
+   "section": "s29",
+   "firstAnchor": "Lớp bản kể",
+   "firstAnchorStart": 847.78,
+   "anchors": [
+    {
+     "phrase": "Lớp bản kể",
+     "occ": 1,
+     "start": 847.78,
+     "end": 848.36,
+     "protectionEnd": 851.8
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Lớp bản kể",
+     "occ": 1,
+     "start": 847.78,
+     "end": 848.36
+    }
+   ]
+  },
+  "sc047": {
+   "section": "s29",
+   "firstAnchor": "Rồi mỗi thế",
+   "firstAnchorStart": 867.88,
+   "anchors": [
+    {
+     "phrase": "Rồi mỗi thế",
+     "occ": 1,
+     "start": 867.88,
+     "end": 868.32,
+     "protectionEnd": 870.36
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Rồi mỗi thế",
+     "occ": 1,
+     "start": 867.88,
+     "end": 868.32
+    },
+    {
+     "phrase": "một cách đọc",
+     "occ": 1,
+     "start": 871.18,
+     "end": 871.72
+    }
+   ]
+  },
+  "sc048": {
+   "section": "s30",
+   "firstAnchor": "Tập sau, ta",
+   "firstAnchorStart": 873.75,
+   "anchors": [
+    {
+     "phrase": "Tập sau, ta",
+     "occ": 1,
+     "start": 873.75,
+     "end": 874.51,
+     "protectionEnd": 878.45
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Tập sau, ta",
+     "occ": 1,
+     "start": 873.75,
+     "end": 874.51
+    },
+    {
+     "phrase": "Hai Bà Trưng",
+     "occ": 1,
+     "start": 874.77,
+     "end": 875.37
+    },
+    {
+     "phrase": "Sơn Tinh",
+     "occ": 1,
+     "start": 880.69,
+     "end": 881.15
+    }
+   ]
+  },
+  "sc049": {
+   "section": "s31",
+   "firstAnchor": "Mùa Những vị",
+   "firstAnchorStart": 883.83,
+   "anchors": [
+    {
+     "phrase": "Mùa Những vị",
+     "occ": 1,
+     "start": 883.83,
+     "end": 884.35,
+     "protectionEnd": 887.83
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Mùa Những vị",
+     "occ": 1,
+     "start": 883.83,
+     "end": 884.35
+    },
+    {
+     "phrase": "Mùa Những vị",
+     "occ": 1,
+     "start": 883.83,
+     "end": 884.35
+    },
+    {
+     "phrase": "theo dấu",
+     "occ": 1,
+     "start": 884.87,
+     "end": 885.23
+    },
+    {
+     "phrase": "theo dõi",
+     "occ": 1,
+     "start": 889.95,
+     "end": 890.33
+    }
+   ]
+  },
+  "sc050": {
+   "section": "s32",
+   "firstAnchor": "Bên ngưỡng cửa",
+   "firstAnchorStart": 892.87,
+   "anchors": [
+    {
+     "phrase": "Bên ngưỡng cửa",
+     "occ": 1,
+     "start": 892.87,
+     "end": 893.57,
+     "protectionEnd": 897.79
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Bên ngưỡng cửa",
+     "occ": 1,
+     "start": 892.87,
+     "end": 893.57
+    },
+    {
+     "phrase": "khép trang truyện",
+     "occ": 1,
+     "start": 894.35,
+     "end": 894.95
+    }
+   ]
+  }
+ }
+}

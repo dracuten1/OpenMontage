@@ -1,0 +1,81 @@
+{
+  "version": "1.0",
+  "project_id": "chu-dong-tu",
+  "pipeline_type": "animated-explainer",
+  "stage": "publish",
+  "status": "completed",
+  "timestamp": "2026-10-19T05:18:03.164814+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "publish_log": {
+      "version": "1.0",
+      "entries": [
+        {
+          "platform": "youtube",
+          "status": "exported",
+          "export_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders",
+          "timestamp": "2026-10-19T05:18:02.948278+00:00",
+          "metadata_used": {
+            "title": "Ch\u1eed \u0110\u1ed3ng T\u1eed: K\u1ebb ngh\u00e8o nh\u1ea5t l\u00e0ng c\u01b0\u1edbi c\u00f4ng ch\u00faa, r\u1ed3i th\u00e0nh b\u1ea5t t\u1eed | VN-Myth S2E03",
+            "description": "M\u1ed9t ch\u00e0ng trai kh\u00f4ng c\u00f2n g\u00ec ngo\u00e0i chi\u1ebfc kh\u1ed1 \u2014 l\u1ea1i c\u01b0\u1edbi \u0111\u01b0\u1ee3c c\u00f4ng ch\u00faa, h\u00f3a Ph\u1eadt, v\u00e0 s\u1ed1ng m\u00e3i trong l\u1ec5 r\u01b0\u1edbc n\u01b0\u1edbc b\u00ean s\u00f4ng H\u1ed3ng.\n\n\u0110\u00e2y kh\u00f4ng ch\u1ec9 l\u00e0 chuy\u1ec7n c\u01b0\u1edbi xin. Truy\u1ec1n thuy\u1ebft Ch\u1eed \u0110\u1ed3ng T\u1eed \u2013 Ti\u00ean Dung l\u00e0 m\u1ed9t trong nh\u1eefng c\u00e2u chuy\u1ec7n k\u1ef3 l\u1ea1 nh\u1ea5t kho t\u00e0ng truy\u1ec7n Vi\u1ec7t: \u0111\u00e1m c\u01b0\u1edbi gi\u1eefa hai \u0111\u1ea7u xa nh\u1ea5t c\u1ee7a x\u00e3 h\u1ed9i, m\u1ed9t n\u00e0ng c\u00f4ng ch\u00faa d\u00e1m h\u1ea1 m\u00ecnh, v\u00e0 m\u1ed9t ch\u00e0ng d\u00e2n ngh\u00e8o tr\u1ecdn \u0111\u1eddi cho \u0111i \u0111\u1ebfn m\u1ee9c kh\u00f4ng c\u00f2n g\u00ec \u0111\u1ec3 m\u1ea5t.\n\nBa v\u1eadt th\u1ec3 \u0111i su\u1ed1t c\u00e2u chuy\u1ec7n: chi\u1ebfc kh\u1ed1, d\u00f2ng n\u01b0\u1edbc, m\u00e1i \u0111\u1ec1n.\n\n---\nTIMESTAMPS:\n0:00 M\u1edf t\u1eadp \u2014 l\u1ec5 r\u01b0\u1edbc n\u01b0\u1edbc tr\u00ean s\u00f4ng H\u1ed3ng h\u00f4m nay\n3:30 H\u1ed3i hai \u2014 ph\u1ed1 ch\u1ee3, g\u1eady v\u00e0 n\u00f3n\n5:09 H\u1ed3i ba \u2014 chuy\u1ebfn thuy\u1ec1n v\u00e0 c\u00f4ng ch\u00faa Ti\u00ean Dung\n10:54 Ngu\u1ed3n s\u1eed li\u1ec7u \u2014 n\u01a1i truy\u1ec7n g\u1eb7p s\u1eed\n14:25 Credits\n\n---\nSeries: VN-Myth Season 2 (M\u00f9a 2: C\u1ed9i Ngu\u1ed3n & T\u00edn Ng\u01b0\u1ee1ng)\nT\u1eadp: S2E03 \u2014 Ch\u1eed \u0110\u1ed3ng T\u1eed\nGi\u1ecdng \u0111\u1ecdc: VieneuTTS v3 Turbo Monolingual\n\u00c2m nh\u1ea1c: \"Mesmerize\" by Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nS\u1ea3n xu\u1ea5t b\u1edfi: OpenMontage Engine\n"
+          }
+        },
+        {
+          "platform": "telegram",
+          "status": "exported",
+          "timestamp": "2026-10-19T05:17:58.529885+00:00",
+          "video_id": "387",
+          "export_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4"
+        }
+      ],
+      "metadata": {
+        "not_published": true,
+        "owner_manual_upload": true,
+        "master_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+        "delivery": {
+          "status": "delivered",
+          "started_at": "2026-10-19T05:16:27.495014+00:00",
+          "preview_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4",
+          "preview_bytes": 42217805,
+          "master_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+          "master_bytes": 159321981,
+          "no_auto_post": true,
+          "video_message_id": 387,
+          "summary_message_id": 388,
+          "delivered_at": "2026-10-19T05:17:58.529885+00:00"
+        }
+      }
+    }
+  },
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "owner_approval_text": "Duy\u1ec7t",
+    "approval_recorded_at": "2026-10-19T11:44:41+07:00",
+    "approval_time_note": "Receipt-recorded timestamp; exact owner reply time not provided.",
+    "approved_draft": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_draft_hud_720p_50mb.mp4",
+    "approved_draft_sha256": "100f907480f96baf425e2014991b8d4e97302b50c120513e869bc6d5fd42067f",
+    "draft_telegram_message_ids": [
+      384,
+      385,
+      386
+    ],
+    "session_id": "20261019_020840_82fb79",
+    "no_auto_post": true,
+    "source_unchanged": true,
+    "final_qc": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/qc/final_qc.json",
+    "telegram_delivery": {
+      "status": "delivered",
+      "started_at": "2026-10-19T05:16:27.495014+00:00",
+      "preview_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4",
+      "preview_bytes": 42217805,
+      "master_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+      "master_bytes": 159321981,
+      "no_auto_post": true,
+      "video_message_id": 387,
+      "summary_message_id": 388,
+      "delivered_at": "2026-10-19T05:17:58.529885+00:00"
+    }
+  }
+}

@@ -1,0 +1,506 @@
+{
+  "version": "1.0",
+  "project_id": "france-riots-20261023",
+  "pipeline_type": "hybrid",
+  "stage": "script",
+  "status": "completed",
+  "timestamp": "2026-10-23T05:01:35.747061+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "script": {
+      "version": "1.0",
+      "title": "B\u1ea1o lo\u1ea1n Ph\u00e1p 10/2026 \u2014 \u0111\u00eam 17/10",
+      "total_duration_seconds": 370,
+      "metadata": {
+        "project_id": "france-riots-20261023",
+        "language": "vi",
+        "platform": "tiktok",
+        "aspect": "9:16",
+        "audience": "ng\u01b0\u1eddi \u0111i l\u00e0m 25-35",
+        "revision": "v2 \u2014 ngu\u1ed3n \u0111\u00e3 ki\u1ec3m ch\u1ee9ng \u0111\u1ed9c l\u1eadp theo history/revision-source-audit.md (23/10/2026); thay brief c\u0169",
+        "sources": "history/revision-source-audit.md (Guardian/RFI/\u00c9lys\u00e9e/TF1/Le Parisien/CNews-Le Soir/AFP/FT-Morningstar/franceinfo) + evidence/ tham chi\u1ebfu",
+        "hook_owner_approved": "C\u00e1ch \u0110i\u1ec7n t\u1ed5ng th\u1ed1ng Ph\u00e1p 200m, \u0111\u00e1m \u0111\u00f4ng \u0111\u00e3 d\u1ef1ng barricade. \u0110\u00e2y l\u00e0 chuy\u1ec7n \u0111\u00e3 x\u1ea3y ra.",
+        "qa_notes": "KH\u00d4NG n\u00f3i '\u0111\u1eaft nh\u1ea5t l\u1ecbch s\u1eed hi\u1ec7n \u0111\u1ea1i' (Nouvelle-Cal\u00e9donie 2024 ~1 t\u1ef7 \u20ac) \u2014 ch\u1ec9 '\u0111\u1eaft nh\u1ea5t t\u1ea1i ch\u00ednh qu\u1ed1c/\u01b0\u1edbc t\u00ednh'. 2.397 l\u00e0 RI\u00caNG ng\u00e0y 17/10; l\u0169y k\u1ebf ~2.500 \u0111\u1ebfn 22/10. 997 g\u1ed3m c\u1ea3 l\u00ednh c\u1ee9u h\u1ecfa. Marseille 30.000 ph\u1ea3i k\u00e8m tranh c\u00e3i (th\u1ecb tr\u01b0\u1edfng 'farfelu', procureur 1.800-3.000). 2 ca t\u1eed vong Paris: 'probable malaise' t\u1ea1m th\u1eddi, \u0111ang \u0111i\u1ec1u tra \u2014 kh\u00f4ng k\u1ebft lu\u1eadn. Saint-\u00c9tienne: l\u1ef1u \u0111\u1ea1n ch\u01b0a r\u00f5 lo\u1ea1i + IGPN. KH\u00d4NG quy to\u00e0n b\u1ed9 ng\u01b0\u1eddi bi\u1ec3u t\u00ecnh l\u00e0 b\u1ea1o lo\u1ea1n (Macron: 'jamais confondre'). KH\u00d4NG ch\u1ea1m d\u00e2n t\u1ed9c/xu\u1ea5t nh\u1eadp c\u01b0. B\u1ecf (kh\u00f4ng h\u1ed3i sinh): 900 tr\u01b0\u1eddng h\u1ecdc, hack trang \u0111\u1ea3ng LR 16/10 (wiki-only), Nice barricade Mass\u00e9na + Grenoble 13.000 (wiki-only), 'h\u1ed9i \u0111\u1ed3ng qu\u1ed1c ph\u00f2ng 23/10 \u0111\u00e3 di\u1ec5n ra' (agenda ch\u01b0a x\u00e1c nh\u1eadn \u2014 ch\u1ec9 n\u00f3i 'theo k\u1ebf ho\u1ea1ch').",
+        "verification": "Lead spot-verified tr\u1ef1c ti\u1ebfp 23/10: \u00c9lys\u00e9e 18/10 full text; Guardian 22/10; RFI 22/10; DW 22/10; CNews 18/10 (2.397/997); franceinfo (550k/800k/110k/110); Courrier International/FT/Morningstar (1-1,2 t\u1ef7; 2023 730-798; NC2024 1 t\u1ef7); TF1 LCI 17/10 (200m; Lille/Marseille mairies); Caf\u00e9 p\u00e9dagogique (budget +1,2 t\u1ef7/1.588 posts/180k \u00e9l\u00e8ves); La Croix 13/10 (800 lyc\u00e9es 6/10); Wikipedia FR refs (Limoges 1883 + prefect). Subagent-verified c\u00f3 URL+quote: TF1 V\u00c9RIF/La Croix 14/10 (v2.95), \u00c9lys\u00e9e 22/10, Euronews (Nu\u00f1ez), Le Parisien Limoges, 17octobregiletjaune.net.",
+        "media_policy": "\u1ea2nh JJxFile (CC BY-SA 4.0, license direct): credit tr\u00ean h\u00ecnh + description; caption t\u01b0 li\u1ec7u ghi ngu\u1ed3n khai b\u00e1o (Commons/EXIF 17/10/2026) \u2014 ng\u00e0y ch\u01b0a \u0111\u1ed9c l\u1eadp x\u00e1c th\u1ef1c 100%, ghi r\u00f5 xu\u1ea5t x\u1ee9. Clip CC0 Aix-en-Provence: ch\u1ec9 g\u1eafn nh\u00e3n c\u1ea3nh t\u1eadp h\u1ee3p, KH\u00d4NG g\u1ecdi b\u1ea1o lo\u1ea1n. KH\u00d4NG d\u00f9ng \u1ea3nh AP/Getty/Reuters/AFP.",
+        "duration_policy": "Owner override 23/10/2026: 3-5 ph\u00fat nh\u1ecbp t\u1ef1 nhi\u00ean, kh\u00f4ng n\u00e9n, kh\u00f4ng l\u1eb7p/nh\u1ed3i; total l\u00e0 \u01b0\u1edbc t\u00ednh k\u1ebf ho\u1ea1ch \u2014 final = audio th\u1eadt."
+      },
+      "sections": [
+        {
+          "id": "S1",
+          "label": "HOOK (owner duy\u1ec7t nguy\u00ean v\u0103n)",
+          "text": "C\u00e1ch \u0110i\u1ec7n t\u1ed5ng th\u1ed1ng Ph\u00e1p 200m, \u0111\u00e1m \u0111\u00f4ng \u0111\u00e3 d\u1ef1ng barricade. \u0110\u00e2y l\u00e0 chuy\u1ec7n \u0111\u00e3 x\u1ea3y ra. \u0110\u00eam 17/10, \u1edf Paris.",
+          "start_seconds": 0,
+          "end_seconds": 8,
+          "speaker_directions": "Hook nguy\u00ean v\u0103n owner; \u0111\u1ecdc ch\u1eadm r\u00e3i, d\u1ee9t kho\u00e1t; kh\u00f4ng gi\u1eadt g\u00e2n th\u00eam.",
+          "source_ref": "whitelist.json#W-elysee-200m"
+        },
+        {
+          "id": "S2",
+          "label": "Khung v\u1ea5n \u0111\u1ec1 \u2014 thi\u1ec7t h\u1ea1i \u01b0\u1edbc t\u00ednh",
+          "text": "M\u1ed9t \u0111\u00eam m\u00e0 ng\u00e0nh b\u1ea3o hi\u1ec3m Ph\u00e1p \u01b0\u1edbc t\u00ednh thi\u1ec7t h\u1ea1i h\u01a1n 1 t\u1ef7 euro, v\u00e0 c\u00f3 th\u1ec3 l\u00ean t\u1edbi 1,2 t\u1ef7. Theo b\u00e1o Financial Times, \u0111\u00e2y n\u1eb1m trong nh\u00f3m nh\u1eefng \u0111\u1ee3t bi\u1ec3u t\u00ecnh t\u1ed1n k\u00e9m nh\u1ea5t t\u1eebng ghi nh\u1eadn v\u1edbi ng\u00e0nh b\u1ea3o hi\u1ec3m Ph\u00e1p. Nh\u01b0ng \u0111\u1ec3 hi\u1ec3u v\u00ec sao, ph\u1ea3i b\u00f3c t\u00e1ch ba l\u1edbp nguy\u00ean nh\u00e2n.",
+          "start_seconds": 8,
+          "end_seconds": 24,
+          "speaker_directions": "Trung t\u00ednh; '\u01b0\u1edbc t\u00ednh' nh\u1ea5n nh\u1eb9; c\u00e2u cu\u1ed1i m\u1edf ph\u00e2n t\u00edch.",
+          "source_ref": "whitelist.json#W-insurance-range"
+        },
+        {
+          "id": "S3",
+          "label": "Nguy\u00ean nh\u00e2n l\u1edbp 1 \u2014 ng\u00f2i n\u1ed5 TikTok",
+          "text": "L\u1edbp m\u1ed9t: ng\u00f2i n\u1ed5. \u0110\u1ea7u th\u00e1ng 9, m\u1ed9t video TikTok c\u1ee7a t\u00e0i kho\u1ea3n \u1ea9n danh v2.95 than gi\u00e1 x\u0103ng: 1,60 euro m\u1ed9t l\u00edt t\u1eebng khi\u1ebfn ng\u01b0\u1eddi ta ph\u00e1t \u0111i\u00ean, gi\u1edd l\u00e0 2,25 euro. Video thu h\u00fat h\u00e0ng tri\u1ec7u l\u01b0\u1ee3t xem, r\u1ed3i ch\u1ed1t ng\u00e0y xu\u1ed1ng \u0111\u01b0\u1eddng: th\u1ee9 B\u1ea3y, ng\u00e0y ngh\u1ec9 h\u1ecdc, ai c\u0169ng c\u00f3 th\u1ec3 \u0111\u1ebfn. Ph\u00e2n t\u00edch \u0111\u1ed9c l\u1eadp v\u00e0 c\u01a1 quan Viginum c\u1ee7a Ph\u00e1p \u0111\u1ec1u kh\u00f4ng t\u00ecm th\u1ea5y d\u1ea5u hi\u1ec7u \u0111i\u1ec1u ph\u1ed1i c\u1ee7a m\u1ed9t t\u1ed5 ch\u1ee9c n\u00e0o.",
+          "start_seconds": 24,
+          "end_seconds": 44,
+          "speaker_directions": "K\u1ec3 nh\u01b0 trinh s\u00e1t; '\u1ea9n danh' v\u00e0 'kh\u00f4ng t\u1ed5 ch\u1ee9c \u0111\u1ee9ng sau' l\u00e0 hai \u0111i\u1ec3m nh\u1ea5n.",
+          "source_ref": "whitelist.json#W-tiktok-origin"
+        },
+        {
+          "id": "S4",
+          "label": "Nguy\u00ean nh\u00e2n l\u1edbp 2a \u2014 phong tr\u00e0o h\u1ecdc sinh",
+          "text": "L\u1edbp hai: b\u1ea5t m\u00e3n n\u1ec1n. Gi\u1eefa th\u00e1ng 9, phong tr\u00e0o h\u1ecdc sinh b\u00f9ng l\u00ean t\u1eeb m\u1ed9t tr\u01b0\u1eddng \u1edf Cr\u00e9teil, ngo\u1ea1i \u00f4 Paris: l\u1edbp h\u1ecdc thi\u1ebfu gi\u00e1o vi\u00ean nhi\u1ec1u tu\u1ea7n, tr\u01b0\u1eddng h\u1ecdc xu\u1ed1ng c\u1ea5p. H\u1ecdc sinh \u0111\u00f2i b\u1ecf n\u1ec1n t\u1ea3ng tuy\u1ec3n sinh \u0111\u1ea1i h\u1ecdc Parcoursup, v\u00e0 m\u1ed9t k\u1ebf ho\u1ea1ch 10 t\u1ef7 euro cho c\u00e1c tr\u01b0\u1eddng lyc\u00e9e. Ng\u00e0y 6/10, \u0111\u1ec9nh \u0111i\u1ec3m, 800 tr\u01b0\u1eddng lyc\u00e9e ph\u1ea3i \u0111\u00f3ng c\u1eeda theo B\u1ed9 Gi\u00e1o d\u1ee5c.",
+          "start_seconds": 44,
+          "end_seconds": 64,
+          "speaker_directions": "Gi\u1ecdng k\u1ec3; ph\u00e2n bi\u1ec7t y\u00eau s\u00e1ch ng\u01b0\u1eddi bi\u1ec3u t\u00ecnh v\u1edbi s\u1ed1 c\u1ee7a B\u1ed9 Gi\u00e1o d\u1ee5c.",
+          "source_ref": "whitelist.json#W-lyceen-movement"
+        },
+        {
+          "id": "S5",
+          "label": "Nguy\u00ean nh\u00e2n l\u1edbp 2b \u2014 ng\u00e2n s\u00e1ch 2027 + s\u1ee9c mua",
+          "text": "Ng\u00e2n s\u00e1ch 2027 \u0111\u1ed5 th\u00eam d\u1ea7u: gi\u00e1o d\u1ee5c \u0111\u01b0\u1ee3c t\u0103ng 1,2 t\u1ef7 euro, nh\u01b0ng \u0111\u1ed3ng th\u1eddi c\u1eaft 1.588 v\u1ecb tr\u00ed gi\u00e1o vi\u00ean, trong b\u1ed1i c\u1ea3nh s\u1ed1 h\u1ecdc sinh gi\u1ea3m 180 ngh\u00ecn. C\u00f2n v\u1edbi ng\u01b0\u1eddi lao \u0111\u1ed9ng, c\u00e1i nh\u1ee9c nh\u1ed1i l\u00e0 gi\u00e1 sinh ho\u1ea1t v\u00e0 gi\u00e1 x\u0103ng. M\u1ed1i lo c\u00f3 t\u1eeb tr\u01b0\u1edbc, xuy\u00ean su\u1ed1t t\u1eeb th\u1eddi \u00e1o v\u00e0ng 2018.",
+          "start_seconds": 64,
+          "end_seconds": 82,
+          "speaker_directions": "'T\u0103ng ng\u00e2n s\u00e1ch nh\u01b0ng c\u1eaft v\u1ecb tr\u00ed' \u2014 \u0111\u1ecdc ch\u1eadm, kh\u00f4ng b\u00ecnh lu\u1eadn.",
+          "source_ref": "whitelist.json#W-budget2027"
+        },
+        {
+          "id": "S6",
+          "label": "Nguy\u00ean nh\u00e2n l\u1edbp 3 \u2014 c\u01a1 ch\u1ebf leo thang",
+          "text": "L\u1edbp ba: c\u01a1 ch\u1ebf leo thang. Ng\u00e0y 17/10, nhi\u1ec1u d\u00f2ng \u0111\u1ed5 v\u1ec1 c\u00f9ng l\u00fac: h\u1ecdc sinh, ng\u01b0\u1eddi lao \u0111\u1ed9ng, \u00e1o v\u00e0ng c\u0169, c\u00f4ng \u0111o\u00e0n. M\u1ed9t site \u0111i\u1ec1u ph\u1ed1i \u0111\u0103ng b\u1ea3n \u0111\u1ed3 li\u1ec7t k\u00ea c\u00e1c \u0111i\u1ec3m t\u1eadp k\u1ebft tr\u00ean to\u00e0n n\u01b0\u1edbc. R\u00eca c\u00e1c \u0111o\u00e0n tu\u1ea7n h\u00e0nh, c\u00e1c nh\u00f3m qu\u00e1 kh\u00edch tr\u00e0 tr\u1ed9n. Theo nh\u00e0 ch\u1ee9c tr\u00e1ch, \u0111\u00f3 l\u00e0 c\u1ef1c t\u1ea3 v\u00e0 t\u1ed9i ph\u1ea1m, k\u00e8m c\u1ea3 nh\u00f3m c\u1ef1c h\u1eefu. \u1ede nhi\u1ec1u th\u00e0nh ph\u1ed1, c\u1ea3nh s\u00e1t b\u1ecb v\u01b0\u1ee3t t\u1ea7m. B\u1ed9 tr\u01b0\u1edfng N\u1ed9i v\u1ee5 sau \u0111\u00f3 th\u1eeba nh\u1eadn l\u1ef1c l\u01b0\u1ee3ng \u0111\u00e3 m\u1ea5t ki\u1ec3m so\u00e1t \u0111\u00eam \u0111\u00f3.",
+          "start_seconds": 82,
+          "end_seconds": 106,
+          "speaker_directions": "'Theo nh\u00e0 ch\u1ee9c tr\u00e1ch' attribute r\u00f5; 'm\u1ea5t ki\u1ec3m so\u00e1t' l\u00e0 l\u1eddi th\u1eeba nh\u1eadn ch\u00ednh th\u1ee9c.",
+          "source_ref": "whitelist.json#W-escalation"
+        },
+        {
+          "id": "S7",
+          "label": "HI\u1ec6N TR\u01af\u1edcNG \u2014 \u1ea3nh th\u1eadt \u0111\u00e3 x\u00e1c minh (media)",
+          "text": "V\u00e0 \u0111\u00e2y l\u00e0 hi\u1ec7n tr\u01b0\u1eddng th\u1eadt ng\u00e0y 17/10 \u1edf Paris: m\u1ed9t xe \u00f4 t\u00f4 ch\u00e1y gi\u1eefa ph\u1ed1, l\u00ednh c\u1ee9u h\u1ecfa Paris d\u1eadp l\u1eeda; v\u00e0 \u0111\u00e1m \u0111\u00f4ng tr\u01b0\u1edbc qu\u1ea3ng tr\u01b0\u1eddng C\u1ed9ng H\u00f2a trong m\u00e0n kh\u00f3i.",
+          "start_seconds": 106,
+          "end_seconds": 120,
+          "speaker_directions": "M\u00f4 t\u1ea3 trung t\u00ednh nh\u1eefng g\u00ec trong \u1ea3nh; kh\u00f4ng suy di\u1ec5n th\u00eam.",
+          "source_ref": "whitelist.json#W-media-photos"
+        },
+        {
+          "id": "S8",
+          "label": "Quy m\u00f4 17/10 (stat card)",
+          "text": "Th\u1ee9 B\u1ea3y 17/10: 550.000 ng\u01b0\u1eddi ra \u0111\u01b0\u1eddng theo B\u1ed9 N\u1ed9i v\u1ee5, ban t\u1ed5 ch\u1ee9c n\u00f3i 800.000, trong 110 cu\u1ed9c tu\u1ea7n h\u00e0nh tr\u00ean to\u00e0n n\u01b0\u1edbc. Ri\u00eang Paris l\u00e0 110.000 ng\u01b0\u1eddi.",
+          "start_seconds": 120,
+          "end_seconds": 134,
+          "speaker_directions": "S\u1ed1 li\u1ec7u \u0111\u1ecdc r\u00f5; t\u00e1ch ngu\u1ed3n 'B\u1ed9 N\u1ed9i v\u1ee5' vs 'ban t\u1ed5 ch\u1ee9c'.",
+          "source_ref": "whitelist.json#W-scale"
+        },
+        {
+          "id": "S9",
+          "label": "Paris \u2014 \u00c9lys\u00e9e 200m",
+          "text": "T\u1ea1i Paris, c\u00e1c nh\u00f3m \u0111\u1ed1i \u0111\u1ea7u c\u1ea3nh s\u00e1t ngay c\u00e1ch \u0110i\u1ec7n \u00c9lys\u00e9e 200 m\u00e9t, trong khu v\u1ef1c v\u1ed1n \u0111\u00e3 b\u1ecb c\u1ea5m bi\u1ec3u t\u00ecnh t\u1eeb tr\u01b0\u1edbc. Barricade d\u1ef1ng b\u1eb1ng r\u00e0o ch\u1eafn c\u00f4ng tr\u00ecnh tr\u00ean \u0111\u1ea1i l\u1ed9 Champs-\u00c9lys\u00e9es. Khi c\u00e1c \u0111o\u00e0n tan, c\u01b0\u1edbp ph\u00e1 lan d\u1ecdc c\u00e1c con ph\u1ed1.",
+          "start_seconds": 134,
+          "end_seconds": 150,
+          "speaker_directions": "Nh\u1ea5n 'khu v\u1ef1c \u0111\u00e3 b\u1ecb c\u1ea5m t\u1eeb tr\u01b0\u1edbc'; kh\u00f4ng n\u00f3i 'x\u00f4ng t\u1edbi \u00c9lys\u00e9e'.",
+          "source_ref": "whitelist.json#W-elysee-200m"
+        },
+        {
+          "id": "S10",
+          "label": "Limoges \u2014 t\u00f2a th\u1ecb ch\u00ednh 1883",
+          "text": "Limoges: nh\u00f3m ng\u01b0\u1eddi \u0111eo m\u1eb7t n\u1ea1 \u0111\u1eadp k\u00ednh x\u00f4ng v\u00e0o t\u00f2a th\u1ecb ch\u00ednh kh\u00e1nh th\u00e0nh n\u0103m 1883, r\u1ed3i ph\u00f3ng h\u1ecfa. Th\u00e1p chu\u00f4ng s\u1ee5p tr\u01b0\u1edbc 21 gi\u1edd. T\u1ec9nh tr\u01b0\u1edfng n\u00f3i t\u00f2a nh\u00e0 m\u1ea5t ph\u1ea7n l\u1edbn, v\u00e0 gi\u1edbi ch\u1ee9c g\u1ecdi \u0111\u00e2y l\u00e0 th\u1ea3m h\u1ecda di s\u1ea3n.",
+          "start_seconds": 150,
+          "end_seconds": 168,
+          "speaker_directions": "N\u1eb7ng n\u1ec1, ch\u1eadm; 'm\u1ea5t ph\u1ea7n l\u1edbn' \u0111\u00fang ngu\u1ed3n, kh\u00f4ng n\u00f3i 'to\u00e0n b\u1ed9'.",
+          "source_ref": "whitelist.json#W-limoges"
+        },
+        {
+          "id": "S11",
+          "label": "Lyon + Marseille \u2014 s\u1ed1 li\u1ec7u tranh c\u00e3i",
+          "text": "Lyon: 200 \u0111\u1ebfn 300 c\u1eeda h\u00e0ng b\u1ecb \u0111\u1eadp ph\u00e1 v\u00e0 c\u01b0\u1edbp, v\u0103n ph\u00f2ng du l\u1ecbch b\u1ecb \u0111\u1ed1t. Marseille: t\u1ec9nh ghi h\u01a1n 30.000 k\u1ebb c\u01b0\u1edbp v\u00e0 8.000 k\u1ebb b\u1ea1o lo\u1ea1n. Nh\u01b0ng th\u1ecb tr\u01b0\u1eddng th\u00e0nh ph\u1ed1 g\u1ecdi con s\u1ed1 \u0111\u00f3 l\u00e0 v\u00f4 l\u00fd, v\u00e0 vi\u1ec7n ki\u1ec3m s\u00e1t \u01b0\u1edbc ch\u1ec9 1.800 \u0111\u1ebfn 3.000 ng\u01b0\u1eddi. S\u1ed1 li\u1ec7u ch\u00ednh quy\u1ec1n \u0111ang b\u1ecb tranh c\u00e3i c\u00f4ng khai.",
+          "start_seconds": 168,
+          "end_seconds": 190,
+          "speaker_directions": "Ba ngu\u1ed3n ba s\u1ed1; 'tranh c\u00e3i c\u00f4ng khai' ch\u1ed1t c\u1ea3nh.",
+          "source_ref": "whitelist.json#W-lyon-marseille"
+        },
+        {
+          "id": "S12",
+          "label": "C\u00e1c th\u00e0nh ph\u1ed1 kh\u00e1c \u2014 lan r\u1ed9ng (Macron 18/10 \u0111i\u1ec3m t\u00ean)",
+          "text": "Paris kh\u00f4ng ph\u1ea3i n\u01a1i duy nh\u1ea5t. Bordeaux: c\u00f4ng tr\u00ecnh n\u01a1i n\u1eef t\u1ec9nh tr\u01b0\u1edfng \u1edf b\u1ecb t\u1ea5n c\u00f4ng. Lille v\u00e0 Marseille: c\u1eeda t\u00f2a th\u1ecb ch\u00ednh b\u1ecb \u0111\u1eadp m\u1edf. T\u1ea5t c\u1ea3 \u0111\u01b0\u1ee3c T\u1ed5ng th\u1ed1ng Macron \u0111i\u1ec3m t\u00ean trong b\u00e0i ph\u00e1t bi\u1ec3u \u0111\u00eam 18/10.",
+          "start_seconds": 190,
+          "end_seconds": 216,
+          "speaker_directions": "Ch\u1eadm nh\u1ea5t video; kh\u00f4ng k\u1ebft lu\u1eadn nguy\u00ean nh\u00e2n; '\u0111ang \u0111i\u1ec1u tra' l\u00e0 tr\u1ea1ng th\u00e1i ch\u00ednh x\u00e1c.",
+          "source_ref": "whitelist.json#W-deaths"
+        },
+        {
+          "id": "S13",
+          "label": "B\u1eaft gi\u1eef (stat card)",
+          "text": "Ri\u00eang \u0111\u00eam 17/10: 2.397 ng\u01b0\u1eddi b\u1ecb b\u1eaft, trong \u0111\u00f3 855 \u1edf Paris. \u0110\u1ebfn 22/10, t\u1ed5ng k\u1ec3 t\u1eeb cu\u1ed1i tu\u1ea7n l\u00ean kho\u1ea3ng 2.500: 174 ng\u01b0\u1eddi b\u1ecb t\u1ea1m giam, h\u01a1n 900 b\u1ecb truy t\u1ed1, theo B\u1ed9 tr\u01b0\u1edfng T\u01b0 ph\u00e1p.",
+          "start_seconds": 216,
+          "end_seconds": 232,
+          "speaker_directions": "'Ri\u00eang \u0111\u00eam 17/10' nh\u1ea5n; 'theo B\u1ed9 tr\u01b0\u1edfng T\u01b0 ph\u00e1p' attribute.",
+          "source_ref": "whitelist.json#W-arrests"
+        },
+        {
+          "id": "S14",
+          "label": "L\u1ef1c l\u01b0\u1ee3ng b\u1ecb th\u01b0\u01a1ng",
+          "text": "V\u1ec1 ph\u00eda l\u1ef1c l\u01b0\u1ee3ng: 997 c\u1ea3nh s\u00e1t, hi\u1ebfn binh v\u00e0 l\u00ednh c\u1ee9u h\u1ecfa b\u1ecb th\u01b0\u01a1ng ch\u1ec9 trong ng\u00e0y 17/10, trong \u0111\u00f3 7 ca nghi\u00eam tr\u1ecdng, theo t\u1ed5ng k\u00ea c\u1ee7a B\u1ed9 N\u1ed9i v\u1ee5.",
+          "start_seconds": 232,
+          "end_seconds": 244,
+          "speaker_directions": "\u0110\u1ecdc r\u00f5 'g\u1ed3m c\u1ea3 l\u00ednh c\u1ee9u h\u1ecfa'.",
+          "source_ref": "whitelist.json#W-police-injured"
+        },
+        {
+          "id": "S15",
+          "label": "C\u1eeda h\u00e0ng + chart b\u1ea3o hi\u1ec3m (diagram)",
+          "text": "Khu v\u1ef1c th\u01b0\u01a1ng m\u1ea1i g\u00e1nh n\u1eb7ng: li\u00ean \u0111o\u00e0n ph\u00e2n ph\u1ed1i \u0111\u1ebfm 1.500 c\u1eeda h\u00e0ng b\u1ecb \u1ea3nh h\u01b0\u1edfng; b\u1ed9 tr\u01b0\u1edfng th\u01b0\u01a1ng m\u1ea1i n\u00f3i con s\u1ed1 t\u1ea1m th\u1eddi l\u00e0 3.000. V\u1edbi ng\u00e0nh b\u1ea3o hi\u1ec3m, thi\u1ec7t h\u1ea1i \u01b0\u1edbc t\u00ednh v\u01b0\u1ee3t 1 t\u1ef7 euro v\u00e0 c\u00f3 th\u1ec3 t\u1edbi 1,2 t\u1ef7, theo Financial Times v\u00e0 Morningstar. So v\u1edbi 730 \u0111\u1ebfn 798 tri\u1ec7u euro c\u1ee7a \u0111\u1ee3t b\u1ea1o lo\u1ea1n 2023, v\u00e0 kho\u1ea3ng 220 tri\u1ec7u c\u1ee7a \u00e1o v\u00e0ng 2018-19.",
+          "start_seconds": 244,
+          "end_seconds": 266,
+          "speaker_directions": "Chart hi\u1ec7n kho\u1ea3ng s\u1ed1, kh\u00f4ng c\u1ed9t ch\u1ed1t; '\u01b0\u1edbc t\u00ednh' b\u1eaft bu\u1ed9c.",
+          "source_ref": "whitelist.json#W-shops-insurance"
+        },
+        {
+          "id": "S16",
+          "label": "Ch\u00ednh ph\u1ee7 ph\u1ea3n \u1ee9ng",
+          "text": "Ch\u1ee7 nh\u1eadt 18/10, T\u1ed5ng th\u1ed1ng Macron l\u00ean truy\u1ec1n h\u00ecnh: n\u00f3i m\u00ecnh gi\u1eadn v\u00e0 th\u1eb9n, h\u1ee9a kh\u00f4ng khoan nh\u01b0\u1ee3ng v\u1edbi k\u1ebb \u0111\u1eadp ph\u00e1. Nh\u01b0ng \u00f4ng c\u0169ng n\u00f3i r\u00f5: kh\u00f4ng \u0111\u01b0\u1ee3c \u0111\u1ed3ng h\u00f3a h\u00e0ng tr\u0103m ngh\u00ecn ng\u01b0\u1eddi bi\u1ec3u t\u00ecnh \u00f4n h\u00f2a v\u1edbi thi\u1ec3u s\u1ed1 b\u1ea1o l\u1ef1c. B\u1ed9 tr\u01b0\u1edfng N\u1ed9i v\u1ee5 Nu\u00f1ez n\u1ed9p \u0111\u01a1n t\u1eeb ch\u1ee9c, Macron t\u1eeb ch\u1ed1i, theo Euronews. Paris \u00e1p \u0111\u1eb7t gi\u1edbi nghi\u00eam t\u1eebng khu v\u1ef1c.",
+          "start_seconds": 266,
+          "end_seconds": 288,
+          "speaker_directions": "C\u00e2n b\u1eb1ng: l\u1eadp tr\u01b0\u1eddng ch\u00ednh ph\u1ee7 + l\u1eadp tr\u01b0\u1eddng ph\u00e2n bi\u1ec7t c\u1ee7a ch\u00ednh Macron.",
+          "source_ref": "whitelist.json#W-macron-response"
+        },
+        {
+          "id": "S17",
+          "label": "22/10 \u2014 c\u1ea5m + to\u00e0 h\u1ee7y c\u1ea5m",
+          "text": "Th\u1ee9 N\u0103m 22/10, sau h\u1ed9i \u0111\u1ed3ng an ninh, Macron tuy\u00ean b\u1ed1 c\u1ea5m c\u00e1c cu\u1ed9c bi\u1ec3u t\u00ecnh kh\u00f4ng ch\u00ednh danh. C\u00f9ng ng\u00e0y, to\u00e0 h\u00e0nh ch\u00ednh Paris h\u1ee7y l\u1ec7nh c\u1ea5m tu\u1ea7n h\u00e0nh c\u1ee7a sinh vi\u00ean, v\u00e0 h\u00e0ng ngh\u00ecn ng\u01b0\u1eddi v\u1eabn ra \u0111\u01b0\u1eddng. Lyon c\u1ea5m m\u1ecdi bi\u1ec3u t\u00ecnh Th\u1ee9 B\u1ea3y; Marseille, Nice, Toulon c\u0169ng ra l\u1ec7nh c\u1ea5m t\u01b0\u01a1ng t\u1ef1.",
+          "start_seconds": 288,
+          "end_seconds": 308,
+          "speaker_directions": "Nh\u1ecbp nhanh d\u1ea7n; 'to\u00e0 h\u1ee7y l\u1ec7nh c\u1ea5m' l\u00e0 ngh\u1ecbch l\u00fd \u0111\u00e1ng nh\u1edb.",
+          "source_ref": "whitelist.json#W-bans-court"
+        },
+        {
+          "id": "S18",
+          "label": "Th\u1ee9 B\u1ea3y 24/10 \u2014 h\u1ed3i hai (timeline)",
+          "text": "Th\u1ee9 B\u1ea3y 24/10 s\u1ebd l\u00e0 h\u1ed3i hai: b\u1ea3n \u0111\u1ed3 c\u00e1c \u0111i\u1ec3m h\u00e0nh \u0111\u1ed9ng m\u1edbi \u0111\u00e3 xu\u1ea5t hi\u1ec7n tr\u00ean site \u0111i\u1ec1u ph\u1ed1i c\u1ee7a c\u00e1c nh\u00f3m \u00e1o v\u00e0ng, t\u1eadp trung v\u00e0o tr\u1ea1m x\u0103ng v\u00e0 nh\u00e0 m\u00e1y l\u1ecdc d\u1ea7u. L\u1ef1c l\u01b0\u1ee3ng an ninh \u0111\u01b0\u1ee3c t\u0103ng c\u01b0\u1eddng m\u1ea1nh cho cu\u1ed1i tu\u1ea7n n\u00e0y, theo b\u00e1o ch\u00ed Ph\u00e1p.",
+          "start_seconds": 308,
+          "end_seconds": 324,
+          "speaker_directions": "Cliffhanger c\u00f3 ki\u1ec3m ch\u1ee9ng; kh\u00f4ng ph\u00f3ng \u0111\u1ea1i.",
+          "source_ref": "whitelist.json#W-oct24"
+        },
+        {
+          "id": "S19",
+          "label": "G\u00f3c ng\u01b0\u1eddi Vi\u1ec7t",
+          "text": "Ng\u01b0\u1eddi Vi\u1ec7t \u1edf Ph\u00e1p c\u0169ng s\u1ed1ng trong l\u00e0n s\u00f3ng \u1ea5y. Du h\u1ecdc sinh \u1edf Nice k\u1ec3 tr\u01b0\u1eddng \u0111\u00f3ng c\u1eeda, sinh ho\u1ea1t \u0111\u1ea3o l\u1ed9n. Ng\u01b0\u1eddi Vi\u1ec7t l\u00e2u n\u0103m n\u00f3i h\u1ecd kh\u00f4ng ng\u1ea1c nhi\u00ean. C\u00f2n ng\u01b0\u1eddi m\u1edbi \u0111\u1ebfn th\u00ec s\u1ed1c, khi th\u1ea5y c\u1ea3nh \u0111\u1ed1t ph\u00e1 gi\u1eefa n\u01b0\u1edbc Ph\u00e1p.",
+          "start_seconds": 324,
+          "end_seconds": 340,
+          "speaker_directions": "Gi\u1ecdng g\u1ea7n g\u0169i, \u0111\u1ed3ng c\u1ea3m.",
+          "source_ref": "whitelist.json#W-vietnamese"
+        },
+        {
+          "id": "S20",
+          "label": "NH\u1eacN \u0110\u1ecaNH (badge ri\u00eang)",
+          "text": "Nh\u1eadn \u0111\u1ecbnh: s\u00e1u th\u00e1ng tr\u01b0\u1edbc b\u1ea7u c\u1eed t\u1ed5ng th\u1ed1ng th\u00e1ng 4 n\u0103m 2027, c\u00e1i gi\u00e1 sinh ho\u1ea1t \u0111\u00e3 bi\u1ebfn th\u00e0nh kh\u1ee7ng ho\u1ea3ng ch\u00ednh tr\u1ecb. Nh\u01b0ng \u0111\u1eebng quy c\u1ea3 tr\u0103m ngh\u00ecn ng\u01b0\u1eddi bi\u1ec3u t\u00ecnh l\u00e0 b\u1ea1o lo\u1ea1n. B\u1ea1o l\u1ef1c l\u00e0 c\u1ee7a thi\u1ec3u s\u1ed1, v\u00e0 \u0111ang \u0111\u01b0\u1ee3c \u0111i\u1ec1u tra. V\u1edbi ng\u01b0\u1eddi \u0111i l\u00e0m, b\u00e0i h\u1ecdc v\u1eabn l\u00e0: \u0111\u1ec7m chi ph\u00ed c\u00e1 nh\u00e2n, tr\u01b0\u1edbc khi c\u00fa s\u1ed1c t\u1edbi.",
+          "start_seconds": 340,
+          "end_seconds": 362,
+          "speaker_directions": "Ch\u1eadm, d\u1ee9t kho\u00e1t; badge NH\u1eacN \u0110\u1ecaNH t\u00e1ch ph\u1ea7n bi\u00ean t\u1eadp kh\u1ecfi tin.",
+          "source_ref": "whitelist.json#W-analysis"
+        },
+        {
+          "id": "S21",
+          "label": "CTA",
+          "text": "Th\u1ee9 B\u1ea3y 24/10, chuy\u1ec7n g\u00ec s\u1ebd x\u1ea3y ra? Theo d\u00f5i \u0111\u1ec3 c\u1eadp nh\u1eadt.",
+          "start_seconds": 362,
+          "end_seconds": 370,
+          "speaker_directions": "Ng\u1eafn, kh\u00f4ng gi\u1eadt g\u00e2n.",
+          "source_ref": "whitelist.json#W-oct24"
+        }
+      ]
+    },
+    "whitelist": {
+      "version": "2.0",
+      "policy": "Ngu\u1ed3n ch\u00e2n l\u00fd = history/revision-source-audit.md (audit \u0111\u1ed9c l\u1eadp 23/10/2026, fetch tr\u1ef1c ti\u1ebfp publisher/official). Brief c\u0169 ch\u1ec9 c\u00f2n tham chi\u1ebfu. M\u1ecdi claim ph\u1ea3i truy \u0111\u01b0\u1ee3c t\u1edbi URL d\u01b0\u1edbi \u0111\u00e2y.",
+      "claims": [
+        {
+          "id": "W-elysee-200m",
+          "claim": "C\u00e1c nh\u00f3m \u0111\u1ed1i \u0111\u1ea7u c\u1ea3nh s\u00e1t c\u00e1ch \u0110i\u1ec7n \u00c9lys\u00e9e 200m, trong khu v\u1ef1c \u0111\u00e3 b\u1ecb c\u1ea5m bi\u1ec3u t\u00ecnh b\u1eb1ng arr\u00eat\u00e9 t\u1eeb tr\u01b0\u1edbc; barricade b\u1eb1ng r\u00e0o ch\u1eafn c\u00f4ng tr\u00ecnh; CRS \u0111i\u1ec1u \u0111\u1ed9ng",
+          "sources": [
+            "https://www.tf1info.fr/replay-lci/videos/video-lci-direct-du-samedi-17-octobre-2026-2470542.html (t\u00edt 'tensions \u00e0 200 m\u00e8tres du Palais de l'\u00c9lys\u00e9e')",
+            "https://www.la-croix.com/societe/manifestation-du-17-octobre-appels-corteges-suivez-la-journee-de-mobilisation-20261017 (arr\u00eat\u00e9 + barri\u00e8res de chantier, CRS 8)"
+          ],
+          "sections": [
+            "S1",
+            "S9"
+          ]
+        },
+        {
+          "id": "W-insurance-range",
+          "claim": "\u01af\u1edbc t\u00ednh thi\u1ec7t h\u1ea1i b\u1ea3o hi\u1ec3m >1 t\u1ef7 \u20ac, \u22641,2 t\u1ef7 \u20ac (FT '\u20ac1bn-plus'; Morningstar 'sous 1,2 Md'); \u0111\u1ee3t bi\u1ec3u t\u00ecnh \u0111\u1eaft nh\u1ea5t t\u1ea1i CH\u00cdNH QU\u1ed0C Ph\u00e1p, v\u01b0\u1ee3t \u0111\u1ec9nh 2023 \u2014 KH\u00d4NG n\u00f3i '\u0111\u1eaft nh\u1ea5t l\u1ecbch s\u1eed hi\u1ec7n \u0111\u1ea1i' (Nouvelle-Cal\u00e9donie 2024 ~1 t\u1ef7 \u20ac)",
+          "sources": [
+            "https://www.ft.com/content/e0b2e8f1-6d3e-4647-9370-e7b7b7e7fd42",
+            "https://global.morningstar.com/fr/marches/les-dernires-meutes-en-france-mettront-les-assureurs-lpreuve",
+            "https://www.courrierinternational.com/article/assurance-les-degats-du-week-end-de-chaos-en-france-pourraient-depasser-le-milliard-d-euros_280089"
+          ],
+          "sections": [
+            "S2",
+            "S15"
+          ]
+        },
+        {
+          "id": "W-tiktok-origin",
+          "claim": "Video TikTok t\u00e0i kho\u1ea3n \u1ea9n danh 'v2.95' \u0111\u1ea7u th\u00e1ng 9 (7\u20138/9) than gi\u00e1 x\u0103ng (1,60 \u2192 2,25 \u20ac/l), h\u00e0ng tri\u1ec7u l\u01b0\u1ee3t xem, ch\u1ed1t ng\u00e0y 17/10 v\u00ec 'th\u1ee9 B\u1ea3y + ngh\u1ec9 h\u1ecdc'; KH\u00d4NG c\u00f3 t\u1ed5 ch\u1ee9c \u0111\u1ee9ng sau (AI Forensics: kh\u00f4ng d\u1ea5u hi\u1ec7u coordination; Viginum: kh\u00f4ng operation n\u01b0\u1edbc ngo\u00e0i)",
+          "sources": [
+            "https://www.tf1info.fr/societe/verif-appels-a-manifester-pour-le-17-octobre-on-est-remonte-aux-origines-de-la-mobilisation-en-ligne-2464500.html",
+            "https://www.la-croix.com/societe/manifestation-du-17-octobre-qui-est-derriere-l-appel-a-la-mobilisation-qui-agite-les-reseaux-20261014",
+            "https://www.radiofrance.fr/franceinter/podcasts/nos-vies-numeriques/nos-vies-numeriques-du-lundi-19-octobre-2026-2473845"
+          ],
+          "sections": [
+            "S3"
+          ],
+          "attribution": "Ng\u00f2i n\u1ed5 ch\u1ed1t NG\u00c0Y + ch\u1ee7 \u0111\u1ec1 gi\u00e1 x\u0103ng; kh\u00f4ng ph\u1ea3i nguy\u00ean nh\u00e2n duy nh\u1ea5t"
+        },
+        {
+          "id": "W-lyceen-movement",
+          "claim": "Phong tr\u00e0o lyc\u00e9e b\u00f9ng gi\u1eefa T9 t\u1eeb Cr\u00e9teil (\u00cedF): thi\u1ebfu gi\u00e1o vi\u00ean, tr\u01b0\u1eddng xu\u1ed1ng c\u1ea5p; \u0111\u00f2i b\u1ecf Parcoursup + k\u1ebf ho\u1ea1ch 10 t\u1ef7 \u20ac cho lyc\u00e9e; 6/10: 800 lyc\u00e9e \u0111\u00f3ng c\u1eeda (B\u1ed9 GD, \u0111\u1ec9nh)",
+          "sources": [
+            "https://www.theguardian.com/world/2026/oct/22/macron-ban-illegitimate-demonstrations-france-unrest (began in Cr\u00e9teil)",
+            "https://actu.fr/societe/le-17-octobre-ce-sera-un-gros-truc-les-lyceens-se-preparent-a-la-convergence-des-luttes-au-1er-jour-des-vacances_64921030.html",
+            "https://www.la-croix.com/societe/en-direct-manifestation-mardi-13-octobre-blocus-lycees-mobilisation-lyceen-aujourdhui-20261013 (800 ferm\u00e9s 6/10)"
+          ],
+          "sections": [
+            "S4"
+          ],
+          "attribution": "Y\u00eau s\u00e1ch ng\u01b0\u1eddi bi\u1ec3u t\u00ecnh"
+        },
+        {
+          "id": "W-budget2027",
+          "claim": "Budget 2027: gi\u00e1o d\u1ee5c T\u0102NG 1,2 t\u1ef7 \u20ac (64 t\u1ef7) nh\u01b0ng c\u1eaft 1.588 v\u1ecb tr\u00ed gi\u00e1o vi\u00ean; duy tr\u00ec \u0111\u00f3ng b\u0103ng \u0111i\u1ec3m l\u01b0\u01a1ng c\u00f4ng ch\u1ee9c",
+          "sources": [
+            "https://www.cafepedagogique.net/2026/10/02/budget-de-leducation-2027-1-588-suppressions-de-postes/",
+            "Le Monde 1/10 (t\u00edt \u0111\u1ed3ng nh\u1ea5t, qua audit)"
+          ],
+          "sections": [
+            "S5"
+          ]
+        },
+        {
+          "id": "W-escalation",
+          "claim": "17/10 nhi\u1ec1u d\u00f2ng h\u1ee3p l\u01b0u (h\u1ecdc sinh, lao \u0111\u1ed9ng, \u00e1o v\u00e0ng, c\u00f4ng \u0111o\u00e0n CGT/paysanne); site 17octobregiletjaune.net c\u00f3 b\u1ea3n \u0111\u1ed3 LI\u1ec6T K\u00ca \u0111i\u1ec3m t\u1eadp k\u1ebft (KH\u00d4NG \u0111\u00e1nh d\u1ea5u c\u1ea3nh s\u00e1t); b\u1ea1o l\u1ef1c r\u00eca \u0111o\u00e0n do 'c\u1ef1c t\u1ea3 + t\u1ed9i ph\u1ea1m' (Macron/Nu\u00f1ez \u2014 attribute) k\u00e8m nh\u00f3m c\u1ef1c h\u1eefu (Lib\u00e9ration 19/10); Nu\u00f1ez th\u1eeba nh\u1eadn 'm\u1ea5t ki\u1ec3m so\u00e1t'",
+          "sources": [
+            "https://17octobregiletjaune.net/carte/",
+            "https://www.elysee.fr/emmanuel-macron/2026/10/18/adresse-aux-francais-7",
+            "https://www.rfi.fr/en/france/20261019-french-pm-calls-for-partial-curfews-after-weekend-of-violence-looting (lost control)",
+            "Lib\u00e9ration 19/10 (violences d'extr\u00eame droite constat\u00e9es \u2014 qua audit)"
+          ],
+          "sections": [
+            "S6"
+          ],
+          "attribution": "Quy tr\u00e1ch nhi\u1ec7m = l\u1eddi nh\u00e0 ch\u1ee9c tr\u00e1ch, kh\u00f4ng suy r\u1ed9ng sang ng\u01b0\u1eddi bi\u1ec3u t\u00ecnh"
+        },
+        {
+          "id": "W-media-photos",
+          "claim": "\u1ea2nh hi\u1ec7n tr\u01b0\u1eddng th\u1eadt 17/10 Paris: (B) l\u00ednh c\u1ee9u h\u1ecfa BSPP d\u1eadp xe ch\u00e1y, Blvd Voltaire \u2014 Jorge Jaramillo/JJxFile, CC BY-SA 4.0, EXIF 12:31; (C) \u0111\u00e1m \u0111\u00f4ng + kh\u00f3i tr\u01b0\u1edbc Place de la R\u00e9publique \u2014 c\u00f9ng t\u00e1c gi\u1ea3, CC BY-SA 4.0, 12:19. N\u1ed9i dung vision-verify b\u1edfi lead 23/10; chu\u1ed7i \u1ea3nh JJxFile 17/10 \u0111\u01b0\u1ee3c nhi\u1ec1u \u0111\u1ea7u b\u00e1o d\u00f9ng (corroborated). KH\u00d4NG c\u00f3 video b\u1ea1o l\u1ef1c verified-license \u2192 d\u00f9ng 2 \u1ea3nh t\u0129nh + clip CC0 Aix-en-Provence (c\u1ea3nh t\u1eadp h\u1ee3p \u00f4n h\u00f2a, g\u1eafn nh\u00e3n \u0111\u00fang, KH\u00d4NG g\u1ecdi l\u00e0 b\u1ea1o lo\u1ea1n)",
+          "sources": [
+            "https://commons.wikimedia.org/wiki/File:Paris_riots,_17_October_2026_-_Firefighters_extinguishing_a_burning_car_-_JJxFile_0048.jpg",
+            "https://commons.wikimedia.org/wiki/File:Paris_riots,_17_October_2026_-_Crowd_facing_Place_de_la_R%C3%A9publique_in_tear_gas_-_JJxFile_0012.jpg",
+            "https://creativecommons.org/licenses/by-sa/4.0/",
+            "history/revision-media-rights.md"
+          ],
+          "sections": [
+            "S7"
+          ],
+          "attribution": "Credit b\u1eaft bu\u1ed9c tr\u00ean h\u00ecnh + description; ghi nh\u1eadn ShareAlike (video ch\u1ee9a ph\u1ea7n CC BY-SA)"
+        },
+        {
+          "id": "W-scale",
+          "claim": "550.000 ng\u01b0\u1eddi / 110 cu\u1ed9c tu\u1ea7n h\u00e0nh / 110.000 Paris (B\u1ed9 N\u1ed9i v\u1ee5 Nu\u00f1ez); 800.000 theo ban t\u1ed5 ch\u1ee9c",
+          "sources": [
+            "https://franceinfo.fr/economie/greve/mobilisation-du-17-octobre-800-000-personnes-ont-manifeste-dans-toute-la-france-selon-les-organisateurs-550-000-selon-le-ministre-de-l-interieur_8242081.html",
+            "https://www.cnews.fr/france/2026-10-17/mobilisation-du-17-octobre-ultragauche-forces-de-lordre-blessees-etat-durgence-ce"
+          ],
+          "sections": [
+            "S8"
+          ]
+        },
+        {
+          "id": "W-limoges",
+          "claim": "Nh\u00f3m \u0111eo m\u1eb7t n\u1ea1 \u0111\u1eadp k\u00ednh x\u00f4ng v\u00e0o t\u00f2a th\u1ecb ch\u00ednh Limoges (kh\u00e1nh th\u00e0nh 1883) ph\u00f3ng h\u1ecfa; beffroi s\u1ee5p tr\u01b0\u1edbc 21h; m\u00e1i + 1 c\u00e1nh ch\u00e1y; t\u1ec9nh tr\u01b0\u1edfng: 'en grande partie perdu'; 'catastrophe patrimoniale' (attribute). KH\u00d4NG n\u00f3i 'th\u1ea5t th\u1ee7 to\u00e0n b\u1ed9', KH\u00d4NG n\u00f3i 'kh\u00f4ng th\u01b0\u01a1ng vong' (ch\u01b0a verify)",
+          "sources": [
+            "https://www.leparisien.fr/faits-divers/cest-une-catastrophe-lhotel-de-ville-de-limoges-detruit-par-les-flammes-apres-la-manifestation-contre-la-vie-chere-17-10-2026-O3CCYJ32SVBSNFB5Q6XWNHTIGM.php",
+            "https://information.tv5monde.com/france/lhotel-de-ville-de-limoges-incendie-en-grande-partie-perdu-2842106 (AFP)"
+          ],
+          "sections": [
+            "S10"
+          ]
+        },
+        {
+          "id": "W-lyon-marseille",
+          "claim": "Lyon: 200-300 c\u1eeda h\u00e0ng b\u1ecb c\u01b0\u1edbp ph\u00e1 + v\u0103n ph\u00f2ng du l\u1ecbch b\u1ecb \u0111\u1ed1t (Guardian). Marseille: t\u1ec9nh 30.000 pilleurs/8.000 \u00e9meutiers \u2014 th\u1ecb tr\u01b0\u1edfng 'farfelu'; procureur Bessone 1.800-3.000 pilleurs (\u0111\u1ed3ng \u00fd 8.000 \u00e9meutiers); CCI: 500 c\u1eeda h\u00e0ng",
+          "sources": [
+            "https://www.theguardian.com/world/2026/oct/22/macron-ban-illegitimate-demonstrations-france-unrest",
+            "https://www.franceinfo.fr/societe/mobilisation-du-17-octobre/plus-de-30-000-pilleurs-denombres-a-marseille-en-marge-de-la-manifestation-du-17-octobre-selon-la-prefecture-de-police-des-bouches-du-rhone_8243068.html",
+            "https://www.bfmtv.com/marseille/c-est-deja-enormissime-le-procureur-denombre-dix-fois-moins-de-pilleurs-a-marseille-que-la-prefecture-le-17-octobre_AV-202610220721.html"
+          ],
+          "sections": [
+            "S11"
+          ],
+          "attribution": "B\u1eaft bu\u1ed9c n\u00eau tranh c\u00e3i khi d\u00f9ng s\u1ed1 Marseille"
+        },
+        {
+          "id": "W-deaths",
+          "claim": "2 ca t\u1eed vong Paris (59 tu\u1ed5i rue de Lancry/bd Magenta Q10, ch\u1ebft 18h55 d\u00f9 c\u00f3 c\u1ee9u h\u1ed9; 48 tu\u1ed5i rue Berger Les Halles): \u0111i\u1ec1u tra 'recherches des causes de la mort', t\u1ea1m th\u1eddi 'probable malaise', gia \u0111\u00ecnh ph\u1ea3n \u0111\u1ed1i, ch\u1edd gi\u00e1m \u0111\u1ecbnh. Saint-\u00c9tienne: thi\u1ebfu ni\u00ean 17t m\u1ea5t b\u00e0n tay ph\u1ea3i do l\u1ef1u \u0111\u1ea1n (m\u1eabu ch\u01b0a r\u00f5; c\u00f3 ngu\u1ed3n: c\u00f3 th\u1ec3 t\u1ef1 nh\u1eb7t), IGPN \u0111i\u1ec1u tra",
+          "sources": [
+            "https://www.lesoir.be/778575/article/2026-10-22/personne-ne-nous-tient-au-courant-la-famille-de-lhomme-mort-lors-des-violences",
+            "https://www.tf1info.fr/archives/2026/10-17/ (19:47 mineur 17 ans)",
+            "https://www.la-croix.com/societe/manifestation-du-17-octobre-appels-corteges-suivez-la-journee-de-mobilisation-20261017 (aurait ramass\u00e9 la grenade)"
+          ],
+          "sections": [
+            "S12"
+          ],
+          "attribution": "KH\u00d4NG k\u1ebft lu\u1eadn nguy\u00ean nh\u00e2n t\u1eed vong"
+        },
+        {
+          "id": "W-arrests",
+          "claim": "Ri\u00eang 17/10: 2.397 b\u1eaft (bilan consolidated Beauvau 18/10), 855 Paris (k\u1ef7 l\u1ee5c). L\u0169y k\u1ebf \u0111\u1ebfn 22/10 \u2248 2.500; 174 t\u1ea1m giam; >900 truy t\u1ed1 (Darmanin qua Guardian)",
+          "sources": [
+            "https://www.cnews.fr/france/2026-10-18/mobilisation-du-17-octobre-2397-personnes-ont-ete-interpellees-et-997-policiers",
+            "https://www.lesoir.be/777624/article/2026-10-18/manifestations-en-france-le-bilan-grimpe-2397-interpellations-et-997-policiers",
+            "https://www.theguardian.com/world/2026/oct/22/macron-ban-illegitimate-demonstrations-france-unrest"
+          ],
+          "sections": [
+            "S13"
+          ]
+        },
+        {
+          "id": "W-police-injured",
+          "claim": "997 c\u1ea3nh s\u00e1t/hi\u1ebfn binh/l\u00ednh c\u1ee9u h\u1ecfa b\u1ecb th\u01b0\u01a1ng NG\u00c0Y 17/10 (7 nghi\u00eam tr\u1ecdng), bilan 'provisoire'",
+          "sources": [
+            "https://www.cnews.fr/france/2026-10-19/mobilisation-du-17-octobre-apres-les-saccages-et-pillages-laurent-nunez-attendu"
+          ],
+          "sections": [
+            "S14"
+          ]
+        },
+        {
+          "id": "W-shops-insurance",
+          "claim": "1.500 c\u1eeda h\u00e0ng (Bompard FCD 18/10) \u2192 3.000 (b\u1ed9 tr\u01b0\u1edfng Papin, t\u1ea1m). Chart kho\u1ea3ng: GJ 18-19: 220\u2013256 M\u20ac (Morningstar vs FT) | 2023: 730\u2013798 M\u20ac (Morningstar vs France Assureurs) | 2026: >1.000, \u22641.200 M\u20ac \u01af\u1edaC T\u00cdNH",
+          "sources": [
+            "https://www.leparisien.fr/economie/violences-du-17-octobre-1-500-magasins-touches-en-france-plusieurs-centaines-de-millions-deuros-de-degats-18-10-2026-PAAKNFW6ZVCCJMLJ7LTOAWLKOI.php",
+            "https://www.ft.com/content/e0b2e8f1-6d3e-4647-9370-e7b7b7e7fd42",
+            "https://global.morningstar.com/fr/marches/les-dernires-meutes-en-france-mettront-les-assureurs-lpreuve"
+          ],
+          "sections": [
+            "S15"
+          ]
+        },
+        {
+          "id": "W-macron-response",
+          "claim": "Macron 18/10 20h (v\u0103n b\u1ea3n \u00c9lys\u00e9e): 'col\u00e8re, de la honte'; 'Ceux qui ont d\u00e9truit doivent payer'; 'intraitable'; 'Jamais nous ne devons confondre' ng\u01b0\u1eddi bi\u1ec3u t\u00ecnh (revendications l\u00e9gitimes) v\u1edbi k\u1ebb \u0111\u1eadp ph\u00e1; \u0111\u1ed5 l\u1ed7i 'ultra-gauche + d\u00e9linquants' (attribute); frame gi\u00e1 x\u0103ng do xung \u0111\u1ed9t V\u1ecbnh Ba T\u01b0. Nu\u00f1ez t\u1eeb ch\u1ee9c 18/10 b\u1ecb t\u1eeb ch\u1ed1i 19/10. Gi\u1edbi nghi\u00eam t\u1eebng khu v\u1ef1c \u1edf Paris",
+          "sources": [
+            "https://www.elysee.fr/emmanuel-macron/2026/10/18/adresse-aux-francais-7",
+            "https://www.euronews.com/2026/10/19/emmanuel-macron-rejects-resignation-of-interior-minister-laurent-nunez",
+            "https://www.theguardian.com/world/2026/oct/19/looting-french-cities-continues-second-night"
+          ],
+          "sections": [
+            "S16"
+          ]
+        },
+        {
+          "id": "W-bans-court",
+          "claim": "22/10: conseil de s\u00e9curit\u00e9 (readout \u00c9lys\u00e9e: 'dysfonctionnements'); Macron c\u1ea5m bi\u1ec3u t\u00ecnh 'kh\u00f4ng ch\u00ednh danh' (qua Guardian/RFI); TA Paris h\u1ee7y l\u1ec7nh c\u1ea5m tu\u1ea7n h\u00e0nh sinh vi\u00ean \u2014 h\u00e0ng ngh\u00ecn v\u1eabn ra \u0111\u01b0\u1eddng; Grenoble/Rouen/Le Havre/Toulon b\u1ecb d\u1eebng; Lyon c\u1ea5m M\u1eccI bi\u1ec3u t\u00ecnh Th\u1ee9 B\u1ea3y; Marseille/Nice/Toulon c\u1ea5m t\u01b0\u01a1ng t\u1ef1",
+          "sources": [
+            "https://www.elysee.fr/emmanuel-macron/2026/10/22/conseil-de-securite",
+            "https://www.theguardian.com/world/2026/oct/22/macron-ban-illegitimate-demonstrations-france-unrest",
+            "https://www.rfi.fr/en/france/20261022-police-ban-protests-in-french-cities-ahead-of-fresh-saturday-demonstrations"
+          ],
+          "sections": [
+            "S17"
+          ]
+        },
+        {
+          "id": "W-oct24",
+          "claim": "'Acte II' 24/10 do coordination GJ 17/10 k\u00eau g\u1ecdi; site \u0111i\u1ec1u ph\u1ed1i c\u00f3 b\u1ea3n \u0111\u1ed3 \u0111i\u1ec3m h\u00e0nh \u0111\u1ed9ng (tr\u1ea1m x\u0103ng, nh\u00e0 m\u00e1y l\u1ecdc d\u1ea7u, d\u00e9p\u00f4ts); tu\u1ea7n h\u00e0nh Paris t\u1eeb Bastille \u0111\u01b0\u1ee3c duy\u1ec7t (kh\u00f4ng v\u00e0o trung t\u00e2m); UNEF c\u0169ng g\u1ecdi rally",
+          "sources": [
+            "Le Soir 18/10 (acte II + carte \u2014 qua audit)",
+            "https://17octobregiletjaune.net/carte/",
+            "https://www.theguardian.com/world/2026/oct/22/macron-ban-illegitimate-demonstrations-france-unrest"
+          ],
+          "sections": [
+            "S18",
+            "S21"
+          ],
+          "attribution": "KH\u00d4NG n\u00f3i 'h\u1ed9i \u0111\u1ed3ng qu\u1ed1c ph\u00f2ng 23/10 \u0111\u00e3 di\u1ec5n ra' (agenda \u00c9lys\u00e9e ch\u01b0a x\u00e1c nh\u1eadn l\u00fac audit)"
+        },
+        {
+          "id": "W-vietnamese",
+          "claim": "Ng\u01b0\u1eddi Vi\u1ec7t t\u1ea1i Ph\u00e1p: du h\u1ecdc sinh Nice (Tr\u1ecbnh Minh H\u1eb1ng) tr\u01b0\u1eddng \u0111\u00f3ng c\u1eeda, sinh ho\u1ea1t \u0111\u1ea3o l\u1ed9n; ng\u01b0\u1eddi Vi\u1ec7t l\u00e2u n\u0103m 'kh\u00f4ng ng\u1ea1c nhi\u00ean'; ng\u01b0\u1eddi m\u1edbi \u0111\u1ebfn s\u1ed1c c\u1ea3nh \u0111\u1ed1t ph\u00e1",
+          "sources": [
+            "evidence/vn_thanhnien_vn.md (21/10)",
+            "evidence/vn_24h_com_vn.md (22/10)"
+          ],
+          "sections": [
+            "S19"
+          ]
+        },
+        {
+          "id": "W-analysis",
+          "claim": "NH\u1eacN \u0110\u1ecaNH (bi\u00ean t\u1eadp, badge ri\u00eang): 6 th\u00e1ng tr\u01b0\u1edbc b\u1ea7u c\u1eed T4/2027 ('six mois' \u2014 nguy\u00ean v\u0103n Macron 18/10); s\u1ee9c mua th\u00e0nh kh\u1ee7ng ho\u1ea3ng ch\u00ednh tr\u1ecb; b\u1ea1o l\u1ef1c l\u00e0 thi\u1ec3u s\u1ed1 \u0111ang \u0111i\u1ec1u tra \u2014 kh\u00f4ng quy to\u00e0n b\u1ed9 ng\u01b0\u1eddi bi\u1ec3u t\u00ecnh; \u0111\u1ec7m chi ph\u00ed c\u00e1 nh\u00e2n cho ng\u01b0\u1eddi \u0111i l\u00e0m",
+          "sources": [
+            "https://www.elysee.fr/emmanuel-macron/2026/10/18/adresse-aux-francais-7 ('nous sommes \u00e0 six mois de notre \u00e9lection pr\u00e9sidentielle')"
+          ],
+          "sections": [
+            "S20"
+          ],
+          "attribution": "Ph\u00e2n t\u00edch bi\u00ean t\u1eadp \u2014 ph\u1ea3i t\u00e1ch b\u1ea1ch b\u1eb1ng badge"
+        }
+      ],
+      "dropped_claims": [
+        {
+          "id": "D-900-schools",
+          "reason": "kh\u00f4ng c\u00f3 ngu\u1ed3n tr\u1ef1c ti\u1ebfp \u2014 thay b\u1eb1ng 800 lyc\u00e9e \u0111\u00f3ng 6/10 (B\u1ed9 GD)"
+        },
+        {
+          "id": "D-lr-hack-1610",
+          "reason": "wiki-only, kh\u00f4ng th\u1ea5y \u1edf publisher tr\u1ef1c ti\u1ebfp"
+        },
+        {
+          "id": "D-nice-massena",
+          "reason": "wiki-only"
+        },
+        {
+          "id": "D-grenoble-13000",
+          "reason": "wiki-only"
+        },
+        {
+          "id": "D-costliest-history",
+          "reason": "Nouvelle-Cal\u00e9donie 2024 ~1 t\u1ef7 \u20ac \u2014 thay b\u1eb1ng '\u0111\u1eaft nh\u1ea5t t\u1ea1i ch\u00ednh qu\u1ed1c'"
+        },
+        {
+          "id": "D-no-casualties-limoges",
+          "reason": "ch\u01b0a verify \u0111\u01b0\u1ee3c ngu\u1ed3n tr\u1ef1c ti\u1ebfp"
+        },
+        {
+          "id": "D-stroke-definitive",
+          "reason": "autopsy ch\u01b0a xong, gia \u0111\u00ecnh ph\u1ea3n \u0111\u1ed1i \u2014 ch\u1ec9 'probable malaise' t\u1ea1m th\u1eddi"
+        },
+        {
+          "id": "D-police-map",
+          "reason": "b\u1ea3n \u0111\u1ed3 \u0111i\u1ec1u ph\u1ed1i KH\u00d4NG \u0111\u00e1nh d\u1ea5u v\u1ecb tr\u00ed c\u1ea3nh s\u00e1t/barricade/kh\u00f3i cay"
+        }
+      ]
+    }
+  },
+  "style_playbook": "flat-motion-graphics",
+  "metadata": {
+    "owner_authorization": "Owner 23/10/2026: s\u1eeda video Ph\u00e1p (KH\u00d4NG VietJet/c\u00fam); duration override 3-5 ph\u00fat; Macron \u0111\u1ecdc 'm\u00e1c c\u1edd ron'; media \u0111\u00fang license; kh\u00f4ng h\u1ed3i sinh claim y\u1ebfu; needs_input n\u1ebfu kh\u00f4ng verify; giao Telegram duy\u1ec7t, KH\u00d4NG publish.",
+    "revision": "v2 \u2014 21 sections thay 13; ngu\u1ed3n theo whitelist v2 + Lead spot-verify tr\u1ef1c ti\u1ebfp (\u00c9lys\u00e9e, Guardian, RFI, DW, CNews, franceinfo, Courrier/FT, TF1 LCI, Caf\u00e9 p\u00e9dagogique, La Croix); audit reports history/revision-*.md",
+    "sealed_inputs": "artifacts/v1/ backup gi\u1eef nguy\u00ean 5 artifacts v1",
+    "delivery": "draft HUD + description v2 + credits + QC \u2192 Telegram DM Tuy\u00ean; publish = owner manual sau duy\u1ec7t",
+    "note": "script v2 author = lead t\u1eeb whitelist v2 + spot-verify; hook gi\u1eef nguy\u00ean v\u0103n owner",
+    "timing_validation_warnings": [
+      "Section 'S12' duration (26.0s) exceeds soft cap (25s). Empirical drift grows from 0.86s (<10s) to 7.7s (30-40s). Consider splitting at natural narrative boundaries."
+    ]
+  }
+}

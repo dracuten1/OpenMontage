@@ -1,0 +1,27 @@
+{
+ "version": "1.0",
+ "episode": "S2E04",
+ "checked_at": "2026-10-20T07:05:59.566925+07:00",
+ "status": "pass_with_declared_limits",
+ "checks": {
+  "research_brief_schema_fields": "pass (khớp bộ trường S2E03)",
+  "verbatim_evidence": "20/20 quote là substring tuyệt đối của snapshot (cắt bằng slice từ chính file)",
+  "unique_claim_ids": "15/15 C-id + 3/3 Q-id",
+  "data_points": 15,
+  "sources": 7,
+  "angles": 3,
+  "landscape_entries": 3,
+  "audience_questions": "3 (editor-derived, khai báo provenance — không phải câu hỏi công bố)",
+  "cited_source_set": "matches claim ledger (mọi C có source_id 1–7 đều có evidence + quotes)"
+ },
+ "limits": [
+  "ich.unesco.org bị captcha khi snapshot — dẫn UNESCO qua tường thuật vi.wiki; needs_input bản gốc nếu owner muốn dẫn trực tiếp.",
+  "«Truyện Thánh mẫu Lang» (Tang thương ngẫu lục) chưa có bản số hóa tìm được trên vi.wikisource — needs_input nếu cần đối chiếu trực tiếp.",
+  "«Vân Cát thần nữ» (Đoàn Thị Điểm) chưa snapshot nguyên văn — mới dẫn qua nghiên cứu NCTR 10/2010.",
+  "Niên đại xuất bản cụ thể của bản NHDNLT/VTTP trên wikisource không ghi trong trang đã snapshot — không dựng số năm lên màn hình.",
+  "Sắc phong «Mẫu nghi thiên hạ»/vương hiệu chưa đối chiếu nguyên bản ngọc phả — kể như tổng hợp nghiên cứu.",
+  "Xếp hạng di tích Phủ Dầy/đền Sòng chưa verify — không dùng trong tập này.",
+  "Verbatim match xác nhận độ trung thực truy hồi, không phải chân lý lịch sử.",
+  "Owner approval đang chờ — không assets, không render."
+ ]
+}

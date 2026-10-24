@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "request": "Tiếp tục làm vnmyth ep3 ss2",
+  "date": "2026-10-19",
+  "scope": "Tiếp tục tập S2E03, không phải quyền tự duyệt mọi cửa hoặc toàn mùa.",
+  "gate_A": {
+    "status": "roadmap_and_current_continue_request",
+    "topic": "Chử Đồng Tử"
+  },
+  "gate_B": {
+    "status": "pending_owner_review",
+    "allowed_now": [
+      "validate/import research",
+      "proposal/hook options",
+      "script review draft with no generated assets"
+    ],
+    "requires_explicit_approval": [
+      "TTS batch",
+      "image batch",
+      "full production render"
+    ]
+  },
+  "demo_gate": "Sau khi duyệt research/script, một cảnh demo được duyệt trước batch.",
+  "gate_C": "Draft HUD 720p + scene index, speech-locked timestamps, independent QC.",
+  "gate_D": "Owner duyệt final và tự upload, không auto-post.",
+  "budget_incremental_generation_usd": 0,
+  "no_external_research": true,
+  "no_network_is_not_implied": true,
+  "references": [
+    "SEASON-02-ROADMAP.md §6, §8",
+    "SEASON-02-BIBLE.md §5",
+    "video-producer skill: draft HUD + demo-first + $0"
+  ]
+}

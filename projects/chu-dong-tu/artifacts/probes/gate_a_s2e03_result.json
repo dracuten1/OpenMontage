@@ -1,0 +1,74 @@
+{
+  "chu_dong_tu": {
+    "said": "Chử Đồng Tử. Chử Đồng Tử.",
+    "heard": "Chui đông tử, chui đông tử"
+  },
+  "chu_dong_tu_ctx": {
+    "said": "đền thờ Chử Đồng Tử ở làng Chử Xá.",
+    "heard": "Đến thời trừ đồng tử ở lăng chiều xác."
+  },
+  "chu_xa": {
+    "said": "Chử Xá. làng Chử Xá.",
+    "heard": "Từ xa, lần từ xa."
+  },
+  "tien_dung": {
+    "said": "Tiên Dung. công chúa Tiên Dung.",
+    "heard": "Tiên rung, công chuột tiên rung."
+  },
+  "da_hoa": {
+    "said": "Đa Hòa. đền Đa Hòa. lễ hội đền Đa Hòa.",
+    "heard": "Đà hòa, đỉnh đà hòa, lấy hội đỉnh đà hòa"
+  },
+  "nhat_da": {
+    "said": "Nhất Dạ. đầm Nhất Dạ. Nhất Dạ Trạch, nghĩa là đầm một đêm.",
+    "heard": "Nhật giả đầm nhật giả. Nhật giả trạch nghĩa là đầm một đêm."
+  },
+  "da_trach": {
+    "said": "Dạ Trạch. đầm Dạ Trạch.",
+    "heard": "Dạ chạy đâm dạ chạy"
+  },
+  "me_so": {
+    "said": "Mễ Sở. chợ Mễ Sở.",
+    "heard": "Mẹ sở, chọn mẹ sở"
+  },
+  "khoai_chau": {
+    "said": "Khoái Châu. huyện Khoái Châu.",
+    "heard": "Quá châu... Quá châu"
+  },
+  "quynh_vi": {
+    "said": "Quỳnh Vi. núi Quỳnh Vi.",
+    "heard": "Kuyên vị, mưa kuyên vị"
+  },
+  "quynh_vien": {
+    "said": "Quỳnh Viên. núi Quỳnh Viên.",
+    "heard": "Cũng viên, nỗi Cũng viên."
+  },
+  "quinh_lang": {
+    "said": "Quình-lãng. núi Quình-lãng.",
+    "heard": "Quyên lãng, nữ quyên lãng"
+  },
+  "phu_quang": {
+    "said": "Phu Quang. sư Phu Quang.",
+    "heard": "Phụ quân, sự phụ quân."
+  },
+  "phat_quang": {
+    "said": "Phật-Quang. sư Phật-Quang.",
+    "heard": "Phật quang, sư Phật quang."
+  },
+  "nguong_quang": {
+    "said": "Ngưỡng Quang. tiểu tăng Ngưỡng Quang.",
+    "heard": "Nguyễn quanh, yếu tăng ngưỡng quanh."
+  },
+  "tu_nhien": {
+    "said": "Tự Nhiên. bãi Tự Nhiên.",
+    "heard": "tự nhiên, báy tự nhiên."
+  },
+  "cho_tham": {
+    "said": "Thám. chợ Thám.",
+    "heard": "Thám, chọn thám"
+  },
+  "linh_thieng": {
+    "said": "Linh thiêng ở những vật này đây.",
+    "heard": "Linh thiếu ở những vật này đây."
+  }
+}

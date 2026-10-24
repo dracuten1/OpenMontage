@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "project_id": "coastal-reclamation-20261024",
+  "stage": "publish",
+  "status": "awaiting_human",
+  "timestamp": "2026-10-24T08:20:42.206321+00:00",
+  "pipeline_type": "animated-explainer",
+  "style_playbook": "clean-professional",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {
+    "publish_log": "projects/coastal-reclamation-20261024/publish_log.json"
+  },
+  "cost_snapshot": {
+    "total_spent_usd": 0.0,
+    "total_reserved_usd": 0.0,
+    "budget_remaining_usd": 2.0
+  },
+  "metadata": {
+    "awaiting_gate": "full_draft_approval",
+    "rendered_video": "projects/coastal-reclamation-20261024/renders/coastal_reclamation_draft_hud_720p.mp4",
+    "thumbnail": "projects/coastal-reclamation-20261024/exports/thumbnails/coastal-reclamation-1080x1920.png"
+  }
+}

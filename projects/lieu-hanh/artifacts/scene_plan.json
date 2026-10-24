@@ -1,0 +1,2084 @@
+{
+ "version": "1.0",
+ "style_playbook": "s2-ink-genome-lieu-hanh",
+ "scenes": [
+  {
+   "id": "sc001",
+   "type": "generated",
+   "description": "Ngưỡng cửa đền tháng Ba vẽ mực tàu nâu chuyển teal trên giấy dó: khóe cửa hiện dần, ba nén hương nghi ngút, ánh nắng lễ hội xa sau cửa. Phủ lời quote C12 về hội Phủ Dầy 3/3 âm lịch (beat 1 câu trích).",
+   "start_seconds": 0.0,
+   "end_seconds": 12.5,
+   "script_section_id": "s01",
+   "framing": "wide, ngưỡng cửa đặt lệch theo tỷ lệ vàng, ba nén hương ở foreground",
+   "movement": "dolly_in chậm qua ngưỡng cửa",
+   "transition_in": "fade_from_black",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "Phủ Dầy — 3 tháng 3 âm lịch; Thánh Mẫu Liễu Hạnh (quote C12 verbatim, nguồn: vi.wiki Phủ Dầy) «Ghi chép về»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "dolly_in",
+    "lens_mm": 35,
+    "lighting_key": "volumetric",
+    "depth_of_field": "medium",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Mở tập bằng ngưỡng cửa đền — hình ảnh trung tâm của cả tập, đặt người xem trước thực hành còn sống trước khi vào truyện",
+   "narrative_role": "establish_context",
+   "information_role": "Ghi chép lễ hội: hội Phủ Dầy hàng năm ngày 3/3 âm lịch, thắp hương biết ơn Thánh Mẫu Liễu Hạnh; hình là minh họa không phải quan sát tại chỗ",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mực tàu",
+    "giấy dó",
+    "hương khói",
+    "nâu sang teal"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Ngưỡng cửa đền miền Bắc tháng Ba vẽ mực tàu trên giấy dó, ba nén hương khói cuồn cuộn trước cửa, tông nâu ấm chuyển teal, phong cách hội họa tranh thờ, không người, không chữ",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc002",
+   "type": "animation",
+   "description": "Khung cửa đền Phủ Dầy thu thành nét teal trên giấy dó; một trang truyện amber mở bên cạnh, tách khỏi hình thắp hương. Phủ đoạn s01 từ lời xác định hình minh họa đến câu hỏi về người được gọi là Mẫu.",
+   "start_seconds": 12.5,
+   "end_seconds": 25.61,
+   "script_section_id": "s01",
+   "framing": "Hai mảng cửa đền và trang sách có khoảng trắng ở giữa",
+   "movement": "Lùi máy nhẹ để lộ trang sách",
+   "transition_in": "cross_dissolve",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "Hình minh họa — không phải quan sát tại chỗ «Từ ghi chép»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "dolly_out",
+    "lens_mm": 35,
+    "lighting_key": "overcast_soft",
+    "depth_of_field": "deep",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Đặt câu hỏi về danh xưng mà không dùng ảnh đền xác nhận nhân vật",
+   "narrative_role": "introduce_subject",
+   "information_role": "Thực hành thờ và nhân vật trong truyện cần được phân biệt",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "giấy dó",
+    "mực teal",
+    "amber"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Hai mảng minh họa tách biệt trên giấy dó: ngưỡng cửa đền nét teal và trang sách trắng viền amber, mực tàu tiết chế, không chữ",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc003",
+   "type": "generated",
+   "description": "Bốn con dấu mực amber trên giấy dó: núi (Sơn Tinh), cậu bé cầm ngọn roi (Thánh Gióng), người với chiếc khố (Chử Đồng Tử) hiện mờ; ô thứ tư để trống. Phủ đoạn s02 giới thiệu Tứ bất tử.",
+   "start_seconds": 25.61,
+   "end_seconds": 42.0,
+   "script_section_id": "s02",
+   "framing": "Bốn con dấu xếp hàng ngang, ô trống thứ tư nổi bật",
+   "movement": "pan_right theo thứ tự hiện dấu",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "Tứ bất tử — cách kể phổ biến ngày nay «Nếu bạn đã»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "pan_right",
+    "lens_mm": 50,
+    "lighting_key": "natural",
+    "depth_of_field": "deep",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Kích hoạt ký ức series và dẫn tới ô trống — người phụ nữ duy nhất sắp được điền vào",
+   "narrative_role": "introduce_subject",
+   "information_role": "Bốn cái tên Tứ bất tử là cách kể phổ biến đương đại, không phải bảng khắc cố định",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mực amber",
+    "con dấu",
+    "giấy dó"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Bốn con dấu triện mực tàu amber trên giấy dó: núi, cậu bé cầm roi, người giữ chiếc khó, ô thứ tư trống để trống, phong cách triện mộc",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc004",
+   "type": "animation",
+   "description": "Ô trống thứ tư được điền bằng nét mực nữ nhân mặc áo đỏ dong dỏng, đứng giữa ba con dấu; hai câu hỏi biên tập hiện từng chữ mực amber bên dưới. Phủ nửa sau s02: danh sách phổ biến + hai câu hỏi trung tâm của tập.",
+   "start_seconds": 42.0,
+   "end_seconds": 58.1,
+   "script_section_id": "s02",
+   "framing": "Đóng khung bốn con dấu, câu hỏi ở dải dưới",
+   "movement": "Tĩnh, chỉ chữ hiện dần",
+   "transition_in": "hold",
+   "transition_out": "page_turn",
+   "overlay_notes": "Vì sao một người phụ nữ được đứng trong hàng Tứ bất tử? / Một người phụ nữ trở lại trần gian — vì sao người đời tiếp tục gọi bà là Mẫu? (chữ Mẫu nhấn) «Nhưng chính điều»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "natural",
+    "depth_of_field": "deep",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Ghim hai câu hỏi định hình toàn bộ hành trình tư liệu của tập",
+   "narrative_role": "build_tension",
+   "information_role": "Hai câu hỏi biên tập sẽ dẫn dắt cả tập, không trả lời sớm",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mực amber",
+    "thư pháp",
+    "giấy dó"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Con dấu mực amber hình người phụ nữ áo đỏ đứng giữa ba con dấu mờ, hai dải chữ mực tàu dưới đáy, phong cách triện cổ trên giấy dó",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc005",
+   "type": "generated",
+   "description": "Trang giấy dó amber mở ra, nét mực viết tự nhiên hiện dòng giới thiệu 'Phan Kế Bính — Nam Hải dị nhân liệt truyện'; bút lông chấm mực ở góc. Phủ đoạn đầu s03: mở từ trang sách.",
+   "start_seconds": 58.1,
+   "end_seconds": 74.0,
+   "script_section_id": "s03",
+   "framing": "Trang sách chiếm toàn khung, đặt hơi nghiêng như đang đọc",
+   "movement": "tilt_down theo dòng mực hiện",
+   "transition_in": "page_turn",
+   "transition_out": "hold",
+   "overlay_notes": "Phan Kế Bính — Nam Hải dị nhân liệt truyện «Câu chuyện của»",
+   "shot_language": {
+    "shot_size": "medium",
+    "camera_movement": "tilt_down",
+    "lens_mm": 50,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "shallow",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Thiết lập nguồn chính của tập: một trang sách được chép lại",
+   "narrative_role": "introduce_subject",
+   "information_role": "Nguồn mở truyện là bản chép của Phan Kế Bính trong Nam Hải dị nhân liệt truyện",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "giấy dó",
+    "mực tàu amber",
+    "bút lông"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Trang giấy dó cổ màu amber với nét mực nho viết tay đang hiện dần, bút lông chấm mực đặt bên cạnh, ánh đèn ấm, không chữ rõ",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc006",
+   "type": "generated",
+   "description": "Bản đồ nhỏ phong cách giấy dầu: ba chấm amber dọc theo đường mực nối về một điểm 'Vân Cát', nhãn 'huyện Vụ Bản · tỉnh Nam Định'; cạnh đó nhà tranh ba gian vẽ mực ấm trên đồi thấp. Phủ quote C01 về Lê Thái công và lưu ý 1557.",
+   "start_seconds": 74.0,
+   "end_seconds": 91.06,
+   "script_section_id": "s03",
+   "framing": "Bản đồ chiếm 2/3 khung, nhà tranh ở góc dưới",
+   "movement": "zoom_in nhẹ về điểm Vân Cát rồi tĩnh",
+   "transition_in": "hold",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "1557 — mốc mở truyện bản kể (không đủ xác nhận năm sinh lịch sử) «Xin lưu ý»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "zoom_in",
+    "lens_mm": 50,
+    "lighting_key": "natural",
+    "depth_of_field": "deep",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Định vị địa danh và cài quy tắc đọc số của cả tập",
+   "narrative_role": "establish_context",
+   "information_role": "Bản kể mở ở Vân Cát, Nam Định; 1557 là mốc mở truyện, không phải năm sinh lịch sử",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "giấy dầu",
+    "bản đồ mực",
+    "nhà tranh"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Bản đồ cổ vẽ mực tàu trên giấy dầu nâu, ba chấm amber dọc đường mực nối về một điểm có mái nhà tranh ba gian trên đồi thấp, không chữ hiện đại",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc007",
+   "type": "animation",
+   "description": "Ba tờ giấy xếp lớp hiện dần trên nền giấy dó: tờ amber 'Bản kể', tờ teal 'Đền thờ · thực hành', tờ nâu giấy dầu 'Ghi danh di sản' — chồng lên nhau nhưng giữ biên rõ. Phủ đoạn s04 giới thiệu khuôn khổ ba lớp.",
+   "start_seconds": 91.06,
+   "end_seconds": 112.0,
+   "script_section_id": "s04",
+   "framing": "Ba lớp xếp chéo kiểu collage, nhìn nghiêng",
+   "movement": "crane_down từ trên xuống khi từng tờ hiện",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "Ba lớp — không trộn thành một «Trước khi bước»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "crane_down",
+    "lens_mm": 35,
+    "lighting_key": "overcast_soft",
+    "depth_of_field": "deep",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Trao chiếc chìa khóa phương pháp — cấu trúc 3 lớp dẫn dắt toàn tập",
+   "narrative_role": "establish_context",
+   "information_role": "Ba lớp tư liệu: bản kể, đền thờ-thực hành, ghi danh di sản; mỗi lớp giữ lại điều riêng",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "giấy dó",
+    "layered paper",
+    "amber-teal-nâu"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Ba tờ giấy dó chồng lớp: amber, teal, nâu giấy dầu, biên mỗi tờ rõ ràng, bố cục collage nghiêng trên nền giấy xưa",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc008",
+   "type": "animation",
+   "description": "Bốn vật thể mực nhỏ trôi ngang màn hình trên nền giấy dó: chén ngọc sứt góc, tấm biển vàng hai chữ, dãy đèo núi, ngưỡng cửa đền; dòng mực nhỏ 'không khẳng định bà là ai trong lịch sử' dưới đáy. Phủ nửa sau s04: phương pháp + bốn dấu vết đón trước.",
+   "start_seconds": 112.0,
+   "end_seconds": 133.27,
+   "script_section_id": "s04",
+   "framing": "Dải ngang bốn vật thể, dòng chữ phương pháp ở dải dưới",
+   "movement": "tracking_right theo dòng vật thể trôi",
+   "transition_in": "hold",
+   "transition_out": "page_turn",
+   "overlay_notes": "Tôi sẽ không khẳng định bà là ai trong lịch sử — chỉ chỉ cho bạn xem mỗi lớp giữ lại điều gì «Ba lớp này»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "tracking_right",
+    "lens_mm": 50,
+    "lighting_key": "natural",
+    "depth_of_field": "deep",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Hứa hẹn bốn mốc hình ảnh sẽ dẫn người xem qua ba lớp",
+   "narrative_role": "transition",
+   "information_role": "Phương pháp biên tập: tách lớp, không khẳng định nhân vật lịch sử",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mực tàu",
+    "vật thể nhỏ",
+    "giấy dó"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Bốn vật thể vẽ mực tàu nhỏ trên dải giấy dó: chén ngọc sứt một góc, tấm biển vàng hai chữ mờ, dãy núi đèo, ngưỡng cửa đền — bố cục ngang cách đều nhau",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc009",
+   "type": "animation",
+   "description": "Trang sách amber lật ngược mở ra thành khoảng trời mực ấm nhiều tầng mây; một người con gái mặc áo đỏ bâng chén ngọc đi giữa, chén nghiêng, rơi và sứt một góc đúng nhịp narration. Phủ quote C02 mở hồi 1: tai nạn chén ngọc.",
+   "start_seconds": 133.27,
+   "end_seconds": 155.0,
+   "script_section_id": "s05",
+   "framing": "Người áo đỏ nhỏ giữa trời mây rộng, chén rơi ở foreground",
+   "movement": "dolly_in chậm theo quỹ đạo chén rơi",
+   "transition_in": "page_turn",
+   "transition_out": "hold",
+   "overlay_notes": "«Bây giờ, trang»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "dolly_in",
+    "lens_mm": 35,
+    "lighting_key": "volumetric",
+    "depth_of_field": "medium",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Cảnh mở truyện bằng hình ảnh — tai nạn rất đời đặt cả câu chuyện vào chuyển động",
+   "narrative_role": "emotional_beat",
+   "information_role": "Truyện kể người con gái áo đỏ nhỡ tay rơi chén ngọc khi dâng rượu thọ",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mực ấm",
+    "trời mây",
+    "chén ngọc",
+    "áo đỏ"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Trời mây tiên cảnh vẽ mực tàu ấm trên giấy dó, người con gái mặc áo đỏ khoác dải lụa bâng mâm chén ngọc, một chén đang nghiêng rơi, không hiện rõ mặt, phong cách hội họa cổ tích tiết chế",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc010",
+   "type": "animation",
+   "description": "Viên quan nét mực chấm bút viết vài chữ vào sổ; rồi tấm biển vàng hiện rõ: 'Sắc-giáng' trên, 'Nam nam' giữa, các khoản dưới vẽ nhòe mờ mực. Phủ quote C02 tiếp: sổ sách, biển vàng, lời lực sĩ về Quỳnh-hoa tiên-chúa thứ hai.",
+   "start_seconds": 155.0,
+   "end_seconds": 182.36,
+   "script_section_id": "s05",
+   "framing": "Sổ ở trái, biển vàng ở phải, chia đôi khung",
+   "movement": "rack_focus từ sổ sang biển vàng",
+   "transition_in": "hold",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "Quỳnh-hoa — tiên-chúa thứ hai (Sắc-giáng · Nam nam) «Mé trước có»",
+   "shot_language": {
+    "shot_size": "medium",
+    "camera_movement": "rack_focus",
+    "lens_mm": 85,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "shallow",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Dựng nhịp 'bị ghi lại' — danh tính được kê khai bằng hình ảnh văn khố trước khi phán quyết đầy trần",
+   "narrative_role": "build_tension",
+   "information_role": "Lời lực sĩ: tiên-chúa thứ hai tên Quỳnh-hoa, chuyến này phải đầy xuống trần",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "sổ giấy",
+    "biển vàng",
+    "mực nhòe"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Tấm biển vàng sơn son cổ hai hàng chữ mờ phía trên và giữa, phần dưới mờ nhòe như khói mực, đặt cạnh quyển sổ giấy nâu và bút chấm mực, ánh nến ấm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc011",
+   "type": "diagram",
+   "description": "Thẻ tên net-teal hiện lần lượt đặt ngang nhau trên giấy dó: 'Quỳnh Hoa' (đoạn chén ngọc), 'Giáng Tiên' (đoạn ngày mất), 'Yên-thái' / 'An Thái' (hai bản kể), mỗi thẻ gắn nhãn nguồn nhỏ. Phủ s06: mỗi tên ở đúng đoạn nguồn, không hợp nhất dị bản.",
+   "start_seconds": 182.36,
+   "end_seconds": 209.4,
+   "script_section_id": "s06",
+   "framing": "Bốn thẻ tên xếp ngang hàng, nhãn nguồn dưới mỗi thẻ",
+   "movement": "static, thẻ hiện dần theo narration",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "Tên theo từng nguồn — không hợp nhất «Theo bản Phan»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "overcast_soft",
+    "depth_of_field": "deep",
+    "color_temperature": "cool"
+   },
+   "shot_intent": "Thể hiện trực quan nguyên tắc không hợp nhất dị bản — nền tảng kiểm chứng của tập",
+   "narrative_role": "evidence",
+   "information_role": "Các tên Quỳnh Hoa, Giáng Tiên, Yên Thái, An Thái thuộc từng nguồn riêng; không dựng thêm tuổi thơ",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "thẻ giấy",
+    "nét teal",
+    "nhãn nguồn"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Bốn thẻ giấy dó xếp hàng ngang nét mực teal, mỗi thẻ có con dấu nhỏ ở góc phân biệt, nền giấy xưa, bố cục tối giản lưu hồ sơ",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc012",
+   "type": "generated",
+   "description": "Mọi hình ảnh thu về một trang sách im lìm; chỉ dòng mực cuối trang hiện dần câu trích về mồng ba tháng ba; chuông đền vẽ mực teal gợn một vòng ở góc xa. Phủ quote C03 s07: câu duy nhất về ngày mất.",
+   "start_seconds": 209.4,
+   "end_seconds": 229.0,
+   "script_section_id": "s07",
+   "framing": "Trang sách chiếm toàn khung, gần như trống, một dòng mực duy nhất",
+   "movement": "dolly_in rất chậm vào dòng mực",
+   "transition_in": "hold",
+   "transition_out": "hold",
+   "overlay_notes": "Hôm mồng ba tháng ba, Giáng tiên tự nhiên vô bệnh mà mất, bấy giờ mới hai mươi mốt tuổi. (quote C03, NHDNLT 45 Phan Kế Bính) «Rồi đến một»",
+   "shot_language": {
+    "shot_size": "close_up",
+    "camera_movement": "dolly_in",
+    "lens_mm": 85,
+    "lighting_key": "low_key",
+    "depth_of_field": "shallow",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Tôn khoảng lặng — câu chép ngắn nhất của truyện được cho không gian im lặng đúng trọng lượng",
+   "narrative_role": "emotional_beat",
+   "information_role": "Bản kể chép duy nhất một câu: mồng ba tháng ba, vô bệnh, hai mươi mốt tuổi",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "trang sách im lìm",
+    "mực tàu",
+    "khoảng trống"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Trang giấy dó gần như trống chỉ một dòng mực cuối trang, ánh sáng low-key, một vòng chuông mực teal mờ góc xa trên khung",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc013",
+   "type": "diagram",
+   "description": "Hai mảnh giấy đặt cạnh nhau không chạm: mảnh amber 'bản kể — mồng ba tháng ba' và mảnh teal 'hội Phủ Dầy — 3/3 âm lịch', cùng hướng về dòng chữ chung '3 tháng 3 âm lịch' nhưng giữ biên. Phủ nửa sau s07: trùng ngày đáng đặt cạnh nhau, chưa đủ chứng minh.",
+   "start_seconds": 229.0,
+   "end_seconds": 239.99,
+   "script_section_id": "s07",
+   "framing": "Hai mảnh đối xứng hai bên, khoảng hở ở giữa",
+   "movement": "static",
+   "transition_in": "hold",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "3 tháng 3 âm lịch (theo bản kể · theo ghi chép lễ hội) «Sự trùng ngày»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "overcast_soft",
+    "depth_of_field": "deep",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Dạy cách đọc trùng khớp: đặt cạnh nhau, không suy nguyên nhân",
+   "narrative_role": "comparison",
+   "information_role": "Hai ghi chép cùng nêu ngày ba tháng ba; trùng ngày không chứng minh nguồn gốc lễ hội",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "hai mảnh giấy",
+    "amber-teal",
+    "khoảng hở"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Hai mảnh giấy dó đặt cạnh nhau cách một khe hở: mảnh amber có dòng mục truyện, mảnh teal có hình ngưỡng đền, giữa là khoảng trống giấy xưa",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc014",
+   "type": "animation",
+   "description": "Trang sách định khép lại thì nét mực 'hiển thánh' tỏa ra giữ trang mở; đường mực amber nối tiếp sang địa danh đèo Ngang phố Cát và phác đền núi Sùng-sơn chỉ trong khung bản kể. Phủ s08: chuyện chưa dừng, hiển thánh, hồi hai bắt đầu.",
+   "start_seconds": 239.99,
+   "end_seconds": 262.0,
+   "script_section_id": "s08",
+   "framing": "Trang sách nửa khép trái, cảnh mực mở phải",
+   "movement": "pan_right theo đường mực sang phải",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "hiển thánh — giữ chữ trong khung truyện «Nếu đây là»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "pan_right",
+    "lens_mm": 35,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "medium",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Đảo nhịp kể: dấu ngắt hóa bước chuyển — câu chuyện không kết thúc ở cái chết",
+   "narrative_role": "transition",
+   "information_role": "Chữ 'hiển thánh' giữ trong khung truyện; đèo Ngang phố Cát, đền Sùng-sơn là địa danh trong bản kể chưa xác minh",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "trang sách",
+    "mực ấm",
+    "đèo núi"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Trang sách cổ amber nửa khép, từ trang tỏa nét mực ấm hình thành dãy đèo núi và mái đền nhỏ trên đồi phía sau, phong cách mực tàu",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc015",
+   "type": "animation",
+   "description": "HERO. Đường mực amber rời nhà tranh Vân Cát đi xa lên trời rồi cong trở về, đổ bóng xuống thềm nhà; chữ 'trở về' hiện mực ấm. Phủ s09: người con gái trở về trần gian — khoảnh khắc đổi hướng của cả truyện.",
+   "start_seconds": 262.0,
+   "end_seconds": 280.07,
+   "script_section_id": "s09",
+   "framing": "Đường mực chữ S lớn giữa khung, nhà tranh nhỏ dưới",
+   "movement": "dolly_in theo đường mực trở về",
+   "transition_in": "hold",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "trở về «Theo truyện kể,»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "dolly_in",
+    "lens_mm": 35,
+    "lighting_key": "golden_hour",
+    "depth_of_field": "medium",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Đỉnh cảm xúc đầu tiên — trở về là câu trả lời hình ảnh cho câu hỏi mở đầu 'vì sao truyện vẫn kể tiếp'",
+   "narrative_role": "deliver_payload",
+   "information_role": "Bản kể mở đường cho nàng trở về; nhận xét biên tập: cách truyện giữ người con gái ở lại cõi người",
+   "hero_moment": true,
+   "character_actions": [],
+   "texture_keywords": [
+    "đường mực",
+    "golden hour",
+    "giấy dó"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Đường nét mực tàu amber lớn vẽ quỹ đạo rời đi rồi cong trở về nhà tranh ba gian trên đồi, ánh vàng chiều, bố cục giấy dó tối giản",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc016",
+   "type": "animation",
+   "description": "Trên giấy dó amber, dòng câu đối hiện theo lời đọc: 'Tam mộc sâm đình; tọa chước hảo hề nữ tử.' rồi câu đáp 'Trùng sơn xuất lộ; tẩu lai sứ giả lại nhân.' nét mực ấm, không chữ Hán; bóng hai người đối diện nhau qua bàn trà mực nhỏ. Phủ s10: đối đáp với Trạng Bùng (quote C04).",
+   "start_seconds": 280.07,
+   "end_seconds": 310.19,
+   "script_section_id": "s10",
+   "framing": "Hai câu đối xếp hai dòng dọc, bóng người đối xứng",
+   "movement": "tilt_up theo dòng chữ hiện",
+   "transition_in": "cross_dissolve",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "Tam mộc sâm đình / Trùng sơn xuất lộ (quote C04, NHDNLT 45 Phan Kế Bính) — tên Trạng Bùng trong bản kể, chưa xác nhận cuộc gặp «Nam Hải dị»",
+   "shot_language": {
+    "shot_size": "medium",
+    "camera_movement": "tilt_up",
+    "lens_mm": 50,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "shallow",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Cao trào văn chương của hồi 2 — chữ đối chữ, người đoán người, khép ở chỗ người hỏi chưa kịp biết",
+   "narrative_role": "evidence",
+   "information_role": "Bản kể ghi cuộc đối đáp với Phùng Khắc Khoan; việc nêu tên không đủ xác nhận cuộc gặp có thật",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "thư pháp",
+    "giấy dó amber",
+    "bóng người"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Hai dòng thư pháp mực tàu trên giấy dó amber xếp dọc, dưới mỗi dòng là bóng người ngồi đối diện qua bàn trà vẽ mực, không nét mặt",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc017",
+   "type": "diagram",
+   "description": "Các thẻ giấy nét teal hiện lần lượt đặt ngang hàng: 'Yên-thái' (Phan Kế Bính), 'An Thái' (bản dân gian), 'Tiên Hương · Kim Thái' (bách khoa), nhãn 'mỗi bản gọi khác' hiện khi kết luận. Phủ s11: đối chiếu tên theo từng nguồn (quote C06a mở đầu).",
+   "start_seconds": 310.19,
+   "end_seconds": 340.78,
+   "script_section_id": "s11",
+   "framing": "Ba nhóm thẻ xếp ngang hàng, không cái nào nổi lên",
+   "movement": "static, thẻ hiện dần",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "mỗi bản gọi khác — giữ theo từng nguồn «Ở lớp kiểm»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "overcast_soft",
+    "depth_of_field": "deep",
+    "color_temperature": "cool"
+   },
+   "shot_intent": "Củng cố nguyên tắc kiểm chứng bằng tên gọi — không ép thành một tên đúng duy nhất",
+   "narrative_role": "evidence",
+   "information_role": "Cùng vùng Vân Cát, mỗi bản gọi khác: Yên Thái, An Thái, Tiên Hương; kèm các danh xưng Liễu Hạnh Công chúa, Mẫu nghi thiên hạ",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "thẻ giấy teal",
+    "nhãn nguồn",
+    "bố cục ngang"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Ba nhóm thẻ giấy dó mực teal xếp hàng ngang trên nền giấy xưa, mỗi nhóm có con dấu nguồn khác nhau ở góc, không chữ rõ",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc018",
+   "type": "animation",
+   "description": "Hai thẻ teal 'Phố Cát' và 'Đền Sòng' hiện trên trang sách theo câu trích C06b; sau đó trang sách nối bằng nét mực teal tới hình mái đền mọc lên. Phủ s12: 'lần thứ hai' là cấu trúc cách kể; truyện dẫn đến đền — cửa sang lớp đền thờ.",
+   "start_seconds": 340.78,
+   "end_seconds": 371.14,
+   "script_section_id": "s12",
+   "framing": "Trang sách trái, mái đền phải, nét mực nối",
+   "movement": "tracking_right theo nét nối",
+   "transition_in": "hold",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "lần thứ hai — cấu trúc của cách kể (các văn bản Nho học 18–20 đều kể hai lần giáng sinh: nhận định nghiên cứu) «Vẫn ở lớp»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "tracking_right",
+    "lens_mm": 35,
+    "lighting_key": "overcast_soft",
+    "depth_of_field": "deep",
+    "color_temperature": "cool"
+   },
+   "shot_intent": "Chuyển cầu từ truyện sang đền — đặt ranh giới trước khi bước sang lớp thực hành",
+   "narrative_role": "transition",
+   "information_role": "Đền được kể mọc lên ở nơi nàng từng đến; muốn sang lớp đền thờ phải giữ ranh giới với truyện",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "nét teal",
+    "trang sách",
+    "mái đền"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Trang sách cổ nối bằng nét mực teal uốn lượn sang hình mái đền nhỏ trên đồi, bố cục hai nửa trái phải, phong cách mực tàu giấy dó",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc019",
+   "type": "generated",
+   "description": "Núi đèo và mây vẽ mực amber trên giấy dó; nhà tranh Vân Cát nhỏ lùi lại xa, quán nước bên đường hiện theo lời kể; chữ 'đèo Ngang phố Cát' trong khung trang sách. Phủ quote C05 s13: đoạn mở về hiển thánh ở đèo Ngang phố Cát, tỉnh Thanh-hóa.",
+   "start_seconds": 371.14,
+   "end_seconds": 401.73,
+   "script_section_id": "s13",
+   "framing": "Đèo núi chiếm nền, quán nước nhỏ ở giữa",
+   "movement": "pan_left theo đường đèo",
+   "transition_in": "cross_dissolve",
+   "transition_out": "hold",
+   "overlay_notes": "đèo Ngang phố Cát — giữ trong khung lời kể (quote C05) «Ta trở lại»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "pan_left",
+    "lens_mm": 24,
+    "lighting_key": "natural",
+    "depth_of_field": "deep",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Đổi không gian truyện — từ làng quê sang núi đèo quán nước, nơi câu chuyện đổi giọng",
+   "narrative_role": "establish_context",
+   "information_role": "Bản kể chuyển tiên chúa tới đèo Ngang phố Cát; địa danh giữ trong khung lời kể, chưa thành chứng cứ hành trình",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mực amber",
+    "núi đèo",
+    "quán nước"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Dãy đèo núi mây mù vẽ mực tàu amber trên giấy dó, quán nước tranh nhỏ ven đường giữa dốc, nhà tranh nhỏ lùi xa phía sau, không người",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc020",
+   "type": "animation",
+   "description": "Khung xa quán nước mực amber và chiếc chén nước đặt trên bàn giấy dó; mực trên chén gợn sóng nhẹ báo quyền lực vô hình; không hiện thân, không hậu quả. Chữ 'lớp bản kể' nhỏ bên trang. Phủ s14: trừng trị kẻ đùa bỡn — kể đến đó rồi giữ khoảng cách.",
+   "start_seconds": 401.73,
+   "end_seconds": 431.85,
+   "script_section_id": "s14",
+   "framing": "Quán nước rất xa, chén nước là tâm điểm duy nhất",
+   "movement": "zoom_in chậm vào chén nước",
+   "transition_in": "hold",
+   "transition_out": "hold",
+   "overlay_notes": "lớp bản kể — không minh họa hiện hình hay hậu quả «Tiếp đoạn vừa»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "zoom_in",
+    "lens_mm": 85,
+    "lighting_key": "overcast_soft",
+    "depth_of_field": "shallow",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Kể sự trừng phạt bằng vật thể thay thân thể — giữ phẩm giá, hướng kể đổi: quyền lực buộc kẻ vô lễ trả giá",
+   "narrative_role": "build_tension",
+   "information_role": "Kẻ đùa bỡn thiếu lễ độ phải chịu hậu quả trong lớp truyện; không tả thân thể, không lấy đau đớn làm thú vui",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "chén nước",
+    "mực gợn",
+    "quán nước xa"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Chiếc chén nước đặt trên bàn gỗ trước quán nước tranh vẽ mực tàu, mặt nước trong chén gợn sóng đồng tâm, không người, khoảng không im lặng",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc021",
+   "type": "animation",
+   "description": "Mái đền vẽ mực amber mất dần đường nét rời ra thành hạt mực bay; cụm 'nghi là yêu quái' nằm gọn trong khung trang sách, không dán lên hình. Phủ quote C05 s15: triều đình sai quân tiễu, đền đài tan phá; nghịch lý danh xưng theo phía nhìn.",
+   "start_seconds": 431.85,
+   "end_seconds": 462.68,
+   "script_section_id": "s15",
+   "framing": "Đền ở giữa tan rã, trang sách viền quanh",
+   "movement": "dolly_out khi đền tan thành mực",
+   "transition_in": "hold",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "nghi là yêu quái — cách gọi theo phía đang nhìn (trong truyện) «Bản kể đẩy»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "dolly_out",
+    "lens_mm": 50,
+    "lighting_key": "low_key",
+    "depth_of_field": "medium",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Cho thấy cùng một người được gọi tiên chúa hay yêu quái tùy phe — nhưng không biến thành trận đánh lịch sử",
+   "narrative_role": "build_tension",
+   "information_role": "Triều đình trong truyện nghi là yêu quái, sai quân tiễu; đền đài tan phá là hình ảnh của trang sách",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mực tan",
+    "đền mờ",
+    "low-key"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Mái đền cổ vẽ mực tàu đang tan thành hạt mực bay trong gió trên giấy dó, viền trang sách mờ quanh khung, ánh sáng thấp",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc022",
+   "type": "animation",
+   "description": "Dây khói hương mực amber của dân cầu khấn bay lên trước, sau đó ấn triều đình đỏ son ép xuống phong tước; mái đền Sùng-sơn được vẽ lại bằng nét amber trên giấy dó; cụm 'đến giờ vẫn còn' nằm trong trang sách. Phủ quote C05 s16: dân cầu trước, triều đình phong sau.",
+   "start_seconds": 462.68,
+   "end_seconds": 493.04,
+   "script_section_id": "s16",
+   "framing": "Khói hương dưới, ấn son trên, đền ở giữa",
+   "movement": "tilt_up theo khói lên ấn son",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "Mã-vàng công chúa · Chế-thắng bảo hòa-diệu đại vương — 'đến giờ vẫn còn' là lời người chép (quote C05) «Bản kể tiếp»",
+   "shot_language": {
+    "shot_size": "medium",
+    "camera_movement": "tilt_up",
+    "lens_mm": 50,
+    "lighting_key": "rim_lit",
+    "depth_of_field": "medium",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Khoảnh khắc kép: hai chiều thờ-phong gặp nhau trong một chuỗi kể — cửa mở sang lớp đền thờ",
+   "narrative_role": "deliver_payload",
+   "information_role": "Dân cầu khấn trước, triều đình sửa đền phong tước sau; 'đến giờ vẫn còn' thuộc thời người chép",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "khói hương",
+    "ấn son",
+    "mái đền amber"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Dây khói hương vẽ mực ấm bay lên gặp ấn triều đình son đỏ, giữa là mái đền núi Sùng-sơn nét amber trên giấy dó, bố cục ba tầng dọc",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc023",
+   "type": "animation",
+   "description": "Trang truyện amber lùi mờ về trái; tờ giấy chứng cứ nét teal phơi ra trên nền giấy dó bên phải, có gáy hồ sơ; chữ 'đi cạnh nhau' nét teal nằm giữa hai mảnh. Phủ s17: bước sang lớp đền thờ — truyện và đền đi cạnh, không làm chứng thay nhau.",
+   "start_seconds": 493.04,
+   "end_seconds": 523.16,
+   "script_section_id": "s17",
+   "framing": "Trang truyện và tờ chứng cứ chia đôi khung, dòng teal ở giữa",
+   "movement": "dolly_out nhẹ lộ toàn cảnh hai lớp",
+   "transition_in": "hold",
+   "transition_out": "page_turn",
+   "overlay_notes": "đi cạnh nhau — không làm chứng thay nhau «Ta bước sang»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "dolly_out",
+    "lens_mm": 35,
+    "lighting_key": "overcast_soft",
+    "depth_of_field": "deep",
+    "color_temperature": "cool"
+   },
+   "shot_intent": "Nghi thức chuyển lớp rõ ràng — người xem nắm phương pháp trước khi vào chứng cứ",
+   "narrative_role": "transition",
+   "information_role": "Lời người chép chưa thay kiểm chứng; cần loại ghi chép khác: ghi chép về chính việc thờ",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "giấy chứng cứ teal",
+    "trang truyện amber",
+    "gáy hồ sơ"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Tờ giấy chứng cứ mực teal phơi trên nền giấy dó, trang truyện amber lùi mờ phía sau, dòng nét teal giữa hai mảnh, phong cách hồ sơ cổ",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc024",
+   "type": "generated",
+   "description": "HERO. Tờ chứng cứ teal hiện tên 'Vũ trung tùy bút'; nét teal phác nền đàn Nam Giao ba tầng và mái đền nhỏ trên gò; chân dung không có — chỉ bố cục đền giữa không gian nghi lễ. Phủ quote C07a+b s18: đền thờ bà công chúa Liễu Hạnh ở nền Nam Giao, người lân cận và người đồng cốt làm ra đền.",
+   "start_seconds": 523.16,
+   "end_seconds": 552.09,
+   "script_section_id": "s18",
+   "framing": "Đàn Nam Giao ba tầng ở trung tâm, nhìn từ thấp lên",
+   "movement": "crane_up từ mặt đất qua các tầng đàn",
+   "transition_in": "page_turn",
+   "transition_out": "hold",
+   "overlay_notes": "Vũ trung tùy bút — ghi chép phong tục (bản dịch hiện đại) · 'lịch sử thực hành' «Ở lớp thực»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "crane_up",
+    "lens_mm": 24,
+    "lighting_key": "blue_hour",
+    "depth_of_field": "deep",
+    "color_temperature": "cool"
+   },
+   "shot_intent": "Chứng cứ trung tâm của lớp thực hành — vật thể ngoài trang sách đầu tiên, được dựng trang nghiêm như hồ sơ",
+   "narrative_role": "evidence",
+   "information_role": "Vũ trung tùy bút ghi đền thờ bà công chúa Liễu Hạnh ở nền Nam Giao thời Nguyễn; chứng cứ về việc thờ, không chứng minh nhân vật từng sống",
+   "hero_moment": true,
+   "character_actions": [],
+   "texture_keywords": [
+    "đàn Nam Giao",
+    "nét teal",
+    "blue hour",
+    "hồ sơ cổ"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Đàn tế ba tầng vẽ mực teal trên giấy dó như bản vẽ hồ sơ, mái đền nhỏ trên gò đất phía sau, bầu trời xanh tối, không người, trang nghiêm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc025",
+   "type": "diagram",
+   "description": "Sơ đồ teal trên giấy dó: vòng các dấu vị thần không tên xếp quanh, nhãn 'Liễu Hạnh' đặt ở một dấu, không bao trùm; hai nhánh nhỏ Tam phủ / Tứ phủ tỏa từ tâm. Phủ quote C13 s19: hệ Mẫu có nhiều vị, bà là một thần chủ; câu hỏi biên tập Q03.",
+   "start_seconds": 552.09,
+   "end_seconds": 582.45,
+   "script_section_id": "s19",
+   "framing": "Sơ đồ vòng tròn tâm giữa, nhãn đơn ở một vị trí",
+   "movement": "zoom_out nhẹ lộ đủ vòng",
+   "transition_in": "hold",
+   "transition_out": "hold",
+   "overlay_notes": "Thờ Mẫu Tam phủ và truyền thuyết Liễu Hạnh là một hay hai chuyện khác nhau? (câu hỏi biên tập) «Vẫn ở lớp»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "zoom_out",
+    "lens_mm": 50,
+    "lighting_key": "overcast_soft",
+    "depth_of_field": "deep",
+    "color_temperature": "cool"
+   },
+   "shot_intent": "Sửa cách hiểu quá gọn 'nữ thần nào cũng là Liễu Hạnh' bằng sơ đồ vị trí đúng của bà trong hệ",
+   "narrative_role": "evidence",
+   "information_role": "Nghiên cứu: tục thờ Nữ thần bản địa kết hợp ảnh hưởng Đạo giáo hình thành đạo Tam phủ, Tứ phủ; Liễu Hạnh là một thần chủ",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "sơ đồ teal",
+    "dấu vị thần",
+    "giấy dó"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Sơ đồ vòng tròn mực teal trên giấy dó: nhiều dấu triện nhỏ xếp quanh vành, một dấu được đánh nhãn ở vành, hai nhánh mảnh tỏa từ tâm, không chữ rõ",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc026",
+   "type": "text_card",
+   "description": "Thẻ slate quote trên nền giấy dó teal tối: tên ba nghi thức được liệt kê trang nghiêm từng dòng đúng thứ tự bách khoa; không hình người, không hiệu ứng. Phủ quote C12b s20: ba nghi thức quan trọng nhất của lễ hội Phủ Dầy.",
+   "start_seconds": 582.45,
+   "end_seconds": 613.28,
+   "script_section_id": "s20",
+   "framing": "Khung chữ đặt giữa nền trống, căn giữa",
+   "movement": "static",
+   "transition_in": "hold",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "Lễ Rước Mẫu Thỉnh Kinh · Lễ Rước Đuốc tại Phủ Chính · Lễ kéo chữ Hoa Trượng Hội (quote C12b, vi.wiki Phủ Dầy) «Từ trang ghi»",
+   "shot_language": {
+    "shot_size": "medium",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "low_key",
+    "depth_of_field": "deep",
+    "color_temperature": "cool"
+   },
+   "shot_intent": "Đọc tên nghi lễ chậm và trang nghiêm — sức nặng nằm ở tên gọi, không cần cảnh huyền bí",
+   "narrative_role": "emotional_beat",
+   "information_role": "Ba nghi thức chính của hội Phủ Dầy; hình lễ hội nếu dùng chỉ là ảnh minh họa",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "slate",
+    "mực teal",
+    "trang nghiêm"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Nền giấy dó tông teal trầm với ba ô thẻ chữ vuông xếp dọc ở giữa như bảng nghi thức đền, viền mảnh mực tàu, không hình người",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc027",
+   "type": "generated",
+   "description": "Ngưỡng cửa đền Phủ Dầy tháng Ba vẽ mực teal: hàng cột đền, đèn lồng đỏ treo theo nhịp hội, dòng người đi lễ silhouette xa xa trang nghiêm, không gần mặt. Phủ s20-cue 'ảnh minh họa' + mở s25: từ trang ghi chép trở về lớp thực hành ở hội tháng Ba (cảnh này nằm cuối s20, phủ câu 'câu chuyện trở về với việc người đời cùng thực hành nghi lễ').",
+   "start_seconds": 613.28,
+   "end_seconds": 645.3,
+   "script_section_id": "s20",
+   "framing": "Nhìn qua cột đền vào khoảng sân lễ hội, người rất nhỏ",
+   "movement": "steadicam tiến chậm qua sân đền",
+   "transition_in": "cross_dissolve",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "ảnh minh họa «Chỉ riêng những»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "steadicam",
+    "lens_mm": 35,
+    "lighting_key": "golden_hour",
+    "depth_of_field": "medium",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Đỉnh thị giác của lớp thực hành — hội tháng Ba sống động nhưng tiết chế, dignity-safe, gắn nhãn minh họa rõ",
+   "narrative_role": "emotional_beat",
+   "information_role": "Người đời cùng thực hành nghi lễ ở hội Phủ Dầy; không thêm cảnh huyền bí hay lên đồng",
+   "hero_moment": true,
+   "character_actions": [],
+   "texture_keywords": [
+    "đền Phủ Dầy",
+    "đèn lồng",
+    "silhouette",
+    "teal"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Sân đền miền Bắc tháng Ba vẽ mực tàu teal trên giấy dó, hàng cột đỏ son và đèn lồng lễ hội, dòng người đi lễ silhouette nhỏ xa trang nghiêm, không nét mặt gần, phong cách hội họa cổ điển",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc028",
+   "type": "diagram",
+   "description": "Hai nhánh tách biệt tỏa từ chữ 'Mẫu' trung tâm: nhánh teal mái đền 'đền và hội', nhánh amber trang kể 'tôn phong và xếp hạng'; dòng 'Mẫu nghi thiên hạ' hiện trong trích dẫn; nhãn 'Sắc phong gốc chưa đối chiếu' nhỏ dưới. Phủ quote C15 s21: hai chiều của danh xưng.",
+   "start_seconds": 645.3,
+   "end_seconds": 677.08,
+   "script_section_id": "s21",
+   "framing": "Chữ Mẫu tâm trái, hai nhánh tỏa phải trên xuống",
+   "movement": "dolly_out nhẹ lộ hai nhánh đầy đủ",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "Mẫu nghi thiên ha (quote C15, Nghiên cứu Tôn giáo 10/2010) · Sắc phong gốc chưa đối chiếu · Mạ vàng chế thắng đại vương, thượng đẳng thần «Từ lớp đền»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "dolly_out",
+    "lens_mm": 50,
+    "lighting_key": "natural",
+    "depth_of_field": "deep",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Trả lời câu hỏi Mẫu bằng cấu trúc hai chiều — không thu về một văn kiện duy nhất",
+   "narrative_role": "deliver_payload",
+   "information_role": "Dân thờ trước (đền, hội), triều đình chính danh sau (tôn phong, xếp hạng); là lời nghiên cứu tóm tắt, sắc phong gốc chưa đối chiếu",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "sơ đồ hai nhánh",
+    "teal+amber",
+    "triện son"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Sơ đồ hai nhánh mực trên giấy dó tỏa từ một con dấu trung tâm: nhánh teal hình mái đền, nhánh amber hình trang sách với ấn son, không dựng trục niên đại",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc029",
+   "type": "animation",
+   "description": "Đường mực amber rời nhà tranh rồi trở về (callback sc015 gọn hơn); mái đền nằm trên tờ giấy riêng phía sau; chữ 'có thể đọc là' hiện trên giấy dó. Phủ s22: cách đọc biên tập — câu chuyện cộng đồng muốn giữ lại một người phụ nữ.",
+   "start_seconds": 677.08,
+   "end_seconds": 707.2,
+   "script_section_id": "s22",
+   "framing": "Đường mực S nhỏ gọn, tờ đền tách biệt phía sau",
+   "movement": "static, đường mực tự vẽ",
+   "transition_in": "hold",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "có thể đọc là — cách đọc biên tập, không phải kết luận duy nhất «Trở lại lớp»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "golden_hour",
+    "depth_of_field": "deep",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Đưa đề xuất diễn giải của tập — mở cho người xem tự quyết, miễn không dùng lớp này xác nhận lớp kia",
+   "narrative_role": "deliver_payload",
+   "information_role": "Trong truyện nàng mất rồi trở về; ngoài truyện người đời thờ Mẫu — đền và danh xưng là cách trả lời nỗi muốn giữ lại",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "đường mực amber",
+    "callback",
+    "giấy dó"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Đường nét mực amber nhỏ vẽ vòng rời rồi trở về nhà tranh, phía sau là tờ giấy riêng có mái đền, bố cục tối giản hai lớp",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc030",
+   "type": "generated",
+   "description": "Thẻ hồ sơ nâu giấy dầu hiện dần trên bàn giấy UNESCO hiện đại: tem документов, con dấu mực xanh, dòng tên di sản; các mốc '1/12/2016', 'lần thứ 11', '14 tỉnh' hiện tuần tự. Phủ quote C10 s23: ghi danh 'Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt' tại Addis Ababa.",
+   "start_seconds": 707.2,
+   "end_seconds": 745.62,
+   "script_section_id": "s23",
+   "framing": "Thẻ hồ sơ phẳng trên bàn, tem và dấu góc phải",
+   "movement": "tilt_down từ tem xuống dòng tên di sản",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt — UNESCO ghi danh (quote C10) · 1/12/2016 · lần thứ 11 · 14 tỉnh «Bây giờ là»",
+   "shot_language": {
+    "shot_size": "insert",
+    "camera_movement": "tilt_down",
+    "lens_mm": 85,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "shallow",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Mở lớp 3 bằng vật thể hồ sơ hiện đại — tương phản chất liệu giấy dầu với văn khố hiện đại",
+   "narrative_role": "evidence",
+   "information_role": "UNESCO ghi danh thực hành tín ngưỡng thờ Mẫu Tam phủ của người Việt, 1/12/2016, phiên 11, Addis Ababa; hồ sơ 14 tỉnh mở đầu Ninh Bình, Hà Nội, Hưng Yên, Hải Phòng, Bắc Ninh, Phú Thọ",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "giấy dầu nâu",
+    "tem",
+    "con dấu xanh",
+    "hồ sơ hiện đại"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Thẻ hồ sơ nâu giấy dầu nằm trên bàn giấy hiện đại, tem UNESCO và con dấu mực xanh ở góc, không chữ rõ, ánh đèn làm việc ấm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc031",
+   "type": "generated",
+   "description": "Thẻ hồ sơ nâu giấy dầu mở giữa khung: con dấu mực xanh chỉ đáp xuống dòng chữ 'thực hành tín ngưỡng'; trang truyện amber và hình bóng nhân vật bị đẩy ra mép khung, không nhận dấu. Phủ s24 câu đầu: UNESCO ghi danh thực hành, không ghi danh truyện Liễu Hạnh, không chứng thực nhân vật.",
+   "start_seconds": 745.62,
+   "end_seconds": 757.0,
+   "script_section_id": "s24",
+   "framing": "Thẻ hồ sơ giữa khung, trang truyện và hình người ở mép ngoài",
+   "movement": "dolly_in nhẹ vào dòng chữ được ghi danh",
+   "transition_in": "hold",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "thực hành tín ngưỡng · không ghi danh truyện Liễu Hạnh · không chứng thực nhân vật «Ở lớp hồ»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "dolly_in",
+    "lens_mm": 50,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "medium",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Tách bạch đối tượng ghi danh khỏi truyện và nhân vật bằng cử chỉ đóng dấu có chọn lựa",
+   "narrative_role": "deliver_payload",
+   "information_role": "UNESCO ghi danh thực hành tín ngưỡng thờ Mẫu Tam phủ của người Việt; không ghi danh truyện Liễu Hạnh, không chứng thực nhân vật trong truyện từng sống",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "giấy dầu nâu",
+    "con dấu mực xanh",
+    "tách bạch"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Thẻ hồ sơ nâu giấy dầu với con dấu mực xanh chỉ đáp xuống một dòng chữ, trang sách cũ và hình bóng người nằm ngoài vùng đóng dấu, mực tàu trên giấy dó, ánh đèn làm việc ấm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc032",
+   "type": "animation",
+   "description": "Con dấu mực xanh lơ lửng giữa trang truyện amber và hình bóng người, rung nhẹ rồi rút về phía thẻ hồ sơ; hai mép giấy được vuốt thẳng, không xé rách. Phủ s24: sự tách bạch ấy không làm mất đi lòng kính trọng.",
+   "start_seconds": 757.0,
+   "end_seconds": 764.05,
+   "script_section_id": "s24",
+   "framing": "Con dấu giữa khung, hai đối tượng hai bên mép",
+   "movement": "static, dấu mực tự di chuyển",
+   "transition_in": "cross_dissolve",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "«Sự tách bạch»",
+   "shot_language": {
+    "shot_size": "medium",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "medium",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Cảm xúc của sự tách bạch: không phán xét, không làm mất lòng kính trọng",
+   "narrative_role": "emotional_beat",
+   "information_role": "Sự tách bạch hồ sơ không làm mất lòng kính trọng; giúp nhận ra giá trị riêng của từng lớp",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mực xanh",
+    "trang amber",
+    "cử chỉ dấu"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Con dấu tròn mực xanh lơ lửng giữa một trang sách mực amber và một tờ giấy dầu nâu, hai mép giấy thẳng nét, mực tàu trên giấy dó, tông ấm dịu",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc033",
+   "type": "diagram",
+   "description": "Ba tờ giấy tách riêng lần lượt hiện: amber 'bản kể — giữ một câu chuyện', teal 'đền thờ — giữ dấu vết việc thờ', nâu giấy dầu 'ghi danh di sản — gọi tên một thực hành sống'; ba tờ đặt cạnh nhau thành tập dày hơn, không tờ nào in dấu lên tờ khác. Phủ s24 kết: không lớp nào mượn danh lớp khác để có giá trị.",
+   "start_seconds": 764.05,
+   "end_seconds": 775.98,
+   "script_section_id": "s24",
+   "framing": "Ba tờ giấy ngang hàng trên nền giấy dó",
+   "movement": "pan_right theo thứ tự tờ giấy hiện",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "bản kể · đền thờ · ghi danh di sản — không lớp nào mượn danh lớp khác «Đền thờ giữ»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "pan_right",
+    "lens_mm": 50,
+    "lighting_key": "natural",
+    "depth_of_field": "deep",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Sơ đồ ba lớp hoàn chỉnh: đặt cạnh nhau làm câu chuyện dày hơn nhưng không thay thế nhau",
+   "narrative_role": "comparison",
+   "information_role": "Ba lớp trao ba giá trị riêng: bản kể giữ một câu chuyện, đền thờ giữ dấu vết việc thờ, ghi danh di sản gọi tên một thực hành sống",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "ba tờ giấy",
+    "amber/teal/nâu",
+    "sơ đồ"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Ba tờ giấy màu amber, teal và nâu giấy dầu đặt cạnh nhau trên nền giấy dó, mỗi tờ có một biểu tượng mực nhỏ (cuốn sách, mái đền, thẻ hồ sơ), bố cục ngang hàng cân đối, mực tàu",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc034",
+   "type": "animation",
+   "description": "Tờ hồ sơ nâu giấy dầu trượt sang bên nhường chỗ cho ngưỡng cửa đền vẽ mực teal trên giấy dó; nắng tháng Ba nhẹ xuyên qua mái. Phủ s25 mở: từ lớp hồ sơ trở về thực hành ở Phủ Dầy hôm nay, mùng ba tháng Ba đưa người đi hội về bên ngưỡng cửa đền.",
+   "start_seconds": 775.98,
+   "end_seconds": 782.64,
+   "script_section_id": "s25",
+   "framing": "Ngưỡng cửa đền giữa khung, tờ hồ sơ trượt mép trái",
+   "movement": "tracking_left khi tờ giấy nhường chỗ",
+   "transition_in": "hold",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "«Từ lớp hồ»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "tracking_left",
+    "lens_mm": 35,
+    "lighting_key": "golden_hour",
+    "depth_of_field": "medium",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Chuyển từ lớp hồ sơ về lớp thực hành bằng cử chỉ nhường chỗ của tờ giấy",
+   "narrative_role": "transition",
+   "information_role": "Ngày mùng ba tháng Ba âm lịch đưa người đi hội về bên ngưỡng cửa đền Phủ Dầy",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "ngưỡng cửa đền",
+    "teal",
+    "giấy dầu nhường chỗ"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Ngưỡng cửa đền vẽ mực tàu teal trên giấy dó, một tờ giấy dầu nâu đang trượt sang bên mép khung, nắng vàng nhẹ xuyên mái đền, mực loang dịu",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc035",
+   "type": "diagram",
+   "description": "Hai tờ giấy riêng đặt nghiêng cùng hướng về một dòng chữ 'mùng ba tháng Ba âm lịch' ở giữa: tờ amber ghi 'bản kể — ngày tiên chúa mất', tờ teal ghi 'ghi chép lễ hội — ngày hội Phủ Dầy'; hai tờ chạm nhau tại dòng chữ nhưng nét gạch ranh giới vẫn đậm. Phủ s25 giữa: hai lớp chạm nhau ở một ngày nhưng không cùng một sự thật.",
+   "start_seconds": 782.64,
+   "end_seconds": 794.0,
+   "script_section_id": "s25",
+   "framing": "Dòng ngày ở giữa, hai tờ giấy hai bên",
+   "movement": "static, hai tờ giấy tự hiện",
+   "transition_in": "hold",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "mùng ba tháng Ba âm lịch · bản kể: ngày tiên chúa mất · ghi chép lễ hội: ngày hội Phủ Dầy «Trong bản kể,»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "natural",
+    "depth_of_field": "deep",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Trùng ngày không đồng nghĩa cùng một sự thật — hai lớp chạm nhau, không nhập làm một",
+   "narrative_role": "comparison",
+   "information_role": "Trong bản kể là ngày tiên chúa mất; trong ghi chép lễ hội là ngày hội Phủ Dầy; hai lớp chạm nhau ở một ngày nhưng không vì thế thành cùng một sự thật",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "hai tờ giấy",
+    "dòng ngày chung",
+    "nét ranh giới"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Hai tờ giấy amber và teal đặt nghiêng đối xứng cùng hướng về một dòng mực trung tâm trên giấy dó, giữa hai tờ có nét gạch ranh mảnh, mực tàu tiết chế",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc036",
+   "type": "generated",
+   "description": "Cảnh đền tháng Ba vẽ mực teal trên giấy dó: sân đền, cột đỏ son xa, dòng người đi hội silhouette nhỏ trang nghiêm, không nét mặt gần; trước cảnh là bàn đọc với trang truyện amber và tệp hồ sơ nâu đặt cạnh nhau, không chồng lên nhau. Phủ s25 kết: có thể lắng nghe cả hai mà không bắt trang truyện làm công việc của hồ sơ lịch sử.",
+   "start_seconds": 794.0,
+   "end_seconds": 803.73,
+   "script_section_id": "s25",
+   "framing": "Bàn đọc tiền cảnh, sân đền hội sau",
+   "movement": "crane_up nhẹ nâng khỏi trang giấy ra sân đền",
+   "transition_in": "cross_dissolve",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "«Một bên ghi»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "crane_up",
+    "lens_mm": 35,
+    "lighting_key": "golden_hour",
+    "depth_of_field": "deep",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Khoan dung của cách đọc hai lớp: cả hai cùng hiện diện, không bên nào làm việc của bên kia",
+   "narrative_role": "emotional_beat",
+   "information_role": "Một bên giữ nhịp câu chuyện; một bên ghi nhận việc người đời tưởng nhớ và thực hành tín ngưỡng",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "sân đền tháng Ba",
+    "teal",
+    "hai lớp cạnh nhau"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Sân đền tháng Ba vẽ mực tàu teal trên giấy dó với cột son và mái đền, dòng người đi hội silhouette nhỏ trang nghiêm không nét mặt gần, tiền cảnh bàn đọc gỗ với một trang sách amber và một tệp hồ sơ nâu đặt cạnh nhau, phong cách hội họa cổ điển",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc037",
+   "type": "generated",
+   "description": "Trang bách khoa in nét mộc nâu trên giấy dầu: nhãn 'theo cách kể / bách khoa' hiện trước, rồi hai mục hiện đầy đủ — ngày sinh và ngày mất kèm phần lịch âm trong ngoặc; nét chữ đều, không có dấu xác nhận lịch sử. Phủ s26: ở lớp tổng hợp bách khoa, ta gặp những ngày tháng rất cụ thể.",
+   "start_seconds": 803.73,
+   "end_seconds": 817.0,
+   "script_section_id": "s26",
+   "framing": "Trang bách khoa phẳng, hai mục giữa trang",
+   "movement": "tilt_down từ nhãn xuống hai mục",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "theo cách kể/bách khoa · ngày sinh \"07/09/1557 (15/8/Đinh Tỵ)\" · ngày mất \"21/03/1577 (3/3/Đinh Sửu)\" «Ở lớp tổng»",
+   "shot_language": {
+    "shot_size": "insert",
+    "camera_movement": "tilt_down",
+    "lens_mm": 85,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "shallow",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Trình bày con số bách khoa trong đúng khung nguồn, không tạo giọng công bố sử liệu",
+   "narrative_role": "evidence",
+   "information_role": "Bách khoa ghi ngày sinh 07/09/1557 (15/8/Đinh Tỵ) và ngày mất 21/03/1577 (3/3/Đinh Sửu); đó là cách bách khoa tổng hợp các bản kể",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "giấy dầu nâu",
+    "nét in mộc",
+    "hai mốc ngày"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Trang bách khoa tổng hợp vẽ mực nâu trên giấy dầu, hai ô mục đặt giữa trang với khoảng trống dòng chữ, một nhãn khung nhỏ ở đầu trang, phong cách tài liệu in mộc, ánh đèn đọc ấm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc038",
+   "type": "animation",
+   "description": "Hai dòng số bóc khỏi trang bách khoa, rơi nhẹ lên mặt bàn gỗ; chiếc thước mực cố đo chúng nhưng không đo được, hóa thành dấu hỏi mảnh; nhãn 'không phải chứng cứ' hiện cạnh. Phủ s26: không phải chứng cứ để xác nhận ngày sinh và ngày mất của một nhân vật lịch sử.",
+   "start_seconds": 817.0,
+   "end_seconds": 829.5,
+   "script_section_id": "s26",
+   "framing": "Hai dòng số trên bàn, thước mực phía trên",
+   "movement": "static, số rơi và thước biến hình",
+   "transition_in": "hold",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "không phải chứng cứ «Đó là cách»",
+   "shot_language": {
+    "shot_size": "medium",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "medium",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Hình ảnh hóa giới hạn của con số: ghi đầy đủ nhưng chưa tự nó thành sử liệu",
+   "narrative_role": "deliver_payload",
+   "information_role": "Một ngày được ghi đầy đủ chưa tự nó thành sử liệu xác nhận nhân vật lịch sử",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "dòng số rơi",
+    "thước mực",
+    "dấu hỏi"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Hai dải giấy nhỏ ghi số rơi trên mặt bàn gỗ tối màu, một chiếc thước mực tàu đặt bên cạnh cong nhẹ thành dấu hỏi, mực nâu trên nền ấm, bố cục tối giản",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc039",
+   "type": "animation",
+   "description": "Trang truyện Phan Kế Bính mở ở câu đầu: mực amber ghi thời vua Anh-tôn nhà Lê, mốc 1557 hiện như cánh cửa mở truyện; rồi mỗi con số của bách khoa được đặt vào chiếc khung gỗ nhỏ 'theo cách kể · theo bách khoa' đi cùng số. Phủ s26 kết: khi nhìn những con số ấy, xin giữ bên cạnh chúng chiếc khung đã đọc.",
+   "start_seconds": 829.5,
+   "end_seconds": 841.91,
+   "script_section_id": "s26",
+   "framing": "Trang truyện mở ở trước, khung gỗ nhỏ sau",
+   "movement": "rack_focus từ trang truyện sang khung gỗ",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "theo cách kể · theo bách khoa · mốc 1557 (Phan Kế Bính mở truyện ở thời vua Anh-tôn nhà Lê) «Một ngày được»",
+   "shot_language": {
+    "shot_size": "medium_close",
+    "camera_movement": "rack_focus",
+    "lens_mm": 85,
+    "lighting_key": "golden_hour",
+    "depth_of_field": "shallow",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Đóng gói con số trong khung nguồn — thói quen đọc của tập này",
+   "narrative_role": "deliver_payload",
+   "information_role": "Bản kể Phan Kế Bính chỉ mở truyện ở thời vua Anh-tôn nhà Lê với mốc 1557; con số bách khoa cần giữ khung 'theo cách kể, theo bách khoa'",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mực amber",
+    "khung gỗ",
+    "trang truyện"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Trang truyện cổ mực amber mở trên bàn đọc, phía sau là chiếc khung gỗ nhỏ đặt một dải giấy mảnh, mực tàu trên giấy dó, ánh nắng nghiêng ấm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc040",
+   "type": "generated",
+   "description": "Bàn nghiên cứu giấy dầu nâu: hai bộ văn bản cổ đặt cạnh nhau trên giá gỗ — cuốn phả ký và tập truyện thần nữ; nhãn tên hai tác phẩm hiện theo câu trích, chỉ bộ thứ nhất gắn mốc 1781. Phủ quote C14 s27: 'có thể coi Quảng Cung linh từ phả ký của Vũ Huy Trác (1781) có niên đại gần với Vân Cát thần nữ của Đoàn Thị Điểm.'",
+   "start_seconds": 841.91,
+   "end_seconds": 857.1,
+   "script_section_id": "s27",
+   "framing": "Hai bộ văn bản trên giá, nhãn tên dưới mỗi bộ",
+   "movement": "pan_right từ bộ thứ nhất sang bộ thứ hai",
+   "transition_in": "hold",
+   "transition_out": "hold",
+   "overlay_notes": "\"có thể coi Quảng Cung linh từ phả ký của Vũ Huy Trác (1781) có niên đại gần với Vân Cát thần nữ của Đoàn Thị Điểm\" — Nghiên cứu Tôn giáo 10/2010 «Ở lớp tư»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "pan_right",
+    "lens_mm": 50,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "medium",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Đặt hai văn bản cạnh nhau đúng như nghiên cứu mô tả — gần nhau về niên đại, không thêm mốc cho tác phẩm thứ hai",
+   "narrative_role": "evidence",
+   "information_role": "Nghiên cứu ghi Quảng Cung linh từ phả ký của Vũ Huy Trác (1781) có niên đại gần với Vân Cát thần nữ của Đoàn Thị Điểm",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "văn bản cổ",
+    "giá gỗ",
+    "giấy dầu nâu"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Hai bộ sách cổ đóng chỉ trên giá gỗ tối, một cuốn phả ký và một tập truyện, mỗi bộ có tấm nhãn giấy nhỏ, không chữ rõ, ánh đèn nghiên cứu ấm trên giấy dầu nâu",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc041",
+   "type": "animation",
+   "description": "Mốc '1781' lắc lư rồi tách thành hai tấm bảng con đính vào gáy bộ phả ký: bảng gỗ 'niên đại văn bản' nằm lại, bảng mờ 'niên đại nhân vật' bị lau đi; trang viết thế kỷ mười tám hiện rõ vân giấy muộn hơn thời gian câu chuyện. Phủ s27: mốc 1781 là niên đại văn bản, không phải niên đại nhân vật.",
+   "start_seconds": 857.1,
+   "end_seconds": 868.4,
+   "script_section_id": "s27",
+   "framing": "Gáy bộ sách giữa khung, hai tấm bảng con",
+   "movement": "static, bảng tự tách và biến mất",
+   "transition_in": "hold",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "1781 — niên đại văn bản, không phải niên đại nhân vật «Đó là trang»",
+   "shot_language": {
+    "shot_size": "close_up",
+    "camera_movement": "static",
+    "lens_mm": 85,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "shallow",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Phân biệt năm viết trang và năm của nhân vật trong trang — một cử chỉ gỡ nhầm",
+   "narrative_role": "deliver_payload",
+   "information_role": "Mốc 1781 là niên đại văn bản thuộc thế kỷ mười tám, muộn hơn thời điểm bản kể đặt câu chuyện",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "gáy sách",
+    "bảng mốc",
+    "vân giấy"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Gáy sách cổ đóng chỉ với hai tấm bảng gỗ nhỏ được gắn cạnh nhau, một tấm ghi nét mực đậm một tấm đang mờ dần, vân giấy cũ dưới ánh nến dịu, mực nâu tiết chế",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc042",
+   "type": "animation",
+   "description": "Chuỗi các trang viết nối nhau qua các thế hệ: tay mực khác nhau sao chép, mỗi trang lại lộ khoảng trống nhỏ giữa dòng và hình bóng người kể — khoảng trống ấy không khép lại mà được giữ nguyên khi trang chuyển tiếp. Phủ s27 kết: các văn bản gần nhau giúp nhìn việc ghi chép và kể lại qua các thế hệ; mỗi trang giữ một bản kể, không xóa khoảng cách giữa truyện và lịch sử.",
+   "start_seconds": 868.4,
+   "end_seconds": 873.69,
+   "script_section_id": "s27",
+   "framing": "Dãy trang nằm ngang trôi chậm",
+   "movement": "tracking_right theo dòng trang",
+   "transition_in": "ink_wipe",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "mỗi trang giữ một bản kể — khoảng cách giữa truyện và lịch sử không bị xóa «Mỗi trang giữ»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "tracking_right",
+    "lens_mm": 35,
+    "lighting_key": "low_key",
+    "depth_of_field": "deep",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Truyền tải thế kỷ sao chép: các bản kể nối nhau mà khoảng cách lịch sử vẫn nguyên vẹn",
+   "narrative_role": "resolution",
+   "information_role": "Theo một cách hiểu của nghiên cứu, các văn bản gần nhau giúp nhìn việc ghi chép và kể lại qua các thế hệ; mỗi trang giữ một bản kể",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "dãy trang",
+    "sao chép",
+    "khoảng trống mực"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Dãy trang giấy dó nằm ngang nối nhau, mỗi trang có nét bút mực khác nhau và một khoảng trống nhỏ giữa các dòng, phía sau là hình bóng mờ người chép, ánh sáng thấp ấm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc043",
+   "type": "text_card",
+   "description": "Thẻ mục lục nâu giấy dầu hiện từng dòng theo thứ tự được đọc: 'Sơn Tinh', 'Chử Đồng Tử', 'Thánh Gióng', 'Liễu Hạnh Công Chúa'; dòng cuối cùng 'Tứ Bất Tử' làm nhãn đầu thẻ; dưới thẻ hiện dòng chú thích. Phủ quote C08 s28: bách khoa ghi danh sách Tứ Bất Tử.",
+   "start_seconds": 873.69,
+   "end_seconds": 886.85,
+   "script_section_id": "s28",
+   "framing": "Thẻ mục lục giữa khung, bốn dòng thẳng cột",
+   "movement": "tilt_down theo thứ tự dòng hiện",
+   "transition_in": "cross_dissolve",
+   "transition_out": "hold",
+   "overlay_notes": "\"Tín ngưỡng thờ Tứ Bất Tử của Việt Nam bao gồm bốn vị tiên thánh: Sơn Tinh · Chử Đồng Tử · Thánh Gióng · Liễu Hạnh Công Chúa\" — bách khoa · danh sách phổ biến đương đại «Trở lại lớp»",
+   "shot_language": {
+    "shot_size": "insert",
+    "camera_movement": "tilt_down",
+    "lens_mm": 85,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "shallow",
+    "color_temperature": "neutral"
+   },
+   "shot_intent": "Trình bày danh mục theo đúng thứ tự và đúng khung: đương đại, không phải thứ bậc cố định từ ngàn xưa",
+   "narrative_role": "evidence",
+   "information_role": "Bách khoa ghi Tứ Bất Tử gồm Sơn Tinh, Chử Đồng Tử, Thánh Gióng, Liễu Hạnh Công chúa; là danh sách phổ biến đương đại",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "mục lục",
+    "mực nâu",
+    "bốn dòng"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Thẻ mục lục nâu giấy dầu với bốn dòng mục thẳng cột và đường kẻ mảnh, chữ mực nâu, phong cách tài liệu cổ, ánh đèn đọc ấm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc044",
+   "type": "animation",
+   "description": "Bốn dòng tên co lại thành bốn con dấu triện trên cột gỗ; ba dấu kia mang hình núi, bờ mương, ngựa sắt; dấu thứ tư là hình tà áo nữ — dấu duy nhất có dáng người nữ, được thắp sáng nhẹ hơn. Phủ s28: trong danh sách này, Liễu Hạnh là người phụ nữ duy nhất; câu hỏi biên tập có một nét trả lời.",
+   "start_seconds": 886.85,
+   "end_seconds": 895.3,
+   "script_section_id": "s28",
+   "framing": "Bốn con dấu trên cột gỗ, dấu nữ sáng nhẹ",
+   "movement": "dolly_in chậm vào dấu thứ tư",
+   "transition_in": "hold",
+   "transition_out": "hold",
+   "overlay_notes": "«Trong danh sách»",
+   "shot_language": {
+    "shot_size": "medium",
+    "camera_movement": "dolly_in",
+    "lens_mm": 50,
+    "lighting_key": "rim_lit",
+    "depth_of_field": "medium",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Nhận vị trí duy nhất của người phụ nữ trong hàng Tứ Bất Tử bằng ngôn ngữ triện mộc",
+   "narrative_role": "emotional_beat",
+   "information_role": "Trong danh sách Tứ Bất Tử, Liễu Hạnh là người phụ nữ duy nhất; người đời hôm nay đặt bà cạnh các vị thần bảo vệ làng, chống ngoại xâm",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "triện mộc",
+    "cột gỗ",
+    "tà áo"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Bốn con dấu triện mộc khắc trên cột gỗ cũ, ba dấu mang hình núi, bờ mương và ngựa, một dấu mang hình tà áo người nữ được ánh sáng nhẹ tách bạch, mực nâu trên gỗ tối",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc045",
+   "type": "generated",
+   "description": "Cột đền gỗ với bốn con dấu triện đứng cạnh nhau trong màn sương mỏng; dấu tà áo nữ phát mực loang nhẹ như còn tiếp diễn, ba dấu kia đã tĩnh tại; không có bia đá mô phỏng thứ bậc cổ. Phủ s28 kết: có thể đọc sự hiện diện tiếp diễn ấy như một cách người đời giữ bà ở lại.",
+   "start_seconds": 895.3,
+   "end_seconds": 903.57,
+   "script_section_id": "s28",
+   "framing": "Cột đền giữa khung, sương mỏng quanh chân cột",
+   "movement": "static, mực loang tự lan",
+   "transition_in": "hold",
+   "transition_out": "ink_wipe",
+   "overlay_notes": "một cách đọc — sự hiện diện tiếp diễn như cách người đời giữ bà ở lại «Có thể đọc»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "static",
+    "lens_mm": 50,
+    "lighting_key": "volumetric",
+    "depth_of_field": "deep",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Sự tiếp diễn: đương đại, sống, không giả trang cổ kính — kín đáo và trang nghiêm",
+   "narrative_role": "emotional_beat",
+   "information_role": "Có thể đọc sự hiện diện tiếp diễn của bà trong danh sách đương đại như một cách người đời giữ bà ở lại",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "cột đền",
+    "sương mỏng",
+    "mực loang"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Cột đền gỗ cũ với bốn dấu triện, một dấu tà áo nữ loang mực còn tươi bên ba dấu đã tĩnh, màn sương mỏng quanh chân cột, ánh sáng thể tích ấm trang nghiêm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc046",
+   "type": "animation",
+   "description": "Ba tờ giấy được soi đèn lần lượt trên bàn đọc: amber soi chén ngọc và vòng mực trở về phố Cát; teal soi ngưỡng đền Nam Giao, Phủ Dầy; nâu giấy dầu soi thẻ hồ sơ thực hành; sau mỗi lần soi, tờ giấy lặng xuống bàn và tờ kế tiếp lên. Phủ s29 ba câu đầu: lớp bản kể trao chén ngọc và cuộc trở về; lớp đền thờ trao dấu vết; lớp di sản trao sự ghi nhận của hôm nay.",
+   "start_seconds": 903.57,
+   "end_seconds": 919.91,
+   "script_section_id": "s29",
+   "framing": "Bàn đọc trung tâm, ba tờ giấy lần lượt được soi",
+   "movement": "tilt_down theo mỗi tờ được đặt xuống bàn",
+   "transition_in": "ink_wipe",
+   "transition_out": "hold",
+   "overlay_notes": "Lớp bản kể · Lớp đền thờ · Lớp di sản — UNESCO ghi danh thực hành thờ Mẫu Tam phủ, không ghi danh nhân vật trong truyện «Lớp bản kể»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "tilt_down",
+    "lens_mm": 35,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "deep",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Tổng kết ba lớp bằng nghi thức soi đèn — mỗi lớp trao một vật riêng, không lớp nào thay lớp nào",
+   "narrative_role": "resolution",
+   "information_role": "Lớp bản kể trao chén ngọc, mùng ba tháng Ba, cuộc trở về phố Cát; lớp đền thờ trao dấu vết Nam Giao, Phủ Dầy; lớp di sản trao ghi nhận UNESCO về thực hành, không về nhân vật",
+   "hero_moment": true,
+   "character_actions": [],
+   "texture_keywords": [
+    "soi đèn",
+    "ba tờ giấy",
+    "tổng kết"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Bàn đọc gỗ với ba tờ giấy amber, teal và nâu giấy dầu xếp hàng dưới một đèn soi, trên mỗi tờ một hình mực nhỏ (chén ngọc, ngưỡng đền, thẻ hồ sơ), mực tàu trên giấy dó, ánh sáng tập trung ấm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc047",
+   "type": "diagram",
+   "description": "Về giấy dó amber: chữ 'có thể đọc là' hiện, rồi hai luồng mực cùng chảy vào một chữ 'Mẫu' — luồng dân gian từ mái đền, luồng triều đình từ trang sắc phong; hai luồng song song không nhập thành một, dấu bằng bị gạch chéo mảnh. Phủ s29: vì sao gọi là Mẫu — dân thờ và triều đình chính danh, hai chiều cùng góp vào danh xưng; đó là một cách đọc, không phải câu trả lời độc quyền.",
+   "start_seconds": 919.91,
+   "end_seconds": 932.74,
+   "script_section_id": "s29",
+   "framing": "Chữ Mẫu trung tâm, hai luồng mực hai bên",
+   "movement": "dolly_out nhẹ khi hai luồng chảy đủ",
+   "transition_in": "hold",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "có thể đọc là · dân thờ + triều đình chính danh — hai chiều cùng góp vào danh xưng · một cách đọc, không độc quyền «Rồi mỗi thế»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "dolly_out",
+    "lens_mm": 50,
+    "lighting_key": "golden_hour",
+    "depth_of_field": "deep",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Đáp câu hỏi mở đầu bằng cách đọc hai chiều, giữ портал mở — không khẳng định căn nguyên duy nhất",
+   "narrative_role": "resolution",
+   "information_role": "Vì sao gọi là Mẫu — có thể đọc là dân thờ và triều đình chính danh cùng góp vào danh xưng; một cách đọc, không câu trả lời độc quyền về Mẫu",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "hai luồng mực",
+    "chữ Mẫu",
+    "giấy dó amber"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Sơ đồ hai luồng mực tàu chảy song song về một chữ Hán lớn trung tâm trên giấy dó amber, một luồng từ hình mái đền một luồng từ trang sách có ấn son, nét mực loang ấm, bố cục cân đối",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc048",
+   "type": "generated",
+   "description": "Trang giấy dầu nâu làm nền như áp phích mùa: tên các tập hiện lần lượt bằng mực nâu — 'Hai Bà Trưng' đậm nhất ở dòng đầu, dưới là ba tên 'Sơn Tinh', 'Chử Đồng Tử', 'Thánh Gióng' nhỏ hơn; phía sau mờ là ngưỡng cửa đền teal. Phủ s30: tập sau đến với Hai Bà Trưng; mời quay lại các tập Tứ bất tử để nối mạch.",
+   "start_seconds": 932.74,
+   "end_seconds": 943.65,
+   "script_section_id": "s30",
+   "framing": "Danh sách tên giữa khung, ngưỡng đền mờ phía sau",
+   "movement": "tilt_down theo thứ tự tên hiện",
+   "transition_in": "cross_dissolve",
+   "transition_out": "hold",
+   "overlay_notes": "Tập sau: Hai Bà Trưng · các tập đã có: Sơn Tinh · Chử Đồng Tử · Thánh Gióng «Tập sau, ta»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "tilt_down",
+    "lens_mm": 50,
+    "lighting_key": "tungsten_warm",
+    "depth_of_field": "medium",
+    "color_temperature": "mixed"
+   },
+   "shot_intent": "Lời hẹn biên tập khiêm tốn — danh sách đọc cùng, không giật gân quảng cáo",
+   "narrative_role": "call_to_action",
+   "information_role": "Tập sau: Hai Bà Trưng — một cuộc khởi nghĩa kết thúc nhưng chuyện tiếp tục trong đền; các tập Sơn Tinh, Chử Đồng Tử, Thánh Gióng nối mạch Tứ bất tử",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "áp phích mùa",
+    "mực nâu",
+    "danh sách tên"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Áp phích giấy dầu nâu với các dòng tên viết mực nâu xếp dọc, dòng đầu đậm nhất, phía sau là bóng mờ ngưỡng cửa đền, không chữ rõ, phong cách mộc mạc ấm",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc049",
+   "type": "generated",
+   "description": "Ngưỡng cửa đền teal trên giấy dó ở hậu cảnh; trước ngưỡng là tấm bảng gỗ treo tên mùa viết mực nâu; nắng chiều nhẹ, không khẩu hiệu, không hình người gần. Phủ s31: mùa 'Những vị thần ở lại' theo dấu những câu chuyện cũ sống trong đời thường; mời theo dõi để mỗi lần trở về nghe thêm một cách kể.",
+   "start_seconds": 943.65,
+   "end_seconds": 954.32,
+   "script_section_id": "s31",
+   "framing": "Bảng gỗ tên mùa tiền cảnh, ngưỡng đền sau",
+   "movement": "dolly_in chậm về phía bảng tên mùa",
+   "transition_in": "hold",
+   "transition_out": "cross_dissolve",
+   "overlay_notes": "Những vị thần ở lại — mùa mới · mời theo dõi «Mùa Những vị»",
+   "shot_language": {
+    "shot_size": "medium_wide",
+    "camera_movement": "dolly_in",
+    "lens_mm": 50,
+    "lighting_key": "golden_hour",
+    "depth_of_field": "medium",
+    "color_temperature": "warm"
+   },
+   "shot_intent": "Lời mời mùa: gọn, tự nhiên, đúng chất mực tàu — không tăng năng lượng đột ngột",
+   "narrative_role": "call_to_action",
+   "information_role": "Mùa 'Những vị thần ở lại' theo dấu các câu chuyện sống trong đời thường hôm nay; lời mời theo dõi để nghe thêm cách kể",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "bảng gỗ",
+    "ngưỡng đền",
+    "mực nâu"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Tấm bảng gỗ treo trước ngưỡng cửa đền vẽ mực teal trên giấy dó, bảng trống chữ viết mực nâu sẽ thêm sau, nắng chiều nhẹ, không người, tông ấm dịu",
+     "source": "generate"
+    }
+   ]
+  },
+  {
+   "id": "sc050",
+   "type": "animation",
+   "description": "Trang truyện amber khép lại ở tiền cảnh, để lại ngưỡng cửa đền nét teal trên giấy dó; mực loang chậm lắng xuống theo lời cuối, ánh sáng thu về một điểm ấm rồi thinh lặng. Phủ s32: bên ngưỡng cửa đền tháng Ba khép trang truyện, để lời kể lắng xuống bên một thực hành vẫn đang sống.",
+   "start_seconds": 954.32,
+   "end_seconds": 960.0,
+   "script_section_id": "s32",
+   "framing": "Trang amber khép tiền cảnh, ngưỡng đền teal còn lại",
+   "movement": "static, trang tự khép và mực lắng",
+   "transition_in": "cross_dissolve",
+   "transition_out": "fade_to_black",
+   "overlay_notes": "«Bên ngưỡng cửa»",
+   "shot_language": {
+    "shot_size": "wide",
+    "camera_movement": "static",
+    "lens_mm": 35,
+    "lighting_key": "blue_hour",
+    "depth_of_field": "deep",
+    "color_temperature": "cool"
+   },
+   "shot_intent": "Kết phiên: khép trang nhưng giữ ngưỡng cửa thực hành còn mở — kết bằng im lặng",
+   "narrative_role": "resolution",
+   "information_role": "Khép trang truyện lại, lời kể lắng xuống bên một thực hành vẫn đang sống ở ngưỡng cửa đền tháng Ba",
+   "hero_moment": false,
+   "character_actions": [],
+   "texture_keywords": [
+    "trang khép",
+    "teal còn lại",
+    "mực lắng"
+   ],
+   "required_assets": [
+    {
+     "type": "image",
+     "description": "Một trang truyện mực amber đang khép lại ở tiền cảnh, phía sau là ngưỡng cửa đền nét mực teal trên giấy dó còn sáng, mực loang lắng dần, ánh sáng xanh giờ chạng vạng tĩnh lặng",
+     "source": "generate"
+    }
+   ]
+  }
+ ],
+ "metadata": {
+  "status": "provisional",
+  "note": "start/end_seconds are provisional editorial estimates; production re-locks to measured TTS audio + forced alignment (speech-locked boundaries, panels retained through final spoken sentence).",
+  "approval": "owner full-run 2026-10-21 (projects/lieu-hanh/owner_full_run_approval.json)",
+  "section_timing_estimates": [
+   {
+    "id": "s01",
+    "est_start": 0.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s02",
+    "est_start": 30.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s03",
+    "est_start": 60.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s04",
+    "est_start": 90.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s05",
+    "est_start": 120.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s06",
+    "est_start": 150.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s07",
+    "est_start": 180.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s08",
+    "est_start": 210.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s09",
+    "est_start": 240.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s10",
+    "est_start": 270.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s11",
+    "est_start": 300.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s12",
+    "est_start": 330.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s13",
+    "est_start": 360.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s14",
+    "est_start": 390.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s15",
+    "est_start": 420.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s16",
+    "est_start": 450.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s17",
+    "est_start": 480.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s18",
+    "est_start": 510.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s19",
+    "est_start": 540.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s20",
+    "est_start": 570.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s21",
+    "est_start": 600.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s22",
+    "est_start": 630.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s23",
+    "est_start": 660.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s24",
+    "est_start": 690.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s25",
+    "est_start": 720.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s26",
+    "est_start": 750.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s27",
+    "est_start": 780.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s28",
+    "est_start": 810.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s29",
+    "est_start": 840.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s30",
+    "est_start": 870.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s31",
+    "est_start": 900.0,
+    "est_duration": 30.0
+   },
+   {
+    "id": "s32",
+    "est_start": 930.0,
+    "est_duration": 30.0
+   }
+  ],
+  "claim_map_note": "Per-scene claim IDs/source_refs live in script sections (script_section_id -> artifacts/script.json). Quotes shown on overlays must be verbatim from ledger.",
+  "scene_index_note": "scene_index artifact built at edit stage from real audio.",
+  "anchor_derivation": {
+   "method": "sentence-start phrase anchors, verbatim transcript words, chunk split weighted by scene est duration (boundaries always sentence starts)",
+   "engine": "phrase_lock_lh (S2E01/S2E02/S2E03 d-012 parity)"
+  }
+ }
+}

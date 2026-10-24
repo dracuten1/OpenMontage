@@ -1,0 +1,78 @@
+{
+ "version": "1.0",
+ "package_id": "vnmyth-s2e04-research-v1",
+ "created_at": "2026-10-20T07:05:59.566925+07:00",
+ "immutable_policy": "Do not edit sealed inputs in place; new evidence or content changes require v2.",
+ "files": [
+  {
+   "path": "QA_REPORT.json",
+   "bytes": 1745,
+   "sha256": "8dc6df3598c2b457f7dba84712a590b64b0eed749e20695d1bd4e5d68985e864"
+  },
+  {
+   "path": "approval_policy.json",
+   "bytes": 1348,
+   "sha256": "e753c1b1c26aca029d38cb4986ce2ed4800433ee71e3e7c5adc385951b97a3cb"
+  },
+  {
+   "path": "citation_ledger.json",
+   "bytes": 8919,
+   "sha256": "4322f9008408ede12ccdaec1409fd9fb7833721817a2afd7cb04abaf5bbc1ef9"
+  },
+  {
+   "path": "claim_ledger.json",
+   "bytes": 17942,
+   "sha256": "76d41713713278c195a1e1d7c7b654ced84b9b5b660e7088289b301cdb29fc8a"
+  },
+  {
+   "path": "evidence/diachivietnam_than_mau.txt",
+   "bytes": 48511,
+   "sha256": "2734a6a9a6a1e9c1e051f9879705a9f40cd21a73ae3d1fe379cdb145d1f7e401"
+  },
+  {
+   "path": "evidence/wiki_vi_mau_lieu_u_hanh.txt",
+   "bytes": 25142,
+   "sha256": "8a54f91e6bd4c425ab14c7c4d7904928c09740248e0908259e2e68096ad9206f"
+  },
+  {
+   "path": "evidence/wiki_vi_phu_day.txt",
+   "bytes": 10626,
+   "sha256": "0a206fd20f908fe9531819e6035c0775358ed542f8f0745dce64b224b538a941"
+  },
+  {
+   "path": "evidence/wiki_vi_tin_nguong_tho_mau.txt",
+   "bytes": 27680,
+   "sha256": "172548beb0ffea81ca7b306635ebb68e60a033e26c99f8e4fd8e968f594c0a48"
+  },
+  {
+   "path": "evidence/ws_lieu_u_hanh_cong_chua.txt",
+   "bytes": 4033,
+   "sha256": "ac1dd934e4249fae15119ff14379c6ca0625c546bf86bc901faa8c9685d9e040"
+  },
+  {
+   "path": "evidence/ws_nhdnlt_45.txt",
+   "bytes": 8642,
+   "sha256": "f58696874bc9bc0ea7d31a105f111a9ab26c3b03ad8375529503a4cc5c7d1486"
+  },
+  {
+   "path": "evidence/ws_vttp_chuong20.txt",
+   "bytes": 1508,
+   "sha256": "046c431d07fc7059bc0097f283c0a626d6565f0cff2dff5a2fcb856d15e4a1fb"
+  },
+  {
+   "path": "raw_data.json",
+   "bytes": 2815,
+   "sha256": "4499526220cb57b4994f1473d99dc10628eddf968a077f714d89b3eac9a4c2b2"
+  },
+  {
+   "path": "research_brief.json",
+   "bytes": 19712,
+   "sha256": "100d3f3bcca5e9af84b13cee8345a1aece8a1744eace10fdcdb898daed6a5f59"
+  },
+  {
+   "path": "research_notes.md",
+   "bytes": 2404,
+   "sha256": "a9621e93142710b6adbc30e68a2f25d9457b62edcadf6b69ccd34a3cac423dac"
+  }
+ ]
+}

@@ -1,0 +1,2268 @@
+{
+  "version": "1.0",
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "total_duration_seconds": 870.0,
+    "scene_count": 70,
+    "scene_types_breakdown": {
+      "text_card": 15,
+      "diagram": 35,
+      "generated": 20
+    },
+    "scene_types_used": [
+      "diagram",
+      "generated",
+      "text_card"
+    ],
+    "consecutive_same_type_max": 5,
+    "renderer_family": "remotion",
+    "render_runtime": "remotion",
+    "composition_mode": "atelier",
+    "speech_lock_note": "Mọi scene khóa anchor từ theo ASR narration_words.json ±0,3s — KHÔNG ước lượng số từ; start/end_seconds provisional 870s, snap theo offset từ ASR ở edit",
+    "narration_order_rule_verified": true,
+    "layer_separation_device": "3 vật thể chứng cứ xuyên tập: trang giấy dó — hạt gạo vàng đồng — mái đền",
+    "focal_visual_rule_compliance": "Mọi focal visual dùng gen image có sẵn làm base (img-01..img-13; f07 silhouette đúng 1 scene setup) + overlay TSX/SVG vẽ tay speech-locked trên top; secondary visuals thuần code",
+    "asset_plan": "Không ảnh mới — tái dùng 13 ảnh + f07 theo bảng input; img-04 nong gạo là focal Hồi hai (sc026/sc028/sc029/sc030/sc059)",
+    "numbers_whitelist_compliance": "100% số trên màn từ _whitelist: 1329 · 1313 · 1492 · 1479/1697 · Hùng Vương thứ 6 · 3 tuổi · ngoài 60 · 18 thước · 7 thước · 100 mẫu ruộng tự điền · 7–9 tháng 4 AL + chính hội 9/4 + bãi Soi Bia · mùng 6–8 tháng Giêng + Mộc Dục mùng 5 + 8 lễ vật + giò hoa tre Vệ Linh · 16/11/2010 Nairobi · Tứ bất tử · ca dao 2 câu · cao hơn hai trượng",
+    "engine_constraints_acknowledged": "Không AI motion clip — Remotion still-motion + TSX/SVG speech-locked overlays (ink-genome)",
+    "ep_continuity_compliance": "f07 đền Hùng silhouette đúng 1 scene (sc007, s03); Tứ bất tử + Tản Viên callback đúng 1 nhịp (sc066); tease S2E03 không spoil tên (sc069)",
+    "scene_index_note": "scene index + timing snap sinh ở stage edit từ narration_words.json ASR (scripts/gen_scene_index.py / gen_scene_timing.py)"
+  },
+  "scenes": [
+    {
+      "id": "sc001",
+      "type": "text_card",
+      "description": "MỞ TẬP — HERO TITLE: 'Thánh Gióng: vì sao người cứu nước lại là một đứa trẻ?' mực kem trên nền tối, cụm 'một đứa trẻ' accent amber; ba vật thể neo (trang giấy dó, hạt gạo vàng, mái đền) hiện tuần tự theo ba mệnh đề điểm danh 'Một thanh gươm. Một con ngựa. Một roi sắt.'. Render template intent: hero_title + reveal tuần tự. Subject: tiêu đề + 3 vật thể. Subject motion: title spring-down → từng vật thể fade-in theo mệnh đề. Scene: tối, grain film mỏng. Camera: N/A — Remotion native.",
+      "start_seconds": 0.0,
+      "end_seconds": 12.0,
+      "script_section_id": "s01",
+      "framing": "Khối tiêu đề giữa trên, 3 vật thể so le dưới",
+      "movement": "Title spring-down → vật thể fade-in theo narration",
+      "transition_in": "fade",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Một roi sắt» · «Thánh Gióng» — hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Gieo nghịch lý đứa trẻ im lặng xin vũ khí ngay giây đầu",
+      "narrative_role": "establish_context",
+      "information_role": "Khán giả nắm chủ đề + 3 vật thể chứng cứ sẽ theo cả tập",
+      "hero_moment": false,
+      "texture_keywords": [
+        "myth_amber",
+        "nền tối",
+        "mực kem",
+        "accent vàng đồng",
+        "grain film mỏng"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc002",
+      "type": "diagram",
+      "description": "TRỤC VẬT THỂ CỦA TẬP: ba chứng cứ neo chéo màn hình theo nhịp đọc — một trang giấy dó sẫm, một hạt gạo vàng đồng, một mái đền đỏ son; vệt mực nối ba vật thành đường chéo, dấu hỏi mực lớn đè trên cùng khi narration hỏi vì sao người xưa chọn đứa trẻ im lặng. Render template intent: object-reveal trio + connecting ink line. Subject: 3 vật thể + đường mực nối. Subject motion: từng vật fade-in theo mệnh đề → đường mực vẽ nối → dấu hỏi spring nhẹ cuối câu. Scene: giấy dó tối, grain mỏng. Camera: N/A — Remotion native.",
+      "start_seconds": 12.0,
+      "end_seconds": 25.0,
+      "script_section_id": "s01",
+      "framing": "Ba vật thể chéo trái-dưới → phải-trên, dấu hỏi trên đầu",
+      "movement": "Object reveal tuần tự → ink line vẽ nối → question pop",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «ba trang sách» · «hai ngôi đền» — anchor đầu mở scene khi narration vào trục vật thể. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Cài device ba vật chứng + câu hỏi xuyên tập ngay cuối hook",
+      "narrative_role": "establish_context",
+      "information_role": "Khán giả ghi nhớ 3 vật thể-chứng cứ sẽ được lần theo suốt tập",
+      "hero_moment": false,
+      "texture_keywords": [
+        "giấy dó sẫm",
+        "hạt gạo vàng đồng",
+        "mái đền đỏ son",
+        "ink_stroke"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc003",
+      "type": "generated",
+      "description": "HỘI HÔM NAY — MỞ TỪ HIỆN TẠI: ảnh base img-13 hội làng Phù Đổng tờ mờ sáng, đám đông áo lính nâu đỏ đổ ra đường theo nhịp trống; display nhỏ góc màn 'mùng 9 tháng Tư âm lịch' hiện đúng lúc đọc; overlay TSX vẽ tay: vòng mực trống đập theo nhịp, cờ hiệu giương lên khi chữ đọc tới. Render template intent: still-image scene + speech-locked ink overlay. Subject: đoàn người hội + cờ hiệu. Subject motion: ken-burns đẩy chậm vào đoàn người; vòng trống mực pulse theo nhịp; cờ overlay nâng theo chữ. Scene: sáng tháng Tư, bụi hội ấm. Camera: dolly_in chậm như đứng giữa đường.",
+      "start_seconds": 25.0,
+      "end_seconds": 42.0,
+      "script_section_id": "s02",
+      "framing": "Đoàn hội chiếm mặt nền, chip ngày góc trên trái",
+      "movement": "Slow push-in + overlay trống/cờ theo narration",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «Trống hội dồn» · «Cờ hiệu giương» — hiện đúng lúc đọc, đúng thứ tự narration. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đưa khán giả đứng giữa hội làng đang sống trước khi vào sách",
+      "narrative_role": "establish_context",
+      "information_role": "Hội Gióng hôm nay có thật, đang diễn ra — câu chuyện chưa phải lịch sử",
+      "hero_moment": false,
+      "texture_keywords": [
+        "áo lính nâu đỏ",
+        "bụi hội ấm",
+        "trống hội",
+        "cờ hiệu"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-13-hoi-hom-nay.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc004",
+      "type": "diagram",
+      "description": "LỄ LÀ LỄ — DÒNG TRUYỀN: sơ đồ dọc các bước lệ cổ vẽ nét mực theo đúng thứ tự narration — người làm tướng, người làm lính, người cầm roi, người cầm cờ → rước nước về làng lau rửa khí giới → duyệt binh → tái hiện trận đánh; dải band mực bên dưới tự nhân bản trôi ra mép màn như lệ truyền đời này sang đời kia. Render template intent: progressive step diagram + repeating band. Subject: chuỗi bước lệ + band lặp. Subject motion: từng bước vẽ theo narration; band lặp trôi ngang chậm. Scene: giấy dó, mực nâu ấm. Camera: N/A.",
+      "start_seconds": 42.0,
+      "end_seconds": 59.0,
+      "script_section_id": "s02",
+      "framing": "Chuỗi bước dọc giữa màn, band lặp chân màn",
+      "movement": "Progressive reveal từng bước + band trôi ngang",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «cả làng nhập vai» · «đời này sang đời kia» — các bước lễ hiện đúng thứ tự narration đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Chứng minh đây là lệ được giữ, không phải chương trình biểu diễn",
+      "narrative_role": "evidence",
+      "information_role": "Hội vận hành theo nghi thức cố định truyền qua bao đời",
+      "hero_moment": false,
+      "texture_keywords": [
+        "giấy dó",
+        "mực nâu",
+        "band mực lặp",
+        "nét vẽ tay"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc005",
+      "type": "diagram",
+      "description": "VẬT THỂ THỨ NHẤT HIỆN: mâm cỗ ngoài sân vẽ mực — chén xôi khói, HẠT GẠO vàng đồng phóng to nổi lên như vật chứng đầu tiên; cạnh đó mái đền đỏ son với bóng đứa trẻ nhỏ ngồi im; cuối scene trang sách mở ra rồi gấp lại, dòng người mực nhỏ bước ra khỏi trang về phía làng. Render template intent: object trio reveal + book-to-village morph. Subject: hạt gạo / mái đền / trang sách. Subject motion: hạt gạo scale-up sáng vàng theo chữ đọc; trang sách gập, người mực bước ra. Scene: ấm, khói mảnh. Camera: N/A.",
+      "start_seconds": 59.0,
+      "end_seconds": 75.0,
+      "script_section_id": "s02",
+      "framing": "Hạt gạo trung tâm sáng nhất, đền và trang sách hai bên",
+      "movement": "Object reveal + book fold-out people walk",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «hạt gạo» · «về lại làng» — hạt gạo hiện đúng lúc đọc, là mồi trục vật thể. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Chuyển truyện từ sách về làng, cài vật thể hạt gạo vào tiềm thức",
+      "narrative_role": "transition",
+      "information_role": "Câu chuyện sống trong mâm cỗ, khói đền — rồi ta sẽ quay về trang giấy đầu tiên",
+      "hero_moment": false,
+      "texture_keywords": [
+        "hạt gạo vàng đồng",
+        "khói mảnh",
+        "mái đền đỏ son",
+        "mực ấm"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc006",
+      "type": "generated",
+      "description": "TRANG SGK — GẶP TRUYỆN LẦN ĐẦU: ảnh base img-01 đứa trẻ bụng mừng nằm im trên phản, mẹ ngồi gần, tông mực ấm trên giấy; display 'Đời Hùng Vương thứ 6' hiện đúng lúc đọc; overlay line-art bụng phồng nhẹ dần theo câu nói giỡn của mẹ. Render template intent: still-image scene + subtle breath scale + date chip. Subject: mẹ + đứa trẻ nằm trên phản. Subject motion: overlay bụng phồng chậm; chip lịch sử fade-in theo narration. Scene: giấy SGK ngả vàng ấm, mực dịu. Camera: static medium_close.",
+      "start_seconds": 75.0,
+      "end_seconds": 92.0,
+      "script_section_id": "s03",
+      "framing": "Mẹ và đứa trẻ song song trên phản, chip góc trên",
+      "movement": "Overlay bụng phồng + chip fade-in",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Đời Hùng Vương thứ 6» · «chưa biết nói, chưa biết cười» — chip hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Tái hiện trang SGK quen thuộc — nơi đa số khán giả gặp truyện",
+      "narrative_role": "introduce_subject",
+      "information_role": "Đứa trẻ 3 tuổi nằm im, chưa biết nói cười — bản kể quen thuộc của lớp học",
+      "hero_moment": false,
+      "texture_keywords": [
+        "giấy SGK ngả vàng",
+        "mực ấm",
+        "đứa trẻ bụng mừng",
+        "phán gỗ"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-01-giong-tre.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc007",
+      "type": "generated",
+      "description": "TIẾNG NÓI ĐẦU + CALLBACK MÙA 1: panel trái bóng đứa trẻ ngồi dậy lần đầu, bong bóng thoại mực rỗng mở ra hình người khách quân xanh khi mẹ mời vào; cuối scene cắt thoáng hai giây silhouette đền Hùng trên núi xa (f07) đúng lúc đọc về núi Hùng — không chữ, không số liệu, không mở rộng. Render template intent: dual-panel + 2s silhouette callback. Subject: đứa trẻ + bóng sứ giả / silhouette núi đền. Subject motion: bong bóng thoại vẽ stroke mở; silhouette fade in-out đúng một nhịp. Scene: mực ấm, sương mỏng. Camera: pan_right nhẹ giữa hai panel.",
+      "start_seconds": 92.0,
+      "end_seconds": 109.0,
+      "script_section_id": "s03",
+      "framing": "Hai panel: nhà trong SGK trái, núi Hùng silhouette phải (thoáng cuối)",
+      "movement": "Speech bubble vẽ mở → cut 2s silhouette",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «người khách quân xanh» · «núi Hùng» — silhouette f07 hiện đúng nhịp đọc callback, đúng 1 scene duy nhất của tập. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "pan_right",
+        "lighting_key": "silhouette",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Nối series với mùa 1 bằng một nhịp hình không lời",
+      "narrative_role": "transition",
+      "information_role": "Sự kiện hư cấu của truyện nằm cùng dòng thời gian đền Hùng đã biết",
+      "hero_moment": false,
+      "texture_keywords": [
+        "silhouette núi",
+        "sương mỏng",
+        "bong bóng thoại mực",
+        "khách quân xanh"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "f07-hung-vuong.png — focal (xem scene description)",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc008",
+      "type": "text_card",
+      "description": "BÀI HỌC GỌN — NGHỊCH LÝ CÒN ĐÓ: khung liệt kê SGK chạy nhanh 'xin vũ khí → lớn nhanh như thổi → ra trận → thắng → bay về trời' gọn như một bài học; rồi khung phai xuống, chỉ còn dòng mực đậm: trong biết bao vua chúa thần tướng, người cứu nước nổi tiếng nhất lại là một đứa trẻ chưa từng nói một lời. Render template intent: compact checklist then question reveal. Subject: khung liệt kê + câu nghịch lý. Subject motion: checklist tick nhanh tuần tự; khung mờ đi, câu hỏi typewriter chậm. Scene: nền giấy phẳng, tương phản cao. Camera: N/A.",
+      "start_seconds": 109.0,
+      "end_seconds": 125.0,
+      "script_section_id": "s03",
+      "framing": "Khung liệt kê trên, câu nghịch lý ngả xuống dưới",
+      "movement": "Checklist tick → fade → typewriter câu hỏi",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Gọn trong một bài học» · «đứa trẻ chưa từng nói một lời» — checklist hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Chỉ ra chỗ SGK gói gọn — để câu hỏi trung tâm cấn lại trong đầu",
+      "narrative_role": "build_tension",
+      "information_role": "Bản kể lớp học bỏ qua điều kỳ lạ nhất: đứa trẻ chưa nói mà cứu nước",
+      "hero_moment": false,
+      "texture_keywords": [
+        "nền giấy phẳng",
+        "mực đậm",
+        "checklist mực"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc009",
+      "type": "text_card",
+      "description": "CÂU HỎI MÙA HAI: cụm 'vị thần ở lại' mực kem trên nền tối làm trung tâm; bốn vật nhỏ — trống hội, mâm cỗ, hạt gạo, mái đền — hiện quanh cụm chữ đúng thứ tự narration điểm tên, như bốn cánh cửa vào loạt truyện mùa này. Render template intent: keyword constellation. Subject: cụm từ trung tâm + 4 vật. Subject motion: từng vật pop theo narration, viền vàng đồng. Scene: tối, điểm sáng ấm quanh chữ. Camera: N/A.",
+      "start_seconds": 125.0,
+      "end_seconds": 142.0,
+      "script_section_id": "s04",
+      "framing": "Chữ trung tâm, 4 vật neo bốn phía",
+      "movement": "Central keyword + object pop tuần tự",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «vị thần ở lại» · «trong trống hội, mâm cỗ» — 4 vật hiện đúng thứ tự narration đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đặt tập này vào khung câu hỏi mùa 2 của series",
+      "narrative_role": "establish_context",
+      "information_role": "Mùa 2 đọc thần thoại nơi chúng còn sống: trong lễ, trong cỗ, trong làng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "nền tối",
+        "mực kem",
+        "viền vàng đồng"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc010",
+      "type": "diagram",
+      "description": "KHO THẦN CHỌN AI: bảng mực dày đặc bóng các vị — thần núi, thần sông, tướng cưỡi voi — hiện mờ thành hàng; rồi cả bảng dạt xuống thấp, duy nhất một ô sáng vàng 'một đứa trẻ 3 tuổi' nổi giữa màn cùng chip nhỏ 'cha mẹ đã ngoài 60'; dấu hỏi mực lớn đè phía trên. Render template intent: dense-then-one reveal. Subject: bảng bóng thần + ô đứa trẻ. Subject motion: bảng fade-dồn xuống; ô vàng spring giữa màn khi narration đọc hai con số. Scene: giấy dó tối, một điểm vàng. Camera: N/A.",
+      "start_seconds": 142.0,
+      "end_seconds": 158.0,
+      "script_section_id": "s04",
+      "framing": "Bảng thần lấp dưới, ô vàng cô độc giữa",
+      "movement": "Dense fade-down → single golden cell spring",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «một đứa trẻ 3 tuổi» · «cha mẹ đã ngoài 60» — hai chip số hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Cụ thể hóa độ kỳ lạ của lựa chọn: kho thần đầy mà chọn đứa trẻ",
+      "narrative_role": "build_tension",
+      "information_role": "Người xưa có nhiều lựa chọn thần thánh nhưng nâng đứa trẻ 3 tuổi lên vị trí cao nhất",
+      "hero_moment": false,
+      "texture_keywords": [
+        "bóng thần mờ",
+        "ô vàng đồng",
+        "giấy dó tối"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc011",
+      "type": "diagram",
+      "description": "CÁCH ĐỌC MỚI — NGƯỢC THỜI GIAN: trục thời gian ngang vẽ chạy từ phải sang trái: mái đền (hôm nay) → ba ô giấy dó mờ dần về phía trước; mũi tên mực chạy ngược với nhịp tick mỗi ô; caption cuối trục 'gần như không có trận đánh nào' hiện như lời hẹn mở Hồi một. Render template intent: reverse timeline tease. Subject: trục ngược + 3 ô giấy dó. Subject motion: mũi tên chạy ngược, từng ô sáng ngược theo mệnh đề. Scene: tối, vệt mực sáng dần. Camera: zoom_out nhẹ mở trục.",
+      "start_seconds": 158.0,
+      "end_seconds": 175.0,
+      "script_section_id": "s04",
+      "framing": "Trục ngang giữa màn, hôm nay phải, cổ nhất trái",
+      "movement": "Reverse arrow run + cell light-up ngược",
+      "transition_in": "dissolve",
+      "transition_out": "wipe_ink",
+      "overlay_notes": "anchors: «đọc ngược» · «không có trận đánh nào» — trục ngược hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "zoom_out",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Cài phương pháp đọc ngược — device kết cấu của Hồi một",
+      "narrative_role": "transition",
+      "information_role": "Ta sẽ đọc lùi từ trang mới nhất về trang cổ nhất, và bất ngờ chờ ở đó",
+      "hero_moment": false,
+      "texture_keywords": [
+        "trục mực ngược",
+        "ô giấy dó mờ",
+        "tick nhịp"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc012",
+      "type": "generated",
+      "description": "HỒI MỘT — TRANG MỚI NHẤT: ảnh base img-09 trang cổ thư Đại Việt sử ký toàn thư nghiêm cẩn tông nâu xám, nét mực ngắn; chip gáy sách 'ĐVSKTT · 1479 / bản Chính hiệu 1697' hiện khi narration đọc; vài dòng mực được tô đậm đúng bằng độ dài câu trích sắp tới — khoảng giấy còn trống phô ra sự kiệm chữ của chính sử. Render template intent: co-thu page + source chip + pre-highlight lines. Subject: trang giấy + chip nguồn. Subject motion: page lật vào khung; highlight chạy dưới dòng theo narration. Scene: nâu xám nghiêm cẩn, mực khô. Camera: tilt_down theo dòng chữ.",
+      "start_seconds": 175.0,
+      "end_seconds": 189.0,
+      "script_section_id": "s05",
+      "framing": "Trang giấy chiếm toàn màn, chip nguồn gáy trái",
+      "movement": "Page flip-in + line highlight",
+      "transition_in": "wipe_ink",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «ba trang sách» · «vắn vọn vài dòng khô» — bộ ba trang hiện đúng lúc đọc mở Hồi một. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "tilt_down",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Mở Hồi một bằng vật chứng giấy — chính sử nghiêm cẩn nhất",
+      "narrative_role": "evidence",
+      "information_role": "Trang mới nhất trong chuỗi ba trang: chính sử chép vắn vọn vài dòng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "co_thu nâu xám",
+        "mực khô",
+        "chip nguồn",
+        "highlight mực đậm"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-09-co-thu-dvsktt.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc013",
+      "type": "text_card",
+      "description": "QUOTE NGUYÊN VĂN — TOÀN BỘ TUỔI THƠ MỘT CÂU: 'Hơn ba tuổi, ăn uống, to béo, không biết nói cười.' — sách chép: Đại Việt sử ký toàn thư · 1479/1697. Câu hiện nguyên chữ mực đậm giữa nền giấy dó trống, mỗi vế tách dòng theo nhịp đọc; cuối scene chữ 'im lặng' trong phần tường thuật nhận nét gạch chân chậm. Render template intent: verbatim quote card + line-by-line reveal. Subject: câu trích + dấu son nguồn. Subject motion: từng dòng typewriter theo narration; gạch chân trôi cuối. Scene: giấy dó trống, khắc nghiệt. Camera: N/A.",
+      "start_seconds": 189.0,
+      "end_seconds": 209.0,
+      "script_section_id": "s05",
+      "framing": "Câu trích căn giữa, nguồn đóng dấu son góc dưới",
+      "movement": "Line-by-line typewriter + underline chậm",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Hơn ba tuổi, ăn uống, to béo, không biết nói cười» · «im lặng» — quote-card hiện đúng lúc narration bắt đầu trích. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Để chính sử tự nói — tuổi thơ người cứu nước gói trong một câu khô",
+      "narrative_role": "evidence",
+      "information_role": "Bản chép chính sử chỉ ghi: ăn, to béo, và im lặng — chưa có gươm ngựa",
+      "hero_moment": false,
+      "texture_keywords": [
+        "giấy dó trống",
+        "mực đậm",
+        "dấu son nguồn",
+        "typewriter"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc014",
+      "type": "generated",
+      "description": "SỨ GIẢ GHÉ LÀNG: ảnh base img-03 người sứ giả theo sau ngựa cờ dừng trước nhà giàu nhất vùng; bóng đứa trẻ trên phản ngước lên và lần đầu cất tiếng — nét mực overlay rung nhẹ như chính làng không tin; bong bóng thoại mực rỗng mở ra đợi lời. Render template intent: still-image scene + tremor ink + empty speech bubble. Subject: sứ giả + đứa trẻ ngồi dậy. Subject motion: đoàn ngựa dừng; đứa trẻ nâng đầu theo chữ đọc; bong bóng mở. Scene: chiều làng, mực ấm. Camera: static medium.",
+      "start_seconds": 209.0,
+      "end_seconds": 220.0,
+      "script_section_id": "s06",
+      "framing": "Sứ giả cạnh ngựa cờ, đứa trẻ trên phản gần",
+      "movement": "Đoàn dừng → đứa trẻ nâng đầu → bubble mở",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «ghé qua làng» · «cất tiếng» — bubble mở đúng lúc đọc 'cất tiếng'. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đánh dấu khoảnh khắc im lặng vỡ — cầu nối sang câu nói đầu đời",
+      "narrative_role": "build_tension",
+      "information_role": "Đứa trẻ chưa từng nói bỗng cất tiếng nhờ mẹ mời sứ giả",
+      "hero_moment": false,
+      "texture_keywords": [
+        "ngựa cờ",
+        "mực ấm chiều làng",
+        "bong bóng thoại rỗng"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-03-su-gia.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc015",
+      "type": "text_card",
+      "description": "QUOTE — LỜI XIN ĐẦU ĐỜI: nguyên văn 'Xin cho một thanh gươm, một con ngựa và một roi sắt, nhà vua không phải lo gì cả!' — sách chép: Đại Việt sử ký toàn thư · 1479/1697. Ba icon mực gươm–ngựa–roi pop theo đúng ba danh từ trong câu; nền tối, chữ kem nhấn vàng đồng. Render template intent: verbatim quote + tri-object sync. Subject: câu trích + 3 icon vũ khí. Subject motion: typewriter từng cụm, icon pop theo đúng chữ vừa đọc. Scene: tối, một point light ấm. Camera: N/A.",
+      "start_seconds": 220.0,
+      "end_seconds": 229.0,
+      "script_section_id": "s06",
+      "framing": "Câu trích giữa màn, 3 icon xếp dưới",
+      "movement": "Typewriter + icon pop sync",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Xin cho một thanh gươm» · «Không xin ngôi báu» — quote hiện đúng lúc narration đọc câu này. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Câu nói đầu đời là lời xin vũ khí — điểm tựa của cả tập",
+      "narrative_role": "deliver_payload",
+      "information_role": "Tiếng nói đầu tiên không xin cơm áo, không xin mẹ — xin vũ khí",
+      "hero_moment": false,
+      "texture_keywords": [
+        "nền tối",
+        "chữ kem",
+        "accent vàng đồng",
+        "icon mực"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc016",
+      "type": "diagram",
+      "description": "TRẬN ĐÁNH TỰ TAN — BẢN ĐỒ + HAI CÂU CHẾP: bản đồ giấy dầu tông sepia, mũi tên mực từ Phù Đổng ra chân núi Vũ Ninh hiện đúng lúc đọc; hai quote-card nhỏ nối tiếp nguyên văn 'Giặc tự quay giáo đánh lẫn nhau.' và 'Đứa trẻ nhảy ngựa lên không mà đi.' — mỗi card lặng đúng nửa giây như pause narration; kết bằng vài dòng chấm mực ngắn tóm cả truyện. Render template intent: sepia map + sequential micro quotes. Subject: bản đồ + 2 câu trích. Subject motion: mũi tên vẽ chạy; từng quote fade-in rồi hold nửa nhịp. Scene: sepia khô, giấy dầu. Camera: pan_left theo mũi tên.",
+      "start_seconds": 229.0,
+      "end_seconds": 243.0,
+      "script_section_id": "s06",
+      "framing": "Bản đồ trên, dải quote dưới chạy ngang",
+      "movement": "Arrow run + sequential quote holds",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Giặc tự quay giáo đánh lẫn nhau» · «nhảy ngựa lên không» — hai quote hiện đúng lúc đọc từng câu. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "pan_left",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Chính sử kết trận bằng hai câu khiến người đọc phải ngẩng lên",
+      "narrative_role": "deliver_payload",
+      "information_role": "Giặc tự tan, đứa trẻ bay mất — hết truyện trong vài dòng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "bản đồ giấy dầu",
+        "sepia",
+        "mũi tên mực",
+        "micro quote"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc017",
+      "type": "generated",
+      "description": "TRANG THỨ HAI — LNCQ 1492: ảnh base img-08 trang cổ thư tông ấm rực hơn trang chính sử lật ra chiếm chỗ; chip gáy 'Lĩnh Nam chích quái · 1492' hiện khi narration đọc năm hiệu chính; nét mực trang này mềm, nhiều hoa văn hơn. Render template intent: page flip + source chip warm. Subject: trang giấy ấm + chip nguồn. Subject motion: page lật từ phải vào; chip fade-in theo chữ. Scene: ấm, vàng giấy cũ. Camera: static medium.",
+      "start_seconds": 243.0,
+      "end_seconds": 255.0,
+      "script_section_id": "s07",
+      "framing": "Trang giấy toàn màn, chip gáy trái",
+      "movement": "Page flip-in + chip fade",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Năm 1492» · «Lĩnh Nam chích quái» — chip năm hiện đúng lúc đọc hiệu chính. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đổi màu giấy — đổi chất kể: truyền kỳ rực rỡ sau chính sử khô khan",
+      "narrative_role": "transition",
+      "information_role": "Trang 1492 của Vũ Quỳnh – Kiều Phú chép lại truyền kỳ cũ thời Trần",
+      "hero_moment": false,
+      "texture_keywords": [
+        "co_thu tông ấm",
+        "giấy cũ vàng",
+        "chip nguồn"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-08-co-thu-lncq.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc018",
+      "type": "generated",
+      "description": "LỜI TIÊN TRI NGÃ BA ĐƯỜNG: ảnh base img-02 cụ già tóc bạc trắng như cước ngồi bất động nơi ngã ba đường, cỗ kiệu vợ chồng nhà giàu đi ngang; chip 'cha mẹ đã ngoài 60' hiện khi narration đọc độ tuổi; cụ ngẩng lên đúng nhịp phán. Render template intent: still-image scene + age chip + oracle beat. Subject: cụ già + cỗ kiệu. Subject motion: overlay line-art cỗ kiệu nhích qua; cụ nâng đầu; chip fade-in. Scene: nắng mờ ngã ba, bụi đường. Camera: slow dolly_in vào cụ.",
+      "start_seconds": 255.0,
+      "end_seconds": 266.0,
+      "script_section_id": "s07",
+      "framing": "Cụ già tiền cảnh, cỗ kiệu qua sau",
+      "movement": "Palanquin drift + elder head-lift + chip",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «ngã ba đường» · «ngoài 60» — chip tuổi hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "dolly_in",
+        "lighting_key": "golden_hour",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Truyền kỳ bắt đầu bằng lời hẹn của thần — trước cả đứa trẻ",
+      "narrative_role": "introduce_subject",
+      "information_role": "Long Quân hóa cụ già hẹn con trai cho vợ chồng ngoài 60 tuổi",
+      "hero_moment": false,
+      "texture_keywords": [
+        "tóc bạc trắng như cước",
+        "ngã ba đường",
+        "cỗ kiệu",
+        "bụi đường vàng"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-02-cu-gia.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc019",
+      "type": "diagram",
+      "description": "HAI CÁCH MỞ TRUYỆN: màn chia đôi — trái trang chính sử với cái bụng béo nằm im (tông nâu xám), phải trang truyền kỳ với lời hẹn của thần (tông ấm); câu chốt 'lời hẹn của thần' đóng mực đỏ phía dưới. Render template intent: split-page comparison. Subject: hai trang mở đầu khác nhau. Subject motion: hai trang lật vào từ hai phía cùng lúc; caption chốt typewriter. Scene: hai tông màu đối xứng. Camera: N/A.",
+      "start_seconds": 266.0,
+      "end_seconds": 277.0,
+      "script_section_id": "s07",
+      "framing": "Split đôi dọc giữa màn",
+      "movement": "Dual page flip + closing caption",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «ra phá giặc cho nước» · «lời hẹn của thần» — caption chốt hiện đúng câu cuối section. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Đặt hai trang cạnh nhau — cùng truyện, hai điểm khởi đầu khác nhau",
+      "narrative_role": "comparison",
+      "information_role": "Chính sử mở từ bụng béo im lặng; truyền kỳ mở từ lời tiên tri",
+      "hero_moment": false,
+      "texture_keywords": [
+        "split đôi",
+        "nâu xám vs ấm",
+        "caption mực đỏ"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc020",
+      "type": "text_card",
+      "description": "QUOTE — CÂU ĐÁP TỰ XƯNG: nguyên văn 'Ta là thiên tướng nhà Trời đây!' — sách chép: Lĩnh Nam chích quái · 1492. Chữ hiện lớn giữa màn như tiếng vọng, nền trang 1492 mờ phía sau; câu dẫn 'một đứa trẻ 3 tuổi tự xưng' chạy nhỏ trên. Render template intent: verbatim quote + ghost page backdrop. Subject: câu trích + nền trang mờ. Subject motion: chữ scale-in từ nhỏ theo giọng đọc; nền parallax nhẹ. Scene: ấm, hào quang mực vàng. Camera: N/A.",
+      "start_seconds": 277.0,
+      "end_seconds": 289.0,
+      "script_section_id": "s08",
+      "framing": "Câu trích trung tâm, dẫn chú thích trên",
+      "movement": "Scale-in quote + ghost parallax",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «Ta là thiên tướng nhà Trời đây!» · «tự xưng là thiên tướng» — quote hiện đúng lúc narration đọc câu đáp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "volumetric",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Bộ mặt rực lửa của trang 1492 bắt đầu bằng câu tự xưng thiên tướng nhà Trời",
+      "narrative_role": "evidence",
+      "information_role": "Đứa trẻ 3 tuổi tự xưng thiên tướng nhà Trời — chi tiết truyền kỳ",
+      "hero_moment": false,
+      "texture_keywords": [
+        "hào quang mực vàng",
+        "ghost page",
+        "chữ lớn"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc021",
+      "type": "diagram",
+      "description": "BẢN KÊ KHAI BINH KHÍ: sơ đồ nét mực như kê khai đồ trang bị — ngựa sắt, thanh kiếm, nón sắt hiện lần lượt kèm chip số 'ngựa sắt cao 18 thước', 'thanh kiếm dài 7 thước' đúng thứ tự narration đọc; nét vẽ phóng tỉ lệ hai vật cạnh bóng đứa trẻ nhỏ để thấy khổng lồ. Render template intent: scale-spec diagram + sequential chips. Subject: 3 món đồ sắt + chip kích thước. Subject motion: từng món vẽ + chip số pop theo chữ; tỉ lệ animate. Scene: giấy dó, nét mực kỷ thuật. Camera: N/A.",
+      "start_seconds": 289.0,
+      "end_seconds": 300.0,
+      "script_section_id": "s08",
+      "framing": "Ba món xếp hàng dọc, chip số cạnh từng món",
+      "movement": "Sequential draw + size chip pop",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «ngựa sắt cao 18 thước» · «thanh kiếm dài 7 thước» — chip số hiện đúng lúc đọc, đúng thứ tự. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Chép rõ kích thước như bản kê khai — truyền kỳ dựng cả kỵ binh thép",
+      "narrative_role": "evidence",
+      "information_role": "Trang 1492 ghi kích thước chi tiết món đồ sắt không ai mang nổi",
+      "hero_moment": false,
+      "texture_keywords": [
+        "nét mực kỷ thuật",
+        "chip số",
+        "tỉ lệ phóng"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc022",
+      "type": "diagram",
+      "description": "HAI GƯƠNG MẶT NGƯỜI CHÉP: hai trang giấy dó đặt cạnh nhau — trái ĐVSKTT nghiêm cẩn kiệm chữ như quan chép sử, phải LNCQ rực rỡ mê mâu như người kể đêm hội; hai tông nét chữ khác hẳn; caption 'gương mặt của người chép' đóng giữa. Render template intent: side-by-side character-of-page comparison. Subject: hai trang hai tính cách. Subject motion: hai trang trượt vào từ hai phía; nét chữ hai tông nhấp nháy đối chiếu. Scene: hai tông nâu xám ↔ vàng ấm. Camera: N/A.",
+      "start_seconds": 300.0,
+      "end_seconds": 311.0,
+      "script_section_id": "s08",
+      "framing": "Hai trang ngang hàng, caption giữa",
+      "movement": "Dual slide-in + texture contrast",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «hai cách chép» · «kể đêm hội» · «gương mặt của người chép» — caption chốt hiện đúng câu cuối. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Mỗi trang mang gương mặt người chép — ý mấu chốt của Hồi một",
+      "narrative_role": "comparison",
+      "information_role": "Cùng một truyện nhưng hai cách chép phản chiếu hai tâm thế người kể",
+      "hero_moment": false,
+      "texture_keywords": [
+        "nâu xám nghiêm cẩn",
+        "vàng ấm rực rỡ",
+        "caption giữa"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc023",
+      "type": "generated",
+      "description": "TRANG CỔ NHẤT — VĐULT 1329: ảnh base img-07 trang giấy dó tông amber nhạt cổ nhất trong bộ ba, nét mực mờ gợi vị thần nhỏ bên chùa làng — không chữ đọc được; chip 'Việt Điện U Linh Tập · 1329 · Lý Tế Xuyên' hiện khi narration giới thiệu. Render template intent: oldest-page reveal + source chip. Subject: trang cổ nhất mờ. Subject motion: trang lật vào chậm, chip fade; hạt bụi giấy lơ lửng. Scene: amber nhạt, cổ kính. Camera: slow push-in.",
+      "start_seconds": 311.0,
+      "end_seconds": 319.0,
+      "script_section_id": "s09",
+      "framing": "Trang mờ toàn màn, chip nguồn gáy",
+      "movement": "Slow page-in + dust motes",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «trang cổ nhất» · «Việt Điện U Linh Tập» — chip hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "dolly_in",
+        "lighting_key": "low_key",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Chạm tới điểm khởi đầu cổ nhất còn lại của Thánh Gióng",
+      "narrative_role": "evidence",
+      "information_role": "Tuyển truyện thần 1329 do học giả Lý Tế Xuyên biên tập",
+      "hero_moment": false,
+      "texture_keywords": [
+        "amber nhạt",
+        "nét mực mờ",
+        "bụi giấy"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-07-co-thu-vdult.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc024",
+      "type": "text_card",
+      "description": "QUOTE CỐT NHẤT — THẦN THỔ ĐỊA: nguyên văn 'Theo truyện Báo Cực chép trong Việt Điện U Linh Tập, thần vốn là vị thần Thổ địa bên chùa Kiến Sơ, hương Phù Đổng, huyện Tiên Du.' — sách chép: Việt Điện U Linh Tập · 1329. Chữ hiện vừa màn trên nền trang mờ; các địa danh Phù Đổng / Tiên Du nhận gạch mực; sau đó câu 'Không có trận đánh.' đập vào dòng dưới như bản án lặng. Render template intent: verbatim quote + annotated toponyms + silent verdict line. Subject: câu trích + dòng phủ định. Subject motion: typewriter; gạch mực dưới địa danh; dòng 'Không có trận đánh.' slam-in cuối. Scene: amber, tĩnh lặng tuyệt đối. Camera: N/A.",
+      "start_seconds": 319.0,
+      "end_seconds": 333.0,
+      "script_section_id": "s09",
+      "framing": "Câu trích trên, dòng phủ định dưới",
+      "movement": "Typewriter + underline + verdict slam",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «vị thần Thổ địa» · «Không có trận đánh» — verdict line hiện đúng nhịp đọc phủ định. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Bất ngờ lớn nhất của tập: nguồn cổ nhất không có trận đánh",
+      "narrative_role": "deliver_payload",
+      "information_role": "Điểm gốc 1329 chỉ là vị thần Thổ địa nhỏ bên chùa làng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "amber tĩnh",
+        "gạch mực địa danh",
+        "verdict line"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc025",
+      "type": "diagram",
+      "description": "BA TRANG — TIẾNG GƯƠM NHỎ DẦN: ba trang giấy dó xếp hàng theo năm ngược (1479/1697 → 1492 → 1329), thanh âm 'tiếng gươm' mờ dần về trang cũ; chip gia phong '1313 · Xung Thiên Dũng Liệt Chiêu Ứng Uy Tín Đại Vương' hiện đúng lúc đọc; năm con dấu nhỏ ghim giữ nguyên cả ba trang: đứa trẻ / tiếng nói / vũ khí / bay về trời / ngôi đền. Render template intent: three-page depth row + decaying meter + five pinned seals. Subject: hàng ba trang + 5 con dấu. Subject motion: từng trang trượt vào; thanh mờ dần; 5 dấu ghim pop theo nhịp đếm. Scene: hàng giấy nghiêng chiều sâu. Camera: crane_down nhẹ dọc hàng trang.",
+      "start_seconds": 333.0,
+      "end_seconds": 345.0,
+      "script_section_id": "s09",
+      "framing": "Ba trang xéo chiều sâu, 5 dấu ghim xuyên qua",
+      "movement": "Row slide + meter decay + seal pops",
+      "transition_in": "dissolve",
+      "transition_out": "wipe_ink",
+      "overlay_notes": "anchors: «năm điều không đổi» · «tiếng gươm nhỏ dần» — 5 con dấu ghim đúng nhịp đếm. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "crane_down",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Khép Hồi một: lớp sau thêm gì cho lớp trước là câu hỏi về người chép",
+      "narrative_role": "resolution",
+      "information_role": "Lùi về trước, chi tiết trận mạch mờ dần nhưng năm yếu tố lõi không đổi",
+      "hero_moment": false,
+      "texture_keywords": [
+        "hàng ba trang",
+        "con dấu mực",
+        "thanh âm mờ dần"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc026",
+      "type": "generated",
+      "description": "HỒI HAI — HẠT GẠO: tiêu đề hồi hiện mực kem trên nền tối; ảnh base img-04 chiếc nong tre trống đặt giữa sân làng hiện trước khi hạt gạo bắt đầu bay — setup cho scene trung tâm tiếp theo; không chữ số, chỉ không gian và vật chờ. Render template intent: act title + empty nong establishing. Subject: chiếc nong trống giữa sân. Subject motion: title fade; nong hiện từ mờ, hạt bụi sáng lơ lửng trên miệng nong. Scene: sân làng chiều muộn, ấm. Camera: slow tilt_down từ title xuống nong.",
+      "start_seconds": 345.0,
+      "end_seconds": 356.0,
+      "script_section_id": "s10",
+      "framing": "Title trên, nong trống dưới giữa sân",
+      "movement": "Title fade + nong reveal + dust drift",
+      "transition_in": "wipe_ink",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «hạt gạo» · «kể lướt» — nong hiện khi narration vào Hồi hai. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tilt_down",
+        "lighting_key": "golden_hour",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Mở Hồi hai bằng vật thể trung tâm đang trống — mời gạo về",
+      "narrative_role": "transition",
+      "information_role": "Câu hỏi cậu bé lớn lên thế nào — chỗ cả sách đều kể lướt",
+      "hero_moment": false,
+      "texture_keywords": [
+        "nong tre trống",
+        "sân làng chiều",
+        "hạt bụi sáng"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-04-nong-com.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc027",
+      "type": "text_card",
+      "description": "QUOTE — XÓM LÀNG CHUNG GÓP: nguyên văn 'Gia đình cậu tuy giàu có nhưng không đủ gạo cho cậu ăn no, không đủ vải để may áo quần. Xóm làng phải chung góp gạo vải với gia đình để nuôi cậu.' — sách chép: Lĩnh Nam chích quái · 1492. Quote hiện nguyên chữ, hai vế 'không đủ gạo' / 'không đủ vải' tách dòng; dòng cuối 'Xóm làng phải chung góp' nhận nền vàng đồng; kèm phân tích ngắn bằng chữ mực nhỏ: bữa cơm của người cứu nước là gạo của nhiều nhà. Render template intent: verbatim quote + community highlight line. Subject: câu trích dài + vế cuối nổi. Subject motion: typewriter từng vế; vế cộng đồng sáng dần thành vàng. Scene: giấy dó ấm. Camera: N/A.",
+      "start_seconds": 356.0,
+      "end_seconds": 377.0,
+      "script_section_id": "s10",
+      "framing": "Quote căn giữa, vế chung góp sáng nhất",
+      "movement": "Stanza typewriter + highlight build",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «không đủ gạo» · «gạo của nhiều nhà» — quote hiện đúng lúc narration bắt đầu trích. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Phi thường nằm ở gạo, không ở phép màu — trích nguyên văn để tự sách chứng minh",
+      "narrative_role": "evidence",
+      "information_role": "Nhà giàu nhất vùng không đủ gạo — xóm làng phải chung góp nuôi cậu",
+      "hero_moment": false,
+      "texture_keywords": [
+        "quote nguyên văn",
+        "nền vàng đồng",
+        "mực nhỏ phân tích"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc028",
+      "type": "generated",
+      "description": "SCENE TRUNG TÂM — NONG RỘNG RA: ảnh base img-04 full-bleed sân làng, hạt gạo vàng đồng bay từ từng mái nhà về CHIẾC NONG giữa sân, nong đầy dần đúng nhịp narration; nhiều bàn tay nông dân buông hạt lúa xuống như thả lời nguyện; overlay TSX vẽ tay: đường đế mái nhà quanh nong sáng lên từng cái theo số nhà góp. Render template intent: particle-flow centerpiece + roofline ledger overlay. Subject: dòng gạo chảy về nong. Subject motion: hạt gạo particle bay theo cung; nong fill-up theo nhịp; roofline dot sáng dần. Scene: vàng đồng ấm, chiều làng. Camera: slow crane_up từ nong ra toàn làng.",
+      "start_seconds": 377.0,
+      "end_seconds": 390.0,
+      "script_section_id": "s11",
+      "framing": "Nong trung tâm, các mái nhà tỏa quanh",
+      "movement": "Particle inflow + nong fill + roofline dots",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «nong tre cứ rộng ra» · «từng gánh, từng bọc» — dòng gạo bay khớp từng cụm narration đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "crane_up",
+        "lighting_key": "golden_hour",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Trục hình lớn nhất Hồi hai — sức mạnh được đong bằng nong của cả làng",
+      "narrative_role": "deliver_payload",
+      "information_role": "Gạo từ nhà này nhà kia đổ về một chỗ — cậu bé ăn bằng nong của cả làng",
+      "hero_moment": true,
+      "texture_keywords": [
+        "hạt gạo vàng đồng",
+        "particle cung mềm",
+        "roofline ledger",
+        "chiều làng vàng"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-04-nong-com.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc029",
+      "type": "generated",
+      "description": "VƯƠN VAI — TRÁNG SĨ XUẤT HIỆN: tiếp img-04 sân làng, bóng cậu bé phình to theo từng nhịp thở narration, cất nhà to hơn mọc lên phía sau; khi vươn vai, quote nhỏ nguyên văn 'cao hơn hai trượng' (sách chép: Lĩnh Nam chích quái · 1492) hiện cạnh bóng tráng sĩ giáp sắt xanh rêu đứng giữa sân, bộ giáp và roi làng phải khiêng hộ. Render template intent: growth beat + inline verbatim chip. Subject: bóng phình to → tráng sĩ. Subject motion: scale-up theo narration; nhà mọc; quote chip pop đúng chữ 'cao hơn hai trượng'. Scene: chiều vàng, mực rêu xanh. Camera: tilt_up theo người dựng lên.",
+      "start_seconds": 390.0,
+      "end_seconds": 399.0,
+      "script_section_id": "s11",
+      "framing": "Bóng tráng sĩ trung tâm thẳng đứng, quote chip cạnh",
+      "movement": "Scale growth + armor land + quote pop",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «cất nhà to hơn» · «cao hơn hai trượng» — quote chip hiện đúng lúc vươn vai. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tilt_up",
+        "lighting_key": "golden_hour",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Sự lớn lên là hệ quả được nuôi — không phải phép màu",
+      "narrative_role": "build_tension",
+      "information_role": "Lớn đến mức phải cất nhà to hơn — rồi thành tráng sĩ giáp sắt xanh rêu",
+      "hero_moment": false,
+      "texture_keywords": [
+        "giáp sắt xanh rêu",
+        "scale growth",
+        "quote chip mực"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-04-nong-com.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc030",
+      "type": "generated",
+      "description": "KHÔNG CÂU THẦN CHÚ — CHỈ CÓ BÀN TAY: tiếp img-04, overlay TSX vẽ tay đậm: vòng tròn mực bao quanh chiếc nong đầy + nhãn 'cả làng góp' speech-lock vào câu 'Cả làng nuôi nó lớn'; quanh vòng tròn, những bàn tay mực nhỏ mở ra thả hạt cuối cùng; không có hiệu ứng phép màu nào xuất hiện. Render template intent: ink-annotation pass over centerpiece. Subject: nong đầy + vòng mực + bàn tay. Subject motion: vòng tròn vẽ quanh nong theo chữ; bàn tay fade theo nhịp. Scene: vàng đồng ổn định. Camera: N/A — annotation tĩnh trên base.",
+      "start_seconds": 399.0,
+      "end_seconds": 409.0,
+      "script_section_id": "s11",
+      "framing": "Nong dưới giữa, vòng mực khoanh, bàn tay rìa",
+      "movement": "Circle draw + hands fade + label lock",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Thánh Gióng không tự lớn» · «những bàn tay góp vào nong» — nhãn 'cả làng góp' khoá vào câu đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Chốt luận Hồi hai bằng hình: chỉ có gạo, vải và bàn tay — không thần chú",
+      "narrative_role": "resolution",
+      "information_role": "Thánh Gióng không tự lớn — Cả làng nuôi nó lớn",
+      "hero_moment": false,
+      "texture_keywords": [
+        "vòng mực khoanh",
+        "bàn tay mực",
+        "nhãn vàng đồng"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-04-nong-com.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc031",
+      "type": "generated",
+      "description": "XUẤT TRẬN — TRÁNG SĨ GIÁP XANH RÊU: ảnh base img-05 người tráng sĩ khổng lồ giáp sắt xanh rêu cưỡi ngựa sắt đen, roi sắt trên tay; overlay lửa đỏ phun từ miệng ngựa theo đúng nhịp chữ 'phun lửa đỏ từ miệng' — các phần tử hiện theo đúng thứ tự narration: giáp → ngựa phun lửa → roi. Render template intent: hero frame + sequenced equipment beats. Subject: tráng sĩ trên ngựa sắt. Subject motion: giáp glint → lửa phun pulse theo chữ → roi nâng. Scene: chạng vạng reddish, khói đen. Camera: low-angle tracking_right theo bước ngựa.",
+      "start_seconds": 409.0,
+      "end_seconds": 421.0,
+      "script_section_id": "s12",
+      "framing": "Tráng sĩ chiếm khung lớn, ngựa chéo góc",
+      "movement": "Sequenced beats: armor → fire breath → rod lift",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «giáp sắt xanh rêu» · «phun lửa đỏ từ miệng» — lửa phun hiện đúng cụm chữ đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tracking_right",
+        "lighting_key": "rim_lit",
+        "depth_of_field": "deep",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Hero frame Hồi hai — sức mạnh nong giờ gói trong thân hình khổng lồ",
+      "narrative_role": "build_tension",
+      "information_role": "Tráng sĩ cưỡi ngựa sắt phun lửa, roi sắt trên tay — trang 1492 rực lửa nhất",
+      "hero_moment": false,
+      "texture_keywords": [
+        "giáp xanh rêu",
+        "ngựa sắt đen",
+        "lửa đỏ",
+        "khói đen"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-05-giong-trang-si.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc032",
+      "type": "diagram",
+      "description": "ĐỊA DANH THẬT TRÊN TRUYỆN: bản đồ giấy dầu sepia — chấm Phù Đổng, đường mực tới Võ Ninh nơi giặc Ân đóng binh; chấm nhỏ 'làng Cháy' hiện đúng lúc đọc như vệt rèn ngựa sắt còn nóng; caption nhỏ 'chỗ rèn và dọt ngựa sắt'. Render template intent: sepia route map + hotspot pins. Subject: tuyến Phù Đổng → Võ Ninh + làng Cháy. Subject motion: mũi tên chạy; pin làng Cháy glow theo chữ; nhãn địa danh fade-in. Scene: sepia khô. Camera: zoom_in nhẹ vào pin làng Cháy.",
+      "start_seconds": 421.0,
+      "end_seconds": 430.0,
+      "script_section_id": "s12",
+      "framing": "Tuyến chéo trên bản đồ, pin làng Cháy sáng",
+      "movement": "Route draw + pin glow + label fade",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «làng Cháy» · «Võ Ninh» — hai pin hiện đúng lúc narration đọc từng địa danh. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "zoom_in",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Truyền kỳ cài địa danh thật vào truyện — chứng cứ truyện sống ngoài trang",
+      "narrative_role": "evidence",
+      "information_role": "Chỗ rèn ngựa sắt thành làng Cháy; từ Phù Đổng tiến ra Võ Ninh",
+      "hero_moment": false,
+      "texture_keywords": [
+        "bản đồ sepia",
+        "pin nóng",
+        "tuyến mực"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc033",
+      "type": "diagram",
+      "description": "AI ĐỨNG SAU LƯNG CẬU: nhìn từ phía sau bóng tráng sĩ (silhouette mực) — cả một làng hiện ra phía sau: dãy mái nhà nhỏ, mỗi nhà một vệt vàng đồng còn sáng như gạo đã góp, tạo thành đội hậu thuẫn; sách chỉ chép cậu, nhưng gạo vẫn còn đó dưới lớp giáp. Render template intent: back-view silhouette + village light ledger. Subject: bóng tráng sĩ + dãy mái nhà sáng. Subject motion: tráng sĩ bước ra khỏi khung; từng mái nhà sáng theo nhịp kể. Scene: tối, vệt vàng ấm rìa dưới. Camera: static wide.",
+      "start_seconds": 430.0,
+      "end_seconds": 441.0,
+      "script_section_id": "s12",
+      "framing": "Silhouette trước, làng sáng sau",
+      "movement": "Hero exit + roofline glow cascade",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Cả một làng» · «đong bằng nong» — dãy mái nhà hiện đúng cụm 'Cả một làng'. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "silhouette",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đảo camera cho thấy hậu trường — người góp gạo đứng nhìn con của chung ra đi",
+      "narrative_role": "emotional_beat",
+      "information_role": "Cả một làng đã góp gạo vải giờ đứng sau lưng tráng sĩ",
+      "hero_moment": false,
+      "texture_keywords": [
+        "silhouette mực",
+        "vệt vàng đồng",
+        "đội hậu thuẫn"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc034",
+      "type": "diagram",
+      "description": "ROI GÃY — VỖ TRE: hành động nét mực gấp: roi sắt gãy làm đôi (nét giật mạnh), tay tráng sĩ vồ ngay bụi tre vệ đường quất tiếp — đúng nhịp chữ 'vồ luôn bụi tre'; vệt roi trên lá tre ngả vàng theo từng nhát. Render template intent: action ink beats + color-bleed trail. Subject: roi gãy + bụi tre đón tay. Subject motion: snap gãy roi; tay vồ; vệt vàng lan trên lá. Scene: bãi chiến bụi mù. Camera: whip_pan theo tay vồ.",
+      "start_seconds": 441.0,
+      "end_seconds": 452.0,
+      "script_section_id": "s13",
+      "framing": "Tay và bụi tre trung tâm, roi gãy văng góc",
+      "movement": "Snap → grab → whip → color bleed",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Roi sắt quất đến gãy» · «vồ luôn bụi tre» — nhát vồ hiện đúng cụm chữ đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "whip_pan",
+        "lighting_key": "low_key",
+        "depth_of_field": "medium",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Chi tiết kỳ lạ nhất trận: vũ khí sắt gãy, tre mộc thay thế",
+      "narrative_role": "build_tension",
+      "information_role": "Roi sắt gãy, cậu vồ bụi tre bên đường quất tiếp — tre ngả vàng theo vết roi",
+      "hero_moment": false,
+      "texture_keywords": [
+        "nét mực giật",
+        "vệt vàng trên lá",
+        "bụi mù"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc035",
+      "type": "generated",
+      "description": "TRE ĐẰNG NGÀ CÒN ĐÓ: ảnh base img-06 bụi tre Đằng Ngà vàng óng mọc san sát vệ đường sau trận; overlay nhãn 'Đằng Ngà · Gia Bình' hiện khi narration đọc tên; gió nhẹ rung ngọn như tre vẫn còn nghe vết roi. Render template intent: aftermath still + toponym label. Subject: dãy tre vàng óng. Subject motion: ken-burns dọc hàng tre; nhãn fade-in theo chữ; ngọn tre sway nhẹ. Scene: sáng vàng phản chiếu sau trận. Camera: dolly tracking_left dọc vệ đường.",
+      "start_seconds": 452.0,
+      "end_seconds": 462.0,
+      "script_section_id": "s13",
+      "framing": "Hàng tre chạy ngang màn, nhãn góc phải",
+      "movement": "Dolly along bamboo + label fade",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «tre Đằng Ngà» · «Gia Bình» — nhãn địa danh hiện đúng lúc đọc tên. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tracking_left",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Vũ khí mộc mạc nhất truyện thành di sản thực vật có tên gọi đến nay",
+      "narrative_role": "evidence",
+      "information_role": "Tre ngả vàng theo vết roi, mọc lại thành tre Đằng Ngà đất Gia Bình",
+      "hero_moment": false,
+      "texture_keywords": [
+        "tre vàng óng",
+        "vệ đường",
+        "nhãn địa danh"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-06-tre-dang-nga.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc036",
+      "type": "diagram",
+      "description": "HAI CÁI NHÌN VỀ CÙNG MỘT TRẬN: màn chia đôi một nhịp — trái trận đánh như SGK dựng (cờ, lính, hỗn chiến), phải một bóng tráng sĩ đơn độc giữa bãi tre, tay không còn roi sắt chỉ còn tre vệ đường; caption đối chiếu 'hiện diện thay vì chém giết'. Render template intent: split expectation-vs-text comparison. Subject: hai phiên bản trận đánh. Subject motion: hai bên đẩy vào giữa rồi tách ra; caption typewriter. Scene: trái đỏ ấm rối, phải tĩnh vàng. Camera: N/A.",
+      "start_seconds": 462.0,
+      "end_seconds": 473.0,
+      "script_section_id": "s13",
+      "framing": "Split dọc giữa, hai trận hai phe",
+      "movement": "Push-in both halves + caption",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «tre vệ đường» · «quay giáo đánh lẫn nhau» — chia đôi hiện đúng cặp câu đối chiếu cuối. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Đối chiếu trận SGK nhớ với trận trang 1492 thực kể",
+      "narrative_role": "comparison",
+      "information_role": "Người cứu nước thắng bằng hiện diện: to lớn, lửa, tre, và một mình",
+      "hero_moment": false,
+      "texture_keywords": [
+        "split đỏ/tĩnh vàng",
+        "bóng đơn độc",
+        "caption đối chiếu"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc037",
+      "type": "generated",
+      "description": "KHÔNG LỄ MỪNG CÔNG — CỞI ÁO BAY VỀ TRỜI: ảnh base img-12 đỉnh núi Ninh Sóc, tráng sĩ tháo giáp, gấp áo bào để lại trên tảng đá, cưỡi ngựa sắt bay lên mây — ánh sáng vàng, KHÔNG tông bi ai; hai trang sách khép lại nhẹ ở góc như cùng kết thúc bằng một hình ảnh. Render template intent: ascension still + dual-page corner fold. Subject: áo bào trên tảng đá + người bay lên. Subject motion: ken-burns nâng dần theo người bay; góc trang gập nhẹ. Scene: vàng sáng, mây mỏng. Camera: crane_up theo hướng bay.",
+      "start_seconds": 473.0,
+      "end_seconds": 486.0,
+      "script_section_id": "s14",
+      "framing": "Tảng đá áo bào dưới, người bay chéo lên",
+      "movement": "Ascension crane + page fold corners",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «cởi áo bào để lại» · «cưỡi ngựa bay lên Trời» — áo bào đặt xuống đúng cụm chữ đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "crane_up",
+        "lighting_key": "volumetric",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Kết trận bằng sự rời đi — để lại áo, không lễ mừng công",
+      "narrative_role": "emotional_beat",
+      "information_role": "Không cảnh tử trận, không ngôi báu — chỉ một người rời đi để lại áo",
+      "hero_moment": false,
+      "texture_keywords": [
+        "ánh sáng vàng",
+        "mây mỏng",
+        "áo bào trên đá"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-12-bay-ve-troi.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc038",
+      "type": "diagram",
+      "description": "CHI TIẾT DỄ ĐỌC LƯỚT NHẤT — 100 MẪU: stat card mực: '100 mẫu ruộng tự điền' (sách chép: Lĩnh Nam chích quái · 1492) hiện khi narration đọc con số; dòng phụ 'Ban cho ai?' rồi ba dòng gạch: không phải mẹ cậu · không phải họ hàng · ban cho cả làng. Render template intent: stat reveal + beneficiary strikethroughs. Subject: con số + ba dòng phúc lợi. Subject motion: số count-up nhanh theo chữ; từng dòng gạch chéo theo nhịp phủ định. Scene: nền tối, số vàng đồng. Camera: N/A.",
+      "start_seconds": 486.0,
+      "end_seconds": 494.0,
+      "script_section_id": "s14",
+      "framing": "Số giữa màn, ba dòng dưới",
+      "movement": "Count-up + strikethrough sequence",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «100 mẫu ruộng tự điền» · «Không phải cho mẹ cậu» — stat hiện đúng lúc đọc con số. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Ruộng ban cho cả làng — chi tiết trả ơn cộng đồng dễ bị đọc lướt",
+      "narrative_role": "evidence",
+      "information_role": "Vua ban 100 mẫu ruộng tự điền cho xóm làng đã góp gạo vải nuôi cậu",
+      "hero_moment": false,
+      "texture_keywords": [
+        "số vàng đồng",
+        "gạch chéo mực",
+        "stat card"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc039",
+      "type": "diagram",
+      "description": "RUỘNG TRẢ VỀ LÀNG: bản đồ giấy dầu — mảnh ruộng xanh phủ lên cả vùng Phù Đổng (không phải một ô riêng), speech-lock vào câu 'Ruộng ấy ban cho cả hương Phù Đổng'; dòng tổng kết chạy dưới: áo để trên núi, ruộng trả về làng, mình bay về trời. Render template intent: area-fill map + triple return line. Subject: vùng Phù Đổng phủ xanh. Subject motion: màu xanh loang phủ vùng theo chữ; ba vế tổng kết typewriter. Scene: xanh-non trên sepia. Camera: zoom_out mở cả vùng.",
+      "start_seconds": 494.0,
+      "end_seconds": 505.0,
+      "script_section_id": "s14",
+      "framing": "Vùng ruộng loang giữa bản đồ, dòng tổng kết dưới",
+      "movement": "Green bleed fill + triple line type",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «cả hương Phù Đổng» · «ruộng trả về làng» — vùng xanh loang đúng cụm chữ đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "zoom_out",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Người thắng trận không giữ lại gì — khép Hồi hai bằng sự trả ơn",
+      "narrative_role": "resolution",
+      "information_role": "Áo để trên núi, ruộng trả về làng, mình bay lên trời",
+      "hero_moment": false,
+      "texture_keywords": [
+        "màu xanh loang",
+        "bản đồ sepia",
+        "dòng tổng kết"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc040",
+      "type": "diagram",
+      "description": "BỐN MÓN SẮT — MỘT DẤU HỎI: ngựa sắt, kiếm sắt, nón sắt, roi sắt xếp hàng hiện nhanh theo nhịp điểm danh; chip nhỏ kèm kích thước cũ; rồi dấu hỏi mực lớn đè lên cả bốn món; caption 'công nghệ quen thuộc của người chép'. Render template intent: quick inventory + overlay question. Subject: 4 món đồ sắt + dấu hỏi. Subject motion: pop nhanh tuần tự; dấu hỏi stamp xuống giữa. Scene: xám thép. Camera: N/A.",
+      "start_seconds": 505.0,
+      "end_seconds": 520.0,
+      "script_section_id": "s15",
+      "framing": "4 món hàng ngang, dấu hỏi đè giữa",
+      "movement": "Sequential pops + question stamp",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Roi sắt» · «quen thuộc nhất» — bốn món pop theo nhịp điểm danh narration. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Đặt câu hỏi đúng hướng về vũ khí: của thời được kể hay người chép?",
+      "narrative_role": "build_tension",
+      "information_role": "Người chép từ thời Trần đến 1492 sống giữa thế giới roi sắt và kỵ binh",
+      "hero_moment": false,
+      "texture_keywords": [
+        "xám thép",
+        "dấu hỏi mực",
+        "inventory pop"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc041",
+      "type": "diagram",
+      "description": "HAI Ô — KHÔNG TICK: hai ô đối lập 'thời được kể' (hình vua Hùng mờ) và 'trí nhớ người chép' (bút trí chép năm 1492), giữa hai ô là dấu hỏi — KHÔNG tick chọn ô nào; rồi cả hai ô mờ đi, hạt gạo vàng đồng hiện ra sáng chắc chắn giữa màn: sắt nghi vấn, gạo chắc chắn. Render template intent: open-question diptych then certainty grain. Subject: hai ô giả thuyết + hạt gạo. Subject motion: hai ô slide vào; dấu hỏi pulse; hạt gạo scale-in sáng cuối. Scene: mờ xám → vàng chắc. Camera: N/A.",
+      "start_seconds": 520.0,
+      "end_seconds": 535.0,
+      "script_section_id": "s15",
+      "framing": "Hai ô hai bên dấu hỏi, hạt gạo chốt giữa",
+      "movement": "Diptych slide + question pulse + grain finale",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «trí nhớ của người chép» · «Gạo đến từ xóm làng» — hạt gạo chốt hiện đúng câu cuối. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Giữ đúng phép lịch sử: câu hỏi không kết luận — nhưng gạo thì không nghi ngờ",
+      "narrative_role": "resolution",
+      "information_role": "Dù sắt thuộc về ai, gạo đến từ xóm làng — không trang nào chép khác đi",
+      "hero_moment": false,
+      "texture_keywords": [
+        "hai ô mờ",
+        "hạt gạo chắc chắn",
+        "dấu hỏi pulse"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc042",
+      "type": "diagram",
+      "description": "HỒI BA — MỘT THẦN HAI ĐỀN: bản đồ giấy dầu vùng Hà Nội – Bắc Ninh: hai chấm đền sáng — đền Phù Đổng ở đồng bằng, đền Sóc trên núi; đường bay mực nối từ Phù Đổng lên núi Sóc đúng nhịp 'bay lên trời từ núi Sóc'; caption 'cùng thờ một người'. Render template intent: dual-shrine map + flight arc. Subject: hai chấm đền + cung bay. Subject motion: chấm sáng lần lượt; cung mực vẽ nối; caption fade. Scene: sepia đêm nhạt. Camera: aerial zoom_out nhẹ.",
+      "start_seconds": 535.0,
+      "end_seconds": 549.0,
+      "script_section_id": "s16",
+      "framing": "Hai đền chéo trên bản đồ, cung bay nối",
+      "movement": "Pin pops + arc draw + caption",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Hai ngôi đền» · «tách làm hai nơi» — hai chấm đền hiện đúng cụm chữ đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "zoom_out",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Mở Hồi ba bằng cấu trúc không gian: câu chuyện tách làm hai nơi thờ",
+      "narrative_role": "establish_context",
+      "information_role": "Đền sinh ở đồng bằng, đền bay trên núi — hai nơi hai mùa cùng thờ một người",
+      "hero_moment": false,
+      "texture_keywords": [
+        "bản đồ đôi đền",
+        "cung bay mực",
+        "sepia đêm"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc043",
+      "type": "diagram",
+      "description": "HAI MÙA HAI MÀU: màn chia đôi — trái đền Phù Đổng giữa đồng tông tháng Tư nắng ấm, phải đền Sóc trên núi tông tháng Giêng sương trầm; caption dưới 'nơi này giữ tiếng gươm, nơi kia giữ đêm cuối' hiện theo đúng câu đọc. Render template intent: split-season shrine comparison. Subject: hai đền hai mùa. Subject motion: hai bên dissolve vào cùng lúc; caption typewriter theo chữ; sương bên phải trôi chậm. Scene: nắng ấm ↔ sương teal. Camera: N/A.",
+      "start_seconds": 549.0,
+      "end_seconds": 563.0,
+      "script_section_id": "s16",
+      "framing": "Split dọc, caption dưới chân",
+      "movement": "Dual dissolve + mist drift + caption lock",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «đền Phù Đổng, đồng bằng» · «giữ tiếng gươm» — caption hiện đúng câu cuối section. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Cài đối xứng trung tâm Hồi ba: hai hội mở cách nhau nửa vòng năm",
+      "narrative_role": "comparison",
+      "information_role": "Một đền giữ tiếng gươm trận, một đền giữ đêm cuối tưởng niệm",
+      "hero_moment": false,
+      "texture_keywords": [
+        "nắng tháng Tư",
+        "sương tháng Giêng",
+        "split đôi"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc044",
+      "type": "diagram",
+      "description": "HỘI TRẬN PHÙ ĐỔNG — NGÀY LỄ: fact card tông tháng Tư: '7–9 tháng 4 âm lịch · chính hội 9/4' hiện khi narration đọc ngày hội, kèm nhãn 'hội trận — lớn bậc nhất vùng đồng bằng'; nền sau là dải cờ hội mờ. Render template intent: date stat card + flag backdrop. Subject: chip ngày + nhãn hội trận. Subject motion: chip slide-in theo chữ; cờ nền phất nhẹ. Scene: nắng đỏ son. Camera: N/A.",
+      "start_seconds": 563.0,
+      "end_seconds": 573.0,
+      "script_section_id": "s17",
+      "framing": "Chip ngày trung tâm, nhãn dưới",
+      "movement": "Chip slide + flag flutter backdrop",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «chính hội ngày 9 tháng Tư» · «hội trận» — chip ngày hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Ghim khung thời gian thật của hội trận trước khi vào diễn trình lễ",
+      "narrative_role": "establish_context",
+      "information_role": "Hội Phù Đổng diễn ra 7–9 tháng 4 âm lịch, chính hội mùng 9",
+      "hero_moment": false,
+      "texture_keywords": [
+        "chip ngày đỏ son",
+        "cờ hội nền",
+        "nắng tháng Tư"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc045",
+      "type": "generated",
+      "description": "DIỄN TRÌNH LỄ — TỪ RƯỚC NƯỚC ĐẾN DUYỆT TƯỚNG: ảnh base img-10 đền Phù Đổng đỏ son ngày hội, đoàn rước nước về đền; overlay bước lễ hiện đúng thứ tự narration: rước nước → rước cờ → lễ khám đường, duyệt tướng — mỗi bước một chip mực trượt lên theo chữ. Render template intent: ritual sequence chips over still. Subject: đền đỏ + đoàn rước + chuỗi chip lễ. Subject motion: ken-burns ngang theo đoàn; chip pop tuần tự theo narration. Scene: đỏ son, cờ phấp phới. Camera: pan_right theo đoàn rước.",
+      "start_seconds": 573.0,
+      "end_seconds": 582.0,
+      "script_section_id": "s17",
+      "framing": "Đền sau, đoàn rước trước, chip lễ trên",
+      "movement": "Pan with procession + ritual chips",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «rước nước» · «khám đường, duyệt tướng» — các bước lễ hiện đúng thứ tự narration. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "pan_right",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Lễ hội vận hành như nghi chế — không phải trình diễn ngẫu nhiên",
+      "narrative_role": "evidence",
+      "information_role": "Mở bằng rước nước lau rửa khí giới, rồi rước cờ, khám đường, duyệt tướng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "đền đỏ son",
+        "đoàn rước nước",
+        "chip lễ mực"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-10-den-phu-dong.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc046",
+      "type": "generated",
+      "description": "BÃI SOI BIA — CẢ LÀNG NHẬP VAI: ảnh base img-10 tiếp, góc hội trận trên bãi Soi Bia: đội quân nông dân tập trận, trẻ con cầm cờ chạy múa; overlay TSX nhãn 'Cả làng' speech-lock vào chữ đọc, chip 'bãi Soi Bia' hiện theo; không bóng khán giả nào đứng ngoài. Render template intent: crowd-as-army still + locked label. Subject: quân nông dân + trẻ cầm cờ. Subject motion: ken-burns đẩy vào giữa bãi; nhãn stamp theo chữ. Scene: nắng bãi, bụi chân. Camera: dolly_in chậm.",
+      "start_seconds": 582.0,
+      "end_seconds": 591.0,
+      "script_section_id": "s17",
+      "framing": "Bãi trận giữa màn, nhãn 'Cả làng' đậm",
+      "movement": "Push-in + label stamp",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «bãi Soi Bia» · «Cả làng» — nhãn 'Cả làng' khoá đúng chữ đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Ai là quân trong hội? Không diễn viên — cả làng",
+      "narrative_role": "deliver_payload",
+      "information_role": "Nhà nông làm lính, dân làng làm tướng, trẻ con cầm cờ — cả làng nhập vai",
+      "hero_moment": false,
+      "texture_keywords": [
+        "bãi Soi Bia",
+        "trẻ cầm cờ",
+        "nhãn mực đậm"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-10-den-phu-dong.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc047",
+      "type": "generated",
+      "description": "ĐÊN SÓC THÁNG GIÊNG — LỄ MỘC DỤC: ảnh base img-11 đền Sóc trên núi đêm tháng Giêng, ánh nến lễ Mộc Dục, dân làng tắm rửa tượng thần bằng nước sạch — tông trầm teal ấm; chip 'mùng 6–8 tháng Giêng · Mộc Dục đêm mùng 5' hiện khi narration đọc ngày. Render template intent: candlelit night still + date chip. Subject: đền núi đêm + nghi lễ tắm tượng. Subject motion: nến nhấp nháy chậm; chip fade theo chữ; khói hương trôi. Scene: teal trầm, nến vàng. Camera: slow push-in vào tượng.",
+      "start_seconds": 591.0,
+      "end_seconds": 600.0,
+      "script_section_id": "s18",
+      "framing": "Tượng và nến trung tâm, chip ngày góc",
+      "movement": "Candle flicker + chip fade + smoke drift",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «mùng 6 đến mùng 8» · «lễ Mộc Dục» — chip ngày hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "dolly_in",
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "shallow",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Đổi màu tâm tình: tháng Giêng trầm, gần tôn giáo hơn hội trận",
+      "narrative_role": "establish_context",
+      "information_role": "Hội Sóc mở mùng 6–8 tháng Giêng, đêm thiêng là Mộc Dục mùng 5",
+      "hero_moment": false,
+      "texture_keywords": [
+        "đêm teal ấm",
+        "nến lễ",
+        "tượng thần"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-11-den-soc.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc048",
+      "type": "diagram",
+      "description": "TÁM LỄ VẬT — MỘT MÓN KHÔNG NƠI NÀO CÓ: dải rước 8 lễ vật vẽ nét mực hiện theo nhịp narration từng món: trầu cau, cầu húc, ngà voi, cỏ voi, ngựa sắt thần mã, voi chiến, kiệu nữ tướng trẻ — và GIÒ HOA TRE vàng đồng nổi bật nhất, tô sáng hơn cả, caption 'làng Vệ Linh cung tiến'. Render template intent: procession inventory with hero item. Subject: dải 8 lễ vật + giò hoa tre. Subject motion: từng món trượt vào theo chữ; giò hoa tre sáng dần và giữ sáng. Scene: đêm teal, một điểm vàng. Camera: pan_right dọc dải lễ.",
+      "start_seconds": 600.0,
+      "end_seconds": 610.0,
+      "script_section_id": "s18",
+      "framing": "Dải lễ vật ngang màn, giò hoa tre sáng nhất cuối",
+      "movement": "Sequential item slide + hero glow",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «8 lễ vật truyền thống» · «giò hoa tre» — giò hoa tre sáng đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "pan_right",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Tre — vũ khí mộc mạc nhất truyện — được nâng thành lễ vật độc nhất",
+      "narrative_role": "evidence",
+      "information_role": "Đoàn rước mang 8 lễ vật lên đền Thượng, giò hoa tre do làng Vệ Linh cung tiến",
+      "hero_moment": false,
+      "texture_keywords": [
+        "dải lễ vật mực",
+        "giò hoa tre vàng",
+        "đêm teal"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc049",
+      "type": "diagram",
+      "description": "HAI SẮC HỘI: màn chia đôi một nhịp cuối — trái tháng Tư: tiếng trống trận, đội cờ và trận đấu tái hiện; phải tháng Giêng: đêm tưởng niệm, nến và giới võ truyền thống vật cầu húc, kéo mỏ, đấu vật; caption đối 'tiếng trống trận ↔ đêm tưởng niệm'. Render template intent: festival-tone split. Subject: hai tông hội. Subject motion: hai bên fade vào theo cặp câu đối; caption khóa cuối. Scene: đỏ ấm ↔ teal trầm. Camera: N/A.",
+      "start_seconds": 610.0,
+      "end_seconds": 619.0,
+      "script_section_id": "s18",
+      "framing": "Split dọc, caption đối dưới",
+      "movement": "Dual tone fade + paired caption",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «tiếng trống trận» · «đêm tưởng niệm» — cặp caption hiện đúng hai câu cuối. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Khép cặp hội bằng công thức cảm xúc: một bên giữ trận, một bên giữ đêm",
+      "narrative_role": "comparison",
+      "information_role": "Tháng Tư là tiếng trống trận; tháng Giêng là đêm tưởng niệm",
+      "hero_moment": false,
+      "texture_keywords": [
+        "đỏ ấm ↔ teal trầm",
+        "caption đối",
+        "split đôi"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc050",
+      "type": "diagram",
+      "description": "UNESCO — DANH HIỆU THẾ GIỚI: fact card teal trên nền hai đền mờ: '16/11/2010 · Nairobi — Di sản văn hóa phi vật thể đại diện của nhân loại · Hội Gióng đền Phù Đổng và đền Sóc' hiện đúng lúc narration đọc ngày; huy hiệu mực nhỏ đóng góc. Render template intent: unesco fact card + dual shrine watermark. Subject: card ngày + nền đôi đền. Subject motion: card scale-in theo chữ đọc ngày; nền đền parallax nhẹ. Scene: teal trang trọng. Camera: N/A.",
+      "start_seconds": 619.0,
+      "end_seconds": 633.0,
+      "script_section_id": "s19",
+      "framing": "Card trung tâm, hai đền mờ hai bên",
+      "movement": "Card scale-in + watermark parallax",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «16 tháng 11 năm 2010» · «Hội Gióng đền Phù Đổng» — card hiện đúng lúc đọc ngày. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Hai hội làng được thế giới ghi danh dưới một tên gọi chung",
+      "narrative_role": "evidence",
+      "information_role": "UNESCO ghi danh hai hội Gióng là di sản nhân loại năm 2010 tại Nairobi",
+      "hero_moment": false,
+      "texture_keywords": [
+        "teal UNESCO",
+        "huy hiệu mực",
+        "nền đôi đền"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc051",
+      "type": "diagram",
+      "description": "KHÔNG AI LÀ KHÁN GIẢ: sơ đồ đôi khép Hồi ba 'đền sinh — tháng Tư — tiếng gươm' ↔ 'đền bay — tháng Giêng — đêm cuối', giữa hai nhánh là bóng đứa trẻ im lặng nối hai bên; rồi đám đông hội chuyển thành các vai truyện (tướng, lính, cờ) — từng vai sáng lên, không có bóng khán giả đứng ngoài. Render template intent: role-activation diagram. Subject: sơ đồ đôi + vai sáng. Subject motion: hai nhánh sáng; vai pop theo nhịp; bóng đứa trẻ pulse giữa. Scene: tối, vai như đèn lồng. Camera: N/A.",
+      "start_seconds": 633.0,
+      "end_seconds": 647.0,
+      "script_section_id": "s19",
+      "framing": "Sơ đồ đôi trên, dải vai dưới",
+      "movement": "Branch light + role activation cascade",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Một vị thánh, hai loại kỷ niệm» · «không ai là khán giả» — dải vai sáng đúng câu cuối. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Giá trị hội nằm ở việc cả làng cùng nhập vai — họ là kịch",
+      "narrative_role": "deliver_payload",
+      "information_role": "Người dự hội không xem vở kịch — họ là kịch, nên hội sống dai dẳng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "vai như đèn lồng",
+        "sơ đồ đôi",
+        "bóng đứa trẻ nối"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc052",
+      "type": "diagram",
+      "description": "RANH GIỚI PHÉP LỊCH SỬ: hai ô tách bạch — 'tín ngưỡng chứng minh' (đền, hội, UNESCO — teal) chỉ mũi tên về 'người thờ + điều họ ghi nhớ'; ô 'trận đánh có thật' mờ và khóa (không mũi tên nào chạm vào); caption 'bằng chứng tín ngưỡng nói về người thờ'. Render template intent: epistemic boundary diagram. Subject: hai ô + hướng mũi tên cấm. Subject motion: mũi tên xanh chạy về người thờ; ô trận đánh hiện khóa then; caption typewriter. Scene: teal sạch. Camera: N/A.",
+      "start_seconds": 647.0,
+      "end_seconds": 661.0,
+      "script_section_id": "s20",
+      "framing": "Hai ô hai cấp, ô bị khóa mờ",
+      "movement": "Arrow routing + lock stamp",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «không chứng minh trận đánh» · «chỉ nói về người thờ» — ổ khóa hiện đúng cụm phủ định. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Giữ ranh giới series: đền chứng minh đức tin, không chứng minh trận đánh",
+      "narrative_role": "evidence",
+      "information_role": "Bằng chứng tín ngưỡng chỉ nói về người thờ và điều họ chọn ghi nhớ",
+      "hero_moment": false,
+      "texture_keywords": [
+        "teal sạch",
+        "ổ khóa mực",
+        "mũi tên cấm"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc053",
+      "type": "diagram",
+      "description": "BA LỜI CHỌN GHI NHỚ: ba câu 'Chọn ghi nhớ' hiện ba vật thể theo nhịp — bóng đứa trẻ im lặng → thanh gươm → hạt gạo vàng đồng (vật cuối sáng nhất và giữ sáng); caption mời 'đọc chậm' ba chi tiết nhỏ nhất của truyện. Render template intent: triple-choice object reveal. Subject: 3 vật thể của trí nhớ. Subject motion: từng vật pop theo câu; hạt gạo scale + hold sáng; caption fade cuối. Scene: tối dần, vàng đồng nổi. Camera: N/A.",
+      "start_seconds": 661.0,
+      "end_seconds": 675.0,
+      "script_section_id": "s20",
+      "framing": "Ba vật xếp dọc, hạt gạo cuối sáng nhất",
+      "movement": "Sequential pop + final hold",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Chọn ghi nhớ gạo của cả làng» · «đọc chậm» — hạt gạo giữ sáng đúng câu cuối. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Chuyển sang Hồi kết: người thờ chọn ghi nhớ gạo của cả làng",
+      "narrative_role": "transition",
+      "information_role": "Người xưa chọn ghi nhớ đứa trẻ im lặng, lời xin vũ khí, và gạo của cả làng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "hạt gạo giữ sáng",
+        "ba vật trí nhớ",
+        "tối dần"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc054",
+      "type": "diagram",
+      "description": "CHI TIẾT THỨ NHẤT — IM LẶNG CỦA CỘNG ĐỒNG: vòng tròn mực loang từ bóng đứa trẻ ra cả làng, rồi lan ra cả nước — 'im lặng' thuộc về cộng đồng đang nín thở chờ đợi; các bóng người nhỏ hiện dần trong vòng loang, không ai nói. Render template intent: ripple-of-silence diagram. Subject: bóng đứa trẻ + vòng loang + bóng làng. Subject motion: ripple mở theo nhịp narration; bóng người fade-in theo vòng. Scene: tối, mực loang mềm. Camera: slow zoom_out theo vòng.",
+      "start_seconds": 675.0,
+      "end_seconds": 687.0,
+      "script_section_id": "s21",
+      "framing": "Bóng trẻ tâm vòng, lan ra mép màn",
+      "movement": "Ripple expand + silhouettes fade-in",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «đứa trẻ im lặng» · «nín thở chờ đợi» — vòng loang mở đúng cụm chữ đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "zoom_out",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Đọc lại im lặng: không phải dị thường của một đứa trẻ — là nín thở của cả nước",
+      "narrative_role": "deliver_payload",
+      "information_role": "Tiếng im lặng thuộc về cộng đồng đang chờ người cứu nước",
+      "hero_moment": false,
+      "texture_keywords": [
+        "vòng mực loang",
+        "bóng người nhỏ",
+        "tĩnh lặng"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc055",
+      "type": "diagram",
+      "description": "CHI TIẾT THỨ HAI — BONG BÓNG THOẠI ĐẦU ĐỜI: bong bóng thoại lớn của đứa trẻ mở ra — bên trong không phải chữ 'mẹ' hay 'ăn' mà là ba hình: thanh gươm + con ngựa + roi sắt; các nhãn bị gạch ('mẹ', 'đòi ăn', 'khóc') mờ ở rìa. Render template intent: speech-bubble inversion diagram. Subject: bong bóng thoại với 3 hình vũ khí. Subject motion: bubble vẽ mở; 3 hình pop theo nhịp; nhãn bị gạch fade. Scene: tối, bubble sáng vàng nhẹ. Camera: N/A.",
+      "start_seconds": 687.0,
+      "end_seconds": 697.0,
+      "script_section_id": "s21",
+      "framing": "Bubble trung tâm lớn, nhãn gạch rìa",
+      "movement": "Bubble draw + tri-icon pop + label fade-out",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Chi tiết thứ hai» · «Nó xin vũ khí» — ba hình pop đúng cụm 'Nó xin vũ khí'. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Tiếng nói đầu đời là lời đòi cho người khác — không phải cho mình",
+      "narrative_role": "deliver_payload",
+      "information_role": "Đứa trẻ không gọi mẹ, không đòi ăn — nó xin vũ khí để nhà vua không phải lo",
+      "hero_moment": false,
+      "texture_keywords": [
+        "bubble vàng nhẹ",
+        "tri-icon",
+        "nhãn gạch mờ"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc056",
+      "type": "text_card",
+      "description": "KHÉP VÒNG HOOK — LỜI XIN LẶN LẠI: quote nhỏ lặp nguyên văn '…nhà vua không phải lo gì cả!' — sách chép: Đại Việt sử ký toàn thư · 1479/1697; chữ nhấp nháy nhẹ kết câu như tiếng vọng từ đầu tập; nền tối trống, chỉ một câu. Render template intent: callback quote echo. Subject: câu trích callback. Subject motion: typewriter rồi hold; vệt sáng chạy qua một lần. Scene: tối tuyệt đối, chữ kem. Camera: N/A.",
+      "start_seconds": 697.0,
+      "end_seconds": 708.0,
+      "script_section_id": "s21",
+      "framing": "Một câu giữa màn trống",
+      "movement": "Typewriter + single light sweep",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «nhà vua không phải lo gì cả» · «đòi cho người khác» — quote lặp hiện đúng nhịp kết câu. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Câu mở tập quay lại khép vòng — lời xin chưa từng xin cho mình",
+      "narrative_role": "resolution",
+      "information_role": "Lời xin đầu đời khép vòng hook của tập",
+      "hero_moment": false,
+      "texture_keywords": [
+        "chữ kem",
+        "tối tuyệt đối",
+        "light sweep"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc057",
+      "type": "diagram",
+      "description": "CHI TIẾT THỨ BA — GẠO CỦA TỪNG NHÀ: trục vật thể dựng lại dạng chuỗi: nhà giàu nhất (không đủ gạo) → xóm làng chung góp → nong của cả làng; câu hỏi treo 'khi thắng trận, nó về đâu?' hiện giữa màn như cán cân. Render template intent: supply-chain recap + hanging question. Subject: chuỗi nuôi + câu hỏi treo. Subject motion: chuỗi vẽ nhanh recap theo narration; câu hỏi drop xuống giữa. Scene: vàng đồng nhạt. Camera: N/A.",
+      "start_seconds": 708.0,
+      "end_seconds": 721.0,
+      "script_section_id": "s22",
+      "framing": "Chuỗi nuôi ngang trên, câu hỏi giữa",
+      "movement": "Chain recap draw + question drop",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Chi tiết thứ ba» · «nong của cả làng» — chuỗi recap theo đúng nhịp kể. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Trung tâm của tối nay: sức mạnh được nuôi bằng mọi nhà thì về đâu?",
+      "narrative_role": "build_tension",
+      "information_role": "Cậu ăn bằng nong của cả làng, mặc bằng vải của nhiều nhà",
+      "hero_moment": false,
+      "texture_keywords": [
+        "chuỗi nuôi",
+        "câu hỏi cán cân",
+        "vàng đồng nhạt"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc058",
+      "type": "diagram",
+      "description": "KHÔNG VỀ ĐÂU CẢ — BA Ô TRỐNG: ba vế 'Không lấy vợ. Không nối ngôi. Không nhận chức.' thành ba ô trống lần lượt gạch chéo theo nhịp; rồi áo bào đặt lên núi (ảnh nhỏ nối s14) và mảnh ruộng xanh phủ về làng — người thắng không giữ lại gì. Render template intent: negation triptych + return montage. Subject: 3 ô gạch + 2 hình trả về. Subject motion: từng ô gạch chéo theo câu; hai hình trượt vào nối tiếp. Scene: trống, mực nhạt. Camera: N/A.",
+      "start_seconds": 721.0,
+      "end_seconds": 733.0,
+      "script_section_id": "s22",
+      "framing": "Ba ô trên, hai hình trả về dưới",
+      "movement": "Sequential strikethrough + return slide",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «không về đâu cả» · «Không lấy vợ» — ba ô gạch đúng nhịp ba câu phủ định. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Sách trả lời gọn: sức mạnh cộng đồng không bị chiếm làm của riêng",
+      "narrative_role": "evidence",
+      "information_role": "Không vợ, không ngôi, không chức — áo để lại núi, ruộng về làng, mình bay về trời",
+      "hero_moment": false,
+      "texture_keywords": [
+        "ô trống gạch chéo",
+        "mực nhạt",
+        "return montage"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc059",
+      "type": "generated",
+      "description": "DÒNG GẠO ĐẢO CHIỀU: ảnh base img-04 nong trung tâm trở lại — hạt gạo tách khỏi nong, bay NGƯỢC về từng mái nhà đã cho, dòng chảy đảo chiều đúng câu 'trả về mọi nhà'; overlay đế ngược: số mái nhà nhận lại gạo sáng dần; caption chốt 'Không một chữ nào chép ngược lại'. Render template intent: reverse particle flow + homecoming counter. Subject: dòng gạo về nhà. Subject motion: particle bay ngược cung; mái nhà sáng lại từng cái; caption typewriter cuối. Scene: vàng đồng hồi quang. Camera: crane_down từ nong về làng.",
+      "start_seconds": 733.0,
+      "end_seconds": 741.0,
+      "script_section_id": "s22",
+      "framing": "Nong tâm, hạt tỏa ngược ra các nhà",
+      "movement": "Reverse outflow + roof relight + caption",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «trả về mọi nhà» · «Không một chữ nào» — dòng đảo chiều đúng cụm chữ đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "crane_down",
+        "lighting_key": "golden_hour",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đọc hợp lý của tối nay: nuôi bằng mọi nhà thì trả về mọi nhà",
+      "narrative_role": "deliver_payload",
+      "information_role": "Sức mạnh nuôi bằng mọi nhà được trả về mọi nhà — không chữ nào chép ngược lại",
+      "hero_moment": false,
+      "texture_keywords": [
+        "particle ngược",
+        "mái nhà sáng lại",
+        "hồi quang vàng"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-04-nong-com.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc060",
+      "type": "text_card",
+      "description": "CÂU TRẢ LỜI — HÌNH DẠNG CỦA SỨC MẠNH: dòng mực lớn 'nó không phải là một cá nhân' — Thánh Gióng là hình dạng người xưa chọn để nói về sức mạnh cứu nước: không sinh ra đã thần thánh, không một mình to lớn; hai vế 'sinh ra thần thánh' / 'một mình to lớn' gạch mờ. Render template intent: thesis line with negated pair. Subject: câu luận + hai vế gạch. Subject motion: dòng chính typewriter; hai vế gạch chéo mờ theo nhịp. Scene: tối, mực trắng kem. Camera: N/A.",
+      "start_seconds": 741.0,
+      "end_seconds": 752.0,
+      "script_section_id": "s23",
+      "framing": "Câu luận giữa, hai vế gạch dưới",
+      "movement": "Thesis typewriter + negation fades",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «câu trả lời của tối nay» · «không phải là một cá nhân» — câu luận hiện đúng nhịp mở. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Đặt luận điểm trung tâm trước khi quote chốt rơi xuống",
+      "narrative_role": "deliver_payload",
+      "information_role": "Người cứu nước là hình dạng cộng đồng chọn để tự nói về mình",
+      "hero_moment": false,
+      "texture_keywords": [
+        "mực trắng kem",
+        "vế gạch mờ",
+        "tối thanh"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc061",
+      "type": "text_card",
+      "description": "QUOTE CHỐT TẬP — GIỮ MÀN HẾT CÂU: chữ mực lớn toàn màn hình, speech-lock từng chữ: 'Thánh Gióng không tự lớn. Cả làng nuôi nó lớn.' — sách chép: Lĩnh Nam chích quái · 1492 (canon S2-C2 của series). Chữ 'cả làng' nhấn vàng đồng; màn giữ yên nguyên đến hết câu, không thêm yếu tố nào khác. Render template intent: full-screen verbatim canon quote, hold-to-end. Subject: hai câu chốt. Subject motion: từng chữ hiện đúng nhịp narration đọc từng tiếng, sau đó hold im. Scene: tối tuyệt đối + một vệt texture giấy mờ. Camera: N/A.",
+      "start_seconds": 752.0,
+      "end_seconds": 764.0,
+      "script_section_id": "s23",
+      "framing": "Hai câu căn giữa màn, khoảng thở lớn",
+      "movement": "Word-by-word lock rồi hold im hết câu",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Thánh Gióng không tự lớn» · «Cả làng nuôi nó lớn» — từng chữ hiện đúng tiếng đọc, giữ màn hết câu. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Khoảnh khắc đắt nhất tập — câu canon mới của series rơi đúng nhịp",
+      "narrative_role": "deliver_payload",
+      "information_role": "Đây là cách đọc của hôm nay: Cả làng nuôi nó lớn",
+      "hero_moment": true,
+      "texture_keywords": [
+        "chữ mực lớn toàn màn",
+        "accent vàng đồng",
+        "hold im"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc062",
+      "type": "diagram",
+      "description": "VÒNG TRÒN KHÉP — TRỤC VẬT THỂ HOÀN TẤT: vòng tròn vật thể khép theo nhịp kể: mái nhà → hạt gạo → nong → tráng sĩ → ruộng → mái nhà; từng mắt xích sáng và nối mực thành vòng kín; caption cuối 'mỗi mùng 9 tháng Tư, cả làng lại cùng lớn lên một lần'. Render template intent: circular device closure. Subject: vòng 6 mắt xích. Subject motion: từng mắt sáng theo narration; mực nối khép vòng; caption fade cuối. Scene: vàng đồng tròn ấm. Camera: slow zoom_out lộ toàn vòng.",
+      "start_seconds": 764.0,
+      "end_seconds": 775.0,
+      "script_section_id": "s23",
+      "framing": "Vòng tròn trung tâm, caption dưới",
+      "movement": "Chain light-up + ink closure",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «gặp nhau trong một chiếc nong» · «cùng lớn lên một lần» — vòng khép đúng nhịp kể. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "zoom_out",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Tổng hợp trục vật thể thành vòng tuần hoàn — gạo về ruộng, ruộng về làng",
+      "narrative_role": "resolution",
+      "information_role": "Cách đọc hôm nay không phải điều truyện tuyên bố — nhưng hội làng đúng là thế",
+      "hero_moment": false,
+      "texture_keywords": [
+        "vòng tròn vật thể",
+        "mực nối khép",
+        "vàng đồng tròn"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc063",
+      "type": "text_card",
+      "description": "CA DAO — LỜI CỦA DÂN GIAN: hai câu thư pháp mực ấm hiện đúng nhịp đọc, nguyên văn 'Ai ơi mồng Chín tháng Tư. Không đi hội Gióng cũng hư mất đời.' — sách chép: ca dao dân gian (hai câu mồng Chín tháng Tư); nét bút chạy theo từng chữ như viết sống. Render template intent: calligraphy couplet live-write. Subject: hai câu ca dao. Subject motion: nét viết chạy theo narration từng chữ; mực khô nhẹ cuối câu. Scene: giấy dó sáng ấm. Camera: N/A.",
+      "start_seconds": 775.0,
+      "end_seconds": 786.0,
+      "script_section_id": "s24",
+      "framing": "Hai câu dọc giữa, khoảng trắng nhiều",
+      "movement": "Live calligraphy theo nhịp đọc",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Ai ơi mồng Chín tháng Tư» · «hư mất đời» — nét viết chạy đúng nhịp đọc từng câu. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đáp câu hỏi tập bằng chính lời răn của dân gian",
+      "narrative_role": "emotional_beat",
+      "information_role": "Dân gian biến hội Gióng thành phép ứng xử: không đi cũng hư mất đời",
+      "hero_moment": false,
+      "texture_keywords": [
+        "thư pháp mực ấm",
+        "giấy dó sáng",
+        "nét viết sống"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc064",
+      "type": "generated",
+      "description": "HỘI HÔM NAY — CÙNG MỘT HẠT GẠO: ảnh base img-13 hội làng hôm nay: trẻ con làng Phù Đổng cầm cờ múa qua bãi, trống hội dồn, mâm cỗ ngoài sân; overlay đẩy CHÉN XÔI HẠT GẠO sáng vàng đồng đúng câu cuối — cùng tông hạt gạo từ scene trung tâm Hồi hai. Render template intent: present-day callback + grain close-up push. Subject: trẻ cầm cờ + chén xôi hạt gạo. Subject motion: ken-burns từ bãi hội đẩy vào chén xôi theo chữ đọc; overlay ring vàng khóa hạt gạo. Scene: nắng hội ấm. Camera: dolly_in về chén cỗ.",
+      "start_seconds": 786.0,
+      "end_seconds": 798.0,
+      "script_section_id": "s24",
+      "framing": "Bãi hội rộng mở, chén xôi close cuối",
+      "movement": "Wide-to-close push + grain ring lock",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Trẻ con làng Phù Đổng» · «Cùng một hạt gạo» — ring vàng khóa đúng câu cuối. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "natural",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Vòng trục vật thể hạ cánh vào hiện tại: hạt gạo vẫn trên mâm cỗ",
+      "narrative_role": "resolution",
+      "information_role": "Trẻ con vẫn cầm cờ múa — cùng một hạt gạo đã nuôi cậu bé năm nào",
+      "hero_moment": false,
+      "texture_keywords": [
+        "trẻ cầm cờ",
+        "chén xôi vàng đồng",
+        "nắng hội"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-13-hoi-hom-nay.png — focal (xem scene description)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc065",
+      "type": "diagram",
+      "description": "TỨ BẤT TỬ — BỐN TẤM THẺ: bốn tấm thẻ mực hiện theo nhịp đếm: Tản Viên Sơn Thánh – Phù Đổng Thiên Vương – Chử Đồng Tử – Liễu Hạnh; thẻ Phù Đổng sáng vàng đồng và ghi nhỏ 'thứ hai'; caption 'bốn vị thánh bất tử của người Việt đồng bằng'. Render template intent: card-count reveal with rank highlight. Subject: 4 thẻ + thẻ sáng. Subject motion: thẻ lật theo nhịp đếm; thẻ Phù Đổng glow giữ sáng. Scene: mực trên nền tối. Camera: N/A.",
+      "start_seconds": 798.0,
+      "end_seconds": 810.0,
+      "script_section_id": "s25",
+      "framing": "4 thẻ hàng ngang, thẻ 2 sáng nhất",
+      "movement": "Card flip sequence + rank glow",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Tứ bất tử» · «Phù Đổng đứng thứ hai» — thẻ lật đúng nhịp đếm narration. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đặt Phù Đổng vào bản đồ thần vị còn lại của người Việt",
+      "narrative_role": "establish_context",
+      "information_role": "Thánh Gióng thuộc Tứ bất tử, đứng thứ hai sau thần núi Tản Viên",
+      "hero_moment": false,
+      "texture_keywords": [
+        "thẻ mực",
+        "glow vàng đồng",
+        "hàng ngang"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc066",
+      "type": "diagram",
+      "description": "THẦN NÚI ĐỨNG TRƯỚC — CALLBACK NHẸ: silhouette núi Tản Viên thoáng phía sau thẻ thứ nhất đúng một nhịp khi narration đọc 'ngay sau Tản Viên' — không chữ, không luận điểm; rồi cả bốn thẻ rút lại thành bốn vệt sáng, caption hỏi 'trong thời khó, ai đứng ra, bằng sức mạnh nào?'. Render template intent: single-beat callback + collapsing row. Subject: silhouette Tản Viên + 4 vệt. Subject motion: silhouette fade in-out một nhịp; thẻ co thành vệt; caption typewriter. Scene: tối, vệt sáng mảnh. Camera: N/A.",
+      "start_seconds": 810.0,
+      "end_seconds": 822.0,
+      "script_section_id": "s25",
+      "framing": "4 vệt ngang, silhouette sau vệt 1",
+      "movement": "Beat callback + row collapse + question type",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «ngay sau Tản Viên» · «ai sẽ đứng ra» — silhouette hiện đúng một nhịp đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "silhouette",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Mỗi vị bất tử là một câu trả lời — hẹn series quay lại từng vị",
+      "narrative_role": "transition",
+      "information_role": "Thần núi trước, thần làng sau — cả bốn vị còn chờ series kể tiếp",
+      "hero_moment": false,
+      "texture_keywords": [
+        "silhouette núi",
+        "vệt sáng mảnh",
+        "caption hỏi"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc067",
+      "type": "diagram",
+      "description": "ĐÊM LÀNG TĨNH — GẠO VỀ KHO: cảnh khép ngày vẽ mực: khói bếp, mái nhà, chén cơm đặt trên mâm — hạt gạo vàng đồng cuối cùng nằm im trong chén, khép trục vật thể; trống lặng dần thể hiện bằng vòng trống mực thu nhỏ dần rồi tắt. Render template intent: quiet night scene + fading drum ring. Subject: chén cơm + hạt gạo cuối. Subject motion: khói trôi chậm; vòng trống co dần tắt; hạt gạo sáng đều rồi hạ nhiệt. Scene: đêm teal ấm, tĩnh. Camera: slow push-in về chén.",
+      "start_seconds": 822.0,
+      "end_seconds": 834.0,
+      "script_section_id": "s26",
+      "framing": "Mâm cơm dưới đèn, mái nhà sau",
+      "movement": "Smoke drift + drum ring decay + grain settle",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Đêm hội tàn» · «hạt gạo về kho» — hạt gạo nằm im đúng cụm chữ đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "dolly_in",
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "shallow",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Hạ trục vật thể về nơi nó bắt đầu: bữa cơm của người Việt",
+      "narrative_role": "emotional_beat",
+      "information_role": "Chuyện đi qua ba trang sách, một nong, hai đền — rồi về lại bữa cơm",
+      "hero_moment": false,
+      "texture_keywords": [
+        "đêm teal ấm",
+        "khói bếp",
+        "hạt gạo nằm im"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc068",
+      "type": "text_card",
+      "description": "HAI DÒNG KẾT — MỰC NHẠT: chữ mục cuối toàn màn hình, mực nhạt, hai dòng hiện tách theo pause narration: 'Vị thần đó chưa bao giờ lớn lên một mình.' rồi '…và vì thế, chưa bao giờ bị bỏ quên.' — giữ màn thinh lặng tới hết. Render template intent: two-line epilogue card. Subject: hai dòng kết nguyên văn. Subject motion: dòng một fade-in, hold theo pause, dòng hai fade-in sau. Scene: tối, mực nhạt. Camera: N/A.",
+      "start_seconds": 834.0,
+      "end_seconds": 845.0,
+      "script_section_id": "s26",
+      "framing": "Hai dòng giữa màn, nhiều khoảng trống",
+      "movement": "Two-line fade with narration pause",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «chưa bao giờ bị bỏ quên» · «chưa bao giờ lớn lên một mình» — dòng hai hiện đúng nhịp đọc cuối. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Câu khép nguyên văn của kịch bản — để lại dư âm lặng",
+      "narrative_role": "resolution",
+      "information_role": "Vị thần chưa bao giờ lớn một mình nên chưa bao giờ bị bỏ quên",
+      "hero_moment": false,
+      "texture_keywords": [
+        "mực nhạt",
+        "khoảng trống",
+        "thinh lặng"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc069",
+      "type": "text_card",
+      "description": "TEASE TẬP SAU — KHÔNG SPOIL: bóng silhouette người đàn ông đứng bên bờ sông, mờ sau tấm màn nước — không mặt, không tên; một dải vải nhỏ trôi theo nước; caption mực 'người được thờ tiếp theo còn nghèo hơn tất cả'. KHÔNG gợi tên, KHÔNG hiện gì thêm. Render template intent: next-ep tease silhouette. Subject: bóng người mờ + dải vải. Subject motion: màn nước trôi chậm; dải vải drift theo sóng; caption fade. Scene: xanh xám mờ sương. Camera: static, một tấm màn.",
+      "start_seconds": 845.0,
+      "end_seconds": 857.0,
+      "script_section_id": "s27",
+      "framing": "Bóng người lệch phải, vệt vải dưới nước",
+      "movement": "Water veil drift + cloth float",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «một chiếc khố» · «người được thờ tiếp theo» — dải vải hiện đúng cụm chữ đọc, không spoil. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "silhouette",
+        "depth_of_field": "medium",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Móc xem tập sau bằng nghịch lý nghèo khó — che kín danh tính",
+      "narrative_role": "call_to_action",
+      "information_role": "Vị thánh tiếp theo của Tứ bất tử nghèo đến mức không có chiếc khố",
+      "hero_moment": false,
+      "texture_keywords": [
+        "màn nước mờ",
+        "silhouette sông",
+        "xanh xám"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc070",
+      "type": "text_card",
+      "description": "END CARD — DÒNG KÊNH: card cuối kênh tông ink-genome: nút đăng ký vẽ nét mực + chuông, dòng chữ 'vn-myth · mùa 2', chữ 'Hẹn gặp lại ở tập sau' mực kem; ba vật thể của tập (trang giấy, hạt gạo, mái đền) nhỏ dần thành ba chấm dưới card. Render template intent: channel end card + device dots. Subject: nút đăng ký + chữ kênh. Subject motion: nút mực vẽ ra khi narration đọc 'đăng ký kênh'; ba chấm co dần rồi hold. Scene: tối chuẩn end card. Camera: N/A.",
+      "start_seconds": 857.0,
+      "end_seconds": 870.0,
+      "script_section_id": "s28",
+      "framing": "Nút + tên kênh giữa, ba chấm dưới",
+      "movement": "Ink button draw + dots settle",
+      "transition_in": "dissolve",
+      "transition_out": "fade",
+      "overlay_notes": "anchors: «đăng ký kênh» · «Cảm ơn bạn đã xem» — nút vẽ ra đúng lúc đọc, end card giữ đến hết. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Chốt kênh bằng ngôn ngữ mực của cả series",
+      "narrative_role": "call_to_action",
+      "information_role": "Đăng ký để không bỏ lỡ tập mới của mùa 2",
+      "hero_moment": false,
+      "texture_keywords": [
+        "end card tối",
+        "nút mực",
+        "ba chấm vật thể"
+      ],
+      "required_assets": []
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+ "version": "1.0",
+ "project_id": "news-daily-20261023",
+ "pipeline_type": "hybrid",
+ "stage": "compose",
+ "status": "completed",
+ "timestamp": "2026-10-23T18:30:36.695141+07:00",
+ "checkpoint_policy": "guided",
+ "human_approval_required": true,
+ "human_approved": true,
+ "artifacts": {
+  "compositions": [
+   {
+    "id": "NewsDaily20261023Full",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "frames": 1844,
+    "hud": false
+   },
+   {
+    "id": "NewsDaily20261023Debug",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "frames": 1844,
+    "hud": true
+   }
+  ],
+  "source_files": [
+   "remotion-composer/src/news-daily-20261023/theme.ts",
+   "remotion-composer/src/news-daily-20261023/timing.ts",
+   "remotion-composer/src/news-daily-20261023/EpisodeFull.tsx",
+   "remotion-composer/src/news-daily-20261023/entry.tsx"
+  ],
+  "verifications": {
+   "tsc": "exit 0",
+   "interpolate_scan": "PASS 1/1 monotonic",
+   "element_frame_audit": "PASS 32/32 elements in-window",
+   "scene_sweep": "PASS 16 stills, edge=0 panel=0 dense=0"
+  }
+ }
+}

@@ -1,0 +1,80 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.36,
+      "text": "Ph\u1eadt quang, s\u01b0 Ph\u1eadt quang.",
+      "words": [
+        {
+          "word": " Ph\u1eadt",
+          "start": 0.0,
+          "end": 0.24,
+          "probability": 0.369
+        },
+        {
+          "word": " quang,",
+          "start": 0.24,
+          "end": 0.56,
+          "probability": 0.678
+        },
+        {
+          "word": " s\u01b0",
+          "start": 0.72,
+          "end": 0.9,
+          "probability": 0.356
+        },
+        {
+          "word": " Ph\u1eadt",
+          "start": 0.9,
+          "end": 1.08,
+          "probability": 0.652
+        },
+        {
+          "word": " quang.",
+          "start": 1.08,
+          "end": 1.36,
+          "probability": 0.978
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " Ph\u1eadt",
+      "start": 0.0,
+      "end": 0.24,
+      "probability": 0.369
+    },
+    {
+      "word": " quang,",
+      "start": 0.24,
+      "end": 0.56,
+      "probability": 0.678
+    },
+    {
+      "word": " s\u01b0",
+      "start": 0.72,
+      "end": 0.9,
+      "probability": 0.356
+    },
+    {
+      "word": " Ph\u1eadt",
+      "start": 0.9,
+      "end": 1.08,
+      "probability": 0.652
+    },
+    {
+      "word": " quang.",
+      "start": 1.08,
+      "end": 1.36,
+      "probability": 0.978
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.6,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

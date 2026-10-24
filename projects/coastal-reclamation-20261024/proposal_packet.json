@@ -1,0 +1,256 @@
+{
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "c1",
+      "title": "Bản đồ dòng chảy vô hình: Khi bờ biển đổi hướng",
+      "hook": "Lấn một mét đất ra biển, dòng hải lưu và rừng ngập mặn xung quanh sẽ thay đổi ra sao?",
+      "narrative_structure": "problem_solution",
+      "visual_approach": "Infographic khoa học isometric: Lớp cắt địa hình đáy biển, các mũi tên hạt động lực mô phỏng dòng triều, sơ đồ rễ cây ngập mặn và nhãn cơ chế.",
+      "suggested_playbook": "clean-professional",
+      "target_audience": "Khán giả đại chúng yêu thích khoa học trực quan, sinh viên, kỹ sư và những người quan tâm tới môi trường biển một cách lý tính.",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 150.0,
+      "key_points": [
+        "Lấn biển làm biến đổi độ sâu đáy (bathymetry) và thu hẹp lăng kính triều, gây tăng tốc dòng chảy tại điểm hẹp nhưng làm tù đọng ở vùng vịnh khuất.",
+        "Cân bằng bùn cát (Sediment budget) là trò chơi bập bênh: bồi lắng phía đón dòng và đói cát gây sạt lở phía khuất dòng.",
+        "Rễ rừng ngập mặn giảm trên 70% sóng ngắn nhưng cần dòng triều thông thoáng để thở; giải pháp đảo mở và kè sinh thái là chìa khóa thích ứng."
+      ],
+      "core_message": "Biển là một hệ thống cân bằng động liên hoàn: lấn biển không chỉ là đắp đất, mà là bài toán điều phối dòng chảy và phù sa để cùng tồn tại với tự nhiên.",
+      "cta": "Hãy chia sẻ góc nhìn khoa học này để cùng hiểu đúng về quy luật của biển cả.",
+      "tone": "Điềm tĩnh, khách quan, sáng sủa, khoa học và giàu tính xây dựng.",
+      "grounded_in": [
+        "CLM-001 (Lăng kính triều)",
+        "CLM-002 (Phân định 3 lực biển)",
+        "CLM-003 (Cân bằng bùn cát)",
+        "CLM-004 (Rừng ngập mặn)",
+        "CLM-005 (Giải pháp kỹ thuật)"
+      ],
+      "why_this_works": "Góc tiếp cận bao quát, dẫn dắt từ cơ chế vật lý cơ bản (dòng chảy, bùn cát) đến sinh thái (rừng ngập mặn) và kết thúc bằng giải pháp kỹ thuật, mang lại giá trị tri thức cao và hoàn toàn trung lập."
+    },
+    {
+      "id": "c2",
+      "title": "Chiếc bập bênh bùn cát: Vì sao bồi chỗ này, lở chỗ khác?",
+      "hook": "Tại sao lấn biển ở vị trí này lại có thể gây sạt lở bờ biển cách đó hàng chục cây số?",
+      "narrative_structure": "data_narrative",
+      "visual_approach": "Bản đồ luân chuyển trầm tích ven bờ (littoral drift), sơ đồ cân bằng bùn cát (input - output = balance) với thước đo phân bố phù sa.",
+      "suggested_playbook": "clean-professional",
+      "target_audience": "Khán giả quan tâm sâu đến địa chất ven biển, quy hoạch hạ tầng và các hiện tượng xói lở bờ biển.",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 135.0,
+      "key_points": [
+        "Bùn cát ven bờ di chuyển liên tục dọc bờ theo sóng xiên góc (longshore drift).",
+        "Mũi nhô nhân tạo chặn dòng cát gây bồi ở một bên và 'đói cát' ở bên đối diện.",
+        "Rừng ngập mặn ở vùng thiếu hụt bùn cát sẽ mất dần bãi bồi chân rễ."
+      ],
+      "core_message": "Cân bằng phù sa là định luật bảo toàn: ngăn chặn nguồn cấp bùn cát tự nhiên sẽ chuyển dịch điểm xói lở sang nơi khác.",
+      "cta": "Theo dõi kênh để khám phá thêm những hiện tượng địa chất ven biển thú vị.",
+      "tone": "Lý giải logic, trực diện, giàu số liệu minh họa nguyên lý.",
+      "grounded_in": [
+        "CLM-002",
+        "CLM-003",
+        "USGS Open-File Report 03-337"
+      ],
+      "why_this_works": "Đánh trúng sự tò mò của khán giả về mối quan hệ giữa công trình biển và hiện tượng sạt lở bờ biển ở xa."
+    },
+    {
+      "id": "c3",
+      "title": "Hệ miễn dịch của bờ biển: Rừng ngập mặn và thử thách đê biển",
+      "hook": "Bộ rễ ngập mặn cản được sóng dữ, nhưng nó sẽ thích nghi ra sao khi dòng thủy triều đổi hướng?",
+      "narrative_structure": "myth_busting",
+      "visual_approach": "Cận cảnh cấu trúc 3D rễ đước/mắm, mô phỏng lực cản sóng và cơ chế thông khí qua lỗ thở rễ cây.",
+      "suggested_playbook": "clean-professional",
+      "target_audience": "Người yêu sinh thái biển, sinh viên lâm nghiệp - hải văn và khán giả trẻ.",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 140.0,
+      "key_points": [
+        "Rừng ngập mặn là lá chắn tự nhiên tiêu tán tới 80% năng lượng sóng qua 100m.",
+        "Rừng không chết vì sóng, mà dễ tổn thương nếu bùn lắng bít lỗ thở hoặc nước tù đọng.",
+        "Mô hình kè kết hợp rừng ngập mặn tạo lá chắn kép bền vững hơn đê bê tông đơn độc."
+      ],
+      "core_message": "Bảo vệ rừng ngập mặn không phải là đóng khung bất di bất dịch, mà là duy trì sự lưu thông của dòng nước triều và phù sa.",
+      "cta": "Bình luận giải pháp công trình sinh thái mà bạn thấy ấn tượng nhất bên dưới.",
+      "tone": "Sinh động, truyền cảm hứng, cân bằng giữa sinh thái học và kỹ thuật công trình.",
+      "grounded_in": [
+        "CLM-004",
+        "CLM-005",
+        "Nature Comms Earth & Env 2022"
+      ],
+      "why_this_works": "Tập trung giải ảo các ngộ nhận về rừng ngập mặn, làm rõ điều kiện sống thật sự của loài cây biển này."
+    }
+  ],
+  "selected_concept": {
+    "concept_id": "c1",
+    "rationale": "Khái niệm c1 ('Bản đồ dòng chảy vô hình') là lựa chọn cân bằng và chuẩn mực nhất: bao quát trọn vẹn từ cơ chế thủy động lực học đáy biển, lăng kính triều, cân bằng bùn cát đến tương tác với rừng ngập mặn và giải pháp công trình. Phù hợp hoàn hảo với định hướng infographic khoa học của brief.",
+    "modifications": [
+      "Giữ dung lượng khoảng 2-2.5 phút (140-160 giây) cho định dạng dọc 9:16 trên TikTok/Reels.",
+      "Mỗi luận điểm đều có sơ đồ nguyên lý trực quan (hạt dòng chảy, lớp cắt rễ, mặt cắt bờ kè).",
+      "Đảm bảo nhãn HÌNH MINH HỌA / SƠ ĐỒ NGUYÊN LÝ xuất hiện ở mọi đồ họa trực quan."
+    ]
+  },
+  "production_plan": {
+    "pipeline": "animated-explainer",
+    "playbook": "clean-professional",
+    "stages": [
+      {
+        "stage": "research",
+        "tools": [
+          {
+            "tool_name": "web_search",
+            "role": "Tra cứu tài liệu thủy văn, báo cáo USGS/Nature/Frontiers",
+            "provider": "hermes",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Công cụ tích hợp sẵn trong Hermes, $0"
+          }
+        ],
+        "approach": "Tổng hợp cơ chế thủy động học, cân bằng bùn cát và sinh thái ngập mặn từ nguồn khoa học đã phản biện."
+      },
+      {
+        "stage": "proposal",
+        "tools": [
+          {
+            "tool_name": "registry",
+            "role": "Kiểm tra runtime và công cụ khả dụng trên máy",
+            "provider": "OpenMontage",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Hệ thống nội bộ OpenMontage, $0"
+          }
+        ],
+        "approach": "Lập 3 ý tưởng hook, xác lập claim ledger, đề xuất art direction Remotion atelier và xin phê duyệt người dùng."
+      },
+      {
+        "stage": "script",
+        "tools": [
+          {
+            "tool_name": "claude_code",
+            "role": "Biên soạn kịch bản tiếng Việt chuẩn khoa học và phân bổ thời lượng",
+            "provider": "anthropic",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Claude Code CLI dispatch qua OpenMontage"
+          }
+        ],
+        "approach": "Viết kịch bản tiếng Việt mạch lạc, lời đọc tự nhiên, chia rõ display vs narration và gán nhãn timing."
+      },
+      {
+        "stage": "assets",
+        "tools": [
+          {
+            "tool_name": "vieneu_tts",
+            "role": "Tạo giọng đọc tiếng Việt địa phương chất lượng cao",
+            "provider": "vieneu",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Mô hình TTS tiếng Việt cục bộ trên máy ($0), 48kHz"
+          },
+          {
+            "tool_name": "image_selector",
+            "role": "Sinh ảnh isometric infographic nền tảng qua 9router",
+            "provider": "9router (ag/gemini-3.1-flash-image / cx/gpt-5.6-luna-image)",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Gateway cục bộ 9router $0, tuân thủ chính sách ngân sách $0"
+          }
+        ],
+        "approach": "Sinh audio TTS vieneu + lexicon; tạo các ảnh nền isometric và mặt cắt địa hình làm phông trực quan."
+      },
+      {
+        "stage": "compose",
+        "tools": [
+          {
+            "tool_name": "video_compose",
+            "role": "Remotion render engine (React TSX)",
+            "provider": "remotion",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Remotion đã cài đặt sẵn trong remotion-composer/node_modules, hỗ trợ animation toán học và typography tiếng Việt chính xác."
+          }
+        ],
+        "approach": "Lập trình component atelier trên Remotion: các vector dòng chảy chuyển động, hạt nước, thước đo cao trình và phụ đề đồng bộ âm thanh."
+      },
+      {
+        "stage": "publish",
+        "tools": [
+          {
+            "tool_name": "export_bundle",
+            "role": "Đóng gói video + thumbnail thiết kế riêng (1080x1920) + description copyable",
+            "provider": "OpenMontage",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Công cụ đóng gói cục bộ theo chuẩn SSOT"
+          }
+        ],
+        "approach": "Xuất bản draft HUD để review, chuẩn bị thumbnail thiết kế 1080x1920, KHÔNG auto-post."
+      }
+    ],
+    "delivery_promise": {
+      "promise_type": "data_explainer",
+      "motion_required": true,
+      "tone_mode": "educational",
+      "quality_floor": "presentable"
+    },
+    "renderer_family": "explainer-data",
+    "render_runtime": "remotion",
+    "composition_mode": "atelier",
+    "art_direction": "Thiết kế Infographic khoa học dạng đứng (9:16, 1080x1920): Gam màu chủ đạo Cyan/Deep Marine (#0a192f, #00b4d8), cát trầm (#e9c46a), và xanh ngập mặn (#2a9d8f). Đồ họa isometric trực quan kết hợp giữa hình nền sinh từ AI (làm bối cảnh minh họa) và các thành phần chuyển động vector Remotion (mũi tên dòng chảy, hạt phù sa, nhãn thông số cao độ). Mọi đồ họa đều mang nhãn HÌNH MINH HỌA / SƠ ĐỒ NGUYÊN LÝ.",
+    "taste_profile": {
+      "design_read": "Khoa học, trực quan, chuyên nghiệp, hiện đại, uy tín và rõ ràng trên màn hình di động.",
+      "visual_variance": 5,
+      "motion_intensity": 6,
+      "information_density": 7
+    },
+    "voice_selection": {
+      "provider": "vieneu",
+      "voice_id": "default",
+      "rationale": "Giọng đọc tiếng Việt tự nhiên cục bộ, $0, không tốn chi phí API, đã được kiểm nghiệm đồng bộ với timeline.",
+      "estimated_cost_usd": 0.0,
+      "delivery_style": "Giọng thuyết minh khoa học điềm đạm, rõ ràng, tốc độ vừa phải.",
+      "pacing_policy": "Nghỉ 0.5s - 0.6s giữa các ý chính, tốc độ nhả chữ khoảng 3 từ/giây.",
+      "sample_approval_required": true
+    },
+    "music_source": {
+      "source_type": "user_library",
+      "track_path": "/Users/tuyennguyen/project/media-library/bgm",
+      "mood_direction": "Nhạc nền ambient điện tử nhẹ, phong cách tài liệu khoa học, âm lượng nhỏ (-24 LUFS) để tôn giọng đọc.",
+      "estimated_cost_usd": 0.0
+    },
+    "decision_log_ref": "projects/coastal-reclamation-20261024/decision_log.json"
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0.0,
+    "line_items": [
+      {
+        "tool": "vieneu_tts",
+        "operation": "Tạo 15-20 đoạn audio thuyết minh tiếng Việt",
+        "quantity": 20,
+        "estimated_usd": 0.0,
+        "notes": "Chạy cục bộ trên Mac mini M4, $0"
+      },
+      {
+        "tool": "9router_image",
+        "operation": "Sinh ảnh phông nền isometric minh họa (sample + batch)",
+        "quantity": 6,
+        "estimated_usd": 0.0,
+        "notes": "Sử dụng 9router local proxy (ag/gemini-3.1-flash-image / cx/gpt-5.6-luna-image), $0"
+      },
+      {
+        "tool": "remotion",
+        "operation": "Render video infographic 9:16",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "Render cục bộ qua Node.js Remotion, $0"
+      }
+    ],
+    "budget_cap_usd": 0.0,
+    "budget_verdict": "within_budget",
+    "savings_options": [
+      "Toàn bộ chuỗi sản xuất dùng $0-first theo chỉ thị của Owner."
+    ]
+  },
+  "approval": {
+    "status": "approved",
+    "user_notes": "Owner duyệt Concept c1 ('Bản đồ dòng chảy vô hình: Khi bờ biển đổi hướng') vào ngày 2026-10-24. Tiến hành sản xuất Demo 1 cảnh (Cảnh 1) theo ONE_SCENE_DEMO_PLAN.md."
+  }
+}

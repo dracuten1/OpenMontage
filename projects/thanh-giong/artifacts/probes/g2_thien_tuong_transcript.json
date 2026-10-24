@@ -1,0 +1,104 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.3,
+      "text": "Ta l\u00e0 th\u01b0\u01a1ng t\u01b0\u1edbng nh\u00e0 tr\u1eddi \u0111\u00e2y.",
+      "words": [
+        {
+          "word": " Ta",
+          "start": 0.0,
+          "end": 0.2,
+          "probability": 0.195
+        },
+        {
+          "word": " l\u00e0",
+          "start": 0.2,
+          "end": 0.32,
+          "probability": 0.965
+        },
+        {
+          "word": " th\u01b0\u01a1ng",
+          "start": 0.32,
+          "end": 0.52,
+          "probability": 0.493
+        },
+        {
+          "word": " t\u01b0\u1edbng",
+          "start": 0.52,
+          "end": 0.76,
+          "probability": 0.838
+        },
+        {
+          "word": " nh\u00e0",
+          "start": 0.76,
+          "end": 0.88,
+          "probability": 0.887
+        },
+        {
+          "word": " tr\u1eddi",
+          "start": 0.88,
+          "end": 1.14,
+          "probability": 0.661
+        },
+        {
+          "word": " \u0111\u00e2y.",
+          "start": 1.14,
+          "end": 1.3,
+          "probability": 0.655
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " Ta",
+      "start": 0.0,
+      "end": 0.2,
+      "probability": 0.195
+    },
+    {
+      "word": " l\u00e0",
+      "start": 0.2,
+      "end": 0.32,
+      "probability": 0.965
+    },
+    {
+      "word": " th\u01b0\u01a1ng",
+      "start": 0.32,
+      "end": 0.52,
+      "probability": 0.493
+    },
+    {
+      "word": " t\u01b0\u1edbng",
+      "start": 0.52,
+      "end": 0.76,
+      "probability": 0.838
+    },
+    {
+      "word": " nh\u00e0",
+      "start": 0.76,
+      "end": 0.88,
+      "probability": 0.887
+    },
+    {
+      "word": " tr\u1eddi",
+      "start": 0.88,
+      "end": 1.14,
+      "probability": 0.661
+    },
+    {
+      "word": " \u0111\u00e2y.",
+      "start": 1.14,
+      "end": 1.3,
+      "probability": 0.655
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.52,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

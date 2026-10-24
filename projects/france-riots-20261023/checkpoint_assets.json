@@ -1,0 +1,292 @@
+{
+  "version": "1.0",
+  "project_id": "france-riots-20261023",
+  "pipeline_type": "hybrid",
+  "stage": "assets",
+  "status": "completed",
+  "timestamp": "2026-10-23T08:13:19.268029+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "asset_manifest": {
+      "version": "1.0",
+      "assets": [
+        {
+          "id": "narration-s01",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s01.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S1",
+          "duration_seconds": 5.637854,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s02",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s02.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S2",
+          "duration_seconds": 11.857542,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s03",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s03.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S3",
+          "duration_seconds": 18.12225,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s04",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s04.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S4",
+          "duration_seconds": 15.831583,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s05",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s05.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S5",
+          "duration_seconds": 15.287083,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s06",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s06.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S6",
+          "duration_seconds": 19.527417,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s07",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s07.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S7",
+          "duration_seconds": 7.313396,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s08",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s08.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S8",
+          "duration_seconds": 8.422604,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s09",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s09.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S9",
+          "duration_seconds": 10.723271,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s10",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s10.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S10",
+          "duration_seconds": 9.954833,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s11",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s11.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S11",
+          "duration_seconds": 9.1205,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s12",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s12.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S12",
+          "duration_seconds": 9.60325,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s13",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s13.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S13",
+          "duration_seconds": 11.995854,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s14",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s14.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S14",
+          "duration_seconds": 7.526708,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s15",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s15.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S15",
+          "duration_seconds": 19.894333,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s16",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s16.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S16",
+          "duration_seconds": 14.184917,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s17",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s17.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S17",
+          "duration_seconds": 12.830729,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s18",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s18.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S18",
+          "duration_seconds": 10.651729,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s19",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s19.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S19",
+          "duration_seconds": 8.902375,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s20",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s20.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S20",
+          "duration_seconds": 13.923292,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "narration-s21",
+          "type": "narration",
+          "path": "remotion-composer/public/france-riots-20261023/v2/voice_s21.wav",
+          "source_tool": "existing_v2_file",
+          "scene_id": "S21",
+          "duration_seconds": 3.550833,
+          "format": "wav",
+          "generation_summary": "Existing public V2 WAV measured with ffprobe; generation provenance not inferred."
+        },
+        {
+          "id": "music-bed",
+          "type": "music",
+          "path": "remotion-composer/public/france-riots-20261023/Mesmerize-bed.wav",
+          "source_tool": "existing_file",
+          "scene_id": "all",
+          "duration_seconds": 118.566667,
+          "generation_summary": "Existing reused bed; credit/provenance declared in V2 music_metadata, not independently certified."
+        },
+        {
+          "id": "media-1",
+          "type": "video",
+          "path": "remotion-composer/public/france-riots-20261023/media/aix_gare_routiere_manifestation_17102026_gabrielfrom92.webm",
+          "source_tool": "existing_file",
+          "scene_id": "S6",
+          "generation_summary": "Existing source media; filename date is not independent date verification."
+        },
+        {
+          "id": "media-2",
+          "type": "image",
+          "path": "remotion-composer/public/france-riots-20261023/media/paris_crowd_republique_teargas_17102026_JJxFile_0012.jpg",
+          "source_tool": "existing_file",
+          "scene_id": "S7",
+          "generation_summary": "Existing source media; filename date is not independent date verification."
+        },
+        {
+          "id": "media-3",
+          "type": "image",
+          "path": "remotion-composer/public/france-riots-20261023/media/paris_firefighters_burning_car_17102026_JJxFile_0048.jpg",
+          "source_tool": "existing_file",
+          "scene_id": "S7",
+          "generation_summary": "Existing source media; filename date is not independent date verification."
+        },
+        {
+          "id": "captions-v2",
+          "type": "subtitle",
+          "path": "remotion-composer/public/france-riots-20261023/v2/captions_display.json",
+          "source_tool": "existing_v2_file",
+          "scene_id": "all"
+        }
+      ],
+      "metadata": {
+        "revision": "v2",
+        "authorization": "Owner \u201cCho ch\u1ea1y\u201d authorizes draft production only. Not clean-final approval, publication permission, or listening sign-off.",
+        "limitations": [
+          "DRAFT HUD: pending owner review; no clean-final approval.",
+          "No auditory listening performed by closeout; pronunciation, numbers and mix intelligibility pending.",
+          "ffprobe inspects container/streams only; no full decode, black-frame, visual, subtitle or speech-lock certification.",
+          "Final integrated LUFS/true peak not measured by closeout.",
+          "Media dates, claims, provenance and license validity not independently verified by closeout.",
+          "Existing automated audits are referenced evidence only, not a new independent PASS.",
+          "Telegram V2 delivery receipts pending lead; V1 receipts do not apply."
+        ],
+        "music_metadata_ref": "remotion-composer/public/france-riots-20261023/v2/music_metadata.json"
+      }
+    }
+  },
+  "style_playbook": "flat-motion-graphics",
+  "metadata": {
+    "approval": {
+      "quote": "approve, nh\u01b0ng m\u00e0 ko c\u1ea7n render ph\u1ee5 \u0111\u1ec1.",
+      "owner_timestamp": "2026-10-23 14:54 Asia/Ho_Chi_Minh",
+      "scope": "France V2 final export only; HUD OFF, narration captions OFF; editorial text/audio/timing unchanged; NO PUBLISH"
+    },
+    "publication_performed": false,
+    "acceptance": "final export only"
+  }
+}

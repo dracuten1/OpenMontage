@@ -1,0 +1,368 @@
+{
+  "version": "1.0",
+  "project_id": "lieu-hanh",
+  "pipeline_type": "animated-explainer",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-10-20T00:11:30.787726+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "VN-Myth S2E04 \u2014 Li\u1ec5u H\u1ea1nh: v\u00ec sao m\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef \u0111\u01b0\u1ee3c \u0111\u1ee9ng trong h\u00e0ng T\u1ee9 b\u1ea5t t\u1eed?",
+      "research_date": "2026-10-20",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "C\u00e1c trang k\u1ec3 l\u1ea1i \u00abV\u00e2n C\u00e1t th\u1ea7n n\u1eef\u00bb nh\u01b0 truy\u1ec7n t\u00ecnh ti\u00ean (truyenxuatichcu.com, gio-o.com\u2026)",
+            "url": "https://truyenxuatichcu.com/",
+            "source": "Trang truy\u1ec7n c\u1ed5 t\u00edch t\u1ed5ng h\u1ee3p (truy h\u1ed3i qua truy v\u1ea5n t\u00ecm ki\u1ebfm)",
+            "angle": "K\u1ec3 m\u1ea1ch t\u00ecnh duy\u00ean Gi\u00e1ng Ti\u00ean \u2013 \u0110\u00e0o Lang \u2013 Mai Sinh",
+            "what_it_misses": "Kh\u00f4ng t\u00e1ch l\u1edbp v\u0103n b\u1ea3n (b\u1ea3n d\u1ecbch n\u00e0o, c\u1ee7a ai) kh\u1ecfi truy\u1ec1n thuy\u1ebft d\u00e2n gian",
+            "engagement_signal": "Kh\u00f4ng \u0111o l\u01b0\u1ee3t xem trong l\u1ea7n n\u00e0y.",
+            "what_it_covers": "K\u1ec3 m\u1ea1ch t\u00ecnh duy\u00ean Gi\u00e1ng Ti\u00ean \u2013 \u0110\u00e0o Lang \u2013 Mai Sinh"
+          },
+          {
+            "title": "B\u00e0i gi\u1edbi thi\u1ec7u th\u1ef1c h\u00e0nh th\u1edd M\u1eabu Tam ph\u1ee7 g\u1eafn UNESCO (vietnamtourism.gov.vn, ich.unesco.org)",
+            "url": "https://ich.unesco.org/en/RL/practices-related-to-the-viet-beliefs-in-the-mother-goddesses-of-three-realms-01198",
+            "source": "Trang ch\u00ednh th\u1ee9c du l\u1ecbch/UNESCO (UNESCO bot-wall khi snapshot)",
+            "angle": "L\u00ean \u0111\u1ed3ng, ch\u1ea7u v\u0103n, h\u1ec7 Tam ph\u1ee7",
+            "what_it_misses": "Kh\u00f4ng t\u00e1ch truy\u1ec1n thuy\u1ebft nh\u00e2n v\u1eadt kh\u1ecfi l\u1ecbch s\u1eed th\u1ef1c h\u00e0nh",
+            "engagement_signal": "Kh\u00f4ng \u0111o.",
+            "what_it_covers": "L\u00ean \u0111\u1ed3ng, ch\u1ea7u v\u0103n, h\u1ec7 Tam ph\u1ee7"
+          },
+          {
+            "title": "Trang gi\u1edbi thi\u1ec7u l\u1ec5 h\u1ed9i Ph\u1ee7 D\u1ea7y/\u0111\u1ec1n S\u00f2ng (phuday.com, t\u1ec9nh Nam \u0110\u1ecbnh)",
+            "url": "https://phuday.com/",
+            "source": "Trang qu\u1ea3ng b\u00e1 di t\u00edch (truy h\u1ed3i qua truy v\u1ea5n t\u00ecm ki\u1ebfm)",
+            "angle": "L\u1ecbch h\u1ed9i, \u0111i\u1ec3m di t\u00edch, truy\u1ec1n thuy\u1ebft t\u00f3m t\u1eaft",
+            "what_it_misses": "Kh\u00f4ng ngu\u1ed3n h\u00f3a c\u00e1c m\u1ed1c phong th\u1ea7n; s\u1ed1 li\u1ec7u kh\u00f4ng d\u1eabn quy\u1ebft \u0111\u1ecbnh g\u1ed1c",
+            "engagement_signal": "Kh\u00f4ng \u0111o.",
+            "what_it_covers": "L\u1ecbch h\u1ed9i, \u0111i\u1ec3m di t\u00edch, truy\u1ec1n thuy\u1ebft t\u00f3m t\u1eaft"
+          }
+        ],
+        "saturated_angles": [
+          "K\u1ec3 \u00abV\u00e2n C\u00e1t th\u1ea7n n\u1eef\u00bb thu\u1ea7n theo m\u1ea1ch t\u00ecnh duy\u00ean Gi\u00e1ng Ti\u00ean \u2013 \u0110\u00e0o Lang \u2013 Mai Sinh (\u0111\u00e3 nhi\u1ec1u trang truy\u1ec7n c\u1ed5 t\u00edch t\u1ed5ng h\u1ee3p l\u00e0m \u2014 \u0111i\u1ec3m b\u00e3o h\u00f2a theo landscape \u0111\u00e3 truy h\u1ed3i)",
+          "Gi\u1edbi thi\u1ec7u l\u1ec5 h\u1ed9i/di t\u00edch ki\u1ec3u qu\u1ea3ng b\u00e1: l\u1ecbch h\u1ed9i + truy\u1ec1n thuy\u1ebft t\u00f3m t\u1eaft, kh\u00f4ng ngu\u1ed3n h\u00f3a m\u1ed1c phong th\u1ea7n"
+        ],
+        "underserved_gaps": [
+          "T\u00e1ch ba l\u1edbp \u2014 b\u1ea3n k\u1ec3 \u2260 \u0111\u1ec1n th\u1edd/th\u1ef1c h\u00e0nh \u2260 ghi danh di s\u1ea3n \u2014 trong c\u00f9ng m\u1ed9t b\u00e0i (c\u1ea3 3 lo\u1ea1i trang \u0111\u00e3 truy h\u1ed3i \u0111\u1ec1u kh\u00f4ng t\u00e1ch; \u0111\u00e2y l\u00e0 tr\u1ee5c b\u1eaft bu\u1ed9c c\u1ee7a t\u1eadp)",
+          "\u0110\u1eb7t truy\u1ec1n thuy\u1ebft Li\u1ec5u H\u1ea1nh c\u1ea1nh l\u1ecbch s\u1eed th\u1ef1c h\u00e0nh th\u1edd M\u1eabu: kh\u00f4ng \u0111\u00e1nh \u0111\u1ed3ng m\u1ecdi n\u1eef th\u1ea7n, kh\u00f4ng g\u1ecdi m\u00ea t\u00edn, kh\u00f4ng UNESCO-h\u00f3a nh\u00e2n v\u1eadt",
+          "Ngu\u1ed3n h\u00f3a m\u1ed1c phong th\u1ea7n / danh x\u01b0ng \u00abM\u1eabu nghi thi\u00ean h\u1ea1\u00bb (c\u00e1c trang di t\u00edch d\u1eabn s\u1ed1 li\u1ec7u kh\u00f4ng k\u00e8m quy\u1ebft \u0111\u1ecbnh g\u1ed1c)"
+        ]
+      },
+      "trending": {
+        "recent_developments": [],
+        "active_discussions": [],
+        "timeliness_window": "evergreen"
+      },
+      "data_points": [
+        {
+          "claim": "Phan K\u1ebf B\u00ednh m\u1edf truy\u1ec7n \u1edf V\u00e2n C\u00e1t, Y\u00ean Th\u00e1i, V\u1ee5 B\u1ea3n, Nam \u0110\u1ecbnh; nh\u00e0 L\u00ea Th\u00e1i C\u00f4ng \u00abhay l\u00e0m ph\u00fac\u00bb.",
+          "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+          "source_name": "Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n c\u1ee7a Phan K\u1ebf B\u00ednh, m\u1ee5c 45 \u00abLi\u1ec5u-H\u1ea1nh ti\u00ean-ch\u00faa\u00bb \u2014 Wikisource ti\u1ebfng Vi\u1ec7t",
+          "credibility": "primary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: primary_source; surprise: standard] C01; T\u00ecnh ti\u1ebft b\u1ea3n k\u1ec3; \u0111\u1ecba danh theo b\u1ea3n \u0111\u1ed3 \u0111\u1ea7u XX, kh\u00f4ng ch\u1ee9ng minh nh\u00e2n v\u1eadt l\u1ecbch s\u1eed."
+        },
+        {
+          "claim": "Ti\u00ean ch\u00faa th\u1ee9 hai (Qu\u1ef3nh Hoa) l\u00e0m v\u1ee1 ch\u00e9n ng\u1ecdc, b\u1ecb bi\u00ean s\u1ed5 v\u00e0 \u0111\u00e0y xu\u1ed1ng tr\u1ea7n.",
+          "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+          "source_name": "Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n c\u1ee7a Phan K\u1ebf B\u00ednh, m\u1ee5c 45 \u00abLi\u1ec5u-H\u1ea1nh ti\u00ean-ch\u00faa\u00bb \u2014 Wikisource ti\u1ebfng Vi\u1ec7t",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "[sealed kind: primary_source; surprise: notable] C02; T\u00ecnh ti\u1ebft b\u1ea3n k\u1ec3; \u00abcon g\u00e1i Ng\u1ecdc Ho\u00e0ng\u00bb l\u00e0 m\u00f4-t\u00edp, kh\u00f4ng ph\u00e1t bi\u1ec3u th\u1ea7n h\u1ecdc."
+        },
+        {
+          "claim": "Gi\u00e1ng Ti\u00ean m\u1ea5t ng\u00e0y m\u1ed3ng ba th\u00e1ng ba, v\u00f4 b\u1ec7nh, 21 tu\u1ed5i.",
+          "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+          "source_name": "Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n c\u1ee7a Phan K\u1ebf B\u00ednh, m\u1ee5c 45 \u00abLi\u1ec5u-H\u1ea1nh ti\u00ean-ch\u00faa\u00bb \u2014 Wikisource ti\u1ebfng Vi\u1ec7t",
+          "credibility": "primary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: primary_source; surprise: standard] C03; T\u00ecnh ti\u1ebft b\u1ea3n k\u1ec3; m\u1ed1c 3/3 \u0111\u01b0\u1ee3c l\u1ec5 h\u1ed9i h\u00f4m nay d\u00f9ng l\u00e0m ng\u00e0y gi\u1ed7 \u2014 kh\u00f4ng suy ra n\u0103m l\u1ecbch s\u1eed c\u1ee5 th\u1ec3."
+        },
+        {
+          "claim": "Ph\u00f9ng Kh\u1eafc Khoan (Tr\u1ea1ng B\u00f9ng) \u0111\u1ed1i \u0111\u00e1p ch\u1eef/th\u01a1 v\u1edbi ti\u00ean ch\u00faa \u1edf L\u1ea1ng S\u01a1n r\u1ed3i n\u00e0ng bi\u1ebfn m\u1ea5t.",
+          "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+          "source_name": "Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n c\u1ee7a Phan K\u1ebf B\u00ednh, m\u1ee5c 45 \u00abLi\u1ec5u-H\u1ea1nh ti\u00ean-ch\u00faa\u00bb \u2014 Wikisource ti\u1ebfng Vi\u1ec7t",
+          "credibility": "primary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: primary_source; surprise: standard] C04; T\u00ecnh ti\u1ebft b\u1ea3n k\u1ec3 g\u1eafn nh\u00e2n v\u1eadt l\u1ecbch s\u1eed Ph\u00f9ng Kh\u1eafc Khoan; kh\u00f4ng suy ra cu\u1ed9c g\u1eb7p c\u00f3 th\u1eadt."
+        },
+        {
+          "claim": "Hi\u1ec3n th\u00e1nh \u1edf \u0111\u00e8o Ngang\u2013ph\u1ed1 C\u00e1t (Thanh H\u00f3a): tr\u1eebng tr\u1ecb \u2192 tri\u1ec1u \u0111\u00ecnh \u0111em qu\u00e2n \u00abti\u1ec5u\u00bb \u2192 d\u00e2n d\u1ecbch t\u1ec5 c\u1ea7u kh\u1ea5n \u2192 vua phong M\u00e3-v\u00e0ng c\u00f4ng ch\u00faa, sau phong Ch\u1ebf-th\u1eafng b\u1ea3o h\u00f2a-di\u1ec7u \u0111\u1ea1i v\u01b0\u01a1ng, l\u1eadp \u0111\u1ec1n n\u00fai S\u00f9ng S\u01a1n \u00ab\u0111\u1ebfn gi\u1edd v\u1eabn c\u00f2n\u00bb.",
+          "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+          "source_name": "Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n c\u1ee7a Phan K\u1ebf B\u00ednh, m\u1ee5c 45 \u00abLi\u1ec5u-H\u1ea1nh ti\u00ean-ch\u00faa\u00bb \u2014 Wikisource ti\u1ebfng Vi\u1ec7t",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "[sealed kind: primary_source; surprise: notable] C05; Chu\u1ed7i tr\u1eebng-tr\u1ecb\u2013phong-v\u01b0\u01a1ng l\u00e0 l\u1edbp k\u1ec3; ph\u1ea7n \u0111\u1ec1n th\u1edd hi\u1ec7n h\u1eefu l\u00e0 d\u1ea5u hi\u1ec7u th\u1ef1c h\u00e0nh. K\u1ec3 tr\u1eebng tr\u1ecb b\u1eb1ng ng\u00f4n t\u1eeb b\u1ea3n k\u1ec3, gi\u1eef ph\u1ea9m gi\u00e1, kh\u00f4ng d\u00e2m h\u00f3a, kh\u00f4ng kho\u00e1i kh\u00ed."
+        },
+        {
+          "claim": "B\u1ea3n k\u1ec3 d\u00e2n gi\u00e2n (kh\u00f4ng r\u00f5 t\u00e1c gi\u1ea3) m\u1edf b\u1eb1ng \u00abn\u0103m Thi\u00eau H\u1ef1u, \u0111\u1eddi H\u1eadu L\u00ea (1557)\u00bb, th\u00f4n An Th\u00e1i, l\u00e0ng V\u00e2n C\u00e1t; v\u00e0 n\u00f3i \u0111\u1ec1n Ph\u1ed1 C\u00e1t + \u0110\u1ec1n S\u00f2ng l\u00e0 n\u01a1i \u00abxu\u1ed1ng tr\u1ea7n l\u1ea7n th\u1ee9 hai\u00bb.",
+          "source_url": "https://vi.wikisource.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+          "source_name": "\u00abLi\u1ec5u H\u1ea1nh C\u00f4ng Ch\u00faa\u00bb (t\u00e1c gi\u1ea3 kh\u00f4ng r\u00f5) \u2014 Wikisource ti\u1ebfng Vi\u1ec7t",
+          "credibility": "anecdotal",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: folk_variant; surprise: standard] C06; D\u1ecb b\u1ea3n: An Th\u00e1i kh\u00e1c Y\u00ean Th\u00e1i b\u1ea3n Phan K\u1ebf B\u00ednh; c\u1ea5u tr\u00fac \u00abl\u1ea7n hai\u00bb l\u00e0 c\u00e1ch k\u1ec3, kh\u00f4ng ph\u1ea3i h\u1ed3 s\u01a1 t\u00f2a \u00e1n thi\u00ean gi\u1edbi."
+        },
+        {
+          "claim": "V\u0169 trung t\u00f9y b\u00fat ghi \u1edf c\u1eeda th\u1ee9 ba n\u1ec1n Nam Giao (th\u1eddi Nguy\u1ec5n) c\u00f3 \u0111\u1ec1n th\u1edd \u00abb\u00e0 c\u00f4ng ch\u00faa Li\u1ec5u H\u1ea1nh\u00bb, do d\u00e2n quanh v\u00f9ng v\u00e0 ng\u01b0\u1eddi \u0111\u1ed3ng c\u1ed1t l\u1eadp t\u1eeb khi nh\u00e0 L\u00ea m\u1ea5t.",
+          "source_url": "https://vi.wikisource.org/wiki/V%C5%A9_trung_t%C3%B9y_b%C3%BAt/Ch%C6%B0%C6%A1ng_XX",
+          "source_name": "V\u0169 trung t\u00f9y b\u00fat (Ph\u1ea1m \u0110\u00ecnh H\u1ed5, Nguy\u1ec5n H\u1eefu Ti\u1ebfn d\u1ecbch) \u2014 Ch\u01b0\u01a1ng XX (T\u1ea1p k\u00fd/Phong t\u1ee5c) \u2014 Wikisource",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "[sealed kind: primary_source; surprise: notable] C07; Ch\u1ee9ng c\u1ee9 TH\u1ef0C H\u00c0NH th\u1edd (\u0111\u1ec1n c\u00f3 th\u1eadt trong ghi ch\u00e9p phong t\u1ee5c), kh\u00f4ng ch\u1ee9ng minh nh\u00e2n v\u1eadt; d\u00f9ng l\u00e0m l\u1edbp l\u1ecbch s\u1eed th\u1ef1c h\u00e0nh."
+        },
+        {
+          "claim": "Danh s\u00e1ch T\u1ee9 B\u1ea5t T\u1eed (b\u00e1ch khoa): S\u01a1n Tinh, Ch\u1eed \u0110\u1ed3ng T\u1eed, Th\u00e1nh Gi\u00f3ng, Li\u1ec5u H\u1ea1nh C\u00f4ng Ch\u00faa.",
+          "source_url": "https://vi.wikipedia.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+          "source_name": "\u00abLi\u1ec5u H\u1ea1nh C\u00f4ng ch\u00faa\u00bb \u2014 Wikipedia ti\u1ebfng Vi\u1ec7t",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: secondary; surprise: standard] C08; Danh s\u00e1ch ph\u1ed5 bi\u1ebfn \u0111\u01b0\u01a1ng \u0111\u1ea1i; kh\u00f4ng kh\u1eb3ng \u0111\u1ecbnh \u0111\u00e2y l\u00e0 danh m\u1ee5c \u00abb\u1ed1n v\u1ecb th\u1ea7n t\u1ed1i cao\u00bb c\u1ed1 \u0111\u1ecbnh m\u1ecdi th\u1eddi k\u1ef3/m\u1ecdi v\u00f9ng."
+        },
+        {
+          "claim": "Infobox b\u00e1ch khoa ghi sinh 07/09/1557 (15/8/\u0110inh T\u1ef5), m\u1ea5t 21/03/1577 (3/3/\u0110inh S\u1eedu).",
+          "source_url": "https://vi.wikipedia.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+          "source_name": "\u00abLi\u1ec5u H\u1ea1nh C\u00f4ng ch\u00faa\u00bb \u2014 Wikipedia ti\u1ebfng Vi\u1ec7t",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: secondary; surprise: standard] C09; T\u1ed5ng h\u1ee3p c\u1ee7a b\u00e1ch khoa theo c\u00e1c b\u1ea3n k\u1ec3; KH\u00d4NG d\u00f9ng l\u00e0m n\u0103m l\u1ecbch s\u1eed x\u00e1c th\u1ef1c \u2014 tr\u00ean m\u00e0n h\u00ecnh ph\u1ea3i k\u00e8m khung \u00abtheo c\u00e1ch k\u1ec3\u00bb."
+        },
+        {
+          "claim": "UNESCO ghi danh \u00abTh\u1ef1c h\u00e0nh T\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu Tam ph\u1ee7 c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t\u00bb v\u00e0o Danh s\u00e1ch \u0111\u1ea1i di\u1ec7n c\u1ee7a nh\u00e2n lo\u1ea1i, 17h15 ng\u00e0y 1/12/2016, phi\u00ean 11, Addis Ababa (t\u01b0\u1eddng thu\u1eadt vi.wiki).",
+          "source_url": "https://vi.wikipedia.org/wiki/T%C3%ADn_ng%C6%B0%E1%BB%A1ng_th%E1%BB%9D_M%E1%BA%ABu_c%E1%BB%A7a_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t",
+          "source_name": "\u00abT\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t\u00bb \u2014 Wikipedia ti\u1ebfng Vi\u1ec7t",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "[sealed kind: secondary; surprise: notable] C10; Ghi danh d\u00e0nh cho TH\u1ef0C H\u00c0NH, kh\u00f4ng x\u00e1c th\u1ef1c truy\u1ec1n thuy\u1ebft nh\u00e2n v\u1eadt. Trang ich.unesco.org b\u1ecb captcha khi snapshot \u2014 d\u1eabn theo t\u01b0\u1eddng thu\u1eadt b\u00e1ch khoa, needs_input b\u1ea3n g\u1ed1c."
+        },
+        {
+          "claim": "H\u1ed3 s\u01a1 UNESCO g\u1ed3m 14 t\u1ec9nh th\u00e0nh (Ninh B\u00ecnh\u2026 TP.HCM) theo vi.wiki.",
+          "source_url": "https://vi.wikipedia.org/wiki/T%C3%ADn_ng%C6%B0%E1%BB%A1ng_th%E1%BB%9D_M%E1%BA%ABu_c%E1%BB%A7a_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t",
+          "source_name": "\u00abT\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t\u00bb \u2014 Wikipedia ti\u1ebfng Vi\u1ec7t",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: secondary; surprise: standard] C11; Ph\u1ea1m vi h\u1ed3 s\u01a1 theo t\u01b0\u1eddng thu\u1eadt; kh\u00f4ng suy ra \u00abch\u1ec9 14 t\u1ec9nh c\u00f3 th\u1edd M\u1eabu\u00bb."
+        },
+        {
+          "claim": "H\u1ed9i Ph\u1ee7 D\u1ea7y t\u1ed5 ch\u1ee9c h\u00e0ng n\u0103m ng\u00e0y 3/3 \u00e2m l\u1ecbch; 3 nghi th\u1ee9c ch\u00ednh: R\u01b0\u1edbc M\u1eabu Th\u1ec9nh Kinh, R\u01b0\u1edbc \u0110u\u1ed1c t\u1ea1i Ph\u1ee7 Ch\u00ednh, k\u00e9o ch\u1eef Hoa Tr\u01b0\u1ee3ng H\u1ed9i.",
+          "source_url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%A7_D%E1%BA%A7y",
+          "source_name": "\u00abPh\u1ee7 D\u1ea7y\u00bb \u2014 Wikipedia ti\u1ebfng Vi\u1ec7t",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: secondary; surprise: standard] C12; M\u00f4 t\u1ea3 nghi l\u1ec5 theo b\u00e1ch khoa; kh\u00f4ng d\u1ef1ng nghi l\u1ec5 th\u00e0nh c\u1ea3nh huy\u1ec1n b\u00ed c\u00e2u view; kh\u00f4ng g\u1ecdi l\u00e0 m\u00ea t\u00edn."
+        },
+        {
+          "claim": "Nghi\u00ean c\u1ee9u t\u00f4n gi\u00e1o: t\u1ee5c th\u1edd N\u1eef th\u1ea7n/M\u1eabu th\u1ea7n b\u1ea3n \u0111\u1ecba k\u1ebft h\u1ee3p \u1ea3nh h\u01b0\u1edfng \u0110\u1ea1o gi\u00e1o h\u00ecnh th\u00e0nh \u0111\u1ea1o Tam ph\u1ee7, T\u1ee9 ph\u1ee7, m\u00e0 Li\u1ec5u H\u1ea1nh l\u00e0 m\u1ed9t th\u1ea7n ch\u1ee7.",
+          "source_url": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010",
+          "source_name": "\u00abTh\u00e1nh m\u1eabu Li\u1ec5u H\u1ea1nh: t\u1eeb v\u1ecb ch\u00faa \u0111\u1ebfn th\u1ea7n ch\u1ee7 \u0111\u1ea1o M\u1eabu Vi\u1ec7t Nam\u00bb, Nghi\u00ean c\u1ee9u T\u00f4n gi\u00e1o s\u1ed1 10/2010 (\u0111\u0103ng l\u1ea1i diachivietnam.vn)",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: scholarly; surprise: standard] C13; Di\u1ec5n gi\u1ea3i h\u1ecdc thu\u1eadt (kh\u00f4ng ph\u1ea3i ch\u00e2n l\u00fd duy nh\u1ea5t); tr\u00ecnh b\u00e0y nh\u01b0 \u00abm\u1ed9t c\u00e1ch hi\u1ec3u c\u1ee7a nghi\u00ean c\u1ee9u\u00bb."
+        },
+        {
+          "claim": "L\u1edbp v\u0103n b\u1ea3n: Qu\u1ea3ng Cung linh t\u1eeb ph\u1ea3 k\u00fd (V\u0169 Huy Tr\u00e1c, 1781) c\u00f3 ni\u00ean \u0111\u1ea1i g\u1ea7n V\u00e2n C\u00e1t th\u1ea7n n\u1eef (\u0110o\u00e0n Th\u1ecb \u0110i\u1ec3m); c\u00e1c t\u00e1c ph\u1ea9m Nho h\u1ecdc XVIII\u2013XX \u0111\u1ec1u k\u1ec3 hai l\u1ea7n gi\u00e1ng sinh.",
+          "source_url": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010",
+          "source_name": "\u00abTh\u00e1nh m\u1eabu Li\u1ec5u H\u1ea1nh: t\u1eeb v\u1ecb ch\u00faa \u0111\u1ebfn th\u1ea7n ch\u1ee7 \u0111\u1ea1o M\u1eabu Vi\u1ec7t Nam\u00bb, Nghi\u00ean c\u1ee9u T\u00f4n gi\u00e1o s\u1ed1 10/2010 (\u0111\u0103ng l\u1ea1i diachivietnam.vn)",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: scholarly; surprise: standard] C14; Ni\u00ean \u0111\u1ea1i v\u0103n b\u1ea3n \u2260 ni\u00ean \u0111\u1ea1i nh\u00e2n v\u1eadt/s\u1ef1 ki\u1ec7n; V\u00e2n C\u00e1t th\u1ea7n n\u1eef ch\u01b0a snapshot tr\u1ef1c ti\u1ebfp \u2014 d\u1eabn gi\u00e1n ti\u1ebfp qua nghi\u00ean c\u1ee9u."
+        },
+        {
+          "claim": "D\u00e2n th\u1edd kh\u1eafp n\u01a1i, t\u00f4n \u00abM\u1eabu nghi thi\u00ean h\u1ea1\u00bb; tri\u1ec1u \u0111\u00ecnh \u00abkh\u00f4ng nh\u1eefng kh\u00f4ng b\u1eaft t\u1ed9i\u00bb m\u00e0 t\u00f4n phong v\u00e0 x\u1ebfp h\u1ea1ng th\u01b0\u1ee3ng \u0111\u1eb3ng th\u1ea7n.",
+          "source_url": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010",
+          "source_name": "\u00abTh\u00e1nh m\u1eabu Li\u1ec5u H\u1ea1nh: t\u1eeb v\u1ecb ch\u00faa \u0111\u1ebfn th\u1ea7n ch\u1ee7 \u0111\u1ea1o M\u1eabu Vi\u1ec7t Nam\u00bb, Nghi\u00ean c\u1ee9u T\u00f4n gi\u00e1o s\u1ed1 10/2010 (\u0111\u0103ng l\u1ea1i diachivietnam.vn)",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "[sealed kind: scholarly; surprise: standard] C15; T\u00f3m t\u1eaft h\u1ecdc thu\u1eadt v\u1ec1 qu\u00e1 tr\u00ecnh ch\u00ednh danh; chi ti\u1ebft s\u1eafc phong c\u1ee5 th\u1ec3 ch\u01b0a \u0111\u1ed1i chi\u1ebfu nguy\u00ean b\u1ea3n \u2014 kh\u00f4ng \u0111\u1ecdc s\u1ed1 quy\u1ebft \u0111\u1ecbnh n\u00e0o."
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "V\u00ec sao m\u1ed9t ng\u01b0\u1eddi con g\u00e1i m\u1ea5t \u1edf tu\u1ed5i 21 l\u1ea1i \u0111\u01b0\u1ee3c th\u1edd \u043f\u0440\u043e\u0434\u043e\u043b\u0436 h\u00e0ng th\u1ebf k\u1ef7?",
+          "B\u00e0 l\u00e0 con g\u00e1i Ng\u1ecdc Ho\u00e0ng b\u1ecb \u0111\u00e0y hay m\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef th\u1eadt \u0111\u01b0\u1ee3c th\u1ea7n h\u00f3a?",
+          "Th\u1edd M\u1eabu Tam ph\u1ee7 v\u00e0 truy\u1ec1n thuy\u1ebft Li\u1ec5u H\u1ea1nh l\u00e0 m\u1ed9t hay hai chuy\u1ec7n kh\u00e1c nhau?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "M\u1ecdi n\u1eef th\u1ea7n Vi\u1ec7t \u0111\u1ec1u l\u00e0 hi\u1ec7n th\u00e2n Li\u1ec5u H\u1ea1nh.",
+            "reality": "H\u1ec7 M\u1eabu nhi\u1ec1u v\u1ecb; Li\u1ec5u H\u1ea1nh l\u00e0 m\u1ed9t th\u1ea7n ch\u1ee7 trong Tam/T\u1ee9 ph\u1ee7 \u2014 kh\u00f4ng \u0111\u00e1nh \u0111\u1ed3ng (roadmap S2E04 \u00abPh\u1ea3i tr\u00e1nh\u00bb).",
+            "source": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010"
+          },
+          {
+            "myth": "UNESCO ghi danh \u00abtruy\u1ec7n Li\u1ec5u H\u1ea1nh\u00bb.",
+            "reality": "Ghi danh d\u00e0nh cho th\u1ef1c h\u00e0nh t\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu Tam ph\u1ee7 (1/12/2016).",
+            "source": "https://vi.wikipedia.org/wiki/T%C3%ADn_ng%C6%B0%E1%BB%A1ng_th%E1%BB%9D_M%E1%BA%ABu_c%E1%BB%A7a_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t"
+          },
+          {
+            "myth": "B\u00e0 sinh 1557, m\u1ea5t 1577 l\u00e0 s\u1eed li\u1ec7u.",
+            "reality": "M\u1ed1c t\u1ed5ng h\u1ee3p t\u1eeb c\u00e1c b\u1ea3n k\u1ec3/b\u00e1ch khoa; b\u1ea3n k\u1ec3 m\u1edf truy\u1ec7n ghi \u00abth\u1eddi vua Anh-t\u00f4n (1557)\u00bb.",
+            "source": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45"
+          },
+          {
+            "myth": "Tr\u1eebng tr\u1ecb \u1edf ph\u1ed1 C\u00e1t ch\u1ee9ng minh b\u00e0 hung \u00e1c / d\u00e2m.",
+            "reality": "L\u00e0 l\u1edbp k\u1ec3 v\u1ec1 vi\u1ec7c tr\u1eebng ph\u1ea1t k\u1ebb \u0111\u00f9a b\u1ee1n; khi k\u1ec3 ph\u1ea3i gi\u1eef ph\u1ea9m gi\u00e1, kh\u00f4ng nh\u1ee5c c\u1ea3m.",
+            "source": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45"
+          }
+        ],
+        "knowledge_level": "Gi\u1ea3 \u0111\u1ecbnh bi\u00ean t\u1eadp, ch\u01b0a c\u00f3 kh\u1ea3o s\u00e1t: ng\u01b0\u1eddi xem bi\u1ebft t\u00ean Li\u1ec5u H\u1ea1nh v\u00e0 c\u1ee5m \u00abT\u1ee9 b\u1ea5t t\u1eed\u00bb qua tr\u01b0\u1eddng h\u1ecdc/\u0111\u1ec1n M\u1eabu, th\u01b0\u1eddng l\u1eabn ba l\u1edbp (b\u1ea3n k\u1ec3 \u2013 th\u1ef1c h\u00e0nh \u2013 di s\u1ea3n). C\u00e2u h\u1ecfi Q01\u2013Q03 l\u00e0 editor-derived t\u1eeb landscape \u0111\u00e3 truy h\u1ed3i (xem metadata.audience_question_provenance), kh\u00f4ng ph\u1ea3i kh\u1ea3o s\u00e1t c\u00f4ng b\u1ed1."
+      },
+      "angles_discovered": [
+        {
+          "name": "Ng\u01b0\u1eddi con g\u00e1i tr\u1edf v\u1ec1",
+          "hook": "C\u00f4 con g\u00e1i 21 tu\u1ed5i m\u1ea5t v\u00f4 b\u1ec7nh ng\u00e0y 3/3 \u2014 v\u00ec sao ng\u01b0\u1eddi \u0111\u1eddi ti\u1ebfp t\u1ee5c g\u1ecdi b\u00e0 l\u00e0 M\u1eabu?",
+          "type": "narrative",
+          "why_now": "[sealed angle type: narrative] Kh\u1edbp hook roadmap; ch\u00e9n ng\u1ecdc v\u1ee1 \u2192 hai l\u1ea7n gi\u00e1ng sinh \u2192 phong v\u01b0\u01a1ng \u2192 ng\u00f4i M\u1eabu; ho\u00e0n t\u1ea5t T\u1ee9 b\u1ea5t t\u1eed sau 3 t\u1eadp \u0111\u1ea7u.",
+          "grounded_in": [
+            "C02",
+            "C03",
+            "C05",
+            "C13",
+            "C15"
+          ]
+        },
+        {
+          "name": "Ba l\u1edbp s\u1ef1 th\u1eadt: b\u1ea3n k\u1ec3, \u0111\u1ec1n th\u1edd, di s\u1ea3n",
+          "hook": "Truy\u1ec7n l\u00e0 chuy\u1ec7n k\u1ec3, \u0111\u1ec1n l\u00e0 di t\u00edch, UNESCO ghi danh th\u1ef1c h\u00e0nh \u2014 t\u00e1ch ba l\u1edbp ra \u0111\u1ec3 hi\u1ec3u b\u00e0 l\u00e0 ai.",
+          "type": "data_driven",
+          "why_now": "[sealed angle type: evidence_stratigraphy] \u0110\u00e2y l\u00e0 t\u1eadp cu\u1ed1i c\u1ee5m T\u1ee9 b\u1ea5t t\u1eed \u2014 t\u1ed5ng k\u1ebft c\u00e1ch \u0111\u1ecdc \u00abb\u1eb1ng ch\u1ee9ng th\u1eadt\u00bb c\u1ee7a c\u1ea3 m\u00f9a.",
+          "grounded_in": [
+            "C01",
+            "C06",
+            "C07",
+            "C10",
+            "C14"
+          ]
+        },
+        {
+          "name": "Th\u00e1ng Ba gi\u1ed7 M\u1eb9",
+          "hook": "H\u00e0ng tri\u1ec7u ng\u01b0\u1eddi v\u1ec1 Ph\u1ee7 D\u1ea7y m\u1ed7i th\u00e1ng Ba \u2014 h\u1ecd \u0111ang gi\u1ed7 ai?",
+          "type": "narrative",
+          "why_now": "[sealed angle type: practice_first] M\u1edf t\u1eeb l\u1ec5 h\u1ed9i h\u00f4m nay \u0111i ng\u01b0\u1ee3c v\u1ec1 Nam Giao th\u1eddi Nguy\u1ec5n v\u00e0 b\u1ea3n k\u1ec3.",
+          "grounded_in": [
+            "C07",
+            "C10",
+            "C11",
+            "C12"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+          "title": "Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n c\u1ee7a Phan K\u1ebf B\u00ednh, m\u1ee5c 45 \u00abLi\u1ec5u-H\u1ea1nh ti\u00ean-ch\u00faa\u00bb \u2014 Wikisource ti\u1ebfng Vi\u1ec7t",
+          "used_for": "[sealed reliability: secondary-bi\u00ean kh\u1ea3o in qu\u1ed1c ng\u1eef early XX (primary v\u1ec1 n\u1ed9i dung b\u1ea3n k\u1ec3)] claims C01, C02, C03, C04, C05",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://vi.wikisource.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+          "title": "\u00abLi\u1ec5u H\u1ea1nh C\u00f4ng Ch\u00faa\u00bb (t\u00e1c gi\u1ea3 kh\u00f4ng r\u00f5) \u2014 Wikisource ti\u1ebfng Vi\u1ec7t",
+          "used_for": "[sealed reliability: folk variant, unsourced] claims C06",
+          "reliability": "anecdotal"
+        },
+        {
+          "url": "https://vi.wikisource.org/wiki/V%C5%A9_trung_t%C3%B9y_b%C3%BAt/Ch%C6%B0%C6%A1ng_XX",
+          "title": "V\u0169 trung t\u00f9y b\u00fat (Ph\u1ea1m \u0110\u00ecnh H\u1ed5, Nguy\u1ec5n H\u1eefu Ti\u1ebfn d\u1ecbch) \u2014 Ch\u01b0\u01a1ng XX (T\u1ea1p k\u00fd/Phong t\u1ee5c) \u2014 Wikisource",
+          "used_for": "[sealed reliability: secondary d\u1ecbch hi\u1ec7n \u0111\u1ea1i c\u1ee7a ghi ch\u00e9p c\u1ed5] claims C07",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://vi.wikipedia.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+          "title": "\u00abLi\u1ec5u H\u1ea1nh C\u00f4ng ch\u00faa\u00bb \u2014 Wikipedia ti\u1ebfng Vi\u1ec7t",
+          "used_for": "[sealed reliability: tertiary] claims C08, C09",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://vi.wikipedia.org/wiki/T%C3%ADn_ng%C6%B0%E1%BB%A1ng_th%E1%BB%9D_M%E1%BA%ABu_c%E1%BB%A7a_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t",
+          "title": "\u00abT\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t\u00bb \u2014 Wikipedia ti\u1ebfng Vi\u1ec7t",
+          "used_for": "[sealed reliability: tertiary] claims C10, C11",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%A7_D%E1%BA%A7y",
+          "title": "\u00abPh\u1ee7 D\u1ea7y\u00bb \u2014 Wikipedia ti\u1ebfng Vi\u1ec7t",
+          "used_for": "[sealed reliability: tertiary] claims C12",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010",
+          "title": "\u00abTh\u00e1nh m\u1eabu Li\u1ec5u H\u1ea1nh: t\u1eeb v\u1ecb ch\u00faa \u0111\u1ebfn th\u1ea7n ch\u1ee7 \u0111\u1ea1o M\u1eabu Vi\u1ec7t Nam\u00bb, Nghi\u00ean c\u1ee9u T\u00f4n gi\u00e1o s\u1ed1 10/2010 (\u0111\u0103ng l\u1ea1i diachivietnam.vn)",
+          "used_for": "[sealed reliability: scholarly] claims C13, C14, C15",
+          "reliability": "secondary"
+        }
+      ],
+      "research_summary": "Truy\u1ec7n k\u1ec3 (Phan K\u1ebf B\u00ednh 1909, b\u1ea3n d\u00e2n gian, t\u1ed5ng h\u1ee3p b\u00e1ch khoa) cho n\u1ed9i dung: v\u1ee1 ch\u00e9n ng\u1ecdc b\u1ecb \u0111\u00e0y \u2014 Gi\u00e1ng Ti\u00ean m\u1ea5t 3/3 tu\u1ed5i 21 \u2014 tr\u1edf v\u1ec1, th\u01a1 ca, tr\u1eebng tr\u1ecb, \u0111\u01b0\u1ee3c phong v\u01b0\u01a1ng. Th\u1ef1c h\u00e0nh c\u00f3 l\u1edbp ch\u1ee9ng c\u1ee9 ri\u00eang: \u0111\u1ec1n Nam Giao th\u1eddi Nguy\u1ec5n (V\u0169 trung t\u00f9y b\u00fat), h\u1ed9i Ph\u1ee7 D\u1ea7y 3/3, UNESCO ghi danh th\u1ef1c h\u00e0nh 2016, nghi\u00ean c\u1ee9u 2010 v\u1ec1 vi\u1ec7c h\u00ecnh th\u00e0nh \u0111\u1ea1o M\u1eabu. Ba l\u1edbp ph\u1ea3i k\u1ec3 t\u00e1ch b\u1ea1ch: b\u1ea3n k\u1ec3 \u2260 \u0111\u1ec1n th\u1edd \u2260 di s\u1ea3n. Danh x\u01b0ng \u00abM\u1eabu\u00bb \u0111\u1ebfn t\u1eeb d\u00e2n th\u1edd v\u00e0 tri\u1ec1u \u0111\u00ecnh ch\u00ednh danh, kh\u00f4ng t\u1eeb m\u1ed9t v\u0103n ki\u1ec7n duy nh\u1ea5t.",
+      "metadata": {
+        "episode": "S2E04",
+        "package_version": "v1",
+        "claim_ledger": "claim_ledger.json",
+        "raw_data": "raw_data.json",
+        "approval_policy": "approval_policy.json",
+        "evidence_dir": "evidence/",
+        "source_independence": "7 ngu\u1ed3n: 3 v\u0103n b\u1ea3n kh\u00e1c nhau tr\u00ean wikisource + 3 b\u00e0i b\u00e1ch khoa + 1 nghi\u00ean c\u1ee9u; kh\u00f4ng ph\u1ea3i 7 ch\u1ee9ng c\u1ee9 l\u1ecbch s\u1eed \u0111\u1ed9c l\u1eadp.",
+        "audience_question_provenance": {
+          "kind": "editor_derived_from_landscape_titles",
+          "claim_ids": [
+            "Q01",
+            "Q02",
+            "Q03"
+          ],
+          "not_forum_or_survey": true,
+          "note": "S2E03 c\u00f3 b\u1ed9 c\u00e2u h\u1ecfi gi\u00e1o d\u1ee5c c\u00f4ng b\u1ed1; l\u1ea7n n\u00e0y ch\u01b0a t\u00ecm \u0111\u01b0\u1ee3c b\u1ed9 t\u01b0\u01a1ng \u0111\u01b0\u01a1ng \u0111\u00e3 snapshot \u2014 c\u00e2u h\u1ecfi l\u00e0 bi\u00ean t\u1eadp, owner duy\u1ec7t \u1edf Gate B."
+        },
+        "limitations": [
+          "ich.unesco.org b\u1ecb captcha khi snapshot \u2014 d\u1eabn UNESCO qua t\u01b0\u1eddng thu\u1eadt vi.wiki; needs_input b\u1ea3n g\u1ed1c n\u1ebfu owner mu\u1ed1n d\u1eabn tr\u1ef1c ti\u1ebfp.",
+          "\u00abTruy\u1ec7n Th\u00e1nh m\u1eabu Lang\u00bb (Tang th\u01b0\u01a1ng ng\u1eabu l\u1ee5c) ch\u01b0a c\u00f3 b\u1ea3n s\u1ed1 h\u00f3a t\u00ecm \u0111\u01b0\u1ee3c tr\u00ean vi.wikisource \u2014 needs_input n\u1ebfu c\u1ea7n \u0111\u1ed1i chi\u1ebfu tr\u1ef1c ti\u1ebfp.",
+          "\u00abV\u00e2n C\u00e1t th\u1ea7n n\u1eef\u00bb (\u0110o\u00e0n Th\u1ecb \u0110i\u1ec3m) ch\u01b0a snapshot nguy\u00ean v\u0103n \u2014 m\u1edbi d\u1eabn qua nghi\u00ean c\u1ee9u NCTR 10/2010.",
+          "Ni\u00ean \u0111\u1ea1i xu\u1ea5t b\u1ea3n c\u1ee5 th\u1ec3 c\u1ee7a b\u1ea3n NHDNLT/VTTP tr\u00ean wikisource kh\u00f4ng ghi trong trang \u0111\u00e3 snapshot \u2014 kh\u00f4ng d\u1ef1ng s\u1ed1 n\u0103m l\u00ean m\u00e0n h\u00ecnh.",
+          "S\u1eafc phong \u00abM\u1eabu nghi thi\u00ean h\u1ea1\u00bb/v\u01b0\u01a1ng hi\u1ec7u ch\u01b0a \u0111\u1ed1i chi\u1ebfu nguy\u00ean b\u1ea3n ng\u1ecdc ph\u1ea3 \u2014 k\u1ec3 nh\u01b0 t\u1ed5ng h\u1ee3p nghi\u00ean c\u1ee9u.",
+          "X\u1ebfp h\u1ea1ng di t\u00edch Ph\u1ee7 D\u1ea7y/\u0111\u1ec1n S\u00f2ng ch\u01b0a verify \u2014 kh\u00f4ng d\u00f9ng trong t\u1eadp n\u00e0y."
+        ],
+        "approval_status": "pending_owner_research_script",
+        "landscape_note_verbatim": "Landscape l\u1ea5y t\u1eeb truy v\u1ea5n truy h\u1ed3i 2026-10-20 (grounded search); ch\u1ec9 7 ngu\u1ed3n trong evidence/ l\u00e0 \u0111\u01b0\u1ee3c snapshot + seal.",
+        "import_adaptation": {
+          "adapted_at": "2026-10-20T07:40:00+07:00",
+          "sealed_source": "vn-myth-series/episodes/S2E04-lieu-hanh/research/v1/research_brief.json (sha256 100d3f3bcca5e9af84b13cee8345a1aece8a1744eace10fdcdb898daed6a5f59)",
+          "policy": "Shape-only mapping to satisfy schemas/artifacts/research_brief.schema.json. NO content added/removed: claims, quotes, hooks, sources unchanged. Original enum labels preserved inline in [sealed ...] prefixes; landscape note preserved verbatim in metadata.",
+          "mappings": {
+            "landscape.note": "moved to metadata.landscape_note_verbatim",
+            "landscape.saturated_angles/underserved_gaps": "derived from existing_content angle/what_it_misses of the same package",
+            "existing_content[].what_it_covers": "= angle (same package)",
+            "data_points[].credibility": {
+              "primary_source": "primary_source",
+              "myth_text": "primary_source",
+              "practice_record": "primary_source",
+              "folk_variant": "anecdotal",
+              "encyclopedic": "secondary_source",
+              "encyclopedic_date": "secondary_source",
+              "recognition_event": "secondary_source",
+              "recognition_scope": "secondary_source",
+              "festival_record": "secondary_source",
+              "scholarly": "secondary_source",
+              "scholarly_interpretation": "secondary_source",
+              "scholarly_textual": "secondary_source",
+              "secondary": "secondary_source"
+            },
+            "data_points[].surprise_factor": {
+              "standard": "expected",
+              "notable": "notable",
+              "surprising": "surprising",
+              "counterintuitive": "counterintuitive"
+            },
+            "audience_insights.knowledge_level": "added from metadata.audience_question_provenance (no new facts)",
+            "angles_discovered[].type": {
+              "narrative": "narrative",
+              "evidence_stratigraphy": "data_driven",
+              "practice_first": "narrative"
+            },
+            "sources[].reliability": "by source position 1-7: {\"1\": \"primary\", \"2\": \"anecdotal\", \"3\": \"primary\", \"4\": \"secondary\", \"5\": \"secondary\", \"6\": \"secondary\", \"7\": \"secondary\"}"
+          }
+        }
+      }
+    }
+  },
+  "style_playbook": "ink-genome"
+}

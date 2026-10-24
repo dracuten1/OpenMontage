@@ -1,0 +1,68 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.18,
+      "text": "Qu\u00e1 ch\u00e2u... Qu\u00e1 ch\u00e2u",
+      "words": [
+        {
+          "word": " Qu\u00e1",
+          "start": 0.0,
+          "end": 0.18,
+          "probability": 0.43
+        },
+        {
+          "word": " ch\u00e2u...",
+          "start": 0.18,
+          "end": 0.56,
+          "probability": 0.548
+        },
+        {
+          "word": " Qu\u00e1",
+          "start": 0.56,
+          "end": 0.92,
+          "probability": 0.571
+        },
+        {
+          "word": " ch\u00e2u",
+          "start": 0.92,
+          "end": 1.18,
+          "probability": 0.996
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " Qu\u00e1",
+      "start": 0.0,
+      "end": 0.18,
+      "probability": 0.43
+    },
+    {
+      "word": " ch\u00e2u...",
+      "start": 0.18,
+      "end": 0.56,
+      "probability": 0.548
+    },
+    {
+      "word": " Qu\u00e1",
+      "start": 0.56,
+      "end": 0.92,
+      "probability": 0.571
+    },
+    {
+      "word": " ch\u00e2u",
+      "start": 0.92,
+      "end": 1.18,
+      "probability": 0.996
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.36,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

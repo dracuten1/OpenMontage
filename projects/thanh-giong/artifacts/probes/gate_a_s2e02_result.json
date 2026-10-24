@@ -1,0 +1,74 @@
+{
+  "phu_dong": {
+    "said": "Phù Đổng. Phù Đổng.",
+    "heard": "phụ đồng, phụ đồng"
+  },
+  "phu_dong_ctx": {
+    "said": "hội Gióng ở đền Phù Đổng, xã Phù Đổng, Gia Lâm.",
+    "heard": "Hồi rõng ở Điền Phu Đồng, Sa Phu Đồng, Sa Lâm."
+  },
+  "vo_giang": {
+    "said": "Võ Giàng. Võ Ninh. huyện Võ Giàng.",
+    "heard": "Vó dàn, phóng đình, viện, phó dàn."
+  },
+  "kien_so": {
+    "said": "Kiến Sơ. chùa Kiến Sơ.",
+    "heard": "Kênh sơ, chủa kênh sơ."
+  },
+  "ve_linh": {
+    "said": "Vệ Linh. làng Vệ Linh.",
+    "heard": "Vệ linh, làng vệ linh"
+  },
+  "dang_nga": {
+    "said": "Đằng Ngà. tre Đằng Ngà.",
+    "heard": "Đăng ngạ, chế đăng ngạ."
+  },
+  "nhinh_soc": {
+    "said": "Ninh Sóc. núi Ninh Sóc.",
+    "heard": "Nên sắp, nui nên sắp."
+  },
+  "soc": {
+    "said": "Sóc. đền Sóc. núi Sóc.",
+    "heard": "Sắp, đềm sắp, nồi sắp."
+  },
+  "soi_bia": {
+    "said": "Soi Bia. bãi Soi Bia.",
+    "heard": "So be ya, bye so be ya"
+  },
+  "moc_duc": {
+    "said": "Mộc Dục. lễ Mộc Dục.",
+    "heard": "Một sóc, lấy một sóc"
+  },
+  "cau_huc": {
+    "said": "cầu húc. vật cầu húc.",
+    "heard": "Cậu hút và cậu hút."
+  },
+  "tien_du": {
+    "said": "Tiên Du. huyện Tiên Du.",
+    "heard": "Đên giù, hãy Đên giù"
+  },
+  "gia_binh": {
+    "said": "Gia Bình. huyện Gia Bình.",
+    "heard": "Zabbing, miếng zabbing."
+  },
+  "hai_truong": {
+    "said": "hai trượng. cao hơn hai trượng.",
+    "heard": "Hai chạy, con hình, hai chạy"
+  },
+  "nam_1329": {
+    "said": "một nghìn ba trăm hai mươi chín. Năm một nghìn ba trăm hai mươi chín.",
+    "heard": "1.000 bà chăm hàm chín, nằm 1.000 bà chăm hàm chín."
+  },
+  "nam_1313": {
+    "said": "một nghìn ba trăm mười ba.",
+    "heard": "1,3003"
+  },
+  "gio_ong": {
+    "said": "Gióng. Thánh Gióng. Đức Thánh Gióng.",
+    "heard": "giống thành giống, đức thành giống."
+  },
+  "thien_tuong": {
+    "said": "Ta là thiên tướng nhà Trời đây.",
+    "heard": "Ta là thương tướng nhà trời đây."
+  }
+}

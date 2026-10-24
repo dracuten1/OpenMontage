@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "projects/france-riots-20261023/renders/france-riots-v2-final-master.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "duration_seconds": 262.997333,
+      "file_size_bytes": 16773741,
+      "platform_target": "tiktok"
+    },
+    {
+      "path": "projects/france-riots-20261023/renders/france-riots-v2-final-preview.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "720x1280",
+      "fps": 30,
+      "duration_seconds": 262.997333,
+      "file_size_bytes": 12558229,
+      "platform_target": "tiktok"
+    }
+  ],
+  "render_grammar": "explainer-data",
+  "final_review_ref": "projects/france-riots-20261023/artifacts/final_review.json",
+  "verification_notes": [
+    "7888 frames identical duration; decoded audio PCM SHA256 identical to approved draft; loudness -15.3 LUFS; 3 frames vision PASS no HUD/no narration captions."
+  ],
+  "warnings": [
+    "No new listening/research/license audit; inherited draft limitations remain."
+  ],
+  "metadata": {
+    "approval": {
+      "quote": "approve, nhưng mà ko cần render phụ đề.",
+      "owner_timestamp": "2026-10-23 14:54 Asia/Ho_Chi_Minh",
+      "scope": "France V2 final export only; HUD OFF, narration captions OFF; editorial text/audio/timing unchanged; NO PUBLISH"
+    },
+    "draft_only": false
+  }
+}

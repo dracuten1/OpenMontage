@@ -1,0 +1,1178 @@
+{
+ "version": "1.0",
+ "assets": [
+  {
+   "id": "narr_s01",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s01.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s01",
+   "cost_usd": 0.0,
+   "duration_seconds": 22.57,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s01",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s02",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s02.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s02",
+   "cost_usd": 0.0,
+   "duration_seconds": 31.36,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s02",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s03",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s03.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s03",
+   "cost_usd": 0.0,
+   "duration_seconds": 31.3,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s03",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s04",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s04.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s04",
+   "cost_usd": 0.0,
+   "duration_seconds": 39.47,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s04",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s05",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s05.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s05",
+   "cost_usd": 0.0,
+   "duration_seconds": 47.62,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s05",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s06",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s06.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s06",
+   "cost_usd": 0.0,
+   "duration_seconds": 27.1,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s06",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s07",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s07.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s07",
+   "cost_usd": 0.0,
+   "duration_seconds": 27.44,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s07",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s08",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s08.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s08",
+   "cost_usd": 0.0,
+   "duration_seconds": 36.93,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s08",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s09",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s09.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s09",
+   "cost_usd": 0.0,
+   "duration_seconds": 27.71,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s09",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s10",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s10.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s10",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.58,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s10",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s11",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s11.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s11",
+   "cost_usd": 0.0,
+   "duration_seconds": 29.13,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s11",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s12",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s12.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s12",
+   "cost_usd": 0.0,
+   "duration_seconds": 29.6,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s12",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s13",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s13.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s13",
+   "cost_usd": 0.0,
+   "duration_seconds": 30.15,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s13",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s14",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s14.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s14",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.09,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s14",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s15",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s15.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s15",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.41,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s15",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s16",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s16.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s16",
+   "cost_usd": 0.0,
+   "duration_seconds": 31.08,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s16",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s17",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s17.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s17",
+   "cost_usd": 0.0,
+   "duration_seconds": 26.84,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s17",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s18",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s18.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s18",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.12,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s18",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s19",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s19.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s19",
+   "cost_usd": 0.0,
+   "duration_seconds": 26.97,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s19",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s20",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s20.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s20",
+   "cost_usd": 0.0,
+   "duration_seconds": 30.43,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s20",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s21",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s21.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s21",
+   "cost_usd": 0.0,
+   "duration_seconds": 29.29,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s21",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s22",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s22.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s22",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.15,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s22",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s23",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s23.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s23",
+   "cost_usd": 0.0,
+   "duration_seconds": 36.17,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s23",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s24",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s24.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s24",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.89,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s24",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s25",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s25.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s25",
+   "cost_usd": 0.0,
+   "duration_seconds": 24.77,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s25",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s26",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s26.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s26",
+   "cost_usd": 0.0,
+   "duration_seconds": 34.72,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s26",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s27",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s27.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s27",
+   "cost_usd": 0.0,
+   "duration_seconds": 29.55,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s27",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s28",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s28.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s28",
+   "cost_usd": 0.0,
+   "duration_seconds": 27.34,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s28",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s29",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s29.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s29",
+   "cost_usd": 0.0,
+   "duration_seconds": 25.97,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s29",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s30",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s30.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s30",
+   "cost_usd": 0.0,
+   "duration_seconds": 10.08,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s30",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s31",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s31.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s31",
+   "cost_usd": 0.0,
+   "duration_seconds": 9.04,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s31",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "narr_s32",
+   "type": "narration",
+   "path": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/sections/s32.wav",
+   "source_tool": "vieneu_tts",
+   "scene_id": "s32",
+   "cost_usd": 0.0,
+   "duration_seconds": 5.2,
+   "format": "wav",
+   "provider": "vieneu",
+   "generation_summary": "Series default voice, delivery_cues provider_text, batch_tts.py",
+   "voice_performance": {
+    "source_section_id": "s32",
+    "delivery_cues_applied": true,
+    "provider_text_used": true
+   }
+  },
+  {
+   "id": "img_sc001",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-001.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc001",
+   "cost_usd": 0.0,
+   "duration_seconds": 12.27,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc002",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-002.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc002",
+   "cost_usd": 0.0,
+   "duration_seconds": 10.0,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc003",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-003.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc003",
+   "cost_usd": 0.0,
+   "duration_seconds": 20.57,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc004",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-004.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc004",
+   "cost_usd": 0.0,
+   "duration_seconds": 10.77,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc005",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-005.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc005",
+   "cost_usd": 0.0,
+   "duration_seconds": 20.07,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc006",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-006.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc006",
+   "cost_usd": 0.0,
+   "duration_seconds": 11.23,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc007",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-007.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc007",
+   "cost_usd": 0.0,
+   "duration_seconds": 22.4,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc008",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-008.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc008",
+   "cost_usd": 0.0,
+   "duration_seconds": 17.07,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc009",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-009.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc009",
+   "cost_usd": 0.0,
+   "duration_seconds": 26.07,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc010",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-010.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc010",
+   "cost_usd": 0.0,
+   "duration_seconds": 21.57,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc011",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-011.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc011",
+   "cost_usd": 0.0,
+   "duration_seconds": 27.1,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc012",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-012.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc012",
+   "cost_usd": 0.0,
+   "duration_seconds": 19.1,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc013",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-013.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc013",
+   "cost_usd": 0.0,
+   "duration_seconds": 8.33,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc014",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-014.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc014",
+   "cost_usd": 0.0,
+   "duration_seconds": 36.93,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc015",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-015.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc015",
+   "cost_usd": 0.0,
+   "duration_seconds": 27.7,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc016",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-016.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc016",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.6,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc017",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-017.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc017",
+   "cost_usd": 0.0,
+   "duration_seconds": 29.13,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc018",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-018.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc018",
+   "cost_usd": 0.0,
+   "duration_seconds": 29.6,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc019",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-019.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc019",
+   "cost_usd": 0.0,
+   "duration_seconds": 30.13,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc020",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-020.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc020",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.1,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc021",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-021.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc021",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.4,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc022",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-022.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc022",
+   "cost_usd": 0.0,
+   "duration_seconds": 31.1,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc023",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-023.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc023",
+   "cost_usd": 0.0,
+   "duration_seconds": 26.83,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc024",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-024.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc024",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.1,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc025",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-025.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc025",
+   "cost_usd": 0.0,
+   "duration_seconds": 27.0,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc026",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-026.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc026",
+   "cost_usd": 0.0,
+   "duration_seconds": 17.1,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc027",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-027.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc027",
+   "cost_usd": 0.0,
+   "duration_seconds": 13.3,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc028",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-028.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc028",
+   "cost_usd": 0.0,
+   "duration_seconds": 29.3,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc029",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-029.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc029",
+   "cost_usd": 0.0,
+   "duration_seconds": 28.17,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc030",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-030.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc030",
+   "cost_usd": 0.0,
+   "duration_seconds": 36.17,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc031",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-031.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc031",
+   "cost_usd": 0.0,
+   "duration_seconds": 13.07,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc032",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-032.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc032",
+   "cost_usd": 0.0,
+   "duration_seconds": 6.8,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc033",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-033.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc033",
+   "cost_usd": 0.0,
+   "duration_seconds": 9.0,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc034",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-034.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc034",
+   "cost_usd": 0.0,
+   "duration_seconds": 6.57,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc035",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-035.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc035",
+   "cost_usd": 0.0,
+   "duration_seconds": 10.2,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc036",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-036.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc036",
+   "cost_usd": 0.0,
+   "duration_seconds": 8.0,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc037",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-037.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc037",
+   "cost_usd": 0.0,
+   "duration_seconds": 15.6,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc038",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-038.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc038",
+   "cost_usd": 0.0,
+   "duration_seconds": 11.2,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc039",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-039.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc039",
+   "cost_usd": 0.0,
+   "duration_seconds": 7.93,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc040",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-040.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc040",
+   "cost_usd": 0.0,
+   "duration_seconds": 15.9,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc041",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-041.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc041",
+   "cost_usd": 0.0,
+   "duration_seconds": 9.33,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc042",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-042.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc042",
+   "cost_usd": 0.0,
+   "duration_seconds": 4.5,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc043",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-043.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc043",
+   "cost_usd": 0.0,
+   "duration_seconds": 14.73,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc044",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-044.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc044",
+   "cost_usd": 0.0,
+   "duration_seconds": 8.37,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc045",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-045.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc045",
+   "cost_usd": 0.0,
+   "duration_seconds": 4.3,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc046",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-046.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc046",
+   "cost_usd": 0.0,
+   "duration_seconds": 19.87,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc047",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-047.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc047",
+   "cost_usd": 0.0,
+   "duration_seconds": 5.87,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc048",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-048.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc048",
+   "cost_usd": 0.0,
+   "duration_seconds": 10.07,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc049",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-049.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc049",
+   "cost_usd": 0.0,
+   "duration_seconds": 9.07,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "img_sc050",
+   "type": "image",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/images/img-050.png",
+   "source_tool": "openai_image",
+   "scene_id": "sc050",
+   "cost_usd": 0.0,
+   "duration_seconds": 7.53,
+   "format": "png",
+   "provider": "9router:ag/gemini-3.1-flash-image",
+   "generation_summary": "Ink-genome topic artwork, prompt ledger artifacts/image_prompts.json; illustrative, source attribution on-screen"
+  },
+  {
+   "id": "bgm_mesmerize",
+   "type": "music",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/background_music.mp3",
+   "source_tool": "prep_bgm.py",
+   "scene_id": "all",
+   "cost_usd": 0.0,
+   "duration_seconds": 897.77,
+   "format": "mp3",
+   "provider": "incompetech",
+   "generation_summary": "'Mesmerize' Kevin MacLeod (incompetech.com), CC BY 4.0, ISRC USUAN1500005; body loop acrossfade, loudnorm background bed"
+  },
+  {
+   "id": "captions",
+   "type": "subtitle",
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/lieu-hanh/captions.json",
+   "source_tool": "gen_captions.py",
+   "scene_id": "all",
+   "cost_usd": 0.0,
+   "duration_seconds": 897.77,
+   "format": "json",
+   "provider": "internal",
+   "generation_summary": "Speech-locked caption cues; 43 cues re-aligned to provider_text after ASR diff"
+  }
+ ],
+ "total_cost_usd": 0.0,
+ "metadata": {
+  "note": "Backfilled from verified on-disk production (2026-10-21 full run); no content changed",
+  "generated_by": "backfill_pipeline_state.py"
+ }
+}

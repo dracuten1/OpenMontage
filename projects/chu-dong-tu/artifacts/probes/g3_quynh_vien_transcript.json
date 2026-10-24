@@ -1,0 +1,80 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.28,
+      "text": "C\u0169ng vi\u00ean, n\u1ed7i C\u0169ng vi\u00ean.",
+      "words": [
+        {
+          "word": " C\u0169ng",
+          "start": 0.0,
+          "end": 0.18,
+          "probability": 0.586
+        },
+        {
+          "word": " vi\u00ean,",
+          "start": 0.18,
+          "end": 0.46,
+          "probability": 0.747
+        },
+        {
+          "word": " n\u1ed7i",
+          "start": 0.64,
+          "end": 0.84,
+          "probability": 0.379
+        },
+        {
+          "word": " C\u0169ng",
+          "start": 0.84,
+          "end": 1.02,
+          "probability": 0.747
+        },
+        {
+          "word": " vi\u00ean.",
+          "start": 1.02,
+          "end": 1.28,
+          "probability": 0.989
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " C\u0169ng",
+      "start": 0.0,
+      "end": 0.18,
+      "probability": 0.586
+    },
+    {
+      "word": " vi\u00ean,",
+      "start": 0.18,
+      "end": 0.46,
+      "probability": 0.747
+    },
+    {
+      "word": " n\u1ed7i",
+      "start": 0.64,
+      "end": 0.84,
+      "probability": 0.379
+    },
+    {
+      "word": " C\u0169ng",
+      "start": 0.84,
+      "end": 1.02,
+      "probability": 0.747
+    },
+    {
+      "word": " vi\u00ean.",
+      "start": 1.02,
+      "end": 1.28,
+      "probability": 0.989
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.52,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

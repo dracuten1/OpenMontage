@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "renders/coastal_reclamation_draft_hud_720p.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "720x1280",
+      "fps": 30.0,
+      "duration_seconds": 97.05,
+      "file_size_bytes": 57384677,
+      "platform_target": "draft_review"
+    },
+    {
+      "path": "renders/coastal_reclamation_draft_hud_720p_crf26.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "720x1280",
+      "fps": 30.0,
+      "duration_seconds": 97.05,
+      "file_size_bytes": 15962638,
+      "platform_target": "telegram_delivery"
+    }
+  ],
+  "render_time_seconds": 154.0,
+  "warnings": [],
+  "verification_notes": [
+    "Rendered via Remotion Atelier Chromium engine with --scale=0.6666667 (720x1280 9:16 vertical)",
+    "Audio voice track 6 scenes timed with faster_whisper word timestamps",
+    "Full BGM loudnorm normalized to -24 LUFS",
+    "Mandatory disclaimer '[ HÌNH MINH HỌA / SƠ ĐỒ NGUYÊN LÝ ]' stacked neatly with top chapter bar",
+    "Draft HUD active at bottom-left: S{n} f{global} {sec}s [{f_scene}/{dur_scene}]"
+  ],
+  "render_grammar": "explainer-data",
+  "slideshow_risk_score": {
+    "average": 0.12,
+    "verdict": "pass"
+  },
+  "decision_log_ref": "projects/coastal-reclamation-20261024/decision_log.json",
+  "metadata": {
+    "composition_id": "CoastalReclamationEpisode",
+    "total_frames": 2910,
+    "total_scenes": 6,
+    "thumbnail_path": "exports/thumbnails/coastal-reclamation-1080x1920.png",
+    "thumbnail_dimensions": "1080x1920"
+  }
+}

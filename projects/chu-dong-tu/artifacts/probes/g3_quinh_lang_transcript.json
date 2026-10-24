@@ -1,0 +1,80 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.24,
+      "text": "Quy\u00ean l\u00e3ng, n\u1eef quy\u00ean l\u00e3ng",
+      "words": [
+        {
+          "word": " Quy\u00ean",
+          "start": 0.0,
+          "end": 0.22,
+          "probability": 0.416
+        },
+        {
+          "word": " l\u00e3ng,",
+          "start": 0.22,
+          "end": 0.52,
+          "probability": 0.596
+        },
+        {
+          "word": " n\u1eef",
+          "start": 0.64,
+          "end": 0.72,
+          "probability": 0.467
+        },
+        {
+          "word": " quy\u00ean",
+          "start": 0.72,
+          "end": 0.94,
+          "probability": 0.627
+        },
+        {
+          "word": " l\u00e3ng",
+          "start": 0.94,
+          "end": 1.24,
+          "probability": 0.995
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " Quy\u00ean",
+      "start": 0.0,
+      "end": 0.22,
+      "probability": 0.416
+    },
+    {
+      "word": " l\u00e3ng,",
+      "start": 0.22,
+      "end": 0.52,
+      "probability": 0.596
+    },
+    {
+      "word": " n\u1eef",
+      "start": 0.64,
+      "end": 0.72,
+      "probability": 0.467
+    },
+    {
+      "word": " quy\u00ean",
+      "start": 0.72,
+      "end": 0.94,
+      "probability": 0.627
+    },
+    {
+      "word": " l\u00e3ng",
+      "start": 0.94,
+      "end": 1.24,
+      "probability": 0.995
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.44,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

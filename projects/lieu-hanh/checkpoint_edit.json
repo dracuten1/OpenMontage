@@ -1,0 +1,471 @@
+{
+  "version": "1.0",
+  "project_id": "lieu-hanh",
+  "pipeline_type": "animated-explainer",
+  "stage": "edit",
+  "status": "completed",
+  "timestamp": "2026-10-21T04:18:31.733389+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "edit_decisions": {
+      "version": "1.0",
+      "render_runtime": "remotion",
+      "renderer_family": "explainer-data",
+      "composition_mode": "atelier",
+      "bespoke": {
+        "entry": "remotion-composer/src/index.tsx",
+        "composition_id": "LieuHanh",
+        "art_direction": "Ink artwork + diagrams; 3 evidence layers (b\u1ea3n k\u1ec3 \u2192 th\u1ef1c h\u00e0nh th\u1edd \u2192 di s\u1ea3n UNESCO); dignity framing, visible source attribution",
+        "concurrency": 4,
+        "crf": 20
+      },
+      "cuts": [
+        {
+          "id": "cut-s01",
+          "source": "assets/audio/sections/s01.wav",
+          "in_seconds": 0.0,
+          "out_seconds": 22.57,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s02",
+          "source": "assets/audio/sections/s02.wav",
+          "in_seconds": 22.267,
+          "out_seconds": 53.627,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s03",
+          "source": "assets/audio/sections/s03.wav",
+          "in_seconds": 53.6,
+          "out_seconds": 84.9,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s04",
+          "source": "assets/audio/sections/s04.wav",
+          "in_seconds": 84.9,
+          "out_seconds": 124.37,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s05",
+          "source": "assets/audio/sections/s05.wav",
+          "in_seconds": 124.367,
+          "out_seconds": 171.987,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s06",
+          "source": "assets/audio/sections/s06.wav",
+          "in_seconds": 172.0,
+          "out_seconds": 199.1,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s07",
+          "source": "assets/audio/sections/s07.wav",
+          "in_seconds": 199.1,
+          "out_seconds": 226.54,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s08",
+          "source": "assets/audio/sections/s08.wav",
+          "in_seconds": 226.533,
+          "out_seconds": 263.463,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s09",
+          "source": "assets/audio/sections/s09.wav",
+          "in_seconds": 263.467,
+          "out_seconds": 291.177,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s10",
+          "source": "assets/audio/sections/s10.wav",
+          "in_seconds": 291.167,
+          "out_seconds": 319.747,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s11",
+          "source": "assets/audio/sections/s11.wav",
+          "in_seconds": 319.767,
+          "out_seconds": 348.897,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s12",
+          "source": "assets/audio/sections/s12.wav",
+          "in_seconds": 348.9,
+          "out_seconds": 378.5,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s13",
+          "source": "assets/audio/sections/s13.wav",
+          "in_seconds": 378.5,
+          "out_seconds": 408.65,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s14",
+          "source": "assets/audio/sections/s14.wav",
+          "in_seconds": 408.633,
+          "out_seconds": 436.723,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s15",
+          "source": "assets/audio/sections/s15.wav",
+          "in_seconds": 436.733,
+          "out_seconds": 465.143,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s16",
+          "source": "assets/audio/sections/s16.wav",
+          "in_seconds": 465.133,
+          "out_seconds": 496.213,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s17",
+          "source": "assets/audio/sections/s17.wav",
+          "in_seconds": 496.233,
+          "out_seconds": 523.073,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s18",
+          "source": "assets/audio/sections/s18.wav",
+          "in_seconds": 523.067,
+          "out_seconds": 551.187,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s19",
+          "source": "assets/audio/sections/s19.wav",
+          "in_seconds": 551.167,
+          "out_seconds": 578.137,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s20",
+          "source": "assets/audio/sections/s20.wav",
+          "in_seconds": 578.167,
+          "out_seconds": 608.597,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s21",
+          "source": "assets/audio/sections/s21.wav",
+          "in_seconds": 608.567,
+          "out_seconds": 637.857,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s22",
+          "source": "assets/audio/sections/s22.wav",
+          "in_seconds": 637.867,
+          "out_seconds": 666.017,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s23",
+          "source": "assets/audio/sections/s23.wav",
+          "in_seconds": 666.033,
+          "out_seconds": 702.203,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s24",
+          "source": "assets/audio/sections/s24.wav",
+          "in_seconds": 702.2,
+          "out_seconds": 731.09,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s25",
+          "source": "assets/audio/sections/s25.wav",
+          "in_seconds": 731.067,
+          "out_seconds": 755.837,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s26",
+          "source": "assets/audio/sections/s26.wav",
+          "in_seconds": 755.833,
+          "out_seconds": 790.553,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s27",
+          "source": "assets/audio/sections/s27.wav",
+          "in_seconds": 790.567,
+          "out_seconds": 820.117,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s28",
+          "source": "assets/audio/sections/s28.wav",
+          "in_seconds": 820.3,
+          "out_seconds": 847.64,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s29",
+          "source": "assets/audio/sections/s29.wav",
+          "in_seconds": 847.7,
+          "out_seconds": 873.67,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s30",
+          "source": "assets/audio/sections/s30.wav",
+          "in_seconds": 873.433,
+          "out_seconds": 883.513,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s31",
+          "source": "assets/audio/sections/s31.wav",
+          "in_seconds": 883.5,
+          "out_seconds": 892.54,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        },
+        {
+          "id": "cut-s32",
+          "source": "assets/audio/sections/s32.wav",
+          "in_seconds": 892.567,
+          "out_seconds": 897.767,
+          "layer": "primary",
+          "reason": "Approved narration section cut; scene boundaries speech-locked in artifacts/scene_timing.json"
+        }
+      ],
+      "audio": {
+        "narration": {
+          "segments": [
+            {
+              "asset_id": "narr_s01",
+              "start_seconds": 0.0,
+              "end_seconds": 22.57
+            },
+            {
+              "asset_id": "narr_s02",
+              "start_seconds": 22.267,
+              "end_seconds": 53.627
+            },
+            {
+              "asset_id": "narr_s03",
+              "start_seconds": 53.6,
+              "end_seconds": 84.9
+            },
+            {
+              "asset_id": "narr_s04",
+              "start_seconds": 84.9,
+              "end_seconds": 124.37
+            },
+            {
+              "asset_id": "narr_s05",
+              "start_seconds": 124.367,
+              "end_seconds": 171.987
+            },
+            {
+              "asset_id": "narr_s06",
+              "start_seconds": 172.0,
+              "end_seconds": 199.1
+            },
+            {
+              "asset_id": "narr_s07",
+              "start_seconds": 199.1,
+              "end_seconds": 226.54
+            },
+            {
+              "asset_id": "narr_s08",
+              "start_seconds": 226.533,
+              "end_seconds": 263.463
+            },
+            {
+              "asset_id": "narr_s09",
+              "start_seconds": 263.467,
+              "end_seconds": 291.177
+            },
+            {
+              "asset_id": "narr_s10",
+              "start_seconds": 291.167,
+              "end_seconds": 319.747
+            },
+            {
+              "asset_id": "narr_s11",
+              "start_seconds": 319.767,
+              "end_seconds": 348.897
+            },
+            {
+              "asset_id": "narr_s12",
+              "start_seconds": 348.9,
+              "end_seconds": 378.5
+            },
+            {
+              "asset_id": "narr_s13",
+              "start_seconds": 378.5,
+              "end_seconds": 408.65
+            },
+            {
+              "asset_id": "narr_s14",
+              "start_seconds": 408.633,
+              "end_seconds": 436.723
+            },
+            {
+              "asset_id": "narr_s15",
+              "start_seconds": 436.733,
+              "end_seconds": 465.143
+            },
+            {
+              "asset_id": "narr_s16",
+              "start_seconds": 465.133,
+              "end_seconds": 496.213
+            },
+            {
+              "asset_id": "narr_s17",
+              "start_seconds": 496.233,
+              "end_seconds": 523.073
+            },
+            {
+              "asset_id": "narr_s18",
+              "start_seconds": 523.067,
+              "end_seconds": 551.187
+            },
+            {
+              "asset_id": "narr_s19",
+              "start_seconds": 551.167,
+              "end_seconds": 578.137
+            },
+            {
+              "asset_id": "narr_s20",
+              "start_seconds": 578.167,
+              "end_seconds": 608.597
+            },
+            {
+              "asset_id": "narr_s21",
+              "start_seconds": 608.567,
+              "end_seconds": 637.857
+            },
+            {
+              "asset_id": "narr_s22",
+              "start_seconds": 637.867,
+              "end_seconds": 666.017
+            },
+            {
+              "asset_id": "narr_s23",
+              "start_seconds": 666.033,
+              "end_seconds": 702.203
+            },
+            {
+              "asset_id": "narr_s24",
+              "start_seconds": 702.2,
+              "end_seconds": 731.09
+            },
+            {
+              "asset_id": "narr_s25",
+              "start_seconds": 731.067,
+              "end_seconds": 755.837
+            },
+            {
+              "asset_id": "narr_s26",
+              "start_seconds": 755.833,
+              "end_seconds": 790.553
+            },
+            {
+              "asset_id": "narr_s27",
+              "start_seconds": 790.567,
+              "end_seconds": 820.117
+            },
+            {
+              "asset_id": "narr_s28",
+              "start_seconds": 820.3,
+              "end_seconds": 847.64
+            },
+            {
+              "asset_id": "narr_s29",
+              "start_seconds": 847.7,
+              "end_seconds": 873.67
+            },
+            {
+              "asset_id": "narr_s30",
+              "start_seconds": 873.433,
+              "end_seconds": 883.513
+            },
+            {
+              "asset_id": "narr_s31",
+              "start_seconds": 883.5,
+              "end_seconds": 892.54
+            },
+            {
+              "asset_id": "narr_s32",
+              "start_seconds": 892.567,
+              "end_seconds": 897.767
+            }
+          ]
+        },
+        "music": {
+          "asset_id": "bgm_mesmerize_approved",
+          "volume": 0.32,
+          "fade_in_seconds": 1,
+          "fade_out_seconds": 3
+        }
+      },
+      "subtitles": {
+        "enabled": true,
+        "style": "sentence",
+        "source": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/assets/audio/transcripts/narration_words.json"
+      },
+      "metadata": {
+        "note": "Backfilled; cuts derived from measured section wavs + speech-locked scene_timing (900.16s timeline)",
+        "generated_by": "backfill_pipeline_state.py"
+      }
+    }
+  },
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "timing_validation_warnings": [
+      "narration_words.json shape not recognized; word-alignment check SKIPPED (fail-safe). Source: narration_words.json."
+    ]
+  }
+}

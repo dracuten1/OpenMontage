@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "project_id": "lieu-hanh",
+  "pipeline_type": "animated-explainer",
+  "stage": "publish",
+  "status": "completed",
+  "timestamp": "2026-10-21T04:18:33.177342+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "publish_log": {
+      "version": "1.0",
+      "entries": [
+        {
+          "platform": "youtube",
+          "status": "exported",
+          "export_path": "/Users/tuyennguyen/project/OpenMontage/exports/video/vn-myth-s2e04-lieu-hanh-1080p.mp4",
+          "timestamp": "2026-10-21T04:05:00+00:00",
+          "metadata_used": {
+            "title": "Li\u1ec5u H\u1ea1nh \u2014 b\u1ed1n con d\u1ea5u, m\u1ed9t ch\u1eef M\u1eabu | Th\u1ea7n tho\u1ea1i Vi\u1ec7t Nam S2 \u00b7 T\u1eadp 4",
+            "description_file": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/deliverables/YOUTUBE_DESCRIPTION.md",
+            "timestamps": "speech-locked per-section, see description file",
+            "tags": "th\u1ea7n tho\u1ea1i vi\u1ec7t nam, li\u1ec5u h\u1ea1nh, ph\u1ee7 d\u1ea7y, t\u1ee9 b\u1ea5t t\u1eed, phan k\u1ebf b\u00ednh, ph\u00f9ng kh\u1eafc khoan, v\u0169 trung t\u00f9y b\u00fat, t\u00edn ng\u01b0\u1ee1ng m\u1eabu, v\u0103n h\u00f3a d\u00e2n gian, l\u1ecbch s\u1eed vi\u1ec7t nam"
+          }
+        },
+        {
+          "platform": "telegram",
+          "status": "exported",
+          "timestamp": "2026-10-21T04:10:00+00:00",
+          "video_id": "420",
+          "export_path": "/Users/tuyennguyen/project/OpenMontage/exports/video/vn-myth-s2e04-lieu-hanh-preview-720p.mp4"
+        }
+      ],
+      "metadata": {
+        "not_published": true,
+        "owner_manual_upload": true,
+        "note": "Board backfill + canonical export bundle 2026-10-21; Telegram DM msg 420/421/422 already delivered"
+      }
+    }
+  },
+  "style_playbook": "ink-genome"
+}

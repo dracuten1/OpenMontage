@@ -1,0 +1,44 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.04,
+      "text": "1,3003",
+      "words": [
+        {
+          "word": " 1",
+          "start": 0.0,
+          "end": 0.28,
+          "probability": 0.508
+        },
+        {
+          "word": ",3003",
+          "start": 0.28,
+          "end": 1.04,
+          "probability": 0.569
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " 1",
+      "start": 0.0,
+      "end": 0.28,
+      "probability": 0.508
+    },
+    {
+      "word": ",3003",
+      "start": 0.28,
+      "end": 1.04,
+      "probability": 0.569
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.36,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

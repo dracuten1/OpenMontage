@@ -1,0 +1,68 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 0.82,
+      "text": "ph\u1ee5 \u0111\u1ed3ng, ph\u1ee5 \u0111\u1ed3ng",
+      "words": [
+        {
+          "word": " ph\u1ee5",
+          "start": 0.0,
+          "end": 0.22,
+          "probability": 0.295
+        },
+        {
+          "word": " \u0111\u1ed3ng,",
+          "start": 0.22,
+          "end": 0.4,
+          "probability": 0.772
+        },
+        {
+          "word": " ph\u1ee5",
+          "start": 0.52,
+          "end": 0.66,
+          "probability": 0.989
+        },
+        {
+          "word": " \u0111\u1ed3ng",
+          "start": 0.66,
+          "end": 0.82,
+          "probability": 0.996
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " ph\u1ee5",
+      "start": 0.0,
+      "end": 0.22,
+      "probability": 0.295
+    },
+    {
+      "word": " \u0111\u1ed3ng,",
+      "start": 0.22,
+      "end": 0.4,
+      "probability": 0.772
+    },
+    {
+      "word": " ph\u1ee5",
+      "start": 0.52,
+      "end": 0.66,
+      "probability": 0.989
+    },
+    {
+      "word": " \u0111\u1ed3ng",
+      "start": 0.66,
+      "end": 0.82,
+      "probability": 0.996
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.04,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

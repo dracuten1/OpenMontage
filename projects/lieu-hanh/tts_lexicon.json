@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "project": "lieu-hanh",
+    "series": "vn-myth",
+    "episode": "S2E04",
+    "tts_provider": "vieneu (vi, monolingual)",
+    "inherited_from": "projects/chu-dong-tu/tts_lexicon.json (S2E03, chuỗi kế thừa S2E01/S2E02)",
+    "policy": "term -> respelling cho narration TTS. Kế thừa nguyên trạng S2E03: '/' bỏ khỏi provider_text; số đếm lớn viết chữ; câu 3 vế song song tách dấu chấm không ';'. Display giữ nguyên chính tả nguồn; provider_text thay bằng respelling.",
+    "gate_a_probe": "CHƯA CHẠY — TTS probe Gate A chỉ chạy SAU owner duyệt research/script (approval_policy gate_B requires_explicit_approval: TTS batch). Địa danh chờ probe: Phủ Dầy, Vân Cát, Yên Thái, đèo Ngang, phố Cát, Sùng Sơn, Nam Giao, Phùng Khắc Khoan."
+  },
+  "S2E03": "display only; narration đọc 'tập trước'",
+  "S2E04": "display only; narration đọc 'tập này'",
+  "NHDNLT": "display only; narration đọc 'Nam Hải dị nhân liệt truyện'",
+  "C09_date_frame": "mốc 1557/1577 hiển thị kèm khung 'theo cách kể/bách khoa' — không đọc như sử liệu (raw_data whitelist)",
+  "1557": "một nghìn năm trăm năm mươi bảy",
+  "1577": "một nghìn năm trăm bảy mươi bảy",
+  "1781": "một nghìn bảy trăm tám mươi mốt",
+  "1/12/2016": "ngày mùng một tháng mười hai năm hai nghìn không trăm mười sáu",
+  "3 tháng 3 âm lịch": "ngày mùng ba tháng Ba âm lịch",
+  "gate_a_pending": {
+    "keep_verbatim_candidates": [
+      "Liễu Hạnh",
+      "Phủ Dầy",
+      "Vân Cát",
+      "Yên Thái",
+      "An Thái",
+      "đèo Ngang",
+      "phố Cát",
+      "Sùng Sơn",
+      "Nam Giao",
+      "Phùng Khắc Khoan",
+      "Trạng Bùng",
+      "Giáng Tiên",
+      "Quỳnh Hoa",
+      "Ngọc Hoàng",
+      "Vụ Bản",
+      "Thanh Hóa",
+      "Lạng Sơn",
+      "Addis Ababa",
+      "Tam phủ",
+      "Tứ phủ",
+      "Mẫu nghi thiên hạ",
+      "Chế-thắng bảo hòa-diệu đại vương",
+      "Mã-vàng công chúa"
+    ],
+    "note": "Danh sách chờ isolate-probe Gate A (sau duyệt); biến thể ASR sẽ ghi bổ sung như chuỗi S2E02/S2E03."
+  }
+}

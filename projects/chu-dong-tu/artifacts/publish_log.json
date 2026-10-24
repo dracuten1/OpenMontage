@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "youtube",
+      "status": "exported",
+      "export_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders",
+      "timestamp": "2026-10-19T05:18:02.948278+00:00",
+      "metadata_used": {
+        "title": "Chử Đồng Tử: Kẻ nghèo nhất làng cưới công chúa, rồi thành bất tử | VN-Myth S2E03",
+        "description": "Một chàng trai không còn gì ngoài chiếc khố — lại cưới được công chúa, hóa Phật, và sống mãi trong lễ rước nước bên sông Hồng.\n\nĐây không chỉ là chuyện cưới xin. Truyền thuyết Chử Đồng Tử – Tiên Dung là một trong những câu chuyện kỳ lạ nhất kho tàng truyện Việt: đám cưới giữa hai đầu xa nhất của xã hội, một nàng công chúa dám hạ mình, và một chàng dân nghèo trọn đời cho đi đến mức không còn gì để mất.\n\nBa vật thể đi suốt câu chuyện: chiếc khố, dòng nước, mái đền.\n\n---\nTIMESTAMPS:\n0:00 Mở tập — lễ rước nước trên sông Hồng hôm nay\n3:30 Hồi hai — phố chợ, gậy và nón\n5:09 Hồi ba — chuyến thuyền và công chúa Tiên Dung\n10:54 Nguồn sử liệu — nơi truyện gặp sử\n14:25 Credits\n\n---\nSeries: VN-Myth Season 2 (Mùa 2: Cội Nguồn & Tín Ngưỡng)\nTập: S2E03 — Chử Đồng Tử\nGiọng đọc: VieneuTTS v3 Turbo Monolingual\nÂm nhạc: \"Mesmerize\" by Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nSản xuất bởi: OpenMontage Engine\n"
+      }
+    },
+    {
+      "platform": "telegram",
+      "status": "exported",
+      "timestamp": "2026-10-19T05:17:58.529885+00:00",
+      "video_id": "387",
+      "export_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4"
+    }
+  ],
+  "metadata": {
+    "not_published": true,
+    "owner_manual_upload": true,
+    "master_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+    "delivery": {
+      "status": "delivered",
+      "started_at": "2026-10-19T05:16:27.495014+00:00",
+      "preview_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_720p.mp4",
+      "preview_bytes": 42217805,
+      "master_path": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/renders/s2e03_final_1080p.mp4",
+      "master_bytes": 159321981,
+      "no_auto_post": true,
+      "video_message_id": 387,
+      "summary_message_id": 388,
+      "delivered_at": "2026-10-19T05:17:58.529885+00:00"
+    }
+  }
+}

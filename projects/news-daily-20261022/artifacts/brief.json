@@ -1,0 +1,80 @@
+{
+  "version": "1.0",
+  "title": "5 tin đáng chú ý ngày 22/10/2026",
+  "hook": "Siêu bão Champi — cơn bão mạnh nhất hành tinh năm 2026 — đang áp sát Đài Loan với gió 210 km/h, cấp 16 giật trên cấp 17. Chứng khoán, trường học Đài Loan đóng cửa, chuyến bay đảo lộn; bão dự kiến tiếp tục hướng sang Nhật Bản. Bão ít khả năng vào Biển Đông, nhưng đông bắc Biển Đông có gió cấp 8 đến 9, sóng cao 4 đến 6 mét.",
+  "key_points": [
+    "Siêu bão Champi — cơn bão mạnh nhất hành tinh năm 2026 — đang áp sát Đài Loan với gió 210 km/h, cấp 16 giật trên cấp 17. Chứng khoán, trường học Đài Loan đóng cửa, chuyến bay đảo lộn; bão dự kiến tiếp tục hướng sang Nhật Bản. Bão ít khả năng vào Biển Đông, nhưng đông bắc Biển Đông có gió cấp 8 đến 9, sóng cao 4 đến 6 mét.",
+    "TPHCM ghi nhận chùm 5 ca não mô cầu, trong đó một học sinh 12 tuổi đã tử vong. Gần 100 người tiếp xúc gần được uống kháng sinh dự phòng; hơn 50.000 mũi vaccine não mô cầu đã được tiêm chỉ trong 6 ngày.",
+    "Bảy tàu chở dầu bị tấn công ở eo biển Hormuz, nhiều tàu bốc cháy. Aramco sơ tán nhân viên khỏi trụ sở Dhahran; nỗi lo chiến tranh tái diễn đẩy giá dầu thế giới bật mạnh.",
+    "Từ 15 giờ hôm nay, xăng E10 không cao hơn 25.213 đồng một lít, trong khi các loại dầu tăng 444 đến 1.238 đồng một lít.",
+    "Phái sinh Nasdaq giảm gần 2% vì nghi ngờ chi tiêu AI và giá dầu tăng, khiến Tesla và Meta lao dốc; IBM mất 7% dù doanh thu vượt dự báo."
+  ],
+  "core_message": "Năm tin theo độ ấn tượng giảm dần, tin mạnh nhất (Champi) mở video; nhận định biên tập gắn nhãn riêng; mọi số liệu truy về 2 file whitelist niêm phong.",
+  "tone": "Trung tính, ngắn gọn, không giật tít; phân biệt fact với đồn đoán ('được cho là' không đọc).",
+  "style": "Bespoke factual infographics navy/coral, SVG minh họa gắn nhãn MINH HỌA; voice-only.",
+  "target_audience": "Người đi làm 25-35 (lương, chi phí, việc làm, công nghệ)",
+  "target_platform": "tiktok",
+  "target_duration_seconds": 110,
+  "reference_material": [
+    "/Users/tuyennguyen/project/OpenMontage/projects/news-daily-20261022/inputs/20261022T204219+0700/latest-vn.md",
+    "/Users/tuyennguyen/project/OpenMontage/projects/news-daily-20261022/inputs/20261022T204219+0700/latest-world.md"
+  ],
+  "selected_angle": "Bản tin 5 điểm narration-led graphics anchored to sealed local digests + segment NHẬN ĐỊNH",
+  "metadata": {
+    "pipeline": "hybrid",
+    "anchor_medium": "narration_led_graphics",
+    "status": "brief_authorized_draft_run",
+    "blocking_gate": "none for draft; publish stays awaiting_human",
+    "source_inventory": [
+      {
+        "path": "/Users/tuyennguyen/project/OpenMontage/projects/news-daily-20261022/inputs/20261022T204219+0700/latest-vn.md",
+        "sha256": "cd83a55d0c18a46c6949c2560b9e497264d62988d920733a154ad8c103e6866a",
+        "seal_verified": true
+      },
+      {
+        "path": "/Users/tuyennguyen/project/OpenMontage/projects/news-daily-20261022/inputs/20261022T204219+0700/latest-world.md",
+        "sha256": "3157e9d7436ff51f1c64582fd68fcd418096b407ed7d3175210a20f5951358eb",
+        "seal_verified": true
+      }
+    ],
+    "evidence_scope": "Sealed local text digests only (2 files); no external research.",
+    "render_runtime": "remotion",
+    "runtime_selection_basis": "Standing news-lane standard (20261016-20261021 precedent) reaffirmed by brief 'camera/compose theo chuẩn hiện hành'; both runtimes available on machine.",
+    "composition_mode": "atelier",
+    "deliverable_mix": {
+      "full": "out/news-daily-20261022.mp4 (clean 1080x1920 master)",
+      "demo": "out/news-daily-20261022-draft-HUD-720p.mp4 (review copy Telegram ≤50MB)",
+      "format": "1080x1920, 30fps"
+    },
+    "music": {
+      "demo": "none",
+      "full": "voice-only lane precedent"
+    },
+    "budget": {
+      "actual_usd": 0,
+      "authorized_paid_usd": 0
+    },
+    "approval_policy": {
+      "mandatory_human_gates": [
+        "idea",
+        "script",
+        "scene_plan",
+        "assets",
+        "publish"
+      ],
+      "approved_gates": [
+        "idea",
+        "script",
+        "scene_plan",
+        "assets"
+      ],
+      "full_run_preauthorization": true,
+      "preauthorization_basis": "Owner brief 2026-10-22 explicitly orders full draft production + DRAFT HUD delivery; publish remains awaiting_human"
+    },
+    "editorial_drafts": {
+      "path": "artifacts/",
+      "status": "canonical (lead-authored)",
+      "promoted_to_canonical": true
+    }
+  }
+}

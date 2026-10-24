@@ -1,0 +1,1532 @@
+{
+ "generated": "2026-10-17T00:47:07+00:00",
+ "note": "occ 1-based per section; exact engine parity (anchors.ts greedy join + normalization); boundaries firstAnchor-0.32s",
+ "scenes": {
+  "sc001": {
+   "section": "s01",
+   "firstAnchor": "Một roi sắt",
+   "firstAnchorStart": 11.119,
+   "anchors": [
+    {
+     "phrase": "Một roi sắt",
+     "occ": 1,
+     "start": 11.119,
+     "end": 11.698,
+     "protectionEnd": 11.698
+    }
+   ],
+   "calls": []
+  },
+  "sc002": {
+   "section": "s01",
+   "firstAnchor": "ba trang sách",
+   "firstAnchorStart": 13.722,
+   "anchors": [
+    {
+     "phrase": "ba trang sách",
+     "occ": 1,
+     "start": 13.722,
+     "end": 14.184,
+     "protectionEnd": 23.28
+    },
+    {
+     "phrase": "hai ngôi đền",
+     "occ": 1,
+     "start": 18.273,
+     "end": 18.723,
+     "protectionEnd": 23.28
+    }
+   ],
+   "calls": []
+  },
+  "sc003": {
+   "section": "s02",
+   "firstAnchor": "Trống hội dồn",
+   "firstAnchorStart": 30.461,
+   "anchors": [
+    {
+     "phrase": "Trống hội dồn",
+     "occ": 1,
+     "start": 30.461,
+     "end": 31.312,
+     "protectionEnd": 31.312
+    },
+    {
+     "phrase": "Cờ hiệu giương",
+     "occ": 1,
+     "start": 31.378,
+     "end": 32.413,
+     "protectionEnd": 32.413
+    }
+   ],
+   "calls": []
+  },
+  "sc004": {
+   "section": "s02",
+   "firstAnchor": "cả làng nhập vai",
+   "firstAnchorStart": 34.601,
+   "anchors": [
+    {
+     "phrase": "cả làng nhập vai",
+     "occ": 1,
+     "start": 34.601,
+     "end": 35.215,
+     "protectionEnd": 36.203
+    },
+    {
+     "phrase": "đời này sang đời kia",
+     "occ": 1,
+     "start": 46.595,
+     "end": 47.672,
+     "protectionEnd": 47.672
+    }
+   ],
+   "calls": []
+  },
+  "sc005": {
+   "section": "s02",
+   "firstAnchor": "hạt gạo",
+   "firstAnchorStart": 52.373,
+   "anchors": [
+    {
+     "phrase": "hạt gạo",
+     "occ": 1,
+     "start": 52.373,
+     "end": 53.06,
+     "protectionEnd": 56.961
+    },
+    {
+     "phrase": "về lại làng",
+     "occ": 1,
+     "start": 61.292,
+     "end": 61.991,
+     "protectionEnd": 61.991
+    }
+   ],
+   "calls": []
+  },
+  "sc006": {
+   "section": "s03",
+   "firstAnchor": "Đời Hùng Vương thứ 6",
+   "firstAnchorStart": 72.436,
+   "anchors": [
+    {
+     "phrase": "Đời Hùng Vương thứ 6",
+     "occ": 1,
+     "start": 72.436,
+     "end": 73.571,
+     "protectionEnd": 75.266
+    },
+    {
+     "phrase": "chưa biết nói, chưa biết cười",
+     "occ": 1,
+     "start": 79.215,
+     "end": 80.549,
+     "protectionEnd": 81.613
+    }
+   ],
+   "calls": []
+  },
+  "sc007": {
+   "section": "s03",
+   "firstAnchor": "người khách quân xanh",
+   "firstAnchorStart": 92.799,
+   "anchors": [
+    {
+     "phrase": "người khách quân xanh",
+     "occ": 1,
+     "start": 92.799,
+     "end": 93.449,
+     "protectionEnd": 94.714
+    },
+    {
+     "phrase": "núi Hùng",
+     "occ": 1,
+     "start": 99.274,
+     "end": 99.982,
+     "protectionEnd": 99.982
+    }
+   ],
+   "calls": []
+  },
+  "sc008": {
+   "section": "s03",
+   "firstAnchor": "Gọn trong một bài học",
+   "firstAnchorStart": 105.828,
+   "anchors": [
+    {
+     "phrase": "Gọn trong một bài học",
+     "occ": 1,
+     "start": 105.828,
+     "end": 107.124,
+     "protectionEnd": 107.124
+    },
+    {
+     "phrase": "đứa trẻ chưa từng nói một lời",
+     "occ": 1,
+     "start": 114.493,
+     "end": 115.79,
+     "protectionEnd": 115.79
+    }
+   ],
+   "calls": []
+  },
+  "sc009": {
+   "section": "s04",
+   "firstAnchor": "vị thần ở lại",
+   "firstAnchorStart": 123.728,
+   "anchors": [
+    {
+     "phrase": "vị thần ở lại",
+     "occ": 1,
+     "start": 123.728,
+     "end": 124.196,
+     "protectionEnd": 127.123
+    },
+    {
+     "phrase": "trong trống hội, mâm cỗ",
+     "occ": 1,
+     "start": 124.296,
+     "end": 125.829,
+     "protectionEnd": 127.123
+    }
+   ],
+   "calls": []
+  },
+  "sc010": {
+   "section": "s04",
+   "firstAnchor": "một đứa trẻ 3 tuổi",
+   "firstAnchorStart": 137.275,
+   "anchors": [
+    {
+     "phrase": "một đứa trẻ 3 tuổi",
+     "occ": 1,
+     "start": 137.275,
+     "end": 138.099,
+     "protectionEnd": 141.113
+    },
+    {
+     "phrase": "cha mẹ đã ngoài 60",
+     "occ": 1,
+     "start": 140.233,
+     "end": 141.113,
+     "protectionEnd": 141.113
+    }
+   ],
+   "calls": []
+  },
+  "sc011": {
+   "section": "s04",
+   "firstAnchor": "đọc ngược",
+   "firstAnchorStart": 155.409,
+   "anchors": [
+    {
+     "phrase": "đọc ngược",
+     "occ": 1,
+     "start": 155.409,
+     "end": 156.223,
+     "protectionEnd": 158.248
+    },
+    {
+     "phrase": "không có trận đánh nào",
+     "occ": 1,
+     "start": 161.513,
+     "end": 162.35,
+     "protectionEnd": 162.35
+    }
+   ],
+   "calls": []
+  },
+  "sc012": {
+   "section": "s05",
+   "firstAnchor": "ba trang sách",
+   "firstAnchorStart": 163.826,
+   "anchors": [
+    {
+     "phrase": "ba trang sách",
+     "occ": 1,
+     "start": 163.826,
+     "end": 164.38,
+     "protectionEnd": 164.38
+    },
+    {
+     "phrase": "vắn vọn vài dòng khô",
+     "occ": 1,
+     "start": 177.552,
+     "end": 178.331,
+     "protectionEnd": 178.331
+    }
+   ],
+   "calls": []
+  },
+  "sc013": {
+   "section": "s05",
+   "firstAnchor": "Hơn ba tuổi, ăn uống, to béo, không biết nói cười",
+   "firstAnchorStart": 184.54,
+   "anchors": [
+    {
+     "phrase": "Hơn ba tuổi, ăn uống, to béo, không biết nói cười",
+     "occ": 1,
+     "start": 184.54,
+     "end": 187.164,
+     "protectionEnd": 187.164
+    },
+    {
+     "phrase": "im lặng",
+     "occ": 1,
+     "start": 193.076,
+     "end": 193.993,
+     "protectionEnd": 193.993
+    }
+   ],
+   "calls": []
+  },
+  "sc014": {
+   "section": "s06",
+   "firstAnchor": "ghé qua làng",
+   "firstAnchorStart": 208.682,
+   "anchors": [
+    {
+     "phrase": "ghé qua làng",
+     "occ": 1,
+     "start": 208.682,
+     "end": 209.176,
+     "protectionEnd": 209.176
+    },
+    {
+     "phrase": "cất tiếng",
+     "occ": 1,
+     "start": 211.225,
+     "end": 211.775,
+     "protectionEnd": 213.854
+    }
+   ],
+   "calls": []
+  },
+  "sc015": {
+   "section": "s06",
+   "firstAnchor": "Xin cho một thanh gươm",
+   "firstAnchorStart": 216.333,
+   "anchors": [
+    {
+     "phrase": "Xin cho một thanh gươm",
+     "occ": 1,
+     "start": 216.333,
+     "end": 217.286,
+     "protectionEnd": 220.245
+    },
+    {
+     "phrase": "Không xin ngôi báu",
+     "occ": 1,
+     "start": 221.608,
+     "end": 222.743,
+     "protectionEnd": 222.743
+    }
+   ],
+   "calls": []
+  },
+  "sc016": {
+   "section": "s06",
+   "firstAnchor": "Giặc tự quay giáo đánh lẫn nhau",
+   "firstAnchorStart": 232.171,
+   "anchors": [
+    {
+     "phrase": "Giặc tự quay giáo đánh lẫn nhau",
+     "occ": 1,
+     "start": 232.171,
+     "end": 233.826,
+     "protectionEnd": 233.826
+    },
+    {
+     "phrase": "nhảy ngựa lên không",
+     "occ": 1,
+     "start": 234.822,
+     "end": 235.597,
+     "protectionEnd": 235.942
+    }
+   ],
+   "calls": []
+  },
+  "sc017": {
+   "section": "s07",
+   "firstAnchor": "Năm 1492",
+   "firstAnchorStart": 250.762,
+   "anchors": [
+    {
+     "phrase": "Năm 1492",
+     "occ": 1,
+     "start": 250.762,
+     "end": 251.878,
+     "protectionEnd": 256.99
+    },
+    {
+     "phrase": "Lĩnh Nam chích quái",
+     "occ": 1,
+     "start": 253.442,
+     "end": 254.437,
+     "protectionEnd": 256.99
+    }
+   ],
+   "calls": []
+  },
+  "sc018": {
+   "section": "s07",
+   "firstAnchor": "ngã ba đường",
+   "firstAnchorStart": 266.413,
+   "anchors": [
+    {
+     "phrase": "ngã ba đường",
+     "occ": 1,
+     "start": 266.413,
+     "end": 266.972,
+     "protectionEnd": 266.972
+    },
+    {
+     "phrase": "ngoài 60",
+     "occ": 1,
+     "start": 269.481,
+     "end": 269.757,
+     "protectionEnd": 271.617
+    }
+   ],
+   "calls": []
+  },
+  "sc019": {
+   "section": "s07",
+   "firstAnchor": "ra phá giặc cho nước",
+   "firstAnchorStart": 276.81,
+   "anchors": [
+    {
+     "phrase": "ra phá giặc cho nước",
+     "occ": 1,
+     "start": 276.81,
+     "end": 277.585,
+     "protectionEnd": 277.585
+    },
+    {
+     "phrase": "lời hẹn của thần",
+     "occ": 1,
+     "start": 288.458,
+     "end": 289.19,
+     "protectionEnd": 289.19
+    }
+   ],
+   "calls": []
+  },
+  "sc020": {
+   "section": "s08",
+   "firstAnchor": "Ta là thiên tướng nhà Trời đây!",
+   "firstAnchorStart": 296.12,
+   "anchors": [
+    {
+     "phrase": "Ta là thiên tướng nhà Trời đây!",
+     "occ": 1,
+     "start": 296.12,
+     "end": 297.744,
+     "protectionEnd": 297.744
+    },
+    {
+     "phrase": "tự xưng là thiên tướng",
+     "occ": 1,
+     "start": 298.781,
+     "end": 299.564,
+     "protectionEnd": 300.47
+    }
+   ],
+   "calls": []
+  },
+  "sc021": {
+   "section": "s08",
+   "firstAnchor": "ngựa sắt cao 18 thước",
+   "firstAnchorStart": 303.265,
+   "anchors": [
+    {
+     "phrase": "ngựa sắt cao 18 thước",
+     "occ": 1,
+     "start": 303.265,
+     "end": 304.241,
+     "protectionEnd": 305.887
+    },
+    {
+     "phrase": "thanh kiếm dài 7 thước",
+     "occ": 1,
+     "start": 304.298,
+     "end": 305.228,
+     "protectionEnd": 305.887
+    }
+   ],
+   "calls": []
+  },
+  "sc022": {
+   "section": "s08",
+   "firstAnchor": "hai cách chép",
+   "firstAnchorStart": 314.827,
+   "anchors": [
+    {
+     "phrase": "hai cách chép",
+     "occ": 1,
+     "start": 314.827,
+     "end": 315.848,
+     "protectionEnd": 315.848
+    },
+    {
+     "phrase": "gương mặt của người chép",
+     "occ": 1,
+     "start": 317.765,
+     "end": 318.578,
+     "protectionEnd": 322.523
+    },
+    {
+     "phrase": "kể đêm hội",
+     "occ": 1,
+     "start": 322.024,
+     "end": 322.523,
+     "protectionEnd": 322.523
+    }
+   ],
+   "calls": []
+  },
+  "sc023": {
+   "section": "s09",
+   "firstAnchor": "trang cổ nhất",
+   "firstAnchorStart": 328.087,
+   "anchors": [
+    {
+     "phrase": "trang cổ nhất",
+     "occ": 1,
+     "start": 328.087,
+     "end": 328.492,
+     "protectionEnd": 328.492
+    },
+    {
+     "phrase": "Việt Điện U Linh Tập",
+     "occ": 1,
+     "start": 331.827,
+     "end": 332.86,
+     "protectionEnd": 334.687
+    }
+   ],
+   "calls": []
+  },
+  "sc024": {
+   "section": "s09",
+   "firstAnchor": "vị thần Thổ địa",
+   "firstAnchorStart": 340.776,
+   "anchors": [
+    {
+     "phrase": "vị thần Thổ địa",
+     "occ": 1,
+     "start": 340.776,
+     "end": 341.336,
+     "protectionEnd": 343.981
+    },
+    {
+     "phrase": "Không có trận đánh",
+     "occ": 1,
+     "start": 344.402,
+     "end": 345.494,
+     "protectionEnd": 345.494
+    }
+   ],
+   "calls": []
+  },
+  "sc025": {
+   "section": "s09",
+   "firstAnchor": "tiếng gươm nhỏ dần",
+   "firstAnchorStart": 364.147,
+   "anchors": [
+    {
+     "phrase": "tiếng gươm nhỏ dần",
+     "occ": 1,
+     "start": 364.147,
+     "end": 365.268,
+     "protectionEnd": 365.798
+    },
+    {
+     "phrase": "năm điều không đổi",
+     "occ": 1,
+     "start": 366.568,
+     "end": 367.124,
+     "protectionEnd": 373.779
+    }
+   ],
+   "calls": []
+  },
+  "sc026": {
+   "section": "s10",
+   "firstAnchor": "hạt gạo",
+   "firstAnchorStart": 385.412,
+   "anchors": [
+    {
+     "phrase": "hạt gạo",
+     "occ": 1,
+     "start": 385.412,
+     "end": 386.171,
+     "protectionEnd": 386.171
+    },
+    {
+     "phrase": "kể lướt",
+     "occ": 1,
+     "start": 389.889,
+     "end": 390.573,
+     "protectionEnd": 392.262
+    }
+   ],
+   "calls": []
+  },
+  "sc027": {
+   "section": "s10",
+   "firstAnchor": "không đủ gạo",
+   "firstAnchorStart": 397.381,
+   "anchors": [
+    {
+     "phrase": "không đủ gạo",
+     "occ": 1,
+     "start": 397.381,
+     "end": 397.954,
+     "protectionEnd": 400.643
+    },
+    {
+     "phrase": "gạo của nhiều nhà",
+     "occ": 1,
+     "start": 416.874,
+     "end": 417.53,
+     "protectionEnd": 417.53
+    }
+   ],
+   "calls": []
+  },
+  "sc028": {
+   "section": "s11",
+   "firstAnchor": "nong tre cứ rộng ra",
+   "firstAnchorStart": 421.916,
+   "anchors": [
+    {
+     "phrase": "nong tre cứ rộng ra",
+     "occ": 1,
+     "start": 421.916,
+     "end": 422.663,
+     "protectionEnd": 422.993
+    },
+    {
+     "phrase": "từng gánh, từng bọc",
+     "occ": 1,
+     "start": 424.684,
+     "end": 425.701,
+     "protectionEnd": 426.568
+    }
+   ],
+   "calls": []
+  },
+  "sc029": {
+   "section": "s11",
+   "firstAnchor": "cất nhà to hơn",
+   "firstAnchorStart": 432.935,
+   "anchors": [
+    {
+     "phrase": "cất nhà to hơn",
+     "occ": 1,
+     "start": 432.935,
+     "end": 433.58,
+     "protectionEnd": 434.437
+    },
+    {
+     "phrase": "cao hơn hai trượng",
+     "occ": 1,
+     "start": 437.461,
+     "end": 438.707,
+     "protectionEnd": 443.313
+    }
+   ],
+   "calls": []
+  },
+  "sc030": {
+   "section": "s11",
+   "firstAnchor": "Thánh Gióng không tự lớn",
+   "firstAnchorStart": 445.255,
+   "anchors": [
+    {
+     "phrase": "Thánh Gióng không tự lớn",
+     "occ": 1,
+     "start": 445.255,
+     "end": 446.836,
+     "protectionEnd": 446.836
+    },
+    {
+     "phrase": "những bàn tay góp vào nong",
+     "occ": 1,
+     "start": 452.163,
+     "end": 453.1,
+     "protectionEnd": 453.1
+    }
+   ],
+   "calls": []
+  },
+  "sc031": {
+   "section": "s12",
+   "firstAnchor": "giáp sắt xanh rêu",
+   "firstAnchorStart": 458.186,
+   "anchors": [
+    {
+     "phrase": "giáp sắt xanh rêu",
+     "occ": 1,
+     "start": 458.186,
+     "end": 458.868,
+     "protectionEnd": 462.833
+    },
+    {
+     "phrase": "phun lửa đỏ từ miệng",
+     "occ": 1,
+     "start": 460.753,
+     "end": 461.787,
+     "protectionEnd": 462.833
+    }
+   ],
+   "calls": []
+  },
+  "sc032": {
+   "section": "s12",
+   "firstAnchor": "làng Cháy",
+   "firstAnchorStart": 467.296,
+   "anchors": [
+    {
+     "phrase": "làng Cháy",
+     "occ": 1,
+     "start": 467.296,
+     "end": 467.688,
+     "protectionEnd": 467.688
+    },
+    {
+     "phrase": "Võ Ninh",
+     "occ": 1,
+     "start": 469.837,
+     "end": 470.228,
+     "protectionEnd": 471.894
+    }
+   ],
+   "calls": []
+  },
+  "sc033": {
+   "section": "s12",
+   "firstAnchor": "Cả một làng",
+   "firstAnchorStart": 473.742,
+   "anchors": [
+    {
+     "phrase": "Cả một làng",
+     "occ": 1,
+     "start": 473.742,
+     "end": 474.636,
+     "protectionEnd": 474.636
+    },
+    {
+     "phrase": "đong bằng nong",
+     "occ": 1,
+     "start": 486.639,
+     "end": 487.258,
+     "protectionEnd": 489.38
+    }
+   ],
+   "calls": []
+  },
+  "sc034": {
+   "section": "s13",
+   "firstAnchor": "Roi sắt quất đến gãy",
+   "firstAnchorStart": 492.564,
+   "anchors": [
+    {
+     "phrase": "Roi sắt quất đến gãy",
+     "occ": 1,
+     "start": 492.564,
+     "end": 493.872,
+     "protectionEnd": 493.872
+    },
+    {
+     "phrase": "vồ luôn bụi tre",
+     "occ": 1,
+     "start": 494.532,
+     "end": 495.126,
+     "protectionEnd": 495.767
+    }
+   ],
+   "calls": []
+  },
+  "sc035": {
+   "section": "s13",
+   "firstAnchor": "tre Đằng Ngà",
+   "firstAnchorStart": 498.361,
+   "anchors": [
+    {
+     "phrase": "tre Đằng Ngà",
+     "occ": 1,
+     "start": 498.361,
+     "end": 498.825,
+     "protectionEnd": 501.549
+    },
+    {
+     "phrase": "Gia Bình",
+     "occ": 1,
+     "start": 499.024,
+     "end": 499.401,
+     "protectionEnd": 501.549
+    }
+   ],
+   "calls": []
+  },
+  "sc036": {
+   "section": "s13",
+   "firstAnchor": "quay giáo đánh lẫn nhau",
+   "firstAnchorStart": 505.213,
+   "anchors": [
+    {
+     "phrase": "quay giáo đánh lẫn nhau",
+     "occ": 1,
+     "start": 505.213,
+     "end": 506.061,
+     "protectionEnd": 506.061
+    },
+    {
+     "phrase": "tre vệ đường",
+     "occ": 1,
+     "start": 522.48,
+     "end": 523.05,
+     "protectionEnd": 523.05
+    }
+   ],
+   "calls": []
+  },
+  "sc037": {
+   "section": "s14",
+   "firstAnchor": "cởi áo bào để lại",
+   "firstAnchorStart": 529.049,
+   "anchors": [
+    {
+     "phrase": "cởi áo bào để lại",
+     "occ": 1,
+     "start": 529.049,
+     "end": 530.311,
+     "protectionEnd": 532.097
+    },
+    {
+     "phrase": "cưỡi ngựa bay lên Trời",
+     "occ": 1,
+     "start": 531.258,
+     "end": 532.097,
+     "protectionEnd": 532.097
+    }
+   ],
+   "calls": []
+  },
+  "sc038": {
+   "section": "s14",
+   "firstAnchor": "100 mẫu ruộng tự điền",
+   "firstAnchorStart": 545.057,
+   "anchors": [
+    {
+     "phrase": "100 mẫu ruộng tự điền",
+     "occ": 1,
+     "start": 545.057,
+     "end": 546.198,
+     "protectionEnd": 546.198
+    },
+    {
+     "phrase": "Không phải cho mẹ cậu",
+     "occ": 1,
+     "start": 547.209,
+     "end": 548.415,
+     "protectionEnd": 548.415
+    }
+   ],
+   "calls": []
+  },
+  "sc039": {
+   "section": "s14",
+   "firstAnchor": "cả hương Phù Đổng",
+   "firstAnchorStart": 551.13,
+   "anchors": [
+    {
+     "phrase": "cả hương Phù Đổng",
+     "occ": 1,
+     "start": 551.13,
+     "end": 552.198,
+     "protectionEnd": 554.186
+    },
+    {
+     "phrase": "ruộng trả về làng",
+     "occ": 1,
+     "start": 556.455,
+     "end": 557.852,
+     "protectionEnd": 558.91
+    }
+   ],
+   "calls": []
+  },
+  "sc040": {
+   "section": "s15",
+   "firstAnchor": "Roi sắt",
+   "firstAnchorStart": 566.724,
+   "anchors": [
+    {
+     "phrase": "Roi sắt",
+     "occ": 1,
+     "start": 566.724,
+     "end": 567.471,
+     "protectionEnd": 567.471
+    },
+    {
+     "phrase": "quen thuộc nhất",
+     "occ": 1,
+     "start": 578.238,
+     "end": 579.358,
+     "protectionEnd": 579.358
+    }
+   ],
+   "calls": []
+  },
+  "sc041": {
+   "section": "s15",
+   "firstAnchor": "trí nhớ của người chép",
+   "firstAnchorStart": 583.245,
+   "anchors": [
+    {
+     "phrase": "trí nhớ của người chép",
+     "occ": 1,
+     "start": 583.245,
+     "end": 584.505,
+     "protectionEnd": 584.505
+    },
+    {
+     "phrase": "Gạo đến từ xóm làng",
+     "occ": 1,
+     "start": 595.288,
+     "end": 596.517,
+     "protectionEnd": 596.517
+    }
+   ],
+   "calls": []
+  },
+  "sc042": {
+   "section": "s16",
+   "firstAnchor": "Hai ngôi đền",
+   "firstAnchorStart": 599.548,
+   "anchors": [
+    {
+     "phrase": "Hai ngôi đền",
+     "occ": 1,
+     "start": 599.548,
+     "end": 600.424,
+     "protectionEnd": 600.424
+    },
+    {
+     "phrase": "tách làm hai nơi",
+     "occ": 1,
+     "start": 603.789,
+     "end": 604.7,
+     "protectionEnd": 604.7
+    }
+   ],
+   "calls": []
+  },
+  "sc043": {
+   "section": "s16",
+   "firstAnchor": "đền Phù Đổng, đồng bằng",
+   "firstAnchorStart": 606.449,
+   "anchors": [
+    {
+     "phrase": "đền Phù Đổng, đồng bằng",
+     "occ": 1,
+     "start": 606.449,
+     "end": 607.597,
+     "protectionEnd": 608.846
+    },
+    {
+     "phrase": "giữ tiếng gươm",
+     "occ": 1,
+     "start": 622.161,
+     "end": 622.962,
+     "protectionEnd": 623.72
+    }
+   ],
+   "calls": []
+  },
+  "sc044": {
+   "section": "s17",
+   "firstAnchor": "chính hội ngày 9 tháng Tư",
+   "firstAnchorStart": 628.556,
+   "anchors": [
+    {
+     "phrase": "chính hội ngày 9 tháng Tư",
+     "occ": 1,
+     "start": 628.556,
+     "end": 630.015,
+     "protectionEnd": 630.015
+    },
+    {
+     "phrase": "hội trận",
+     "occ": 1,
+     "start": 630.687,
+     "end": 631.093,
+     "protectionEnd": 633.056
+    }
+   ],
+   "calls": []
+  },
+  "sc045": {
+   "section": "s17",
+   "firstAnchor": "rước nước",
+   "firstAnchorStart": 634.361,
+   "anchors": [
+    {
+     "phrase": "rước nước",
+     "occ": 1,
+     "start": 634.361,
+     "end": 634.664,
+     "protectionEnd": 637.621
+    },
+    {
+     "phrase": "khám đường, duyệt tướng",
+     "occ": 1,
+     "start": 638.973,
+     "end": 640.181,
+     "protectionEnd": 640.181
+    }
+   ],
+   "calls": []
+  },
+  "sc046": {
+   "section": "s17",
+   "firstAnchor": "bãi Soi Bia",
+   "firstAnchorStart": 642.499,
+   "anchors": [
+    {
+     "phrase": "bãi Soi Bia",
+     "occ": 1,
+     "start": 642.499,
+     "end": 642.97,
+     "protectionEnd": 644.489
+    },
+    {
+     "phrase": "Cả làng",
+     "occ": 1,
+     "start": 646.932,
+     "end": 647.733,
+     "protectionEnd": 647.733
+    }
+   ],
+   "calls": []
+  },
+  "sc047": {
+   "section": "s18",
+   "firstAnchor": "mùng 6 đến mùng 8",
+   "firstAnchorStart": 661.82,
+   "anchors": [
+    {
+     "phrase": "mùng 6 đến mùng 8",
+     "occ": 1,
+     "start": 661.82,
+     "end": 662.402,
+     "protectionEnd": 667.875
+    },
+    {
+     "phrase": "lễ Mộc Dục",
+     "occ": 1,
+     "start": 664.661,
+     "end": 665.521,
+     "protectionEnd": 667.875
+    }
+   ],
+   "calls": []
+  },
+  "sc048": {
+   "section": "s18",
+   "firstAnchor": "8 lễ vật truyền thống",
+   "firstAnchorStart": 669.712,
+   "anchors": [
+    {
+     "phrase": "8 lễ vật truyền thống",
+     "occ": 1,
+     "start": 669.712,
+     "end": 670.463,
+     "protectionEnd": 681.411
+    },
+    {
+     "phrase": "giò hoa tre",
+     "occ": 1,
+     "start": 677.588,
+     "end": 678.813,
+     "protectionEnd": 681.411
+    }
+   ],
+   "calls": []
+  },
+  "sc049": {
+   "section": "s18",
+   "firstAnchor": "tiếng trống trận",
+   "firstAnchorStart": 689.249,
+   "anchors": [
+    {
+     "phrase": "tiếng trống trận",
+     "occ": 1,
+     "start": 689.249,
+     "end": 690.264,
+     "protectionEnd": 690.264
+    },
+    {
+     "phrase": "đêm tưởng niệm",
+     "occ": 1,
+     "start": 690.704,
+     "end": 691.23,
+     "protectionEnd": 691.23
+    }
+   ],
+   "calls": []
+  },
+  "sc050": {
+   "section": "s19",
+   "firstAnchor": "16 tháng 11 năm 2010",
+   "firstAnchorStart": 693.209,
+   "anchors": [
+    {
+     "phrase": "16 tháng 11 năm 2010",
+     "occ": 1,
+     "start": 693.209,
+     "end": 695.312,
+     "protectionEnd": 702.932
+    },
+    {
+     "phrase": "Hội Gióng đền Phù Đổng",
+     "occ": 1,
+     "start": 700.81,
+     "end": 701.862,
+     "protectionEnd": 702.932
+    }
+   ],
+   "calls": []
+  },
+  "sc051": {
+   "section": "s19",
+   "firstAnchor": "Một vị thánh, hai loại kỷ niệm",
+   "firstAnchorStart": 702.979,
+   "anchors": [
+    {
+     "phrase": "Một vị thánh, hai loại kỷ niệm",
+     "occ": 1,
+     "start": 702.979,
+     "end": 704.71,
+     "protectionEnd": 707.473
+    },
+    {
+     "phrase": "không ai là khán giả",
+     "occ": 1,
+     "start": 722.568,
+     "end": 724.04,
+     "protectionEnd": 724.04
+    }
+   ],
+   "calls": []
+  },
+  "sc052": {
+   "section": "s20",
+   "firstAnchor": "không chứng minh trận đánh",
+   "firstAnchorStart": 735.336,
+   "anchors": [
+    {
+     "phrase": "không chứng minh trận đánh",
+     "occ": 1,
+     "start": 735.336,
+     "end": 736.044,
+     "protectionEnd": 736.771
+    },
+    {
+     "phrase": "chỉ nói về người thờ",
+     "occ": 1,
+     "start": 738.061,
+     "end": 738.774,
+     "protectionEnd": 740.256
+    }
+   ],
+   "calls": []
+  },
+  "sc053": {
+   "section": "s20",
+   "firstAnchor": "Chọn ghi nhớ gạo của cả làng",
+   "firstAnchorStart": 744.202,
+   "anchors": [
+    {
+     "phrase": "Chọn ghi nhớ gạo của cả làng",
+     "occ": 1,
+     "start": 744.202,
+     "end": 745.892,
+     "protectionEnd": 745.892
+    },
+    {
+     "phrase": "đọc chậm",
+     "occ": 1,
+     "start": 756.001,
+     "end": 756.42,
+     "protectionEnd": 756.42
+    }
+   ],
+   "calls": []
+  },
+  "sc054": {
+   "section": "s21",
+   "firstAnchor": "đứa trẻ im lặng",
+   "firstAnchorStart": 758.23,
+   "anchors": [
+    {
+     "phrase": "đứa trẻ im lặng",
+     "occ": 1,
+     "start": 758.23,
+     "end": 759.456,
+     "protectionEnd": 759.456
+    },
+    {
+     "phrase": "nín thở chờ đợi",
+     "occ": 1,
+     "start": 768.141,
+     "end": 768.893,
+     "protectionEnd": 768.893
+    }
+   ],
+   "calls": []
+  },
+  "sc055": {
+   "section": "s21",
+   "firstAnchor": "Chi tiết thứ hai",
+   "firstAnchorStart": 776.187,
+   "anchors": [
+    {
+     "phrase": "Chi tiết thứ hai",
+     "occ": 1,
+     "start": 776.187,
+     "end": 776.814,
+     "protectionEnd": 777.701
+    },
+    {
+     "phrase": "Nó xin vũ khí",
+     "occ": 1,
+     "start": 781.29,
+     "end": 782.814,
+     "protectionEnd": 782.814
+    }
+   ],
+   "calls": []
+  },
+  "sc056": {
+   "section": "s21",
+   "firstAnchor": "đòi cho người khác",
+   "firstAnchorStart": 784.059,
+   "anchors": [
+    {
+     "phrase": "đòi cho người khác",
+     "occ": 1,
+     "start": 784.059,
+     "end": 784.636,
+     "protectionEnd": 784.636
+    },
+    {
+     "phrase": "nhà vua không phải lo gì cả",
+     "occ": 1,
+     "start": 787.638,
+     "end": 788.84,
+     "protectionEnd": 788.84
+    }
+   ],
+   "calls": []
+  },
+  "sc057": {
+   "section": "s22",
+   "firstAnchor": "Chi tiết thứ ba",
+   "firstAnchorStart": 789.77,
+   "anchors": [
+    {
+     "phrase": "Chi tiết thứ ba",
+     "occ": 1,
+     "start": 789.77,
+     "end": 790.646,
+     "protectionEnd": 794.329
+    },
+    {
+     "phrase": "nong của cả làng",
+     "occ": 1,
+     "start": 798.534,
+     "end": 799.684,
+     "protectionEnd": 801.337
+    }
+   ],
+   "calls": []
+  },
+  "sc058": {
+   "section": "s22",
+   "firstAnchor": "không về đâu cả",
+   "firstAnchorStart": 806.028,
+   "anchors": [
+    {
+     "phrase": "không về đâu cả",
+     "occ": 1,
+     "start": 806.028,
+     "end": 807.057,
+     "protectionEnd": 807.057
+    },
+    {
+     "phrase": "Không lấy vợ",
+     "occ": 1,
+     "start": 807.067,
+     "end": 807.861,
+     "protectionEnd": 807.861
+    }
+   ],
+   "calls": []
+  },
+  "sc059": {
+   "section": "s22",
+   "firstAnchor": "trả về mọi nhà",
+   "firstAnchorStart": 820.141,
+   "anchors": [
+    {
+     "phrase": "trả về mọi nhà",
+     "occ": 1,
+     "start": 820.141,
+     "end": 821.466,
+     "protectionEnd": 821.466
+    },
+    {
+     "phrase": "Không một chữ nào",
+     "occ": 1,
+     "start": 821.496,
+     "end": 822.166,
+     "protectionEnd": 823.61
+    }
+   ],
+   "calls": []
+  },
+  "sc060": {
+   "section": "s23",
+   "firstAnchor": "câu trả lời của tối nay",
+   "firstAnchorStart": 825.072,
+   "anchors": [
+    {
+     "phrase": "câu trả lời của tối nay",
+     "occ": 1,
+     "start": 825.072,
+     "end": 825.819,
+     "protectionEnd": 827.167
+    },
+    {
+     "phrase": "không phải là một cá nhân",
+     "occ": 1,
+     "start": 829.654,
+     "end": 831.027,
+     "protectionEnd": 831.027
+    }
+   ],
+   "calls": []
+  },
+  "sc061": {
+   "section": "s23",
+   "firstAnchor": "Thánh Gióng không tự lớn",
+   "firstAnchorStart": 835.805,
+   "anchors": [
+    {
+     "phrase": "Thánh Gióng không tự lớn",
+     "occ": 1,
+     "start": 835.805,
+     "end": 837.131,
+     "protectionEnd": 837.131
+    },
+    {
+     "phrase": "Cả làng nuôi nó lớn",
+     "occ": 1,
+     "start": 837.189,
+     "end": 838.525,
+     "protectionEnd": 838.525
+    }
+   ],
+   "calls": []
+  },
+  "sc062": {
+   "section": "s23",
+   "firstAnchor": "gặp nhau trong một chiếc nong",
+   "firstAnchorStart": 840.266,
+   "anchors": [
+    {
+     "phrase": "gặp nhau trong một chiếc nong",
+     "occ": 1,
+     "start": 840.266,
+     "end": 841.465,
+     "protectionEnd": 842.423
+    },
+    {
+     "phrase": "cùng lớn lên một lần",
+     "occ": 1,
+     "start": 856.341,
+     "end": 857.28,
+     "protectionEnd": 857.28
+    }
+   ],
+   "calls": []
+  },
+  "sc063": {
+   "section": "s24",
+   "firstAnchor": "Ai ơi mồng Chín tháng Tư",
+   "firstAnchorStart": 863.192,
+   "anchors": [
+    {
+     "phrase": "Ai ơi mồng Chín tháng Tư",
+     "occ": 1,
+     "start": 863.192,
+     "end": 864.876,
+     "protectionEnd": 864.876
+    }
+   ],
+   "calls": []
+  },
+  "sc064": {
+   "section": "s24",
+   "firstAnchor": "Trẻ con làng Phù Đổng",
+   "firstAnchorStart": 866.676,
+   "anchors": [
+    {
+     "phrase": "Trẻ con làng Phù Đổng",
+     "occ": 1,
+     "start": 866.676,
+     "end": 867.585,
+     "protectionEnd": 870.735
+    },
+    {
+     "phrase": "Cùng một hạt gạo",
+     "occ": 1,
+     "start": 874.071,
+     "end": 874.659,
+     "protectionEnd": 875.94
+    }
+   ],
+   "calls": []
+  },
+  "sc065": {
+   "section": "s25",
+   "firstAnchor": "Tứ bất tử",
+   "firstAnchorStart": 878.911,
+   "anchors": [
+    {
+     "phrase": "Tứ bất tử",
+     "occ": 1,
+     "start": 878.911,
+     "end": 879.289,
+     "protectionEnd": 884.577
+    }
+   ],
+   "calls": []
+  },
+  "sc066": {
+   "section": "s25",
+   "firstAnchor": "ngay sau Tản Viên",
+   "firstAnchorStart": 886.098,
+   "anchors": [
+    {
+     "phrase": "ngay sau Tản Viên",
+     "occ": 1,
+     "start": 886.098,
+     "end": 887.169,
+     "protectionEnd": 889.083
+    },
+    {
+     "phrase": "ai sẽ đứng ra",
+     "occ": 1,
+     "start": 898.693,
+     "end": 899.811,
+     "protectionEnd": 901.01
+    }
+   ],
+   "calls": []
+  },
+  "sc067": {
+   "section": "s26",
+   "firstAnchor": "Đêm hội tàn",
+   "firstAnchorStart": 901.87,
+   "anchors": [
+    {
+     "phrase": "Đêm hội tàn",
+     "occ": 1,
+     "start": 901.87,
+     "end": 902.429,
+     "protectionEnd": 905.322
+    },
+    {
+     "phrase": "hạt gạo về kho",
+     "occ": 1,
+     "start": 904.53,
+     "end": 905.322,
+     "protectionEnd": 905.322
+    }
+   ],
+   "calls": []
+  },
+  "sc068": {
+   "section": "s26",
+   "firstAnchor": "chưa bao giờ lớn lên một mình",
+   "firstAnchorStart": 914.422,
+   "anchors": [
+    {
+     "phrase": "chưa bao giờ lớn lên một mình",
+     "occ": 1,
+     "start": 914.422,
+     "end": 916.112,
+     "protectionEnd": 916.112
+    },
+    {
+     "phrase": "chưa bao giờ bị bỏ quên",
+     "occ": 1,
+     "start": 916.569,
+     "end": 917.41,
+     "protectionEnd": 917.41
+    }
+   ],
+   "calls": []
+  },
+  "sc069": {
+   "section": "s27",
+   "firstAnchor": "người được thờ tiếp theo",
+   "firstAnchorStart": 919.994,
+   "anchors": [
+    {
+     "phrase": "người được thờ tiếp theo",
+     "occ": 1,
+     "start": 919.994,
+     "end": 920.679,
+     "protectionEnd": 922.536
+    },
+    {
+     "phrase": "một chiếc khố",
+     "occ": 1,
+     "start": 926.077,
+     "end": 926.69,
+     "protectionEnd": 926.69
+    }
+   ],
+   "calls": []
+  },
+  "sc070": {
+   "section": "s28",
+   "firstAnchor": "đăng ký kênh",
+   "firstAnchorStart": 935.832,
+   "anchors": [
+    {
+     "phrase": "đăng ký kênh",
+     "occ": 1,
+     "start": 935.832,
+     "end": 936.267,
+     "protectionEnd": 938.153
+    },
+    {
+     "phrase": "Cảm ơn bạn đã xem",
+     "occ": 1,
+     "start": 938.208,
+     "end": 939.646,
+     "protectionEnd": 939.646
+    }
+   ],
+   "calls": []
+  }
+ }
+}

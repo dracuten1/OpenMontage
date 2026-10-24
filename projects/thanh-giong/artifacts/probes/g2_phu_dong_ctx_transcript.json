@@ -1,0 +1,152 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 2.24,
+      "text": "H\u1ed3i r\u00f5ng \u1edf \u0110i\u1ec1n Phu \u0110\u1ed3ng, Sa Phu \u0110\u1ed3ng, Sa L\u00e2m.",
+      "words": [
+        {
+          "word": " H\u1ed3i",
+          "start": 0.0,
+          "end": 0.2,
+          "probability": 0.396
+        },
+        {
+          "word": " r\u00f5ng",
+          "start": 0.2,
+          "end": 0.42,
+          "probability": 0.722
+        },
+        {
+          "word": " \u1edf",
+          "start": 0.42,
+          "end": 0.52,
+          "probability": 0.906
+        },
+        {
+          "word": " \u0110i\u1ec1n",
+          "start": 0.52,
+          "end": 0.72,
+          "probability": 0.446
+        },
+        {
+          "word": " Phu",
+          "start": 0.72,
+          "end": 0.94,
+          "probability": 0.493
+        },
+        {
+          "word": " \u0110\u1ed3ng,",
+          "start": 0.94,
+          "end": 1.1,
+          "probability": 0.55
+        },
+        {
+          "word": " Sa",
+          "start": 1.28,
+          "end": 1.36,
+          "probability": 0.268
+        },
+        {
+          "word": " Phu",
+          "start": 1.36,
+          "end": 1.62,
+          "probability": 0.875
+        },
+        {
+          "word": " \u0110\u1ed3ng,",
+          "start": 1.62,
+          "end": 1.76,
+          "probability": 0.971
+        },
+        {
+          "word": " Sa",
+          "start": 1.9,
+          "end": 2.0,
+          "probability": 0.465
+        },
+        {
+          "word": " L\u00e2m.",
+          "start": 2.0,
+          "end": 2.24,
+          "probability": 0.905
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " H\u1ed3i",
+      "start": 0.0,
+      "end": 0.2,
+      "probability": 0.396
+    },
+    {
+      "word": " r\u00f5ng",
+      "start": 0.2,
+      "end": 0.42,
+      "probability": 0.722
+    },
+    {
+      "word": " \u1edf",
+      "start": 0.42,
+      "end": 0.52,
+      "probability": 0.906
+    },
+    {
+      "word": " \u0110i\u1ec1n",
+      "start": 0.52,
+      "end": 0.72,
+      "probability": 0.446
+    },
+    {
+      "word": " Phu",
+      "start": 0.72,
+      "end": 0.94,
+      "probability": 0.493
+    },
+    {
+      "word": " \u0110\u1ed3ng,",
+      "start": 0.94,
+      "end": 1.1,
+      "probability": 0.55
+    },
+    {
+      "word": " Sa",
+      "start": 1.28,
+      "end": 1.36,
+      "probability": 0.268
+    },
+    {
+      "word": " Phu",
+      "start": 1.36,
+      "end": 1.62,
+      "probability": 0.875
+    },
+    {
+      "word": " \u0110\u1ed3ng,",
+      "start": 1.62,
+      "end": 1.76,
+      "probability": 0.971
+    },
+    {
+      "word": " Sa",
+      "start": 1.9,
+      "end": 2.0,
+      "probability": 0.465
+    },
+    {
+      "word": " L\u00e2m.",
+      "start": 2.0,
+      "end": 2.24,
+      "probability": 0.905
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 2.4,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

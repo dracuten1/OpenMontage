@@ -1,0 +1,83 @@
+{
+  "version": "1.0",
+  "package_id": "vnmyth-s2e03-research-v1",
+  "created_at": "2026-10-18T19:08:07.197678+00:00",
+  "immutable_policy": "Do not edit sealed inputs in place; new evidence or content changes require v2.",
+  "files": [
+    {
+      "path": "QA_REPORT.json",
+      "bytes": 1241,
+      "sha256": "6ab3f33a60dd42116362ba3d08513c2bc1ac62aec1e2365a9f5367bac92fc28a"
+    },
+    {
+      "path": "approval_policy.json",
+      "bytes": 1141,
+      "sha256": "a9d7cbeafb68d70ecd842b2e7384ac42d012ecb15cdd367aff070ab90cb59e7a"
+    },
+    {
+      "path": "citation_ledger.json",
+      "bytes": 8247,
+      "sha256": "8d431187f71a54c2d33fd13e4ee3bf59846872582b4f4bc183f3131a55b7a676"
+    },
+    {
+      "path": "claim_ledger.json",
+      "bytes": 15563,
+      "sha256": "f95bf8c1b0e454960dd351d1a0ba69aef5b7d2d756e450db1383b4a84d410635"
+    },
+    {
+      "path": "evidence/linh-nam-chich-quai-2015.pdf",
+      "bytes": 2865395,
+      "sha256": "40e96786fa3ede3a48b21ee43f5c41b6770cb861117d0fe1d298b61535e3de92"
+    },
+    {
+      "path": "evidence/source_01.txt",
+      "bytes": 9587,
+      "sha256": "5197ef280710c340fdd553bc0dcb450cfd0fbb4e4f09bda2e45ff19a53859211"
+    },
+    {
+      "path": "evidence/source_02.txt",
+      "bytes": 407070,
+      "sha256": "2cb5cefb8409c5006342581fc4058436e13218bb444c10c7673734eaa57cf286"
+    },
+    {
+      "path": "evidence/source_03.txt",
+      "bytes": 27776,
+      "sha256": "60bed22fe20f8a63755c7b47982950748d7fe0631c8a7c9a53f1bc1810b17434"
+    },
+    {
+      "path": "evidence/source_04_pdf_text.txt",
+      "bytes": 128739,
+      "sha256": "9e1f25b40891c1f80f905456d8d3a87bc8ea3150876acd24c86faf88447b1146"
+    },
+    {
+      "path": "evidence/source_05.txt",
+      "bytes": 10707,
+      "sha256": "73a168a039826551c1b6ab44e46b223b3f4319fb45be09caca61bdb7895de426"
+    },
+    {
+      "path": "evidence/source_07.txt",
+      "bytes": 10169,
+      "sha256": "9914bfd4ad17d53f149ccbc0605ad6ad5f280c16b9507a4eafe487f07ef0d62e"
+    },
+    {
+      "path": "raw_data.json",
+      "bytes": 2451,
+      "sha256": "91dbd539d4bcab474d84062fdbbea92a5a9959cdc8841c71062c54430a144766"
+    },
+    {
+      "path": "research_brief.json",
+      "bytes": 17573,
+      "sha256": "dc9b7774492ec80a44ad9b005f71c4113f13d54166ed56468c388f650feff420"
+    },
+    {
+      "path": "research_notes.md",
+      "bytes": 11222,
+      "sha256": "d194e5a82438890f593684086199622892ad66c0d2bf649aed7b355cd66b2b36"
+    },
+    {
+      "path": "user_brief.md",
+      "bytes": 6904,
+      "sha256": "7796577d601e11b01da7ec169e1255e0cc2c1512143181844d3ac3fa6dc6f100"
+    }
+  ]
+}

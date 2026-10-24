@@ -1,0 +1,179 @@
+{
+  "version": "1.0",
+  "style_playbook": "flat-motion-graphics",
+  "scenes": [
+    {
+      "id": "S1",
+      "type": "diagram",
+      "description": "Hook Champi. SVG xoáy bão trừu tượng line-art (MINH HỌA, nhãn MINH HỌA) sau vùng title. Title 'SIÊU BÃO CHAMPI' + sub 'Mạnh nhất hành tinh năm 2026'; stat '210 km/h — cấp 16, giật trên cấp 17' (số coral, nguyên giá trị, không countup); chips: Đài Loan đóng cửa chứng khoán/trường học — chuyến bay đảo lộn; Hướng sang Nhật Bản; stat 'Biển Đông: ít khả năng bão vào — gió cấp 8–9, sóng 4–6 m'. Nền navy tĩnh.",
+      "script_section_id": "S1",
+      "movement": "Reveal từng element theo word timestamps thật (speech-lock); camera TĨNH tuyệt đối trong shot",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Captions nguyên văn section; Nguồn: bản tin tổng hợp ngày 22/10/2026; badge NHẬN ĐỊNH ở S6a/S6b",
+      "narrative_role": "introduce_subject",
+      "required_assets": [],
+      "start_seconds": 0,
+      "end_seconds": 15
+    },
+    {
+      "id": "S2",
+      "type": "text_card",
+      "description": "Não mô cầu TPHCM: title 'CHÙM 5 CA NÃO MÔ CẦU', sub tử vong học sinh 12 tuổi; 2 stat rows (gần 100 người kháng sinh dự phòng; hơn 50.000 mũi vaccine trong 6 ngày). Không hình y tế gây sợ.",
+      "script_section_id": "S2",
+      "movement": "Reveal từng element theo word timestamps thật (speech-lock); camera TĨNH tuyệt đối trong shot",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Captions nguyên văn section; Nguồn: bản tin tổng hợp ngày 22/10/2026; badge NHẬN ĐỊNH ở S6a/S6b",
+      "narrative_role": "deliver_payload",
+      "required_assets": [],
+      "start_seconds": 15,
+      "end_seconds": 26
+    },
+    {
+      "id": "S3",
+      "type": "diagram",
+      "description": "Hormuz: SVG eo biển + mũi tên line-art (MINH HỌA). Title '7 TÀU CHỞ DẦU BỊ TẤN CÔNG', sub bốc cháy; chips Aramco sơ tán Dhahran; giá dầu thế giới bật mạnh. Không nêu bên tấn công.",
+      "script_section_id": "S3",
+      "movement": "Reveal từng element theo word timestamps thật (speech-lock); camera TĨNH tuyệt đối trong shot",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Captions nguyên văn section; Nguồn: bản tin tổng hợp ngày 22/10/2026; badge NHẬN ĐỊNH ở S6a/S6b",
+      "narrative_role": "deliver_payload",
+      "required_assets": [],
+      "start_seconds": 26,
+      "end_seconds": 35
+    },
+    {
+      "id": "S4",
+      "type": "text_card",
+      "description": "Xăng/dầu: title 'XĂNG GIẢM, DẦU TĂNG' + badge hiệu lực 15 giờ; 2 stat: E10 không cao hơn 25.213 đồng/lít; dầu tăng 444–1.238 đồng/lít. Không vẽ biểu đồ giá bịa.",
+      "script_section_id": "S4",
+      "movement": "Reveal từng element theo word timestamps thật (speech-lock); camera TĨNH tuyệt đối trong shot",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Captions nguyên văn section; Nguồn: bản tin tổng hợp ngày 22/10/2026; badge NHẬN ĐỊNH ở S6a/S6b",
+      "narrative_role": "deliver_payload",
+      "required_assets": [],
+      "start_seconds": 35,
+      "end_seconds": 43
+    },
+    {
+      "id": "S5",
+      "type": "text_card",
+      "description": "Nasdaq: title 'NASDAQ GIẢM GẦN 2%'; chip nghi ngờ chi tiêu AI + giá dầu; stats Tesla/Meta lao dốc, IBM −7% dù doanh thu vượt dự báo. Giữ 'gần' và 'dù'.",
+      "script_section_id": "S5",
+      "movement": "Reveal từng element theo word timestamps thật (speech-lock); camera TĨNH tuyệt đối trong shot",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Captions nguyên văn section; Nguồn: bản tin tổng hợp ngày 22/10/2026; badge NHẬN ĐỊNH ở S6a/S6b",
+      "narrative_role": "evidence",
+      "required_assets": [],
+      "start_seconds": 43,
+      "end_seconds": 52
+    },
+    {
+      "id": "S6a",
+      "type": "text_card",
+      "description": "Panel NHẬN ĐỊNH (viền coral trái, badge coral suốt scene): bão ít vào Biển Đông nhưng sóng 4–6 m vẫn nguy hiểm; hết tháng 10 chưa có bão mới.",
+      "script_section_id": "S6a",
+      "movement": "Reveal từng element theo word timestamps thật (speech-lock); camera TĨNH tuyệt đối trong shot",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Captions nguyên văn section; Nguồn: bản tin tổng hợp ngày 22/10/2026; badge NHẬN ĐỊNH ở S6a/S6b",
+      "narrative_role": "resolution",
+      "required_assets": [],
+      "start_seconds": 52,
+      "end_seconds": 61
+    },
+    {
+      "id": "S6b",
+      "type": "text_card",
+      "description": "Panel NHẬN ĐỊNH tiếp: xăng giảm — dầu tăng, chi phí vận chuyển chưa chắc hạ; não mô cầu 50.000 mũi/6 ngày, chủ động tiêm chủng.",
+      "script_section_id": "S6b",
+      "movement": "Reveal từng element theo word timestamps thật (speech-lock); camera TĨNH tuyệt đối trong shot",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Captions nguyên văn section; Nguồn: bản tin tổng hợp ngày 22/10/2026; badge NHẬN ĐỊNH ở S6a/S6b",
+      "narrative_role": "resolution",
+      "required_assets": [],
+      "start_seconds": 61,
+      "end_seconds": 72
+    },
+    {
+      "id": "S7",
+      "type": "text_card",
+      "description": "Outro trung tính: 'TIN NHANH 22/10/2026' + chip theo dõi.",
+      "script_section_id": "S7",
+      "movement": "Reveal từng element theo word timestamps thật (speech-lock); camera TĨNH tuyệt đối trong shot",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Captions nguyên văn section; Nguồn: bản tin tổng hợp ngày 22/10/2026; badge NHẬN ĐỊNH ở S6a/S6b",
+      "narrative_role": "call_to_action",
+      "required_assets": [],
+      "start_seconds": 72,
+      "end_seconds": 75
+    }
+  ],
+  "metadata": {
+    "status": "brief_authorized_draft_run",
+    "editorial_draft_only": false,
+    "native_human_approved": true,
+    "stage_advancement": true,
+    "generate_assets": true,
+    "render_allowed": true,
+    "timing_status": "Numeric timeline values are editorial budgets pending real per-word audio timestamps; no proportional frame inference.",
+    "anchor_rules": "narration_led_graphics; sealed local digest text is evidence; SVG minh họa phải gắn nhãn MINH HỌA, không phải bằng chứng",
+    "support_rules": "source/support blend never represents illustration as evidence",
+    "overlay_density_limits": "One main claim card, one status/illustration badge, one source line and captions; HUD debug riêng dưới panel",
+    "safe_zones": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "fps": 30,
+      "content_x_min": 70,
+      "content_x_max": 930,
+      "panel_bottom_max": 1550,
+      "captions_box": [
+        70,
+        1240,
+        930,
+        1450
+      ],
+      "source_box": [
+        70,
+        1480,
+        930,
+        1530
+      ],
+      "hud_box": [
+        70,
+        1570,
+        930,
+        1620
+      ],
+      "notes": "Planning bounds. Editorial content ends 1550; debug HUD below panel, draft-only."
+    },
+    "variant_rules": "Vertical only; no unrequested square/horizontal variants",
+    "palette": {
+      "navy": "#0F172A",
+      "coral": "#FF7F6E",
+      "text": "#F8FAFC"
+    },
+    "quality_requirements": [
+      "Contrast >=4.5:1 cho captions/source/HUD",
+      "Dấu tiếng Việt đọc được trên mobile",
+      "Số liệu hiển thị NGUYÊN VĂN whitelist, không countup số hook",
+      "Reveal sync ±0.3s theo word timestamps thật",
+      "Badge NHẬN ĐỊNH scene-persistent ở S6a/S6b"
+    ],
+    "music": {
+      "demo": "none",
+      "full": "voice-only (lane precedent)"
+    },
+    "runtime": "remotion (standing news-lane standard, brief 'camera/compose theo chuẩn hiện hành')",
+    "display_whitelist": "whitelist.json; captions inherit exact script section text",
+    "approval": "Owner brief 2026-10-22 (draft-HUD delivery authorized)"
+  }
+}

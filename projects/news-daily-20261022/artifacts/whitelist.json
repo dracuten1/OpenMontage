@@ -1,0 +1,156 @@
+{
+  "status": "brief_authorized_draft_run",
+  "editorial_draft_only": false,
+  "line_numbering": "1-based physical lines including blanks",
+  "source_manifest": [
+    "inputs/20261022T204219+0700/latest-vn.md",
+    "inputs/20261022T204219+0700/latest-world.md"
+  ],
+  "evidence_level": "sealed_local_digest_only; 2 whitelist files are the ONLY permitted facts",
+  "claims": [
+    {
+      "id": "VN-typhoon",
+      "section": "S1",
+      "classification": "source_supported_news",
+      "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-vn.md",
+      "sealed_file": "inputs/20261022T204219+0700/latest-vn.md",
+      "line": 4,
+      "exact_quote": "- **Siêu bão Champi gây sóng cao 6m vùng Biển Đông:** bão mạnh nhất tây bắc Thái Bình Dương năm 2026 (gió 210 km/h, cấp 16 giật trên cấp 17) ít khả năng vào Biển Đông, nhưng hoàn lưu khiến đông bắc Biển Đông gió cấp 8-9, giật 10-11, sót cao 4-6m. Từ nay đến hết tháng 10 chưa có dấu hiệu bão mới.",
+      "qualifiers": [
+        "'ít khả năng vào Biển Đông' KHÔNG phải 'không vào'",
+        "sóng 4-6m là vùng đông bắc Biển Đông",
+        "chưa có dấu hiệu bão mới chỉ đến hết tháng 10"
+      ],
+      "forbidden": [
+        "bão đổ bộ Việt Nam",
+        "bão vào Biển Đông",
+        "sóng cao 6m tại bờ biển Việt Nam"
+      ]
+    },
+    {
+      "id": "W-champi",
+      "section": "S1",
+      "classification": "source_supported_news",
+      "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-world.md",
+      "sealed_file": "inputs/20261022T204219+0700/latest-world.md",
+      "line": 8,
+      "exact_quote": "- **Siêu bão Champi — mạnh nhất hành tinh năm 2026 — áp sát Đài Loan** — chứng khoán và trường học Đài Loan đóng cửa, chuyến bay đảo lộn, dự kiến hướng sang Nhật Bản.",
+      "qualifiers": [
+        "'mạnh nhất hành tinh năm 2026' theo bản tin thế giới",
+        "đóng cửa/đảo lộn là trạng thái tại thời điểm bản tin"
+      ],
+      "forbidden": [
+        "Champi đã đổ bộ Đài Loan/Nhật Bản",
+        "thiệt hại nhân mạng"
+      ]
+    },
+    {
+      "id": "VN-meningitis",
+      "section": "S2",
+      "classification": "source_supported_news",
+      "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-vn.md",
+      "sealed_file": "inputs/20261022T204219+0700/latest-vn.md",
+      "line": 8,
+      "exact_quote": "- **TPHCM: chùm 5 ca não mô cầu, một học sinh 12 tuổi tử vong:** gần 100 người tiếp xúc gần được uống kháng sinh dự phòng; lo ngại lây trong trường học khiến hơn 50.000 mũi vaccine não mô cầu được tiêm chỉ trong 6 ngày.",
+      "qualifiers": [
+        "chùm 5 ca, không phải dịch toàn thành phố",
+        "kháng sinh là DỰ PHÒNG cho người tiếp xúc gần",
+        "50.000+ mũi trong 6 ngày là số tiêm thực tế"
+      ],
+      "forbidden": [
+        "dịch bùng phát toàn quốc",
+        "yêu cầu tiêm khẩn cấp cho mọi người"
+      ]
+    },
+    {
+      "id": "W-tankers",
+      "section": "S3",
+      "classification": "source_supported_news",
+      "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-world.md",
+      "sealed_file": "inputs/20261022T204219+0700/latest-world.md",
+      "line": 4,
+      "exact_quote": "- **7 tàu chở dầu bị tấn công ở eo biển Hormuz** — nhiều tàu bốc cháy/hư hỏng sau đợt tấn công qua đêm, nỗi lo chiến tranh tái diễn đẩy giá dầu bật mạnh.",
+      "qualifiers": [
+        "không nêu bên tấn công trong nguồn",
+        "giá dầu 'bật mạnh' là mô tả xu hướng, không có % cụ thể"
+      ],
+      "forbidden": [
+        "gán trách nhiệm cho nước/bên cụ thể",
+        "% tăng giá dầu bịa"
+      ]
+    },
+    {
+      "id": "W-aramco",
+      "section": "S3",
+      "classification": "source_supported_news",
+      "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-world.md",
+      "sealed_file": "inputs/20261022T204219+0700/latest-world.md",
+      "line": 5,
+      "exact_quote": "- **Aramco sơ tán nhân viên khỏi trụ sở Dhahran** — Mỹ–Israel được cho là cân nhắc đòn đánh mới vào Iran; Trump tuyên bố \"sẽ sớm có chuyện xảy ra\".",
+      "qualifiers": [
+        "'được cho là' = đồn đoán, KHÔNG đưa vào narration",
+        "chỉ dùng fact sơ tán Dhahran"
+      ],
+      "forbidden": [
+        "trích Trump như lời xác nhận",
+        "đếm số nhân viên sơ tán"
+      ]
+    },
+    {
+      "id": "VN-fuel",
+      "section": "S4",
+      "classification": "source_supported_news",
+      "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-vn.md",
+      "sealed_file": "inputs/20261022T204219+0700/latest-vn.md",
+      "line": 13,
+      "exact_quote": "- **Xăng giảm, dầu tăng từ 15h hôm nay:** xăng E10 không cao hơn 25.213 đồng/lít, các loại dầu tăng 444-1.238 đồng.",
+      "qualifiers": [
+        "'không cao hơn' = mức trần điều hành",
+        "hiệu lực từ 15h ngày 22/10/2026",
+        "dầu tăng 444–1.238 đồng/lít"
+      ],
+      "forbidden": [
+        "xăng RON95-III có số cụ thể (nguồn không có)",
+        "'giảm X đồng' khi nguồn chỉ đưa mức trần mới"
+      ]
+    },
+    {
+      "id": "W-nasdaq",
+      "section": "S5",
+      "classification": "source_supported_news",
+      "original_path": "/Users/tuyennguyen/.hermes/cron/output/news-daily/latest-world.md",
+      "sealed_file": "inputs/20261022T204219+0700/latest-world.md",
+      "line": 14,
+      "exact_quote": "- **Phái sinh Nasdaq giảm gần 2%** — nghi ngờ chi tiêu AI cộng giá dầu tăng khiến Tesla, Meta lao dốc; IBM mất 7% dù doanh thu vượt dự báo.",
+      "qualifiers": [
+        "'gần 2%' giữ 'gần'",
+        "IBM mất 7% DÙ doanh thu vượt dự báo",
+        "nguyên nhân là 'nghi ngờ' — không khẳng định"
+      ],
+      "forbidden": [
+        "Nasdaq sập",
+        "khuyến nghị mua/bán"
+      ]
+    },
+    {
+      "id": "commentary",
+      "section": "S6a+S6b",
+      "classification": "editorial_commentary",
+      "source": "editorial layer interpreting whitelisted facts only",
+      "rules": [
+        "chỉ diễn giải fact đã có trong whitelist",
+        "badge NHẬN ĐỊNH trên hình",
+        "góc nhìn người đi làm 25-35, giọng trung tính"
+      ]
+    },
+    {
+      "id": "cta",
+      "section": "S7",
+      "classification": "editorial_date_count_or_cta",
+      "source": "editorial",
+      "rules": [
+        "CTA trung tính, không cam kết"
+      ]
+    }
+  ]
+}

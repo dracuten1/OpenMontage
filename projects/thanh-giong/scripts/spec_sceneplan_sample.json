@@ -1,0 +1,85 @@
+{
+ "_note": "MẪU FORMAT scene.json scenes[] — giữ đúng keys, viết nội dung mới cho S2E01.",
+ "metadata_keys": [
+  "total_duration_seconds",
+  "scene_count",
+  "scene_types_breakdown",
+  "scene_types_used",
+  "consecutive_same_type_max",
+  "renderer_family",
+  "render_runtime",
+  "composition_mode",
+  "speech_lock_note",
+  "narration_order_rule_verified",
+  "layer_separation_device",
+  "focal_visual_rule_compliance",
+  "asset_plan",
+  "numbers_whitelist_compliance",
+  "engine_constraints_acknowledged",
+  "ep_continuity_compliance",
+  "scene_index_note"
+ ],
+ "style_playbook": "ink-genome",
+ "scene_sample_1": {
+  "id": "sc001",
+  "type": "text_card",
+  "description": "MỞ TẬP — HERO TITLE: 'VN-MYTH — Xi Vưu: vị tổ chung của ba tộc người?'. Nền giấy dó sẫm, tiêu đề kem nhấn hổ phách, chữ Hán display 蚩尤 góc trên; nét mực vẽ MỘT lá cờ chiến giương giữa sương mù chiến trường phía dưới tiêu đề, cờ phất nhẹ khi narration đọc 'vẽ hình ông lên lá cờ'. Render template intent: hero_title + cờ ink stroke. Subject: lá cờ ink + tiêu đề. Subject motion: title spring-down → stroke vẽ cờ → cờ phất theo nhịp narration. Scene: giấy dó sẫm, texture sợi mỏng, sương mù mực ấm. Camera: N/A — Remotion native.",
+  "start_seconds": 0.0,
+  "end_seconds": 14.0,
+  "script_section_id": "s01",
+  "framing": "Khối tiêu đề căn giữa, lá cờ ink phía dưới tiêu đề, nhiều khoảng trống",
+  "movement": "Title spring-down → nét mực vẽ lá cờ theo stroke → cờ phất nhẹ; display 蚩尤 fade khi tên được nhắc",
+  "transition_in": "fade",
+  "transition_out": "dissolve",
+  "overlay_notes": "Speech-lock anchors: «thua trận» · «chia nhau mang đi» · «vẽ hình ông lên lá cờ» · «dẹp loạn». Speech-lock: timing cuối cùng khóa theo timestamp từng từ ASR narration_words.json (stage assets) — KHÔNG ước lượng theo số từ; duration hiện tại chỉ là provisional budget. Số/chữ Hán trên màn chỉ từ numbers_allowed_on_screen (digest).",
+  "shot_language": {
+   "shot_size": "medium_close",
+   "camera_movement": "static",
+   "lighting_key": "low_key",
+   "depth_of_field": "deep",
+   "color_temperature": "warm"
+  },
+  "shot_intent": "Mở tập bằng device cờ + gương — kẻ thua trận được vẽ lên cờ kẻ thắng, tiền đề cả tập gieo ngay giây đầu",
+  "narrative_role": "establish_context",
+  "information_role": "Mở tập bằng device cờ + gương — kẻ thua trận được vẽ lên cờ kẻ thắng, tiền đề cả tập gieo ngay giây đầu",
+  "hero_moment": false,
+  "texture_keywords": [
+   "myth_amber",
+   "giấy dó sẫm",
+   "mực kem",
+   "grain film mỏng"
+  ],
+  "required_assets": []
+ },
+ "scene_sample_2": {
+  "id": "sc004",
+  "type": "diagram",
+  "description": "SƠ ĐỒ MỚI — NÉT ĐẦU: sơ đồ tổ tông Ep.01 hiện mờ làm nền rồi mờ đi; sơ đồ mới 'Xi Vưu → Cửu Lê → Tam Miêu → Bách Việt' bắt đầu vẽ nét đầu trên giấy dó (chưa hoàn chỉnh — để hồi 3 mổ), mỗi ô một chữ Hán display (蚩尤 九黎 三苗 百越) khi nét chạm. Render template intent: progressive-reveal node chain, code-drawn, chữ Remotion typography. Subject: chuỗi 4 ô nối mũi tên. Subject motion: ô gốc vẽ trước → 3 mũi tên nhạt kéo dài (dở dang). Scene: giấy dó. Camera: N/A.",
+  "start_seconds": 46.0,
+  "end_seconds": 62.0,
+  "script_section_id": "s02",
+  "framing": "Chuỗi ngang căn giữa, sơ đồ Ep.01 mờ phía sau",
+  "movement": "Progressive reveal trái→phải, mũi tên cuối chừa dở",
+  "transition_in": "dissolve",
+  "transition_out": "wipe_ink",
+  "overlay_notes": "Speech-lock anchors: «sơ đồ Rồng Tiên» · «sơ đồ mang tên một kẻ thua trận» · «ba tộc người cùng nhận ông làm tổ».",
+  "shot_language": {
+   "shot_size": "medium",
+   "camera_movement": "static",
+   "lighting_key": "low_key",
+   "depth_of_field": "deep",
+   "color_temperature": "warm"
+  },
+  "shot_intent": "Chuyển giao từ sơ đồ cũ (Rồng Tiên) sang sơ đồ mới (Xi Vưu) — gây tò mò chưa phán",
+  "narrative_role": "build_tension",
+  "information_role": "Chuyển giao từ sơ đồ cũ (Rồng Tiên) sang sơ đồ mới (Xi Vưu) — gây tò mò chưa phán",
+  "hero_moment": false,
+  "texture_keywords": [
+   "giay_do_cothu",
+   "mực kem",
+   "mũi tên đỏ",
+   "ink_stroke"
+  ],
+  "required_assets": []
+ }
+}

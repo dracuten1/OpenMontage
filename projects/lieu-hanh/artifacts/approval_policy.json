@@ -1,0 +1,33 @@
+{
+ "version": "1.0",
+ "request": "Tiếp tục research và tạo video cho vnmyth ss2 ep3 (S2E03 đã final 10-19) → mặc định mở S2E04 theo roadmap sau clarify không phản hồi",
+ "date": "2026-10-20",
+ "scope": "S2E04 Liễu Hạnh theo SEASON-02-ROADMAP; không phải quyền tự duyệt mọi cửa hoặc toàn mùa.",
+ "gate_A": {
+  "status": "roadmap_duyệt_hướng_A_và_lineup_8_tập; clarify user 10-20 không phản hồi trong 10 phút → default next episode",
+  "topic": "Liễu Hạnh — vì sao một người phụ nữ được đứng trong hàng Tứ bất tử?"
+ },
+ "gate_B": {
+  "status": "pending_owner_review",
+  "allowed_now": [
+   "validate/import research",
+   "proposal/hook options",
+   "script review draft with no generated assets"
+  ],
+  "requires_explicit_approval": [
+   "TTS batch",
+   "image batch",
+   "full production render"
+  ]
+ },
+ "demo_gate": "Sau khi duyệt research/script, một cảnh demo được duyệt trước batch.",
+ "gate_C": "Draft HUD 720p + scene index, speech-locked timestamps, independent QC.",
+ "gate_D": "Owner duyệt final và tự upload, không auto-post.",
+ "budget_incremental_generation_usd": 0,
+ "no_external_research_after_seal": true,
+ "references": [
+  "SEASON-02-ROADMAP.md §3 S2E04, §6, §8",
+  "SEASON-02-BIBLE.md",
+  "video-producer skill"
+ ]
+}

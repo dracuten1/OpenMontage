@@ -1,0 +1,134 @@
+{
+  "version": "1.0",
+  "title": "Bạo loạn Pháp 10/2026 — đêm 17/10",
+  "total_duration_seconds": 118,
+  "metadata": {
+    "project_id": "france-riots-20261023",
+    "language": "vi",
+    "platform": "tiktok",
+    "aspect": "9:16",
+    "audience": "người đi làm 25-35",
+    "sources": "inputs/research_brief.md (đã duyệt) + evidence/ 13 file",
+    "hook_owner_approved": "Cách Điện tổng thống Pháp 200m, đám đông đã dựng barricade. Đây là chuyện đã xảy ra.",
+    "qa_notes": "KHÔNG dùng số ngoài whitelist brief. Gần 2.400 kèm 'theo tổng kê của giới chức'. 900 trường học + 30.000 kẻ cướp Marseille + thương vong (đột quỵ Q10, cụt tay Saint-Étienne) được BỎ ra khỏi video cho an toàn fact (medium confidence / nhạy cảm). Chart 2026 ghi 'ước tính'."
+  },
+  "sections": [
+    {
+      "id": "S1",
+      "label": "HOOK (owner duyệt nguyên văn)",
+      "text": "Cách Điện tổng thống Pháp 200m, đám đông đã dựng barricade. Đây là chuyện đã xảy ra. Đêm 17/10, ở Paris.",
+      "start_seconds": 0,
+      "end_seconds": 6,
+      "speaker_directions": "Hook nguyên văn owner; đọc chậm rãi, dứt khoát; không giật gân thêm.",
+      "source_ref": "whitelist.json#W-elysee-200m"
+    },
+    {
+      "id": "S2",
+      "label": "Nguyên nhân — học sinh (T9)",
+      "text": "Từ tháng 9, học sinh xuống đường vì thiếu giáo viên, cắt vị trí trong ngân sách 2027, và đòi bỏ nền tảng tuyển sinh Parcoursup.",
+      "start_seconds": 6,
+      "end_seconds": 16,
+      "speaker_directions": "Giọng kể chuyện, trung tính; 'thiếu giáo viên' nhấn nhẹ.",
+      "source_ref": "whitelist.json#W-causes"
+    },
+    {
+      "id": "S3",
+      "label": "Lan toàn quốc + lời kêu gọi TikTok",
+      "text": "Người lao động, áo vàng cũng nhập cuộc. Ngày 16/10, trang đảng bị hack. Lời kêu gọi trên TikTok của tài khoản V2 kèm bản đồ điểm tập hợp và barricade.",
+      "start_seconds": 16,
+      "end_seconds": 27,
+      "speaker_directions": "Nhấn 'bản đồ cộng tác' — chi tiết sốc; không tên thật creator (nguồn không có).",
+      "source_ref": "whitelist.json#W-spread+whitelist.json#W-tiktok-call"
+    },
+    {
+      "id": "S4",
+      "label": "Đêm 17/10 — quy mô (stat card)",
+      "text": "Thứ Bảy 17/10, cả nước có 550.000 người tuần hành theo Bộ Nội vụ, trong 110 cuộc biểu tình, riêng Paris là 110.000. Ban tổ chức nói con số lên tới 800.000.",
+      "start_seconds": 27,
+      "end_seconds": 36,
+      "speaker_directions": "Số liệu đọc rõ từng chữ số; 'theo Bộ Nội vụ' và 'ban tổ chức' tách nguồn rõ ràng.",
+      "source_ref": "whitelist.json#W-scale"
+    },
+    {
+      "id": "S5",
+      "label": "Paris — Élysée 200m",
+      "text": "Tại Paris, đám đông tiến tới cách Điện Élysée 200 mét, dựng barricade ngay trên đại lộ Champs-Élysées. Khi đoàn tuần hành tan, hàng chục cửa hàng bị đập phá và cướp.",
+      "start_seconds": 36,
+      "end_seconds": 44,
+      "speaker_directions": "Kể sự kiện, không phóng đại; 'hàng chục' giữ nguyên quy mô nguồn.",
+      "source_ref": "whitelist.json#W-elysee-200m+whitelist.json#W-paris-looting"
+    },
+    {
+      "id": "S6",
+      "label": "Các thành phố (map)",
+      "text": "Sau Paris, Limoges mất toà thị chính khánh thành năm 1883 — nó bị phóng hỏa, mái vòm và tháp chuông sụp: chính quyền gọi là thảm họa di sản. Lyon ghi nhận 200–300 cửa hàng bị đập phá. Marseille chứng kiến đám đông xông vào toà thị chính.",
+      "start_seconds": 44,
+      "end_seconds": 54,
+      "speaker_directions": "Mỗi thành phố một nhịp; 'thảm họa di sản' là lời chính quyền, giữ ngoặc cảm.",
+      "source_ref": "whitelist.json#W-limoges+whitelist.json#W-lyon+whitelist.json#W-marseille"
+    },
+    {
+      "id": "S7",
+      "label": "Bilan (stat cards)",
+      "text": "Đêm đó, 1.200 người bị bắt, riêng vùng Paris 855. Sau các ngày truy quét, tổng cộng lên tới gần 2.400, theo tổng kê của giới chức. 997 cảnh sát bị thương. Và khoảng 3.000 cửa hàng bị cướp, đập phá.",
+      "start_seconds": 54,
+      "end_seconds": 65,
+      "speaker_directions": "'Gần 2.400' + 'theo tổng kê của giới chức' luôn đi cùng nhau (QA flag).",
+      "source_ref": "whitelist.json#W-arrests+whitelist.json#W-police-injured+whitelist.json#W-shops"
+    },
+    {
+      "id": "S8",
+      "label": "Chart thiệt hại bảo hiểm (bar zero-based)",
+      "text": "Ngành bảo hiểm ước tính thiệt hại đêm 17/10 cỡ 1 tỷ euro — so với 795 triệu euro của bạo loạn 2023, và 256 triệu euro của áo vàng 2018–2019. Đợt đắt nhất lịch sử hiện đại của Pháp.",
+      "start_seconds": 65,
+      "end_seconds": 75,
+      "speaker_directions": "Ba con số đọc chậm; 'ước tính' là bắt buộc; kết bằng 'đắt nhất lịch sử hiện đại'.",
+      "source_ref": "whitelist.json#W-insurance-chart"
+    },
+    {
+      "id": "S9",
+      "label": "Chính phủ phản ứng",
+      "text": "Tối hôm sau, Tổng thống Macron lên truyền hình trong cơn giận, hứa không khoan nhượng với người đập phá. Bộ trưởng Nội vụ Nuñez nộp đơn từ chức — nhưng bị từ chối. Đến 22/10, chính phủ cấm các cuộc biểu tình bất hợp pháp.",
+      "start_seconds": 75,
+      "end_seconds": 84,
+      "speaker_directions": "Trích 'không khoan nhượng' là dịch của 'intraitable'; trung tính, không ám thị.",
+      "source_ref": "whitelist.json#W-government"
+    },
+    {
+      "id": "S10",
+      "label": "Timeline ngang + cliffhanger 24/10",
+      "text": "Từ tháng 9 đến 22/10, biểu tình leo thang rồi bị cấm. Hôm nay 23/10, hội đồng quốc phòng họp trước tổng huy động thứ Bảy 24/10. Lyon, Marseille, Nice đã cấm sẵn.",
+      "start_seconds": 84,
+      "end_seconds": 97,
+      "speaker_directions": "Nhịp dồn dập theo từng mốc; 'thứ Bảy 24/10' là đỉnh cliffhanger — chậm lại ở đây.",
+      "source_ref": "whitelist.json#W-timeline+whitelist.json#W-current"
+    },
+    {
+      "id": "S11",
+      "label": "Góc người Việt",
+      "text": "Ở Nice, du học sinh Trịnh Minh Hằng kể trường mình nằm trong khu vực biểu tình, sinh hoạt đảo lộn. Người Việt lâu năm không ngạc nhiên; người mới đến bị sốc khi thấy cảnh đốt phá.",
+      "start_seconds": 97,
+      "end_seconds": 104,
+      "speaker_directions": "Giọng gần gũi, chậm lại — câu chuyện người thật.",
+      "source_ref": "whitelist.json#W-vn-angle"
+    },
+    {
+      "id": "S12",
+      "label": "NHẬN ĐỊNH (badge riêng)",
+      "text": "Nhận định: sáu tháng trước bầu cử 2027, sống đắt thành khủng hoảng chính trị. Với người đi làm, đây là lời nhắc cần đệm chi phí cá nhân.",
+      "start_seconds": 104,
+      "end_seconds": 114,
+      "speaker_directions": "Giọng bình luận tách bạch khỏi tin (badge NHẬN ĐỊNH trên hình); không dự báo thêm.",
+      "source_ref": "whitelist.json#W-nhandinh"
+    },
+    {
+      "id": "S13",
+      "label": "CTA",
+      "text": "Theo dõi, để xem thứ Bảy 24/10 chuyện gì sẽ xảy ra.",
+      "start_seconds": 114,
+      "end_seconds": 118,
+      "speaker_directions": "Ngắn, kết lại; trỏ về cliffhanger 24/10.",
+      "source_ref": "whitelist.json#W-current"
+    }
+  ]
+}

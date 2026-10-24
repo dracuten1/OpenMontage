@@ -1,0 +1,29 @@
+{
+ "version": "1.0",
+ "entries": [
+  {
+   "platform": "youtube",
+   "status": "exported",
+   "export_path": "/Users/tuyennguyen/project/OpenMontage/exports/video/vn-myth-s2e04-lieu-hanh-1080p.mp4",
+   "timestamp": "2026-10-21T04:05:00+00:00",
+   "metadata_used": {
+    "title": "Liễu Hạnh — bốn con dấu, một chữ Mẫu | Thần thoại Việt Nam S2 · Tập 4",
+    "description_file": "/Users/tuyennguyen/project/OpenMontage/projects/lieu-hanh/deliverables/YOUTUBE_DESCRIPTION.md",
+    "timestamps": "speech-locked per-section, see description file",
+    "tags": "thần thoại việt nam, liễu hạnh, phủ dầy, tứ bất tử, phan kế bính, phùng khắc khoan, vũ trung tùy bút, tín ngưỡng mẫu, văn hóa dân gian, lịch sử việt nam"
+   }
+  },
+  {
+   "platform": "telegram",
+   "status": "exported",
+   "timestamp": "2026-10-21T04:10:00+00:00",
+   "video_id": "420",
+   "export_path": "/Users/tuyennguyen/project/OpenMontage/exports/video/vn-myth-s2e04-lieu-hanh-preview-720p.mp4"
+  }
+ ],
+ "metadata": {
+  "not_published": true,
+  "owner_manual_upload": true,
+  "note": "Board backfill + canonical export bundle 2026-10-21; Telegram DM msg 420/421/422 already delivered"
+ }
+}

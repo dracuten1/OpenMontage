@@ -1,0 +1,2098 @@
+{
+  "version": "1.0",
+  "project_id": "lieu-hanh",
+  "pipeline_type": "animated-explainer",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-10-21T04:18:31.539955+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "s2-ink-genome-lieu-hanh",
+      "scenes": [
+        {
+          "id": "sc001",
+          "type": "generated",
+          "description": "Ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n th\u00e1ng Ba v\u1ebd m\u1ef1c t\u00e0u n\u00e2u chuy\u1ec3n teal tr\u00ean gi\u1ea5y d\u00f3: kh\u00f3e c\u1eeda hi\u1ec7n d\u1ea7n, ba n\u00e9n h\u01b0\u01a1ng nghi ng\u00fat, \u00e1nh n\u1eafng l\u1ec5 h\u1ed9i xa sau c\u1eeda. Ph\u1ee7 l\u1eddi quote C12 v\u1ec1 h\u1ed9i Ph\u1ee7 D\u1ea7y 3/3 \u00e2m l\u1ecbch (beat 1 c\u00e2u tr\u00edch).",
+          "start_seconds": 0.0,
+          "end_seconds": 12.5,
+          "script_section_id": "s01",
+          "framing": "wide, ng\u01b0\u1ee1ng c\u1eeda \u0111\u1eb7t l\u1ec7ch theo t\u1ef7 l\u1ec7 v\u00e0ng, ba n\u00e9n h\u01b0\u01a1ng \u1edf foreground",
+          "movement": "dolly_in ch\u1eadm qua ng\u01b0\u1ee1ng c\u1eeda",
+          "transition_in": "fade_from_black",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Ph\u1ee7 D\u1ea7y \u2014 3 th\u00e1ng 3 \u00e2m l\u1ecbch; Th\u00e1nh M\u1eabu Li\u1ec5u H\u1ea1nh (quote C12 verbatim, ngu\u1ed3n: vi.wiki Ph\u1ee7 D\u1ea7y) \u00abGhi ch\u00e9p v\u1ec1\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 35,
+            "lighting_key": "volumetric",
+            "depth_of_field": "medium",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "M\u1edf t\u1eadp b\u1eb1ng ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n \u2014 h\u00ecnh \u1ea3nh trung t\u00e2m c\u1ee7a c\u1ea3 t\u1eadp, \u0111\u1eb7t ng\u01b0\u1eddi xem tr\u01b0\u1edbc th\u1ef1c h\u00e0nh c\u00f2n s\u1ed1ng tr\u01b0\u1edbc khi v\u00e0o truy\u1ec7n",
+          "narrative_role": "establish_context",
+          "information_role": "Ghi ch\u00e9p l\u1ec5 h\u1ed9i: h\u1ed9i Ph\u1ee7 D\u1ea7y h\u00e0ng n\u0103m ng\u00e0y 3/3 \u00e2m l\u1ecbch, th\u1eafp h\u01b0\u01a1ng bi\u1ebft \u01a1n Th\u00e1nh M\u1eabu Li\u1ec5u H\u1ea1nh; h\u00ecnh l\u00e0 minh h\u1ecda kh\u00f4ng ph\u1ea3i quan s\u00e1t t\u1ea1i ch\u1ed7",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ef1c t\u00e0u",
+            "gi\u1ea5y d\u00f3",
+            "h\u01b0\u01a1ng kh\u00f3i",
+            "n\u00e2u sang teal"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n mi\u1ec1n B\u1eafc th\u00e1ng Ba v\u1ebd m\u1ef1c t\u00e0u tr\u00ean gi\u1ea5y d\u00f3, ba n\u00e9n h\u01b0\u01a1ng kh\u00f3i cu\u1ed3n cu\u1ed9n tr\u01b0\u1edbc c\u1eeda, t\u00f4ng n\u00e2u \u1ea5m chuy\u1ec3n teal, phong c\u00e1ch h\u1ed9i h\u1ecda tranh th\u1edd, kh\u00f4ng ng\u01b0\u1eddi, kh\u00f4ng ch\u1eef",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc002",
+          "type": "animation",
+          "description": "Khung c\u1eeda \u0111\u1ec1n Ph\u1ee7 D\u1ea7y thu th\u00e0nh n\u00e9t teal tr\u00ean gi\u1ea5y d\u00f3; m\u1ed9t trang truy\u1ec7n amber m\u1edf b\u00ean c\u1ea1nh, t\u00e1ch kh\u1ecfi h\u00ecnh th\u1eafp h\u01b0\u01a1ng. Ph\u1ee7 \u0111o\u1ea1n s01 t\u1eeb l\u1eddi x\u00e1c \u0111\u1ecbnh h\u00ecnh minh h\u1ecda \u0111\u1ebfn c\u00e2u h\u1ecfi v\u1ec1 ng\u01b0\u1eddi \u0111\u01b0\u1ee3c g\u1ecdi l\u00e0 M\u1eabu.",
+          "start_seconds": 12.5,
+          "end_seconds": 25.61,
+          "script_section_id": "s01",
+          "framing": "Hai m\u1ea3ng c\u1eeda \u0111\u1ec1n v\u00e0 trang s\u00e1ch c\u00f3 kho\u1ea3ng tr\u1eafng \u1edf gi\u1eefa",
+          "movement": "L\u00f9i m\u00e1y nh\u1eb9 \u0111\u1ec3 l\u1ed9 trang s\u00e1ch",
+          "transition_in": "cross_dissolve",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "H\u00ecnh minh h\u1ecda \u2014 kh\u00f4ng ph\u1ea3i quan s\u00e1t t\u1ea1i ch\u1ed7 \u00abT\u1eeb ghi ch\u00e9p\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "dolly_out",
+            "lens_mm": 35,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "\u0110\u1eb7t c\u00e2u h\u1ecfi v\u1ec1 danh x\u01b0ng m\u00e0 kh\u00f4ng d\u00f9ng \u1ea3nh \u0111\u1ec1n x\u00e1c nh\u1eadn nh\u00e2n v\u1eadt",
+          "narrative_role": "introduce_subject",
+          "information_role": "Th\u1ef1c h\u00e0nh th\u1edd v\u00e0 nh\u00e2n v\u1eadt trong truy\u1ec7n c\u1ea7n \u0111\u01b0\u1ee3c ph\u00e2n bi\u1ec7t",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "gi\u1ea5y d\u00f3",
+            "m\u1ef1c teal",
+            "amber"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Hai m\u1ea3ng minh h\u1ecda t\u00e1ch bi\u1ec7t tr\u00ean gi\u1ea5y d\u00f3: ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n n\u00e9t teal v\u00e0 trang s\u00e1ch tr\u1eafng vi\u1ec1n amber, m\u1ef1c t\u00e0u ti\u1ebft ch\u1ebf, kh\u00f4ng ch\u1eef",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc003",
+          "type": "generated",
+          "description": "B\u1ed1n con d\u1ea5u m\u1ef1c amber tr\u00ean gi\u1ea5y d\u00f3: n\u00fai (S\u01a1n Tinh), c\u1eadu b\u00e9 c\u1ea7m ng\u1ecdn roi (Th\u00e1nh Gi\u00f3ng), ng\u01b0\u1eddi v\u1edbi chi\u1ebfc kh\u1ed1 (Ch\u1eed \u0110\u1ed3ng T\u1eed) hi\u1ec7n m\u1edd; \u00f4 th\u1ee9 t\u01b0 \u0111\u1ec3 tr\u1ed1ng. Ph\u1ee7 \u0111o\u1ea1n s02 gi\u1edbi thi\u1ec7u T\u1ee9 b\u1ea5t t\u1eed.",
+          "start_seconds": 25.61,
+          "end_seconds": 42.0,
+          "script_section_id": "s02",
+          "framing": "B\u1ed1n con d\u1ea5u x\u1ebfp h\u00e0ng ngang, \u00f4 tr\u1ed1ng th\u1ee9 t\u01b0 n\u1ed5i b\u1eadt",
+          "movement": "pan_right theo th\u1ee9 t\u1ef1 hi\u1ec7n d\u1ea5u",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "T\u1ee9 b\u1ea5t t\u1eed \u2014 c\u00e1ch k\u1ec3 ph\u1ed5 bi\u1ebfn ng\u00e0y nay \u00abN\u1ebfu b\u1ea1n \u0111\u00e3\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "pan_right",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "K\u00edch ho\u1ea1t k\u00fd \u1ee9c series v\u00e0 d\u1eabn t\u1edbi \u00f4 tr\u1ed1ng \u2014 ng\u01b0\u1eddi ph\u1ee5 n\u1eef duy nh\u1ea5t s\u1eafp \u0111\u01b0\u1ee3c \u0111i\u1ec1n v\u00e0o",
+          "narrative_role": "introduce_subject",
+          "information_role": "B\u1ed1n c\u00e1i t\u00ean T\u1ee9 b\u1ea5t t\u1eed l\u00e0 c\u00e1ch k\u1ec3 ph\u1ed5 bi\u1ebfn \u0111\u01b0\u01a1ng \u0111\u1ea1i, kh\u00f4ng ph\u1ea3i b\u1ea3ng kh\u1eafc c\u1ed1 \u0111\u1ecbnh",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ef1c amber",
+            "con d\u1ea5u",
+            "gi\u1ea5y d\u00f3"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "B\u1ed1n con d\u1ea5u tri\u1ec7n m\u1ef1c t\u00e0u amber tr\u00ean gi\u1ea5y d\u00f3: n\u00fai, c\u1eadu b\u00e9 c\u1ea7m roi, ng\u01b0\u1eddi gi\u1eef chi\u1ebfc kh\u00f3, \u00f4 th\u1ee9 t\u01b0 tr\u1ed1ng \u0111\u1ec3 tr\u1ed1ng, phong c\u00e1ch tri\u1ec7n m\u1ed9c",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc004",
+          "type": "animation",
+          "description": "\u00d4 tr\u1ed1ng th\u1ee9 t\u01b0 \u0111\u01b0\u1ee3c \u0111i\u1ec1n b\u1eb1ng n\u00e9t m\u1ef1c n\u1eef nh\u00e2n m\u1eb7c \u00e1o \u0111\u1ecf dong d\u1ecfng, \u0111\u1ee9ng gi\u1eefa ba con d\u1ea5u; hai c\u00e2u h\u1ecfi bi\u00ean t\u1eadp hi\u1ec7n t\u1eebng ch\u1eef m\u1ef1c amber b\u00ean d\u01b0\u1edbi. Ph\u1ee7 n\u1eeda sau s02: danh s\u00e1ch ph\u1ed5 bi\u1ebfn + hai c\u00e2u h\u1ecfi trung t\u00e2m c\u1ee7a t\u1eadp.",
+          "start_seconds": 42.0,
+          "end_seconds": 58.1,
+          "script_section_id": "s02",
+          "framing": "\u0110\u00f3ng khung b\u1ed1n con d\u1ea5u, c\u00e2u h\u1ecfi \u1edf d\u1ea3i d\u01b0\u1edbi",
+          "movement": "T\u0129nh, ch\u1ec9 ch\u1eef hi\u1ec7n d\u1ea7n",
+          "transition_in": "hold",
+          "transition_out": "page_turn",
+          "overlay_notes": "V\u00ec sao m\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef \u0111\u01b0\u1ee3c \u0111\u1ee9ng trong h\u00e0ng T\u1ee9 b\u1ea5t t\u1eed? / M\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef tr\u1edf l\u1ea1i tr\u1ea7n gian \u2014 v\u00ec sao ng\u01b0\u1eddi \u0111\u1eddi ti\u1ebfp t\u1ee5c g\u1ecdi b\u00e0 l\u00e0 M\u1eabu? (ch\u1eef M\u1eabu nh\u1ea5n) \u00abNh\u01b0ng ch\u00ednh \u0111i\u1ec1u\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Ghim hai c\u00e2u h\u1ecfi \u0111\u1ecbnh h\u00ecnh to\u00e0n b\u1ed9 h\u00e0nh tr\u00ecnh t\u01b0 li\u1ec7u c\u1ee7a t\u1eadp",
+          "narrative_role": "build_tension",
+          "information_role": "Hai c\u00e2u h\u1ecfi bi\u00ean t\u1eadp s\u1ebd d\u1eabn d\u1eaft c\u1ea3 t\u1eadp, kh\u00f4ng tr\u1ea3 l\u1eddi s\u1edbm",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ef1c amber",
+            "th\u01b0 ph\u00e1p",
+            "gi\u1ea5y d\u00f3"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Con d\u1ea5u m\u1ef1c amber h\u00ecnh ng\u01b0\u1eddi ph\u1ee5 n\u1eef \u00e1o \u0111\u1ecf \u0111\u1ee9ng gi\u1eefa ba con d\u1ea5u m\u1edd, hai d\u1ea3i ch\u1eef m\u1ef1c t\u00e0u d\u01b0\u1edbi \u0111\u00e1y, phong c\u00e1ch tri\u1ec7n c\u1ed5 tr\u00ean gi\u1ea5y d\u00f3",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc005",
+          "type": "generated",
+          "description": "Trang gi\u1ea5y d\u00f3 amber m\u1edf ra, n\u00e9t m\u1ef1c vi\u1ebft t\u1ef1 nhi\u00ean hi\u1ec7n d\u00f2ng gi\u1edbi thi\u1ec7u 'Phan K\u1ebf B\u00ednh \u2014 Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n'; b\u00fat l\u00f4ng ch\u1ea5m m\u1ef1c \u1edf g\u00f3c. Ph\u1ee7 \u0111o\u1ea1n \u0111\u1ea7u s03: m\u1edf t\u1eeb trang s\u00e1ch.",
+          "start_seconds": 58.1,
+          "end_seconds": 74.0,
+          "script_section_id": "s03",
+          "framing": "Trang s\u00e1ch chi\u1ebfm to\u00e0n khung, \u0111\u1eb7t h\u01a1i nghi\u00eang nh\u01b0 \u0111ang \u0111\u1ecdc",
+          "movement": "tilt_down theo d\u00f2ng m\u1ef1c hi\u1ec7n",
+          "transition_in": "page_turn",
+          "transition_out": "hold",
+          "overlay_notes": "Phan K\u1ebf B\u00ednh \u2014 Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n \u00abC\u00e2u chuy\u1ec7n c\u1ee7a\u00bb",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "tilt_down",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Thi\u1ebft l\u1eadp ngu\u1ed3n ch\u00ednh c\u1ee7a t\u1eadp: m\u1ed9t trang s\u00e1ch \u0111\u01b0\u1ee3c ch\u00e9p l\u1ea1i",
+          "narrative_role": "introduce_subject",
+          "information_role": "Ngu\u1ed3n m\u1edf truy\u1ec7n l\u00e0 b\u1ea3n ch\u00e9p c\u1ee7a Phan K\u1ebf B\u00ednh trong Nam H\u1ea3i d\u1ecb nh\u00e2n li\u1ec7t truy\u1ec7n",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "gi\u1ea5y d\u00f3",
+            "m\u1ef1c t\u00e0u amber",
+            "b\u00fat l\u00f4ng"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Trang gi\u1ea5y d\u00f3 c\u1ed5 m\u00e0u amber v\u1edbi n\u00e9t m\u1ef1c nho vi\u1ebft tay \u0111ang hi\u1ec7n d\u1ea7n, b\u00fat l\u00f4ng ch\u1ea5m m\u1ef1c \u0111\u1eb7t b\u00ean c\u1ea1nh, \u00e1nh \u0111\u00e8n \u1ea5m, kh\u00f4ng ch\u1eef r\u00f5",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc006",
+          "type": "generated",
+          "description": "B\u1ea3n \u0111\u1ed3 nh\u1ecf phong c\u00e1ch gi\u1ea5y d\u1ea7u: ba ch\u1ea5m amber d\u1ecdc theo \u0111\u01b0\u1eddng m\u1ef1c n\u1ed1i v\u1ec1 m\u1ed9t \u0111i\u1ec3m 'V\u00e2n C\u00e1t', nh\u00e3n 'huy\u1ec7n V\u1ee5 B\u1ea3n \u00b7 t\u1ec9nh Nam \u0110\u1ecbnh'; c\u1ea1nh \u0111\u00f3 nh\u00e0 tranh ba gian v\u1ebd m\u1ef1c \u1ea5m tr\u00ean \u0111\u1ed3i th\u1ea5p. Ph\u1ee7 quote C01 v\u1ec1 L\u00ea Th\u00e1i c\u00f4ng v\u00e0 l\u01b0u \u00fd 1557.",
+          "start_seconds": 74.0,
+          "end_seconds": 91.06,
+          "script_section_id": "s03",
+          "framing": "B\u1ea3n \u0111\u1ed3 chi\u1ebfm 2/3 khung, nh\u00e0 tranh \u1edf g\u00f3c d\u01b0\u1edbi",
+          "movement": "zoom_in nh\u1eb9 v\u1ec1 \u0111i\u1ec3m V\u00e2n C\u00e1t r\u1ed3i t\u0129nh",
+          "transition_in": "hold",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "1557 \u2014 m\u1ed1c m\u1edf truy\u1ec7n b\u1ea3n k\u1ec3 (kh\u00f4ng \u0111\u1ee7 x\u00e1c nh\u1eadn n\u0103m sinh l\u1ecbch s\u1eed) \u00abXin l\u01b0u \u00fd\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "zoom_in",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u1ecbnh v\u1ecb \u0111\u1ecba danh v\u00e0 c\u00e0i quy t\u1eafc \u0111\u1ecdc s\u1ed1 c\u1ee7a c\u1ea3 t\u1eadp",
+          "narrative_role": "establish_context",
+          "information_role": "B\u1ea3n k\u1ec3 m\u1edf \u1edf V\u00e2n C\u00e1t, Nam \u0110\u1ecbnh; 1557 l\u00e0 m\u1ed1c m\u1edf truy\u1ec7n, kh\u00f4ng ph\u1ea3i n\u0103m sinh l\u1ecbch s\u1eed",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "gi\u1ea5y d\u1ea7u",
+            "b\u1ea3n \u0111\u1ed3 m\u1ef1c",
+            "nh\u00e0 tranh"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "B\u1ea3n \u0111\u1ed3 c\u1ed5 v\u1ebd m\u1ef1c t\u00e0u tr\u00ean gi\u1ea5y d\u1ea7u n\u00e2u, ba ch\u1ea5m amber d\u1ecdc \u0111\u01b0\u1eddng m\u1ef1c n\u1ed1i v\u1ec1 m\u1ed9t \u0111i\u1ec3m c\u00f3 m\u00e1i nh\u00e0 tranh ba gian tr\u00ean \u0111\u1ed3i th\u1ea5p, kh\u00f4ng ch\u1eef hi\u1ec7n \u0111\u1ea1i",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc007",
+          "type": "animation",
+          "description": "Ba t\u1edd gi\u1ea5y x\u1ebfp l\u1edbp hi\u1ec7n d\u1ea7n tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3: t\u1edd amber 'B\u1ea3n k\u1ec3', t\u1edd teal '\u0110\u1ec1n th\u1edd \u00b7 th\u1ef1c h\u00e0nh', t\u1edd n\u00e2u gi\u1ea5y d\u1ea7u 'Ghi danh di s\u1ea3n' \u2014 ch\u1ed3ng l\u00ean nhau nh\u01b0ng gi\u1eef bi\u00ean r\u00f5. Ph\u1ee7 \u0111o\u1ea1n s04 gi\u1edbi thi\u1ec7u khu\u00f4n kh\u1ed5 ba l\u1edbp.",
+          "start_seconds": 91.06,
+          "end_seconds": 112.0,
+          "script_section_id": "s04",
+          "framing": "Ba l\u1edbp x\u1ebfp ch\u00e9o ki\u1ec3u collage, nh\u00ecn nghi\u00eang",
+          "movement": "crane_down t\u1eeb tr\u00ean xu\u1ed1ng khi t\u1eebng t\u1edd hi\u1ec7n",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "Ba l\u1edbp \u2014 kh\u00f4ng tr\u1ed9n th\u00e0nh m\u1ed9t \u00abTr\u01b0\u1edbc khi b\u01b0\u1edbc\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "crane_down",
+            "lens_mm": 35,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "Trao chi\u1ebfc ch\u00eca kh\u00f3a ph\u01b0\u01a1ng ph\u00e1p \u2014 c\u1ea5u tr\u00fac 3 l\u1edbp d\u1eabn d\u1eaft to\u00e0n t\u1eadp",
+          "narrative_role": "establish_context",
+          "information_role": "Ba l\u1edbp t\u01b0 li\u1ec7u: b\u1ea3n k\u1ec3, \u0111\u1ec1n th\u1edd-th\u1ef1c h\u00e0nh, ghi danh di s\u1ea3n; m\u1ed7i l\u1edbp gi\u1eef l\u1ea1i \u0111i\u1ec1u ri\u00eang",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "gi\u1ea5y d\u00f3",
+            "layered paper",
+            "amber-teal-n\u00e2u"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Ba t\u1edd gi\u1ea5y d\u00f3 ch\u1ed3ng l\u1edbp: amber, teal, n\u00e2u gi\u1ea5y d\u1ea7u, bi\u00ean m\u1ed7i t\u1edd r\u00f5 r\u00e0ng, b\u1ed1 c\u1ee5c collage nghi\u00eang tr\u00ean n\u1ec1n gi\u1ea5y x\u01b0a",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc008",
+          "type": "animation",
+          "description": "B\u1ed1n v\u1eadt th\u1ec3 m\u1ef1c nh\u1ecf tr\u00f4i ngang m\u00e0n h\u00ecnh tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3: ch\u00e9n ng\u1ecdc s\u1ee9t g\u00f3c, t\u1ea5m bi\u1ec3n v\u00e0ng hai ch\u1eef, d\u00e3y \u0111\u00e8o n\u00fai, ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n; d\u00f2ng m\u1ef1c nh\u1ecf 'kh\u00f4ng kh\u1eb3ng \u0111\u1ecbnh b\u00e0 l\u00e0 ai trong l\u1ecbch s\u1eed' d\u01b0\u1edbi \u0111\u00e1y. Ph\u1ee7 n\u1eeda sau s04: ph\u01b0\u01a1ng ph\u00e1p + b\u1ed1n d\u1ea5u v\u1ebft \u0111\u00f3n tr\u01b0\u1edbc.",
+          "start_seconds": 112.0,
+          "end_seconds": 133.27,
+          "script_section_id": "s04",
+          "framing": "D\u1ea3i ngang b\u1ed1n v\u1eadt th\u1ec3, d\u00f2ng ch\u1eef ph\u01b0\u01a1ng ph\u00e1p \u1edf d\u1ea3i d\u01b0\u1edbi",
+          "movement": "tracking_right theo d\u00f2ng v\u1eadt th\u1ec3 tr\u00f4i",
+          "transition_in": "hold",
+          "transition_out": "page_turn",
+          "overlay_notes": "T\u00f4i s\u1ebd kh\u00f4ng kh\u1eb3ng \u0111\u1ecbnh b\u00e0 l\u00e0 ai trong l\u1ecbch s\u1eed \u2014 ch\u1ec9 ch\u1ec9 cho b\u1ea1n xem m\u1ed7i l\u1edbp gi\u1eef l\u1ea1i \u0111i\u1ec1u g\u00ec \u00abBa l\u1edbp n\u00e0y\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "tracking_right",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "H\u1ee9a h\u1eb9n b\u1ed1n m\u1ed1c h\u00ecnh \u1ea3nh s\u1ebd d\u1eabn ng\u01b0\u1eddi xem qua ba l\u1edbp",
+          "narrative_role": "transition",
+          "information_role": "Ph\u01b0\u01a1ng ph\u00e1p bi\u00ean t\u1eadp: t\u00e1ch l\u1edbp, kh\u00f4ng kh\u1eb3ng \u0111\u1ecbnh nh\u00e2n v\u1eadt l\u1ecbch s\u1eed",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ef1c t\u00e0u",
+            "v\u1eadt th\u1ec3 nh\u1ecf",
+            "gi\u1ea5y d\u00f3"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "B\u1ed1n v\u1eadt th\u1ec3 v\u1ebd m\u1ef1c t\u00e0u nh\u1ecf tr\u00ean d\u1ea3i gi\u1ea5y d\u00f3: ch\u00e9n ng\u1ecdc s\u1ee9t m\u1ed9t g\u00f3c, t\u1ea5m bi\u1ec3n v\u00e0ng hai ch\u1eef m\u1edd, d\u00e3y n\u00fai \u0111\u00e8o, ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n \u2014 b\u1ed1 c\u1ee5c ngang c\u00e1ch \u0111\u1ec1u nhau",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc009",
+          "type": "animation",
+          "description": "Trang s\u00e1ch amber l\u1eadt ng\u01b0\u1ee3c m\u1edf ra th\u00e0nh kho\u1ea3ng tr\u1eddi m\u1ef1c \u1ea5m nhi\u1ec1u t\u1ea7ng m\u00e2y; m\u1ed9t ng\u01b0\u1eddi con g\u00e1i m\u1eb7c \u00e1o \u0111\u1ecf b\u00e2ng ch\u00e9n ng\u1ecdc \u0111i gi\u1eefa, ch\u00e9n nghi\u00eang, r\u01a1i v\u00e0 s\u1ee9t m\u1ed9t g\u00f3c \u0111\u00fang nh\u1ecbp narration. Ph\u1ee7 quote C02 m\u1edf h\u1ed3i 1: tai n\u1ea1n ch\u00e9n ng\u1ecdc.",
+          "start_seconds": 133.27,
+          "end_seconds": 155.0,
+          "script_section_id": "s05",
+          "framing": "Ng\u01b0\u1eddi \u00e1o \u0111\u1ecf nh\u1ecf gi\u1eefa tr\u1eddi m\u00e2y r\u1ed9ng, ch\u00e9n r\u01a1i \u1edf foreground",
+          "movement": "dolly_in ch\u1eadm theo qu\u1ef9 \u0111\u1ea1o ch\u00e9n r\u01a1i",
+          "transition_in": "page_turn",
+          "transition_out": "hold",
+          "overlay_notes": "\u00abB\u00e2y gi\u1edd, trang\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 35,
+            "lighting_key": "volumetric",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "C\u1ea3nh m\u1edf truy\u1ec7n b\u1eb1ng h\u00ecnh \u1ea3nh \u2014 tai n\u1ea1n r\u1ea5t \u0111\u1eddi \u0111\u1eb7t c\u1ea3 c\u00e2u chuy\u1ec7n v\u00e0o chuy\u1ec3n \u0111\u1ed9ng",
+          "narrative_role": "emotional_beat",
+          "information_role": "Truy\u1ec7n k\u1ec3 ng\u01b0\u1eddi con g\u00e1i \u00e1o \u0111\u1ecf nh\u1ee1 tay r\u01a1i ch\u00e9n ng\u1ecdc khi d\u00e2ng r\u01b0\u1ee3u th\u1ecd",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ef1c \u1ea5m",
+            "tr\u1eddi m\u00e2y",
+            "ch\u00e9n ng\u1ecdc",
+            "\u00e1o \u0111\u1ecf"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Tr\u1eddi m\u00e2y ti\u00ean c\u1ea3nh v\u1ebd m\u1ef1c t\u00e0u \u1ea5m tr\u00ean gi\u1ea5y d\u00f3, ng\u01b0\u1eddi con g\u00e1i m\u1eb7c \u00e1o \u0111\u1ecf kho\u00e1c d\u1ea3i l\u1ee5a b\u00e2ng m\u00e2m ch\u00e9n ng\u1ecdc, m\u1ed9t ch\u00e9n \u0111ang nghi\u00eang r\u01a1i, kh\u00f4ng hi\u1ec7n r\u00f5 m\u1eb7t, phong c\u00e1ch h\u1ed9i h\u1ecda c\u1ed5 t\u00edch ti\u1ebft ch\u1ebf",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc010",
+          "type": "animation",
+          "description": "Vi\u00ean quan n\u00e9t m\u1ef1c ch\u1ea5m b\u00fat vi\u1ebft v\u00e0i ch\u1eef v\u00e0o s\u1ed5; r\u1ed3i t\u1ea5m bi\u1ec3n v\u00e0ng hi\u1ec7n r\u00f5: 'S\u1eafc-gi\u00e1ng' tr\u00ean, 'Nam nam' gi\u1eefa, c\u00e1c kho\u1ea3n d\u01b0\u1edbi v\u1ebd nh\u00f2e m\u1edd m\u1ef1c. Ph\u1ee7 quote C02 ti\u1ebfp: s\u1ed5 s\u00e1ch, bi\u1ec3n v\u00e0ng, l\u1eddi l\u1ef1c s\u0129 v\u1ec1 Qu\u1ef3nh-hoa ti\u00ean-ch\u00faa th\u1ee9 hai.",
+          "start_seconds": 155.0,
+          "end_seconds": 182.36,
+          "script_section_id": "s05",
+          "framing": "S\u1ed5 \u1edf tr\u00e1i, bi\u1ec3n v\u00e0ng \u1edf ph\u1ea3i, chia \u0111\u00f4i khung",
+          "movement": "rack_focus t\u1eeb s\u1ed5 sang bi\u1ec3n v\u00e0ng",
+          "transition_in": "hold",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "Qu\u1ef3nh-hoa \u2014 ti\u00ean-ch\u00faa th\u1ee9 hai (S\u1eafc-gi\u00e1ng \u00b7 Nam nam) \u00abM\u00e9 tr\u01b0\u1edbc c\u00f3\u00bb",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "rack_focus",
+            "lens_mm": 85,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "D\u1ef1ng nh\u1ecbp 'b\u1ecb ghi l\u1ea1i' \u2014 danh t\u00ednh \u0111\u01b0\u1ee3c k\u00ea khai b\u1eb1ng h\u00ecnh \u1ea3nh v\u0103n kh\u1ed1 tr\u01b0\u1edbc khi ph\u00e1n quy\u1ebft \u0111\u1ea7y tr\u1ea7n",
+          "narrative_role": "build_tension",
+          "information_role": "L\u1eddi l\u1ef1c s\u0129: ti\u00ean-ch\u00faa th\u1ee9 hai t\u00ean Qu\u1ef3nh-hoa, chuy\u1ebfn n\u00e0y ph\u1ea3i \u0111\u1ea7y xu\u1ed1ng tr\u1ea7n",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "s\u1ed5 gi\u1ea5y",
+            "bi\u1ec3n v\u00e0ng",
+            "m\u1ef1c nh\u00f2e"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "T\u1ea5m bi\u1ec3n v\u00e0ng s\u01a1n son c\u1ed5 hai h\u00e0ng ch\u1eef m\u1edd ph\u00eda tr\u00ean v\u00e0 gi\u1eefa, ph\u1ea7n d\u01b0\u1edbi m\u1edd nh\u00f2e nh\u01b0 kh\u00f3i m\u1ef1c, \u0111\u1eb7t c\u1ea1nh quy\u1ec3n s\u1ed5 gi\u1ea5y n\u00e2u v\u00e0 b\u00fat ch\u1ea5m m\u1ef1c, \u00e1nh n\u1ebfn \u1ea5m",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc011",
+          "type": "diagram",
+          "description": "Th\u1ebb t\u00ean net-teal hi\u1ec7n l\u1ea7n l\u01b0\u1ee3t \u0111\u1eb7t ngang nhau tr\u00ean gi\u1ea5y d\u00f3: 'Qu\u1ef3nh Hoa' (\u0111o\u1ea1n ch\u00e9n ng\u1ecdc), 'Gi\u00e1ng Ti\u00ean' (\u0111o\u1ea1n ng\u00e0y m\u1ea5t), 'Y\u00ean-th\u00e1i' / 'An Th\u00e1i' (hai b\u1ea3n k\u1ec3), m\u1ed7i th\u1ebb g\u1eafn nh\u00e3n ngu\u1ed3n nh\u1ecf. Ph\u1ee7 s06: m\u1ed7i t\u00ean \u1edf \u0111\u00fang \u0111o\u1ea1n ngu\u1ed3n, kh\u00f4ng h\u1ee3p nh\u1ea5t d\u1ecb b\u1ea3n.",
+          "start_seconds": 182.36,
+          "end_seconds": 209.4,
+          "script_section_id": "s06",
+          "framing": "B\u1ed1n th\u1ebb t\u00ean x\u1ebfp ngang h\u00e0ng, nh\u00e3n ngu\u1ed3n d\u01b0\u1edbi m\u1ed7i th\u1ebb",
+          "movement": "static, th\u1ebb hi\u1ec7n d\u1ea7n theo narration",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "T\u00ean theo t\u1eebng ngu\u1ed3n \u2014 kh\u00f4ng h\u1ee3p nh\u1ea5t \u00abTheo b\u1ea3n Phan\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Th\u1ec3 hi\u1ec7n tr\u1ef1c quan nguy\u00ean t\u1eafc kh\u00f4ng h\u1ee3p nh\u1ea5t d\u1ecb b\u1ea3n \u2014 n\u1ec1n t\u1ea3ng ki\u1ec3m ch\u1ee9ng c\u1ee7a t\u1eadp",
+          "narrative_role": "evidence",
+          "information_role": "C\u00e1c t\u00ean Qu\u1ef3nh Hoa, Gi\u00e1ng Ti\u00ean, Y\u00ean Th\u00e1i, An Th\u00e1i thu\u1ed9c t\u1eebng ngu\u1ed3n ri\u00eang; kh\u00f4ng d\u1ef1ng th\u00eam tu\u1ed5i th\u01a1",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "th\u1ebb gi\u1ea5y",
+            "n\u00e9t teal",
+            "nh\u00e3n ngu\u1ed3n"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "B\u1ed1n th\u1ebb gi\u1ea5y d\u00f3 x\u1ebfp h\u00e0ng ngang n\u00e9t m\u1ef1c teal, m\u1ed7i th\u1ebb c\u00f3 con d\u1ea5u nh\u1ecf \u1edf g\u00f3c ph\u00e2n bi\u1ec7t, n\u1ec1n gi\u1ea5y x\u01b0a, b\u1ed1 c\u1ee5c t\u1ed1i gi\u1ea3n l\u01b0u h\u1ed3 s\u01a1",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc012",
+          "type": "generated",
+          "description": "M\u1ecdi h\u00ecnh \u1ea3nh thu v\u1ec1 m\u1ed9t trang s\u00e1ch im l\u00ecm; ch\u1ec9 d\u00f2ng m\u1ef1c cu\u1ed1i trang hi\u1ec7n d\u1ea7n c\u00e2u tr\u00edch v\u1ec1 m\u1ed3ng ba th\u00e1ng ba; chu\u00f4ng \u0111\u1ec1n v\u1ebd m\u1ef1c teal g\u1ee3n m\u1ed9t v\u00f2ng \u1edf g\u00f3c xa. Ph\u1ee7 quote C03 s07: c\u00e2u duy nh\u1ea5t v\u1ec1 ng\u00e0y m\u1ea5t.",
+          "start_seconds": 209.4,
+          "end_seconds": 229.0,
+          "script_section_id": "s07",
+          "framing": "Trang s\u00e1ch chi\u1ebfm to\u00e0n khung, g\u1ea7n nh\u01b0 tr\u1ed1ng, m\u1ed9t d\u00f2ng m\u1ef1c duy nh\u1ea5t",
+          "movement": "dolly_in r\u1ea5t ch\u1eadm v\u00e0o d\u00f2ng m\u1ef1c",
+          "transition_in": "hold",
+          "transition_out": "hold",
+          "overlay_notes": "H\u00f4m m\u1ed3ng ba th\u00e1ng ba, Gi\u00e1ng ti\u00ean t\u1ef1 nhi\u00ean v\u00f4 b\u1ec7nh m\u00e0 m\u1ea5t, b\u1ea5y gi\u1edd m\u1edbi hai m\u01b0\u01a1i m\u1ed1t tu\u1ed5i. (quote C03, NHDNLT 45 Phan K\u1ebf B\u00ednh) \u00abR\u1ed3i \u0111\u1ebfn m\u1ed9t\u00bb",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "dolly_in",
+            "lens_mm": 85,
+            "lighting_key": "low_key",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "T\u00f4n kho\u1ea3ng l\u1eb7ng \u2014 c\u00e2u ch\u00e9p ng\u1eafn nh\u1ea5t c\u1ee7a truy\u1ec7n \u0111\u01b0\u1ee3c cho kh\u00f4ng gian im l\u1eb7ng \u0111\u00fang tr\u1ecdng l\u01b0\u1ee3ng",
+          "narrative_role": "emotional_beat",
+          "information_role": "B\u1ea3n k\u1ec3 ch\u00e9p duy nh\u1ea5t m\u1ed9t c\u00e2u: m\u1ed3ng ba th\u00e1ng ba, v\u00f4 b\u1ec7nh, hai m\u01b0\u01a1i m\u1ed1t tu\u1ed5i",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "trang s\u00e1ch im l\u00ecm",
+            "m\u1ef1c t\u00e0u",
+            "kho\u1ea3ng tr\u1ed1ng"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Trang gi\u1ea5y d\u00f3 g\u1ea7n nh\u01b0 tr\u1ed1ng ch\u1ec9 m\u1ed9t d\u00f2ng m\u1ef1c cu\u1ed1i trang, \u00e1nh s\u00e1ng low-key, m\u1ed9t v\u00f2ng chu\u00f4ng m\u1ef1c teal m\u1edd g\u00f3c xa tr\u00ean khung",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc013",
+          "type": "diagram",
+          "description": "Hai m\u1ea3nh gi\u1ea5y \u0111\u1eb7t c\u1ea1nh nhau kh\u00f4ng ch\u1ea1m: m\u1ea3nh amber 'b\u1ea3n k\u1ec3 \u2014 m\u1ed3ng ba th\u00e1ng ba' v\u00e0 m\u1ea3nh teal 'h\u1ed9i Ph\u1ee7 D\u1ea7y \u2014 3/3 \u00e2m l\u1ecbch', c\u00f9ng h\u01b0\u1edbng v\u1ec1 d\u00f2ng ch\u1eef chung '3 th\u00e1ng 3 \u00e2m l\u1ecbch' nh\u01b0ng gi\u1eef bi\u00ean. Ph\u1ee7 n\u1eeda sau s07: tr\u00f9ng ng\u00e0y \u0111\u00e1ng \u0111\u1eb7t c\u1ea1nh nhau, ch\u01b0a \u0111\u1ee7 ch\u1ee9ng minh.",
+          "start_seconds": 229.0,
+          "end_seconds": 239.99,
+          "script_section_id": "s07",
+          "framing": "Hai m\u1ea3nh \u0111\u1ed1i x\u1ee9ng hai b\u00ean, kho\u1ea3ng h\u1edf \u1edf gi\u1eefa",
+          "movement": "static",
+          "transition_in": "hold",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "3 th\u00e1ng 3 \u00e2m l\u1ecbch (theo b\u1ea3n k\u1ec3 \u00b7 theo ghi ch\u00e9p l\u1ec5 h\u1ed9i) \u00abS\u1ef1 tr\u00f9ng ng\u00e0y\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "D\u1ea1y c\u00e1ch \u0111\u1ecdc tr\u00f9ng kh\u1edbp: \u0111\u1eb7t c\u1ea1nh nhau, kh\u00f4ng suy nguy\u00ean nh\u00e2n",
+          "narrative_role": "comparison",
+          "information_role": "Hai ghi ch\u00e9p c\u00f9ng n\u00eau ng\u00e0y ba th\u00e1ng ba; tr\u00f9ng ng\u00e0y kh\u00f4ng ch\u1ee9ng minh ngu\u1ed3n g\u1ed1c l\u1ec5 h\u1ed9i",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "hai m\u1ea3nh gi\u1ea5y",
+            "amber-teal",
+            "kho\u1ea3ng h\u1edf"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Hai m\u1ea3nh gi\u1ea5y d\u00f3 \u0111\u1eb7t c\u1ea1nh nhau c\u00e1ch m\u1ed9t khe h\u1edf: m\u1ea3nh amber c\u00f3 d\u00f2ng m\u1ee5c truy\u1ec7n, m\u1ea3nh teal c\u00f3 h\u00ecnh ng\u01b0\u1ee1ng \u0111\u1ec1n, gi\u1eefa l\u00e0 kho\u1ea3ng tr\u1ed1ng gi\u1ea5y x\u01b0a",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc014",
+          "type": "animation",
+          "description": "Trang s\u00e1ch \u0111\u1ecbnh kh\u00e9p l\u1ea1i th\u00ec n\u00e9t m\u1ef1c 'hi\u1ec3n th\u00e1nh' t\u1ecfa ra gi\u1eef trang m\u1edf; \u0111\u01b0\u1eddng m\u1ef1c amber n\u1ed1i ti\u1ebfp sang \u0111\u1ecba danh \u0111\u00e8o Ngang ph\u1ed1 C\u00e1t v\u00e0 ph\u00e1c \u0111\u1ec1n n\u00fai S\u00f9ng-s\u01a1n ch\u1ec9 trong khung b\u1ea3n k\u1ec3. Ph\u1ee7 s08: chuy\u1ec7n ch\u01b0a d\u1eebng, hi\u1ec3n th\u00e1nh, h\u1ed3i hai b\u1eaft \u0111\u1ea7u.",
+          "start_seconds": 239.99,
+          "end_seconds": 262.0,
+          "script_section_id": "s08",
+          "framing": "Trang s\u00e1ch n\u1eeda kh\u00e9p tr\u00e1i, c\u1ea3nh m\u1ef1c m\u1edf ph\u1ea3i",
+          "movement": "pan_right theo \u0111\u01b0\u1eddng m\u1ef1c sang ph\u1ea3i",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "hi\u1ec3n th\u00e1nh \u2014 gi\u1eef ch\u1eef trong khung truy\u1ec7n \u00abN\u1ebfu \u0111\u00e2y l\u00e0\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "pan_right",
+            "lens_mm": 35,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u1ea3o nh\u1ecbp k\u1ec3: d\u1ea5u ng\u1eaft h\u00f3a b\u01b0\u1edbc chuy\u1ec3n \u2014 c\u00e2u chuy\u1ec7n kh\u00f4ng k\u1ebft th\u00fac \u1edf c\u00e1i ch\u1ebft",
+          "narrative_role": "transition",
+          "information_role": "Ch\u1eef 'hi\u1ec3n th\u00e1nh' gi\u1eef trong khung truy\u1ec7n; \u0111\u00e8o Ngang ph\u1ed1 C\u00e1t, \u0111\u1ec1n S\u00f9ng-s\u01a1n l\u00e0 \u0111\u1ecba danh trong b\u1ea3n k\u1ec3 ch\u01b0a x\u00e1c minh",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "trang s\u00e1ch",
+            "m\u1ef1c \u1ea5m",
+            "\u0111\u00e8o n\u00fai"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Trang s\u00e1ch c\u1ed5 amber n\u1eeda kh\u00e9p, t\u1eeb trang t\u1ecfa n\u00e9t m\u1ef1c \u1ea5m h\u00ecnh th\u00e0nh d\u00e3y \u0111\u00e8o n\u00fai v\u00e0 m\u00e1i \u0111\u1ec1n nh\u1ecf tr\u00ean \u0111\u1ed3i ph\u00eda sau, phong c\u00e1ch m\u1ef1c t\u00e0u",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc015",
+          "type": "animation",
+          "description": "HERO. \u0110\u01b0\u1eddng m\u1ef1c amber r\u1eddi nh\u00e0 tranh V\u00e2n C\u00e1t \u0111i xa l\u00ean tr\u1eddi r\u1ed3i cong tr\u1edf v\u1ec1, \u0111\u1ed5 b\u00f3ng xu\u1ed1ng th\u1ec1m nh\u00e0; ch\u1eef 'tr\u1edf v\u1ec1' hi\u1ec7n m\u1ef1c \u1ea5m. Ph\u1ee7 s09: ng\u01b0\u1eddi con g\u00e1i tr\u1edf v\u1ec1 tr\u1ea7n gian \u2014 kho\u1ea3nh kh\u1eafc \u0111\u1ed5i h\u01b0\u1edbng c\u1ee7a c\u1ea3 truy\u1ec7n.",
+          "start_seconds": 262.0,
+          "end_seconds": 280.07,
+          "script_section_id": "s09",
+          "framing": "\u0110\u01b0\u1eddng m\u1ef1c ch\u1eef S l\u1edbn gi\u1eefa khung, nh\u00e0 tranh nh\u1ecf d\u01b0\u1edbi",
+          "movement": "dolly_in theo \u0111\u01b0\u1eddng m\u1ef1c tr\u1edf v\u1ec1",
+          "transition_in": "hold",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "tr\u1edf v\u1ec1 \u00abTheo truy\u1ec7n k\u1ec3,\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 35,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u1ec9nh c\u1ea3m x\u00fac \u0111\u1ea7u ti\u00ean \u2014 tr\u1edf v\u1ec1 l\u00e0 c\u00e2u tr\u1ea3 l\u1eddi h\u00ecnh \u1ea3nh cho c\u00e2u h\u1ecfi m\u1edf \u0111\u1ea7u 'v\u00ec sao truy\u1ec7n v\u1eabn k\u1ec3 ti\u1ebfp'",
+          "narrative_role": "deliver_payload",
+          "information_role": "B\u1ea3n k\u1ec3 m\u1edf \u0111\u01b0\u1eddng cho n\u00e0ng tr\u1edf v\u1ec1; nh\u1eadn x\u00e9t bi\u00ean t\u1eadp: c\u00e1ch truy\u1ec7n gi\u1eef ng\u01b0\u1eddi con g\u00e1i \u1edf l\u1ea1i c\u00f5i ng\u01b0\u1eddi",
+          "hero_moment": true,
+          "character_actions": [],
+          "texture_keywords": [
+            "\u0111\u01b0\u1eddng m\u1ef1c",
+            "golden hour",
+            "gi\u1ea5y d\u00f3"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "\u0110\u01b0\u1eddng n\u00e9t m\u1ef1c t\u00e0u amber l\u1edbn v\u1ebd qu\u1ef9 \u0111\u1ea1o r\u1eddi \u0111i r\u1ed3i cong tr\u1edf v\u1ec1 nh\u00e0 tranh ba gian tr\u00ean \u0111\u1ed3i, \u00e1nh v\u00e0ng chi\u1ec1u, b\u1ed1 c\u1ee5c gi\u1ea5y d\u00f3 t\u1ed1i gi\u1ea3n",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc016",
+          "type": "animation",
+          "description": "Tr\u00ean gi\u1ea5y d\u00f3 amber, d\u00f2ng c\u00e2u \u0111\u1ed1i hi\u1ec7n theo l\u1eddi \u0111\u1ecdc: 'Tam m\u1ed9c s\u00e2m \u0111\u00ecnh; t\u1ecda ch\u01b0\u1edbc h\u1ea3o h\u1ec1 n\u1eef t\u1eed.' r\u1ed3i c\u00e2u \u0111\u00e1p 'Tr\u00f9ng s\u01a1n xu\u1ea5t l\u1ed9; t\u1ea9u lai s\u1ee9 gi\u1ea3 l\u1ea1i nh\u00e2n.' n\u00e9t m\u1ef1c \u1ea5m, kh\u00f4ng ch\u1eef H\u00e1n; b\u00f3ng hai ng\u01b0\u1eddi \u0111\u1ed1i di\u1ec7n nhau qua b\u00e0n tr\u00e0 m\u1ef1c nh\u1ecf. Ph\u1ee7 s10: \u0111\u1ed1i \u0111\u00e1p v\u1edbi Tr\u1ea1ng B\u00f9ng (quote C04).",
+          "start_seconds": 280.07,
+          "end_seconds": 310.19,
+          "script_section_id": "s10",
+          "framing": "Hai c\u00e2u \u0111\u1ed1i x\u1ebfp hai d\u00f2ng d\u1ecdc, b\u00f3ng ng\u01b0\u1eddi \u0111\u1ed1i x\u1ee9ng",
+          "movement": "tilt_up theo d\u00f2ng ch\u1eef hi\u1ec7n",
+          "transition_in": "cross_dissolve",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "Tam m\u1ed9c s\u00e2m \u0111\u00ecnh / Tr\u00f9ng s\u01a1n xu\u1ea5t l\u1ed9 (quote C04, NHDNLT 45 Phan K\u1ebf B\u00ednh) \u2014 t\u00ean Tr\u1ea1ng B\u00f9ng trong b\u1ea3n k\u1ec3, ch\u01b0a x\u00e1c nh\u1eadn cu\u1ed9c g\u1eb7p \u00abNam H\u1ea3i d\u1ecb\u00bb",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "tilt_up",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Cao tr\u00e0o v\u0103n ch\u01b0\u01a1ng c\u1ee7a h\u1ed3i 2 \u2014 ch\u1eef \u0111\u1ed1i ch\u1eef, ng\u01b0\u1eddi \u0111o\u00e1n ng\u01b0\u1eddi, kh\u00e9p \u1edf ch\u1ed7 ng\u01b0\u1eddi h\u1ecfi ch\u01b0a k\u1ecbp bi\u1ebft",
+          "narrative_role": "evidence",
+          "information_role": "B\u1ea3n k\u1ec3 ghi cu\u1ed9c \u0111\u1ed1i \u0111\u00e1p v\u1edbi Ph\u00f9ng Kh\u1eafc Khoan; vi\u1ec7c n\u00eau t\u00ean kh\u00f4ng \u0111\u1ee7 x\u00e1c nh\u1eadn cu\u1ed9c g\u1eb7p c\u00f3 th\u1eadt",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "th\u01b0 ph\u00e1p",
+            "gi\u1ea5y d\u00f3 amber",
+            "b\u00f3ng ng\u01b0\u1eddi"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Hai d\u00f2ng th\u01b0 ph\u00e1p m\u1ef1c t\u00e0u tr\u00ean gi\u1ea5y d\u00f3 amber x\u1ebfp d\u1ecdc, d\u01b0\u1edbi m\u1ed7i d\u00f2ng l\u00e0 b\u00f3ng ng\u01b0\u1eddi ng\u1ed3i \u0111\u1ed1i di\u1ec7n qua b\u00e0n tr\u00e0 v\u1ebd m\u1ef1c, kh\u00f4ng n\u00e9t m\u1eb7t",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc017",
+          "type": "diagram",
+          "description": "C\u00e1c th\u1ebb gi\u1ea5y n\u00e9t teal hi\u1ec7n l\u1ea7n l\u01b0\u1ee3t \u0111\u1eb7t ngang h\u00e0ng: 'Y\u00ean-th\u00e1i' (Phan K\u1ebf B\u00ednh), 'An Th\u00e1i' (b\u1ea3n d\u00e2n gian), 'Ti\u00ean H\u01b0\u01a1ng \u00b7 Kim Th\u00e1i' (b\u00e1ch khoa), nh\u00e3n 'm\u1ed7i b\u1ea3n g\u1ecdi kh\u00e1c' hi\u1ec7n khi k\u1ebft lu\u1eadn. Ph\u1ee7 s11: \u0111\u1ed1i chi\u1ebfu t\u00ean theo t\u1eebng ngu\u1ed3n (quote C06a m\u1edf \u0111\u1ea7u).",
+          "start_seconds": 310.19,
+          "end_seconds": 340.78,
+          "script_section_id": "s11",
+          "framing": "Ba nh\u00f3m th\u1ebb x\u1ebfp ngang h\u00e0ng, kh\u00f4ng c\u00e1i n\u00e0o n\u1ed5i l\u00ean",
+          "movement": "static, th\u1ebb hi\u1ec7n d\u1ea7n",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "m\u1ed7i b\u1ea3n g\u1ecdi kh\u00e1c \u2014 gi\u1eef theo t\u1eebng ngu\u1ed3n \u00ab\u1ede l\u1edbp ki\u1ec3m\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "C\u1ee7ng c\u1ed1 nguy\u00ean t\u1eafc ki\u1ec3m ch\u1ee9ng b\u1eb1ng t\u00ean g\u1ecdi \u2014 kh\u00f4ng \u00e9p th\u00e0nh m\u1ed9t t\u00ean \u0111\u00fang duy nh\u1ea5t",
+          "narrative_role": "evidence",
+          "information_role": "C\u00f9ng v\u00f9ng V\u00e2n C\u00e1t, m\u1ed7i b\u1ea3n g\u1ecdi kh\u00e1c: Y\u00ean Th\u00e1i, An Th\u00e1i, Ti\u00ean H\u01b0\u01a1ng; k\u00e8m c\u00e1c danh x\u01b0ng Li\u1ec5u H\u1ea1nh C\u00f4ng ch\u00faa, M\u1eabu nghi thi\u00ean h\u1ea1",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "th\u1ebb gi\u1ea5y teal",
+            "nh\u00e3n ngu\u1ed3n",
+            "b\u1ed1 c\u1ee5c ngang"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Ba nh\u00f3m th\u1ebb gi\u1ea5y d\u00f3 m\u1ef1c teal x\u1ebfp h\u00e0ng ngang tr\u00ean n\u1ec1n gi\u1ea5y x\u01b0a, m\u1ed7i nh\u00f3m c\u00f3 con d\u1ea5u ngu\u1ed3n kh\u00e1c nhau \u1edf g\u00f3c, kh\u00f4ng ch\u1eef r\u00f5",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc018",
+          "type": "animation",
+          "description": "Hai th\u1ebb teal 'Ph\u1ed1 C\u00e1t' v\u00e0 '\u0110\u1ec1n S\u00f2ng' hi\u1ec7n tr\u00ean trang s\u00e1ch theo c\u00e2u tr\u00edch C06b; sau \u0111\u00f3 trang s\u00e1ch n\u1ed1i b\u1eb1ng n\u00e9t m\u1ef1c teal t\u1edbi h\u00ecnh m\u00e1i \u0111\u1ec1n m\u1ecdc l\u00ean. Ph\u1ee7 s12: 'l\u1ea7n th\u1ee9 hai' l\u00e0 c\u1ea5u tr\u00fac c\u00e1ch k\u1ec3; truy\u1ec7n d\u1eabn \u0111\u1ebfn \u0111\u1ec1n \u2014 c\u1eeda sang l\u1edbp \u0111\u1ec1n th\u1edd.",
+          "start_seconds": 340.78,
+          "end_seconds": 371.14,
+          "script_section_id": "s12",
+          "framing": "Trang s\u00e1ch tr\u00e1i, m\u00e1i \u0111\u1ec1n ph\u1ea3i, n\u00e9t m\u1ef1c n\u1ed1i",
+          "movement": "tracking_right theo n\u00e9t n\u1ed1i",
+          "transition_in": "hold",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "l\u1ea7n th\u1ee9 hai \u2014 c\u1ea5u tr\u00fac c\u1ee7a c\u00e1ch k\u1ec3 (c\u00e1c v\u0103n b\u1ea3n Nho h\u1ecdc 18\u201320 \u0111\u1ec1u k\u1ec3 hai l\u1ea7n gi\u00e1ng sinh: nh\u1eadn \u0111\u1ecbnh nghi\u00ean c\u1ee9u) \u00abV\u1eabn \u1edf l\u1edbp\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "tracking_right",
+            "lens_mm": 35,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Chuy\u1ec3n c\u1ea7u t\u1eeb truy\u1ec7n sang \u0111\u1ec1n \u2014 \u0111\u1eb7t ranh gi\u1edbi tr\u01b0\u1edbc khi b\u01b0\u1edbc sang l\u1edbp th\u1ef1c h\u00e0nh",
+          "narrative_role": "transition",
+          "information_role": "\u0110\u1ec1n \u0111\u01b0\u1ee3c k\u1ec3 m\u1ecdc l\u00ean \u1edf n\u01a1i n\u00e0ng t\u1eebng \u0111\u1ebfn; mu\u1ed1n sang l\u1edbp \u0111\u1ec1n th\u1edd ph\u1ea3i gi\u1eef ranh gi\u1edbi v\u1edbi truy\u1ec7n",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "n\u00e9t teal",
+            "trang s\u00e1ch",
+            "m\u00e1i \u0111\u1ec1n"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Trang s\u00e1ch c\u1ed5 n\u1ed1i b\u1eb1ng n\u00e9t m\u1ef1c teal u\u1ed1n l\u01b0\u1ee3n sang h\u00ecnh m\u00e1i \u0111\u1ec1n nh\u1ecf tr\u00ean \u0111\u1ed3i, b\u1ed1 c\u1ee5c hai n\u1eeda tr\u00e1i ph\u1ea3i, phong c\u00e1ch m\u1ef1c t\u00e0u gi\u1ea5y d\u00f3",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc019",
+          "type": "generated",
+          "description": "N\u00fai \u0111\u00e8o v\u00e0 m\u00e2y v\u1ebd m\u1ef1c amber tr\u00ean gi\u1ea5y d\u00f3; nh\u00e0 tranh V\u00e2n C\u00e1t nh\u1ecf l\u00f9i l\u1ea1i xa, qu\u00e1n n\u01b0\u1edbc b\u00ean \u0111\u01b0\u1eddng hi\u1ec7n theo l\u1eddi k\u1ec3; ch\u1eef '\u0111\u00e8o Ngang ph\u1ed1 C\u00e1t' trong khung trang s\u00e1ch. Ph\u1ee7 quote C05 s13: \u0111o\u1ea1n m\u1edf v\u1ec1 hi\u1ec3n th\u00e1nh \u1edf \u0111\u00e8o Ngang ph\u1ed1 C\u00e1t, t\u1ec9nh Thanh-h\u00f3a.",
+          "start_seconds": 371.14,
+          "end_seconds": 401.73,
+          "script_section_id": "s13",
+          "framing": "\u0110\u00e8o n\u00fai chi\u1ebfm n\u1ec1n, qu\u00e1n n\u01b0\u1edbc nh\u1ecf \u1edf gi\u1eefa",
+          "movement": "pan_left theo \u0111\u01b0\u1eddng \u0111\u00e8o",
+          "transition_in": "cross_dissolve",
+          "transition_out": "hold",
+          "overlay_notes": "\u0111\u00e8o Ngang ph\u1ed1 C\u00e1t \u2014 gi\u1eef trong khung l\u1eddi k\u1ec3 (quote C05) \u00abTa tr\u1edf l\u1ea1i\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "pan_left",
+            "lens_mm": 24,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u1ed5i kh\u00f4ng gian truy\u1ec7n \u2014 t\u1eeb l\u00e0ng qu\u00ea sang n\u00fai \u0111\u00e8o qu\u00e1n n\u01b0\u1edbc, n\u01a1i c\u00e2u chuy\u1ec7n \u0111\u1ed5i gi\u1ecdng",
+          "narrative_role": "establish_context",
+          "information_role": "B\u1ea3n k\u1ec3 chuy\u1ec3n ti\u00ean ch\u00faa t\u1edbi \u0111\u00e8o Ngang ph\u1ed1 C\u00e1t; \u0111\u1ecba danh gi\u1eef trong khung l\u1eddi k\u1ec3, ch\u01b0a th\u00e0nh ch\u1ee9ng c\u1ee9 h\u00e0nh tr\u00ecnh",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ef1c amber",
+            "n\u00fai \u0111\u00e8o",
+            "qu\u00e1n n\u01b0\u1edbc"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "D\u00e3y \u0111\u00e8o n\u00fai m\u00e2y m\u00f9 v\u1ebd m\u1ef1c t\u00e0u amber tr\u00ean gi\u1ea5y d\u00f3, qu\u00e1n n\u01b0\u1edbc tranh nh\u1ecf ven \u0111\u01b0\u1eddng gi\u1eefa d\u1ed1c, nh\u00e0 tranh nh\u1ecf l\u00f9i xa ph\u00eda sau, kh\u00f4ng ng\u01b0\u1eddi",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc020",
+          "type": "animation",
+          "description": "Khung xa qu\u00e1n n\u01b0\u1edbc m\u1ef1c amber v\u00e0 chi\u1ebfc ch\u00e9n n\u01b0\u1edbc \u0111\u1eb7t tr\u00ean b\u00e0n gi\u1ea5y d\u00f3; m\u1ef1c tr\u00ean ch\u00e9n g\u1ee3n s\u00f3ng nh\u1eb9 b\u00e1o quy\u1ec1n l\u1ef1c v\u00f4 h\u00ecnh; kh\u00f4ng hi\u1ec7n th\u00e2n, kh\u00f4ng h\u1eadu qu\u1ea3. Ch\u1eef 'l\u1edbp b\u1ea3n k\u1ec3' nh\u1ecf b\u00ean trang. Ph\u1ee7 s14: tr\u1eebng tr\u1ecb k\u1ebb \u0111\u00f9a b\u1ee1n \u2014 k\u1ec3 \u0111\u1ebfn \u0111\u00f3 r\u1ed3i gi\u1eef kho\u1ea3ng c\u00e1ch.",
+          "start_seconds": 401.73,
+          "end_seconds": 431.85,
+          "script_section_id": "s14",
+          "framing": "Qu\u00e1n n\u01b0\u1edbc r\u1ea5t xa, ch\u00e9n n\u01b0\u1edbc l\u00e0 t\u00e2m \u0111i\u1ec3m duy nh\u1ea5t",
+          "movement": "zoom_in ch\u1eadm v\u00e0o ch\u00e9n n\u01b0\u1edbc",
+          "transition_in": "hold",
+          "transition_out": "hold",
+          "overlay_notes": "l\u1edbp b\u1ea3n k\u1ec3 \u2014 kh\u00f4ng minh h\u1ecda hi\u1ec7n h\u00ecnh hay h\u1eadu qu\u1ea3 \u00abTi\u1ebfp \u0111o\u1ea1n v\u1eeba\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "zoom_in",
+            "lens_mm": 85,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "K\u1ec3 s\u1ef1 tr\u1eebng ph\u1ea1t b\u1eb1ng v\u1eadt th\u1ec3 thay th\u00e2n th\u1ec3 \u2014 gi\u1eef ph\u1ea9m gi\u00e1, h\u01b0\u1edbng k\u1ec3 \u0111\u1ed5i: quy\u1ec1n l\u1ef1c bu\u1ed9c k\u1ebb v\u00f4 l\u1ec5 tr\u1ea3 gi\u00e1",
+          "narrative_role": "build_tension",
+          "information_role": "K\u1ebb \u0111\u00f9a b\u1ee1n thi\u1ebfu l\u1ec5 \u0111\u1ed9 ph\u1ea3i ch\u1ecbu h\u1eadu qu\u1ea3 trong l\u1edbp truy\u1ec7n; kh\u00f4ng t\u1ea3 th\u00e2n th\u1ec3, kh\u00f4ng l\u1ea5y \u0111au \u0111\u1edbn l\u00e0m th\u00fa vui",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "ch\u00e9n n\u01b0\u1edbc",
+            "m\u1ef1c g\u1ee3n",
+            "qu\u00e1n n\u01b0\u1edbc xa"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Chi\u1ebfc ch\u00e9n n\u01b0\u1edbc \u0111\u1eb7t tr\u00ean b\u00e0n g\u1ed7 tr\u01b0\u1edbc qu\u00e1n n\u01b0\u1edbc tranh v\u1ebd m\u1ef1c t\u00e0u, m\u1eb7t n\u01b0\u1edbc trong ch\u00e9n g\u1ee3n s\u00f3ng \u0111\u1ed3ng t\u00e2m, kh\u00f4ng ng\u01b0\u1eddi, kho\u1ea3ng kh\u00f4ng im l\u1eb7ng",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc021",
+          "type": "animation",
+          "description": "M\u00e1i \u0111\u1ec1n v\u1ebd m\u1ef1c amber m\u1ea5t d\u1ea7n \u0111\u01b0\u1eddng n\u00e9t r\u1eddi ra th\u00e0nh h\u1ea1t m\u1ef1c bay; c\u1ee5m 'nghi l\u00e0 y\u00eau qu\u00e1i' n\u1eb1m g\u1ecdn trong khung trang s\u00e1ch, kh\u00f4ng d\u00e1n l\u00ean h\u00ecnh. Ph\u1ee7 quote C05 s15: tri\u1ec1u \u0111\u00ecnh sai qu\u00e2n ti\u1ec5u, \u0111\u1ec1n \u0111\u00e0i tan ph\u00e1; ngh\u1ecbch l\u00fd danh x\u01b0ng theo ph\u00eda nh\u00ecn.",
+          "start_seconds": 431.85,
+          "end_seconds": 462.68,
+          "script_section_id": "s15",
+          "framing": "\u0110\u1ec1n \u1edf gi\u1eefa tan r\u00e3, trang s\u00e1ch vi\u1ec1n quanh",
+          "movement": "dolly_out khi \u0111\u1ec1n tan th\u00e0nh m\u1ef1c",
+          "transition_in": "hold",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "nghi l\u00e0 y\u00eau qu\u00e1i \u2014 c\u00e1ch g\u1ecdi theo ph\u00eda \u0111ang nh\u00ecn (trong truy\u1ec7n) \u00abB\u1ea3n k\u1ec3 \u0111\u1ea9y\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "dolly_out",
+            "lens_mm": 50,
+            "lighting_key": "low_key",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Cho th\u1ea5y c\u00f9ng m\u1ed9t ng\u01b0\u1eddi \u0111\u01b0\u1ee3c g\u1ecdi ti\u00ean ch\u00faa hay y\u00eau qu\u00e1i t\u00f9y phe \u2014 nh\u01b0ng kh\u00f4ng bi\u1ebfn th\u00e0nh tr\u1eadn \u0111\u00e1nh l\u1ecbch s\u1eed",
+          "narrative_role": "build_tension",
+          "information_role": "Tri\u1ec1u \u0111\u00ecnh trong truy\u1ec7n nghi l\u00e0 y\u00eau qu\u00e1i, sai qu\u00e2n ti\u1ec5u; \u0111\u1ec1n \u0111\u00e0i tan ph\u00e1 l\u00e0 h\u00ecnh \u1ea3nh c\u1ee7a trang s\u00e1ch",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ef1c tan",
+            "\u0111\u1ec1n m\u1edd",
+            "low-key"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "M\u00e1i \u0111\u1ec1n c\u1ed5 v\u1ebd m\u1ef1c t\u00e0u \u0111ang tan th\u00e0nh h\u1ea1t m\u1ef1c bay trong gi\u00f3 tr\u00ean gi\u1ea5y d\u00f3, vi\u1ec1n trang s\u00e1ch m\u1edd quanh khung, \u00e1nh s\u00e1ng th\u1ea5p",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc022",
+          "type": "animation",
+          "description": "D\u00e2y kh\u00f3i h\u01b0\u01a1ng m\u1ef1c amber c\u1ee7a d\u00e2n c\u1ea7u kh\u1ea5n bay l\u00ean tr\u01b0\u1edbc, sau \u0111\u00f3 \u1ea5n tri\u1ec1u \u0111\u00ecnh \u0111\u1ecf son \u00e9p xu\u1ed1ng phong t\u01b0\u1edbc; m\u00e1i \u0111\u1ec1n S\u00f9ng-s\u01a1n \u0111\u01b0\u1ee3c v\u1ebd l\u1ea1i b\u1eb1ng n\u00e9t amber tr\u00ean gi\u1ea5y d\u00f3; c\u1ee5m '\u0111\u1ebfn gi\u1edd v\u1eabn c\u00f2n' n\u1eb1m trong trang s\u00e1ch. Ph\u1ee7 quote C05 s16: d\u00e2n c\u1ea7u tr\u01b0\u1edbc, tri\u1ec1u \u0111\u00ecnh phong sau.",
+          "start_seconds": 462.68,
+          "end_seconds": 493.04,
+          "script_section_id": "s16",
+          "framing": "Kh\u00f3i h\u01b0\u01a1ng d\u01b0\u1edbi, \u1ea5n son tr\u00ean, \u0111\u1ec1n \u1edf gi\u1eefa",
+          "movement": "tilt_up theo kh\u00f3i l\u00ean \u1ea5n son",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "M\u00e3-v\u00e0ng c\u00f4ng ch\u00faa \u00b7 Ch\u1ebf-th\u1eafng b\u1ea3o h\u00f2a-di\u1ec7u \u0111\u1ea1i v\u01b0\u01a1ng \u2014 '\u0111\u1ebfn gi\u1edd v\u1eabn c\u00f2n' l\u00e0 l\u1eddi ng\u01b0\u1eddi ch\u00e9p (quote C05) \u00abB\u1ea3n k\u1ec3 ti\u1ebfp\u00bb",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "tilt_up",
+            "lens_mm": 50,
+            "lighting_key": "rim_lit",
+            "depth_of_field": "medium",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "Kho\u1ea3nh kh\u1eafc k\u00e9p: hai chi\u1ec1u th\u1edd-phong g\u1eb7p nhau trong m\u1ed9t chu\u1ed7i k\u1ec3 \u2014 c\u1eeda m\u1edf sang l\u1edbp \u0111\u1ec1n th\u1edd",
+          "narrative_role": "deliver_payload",
+          "information_role": "D\u00e2n c\u1ea7u kh\u1ea5n tr\u01b0\u1edbc, tri\u1ec1u \u0111\u00ecnh s\u1eeda \u0111\u1ec1n phong t\u01b0\u1edbc sau; '\u0111\u1ebfn gi\u1edd v\u1eabn c\u00f2n' thu\u1ed9c th\u1eddi ng\u01b0\u1eddi ch\u00e9p",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "kh\u00f3i h\u01b0\u01a1ng",
+            "\u1ea5n son",
+            "m\u00e1i \u0111\u1ec1n amber"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "D\u00e2y kh\u00f3i h\u01b0\u01a1ng v\u1ebd m\u1ef1c \u1ea5m bay l\u00ean g\u1eb7p \u1ea5n tri\u1ec1u \u0111\u00ecnh son \u0111\u1ecf, gi\u1eefa l\u00e0 m\u00e1i \u0111\u1ec1n n\u00fai S\u00f9ng-s\u01a1n n\u00e9t amber tr\u00ean gi\u1ea5y d\u00f3, b\u1ed1 c\u1ee5c ba t\u1ea7ng d\u1ecdc",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc023",
+          "type": "animation",
+          "description": "Trang truy\u1ec7n amber l\u00f9i m\u1edd v\u1ec1 tr\u00e1i; t\u1edd gi\u1ea5y ch\u1ee9ng c\u1ee9 n\u00e9t teal ph\u01a1i ra tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3 b\u00ean ph\u1ea3i, c\u00f3 g\u00e1y h\u1ed3 s\u01a1; ch\u1eef '\u0111i c\u1ea1nh nhau' n\u00e9t teal n\u1eb1m gi\u1eefa hai m\u1ea3nh. Ph\u1ee7 s17: b\u01b0\u1edbc sang l\u1edbp \u0111\u1ec1n th\u1edd \u2014 truy\u1ec7n v\u00e0 \u0111\u1ec1n \u0111i c\u1ea1nh, kh\u00f4ng l\u00e0m ch\u1ee9ng thay nhau.",
+          "start_seconds": 493.04,
+          "end_seconds": 523.16,
+          "script_section_id": "s17",
+          "framing": "Trang truy\u1ec7n v\u00e0 t\u1edd ch\u1ee9ng c\u1ee9 chia \u0111\u00f4i khung, d\u00f2ng teal \u1edf gi\u1eefa",
+          "movement": "dolly_out nh\u1eb9 l\u1ed9 to\u00e0n c\u1ea3nh hai l\u1edbp",
+          "transition_in": "hold",
+          "transition_out": "page_turn",
+          "overlay_notes": "\u0111i c\u1ea1nh nhau \u2014 kh\u00f4ng l\u00e0m ch\u1ee9ng thay nhau \u00abTa b\u01b0\u1edbc sang\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "dolly_out",
+            "lens_mm": 35,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Nghi th\u1ee9c chuy\u1ec3n l\u1edbp r\u00f5 r\u00e0ng \u2014 ng\u01b0\u1eddi xem n\u1eafm ph\u01b0\u01a1ng ph\u00e1p tr\u01b0\u1edbc khi v\u00e0o ch\u1ee9ng c\u1ee9",
+          "narrative_role": "transition",
+          "information_role": "L\u1eddi ng\u01b0\u1eddi ch\u00e9p ch\u01b0a thay ki\u1ec3m ch\u1ee9ng; c\u1ea7n lo\u1ea1i ghi ch\u00e9p kh\u00e1c: ghi ch\u00e9p v\u1ec1 ch\u00ednh vi\u1ec7c th\u1edd",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "gi\u1ea5y ch\u1ee9ng c\u1ee9 teal",
+            "trang truy\u1ec7n amber",
+            "g\u00e1y h\u1ed3 s\u01a1"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "T\u1edd gi\u1ea5y ch\u1ee9ng c\u1ee9 m\u1ef1c teal ph\u01a1i tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3, trang truy\u1ec7n amber l\u00f9i m\u1edd ph\u00eda sau, d\u00f2ng n\u00e9t teal gi\u1eefa hai m\u1ea3nh, phong c\u00e1ch h\u1ed3 s\u01a1 c\u1ed5",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc024",
+          "type": "generated",
+          "description": "HERO. T\u1edd ch\u1ee9ng c\u1ee9 teal hi\u1ec7n t\u00ean 'V\u0169 trung t\u00f9y b\u00fat'; n\u00e9t teal ph\u00e1c n\u1ec1n \u0111\u00e0n Nam Giao ba t\u1ea7ng v\u00e0 m\u00e1i \u0111\u1ec1n nh\u1ecf tr\u00ean g\u00f2; ch\u00e2n dung kh\u00f4ng c\u00f3 \u2014 ch\u1ec9 b\u1ed1 c\u1ee5c \u0111\u1ec1n gi\u1eefa kh\u00f4ng gian nghi l\u1ec5. Ph\u1ee7 quote C07a+b s18: \u0111\u1ec1n th\u1edd b\u00e0 c\u00f4ng ch\u00faa Li\u1ec5u H\u1ea1nh \u1edf n\u1ec1n Nam Giao, ng\u01b0\u1eddi l\u00e2n c\u1eadn v\u00e0 ng\u01b0\u1eddi \u0111\u1ed3ng c\u1ed1t l\u00e0m ra \u0111\u1ec1n.",
+          "start_seconds": 523.16,
+          "end_seconds": 552.09,
+          "script_section_id": "s18",
+          "framing": "\u0110\u00e0n Nam Giao ba t\u1ea7ng \u1edf trung t\u00e2m, nh\u00ecn t\u1eeb th\u1ea5p l\u00ean",
+          "movement": "crane_up t\u1eeb m\u1eb7t \u0111\u1ea5t qua c\u00e1c t\u1ea7ng \u0111\u00e0n",
+          "transition_in": "page_turn",
+          "transition_out": "hold",
+          "overlay_notes": "V\u0169 trung t\u00f9y b\u00fat \u2014 ghi ch\u00e9p phong t\u1ee5c (b\u1ea3n d\u1ecbch hi\u1ec7n \u0111\u1ea1i) \u00b7 'l\u1ecbch s\u1eed th\u1ef1c h\u00e0nh' \u00ab\u1ede l\u1edbp th\u1ef1c\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "crane_up",
+            "lens_mm": 24,
+            "lighting_key": "blue_hour",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Ch\u1ee9ng c\u1ee9 trung t\u00e2m c\u1ee7a l\u1edbp th\u1ef1c h\u00e0nh \u2014 v\u1eadt th\u1ec3 ngo\u00e0i trang s\u00e1ch \u0111\u1ea7u ti\u00ean, \u0111\u01b0\u1ee3c d\u1ef1ng trang nghi\u00eam nh\u01b0 h\u1ed3 s\u01a1",
+          "narrative_role": "evidence",
+          "information_role": "V\u0169 trung t\u00f9y b\u00fat ghi \u0111\u1ec1n th\u1edd b\u00e0 c\u00f4ng ch\u00faa Li\u1ec5u H\u1ea1nh \u1edf n\u1ec1n Nam Giao th\u1eddi Nguy\u1ec5n; ch\u1ee9ng c\u1ee9 v\u1ec1 vi\u1ec7c th\u1edd, kh\u00f4ng ch\u1ee9ng minh nh\u00e2n v\u1eadt t\u1eebng s\u1ed1ng",
+          "hero_moment": true,
+          "character_actions": [],
+          "texture_keywords": [
+            "\u0111\u00e0n Nam Giao",
+            "n\u00e9t teal",
+            "blue hour",
+            "h\u1ed3 s\u01a1 c\u1ed5"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "\u0110\u00e0n t\u1ebf ba t\u1ea7ng v\u1ebd m\u1ef1c teal tr\u00ean gi\u1ea5y d\u00f3 nh\u01b0 b\u1ea3n v\u1ebd h\u1ed3 s\u01a1, m\u00e1i \u0111\u1ec1n nh\u1ecf tr\u00ean g\u00f2 \u0111\u1ea5t ph\u00eda sau, b\u1ea7u tr\u1eddi xanh t\u1ed1i, kh\u00f4ng ng\u01b0\u1eddi, trang nghi\u00eam",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc025",
+          "type": "diagram",
+          "description": "S\u01a1 \u0111\u1ed3 teal tr\u00ean gi\u1ea5y d\u00f3: v\u00f2ng c\u00e1c d\u1ea5u v\u1ecb th\u1ea7n kh\u00f4ng t\u00ean x\u1ebfp quanh, nh\u00e3n 'Li\u1ec5u H\u1ea1nh' \u0111\u1eb7t \u1edf m\u1ed9t d\u1ea5u, kh\u00f4ng bao tr\u00f9m; hai nh\u00e1nh nh\u1ecf Tam ph\u1ee7 / T\u1ee9 ph\u1ee7 t\u1ecfa t\u1eeb t\u00e2m. Ph\u1ee7 quote C13 s19: h\u1ec7 M\u1eabu c\u00f3 nhi\u1ec1u v\u1ecb, b\u00e0 l\u00e0 m\u1ed9t th\u1ea7n ch\u1ee7; c\u00e2u h\u1ecfi bi\u00ean t\u1eadp Q03.",
+          "start_seconds": 552.09,
+          "end_seconds": 582.45,
+          "script_section_id": "s19",
+          "framing": "S\u01a1 \u0111\u1ed3 v\u00f2ng tr\u00f2n t\u00e2m gi\u1eefa, nh\u00e3n \u0111\u01a1n \u1edf m\u1ed9t v\u1ecb tr\u00ed",
+          "movement": "zoom_out nh\u1eb9 l\u1ed9 \u0111\u1ee7 v\u00f2ng",
+          "transition_in": "hold",
+          "transition_out": "hold",
+          "overlay_notes": "Th\u1edd M\u1eabu Tam ph\u1ee7 v\u00e0 truy\u1ec1n thuy\u1ebft Li\u1ec5u H\u1ea1nh l\u00e0 m\u1ed9t hay hai chuy\u1ec7n kh\u00e1c nhau? (c\u00e2u h\u1ecfi bi\u00ean t\u1eadp) \u00abV\u1eabn \u1edf l\u1edbp\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "zoom_out",
+            "lens_mm": 50,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "S\u1eeda c\u00e1ch hi\u1ec3u qu\u00e1 g\u1ecdn 'n\u1eef th\u1ea7n n\u00e0o c\u0169ng l\u00e0 Li\u1ec5u H\u1ea1nh' b\u1eb1ng s\u01a1 \u0111\u1ed3 v\u1ecb tr\u00ed \u0111\u00fang c\u1ee7a b\u00e0 trong h\u1ec7",
+          "narrative_role": "evidence",
+          "information_role": "Nghi\u00ean c\u1ee9u: t\u1ee5c th\u1edd N\u1eef th\u1ea7n b\u1ea3n \u0111\u1ecba k\u1ebft h\u1ee3p \u1ea3nh h\u01b0\u1edfng \u0110\u1ea1o gi\u00e1o h\u00ecnh th\u00e0nh \u0111\u1ea1o Tam ph\u1ee7, T\u1ee9 ph\u1ee7; Li\u1ec5u H\u1ea1nh l\u00e0 m\u1ed9t th\u1ea7n ch\u1ee7",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "s\u01a1 \u0111\u1ed3 teal",
+            "d\u1ea5u v\u1ecb th\u1ea7n",
+            "gi\u1ea5y d\u00f3"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "S\u01a1 \u0111\u1ed3 v\u00f2ng tr\u00f2n m\u1ef1c teal tr\u00ean gi\u1ea5y d\u00f3: nhi\u1ec1u d\u1ea5u tri\u1ec7n nh\u1ecf x\u1ebfp quanh v\u00e0nh, m\u1ed9t d\u1ea5u \u0111\u01b0\u1ee3c \u0111\u00e1nh nh\u00e3n \u1edf v\u00e0nh, hai nh\u00e1nh m\u1ea3nh t\u1ecfa t\u1eeb t\u00e2m, kh\u00f4ng ch\u1eef r\u00f5",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc026",
+          "type": "text_card",
+          "description": "Th\u1ebb slate quote tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3 teal t\u1ed1i: t\u00ean ba nghi th\u1ee9c \u0111\u01b0\u1ee3c li\u1ec7t k\u00ea trang nghi\u00eam t\u1eebng d\u00f2ng \u0111\u00fang th\u1ee9 t\u1ef1 b\u00e1ch khoa; kh\u00f4ng h\u00ecnh ng\u01b0\u1eddi, kh\u00f4ng hi\u1ec7u \u1ee9ng. Ph\u1ee7 quote C12b s20: ba nghi th\u1ee9c quan tr\u1ecdng nh\u1ea5t c\u1ee7a l\u1ec5 h\u1ed9i Ph\u1ee7 D\u1ea7y.",
+          "start_seconds": 582.45,
+          "end_seconds": 613.28,
+          "script_section_id": "s20",
+          "framing": "Khung ch\u1eef \u0111\u1eb7t gi\u1eefa n\u1ec1n tr\u1ed1ng, c\u0103n gi\u1eefa",
+          "movement": "static",
+          "transition_in": "hold",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "L\u1ec5 R\u01b0\u1edbc M\u1eabu Th\u1ec9nh Kinh \u00b7 L\u1ec5 R\u01b0\u1edbc \u0110u\u1ed1c t\u1ea1i Ph\u1ee7 Ch\u00ednh \u00b7 L\u1ec5 k\u00e9o ch\u1eef Hoa Tr\u01b0\u1ee3ng H\u1ed9i (quote C12b, vi.wiki Ph\u1ee7 D\u1ea7y) \u00abT\u1eeb trang ghi\u00bb",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "\u0110\u1ecdc t\u00ean nghi l\u1ec5 ch\u1eadm v\u00e0 trang nghi\u00eam \u2014 s\u1ee9c n\u1eb7ng n\u1eb1m \u1edf t\u00ean g\u1ecdi, kh\u00f4ng c\u1ea7n c\u1ea3nh huy\u1ec1n b\u00ed",
+          "narrative_role": "emotional_beat",
+          "information_role": "Ba nghi th\u1ee9c ch\u00ednh c\u1ee7a h\u1ed9i Ph\u1ee7 D\u1ea7y; h\u00ecnh l\u1ec5 h\u1ed9i n\u1ebfu d\u00f9ng ch\u1ec9 l\u00e0 \u1ea3nh minh h\u1ecda",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "slate",
+            "m\u1ef1c teal",
+            "trang nghi\u00eam"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "N\u1ec1n gi\u1ea5y d\u00f3 t\u00f4ng teal tr\u1ea7m v\u1edbi ba \u00f4 th\u1ebb ch\u1eef vu\u00f4ng x\u1ebfp d\u1ecdc \u1edf gi\u1eefa nh\u01b0 b\u1ea3ng nghi th\u1ee9c \u0111\u1ec1n, vi\u1ec1n m\u1ea3nh m\u1ef1c t\u00e0u, kh\u00f4ng h\u00ecnh ng\u01b0\u1eddi",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc027",
+          "type": "generated",
+          "description": "Ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n Ph\u1ee7 D\u1ea7y th\u00e1ng Ba v\u1ebd m\u1ef1c teal: h\u00e0ng c\u1ed9t \u0111\u1ec1n, \u0111\u00e8n l\u1ed3ng \u0111\u1ecf treo theo nh\u1ecbp h\u1ed9i, d\u00f2ng ng\u01b0\u1eddi \u0111i l\u1ec5 silhouette xa xa trang nghi\u00eam, kh\u00f4ng g\u1ea7n m\u1eb7t. Ph\u1ee7 s20-cue '\u1ea3nh minh h\u1ecda' + m\u1edf s25: t\u1eeb trang ghi ch\u00e9p tr\u1edf v\u1ec1 l\u1edbp th\u1ef1c h\u00e0nh \u1edf h\u1ed9i th\u00e1ng Ba (c\u1ea3nh n\u00e0y n\u1eb1m cu\u1ed1i s20, ph\u1ee7 c\u00e2u 'c\u00e2u chuy\u1ec7n tr\u1edf v\u1ec1 v\u1edbi vi\u1ec7c ng\u01b0\u1eddi \u0111\u1eddi c\u00f9ng th\u1ef1c h\u00e0nh nghi l\u1ec5').",
+          "start_seconds": 613.28,
+          "end_seconds": 645.3,
+          "script_section_id": "s20",
+          "framing": "Nh\u00ecn qua c\u1ed9t \u0111\u1ec1n v\u00e0o kho\u1ea3ng s\u00e2n l\u1ec5 h\u1ed9i, ng\u01b0\u1eddi r\u1ea5t nh\u1ecf",
+          "movement": "steadicam ti\u1ebfn ch\u1eadm qua s\u00e2n \u0111\u1ec1n",
+          "transition_in": "cross_dissolve",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "\u1ea3nh minh h\u1ecda \u00abCh\u1ec9 ri\u00eang nh\u1eefng\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "steadicam",
+            "lens_mm": 35,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "medium",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "\u0110\u1ec9nh th\u1ecb gi\u00e1c c\u1ee7a l\u1edbp th\u1ef1c h\u00e0nh \u2014 h\u1ed9i th\u00e1ng Ba s\u1ed1ng \u0111\u1ed9ng nh\u01b0ng ti\u1ebft ch\u1ebf, dignity-safe, g\u1eafn nh\u00e3n minh h\u1ecda r\u00f5",
+          "narrative_role": "emotional_beat",
+          "information_role": "Ng\u01b0\u1eddi \u0111\u1eddi c\u00f9ng th\u1ef1c h\u00e0nh nghi l\u1ec5 \u1edf h\u1ed9i Ph\u1ee7 D\u1ea7y; kh\u00f4ng th\u00eam c\u1ea3nh huy\u1ec1n b\u00ed hay l\u00ean \u0111\u1ed3ng",
+          "hero_moment": true,
+          "character_actions": [],
+          "texture_keywords": [
+            "\u0111\u1ec1n Ph\u1ee7 D\u1ea7y",
+            "\u0111\u00e8n l\u1ed3ng",
+            "silhouette",
+            "teal"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "S\u00e2n \u0111\u1ec1n mi\u1ec1n B\u1eafc th\u00e1ng Ba v\u1ebd m\u1ef1c t\u00e0u teal tr\u00ean gi\u1ea5y d\u00f3, h\u00e0ng c\u1ed9t \u0111\u1ecf son v\u00e0 \u0111\u00e8n l\u1ed3ng l\u1ec5 h\u1ed9i, d\u00f2ng ng\u01b0\u1eddi \u0111i l\u1ec5 silhouette nh\u1ecf xa trang nghi\u00eam, kh\u00f4ng n\u00e9t m\u1eb7t g\u1ea7n, phong c\u00e1ch h\u1ed9i h\u1ecda c\u1ed5 \u0111i\u1ec3n",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc028",
+          "type": "diagram",
+          "description": "Hai nh\u00e1nh t\u00e1ch bi\u1ec7t t\u1ecfa t\u1eeb ch\u1eef 'M\u1eabu' trung t\u00e2m: nh\u00e1nh teal m\u00e1i \u0111\u1ec1n '\u0111\u1ec1n v\u00e0 h\u1ed9i', nh\u00e1nh amber trang k\u1ec3 't\u00f4n phong v\u00e0 x\u1ebfp h\u1ea1ng'; d\u00f2ng 'M\u1eabu nghi thi\u00ean h\u1ea1' hi\u1ec7n trong tr\u00edch d\u1eabn; nh\u00e3n 'S\u1eafc phong g\u1ed1c ch\u01b0a \u0111\u1ed1i chi\u1ebfu' nh\u1ecf d\u01b0\u1edbi. Ph\u1ee7 quote C15 s21: hai chi\u1ec1u c\u1ee7a danh x\u01b0ng.",
+          "start_seconds": 645.3,
+          "end_seconds": 677.08,
+          "script_section_id": "s21",
+          "framing": "Ch\u1eef M\u1eabu t\u00e2m tr\u00e1i, hai nh\u00e1nh t\u1ecfa ph\u1ea3i tr\u00ean xu\u1ed1ng",
+          "movement": "dolly_out nh\u1eb9 l\u1ed9 hai nh\u00e1nh \u0111\u1ea7y \u0111\u1ee7",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "M\u1eabu nghi thi\u00ean ha (quote C15, Nghi\u00ean c\u1ee9u T\u00f4n gi\u00e1o 10/2010) \u00b7 S\u1eafc phong g\u1ed1c ch\u01b0a \u0111\u1ed1i chi\u1ebfu \u00b7 M\u1ea1 v\u00e0ng ch\u1ebf th\u1eafng \u0111\u1ea1i v\u01b0\u01a1ng, th\u01b0\u1ee3ng \u0111\u1eb3ng th\u1ea7n \u00abT\u1eeb l\u1edbp \u0111\u1ec1n\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "dolly_out",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "Tr\u1ea3 l\u1eddi c\u00e2u h\u1ecfi M\u1eabu b\u1eb1ng c\u1ea5u tr\u00fac hai chi\u1ec1u \u2014 kh\u00f4ng thu v\u1ec1 m\u1ed9t v\u0103n ki\u1ec7n duy nh\u1ea5t",
+          "narrative_role": "deliver_payload",
+          "information_role": "D\u00e2n th\u1edd tr\u01b0\u1edbc (\u0111\u1ec1n, h\u1ed9i), tri\u1ec1u \u0111\u00ecnh ch\u00ednh danh sau (t\u00f4n phong, x\u1ebfp h\u1ea1ng); l\u00e0 l\u1eddi nghi\u00ean c\u1ee9u t\u00f3m t\u1eaft, s\u1eafc phong g\u1ed1c ch\u01b0a \u0111\u1ed1i chi\u1ebfu",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "s\u01a1 \u0111\u1ed3 hai nh\u00e1nh",
+            "teal+amber",
+            "tri\u1ec7n son"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "S\u01a1 \u0111\u1ed3 hai nh\u00e1nh m\u1ef1c tr\u00ean gi\u1ea5y d\u00f3 t\u1ecfa t\u1eeb m\u1ed9t con d\u1ea5u trung t\u00e2m: nh\u00e1nh teal h\u00ecnh m\u00e1i \u0111\u1ec1n, nh\u00e1nh amber h\u00ecnh trang s\u00e1ch v\u1edbi \u1ea5n son, kh\u00f4ng d\u1ef1ng tr\u1ee5c ni\u00ean \u0111\u1ea1i",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc029",
+          "type": "animation",
+          "description": "\u0110\u01b0\u1eddng m\u1ef1c amber r\u1eddi nh\u00e0 tranh r\u1ed3i tr\u1edf v\u1ec1 (callback sc015 g\u1ecdn h\u01a1n); m\u00e1i \u0111\u1ec1n n\u1eb1m tr\u00ean t\u1edd gi\u1ea5y ri\u00eang ph\u00eda sau; ch\u1eef 'c\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0' hi\u1ec7n tr\u00ean gi\u1ea5y d\u00f3. Ph\u1ee7 s22: c\u00e1ch \u0111\u1ecdc bi\u00ean t\u1eadp \u2014 c\u00e2u chuy\u1ec7n c\u1ed9ng \u0111\u1ed3ng mu\u1ed1n gi\u1eef l\u1ea1i m\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef.",
+          "start_seconds": 677.08,
+          "end_seconds": 707.2,
+          "script_section_id": "s22",
+          "framing": "\u0110\u01b0\u1eddng m\u1ef1c S nh\u1ecf g\u1ecdn, t\u1edd \u0111\u1ec1n t\u00e1ch bi\u1ec7t ph\u00eda sau",
+          "movement": "static, \u0111\u01b0\u1eddng m\u1ef1c t\u1ef1 v\u1ebd",
+          "transition_in": "hold",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "c\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0 \u2014 c\u00e1ch \u0111\u1ecdc bi\u00ean t\u1eadp, kh\u00f4ng ph\u1ea3i k\u1ebft lu\u1eadn duy nh\u1ea5t \u00abTr\u1edf l\u1ea1i l\u1edbp\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u01b0a \u0111\u1ec1 xu\u1ea5t di\u1ec5n gi\u1ea3i c\u1ee7a t\u1eadp \u2014 m\u1edf cho ng\u01b0\u1eddi xem t\u1ef1 quy\u1ebft, mi\u1ec5n kh\u00f4ng d\u00f9ng l\u1edbp n\u00e0y x\u00e1c nh\u1eadn l\u1edbp kia",
+          "narrative_role": "deliver_payload",
+          "information_role": "Trong truy\u1ec7n n\u00e0ng m\u1ea5t r\u1ed3i tr\u1edf v\u1ec1; ngo\u00e0i truy\u1ec7n ng\u01b0\u1eddi \u0111\u1eddi th\u1edd M\u1eabu \u2014 \u0111\u1ec1n v\u00e0 danh x\u01b0ng l\u00e0 c\u00e1ch tr\u1ea3 l\u1eddi n\u1ed7i mu\u1ed1n gi\u1eef l\u1ea1i",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "\u0111\u01b0\u1eddng m\u1ef1c amber",
+            "callback",
+            "gi\u1ea5y d\u00f3"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "\u0110\u01b0\u1eddng n\u00e9t m\u1ef1c amber nh\u1ecf v\u1ebd v\u00f2ng r\u1eddi r\u1ed3i tr\u1edf v\u1ec1 nh\u00e0 tranh, ph\u00eda sau l\u00e0 t\u1edd gi\u1ea5y ri\u00eang c\u00f3 m\u00e1i \u0111\u1ec1n, b\u1ed1 c\u1ee5c t\u1ed1i gi\u1ea3n hai l\u1edbp",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc030",
+          "type": "generated",
+          "description": "Th\u1ebb h\u1ed3 s\u01a1 n\u00e2u gi\u1ea5y d\u1ea7u hi\u1ec7n d\u1ea7n tr\u00ean b\u00e0n gi\u1ea5y UNESCO hi\u1ec7n \u0111\u1ea1i: tem \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432, con d\u1ea5u m\u1ef1c xanh, d\u00f2ng t\u00ean di s\u1ea3n; c\u00e1c m\u1ed1c '1/12/2016', 'l\u1ea7n th\u1ee9 11', '14 t\u1ec9nh' hi\u1ec7n tu\u1ea7n t\u1ef1. Ph\u1ee7 quote C10 s23: ghi danh 'Th\u1ef1c h\u00e0nh T\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu Tam ph\u1ee7 c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t' t\u1ea1i Addis Ababa.",
+          "start_seconds": 707.2,
+          "end_seconds": 745.62,
+          "script_section_id": "s23",
+          "framing": "Th\u1ebb h\u1ed3 s\u01a1 ph\u1eb3ng tr\u00ean b\u00e0n, tem v\u00e0 d\u1ea5u g\u00f3c ph\u1ea3i",
+          "movement": "tilt_down t\u1eeb tem xu\u1ed1ng d\u00f2ng t\u00ean di s\u1ea3n",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "Th\u1ef1c h\u00e0nh T\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu Tam ph\u1ee7 c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t \u2014 UNESCO ghi danh (quote C10) \u00b7 1/12/2016 \u00b7 l\u1ea7n th\u1ee9 11 \u00b7 14 t\u1ec9nh \u00abB\u00e2y gi\u1edd l\u00e0\u00bb",
+          "shot_language": {
+            "shot_size": "insert",
+            "camera_movement": "tilt_down",
+            "lens_mm": 85,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "M\u1edf l\u1edbp 3 b\u1eb1ng v\u1eadt th\u1ec3 h\u1ed3 s\u01a1 hi\u1ec7n \u0111\u1ea1i \u2014 t\u01b0\u01a1ng ph\u1ea3n ch\u1ea5t li\u1ec7u gi\u1ea5y d\u1ea7u v\u1edbi v\u0103n kh\u1ed1 hi\u1ec7n \u0111\u1ea1i",
+          "narrative_role": "evidence",
+          "information_role": "UNESCO ghi danh th\u1ef1c h\u00e0nh t\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu Tam ph\u1ee7 c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t, 1/12/2016, phi\u00ean 11, Addis Ababa; h\u1ed3 s\u01a1 14 t\u1ec9nh m\u1edf \u0111\u1ea7u Ninh B\u00ecnh, H\u00e0 N\u1ed9i, H\u01b0ng Y\u00ean, H\u1ea3i Ph\u00f2ng, B\u1eafc Ninh, Ph\u00fa Th\u1ecd",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "gi\u1ea5y d\u1ea7u n\u00e2u",
+            "tem",
+            "con d\u1ea5u xanh",
+            "h\u1ed3 s\u01a1 hi\u1ec7n \u0111\u1ea1i"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Th\u1ebb h\u1ed3 s\u01a1 n\u00e2u gi\u1ea5y d\u1ea7u n\u1eb1m tr\u00ean b\u00e0n gi\u1ea5y hi\u1ec7n \u0111\u1ea1i, tem UNESCO v\u00e0 con d\u1ea5u m\u1ef1c xanh \u1edf g\u00f3c, kh\u00f4ng ch\u1eef r\u00f5, \u00e1nh \u0111\u00e8n l\u00e0m vi\u1ec7c \u1ea5m",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc031",
+          "type": "generated",
+          "description": "Th\u1ebb h\u1ed3 s\u01a1 n\u00e2u gi\u1ea5y d\u1ea7u m\u1edf gi\u1eefa khung: con d\u1ea5u m\u1ef1c xanh ch\u1ec9 \u0111\u00e1p xu\u1ed1ng d\u00f2ng ch\u1eef 'th\u1ef1c h\u00e0nh t\u00edn ng\u01b0\u1ee1ng'; trang truy\u1ec7n amber v\u00e0 h\u00ecnh b\u00f3ng nh\u00e2n v\u1eadt b\u1ecb \u0111\u1ea9y ra m\u00e9p khung, kh\u00f4ng nh\u1eadn d\u1ea5u. Ph\u1ee7 s24 c\u00e2u \u0111\u1ea7u: UNESCO ghi danh th\u1ef1c h\u00e0nh, kh\u00f4ng ghi danh truy\u1ec7n Li\u1ec5u H\u1ea1nh, kh\u00f4ng ch\u1ee9ng th\u1ef1c nh\u00e2n v\u1eadt.",
+          "start_seconds": 745.62,
+          "end_seconds": 757.0,
+          "script_section_id": "s24",
+          "framing": "Th\u1ebb h\u1ed3 s\u01a1 gi\u1eefa khung, trang truy\u1ec7n v\u00e0 h\u00ecnh ng\u01b0\u1eddi \u1edf m\u00e9p ngo\u00e0i",
+          "movement": "dolly_in nh\u1eb9 v\u00e0o d\u00f2ng ch\u1eef \u0111\u01b0\u1ee3c ghi danh",
+          "transition_in": "hold",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "th\u1ef1c h\u00e0nh t\u00edn ng\u01b0\u1ee1ng \u00b7 kh\u00f4ng ghi danh truy\u1ec7n Li\u1ec5u H\u1ea1nh \u00b7 kh\u00f4ng ch\u1ee9ng th\u1ef1c nh\u00e2n v\u1eadt \u00ab\u1ede l\u1edbp h\u1ed3\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "T\u00e1ch b\u1ea1ch \u0111\u1ed1i t\u01b0\u1ee3ng ghi danh kh\u1ecfi truy\u1ec7n v\u00e0 nh\u00e2n v\u1eadt b\u1eb1ng c\u1eed ch\u1ec9 \u0111\u00f3ng d\u1ea5u c\u00f3 ch\u1ecdn l\u1ef1a",
+          "narrative_role": "deliver_payload",
+          "information_role": "UNESCO ghi danh th\u1ef1c h\u00e0nh t\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu Tam ph\u1ee7 c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t; kh\u00f4ng ghi danh truy\u1ec7n Li\u1ec5u H\u1ea1nh, kh\u00f4ng ch\u1ee9ng th\u1ef1c nh\u00e2n v\u1eadt trong truy\u1ec7n t\u1eebng s\u1ed1ng",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "gi\u1ea5y d\u1ea7u n\u00e2u",
+            "con d\u1ea5u m\u1ef1c xanh",
+            "t\u00e1ch b\u1ea1ch"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Th\u1ebb h\u1ed3 s\u01a1 n\u00e2u gi\u1ea5y d\u1ea7u v\u1edbi con d\u1ea5u m\u1ef1c xanh ch\u1ec9 \u0111\u00e1p xu\u1ed1ng m\u1ed9t d\u00f2ng ch\u1eef, trang s\u00e1ch c\u0169 v\u00e0 h\u00ecnh b\u00f3ng ng\u01b0\u1eddi n\u1eb1m ngo\u00e0i v\u00f9ng \u0111\u00f3ng d\u1ea5u, m\u1ef1c t\u00e0u tr\u00ean gi\u1ea5y d\u00f3, \u00e1nh \u0111\u00e8n l\u00e0m vi\u1ec7c \u1ea5m",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc032",
+          "type": "animation",
+          "description": "Con d\u1ea5u m\u1ef1c xanh l\u01a1 l\u1eedng gi\u1eefa trang truy\u1ec7n amber v\u00e0 h\u00ecnh b\u00f3ng ng\u01b0\u1eddi, rung nh\u1eb9 r\u1ed3i r\u00fat v\u1ec1 ph\u00eda th\u1ebb h\u1ed3 s\u01a1; hai m\u00e9p gi\u1ea5y \u0111\u01b0\u1ee3c vu\u1ed1t th\u1eb3ng, kh\u00f4ng x\u00e9 r\u00e1ch. Ph\u1ee7 s24: s\u1ef1 t\u00e1ch b\u1ea1ch \u1ea5y kh\u00f4ng l\u00e0m m\u1ea5t \u0111i l\u00f2ng k\u00ednh tr\u1ecdng.",
+          "start_seconds": 757.0,
+          "end_seconds": 764.05,
+          "script_section_id": "s24",
+          "framing": "Con d\u1ea5u gi\u1eefa khung, hai \u0111\u1ed1i t\u01b0\u1ee3ng hai b\u00ean m\u00e9p",
+          "movement": "static, d\u1ea5u m\u1ef1c t\u1ef1 di chuy\u1ec3n",
+          "transition_in": "cross_dissolve",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "\u00abS\u1ef1 t\u00e1ch b\u1ea1ch\u00bb",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "C\u1ea3m x\u00fac c\u1ee7a s\u1ef1 t\u00e1ch b\u1ea1ch: kh\u00f4ng ph\u00e1n x\u00e9t, kh\u00f4ng l\u00e0m m\u1ea5t l\u00f2ng k\u00ednh tr\u1ecdng",
+          "narrative_role": "emotional_beat",
+          "information_role": "S\u1ef1 t\u00e1ch b\u1ea1ch h\u1ed3 s\u01a1 kh\u00f4ng l\u00e0m m\u1ea5t l\u00f2ng k\u00ednh tr\u1ecdng; gi\u00fap nh\u1eadn ra gi\u00e1 tr\u1ecb ri\u00eang c\u1ee7a t\u1eebng l\u1edbp",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ef1c xanh",
+            "trang amber",
+            "c\u1eed ch\u1ec9 d\u1ea5u"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Con d\u1ea5u tr\u00f2n m\u1ef1c xanh l\u01a1 l\u1eedng gi\u1eefa m\u1ed9t trang s\u00e1ch m\u1ef1c amber v\u00e0 m\u1ed9t t\u1edd gi\u1ea5y d\u1ea7u n\u00e2u, hai m\u00e9p gi\u1ea5y th\u1eb3ng n\u00e9t, m\u1ef1c t\u00e0u tr\u00ean gi\u1ea5y d\u00f3, t\u00f4ng \u1ea5m d\u1ecbu",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc033",
+          "type": "diagram",
+          "description": "Ba t\u1edd gi\u1ea5y t\u00e1ch ri\u00eang l\u1ea7n l\u01b0\u1ee3t hi\u1ec7n: amber 'b\u1ea3n k\u1ec3 \u2014 gi\u1eef m\u1ed9t c\u00e2u chuy\u1ec7n', teal '\u0111\u1ec1n th\u1edd \u2014 gi\u1eef d\u1ea5u v\u1ebft vi\u1ec7c th\u1edd', n\u00e2u gi\u1ea5y d\u1ea7u 'ghi danh di s\u1ea3n \u2014 g\u1ecdi t\u00ean m\u1ed9t th\u1ef1c h\u00e0nh s\u1ed1ng'; ba t\u1edd \u0111\u1eb7t c\u1ea1nh nhau th\u00e0nh t\u1eadp d\u00e0y h\u01a1n, kh\u00f4ng t\u1edd n\u00e0o in d\u1ea5u l\u00ean t\u1edd kh\u00e1c. Ph\u1ee7 s24 k\u1ebft: kh\u00f4ng l\u1edbp n\u00e0o m\u01b0\u1ee3n danh l\u1edbp kh\u00e1c \u0111\u1ec3 c\u00f3 gi\u00e1 tr\u1ecb.",
+          "start_seconds": 764.05,
+          "end_seconds": 775.98,
+          "script_section_id": "s24",
+          "framing": "Ba t\u1edd gi\u1ea5y ngang h\u00e0ng tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3",
+          "movement": "pan_right theo th\u1ee9 t\u1ef1 t\u1edd gi\u1ea5y hi\u1ec7n",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "b\u1ea3n k\u1ec3 \u00b7 \u0111\u1ec1n th\u1edd \u00b7 ghi danh di s\u1ea3n \u2014 kh\u00f4ng l\u1edbp n\u00e0o m\u01b0\u1ee3n danh l\u1edbp kh\u00e1c \u00ab\u0110\u1ec1n th\u1edd gi\u1eef\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "pan_right",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "S\u01a1 \u0111\u1ed3 ba l\u1edbp ho\u00e0n ch\u1ec9nh: \u0111\u1eb7t c\u1ea1nh nhau l\u00e0m c\u00e2u chuy\u1ec7n d\u00e0y h\u01a1n nh\u01b0ng kh\u00f4ng thay th\u1ebf nhau",
+          "narrative_role": "comparison",
+          "information_role": "Ba l\u1edbp trao ba gi\u00e1 tr\u1ecb ri\u00eang: b\u1ea3n k\u1ec3 gi\u1eef m\u1ed9t c\u00e2u chuy\u1ec7n, \u0111\u1ec1n th\u1edd gi\u1eef d\u1ea5u v\u1ebft vi\u1ec7c th\u1edd, ghi danh di s\u1ea3n g\u1ecdi t\u00ean m\u1ed9t th\u1ef1c h\u00e0nh s\u1ed1ng",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "ba t\u1edd gi\u1ea5y",
+            "amber/teal/n\u00e2u",
+            "s\u01a1 \u0111\u1ed3"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Ba t\u1edd gi\u1ea5y m\u00e0u amber, teal v\u00e0 n\u00e2u gi\u1ea5y d\u1ea7u \u0111\u1eb7t c\u1ea1nh nhau tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3, m\u1ed7i t\u1edd c\u00f3 m\u1ed9t bi\u1ec3u t\u01b0\u1ee3ng m\u1ef1c nh\u1ecf (cu\u1ed1n s\u00e1ch, m\u00e1i \u0111\u1ec1n, th\u1ebb h\u1ed3 s\u01a1), b\u1ed1 c\u1ee5c ngang h\u00e0ng c\u00e2n \u0111\u1ed1i, m\u1ef1c t\u00e0u",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc034",
+          "type": "animation",
+          "description": "T\u1edd h\u1ed3 s\u01a1 n\u00e2u gi\u1ea5y d\u1ea7u tr\u01b0\u1ee3t sang b\u00ean nh\u01b0\u1eddng ch\u1ed7 cho ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n v\u1ebd m\u1ef1c teal tr\u00ean gi\u1ea5y d\u00f3; n\u1eafng th\u00e1ng Ba nh\u1eb9 xuy\u00ean qua m\u00e1i. Ph\u1ee7 s25 m\u1edf: t\u1eeb l\u1edbp h\u1ed3 s\u01a1 tr\u1edf v\u1ec1 th\u1ef1c h\u00e0nh \u1edf Ph\u1ee7 D\u1ea7y h\u00f4m nay, m\u00f9ng ba th\u00e1ng Ba \u0111\u01b0a ng\u01b0\u1eddi \u0111i h\u1ed9i v\u1ec1 b\u00ean ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n.",
+          "start_seconds": 775.98,
+          "end_seconds": 782.64,
+          "script_section_id": "s25",
+          "framing": "Ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n gi\u1eefa khung, t\u1edd h\u1ed3 s\u01a1 tr\u01b0\u1ee3t m\u00e9p tr\u00e1i",
+          "movement": "tracking_left khi t\u1edd gi\u1ea5y nh\u01b0\u1eddng ch\u1ed7",
+          "transition_in": "hold",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "\u00abT\u1eeb l\u1edbp h\u1ed3\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "tracking_left",
+            "lens_mm": 35,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Chuy\u1ec3n t\u1eeb l\u1edbp h\u1ed3 s\u01a1 v\u1ec1 l\u1edbp th\u1ef1c h\u00e0nh b\u1eb1ng c\u1eed ch\u1ec9 nh\u01b0\u1eddng ch\u1ed7 c\u1ee7a t\u1edd gi\u1ea5y",
+          "narrative_role": "transition",
+          "information_role": "Ng\u00e0y m\u00f9ng ba th\u00e1ng Ba \u00e2m l\u1ecbch \u0111\u01b0a ng\u01b0\u1eddi \u0111i h\u1ed9i v\u1ec1 b\u00ean ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n Ph\u1ee7 D\u1ea7y",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n",
+            "teal",
+            "gi\u1ea5y d\u1ea7u nh\u01b0\u1eddng ch\u1ed7"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n v\u1ebd m\u1ef1c t\u00e0u teal tr\u00ean gi\u1ea5y d\u00f3, m\u1ed9t t\u1edd gi\u1ea5y d\u1ea7u n\u00e2u \u0111ang tr\u01b0\u1ee3t sang b\u00ean m\u00e9p khung, n\u1eafng v\u00e0ng nh\u1eb9 xuy\u00ean m\u00e1i \u0111\u1ec1n, m\u1ef1c loang d\u1ecbu",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc035",
+          "type": "diagram",
+          "description": "Hai t\u1edd gi\u1ea5y ri\u00eang \u0111\u1eb7t nghi\u00eang c\u00f9ng h\u01b0\u1edbng v\u1ec1 m\u1ed9t d\u00f2ng ch\u1eef 'm\u00f9ng ba th\u00e1ng Ba \u00e2m l\u1ecbch' \u1edf gi\u1eefa: t\u1edd amber ghi 'b\u1ea3n k\u1ec3 \u2014 ng\u00e0y ti\u00ean ch\u00faa m\u1ea5t', t\u1edd teal ghi 'ghi ch\u00e9p l\u1ec5 h\u1ed9i \u2014 ng\u00e0y h\u1ed9i Ph\u1ee7 D\u1ea7y'; hai t\u1edd ch\u1ea1m nhau t\u1ea1i d\u00f2ng ch\u1eef nh\u01b0ng n\u00e9t g\u1ea1ch ranh gi\u1edbi v\u1eabn \u0111\u1eadm. Ph\u1ee7 s25 gi\u1eefa: hai l\u1edbp ch\u1ea1m nhau \u1edf m\u1ed9t ng\u00e0y nh\u01b0ng kh\u00f4ng c\u00f9ng m\u1ed9t s\u1ef1 th\u1eadt.",
+          "start_seconds": 782.64,
+          "end_seconds": 794.0,
+          "script_section_id": "s25",
+          "framing": "D\u00f2ng ng\u00e0y \u1edf gi\u1eefa, hai t\u1edd gi\u1ea5y hai b\u00ean",
+          "movement": "static, hai t\u1edd gi\u1ea5y t\u1ef1 hi\u1ec7n",
+          "transition_in": "hold",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "m\u00f9ng ba th\u00e1ng Ba \u00e2m l\u1ecbch \u00b7 b\u1ea3n k\u1ec3: ng\u00e0y ti\u00ean ch\u00faa m\u1ea5t \u00b7 ghi ch\u00e9p l\u1ec5 h\u1ed9i: ng\u00e0y h\u1ed9i Ph\u1ee7 D\u1ea7y \u00abTrong b\u1ea3n k\u1ec3,\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "Tr\u00f9ng ng\u00e0y kh\u00f4ng \u0111\u1ed3ng ngh\u0129a c\u00f9ng m\u1ed9t s\u1ef1 th\u1eadt \u2014 hai l\u1edbp ch\u1ea1m nhau, kh\u00f4ng nh\u1eadp l\u00e0m m\u1ed9t",
+          "narrative_role": "comparison",
+          "information_role": "Trong b\u1ea3n k\u1ec3 l\u00e0 ng\u00e0y ti\u00ean ch\u00faa m\u1ea5t; trong ghi ch\u00e9p l\u1ec5 h\u1ed9i l\u00e0 ng\u00e0y h\u1ed9i Ph\u1ee7 D\u1ea7y; hai l\u1edbp ch\u1ea1m nhau \u1edf m\u1ed9t ng\u00e0y nh\u01b0ng kh\u00f4ng v\u00ec th\u1ebf th\u00e0nh c\u00f9ng m\u1ed9t s\u1ef1 th\u1eadt",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "hai t\u1edd gi\u1ea5y",
+            "d\u00f2ng ng\u00e0y chung",
+            "n\u00e9t ranh gi\u1edbi"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Hai t\u1edd gi\u1ea5y amber v\u00e0 teal \u0111\u1eb7t nghi\u00eang \u0111\u1ed1i x\u1ee9ng c\u00f9ng h\u01b0\u1edbng v\u1ec1 m\u1ed9t d\u00f2ng m\u1ef1c trung t\u00e2m tr\u00ean gi\u1ea5y d\u00f3, gi\u1eefa hai t\u1edd c\u00f3 n\u00e9t g\u1ea1ch ranh m\u1ea3nh, m\u1ef1c t\u00e0u ti\u1ebft ch\u1ebf",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc036",
+          "type": "generated",
+          "description": "C\u1ea3nh \u0111\u1ec1n th\u00e1ng Ba v\u1ebd m\u1ef1c teal tr\u00ean gi\u1ea5y d\u00f3: s\u00e2n \u0111\u1ec1n, c\u1ed9t \u0111\u1ecf son xa, d\u00f2ng ng\u01b0\u1eddi \u0111i h\u1ed9i silhouette nh\u1ecf trang nghi\u00eam, kh\u00f4ng n\u00e9t m\u1eb7t g\u1ea7n; tr\u01b0\u1edbc c\u1ea3nh l\u00e0 b\u00e0n \u0111\u1ecdc v\u1edbi trang truy\u1ec7n amber v\u00e0 t\u1ec7p h\u1ed3 s\u01a1 n\u00e2u \u0111\u1eb7t c\u1ea1nh nhau, kh\u00f4ng ch\u1ed3ng l\u00ean nhau. Ph\u1ee7 s25 k\u1ebft: c\u00f3 th\u1ec3 l\u1eafng nghe c\u1ea3 hai m\u00e0 kh\u00f4ng b\u1eaft trang truy\u1ec7n l\u00e0m c\u00f4ng vi\u1ec7c c\u1ee7a h\u1ed3 s\u01a1 l\u1ecbch s\u1eed.",
+          "start_seconds": 794.0,
+          "end_seconds": 803.73,
+          "script_section_id": "s25",
+          "framing": "B\u00e0n \u0111\u1ecdc ti\u1ec1n c\u1ea3nh, s\u00e2n \u0111\u1ec1n h\u1ed9i sau",
+          "movement": "crane_up nh\u1eb9 n\u00e2ng kh\u1ecfi trang gi\u1ea5y ra s\u00e2n \u0111\u1ec1n",
+          "transition_in": "cross_dissolve",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "\u00abM\u1ed9t b\u00ean ghi\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "crane_up",
+            "lens_mm": 35,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Khoan dung c\u1ee7a c\u00e1ch \u0111\u1ecdc hai l\u1edbp: c\u1ea3 hai c\u00f9ng hi\u1ec7n di\u1ec7n, kh\u00f4ng b\u00ean n\u00e0o l\u00e0m vi\u1ec7c c\u1ee7a b\u00ean kia",
+          "narrative_role": "emotional_beat",
+          "information_role": "M\u1ed9t b\u00ean gi\u1eef nh\u1ecbp c\u00e2u chuy\u1ec7n; m\u1ed9t b\u00ean ghi nh\u1eadn vi\u1ec7c ng\u01b0\u1eddi \u0111\u1eddi t\u01b0\u1edfng nh\u1edb v\u00e0 th\u1ef1c h\u00e0nh t\u00edn ng\u01b0\u1ee1ng",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "s\u00e2n \u0111\u1ec1n th\u00e1ng Ba",
+            "teal",
+            "hai l\u1edbp c\u1ea1nh nhau"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "S\u00e2n \u0111\u1ec1n th\u00e1ng Ba v\u1ebd m\u1ef1c t\u00e0u teal tr\u00ean gi\u1ea5y d\u00f3 v\u1edbi c\u1ed9t son v\u00e0 m\u00e1i \u0111\u1ec1n, d\u00f2ng ng\u01b0\u1eddi \u0111i h\u1ed9i silhouette nh\u1ecf trang nghi\u00eam kh\u00f4ng n\u00e9t m\u1eb7t g\u1ea7n, ti\u1ec1n c\u1ea3nh b\u00e0n \u0111\u1ecdc g\u1ed7 v\u1edbi m\u1ed9t trang s\u00e1ch amber v\u00e0 m\u1ed9t t\u1ec7p h\u1ed3 s\u01a1 n\u00e2u \u0111\u1eb7t c\u1ea1nh nhau, phong c\u00e1ch h\u1ed9i h\u1ecda c\u1ed5 \u0111i\u1ec3n",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc037",
+          "type": "generated",
+          "description": "Trang b\u00e1ch khoa in n\u00e9t m\u1ed9c n\u00e2u tr\u00ean gi\u1ea5y d\u1ea7u: nh\u00e3n 'theo c\u00e1ch k\u1ec3 / b\u00e1ch khoa' hi\u1ec7n tr\u01b0\u1edbc, r\u1ed3i hai m\u1ee5c hi\u1ec7n \u0111\u1ea7y \u0111\u1ee7 \u2014 ng\u00e0y sinh v\u00e0 ng\u00e0y m\u1ea5t k\u00e8m ph\u1ea7n l\u1ecbch \u00e2m trong ngo\u1eb7c; n\u00e9t ch\u1eef \u0111\u1ec1u, kh\u00f4ng c\u00f3 d\u1ea5u x\u00e1c nh\u1eadn l\u1ecbch s\u1eed. Ph\u1ee7 s26: \u1edf l\u1edbp t\u1ed5ng h\u1ee3p b\u00e1ch khoa, ta g\u1eb7p nh\u1eefng ng\u00e0y th\u00e1ng r\u1ea5t c\u1ee5 th\u1ec3.",
+          "start_seconds": 803.73,
+          "end_seconds": 817.0,
+          "script_section_id": "s26",
+          "framing": "Trang b\u00e1ch khoa ph\u1eb3ng, hai m\u1ee5c gi\u1eefa trang",
+          "movement": "tilt_down t\u1eeb nh\u00e3n xu\u1ed1ng hai m\u1ee5c",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "theo c\u00e1ch k\u1ec3/b\u00e1ch khoa \u00b7 ng\u00e0y sinh \"07/09/1557 (15/8/\u0110inh T\u1ef5)\" \u00b7 ng\u00e0y m\u1ea5t \"21/03/1577 (3/3/\u0110inh S\u1eedu)\" \u00ab\u1ede l\u1edbp t\u1ed5ng\u00bb",
+          "shot_language": {
+            "shot_size": "insert",
+            "camera_movement": "tilt_down",
+            "lens_mm": 85,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "Tr\u00ecnh b\u00e0y con s\u1ed1 b\u00e1ch khoa trong \u0111\u00fang khung ngu\u1ed3n, kh\u00f4ng t\u1ea1o gi\u1ecdng c\u00f4ng b\u1ed1 s\u1eed li\u1ec7u",
+          "narrative_role": "evidence",
+          "information_role": "B\u00e1ch khoa ghi ng\u00e0y sinh 07/09/1557 (15/8/\u0110inh T\u1ef5) v\u00e0 ng\u00e0y m\u1ea5t 21/03/1577 (3/3/\u0110inh S\u1eedu); \u0111\u00f3 l\u00e0 c\u00e1ch b\u00e1ch khoa t\u1ed5ng h\u1ee3p c\u00e1c b\u1ea3n k\u1ec3",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "gi\u1ea5y d\u1ea7u n\u00e2u",
+            "n\u00e9t in m\u1ed9c",
+            "hai m\u1ed1c ng\u00e0y"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Trang b\u00e1ch khoa t\u1ed5ng h\u1ee3p v\u1ebd m\u1ef1c n\u00e2u tr\u00ean gi\u1ea5y d\u1ea7u, hai \u00f4 m\u1ee5c \u0111\u1eb7t gi\u1eefa trang v\u1edbi kho\u1ea3ng tr\u1ed1ng d\u00f2ng ch\u1eef, m\u1ed9t nh\u00e3n khung nh\u1ecf \u1edf \u0111\u1ea7u trang, phong c\u00e1ch t\u00e0i li\u1ec7u in m\u1ed9c, \u00e1nh \u0111\u00e8n \u0111\u1ecdc \u1ea5m",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc038",
+          "type": "animation",
+          "description": "Hai d\u00f2ng s\u1ed1 b\u00f3c kh\u1ecfi trang b\u00e1ch khoa, r\u01a1i nh\u1eb9 l\u00ean m\u1eb7t b\u00e0n g\u1ed7; chi\u1ebfc th\u01b0\u1edbc m\u1ef1c c\u1ed1 \u0111o ch\u00fang nh\u01b0ng kh\u00f4ng \u0111o \u0111\u01b0\u1ee3c, h\u00f3a th\u00e0nh d\u1ea5u h\u1ecfi m\u1ea3nh; nh\u00e3n 'kh\u00f4ng ph\u1ea3i ch\u1ee9ng c\u1ee9' hi\u1ec7n c\u1ea1nh. Ph\u1ee7 s26: kh\u00f4ng ph\u1ea3i ch\u1ee9ng c\u1ee9 \u0111\u1ec3 x\u00e1c nh\u1eadn ng\u00e0y sinh v\u00e0 ng\u00e0y m\u1ea5t c\u1ee7a m\u1ed9t nh\u00e2n v\u1eadt l\u1ecbch s\u1eed.",
+          "start_seconds": 817.0,
+          "end_seconds": 829.5,
+          "script_section_id": "s26",
+          "framing": "Hai d\u00f2ng s\u1ed1 tr\u00ean b\u00e0n, th\u01b0\u1edbc m\u1ef1c ph\u00eda tr\u00ean",
+          "movement": "static, s\u1ed1 r\u01a1i v\u00e0 th\u01b0\u1edbc bi\u1ebfn h\u00ecnh",
+          "transition_in": "hold",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "kh\u00f4ng ph\u1ea3i ch\u1ee9ng c\u1ee9 \u00ab\u0110\u00f3 l\u00e0 c\u00e1ch\u00bb",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "H\u00ecnh \u1ea3nh h\u00f3a gi\u1edbi h\u1ea1n c\u1ee7a con s\u1ed1: ghi \u0111\u1ea7y \u0111\u1ee7 nh\u01b0ng ch\u01b0a t\u1ef1 n\u00f3 th\u00e0nh s\u1eed li\u1ec7u",
+          "narrative_role": "deliver_payload",
+          "information_role": "M\u1ed9t ng\u00e0y \u0111\u01b0\u1ee3c ghi \u0111\u1ea7y \u0111\u1ee7 ch\u01b0a t\u1ef1 n\u00f3 th\u00e0nh s\u1eed li\u1ec7u x\u00e1c nh\u1eadn nh\u00e2n v\u1eadt l\u1ecbch s\u1eed",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "d\u00f2ng s\u1ed1 r\u01a1i",
+            "th\u01b0\u1edbc m\u1ef1c",
+            "d\u1ea5u h\u1ecfi"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Hai d\u1ea3i gi\u1ea5y nh\u1ecf ghi s\u1ed1 r\u01a1i tr\u00ean m\u1eb7t b\u00e0n g\u1ed7 t\u1ed1i m\u00e0u, m\u1ed9t chi\u1ebfc th\u01b0\u1edbc m\u1ef1c t\u00e0u \u0111\u1eb7t b\u00ean c\u1ea1nh cong nh\u1eb9 th\u00e0nh d\u1ea5u h\u1ecfi, m\u1ef1c n\u00e2u tr\u00ean n\u1ec1n \u1ea5m, b\u1ed1 c\u1ee5c t\u1ed1i gi\u1ea3n",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc039",
+          "type": "animation",
+          "description": "Trang truy\u1ec7n Phan K\u1ebf B\u00ednh m\u1edf \u1edf c\u00e2u \u0111\u1ea7u: m\u1ef1c amber ghi th\u1eddi vua Anh-t\u00f4n nh\u00e0 L\u00ea, m\u1ed1c 1557 hi\u1ec7n nh\u01b0 c\u00e1nh c\u1eeda m\u1edf truy\u1ec7n; r\u1ed3i m\u1ed7i con s\u1ed1 c\u1ee7a b\u00e1ch khoa \u0111\u01b0\u1ee3c \u0111\u1eb7t v\u00e0o chi\u1ebfc khung g\u1ed7 nh\u1ecf 'theo c\u00e1ch k\u1ec3 \u00b7 theo b\u00e1ch khoa' \u0111i c\u00f9ng s\u1ed1. Ph\u1ee7 s26 k\u1ebft: khi nh\u00ecn nh\u1eefng con s\u1ed1 \u1ea5y, xin gi\u1eef b\u00ean c\u1ea1nh ch\u00fang chi\u1ebfc khung \u0111\u00e3 \u0111\u1ecdc.",
+          "start_seconds": 829.5,
+          "end_seconds": 841.91,
+          "script_section_id": "s26",
+          "framing": "Trang truy\u1ec7n m\u1edf \u1edf tr\u01b0\u1edbc, khung g\u1ed7 nh\u1ecf sau",
+          "movement": "rack_focus t\u1eeb trang truy\u1ec7n sang khung g\u1ed7",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "theo c\u00e1ch k\u1ec3 \u00b7 theo b\u00e1ch khoa \u00b7 m\u1ed1c 1557 (Phan K\u1ebf B\u00ednh m\u1edf truy\u1ec7n \u1edf th\u1eddi vua Anh-t\u00f4n nh\u00e0 L\u00ea) \u00abM\u1ed9t ng\u00e0y \u0111\u01b0\u1ee3c\u00bb",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "rack_focus",
+            "lens_mm": 85,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u00f3ng g\u00f3i con s\u1ed1 trong khung ngu\u1ed3n \u2014 th\u00f3i quen \u0111\u1ecdc c\u1ee7a t\u1eadp n\u00e0y",
+          "narrative_role": "deliver_payload",
+          "information_role": "B\u1ea3n k\u1ec3 Phan K\u1ebf B\u00ednh ch\u1ec9 m\u1edf truy\u1ec7n \u1edf th\u1eddi vua Anh-t\u00f4n nh\u00e0 L\u00ea v\u1edbi m\u1ed1c 1557; con s\u1ed1 b\u00e1ch khoa c\u1ea7n gi\u1eef khung 'theo c\u00e1ch k\u1ec3, theo b\u00e1ch khoa'",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ef1c amber",
+            "khung g\u1ed7",
+            "trang truy\u1ec7n"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Trang truy\u1ec7n c\u1ed5 m\u1ef1c amber m\u1edf tr\u00ean b\u00e0n \u0111\u1ecdc, ph\u00eda sau l\u00e0 chi\u1ebfc khung g\u1ed7 nh\u1ecf \u0111\u1eb7t m\u1ed9t d\u1ea3i gi\u1ea5y m\u1ea3nh, m\u1ef1c t\u00e0u tr\u00ean gi\u1ea5y d\u00f3, \u00e1nh n\u1eafng nghi\u00eang \u1ea5m",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc040",
+          "type": "generated",
+          "description": "B\u00e0n nghi\u00ean c\u1ee9u gi\u1ea5y d\u1ea7u n\u00e2u: hai b\u1ed9 v\u0103n b\u1ea3n c\u1ed5 \u0111\u1eb7t c\u1ea1nh nhau tr\u00ean gi\u00e1 g\u1ed7 \u2014 cu\u1ed1n ph\u1ea3 k\u00fd v\u00e0 t\u1eadp truy\u1ec7n th\u1ea7n n\u1eef; nh\u00e3n t\u00ean hai t\u00e1c ph\u1ea9m hi\u1ec7n theo c\u00e2u tr\u00edch, ch\u1ec9 b\u1ed9 th\u1ee9 nh\u1ea5t g\u1eafn m\u1ed1c 1781. Ph\u1ee7 quote C14 s27: 'c\u00f3 th\u1ec3 coi Qu\u1ea3ng Cung linh t\u1eeb ph\u1ea3 k\u00fd c\u1ee7a V\u0169 Huy Tr\u00e1c (1781) c\u00f3 ni\u00ean \u0111\u1ea1i g\u1ea7n v\u1edbi V\u00e2n C\u00e1t th\u1ea7n n\u1eef c\u1ee7a \u0110o\u00e0n Th\u1ecb \u0110i\u1ec3m.'",
+          "start_seconds": 841.91,
+          "end_seconds": 857.1,
+          "script_section_id": "s27",
+          "framing": "Hai b\u1ed9 v\u0103n b\u1ea3n tr\u00ean gi\u00e1, nh\u00e3n t\u00ean d\u01b0\u1edbi m\u1ed7i b\u1ed9",
+          "movement": "pan_right t\u1eeb b\u1ed9 th\u1ee9 nh\u1ea5t sang b\u1ed9 th\u1ee9 hai",
+          "transition_in": "hold",
+          "transition_out": "hold",
+          "overlay_notes": "\"c\u00f3 th\u1ec3 coi Qu\u1ea3ng Cung linh t\u1eeb ph\u1ea3 k\u00fd c\u1ee7a V\u0169 Huy Tr\u00e1c (1781) c\u00f3 ni\u00ean \u0111\u1ea1i g\u1ea7n v\u1edbi V\u00e2n C\u00e1t th\u1ea7n n\u1eef c\u1ee7a \u0110o\u00e0n Th\u1ecb \u0110i\u1ec3m\" \u2014 Nghi\u00ean c\u1ee9u T\u00f4n gi\u00e1o 10/2010 \u00ab\u1ede l\u1edbp t\u01b0\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "pan_right",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "\u0110\u1eb7t hai v\u0103n b\u1ea3n c\u1ea1nh nhau \u0111\u00fang nh\u01b0 nghi\u00ean c\u1ee9u m\u00f4 t\u1ea3 \u2014 g\u1ea7n nhau v\u1ec1 ni\u00ean \u0111\u1ea1i, kh\u00f4ng th\u00eam m\u1ed1c cho t\u00e1c ph\u1ea9m th\u1ee9 hai",
+          "narrative_role": "evidence",
+          "information_role": "Nghi\u00ean c\u1ee9u ghi Qu\u1ea3ng Cung linh t\u1eeb ph\u1ea3 k\u00fd c\u1ee7a V\u0169 Huy Tr\u00e1c (1781) c\u00f3 ni\u00ean \u0111\u1ea1i g\u1ea7n v\u1edbi V\u00e2n C\u00e1t th\u1ea7n n\u1eef c\u1ee7a \u0110o\u00e0n Th\u1ecb \u0110i\u1ec3m",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "v\u0103n b\u1ea3n c\u1ed5",
+            "gi\u00e1 g\u1ed7",
+            "gi\u1ea5y d\u1ea7u n\u00e2u"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Hai b\u1ed9 s\u00e1ch c\u1ed5 \u0111\u00f3ng ch\u1ec9 tr\u00ean gi\u00e1 g\u1ed7 t\u1ed1i, m\u1ed9t cu\u1ed1n ph\u1ea3 k\u00fd v\u00e0 m\u1ed9t t\u1eadp truy\u1ec7n, m\u1ed7i b\u1ed9 c\u00f3 t\u1ea5m nh\u00e3n gi\u1ea5y nh\u1ecf, kh\u00f4ng ch\u1eef r\u00f5, \u00e1nh \u0111\u00e8n nghi\u00ean c\u1ee9u \u1ea5m tr\u00ean gi\u1ea5y d\u1ea7u n\u00e2u",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc041",
+          "type": "animation",
+          "description": "M\u1ed1c '1781' l\u1eafc l\u01b0 r\u1ed3i t\u00e1ch th\u00e0nh hai t\u1ea5m b\u1ea3ng con \u0111\u00ednh v\u00e0o g\u00e1y b\u1ed9 ph\u1ea3 k\u00fd: b\u1ea3ng g\u1ed7 'ni\u00ean \u0111\u1ea1i v\u0103n b\u1ea3n' n\u1eb1m l\u1ea1i, b\u1ea3ng m\u1edd 'ni\u00ean \u0111\u1ea1i nh\u00e2n v\u1eadt' b\u1ecb lau \u0111i; trang vi\u1ebft th\u1ebf k\u1ef7 m\u01b0\u1eddi t\u00e1m hi\u1ec7n r\u00f5 v\u00e2n gi\u1ea5y mu\u1ed9n h\u01a1n th\u1eddi gian c\u00e2u chuy\u1ec7n. Ph\u1ee7 s27: m\u1ed1c 1781 l\u00e0 ni\u00ean \u0111\u1ea1i v\u0103n b\u1ea3n, kh\u00f4ng ph\u1ea3i ni\u00ean \u0111\u1ea1i nh\u00e2n v\u1eadt.",
+          "start_seconds": 857.1,
+          "end_seconds": 868.4,
+          "script_section_id": "s27",
+          "framing": "G\u00e1y b\u1ed9 s\u00e1ch gi\u1eefa khung, hai t\u1ea5m b\u1ea3ng con",
+          "movement": "static, b\u1ea3ng t\u1ef1 t\u00e1ch v\u00e0 bi\u1ebfn m\u1ea5t",
+          "transition_in": "hold",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "1781 \u2014 ni\u00ean \u0111\u1ea1i v\u0103n b\u1ea3n, kh\u00f4ng ph\u1ea3i ni\u00ean \u0111\u1ea1i nh\u00e2n v\u1eadt \u00ab\u0110\u00f3 l\u00e0 trang\u00bb",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "static",
+            "lens_mm": 85,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "Ph\u00e2n bi\u1ec7t n\u0103m vi\u1ebft trang v\u00e0 n\u0103m c\u1ee7a nh\u00e2n v\u1eadt trong trang \u2014 m\u1ed9t c\u1eed ch\u1ec9 g\u1ee1 nh\u1ea7m",
+          "narrative_role": "deliver_payload",
+          "information_role": "M\u1ed1c 1781 l\u00e0 ni\u00ean \u0111\u1ea1i v\u0103n b\u1ea3n thu\u1ed9c th\u1ebf k\u1ef7 m\u01b0\u1eddi t\u00e1m, mu\u1ed9n h\u01a1n th\u1eddi \u0111i\u1ec3m b\u1ea3n k\u1ec3 \u0111\u1eb7t c\u00e2u chuy\u1ec7n",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "g\u00e1y s\u00e1ch",
+            "b\u1ea3ng m\u1ed1c",
+            "v\u00e2n gi\u1ea5y"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "G\u00e1y s\u00e1ch c\u1ed5 \u0111\u00f3ng ch\u1ec9 v\u1edbi hai t\u1ea5m b\u1ea3ng g\u1ed7 nh\u1ecf \u0111\u01b0\u1ee3c g\u1eafn c\u1ea1nh nhau, m\u1ed9t t\u1ea5m ghi n\u00e9t m\u1ef1c \u0111\u1eadm m\u1ed9t t\u1ea5m \u0111ang m\u1edd d\u1ea7n, v\u00e2n gi\u1ea5y c\u0169 d\u01b0\u1edbi \u00e1nh n\u1ebfn d\u1ecbu, m\u1ef1c n\u00e2u ti\u1ebft ch\u1ebf",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc042",
+          "type": "animation",
+          "description": "Chu\u1ed7i c\u00e1c trang vi\u1ebft n\u1ed1i nhau qua c\u00e1c th\u1ebf h\u1ec7: tay m\u1ef1c kh\u00e1c nhau sao ch\u00e9p, m\u1ed7i trang l\u1ea1i l\u1ed9 kho\u1ea3ng tr\u1ed1ng nh\u1ecf gi\u1eefa d\u00f2ng v\u00e0 h\u00ecnh b\u00f3ng ng\u01b0\u1eddi k\u1ec3 \u2014 kho\u1ea3ng tr\u1ed1ng \u1ea5y kh\u00f4ng kh\u00e9p l\u1ea1i m\u00e0 \u0111\u01b0\u1ee3c gi\u1eef nguy\u00ean khi trang chuy\u1ec3n ti\u1ebfp. Ph\u1ee7 s27 k\u1ebft: c\u00e1c v\u0103n b\u1ea3n g\u1ea7n nhau gi\u00fap nh\u00ecn vi\u1ec7c ghi ch\u00e9p v\u00e0 k\u1ec3 l\u1ea1i qua c\u00e1c th\u1ebf h\u1ec7; m\u1ed7i trang gi\u1eef m\u1ed9t b\u1ea3n k\u1ec3, kh\u00f4ng x\u00f3a kho\u1ea3ng c\u00e1ch gi\u1eefa truy\u1ec7n v\u00e0 l\u1ecbch s\u1eed.",
+          "start_seconds": 868.4,
+          "end_seconds": 873.69,
+          "script_section_id": "s27",
+          "framing": "D\u00e3y trang n\u1eb1m ngang tr\u00f4i ch\u1eadm",
+          "movement": "tracking_right theo d\u00f2ng trang",
+          "transition_in": "ink_wipe",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "m\u1ed7i trang gi\u1eef m\u1ed9t b\u1ea3n k\u1ec3 \u2014 kho\u1ea3ng c\u00e1ch gi\u1eefa truy\u1ec7n v\u00e0 l\u1ecbch s\u1eed kh\u00f4ng b\u1ecb x\u00f3a \u00abM\u1ed7i trang gi\u1eef\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "tracking_right",
+            "lens_mm": 35,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Truy\u1ec1n t\u1ea3i th\u1ebf k\u1ef7 sao ch\u00e9p: c\u00e1c b\u1ea3n k\u1ec3 n\u1ed1i nhau m\u00e0 kho\u1ea3ng c\u00e1ch l\u1ecbch s\u1eed v\u1eabn nguy\u00ean v\u1eb9n",
+          "narrative_role": "resolution",
+          "information_role": "Theo m\u1ed9t c\u00e1ch hi\u1ec3u c\u1ee7a nghi\u00ean c\u1ee9u, c\u00e1c v\u0103n b\u1ea3n g\u1ea7n nhau gi\u00fap nh\u00ecn vi\u1ec7c ghi ch\u00e9p v\u00e0 k\u1ec3 l\u1ea1i qua c\u00e1c th\u1ebf h\u1ec7; m\u1ed7i trang gi\u1eef m\u1ed9t b\u1ea3n k\u1ec3",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "d\u00e3y trang",
+            "sao ch\u00e9p",
+            "kho\u1ea3ng tr\u1ed1ng m\u1ef1c"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "D\u00e3y trang gi\u1ea5y d\u00f3 n\u1eb1m ngang n\u1ed1i nhau, m\u1ed7i trang c\u00f3 n\u00e9t b\u00fat m\u1ef1c kh\u00e1c nhau v\u00e0 m\u1ed9t kho\u1ea3ng tr\u1ed1ng nh\u1ecf gi\u1eefa c\u00e1c d\u00f2ng, ph\u00eda sau l\u00e0 h\u00ecnh b\u00f3ng m\u1edd ng\u01b0\u1eddi ch\u00e9p, \u00e1nh s\u00e1ng th\u1ea5p \u1ea5m",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc043",
+          "type": "text_card",
+          "description": "Th\u1ebb m\u1ee5c l\u1ee5c n\u00e2u gi\u1ea5y d\u1ea7u hi\u1ec7n t\u1eebng d\u00f2ng theo th\u1ee9 t\u1ef1 \u0111\u01b0\u1ee3c \u0111\u1ecdc: 'S\u01a1n Tinh', 'Ch\u1eed \u0110\u1ed3ng T\u1eed', 'Th\u00e1nh Gi\u00f3ng', 'Li\u1ec5u H\u1ea1nh C\u00f4ng Ch\u00faa'; d\u00f2ng cu\u1ed1i c\u00f9ng 'T\u1ee9 B\u1ea5t T\u1eed' l\u00e0m nh\u00e3n \u0111\u1ea7u th\u1ebb; d\u01b0\u1edbi th\u1ebb hi\u1ec7n d\u00f2ng ch\u00fa th\u00edch. Ph\u1ee7 quote C08 s28: b\u00e1ch khoa ghi danh s\u00e1ch T\u1ee9 B\u1ea5t T\u1eed.",
+          "start_seconds": 873.69,
+          "end_seconds": 886.85,
+          "script_section_id": "s28",
+          "framing": "Th\u1ebb m\u1ee5c l\u1ee5c gi\u1eefa khung, b\u1ed1n d\u00f2ng th\u1eb3ng c\u1ed9t",
+          "movement": "tilt_down theo th\u1ee9 t\u1ef1 d\u00f2ng hi\u1ec7n",
+          "transition_in": "cross_dissolve",
+          "transition_out": "hold",
+          "overlay_notes": "\"T\u00edn ng\u01b0\u1ee1ng th\u1edd T\u1ee9 B\u1ea5t T\u1eed c\u1ee7a Vi\u1ec7t Nam bao g\u1ed3m b\u1ed1n v\u1ecb ti\u00ean th\u00e1nh: S\u01a1n Tinh \u00b7 Ch\u1eed \u0110\u1ed3ng T\u1eed \u00b7 Th\u00e1nh Gi\u00f3ng \u00b7 Li\u1ec5u H\u1ea1nh C\u00f4ng Ch\u00faa\" \u2014 b\u00e1ch khoa \u00b7 danh s\u00e1ch ph\u1ed5 bi\u1ebfn \u0111\u01b0\u01a1ng \u0111\u1ea1i \u00abTr\u1edf l\u1ea1i l\u1edbp\u00bb",
+          "shot_language": {
+            "shot_size": "insert",
+            "camera_movement": "tilt_down",
+            "lens_mm": 85,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "Tr\u00ecnh b\u00e0y danh m\u1ee5c theo \u0111\u00fang th\u1ee9 t\u1ef1 v\u00e0 \u0111\u00fang khung: \u0111\u01b0\u01a1ng \u0111\u1ea1i, kh\u00f4ng ph\u1ea3i th\u1ee9 b\u1eadc c\u1ed1 \u0111\u1ecbnh t\u1eeb ng\u00e0n x\u01b0a",
+          "narrative_role": "evidence",
+          "information_role": "B\u00e1ch khoa ghi T\u1ee9 B\u1ea5t T\u1eed g\u1ed3m S\u01a1n Tinh, Ch\u1eed \u0110\u1ed3ng T\u1eed, Th\u00e1nh Gi\u00f3ng, Li\u1ec5u H\u1ea1nh C\u00f4ng ch\u00faa; l\u00e0 danh s\u00e1ch ph\u1ed5 bi\u1ebfn \u0111\u01b0\u01a1ng \u0111\u1ea1i",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "m\u1ee5c l\u1ee5c",
+            "m\u1ef1c n\u00e2u",
+            "b\u1ed1n d\u00f2ng"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Th\u1ebb m\u1ee5c l\u1ee5c n\u00e2u gi\u1ea5y d\u1ea7u v\u1edbi b\u1ed1n d\u00f2ng m\u1ee5c th\u1eb3ng c\u1ed9t v\u00e0 \u0111\u01b0\u1eddng k\u1ebb m\u1ea3nh, ch\u1eef m\u1ef1c n\u00e2u, phong c\u00e1ch t\u00e0i li\u1ec7u c\u1ed5, \u00e1nh \u0111\u00e8n \u0111\u1ecdc \u1ea5m",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc044",
+          "type": "animation",
+          "description": "B\u1ed1n d\u00f2ng t\u00ean co l\u1ea1i th\u00e0nh b\u1ed1n con d\u1ea5u tri\u1ec7n tr\u00ean c\u1ed9t g\u1ed7; ba d\u1ea5u kia mang h\u00ecnh n\u00fai, b\u1edd m\u01b0\u01a1ng, ng\u1ef1a s\u1eaft; d\u1ea5u th\u1ee9 t\u01b0 l\u00e0 h\u00ecnh t\u00e0 \u00e1o n\u1eef \u2014 d\u1ea5u duy nh\u1ea5t c\u00f3 d\u00e1ng ng\u01b0\u1eddi n\u1eef, \u0111\u01b0\u1ee3c th\u1eafp s\u00e1ng nh\u1eb9 h\u01a1n. Ph\u1ee7 s28: trong danh s\u00e1ch n\u00e0y, Li\u1ec5u H\u1ea1nh l\u00e0 ng\u01b0\u1eddi ph\u1ee5 n\u1eef duy nh\u1ea5t; c\u00e2u h\u1ecfi bi\u00ean t\u1eadp c\u00f3 m\u1ed9t n\u00e9t tr\u1ea3 l\u1eddi.",
+          "start_seconds": 886.85,
+          "end_seconds": 895.3,
+          "script_section_id": "s28",
+          "framing": "B\u1ed1n con d\u1ea5u tr\u00ean c\u1ed9t g\u1ed7, d\u1ea5u n\u1eef s\u00e1ng nh\u1eb9",
+          "movement": "dolly_in ch\u1eadm v\u00e0o d\u1ea5u th\u1ee9 t\u01b0",
+          "transition_in": "hold",
+          "transition_out": "hold",
+          "overlay_notes": "\u00abTrong danh s\u00e1ch\u00bb",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "dolly_in",
+            "lens_mm": 50,
+            "lighting_key": "rim_lit",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Nh\u1eadn v\u1ecb tr\u00ed duy nh\u1ea5t c\u1ee7a ng\u01b0\u1eddi ph\u1ee5 n\u1eef trong h\u00e0ng T\u1ee9 B\u1ea5t T\u1eed b\u1eb1ng ng\u00f4n ng\u1eef tri\u1ec7n m\u1ed9c",
+          "narrative_role": "emotional_beat",
+          "information_role": "Trong danh s\u00e1ch T\u1ee9 B\u1ea5t T\u1eed, Li\u1ec5u H\u1ea1nh l\u00e0 ng\u01b0\u1eddi ph\u1ee5 n\u1eef duy nh\u1ea5t; ng\u01b0\u1eddi \u0111\u1eddi h\u00f4m nay \u0111\u1eb7t b\u00e0 c\u1ea1nh c\u00e1c v\u1ecb th\u1ea7n b\u1ea3o v\u1ec7 l\u00e0ng, ch\u1ed1ng ngo\u1ea1i x\u00e2m",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "tri\u1ec7n m\u1ed9c",
+            "c\u1ed9t g\u1ed7",
+            "t\u00e0 \u00e1o"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "B\u1ed1n con d\u1ea5u tri\u1ec7n m\u1ed9c kh\u1eafc tr\u00ean c\u1ed9t g\u1ed7 c\u0169, ba d\u1ea5u mang h\u00ecnh n\u00fai, b\u1edd m\u01b0\u01a1ng v\u00e0 ng\u1ef1a, m\u1ed9t d\u1ea5u mang h\u00ecnh t\u00e0 \u00e1o ng\u01b0\u1eddi n\u1eef \u0111\u01b0\u1ee3c \u00e1nh s\u00e1ng nh\u1eb9 t\u00e1ch b\u1ea1ch, m\u1ef1c n\u00e2u tr\u00ean g\u1ed7 t\u1ed1i",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc045",
+          "type": "generated",
+          "description": "C\u1ed9t \u0111\u1ec1n g\u1ed7 v\u1edbi b\u1ed1n con d\u1ea5u tri\u1ec7n \u0111\u1ee9ng c\u1ea1nh nhau trong m\u00e0n s\u01b0\u01a1ng m\u1ecfng; d\u1ea5u t\u00e0 \u00e1o n\u1eef ph\u00e1t m\u1ef1c loang nh\u1eb9 nh\u01b0 c\u00f2n ti\u1ebfp di\u1ec5n, ba d\u1ea5u kia \u0111\u00e3 t\u0129nh t\u1ea1i; kh\u00f4ng c\u00f3 bia \u0111\u00e1 m\u00f4 ph\u1ecfng th\u1ee9 b\u1eadc c\u1ed5. Ph\u1ee7 s28 k\u1ebft: c\u00f3 th\u1ec3 \u0111\u1ecdc s\u1ef1 hi\u1ec7n di\u1ec7n ti\u1ebfp di\u1ec5n \u1ea5y nh\u01b0 m\u1ed9t c\u00e1ch ng\u01b0\u1eddi \u0111\u1eddi gi\u1eef b\u00e0 \u1edf l\u1ea1i.",
+          "start_seconds": 895.3,
+          "end_seconds": 903.57,
+          "script_section_id": "s28",
+          "framing": "C\u1ed9t \u0111\u1ec1n gi\u1eefa khung, s\u01b0\u01a1ng m\u1ecfng quanh ch\u00e2n c\u1ed9t",
+          "movement": "static, m\u1ef1c loang t\u1ef1 lan",
+          "transition_in": "hold",
+          "transition_out": "ink_wipe",
+          "overlay_notes": "m\u1ed9t c\u00e1ch \u0111\u1ecdc \u2014 s\u1ef1 hi\u1ec7n di\u1ec7n ti\u1ebfp di\u1ec5n nh\u01b0 c\u00e1ch ng\u01b0\u1eddi \u0111\u1eddi gi\u1eef b\u00e0 \u1edf l\u1ea1i \u00abC\u00f3 th\u1ec3 \u0111\u1ecdc\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "volumetric",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "S\u1ef1 ti\u1ebfp di\u1ec5n: \u0111\u01b0\u01a1ng \u0111\u1ea1i, s\u1ed1ng, kh\u00f4ng gi\u1ea3 trang c\u1ed5 k\u00ednh \u2014 k\u00edn \u0111\u00e1o v\u00e0 trang nghi\u00eam",
+          "narrative_role": "emotional_beat",
+          "information_role": "C\u00f3 th\u1ec3 \u0111\u1ecdc s\u1ef1 hi\u1ec7n di\u1ec7n ti\u1ebfp di\u1ec5n c\u1ee7a b\u00e0 trong danh s\u00e1ch \u0111\u01b0\u01a1ng \u0111\u1ea1i nh\u01b0 m\u1ed9t c\u00e1ch ng\u01b0\u1eddi \u0111\u1eddi gi\u1eef b\u00e0 \u1edf l\u1ea1i",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "c\u1ed9t \u0111\u1ec1n",
+            "s\u01b0\u01a1ng m\u1ecfng",
+            "m\u1ef1c loang"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "C\u1ed9t \u0111\u1ec1n g\u1ed7 c\u0169 v\u1edbi b\u1ed1n d\u1ea5u tri\u1ec7n, m\u1ed9t d\u1ea5u t\u00e0 \u00e1o n\u1eef loang m\u1ef1c c\u00f2n t\u01b0\u01a1i b\u00ean ba d\u1ea5u \u0111\u00e3 t\u0129nh, m\u00e0n s\u01b0\u01a1ng m\u1ecfng quanh ch\u00e2n c\u1ed9t, \u00e1nh s\u00e1ng th\u1ec3 t\u00edch \u1ea5m trang nghi\u00eam",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc046",
+          "type": "animation",
+          "description": "Ba t\u1edd gi\u1ea5y \u0111\u01b0\u1ee3c soi \u0111\u00e8n l\u1ea7n l\u01b0\u1ee3t tr\u00ean b\u00e0n \u0111\u1ecdc: amber soi ch\u00e9n ng\u1ecdc v\u00e0 v\u00f2ng m\u1ef1c tr\u1edf v\u1ec1 ph\u1ed1 C\u00e1t; teal soi ng\u01b0\u1ee1ng \u0111\u1ec1n Nam Giao, Ph\u1ee7 D\u1ea7y; n\u00e2u gi\u1ea5y d\u1ea7u soi th\u1ebb h\u1ed3 s\u01a1 th\u1ef1c h\u00e0nh; sau m\u1ed7i l\u1ea7n soi, t\u1edd gi\u1ea5y l\u1eb7ng xu\u1ed1ng b\u00e0n v\u00e0 t\u1edd k\u1ebf ti\u1ebfp l\u00ean. Ph\u1ee7 s29 ba c\u00e2u \u0111\u1ea7u: l\u1edbp b\u1ea3n k\u1ec3 trao ch\u00e9n ng\u1ecdc v\u00e0 cu\u1ed9c tr\u1edf v\u1ec1; l\u1edbp \u0111\u1ec1n th\u1edd trao d\u1ea5u v\u1ebft; l\u1edbp di s\u1ea3n trao s\u1ef1 ghi nh\u1eadn c\u1ee7a h\u00f4m nay.",
+          "start_seconds": 903.57,
+          "end_seconds": 919.91,
+          "script_section_id": "s29",
+          "framing": "B\u00e0n \u0111\u1ecdc trung t\u00e2m, ba t\u1edd gi\u1ea5y l\u1ea7n l\u01b0\u1ee3t \u0111\u01b0\u1ee3c soi",
+          "movement": "tilt_down theo m\u1ed7i t\u1edd \u0111\u01b0\u1ee3c \u0111\u1eb7t xu\u1ed1ng b\u00e0n",
+          "transition_in": "ink_wipe",
+          "transition_out": "hold",
+          "overlay_notes": "L\u1edbp b\u1ea3n k\u1ec3 \u00b7 L\u1edbp \u0111\u1ec1n th\u1edd \u00b7 L\u1edbp di s\u1ea3n \u2014 UNESCO ghi danh th\u1ef1c h\u00e0nh th\u1edd M\u1eabu Tam ph\u1ee7, kh\u00f4ng ghi danh nh\u00e2n v\u1eadt trong truy\u1ec7n \u00abL\u1edbp b\u1ea3n k\u1ec3\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "tilt_down",
+            "lens_mm": 35,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "deep",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "T\u1ed5ng k\u1ebft ba l\u1edbp b\u1eb1ng nghi th\u1ee9c soi \u0111\u00e8n \u2014 m\u1ed7i l\u1edbp trao m\u1ed9t v\u1eadt ri\u00eang, kh\u00f4ng l\u1edbp n\u00e0o thay l\u1edbp n\u00e0o",
+          "narrative_role": "resolution",
+          "information_role": "L\u1edbp b\u1ea3n k\u1ec3 trao ch\u00e9n ng\u1ecdc, m\u00f9ng ba th\u00e1ng Ba, cu\u1ed9c tr\u1edf v\u1ec1 ph\u1ed1 C\u00e1t; l\u1edbp \u0111\u1ec1n th\u1edd trao d\u1ea5u v\u1ebft Nam Giao, Ph\u1ee7 D\u1ea7y; l\u1edbp di s\u1ea3n trao ghi nh\u1eadn UNESCO v\u1ec1 th\u1ef1c h\u00e0nh, kh\u00f4ng v\u1ec1 nh\u00e2n v\u1eadt",
+          "hero_moment": true,
+          "character_actions": [],
+          "texture_keywords": [
+            "soi \u0111\u00e8n",
+            "ba t\u1edd gi\u1ea5y",
+            "t\u1ed5ng k\u1ebft"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "B\u00e0n \u0111\u1ecdc g\u1ed7 v\u1edbi ba t\u1edd gi\u1ea5y amber, teal v\u00e0 n\u00e2u gi\u1ea5y d\u1ea7u x\u1ebfp h\u00e0ng d\u01b0\u1edbi m\u1ed9t \u0111\u00e8n soi, tr\u00ean m\u1ed7i t\u1edd m\u1ed9t h\u00ecnh m\u1ef1c nh\u1ecf (ch\u00e9n ng\u1ecdc, ng\u01b0\u1ee1ng \u0111\u1ec1n, th\u1ebb h\u1ed3 s\u01a1), m\u1ef1c t\u00e0u tr\u00ean gi\u1ea5y d\u00f3, \u00e1nh s\u00e1ng t\u1eadp trung \u1ea5m",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc047",
+          "type": "diagram",
+          "description": "V\u1ec1 gi\u1ea5y d\u00f3 amber: ch\u1eef 'c\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0' hi\u1ec7n, r\u1ed3i hai lu\u1ed3ng m\u1ef1c c\u00f9ng ch\u1ea3y v\u00e0o m\u1ed9t ch\u1eef 'M\u1eabu' \u2014 lu\u1ed3ng d\u00e2n gian t\u1eeb m\u00e1i \u0111\u1ec1n, lu\u1ed3ng tri\u1ec1u \u0111\u00ecnh t\u1eeb trang s\u1eafc phong; hai lu\u1ed3ng song song kh\u00f4ng nh\u1eadp th\u00e0nh m\u1ed9t, d\u1ea5u b\u1eb1ng b\u1ecb g\u1ea1ch ch\u00e9o m\u1ea3nh. Ph\u1ee7 s29: v\u00ec sao g\u1ecdi l\u00e0 M\u1eabu \u2014 d\u00e2n th\u1edd v\u00e0 tri\u1ec1u \u0111\u00ecnh ch\u00ednh danh, hai chi\u1ec1u c\u00f9ng g\u00f3p v\u00e0o danh x\u01b0ng; \u0111\u00f3 l\u00e0 m\u1ed9t c\u00e1ch \u0111\u1ecdc, kh\u00f4ng ph\u1ea3i c\u00e2u tr\u1ea3 l\u1eddi \u0111\u1ed9c quy\u1ec1n.",
+          "start_seconds": 919.91,
+          "end_seconds": 932.74,
+          "script_section_id": "s29",
+          "framing": "Ch\u1eef M\u1eabu trung t\u00e2m, hai lu\u1ed3ng m\u1ef1c hai b\u00ean",
+          "movement": "dolly_out nh\u1eb9 khi hai lu\u1ed3ng ch\u1ea3y \u0111\u1ee7",
+          "transition_in": "hold",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "c\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0 \u00b7 d\u00e2n th\u1edd + tri\u1ec1u \u0111\u00ecnh ch\u00ednh danh \u2014 hai chi\u1ec1u c\u00f9ng g\u00f3p v\u00e0o danh x\u01b0ng \u00b7 m\u1ed9t c\u00e1ch \u0111\u1ecdc, kh\u00f4ng \u0111\u1ed9c quy\u1ec1n \u00abR\u1ed3i m\u1ed7i th\u1ebf\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "dolly_out",
+            "lens_mm": 50,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\u0110\u00e1p c\u00e2u h\u1ecfi m\u1edf \u0111\u1ea7u b\u1eb1ng c\u00e1ch \u0111\u1ecdc hai chi\u1ec1u, gi\u1eef \u043f\u043e\u0440\u0442\u0430\u043b m\u1edf \u2014 kh\u00f4ng kh\u1eb3ng \u0111\u1ecbnh c\u0103n nguy\u00ean duy nh\u1ea5t",
+          "narrative_role": "resolution",
+          "information_role": "V\u00ec sao g\u1ecdi l\u00e0 M\u1eabu \u2014 c\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0 d\u00e2n th\u1edd v\u00e0 tri\u1ec1u \u0111\u00ecnh ch\u00ednh danh c\u00f9ng g\u00f3p v\u00e0o danh x\u01b0ng; m\u1ed9t c\u00e1ch \u0111\u1ecdc, kh\u00f4ng c\u00e2u tr\u1ea3 l\u1eddi \u0111\u1ed9c quy\u1ec1n v\u1ec1 M\u1eabu",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "hai lu\u1ed3ng m\u1ef1c",
+            "ch\u1eef M\u1eabu",
+            "gi\u1ea5y d\u00f3 amber"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "S\u01a1 \u0111\u1ed3 hai lu\u1ed3ng m\u1ef1c t\u00e0u ch\u1ea3y song song v\u1ec1 m\u1ed9t ch\u1eef H\u00e1n l\u1edbn trung t\u00e2m tr\u00ean gi\u1ea5y d\u00f3 amber, m\u1ed9t lu\u1ed3ng t\u1eeb h\u00ecnh m\u00e1i \u0111\u1ec1n m\u1ed9t lu\u1ed3ng t\u1eeb trang s\u00e1ch c\u00f3 \u1ea5n son, n\u00e9t m\u1ef1c loang \u1ea5m, b\u1ed1 c\u1ee5c c\u00e2n \u0111\u1ed1i",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc048",
+          "type": "generated",
+          "description": "Trang gi\u1ea5y d\u1ea7u n\u00e2u l\u00e0m n\u1ec1n nh\u01b0 \u00e1p ph\u00edch m\u00f9a: t\u00ean c\u00e1c t\u1eadp hi\u1ec7n l\u1ea7n l\u01b0\u1ee3t b\u1eb1ng m\u1ef1c n\u00e2u \u2014 'Hai B\u00e0 Tr\u01b0ng' \u0111\u1eadm nh\u1ea5t \u1edf d\u00f2ng \u0111\u1ea7u, d\u01b0\u1edbi l\u00e0 ba t\u00ean 'S\u01a1n Tinh', 'Ch\u1eed \u0110\u1ed3ng T\u1eed', 'Th\u00e1nh Gi\u00f3ng' nh\u1ecf h\u01a1n; ph\u00eda sau m\u1edd l\u00e0 ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n teal. Ph\u1ee7 s30: t\u1eadp sau \u0111\u1ebfn v\u1edbi Hai B\u00e0 Tr\u01b0ng; m\u1eddi quay l\u1ea1i c\u00e1c t\u1eadp T\u1ee9 b\u1ea5t t\u1eed \u0111\u1ec3 n\u1ed1i m\u1ea1ch.",
+          "start_seconds": 932.74,
+          "end_seconds": 943.65,
+          "script_section_id": "s30",
+          "framing": "Danh s\u00e1ch t\u00ean gi\u1eefa khung, ng\u01b0\u1ee1ng \u0111\u1ec1n m\u1edd ph\u00eda sau",
+          "movement": "tilt_down theo th\u1ee9 t\u1ef1 t\u00ean hi\u1ec7n",
+          "transition_in": "cross_dissolve",
+          "transition_out": "hold",
+          "overlay_notes": "T\u1eadp sau: Hai B\u00e0 Tr\u01b0ng \u00b7 c\u00e1c t\u1eadp \u0111\u00e3 c\u00f3: S\u01a1n Tinh \u00b7 Ch\u1eed \u0110\u1ed3ng T\u1eed \u00b7 Th\u00e1nh Gi\u00f3ng \u00abT\u1eadp sau, ta\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "tilt_down",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "L\u1eddi h\u1eb9n bi\u00ean t\u1eadp khi\u00eam t\u1ed1n \u2014 danh s\u00e1ch \u0111\u1ecdc c\u00f9ng, kh\u00f4ng gi\u1eadt g\u00e2n qu\u1ea3ng c\u00e1o",
+          "narrative_role": "call_to_action",
+          "information_role": "T\u1eadp sau: Hai B\u00e0 Tr\u01b0ng \u2014 m\u1ed9t cu\u1ed9c kh\u1edfi ngh\u0129a k\u1ebft th\u00fac nh\u01b0ng chuy\u1ec7n ti\u1ebfp t\u1ee5c trong \u0111\u1ec1n; c\u00e1c t\u1eadp S\u01a1n Tinh, Ch\u1eed \u0110\u1ed3ng T\u1eed, Th\u00e1nh Gi\u00f3ng n\u1ed1i m\u1ea1ch T\u1ee9 b\u1ea5t t\u1eed",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "\u00e1p ph\u00edch m\u00f9a",
+            "m\u1ef1c n\u00e2u",
+            "danh s\u00e1ch t\u00ean"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "\u00c1p ph\u00edch gi\u1ea5y d\u1ea7u n\u00e2u v\u1edbi c\u00e1c d\u00f2ng t\u00ean vi\u1ebft m\u1ef1c n\u00e2u x\u1ebfp d\u1ecdc, d\u00f2ng \u0111\u1ea7u \u0111\u1eadm nh\u1ea5t, ph\u00eda sau l\u00e0 b\u00f3ng m\u1edd ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n, kh\u00f4ng ch\u1eef r\u00f5, phong c\u00e1ch m\u1ed9c m\u1ea1c \u1ea5m",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc049",
+          "type": "generated",
+          "description": "Ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n teal tr\u00ean gi\u1ea5y d\u00f3 \u1edf h\u1eadu c\u1ea3nh; tr\u01b0\u1edbc ng\u01b0\u1ee1ng l\u00e0 t\u1ea5m b\u1ea3ng g\u1ed7 treo t\u00ean m\u00f9a vi\u1ebft m\u1ef1c n\u00e2u; n\u1eafng chi\u1ec1u nh\u1eb9, kh\u00f4ng kh\u1ea9u hi\u1ec7u, kh\u00f4ng h\u00ecnh ng\u01b0\u1eddi g\u1ea7n. Ph\u1ee7 s31: m\u00f9a 'Nh\u1eefng v\u1ecb th\u1ea7n \u1edf l\u1ea1i' theo d\u1ea5u nh\u1eefng c\u00e2u chuy\u1ec7n c\u0169 s\u1ed1ng trong \u0111\u1eddi th\u01b0\u1eddng; m\u1eddi theo d\u00f5i \u0111\u1ec3 m\u1ed7i l\u1ea7n tr\u1edf v\u1ec1 nghe th\u00eam m\u1ed9t c\u00e1ch k\u1ec3.",
+          "start_seconds": 943.65,
+          "end_seconds": 954.32,
+          "script_section_id": "s31",
+          "framing": "B\u1ea3ng g\u1ed7 t\u00ean m\u00f9a ti\u1ec1n c\u1ea3nh, ng\u01b0\u1ee1ng \u0111\u1ec1n sau",
+          "movement": "dolly_in ch\u1eadm v\u1ec1 ph\u00eda b\u1ea3ng t\u00ean m\u00f9a",
+          "transition_in": "hold",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Nh\u1eefng v\u1ecb th\u1ea7n \u1edf l\u1ea1i \u2014 m\u00f9a m\u1edbi \u00b7 m\u1eddi theo d\u00f5i \u00abM\u00f9a Nh\u1eefng v\u1ecb\u00bb",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 50,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1eddi m\u1eddi m\u00f9a: g\u1ecdn, t\u1ef1 nhi\u00ean, \u0111\u00fang ch\u1ea5t m\u1ef1c t\u00e0u \u2014 kh\u00f4ng t\u0103ng n\u0103ng l\u01b0\u1ee3ng \u0111\u1ed9t ng\u1ed9t",
+          "narrative_role": "call_to_action",
+          "information_role": "M\u00f9a 'Nh\u1eefng v\u1ecb th\u1ea7n \u1edf l\u1ea1i' theo d\u1ea5u c\u00e1c c\u00e2u chuy\u1ec7n s\u1ed1ng trong \u0111\u1eddi th\u01b0\u1eddng h\u00f4m nay; l\u1eddi m\u1eddi theo d\u00f5i \u0111\u1ec3 nghe th\u00eam c\u00e1ch k\u1ec3",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "b\u1ea3ng g\u1ed7",
+            "ng\u01b0\u1ee1ng \u0111\u1ec1n",
+            "m\u1ef1c n\u00e2u"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "T\u1ea5m b\u1ea3ng g\u1ed7 treo tr\u01b0\u1edbc ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n v\u1ebd m\u1ef1c teal tr\u00ean gi\u1ea5y d\u00f3, b\u1ea3ng tr\u1ed1ng ch\u1eef vi\u1ebft m\u1ef1c n\u00e2u s\u1ebd th\u00eam sau, n\u1eafng chi\u1ec1u nh\u1eb9, kh\u00f4ng ng\u01b0\u1eddi, t\u00f4ng \u1ea5m d\u1ecbu",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc050",
+          "type": "animation",
+          "description": "Trang truy\u1ec7n amber kh\u00e9p l\u1ea1i \u1edf ti\u1ec1n c\u1ea3nh, \u0111\u1ec3 l\u1ea1i ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n n\u00e9t teal tr\u00ean gi\u1ea5y d\u00f3; m\u1ef1c loang ch\u1eadm l\u1eafng xu\u1ed1ng theo l\u1eddi cu\u1ed1i, \u00e1nh s\u00e1ng thu v\u1ec1 m\u1ed9t \u0111i\u1ec3m \u1ea5m r\u1ed3i thinh l\u1eb7ng. Ph\u1ee7 s32: b\u00ean ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n th\u00e1ng Ba kh\u00e9p trang truy\u1ec7n, \u0111\u1ec3 l\u1eddi k\u1ec3 l\u1eafng xu\u1ed1ng b\u00ean m\u1ed9t th\u1ef1c h\u00e0nh v\u1eabn \u0111ang s\u1ed1ng.",
+          "start_seconds": 954.32,
+          "end_seconds": 960.0,
+          "script_section_id": "s32",
+          "framing": "Trang amber kh\u00e9p ti\u1ec1n c\u1ea3nh, ng\u01b0\u1ee1ng \u0111\u1ec1n teal c\u00f2n l\u1ea1i",
+          "movement": "static, trang t\u1ef1 kh\u00e9p v\u00e0 m\u1ef1c l\u1eafng",
+          "transition_in": "cross_dissolve",
+          "transition_out": "fade_to_black",
+          "overlay_notes": "\u00abB\u00ean ng\u01b0\u1ee1ng c\u1eeda\u00bb",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 35,
+            "lighting_key": "blue_hour",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "K\u1ebft phi\u00ean: kh\u00e9p trang nh\u01b0ng gi\u1eef ng\u01b0\u1ee1ng c\u1eeda th\u1ef1c h\u00e0nh c\u00f2n m\u1edf \u2014 k\u1ebft b\u1eb1ng im l\u1eb7ng",
+          "narrative_role": "resolution",
+          "information_role": "Kh\u00e9p trang truy\u1ec7n l\u1ea1i, l\u1eddi k\u1ec3 l\u1eafng xu\u1ed1ng b\u00ean m\u1ed9t th\u1ef1c h\u00e0nh v\u1eabn \u0111ang s\u1ed1ng \u1edf ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n th\u00e1ng Ba",
+          "hero_moment": false,
+          "character_actions": [],
+          "texture_keywords": [
+            "trang kh\u00e9p",
+            "teal c\u00f2n l\u1ea1i",
+            "m\u1ef1c l\u1eafng"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "M\u1ed9t trang truy\u1ec7n m\u1ef1c amber \u0111ang kh\u00e9p l\u1ea1i \u1edf ti\u1ec1n c\u1ea3nh, ph\u00eda sau l\u00e0 ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n n\u00e9t m\u1ef1c teal tr\u00ean gi\u1ea5y d\u00f3 c\u00f2n s\u00e1ng, m\u1ef1c loang l\u1eafng d\u1ea7n, \u00e1nh s\u00e1ng xanh gi\u1edd ch\u1ea1ng v\u1ea1ng t\u0129nh l\u1eb7ng",
+              "source": "generate"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "status": "provisional",
+        "note": "start/end_seconds are provisional editorial estimates; production re-locks to measured TTS audio + forced alignment (speech-locked boundaries, panels retained through final spoken sentence).",
+        "approval": "owner full-run 2026-10-21 (projects/lieu-hanh/owner_full_run_approval.json)",
+        "section_timing_estimates": [
+          {
+            "id": "s01",
+            "est_start": 0.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s02",
+            "est_start": 30.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s03",
+            "est_start": 60.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s04",
+            "est_start": 90.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s05",
+            "est_start": 120.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s06",
+            "est_start": 150.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s07",
+            "est_start": 180.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s08",
+            "est_start": 210.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s09",
+            "est_start": 240.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s10",
+            "est_start": 270.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s11",
+            "est_start": 300.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s12",
+            "est_start": 330.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s13",
+            "est_start": 360.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s14",
+            "est_start": 390.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s15",
+            "est_start": 420.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s16",
+            "est_start": 450.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s17",
+            "est_start": 480.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s18",
+            "est_start": 510.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s19",
+            "est_start": 540.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s20",
+            "est_start": 570.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s21",
+            "est_start": 600.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s22",
+            "est_start": 630.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s23",
+            "est_start": 660.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s24",
+            "est_start": 690.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s25",
+            "est_start": 720.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s26",
+            "est_start": 750.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s27",
+            "est_start": 780.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s28",
+            "est_start": 810.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s29",
+            "est_start": 840.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s30",
+            "est_start": 870.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s31",
+            "est_start": 900.0,
+            "est_duration": 30.0
+          },
+          {
+            "id": "s32",
+            "est_start": 930.0,
+            "est_duration": 30.0
+          }
+        ],
+        "claim_map_note": "Per-scene claim IDs/source_refs live in script sections (script_section_id -> artifacts/script.json). Quotes shown on overlays must be verbatim from ledger.",
+        "scene_index_note": "scene_index artifact built at edit stage from real audio.",
+        "anchor_derivation": {
+          "method": "sentence-start phrase anchors, verbatim transcript words, chunk split weighted by scene est duration (boundaries always sentence starts)",
+          "engine": "phrase_lock_lh (S2E01/S2E02/S2E03 d-012 parity)"
+        }
+      }
+    }
+  },
+  "style_playbook": "ink-genome"
+}

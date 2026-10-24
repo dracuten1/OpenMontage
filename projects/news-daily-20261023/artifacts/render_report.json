@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "out/news-daily-20261023.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1080x1920",
+      "fps": 30.0,
+      "duration_seconds": 61.525,
+      "file_size_bytes": 4920664,
+      "platform_target": "tiktok"
+    },
+    {
+      "path": "out/news-daily-20261023-draft-HUD-720p.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "720x1280",
+      "fps": 30.0,
+      "duration_seconds": 61.525,
+      "file_size_bytes": 4407355,
+      "platform_target": "telegram_preview"
+    }
+  ],
+  "render_time_seconds": 165.0,
+  "warnings": [],
+  "verification_notes": [
+    "ffprobe verified: 1080x1920 (master) and 720x1280 (draft HUD), 30fps h264+aac, 61.53s.",
+    "Vision QC: master late frames f200, f420, f1400 PASS (no HUD, correct diacritics, coral highlights, gold chip 'Chưa phải quy định chính thức', NHẬN ĐỊNH card).",
+    "Vision QC: draft f200 confirms HUD 'S1 f200 6.7s [200/208]'.",
+    "Standalone thumbnail: exports/thumbnails/news-daily-20261023-tiktok.png (1080x1920, vision QC PASS v2)."
+  ],
+  "render_grammar": "flat-motion-graphics, speech-locked reveals, static camera absolute (scale=1, 0 push/Ken Burns), hard cuts between scenes",
+  "slideshow_risk_score": 0.05,
+  "decision_log_ref": "artifacts/decision_log.json",
+  "final_review_ref": "PRODUCTION-REPORT.md",
+  "metadata": {
+    "master_path": "/Users/tuyennguyen/project/OpenMontage/out/news-daily-20261023.mp4",
+    "draft_path": "/Users/tuyennguyen/project/OpenMontage/out/news-daily-20261023-draft-HUD-720p.mp4",
+    "thumbnail_path": "/Users/tuyennguyen/project/OpenMontage/projects/news-daily-20261023/exports/thumbnails/news-daily-20261023-tiktok.png",
+    "caption_path": "/Users/tuyennguyen/project/OpenMontage/out/news-daily-20261023-caption.txt",
+    "description_path": "/Users/tuyennguyen/project/OpenMontage/out/news-daily-20261023-description.txt",
+    "total_frames": 1844,
+    "fps": 30,
+    "scenes_count": 8,
+    "cost_usd": 0.0
+  }
+}

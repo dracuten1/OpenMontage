@@ -1,0 +1,80 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.12,
+      "text": "Kuy\u00ean v\u1ecb, m\u01b0a kuy\u00ean v\u1ecb",
+      "words": [
+        {
+          "word": " Kuy\u00ean",
+          "start": 0.0,
+          "end": 0.24,
+          "probability": 0.398
+        },
+        {
+          "word": " v\u1ecb,",
+          "start": 0.24,
+          "end": 0.4,
+          "probability": 0.386
+        },
+        {
+          "word": " m\u01b0a",
+          "start": 0.64,
+          "end": 0.76,
+          "probability": 0.269
+        },
+        {
+          "word": " kuy\u00ean",
+          "start": 0.76,
+          "end": 0.96,
+          "probability": 0.871
+        },
+        {
+          "word": " v\u1ecb",
+          "start": 0.96,
+          "end": 1.12,
+          "probability": 0.993
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " Kuy\u00ean",
+      "start": 0.0,
+      "end": 0.24,
+      "probability": 0.398
+    },
+    {
+      "word": " v\u1ecb,",
+      "start": 0.24,
+      "end": 0.4,
+      "probability": 0.386
+    },
+    {
+      "word": " m\u01b0a",
+      "start": 0.64,
+      "end": 0.76,
+      "probability": 0.269
+    },
+    {
+      "word": " kuy\u00ean",
+      "start": 0.76,
+      "end": 0.96,
+      "probability": 0.871
+    },
+    {
+      "word": " v\u1ecb",
+      "start": 0.96,
+      "end": 1.12,
+      "probability": 0.993
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.36,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

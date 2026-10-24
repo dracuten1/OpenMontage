@@ -1,0 +1,54 @@
+{
+ "version": "1.0",
+ "output_path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/out/lieu-hanh-final-1080p.mp4",
+ "status": "pass",
+ "recommended_action": "present_to_user",
+ "checks": {
+  "technical_probe": {
+   "valid_container": true,
+   "duration_seconds": 900.16,
+   "resolution": "1920x1080",
+   "fps": 30,
+   "has_audio": true,
+   "codec": "h264",
+   "file_size_bytes": 741914048,
+   "issues": []
+  },
+  "visual_spotcheck": {
+   "frames_sampled": 111,
+   "frame_paths": [],
+   "broken_overlays": false,
+   "missing_assets": false,
+   "unreadable_text": false,
+   "issues": [
+    "draft 8-point + final 3-point vision QC; sweep 100 stills edge=0 panel=0; final has no HUD"
+   ]
+  },
+  "audio_spotcheck": {
+   "issues": [
+    "loudness -15.2 LUFS, LRA 2.1, delta vs draft 0.0 LU; BGM audition machine-only (2 background-silence windows 3.4s/9.5s) noted to owner"
+   ]
+  },
+  "promise_preservation": {
+   "delivery_promise_honored": true,
+   "renderer_family_used": "explainer-data",
+   "render_runtime_used": "remotion",
+   "runtime_swap_detected": false,
+   "runtime_swap_check": "proposal candidate remotion == actual remotion",
+   "silent_downgrade_detected": false,
+   "issues": []
+  },
+  "subtitle_check": {
+   "subtitles_expected": true,
+   "subtitles_present": true,
+   "timing_drift_detected": false,
+   "issues": [
+    "43 cues re-aligned to provider_text after ASR round-trip; fabricated-subtitle sweep clean (4 caught + fixed pre-final)"
+   ]
+  }
+ },
+ "metadata": {
+  "note": "Backfilled from run QC records; v1 final re-rendered as v2 after caption/subtitle fixes",
+  "generated_by": "backfill_pipeline_state.py"
+ }
+}

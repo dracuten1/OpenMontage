@@ -1,0 +1,354 @@
+{
+ "version": "1.0",
+ "topic": "VN-Myth S2E04 — Liễu Hạnh: vì sao một người phụ nữ được đứng trong hàng Tứ bất tử?",
+ "research_date": "2026-10-20",
+ "landscape": {
+  "existing_content": [
+   {
+    "title": "Các trang kể lại «Vân Cát thần nữ» như truyện tình tiên (truyenxuatichcu.com, gio-o.com…)",
+    "url": "https://truyenxuatichcu.com/",
+    "source": "Trang truyện cổ tích tổng hợp (truy hồi qua truy vấn tìm kiếm)",
+    "angle": "Kể mạch tình duyên Giáng Tiên – Đào Lang – Mai Sinh",
+    "what_it_misses": "Không tách lớp văn bản (bản dịch nào, của ai) khỏi truyền thuyết dân gian",
+    "engagement_signal": "Không đo lượt xem trong lần này.",
+    "what_it_covers": "Kể mạch tình duyên Giáng Tiên – Đào Lang – Mai Sinh"
+   },
+   {
+    "title": "Bài giới thiệu thực hành thờ Mẫu Tam phủ gắn UNESCO (vietnamtourism.gov.vn, ich.unesco.org)",
+    "url": "https://ich.unesco.org/en/RL/practices-related-to-the-viet-beliefs-in-the-mother-goddesses-of-three-realms-01198",
+    "source": "Trang chính thức du lịch/UNESCO (UNESCO bot-wall khi snapshot)",
+    "angle": "Lên đồng, chầu văn, hệ Tam phủ",
+    "what_it_misses": "Không tách truyền thuyết nhân vật khỏi lịch sử thực hành",
+    "engagement_signal": "Không đo.",
+    "what_it_covers": "Lên đồng, chầu văn, hệ Tam phủ"
+   },
+   {
+    "title": "Trang giới thiệu lễ hội Phủ Dầy/đền Sòng (phuday.com, tỉnh Nam Định)",
+    "url": "https://phuday.com/",
+    "source": "Trang quảng bá di tích (truy hồi qua truy vấn tìm kiếm)",
+    "angle": "Lịch hội, điểm di tích, truyền thuyết tóm tắt",
+    "what_it_misses": "Không nguồn hóa các mốc phong thần; số liệu không dẫn quyết định gốc",
+    "engagement_signal": "Không đo.",
+    "what_it_covers": "Lịch hội, điểm di tích, truyền thuyết tóm tắt"
+   }
+  ],
+  "saturated_angles": [
+   "Kể «Vân Cát thần nữ» thuần theo mạch tình duyên Giáng Tiên – Đào Lang – Mai Sinh (đã nhiều trang truyện cổ tích tổng hợp làm — điểm bão hòa theo landscape đã truy hồi)",
+   "Giới thiệu lễ hội/di tích kiểu quảng bá: lịch hội + truyền thuyết tóm tắt, không nguồn hóa mốc phong thần"
+  ],
+  "underserved_gaps": [
+   "Tách ba lớp — bản kể ≠ đền thờ/thực hành ≠ ghi danh di sản — trong cùng một bài (cả 3 loại trang đã truy hồi đều không tách; đây là trục bắt buộc của tập)",
+   "Đặt truyền thuyết Liễu Hạnh cạnh lịch sử thực hành thờ Mẫu: không đánh đồng mọi nữ thần, không gọi mê tín, không UNESCO-hóa nhân vật",
+   "Nguồn hóa mốc phong thần / danh xưng «Mẫu nghi thiên hạ» (các trang di tích dẫn số liệu không kèm quyết định gốc)"
+  ]
+ },
+ "trending": {
+  "recent_developments": [],
+  "active_discussions": [],
+  "timeliness_window": "evergreen"
+ },
+ "data_points": [
+  {
+   "claim": "Phan Kế Bính mở truyện ở Vân Cát, Yên Thái, Vụ Bản, Nam Định; nhà Lê Thái Công «hay làm phúc».",
+   "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+   "source_name": "Nam Hải dị nhân liệt truyện của Phan Kế Bính, mục 45 «Liễu-Hạnh tiên-chúa» — Wikisource tiếng Việt",
+   "credibility": "primary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: primary_source; surprise: standard] C01; Tình tiết bản kể; địa danh theo bản đồ đầu XX, không chứng minh nhân vật lịch sử."
+  },
+  {
+   "claim": "Tiên chúa thứ hai (Quỳnh Hoa) làm vỡ chén ngọc, bị biên sổ và đày xuống trần.",
+   "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+   "source_name": "Nam Hải dị nhân liệt truyện của Phan Kế Bính, mục 45 «Liễu-Hạnh tiên-chúa» — Wikisource tiếng Việt",
+   "credibility": "primary_source",
+   "surprise_factor": "notable",
+   "usable_as": "[sealed kind: primary_source; surprise: notable] C02; Tình tiết bản kể; «con gái Ngọc Hoàng» là mô-típ, không phát biểu thần học."
+  },
+  {
+   "claim": "Giáng Tiên mất ngày mồng ba tháng ba, vô bệnh, 21 tuổi.",
+   "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+   "source_name": "Nam Hải dị nhân liệt truyện của Phan Kế Bính, mục 45 «Liễu-Hạnh tiên-chúa» — Wikisource tiếng Việt",
+   "credibility": "primary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: primary_source; surprise: standard] C03; Tình tiết bản kể; mốc 3/3 được lễ hội hôm nay dùng làm ngày giỗ — không suy ra năm lịch sử cụ thể."
+  },
+  {
+   "claim": "Phùng Khắc Khoan (Trạng Bùng) đối đáp chữ/thơ với tiên chúa ở Lạng Sơn rồi nàng biến mất.",
+   "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+   "source_name": "Nam Hải dị nhân liệt truyện của Phan Kế Bính, mục 45 «Liễu-Hạnh tiên-chúa» — Wikisource tiếng Việt",
+   "credibility": "primary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: primary_source; surprise: standard] C04; Tình tiết bản kể gắn nhân vật lịch sử Phùng Khắc Khoan; không suy ra cuộc gặp có thật."
+  },
+  {
+   "claim": "Hiển thánh ở đèo Ngang–phố Cát (Thanh Hóa): trừng trị → triều đình đem quân «tiễu» → dân dịch tễ cầu khấn → vua phong Mã-vàng công chúa, sau phong Chế-thắng bảo hòa-diệu đại vương, lập đền núi Sùng Sơn «đến giờ vẫn còn».",
+   "source_url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+   "source_name": "Nam Hải dị nhân liệt truyện của Phan Kế Bính, mục 45 «Liễu-Hạnh tiên-chúa» — Wikisource tiếng Việt",
+   "credibility": "primary_source",
+   "surprise_factor": "notable",
+   "usable_as": "[sealed kind: primary_source; surprise: notable] C05; Chuỗi trừng-trị–phong-vương là lớp kể; phần đền thờ hiện hữu là dấu hiệu thực hành. Kể trừng trị bằng ngôn từ bản kể, giữ phẩm giá, không dâm hóa, không khoái khí."
+  },
+  {
+   "claim": "Bản kể dân giân (không rõ tác giả) mở bằng «năm Thiêu Hựu, đời Hậu Lê (1557)», thôn An Thái, làng Vân Cát; và nói đền Phố Cát + Đền Sòng là nơi «xuống trần lần thứ hai».",
+   "source_url": "https://vi.wikisource.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+   "source_name": "«Liễu Hạnh Công Chúa» (tác giả không rõ) — Wikisource tiếng Việt",
+   "credibility": "anecdotal",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: folk_variant; surprise: standard] C06; Dị bản: An Thái khác Yên Thái bản Phan Kế Bính; cấu trúc «lần hai» là cách kể, không phải hồ sơ tòa án thiên giới."
+  },
+  {
+   "claim": "Vũ trung tùy bút ghi ở cửa thứ ba nền Nam Giao (thời Nguyễn) có đền thờ «bà công chúa Liễu Hạnh», do dân quanh vùng và người đồng cốt lập từ khi nhà Lê mất.",
+   "source_url": "https://vi.wikisource.org/wiki/V%C5%A9_trung_t%C3%B9y_b%C3%BAt/Ch%C6%B0%C6%A1ng_XX",
+   "source_name": "Vũ trung tùy bút (Phạm Đình Hổ, Nguyễn Hữu Tiến dịch) — Chương XX (Tạp ký/Phong tục) — Wikisource",
+   "credibility": "primary_source",
+   "surprise_factor": "notable",
+   "usable_as": "[sealed kind: primary_source; surprise: notable] C07; Chứng cứ THỰC HÀNH thờ (đền có thật trong ghi chép phong tục), không chứng minh nhân vật; dùng làm lớp lịch sử thực hành."
+  },
+  {
+   "claim": "Danh sách Tứ Bất Tử (bách khoa): Sơn Tinh, Chử Đồng Tử, Thánh Gióng, Liễu Hạnh Công Chúa.",
+   "source_url": "https://vi.wikipedia.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+   "source_name": "«Liễu Hạnh Công chúa» — Wikipedia tiếng Việt",
+   "credibility": "secondary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: secondary; surprise: standard] C08; Danh sách phổ biến đương đại; không khẳng định đây là danh mục «bốn vị thần tối cao» cố định mọi thời kỳ/mọi vùng."
+  },
+  {
+   "claim": "Infobox bách khoa ghi sinh 07/09/1557 (15/8/Đinh Tỵ), mất 21/03/1577 (3/3/Đinh Sửu).",
+   "source_url": "https://vi.wikipedia.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+   "source_name": "«Liễu Hạnh Công chúa» — Wikipedia tiếng Việt",
+   "credibility": "secondary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: secondary; surprise: standard] C09; Tổng hợp của bách khoa theo các bản kể; KHÔNG dùng làm năm lịch sử xác thực — trên màn hình phải kèm khung «theo cách kể»."
+  },
+  {
+   "claim": "UNESCO ghi danh «Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt» vào Danh sách đại diện của nhân loại, 17h15 ngày 1/12/2016, phiên 11, Addis Ababa (tường thuật vi.wiki).",
+   "source_url": "https://vi.wikipedia.org/wiki/T%C3%ADn_ng%C6%B0%E1%BB%A1ng_th%E1%BB%9D_M%E1%BA%ABu_c%E1%BB%A7a_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t",
+   "source_name": "«Tín ngưỡng thờ Mẫu của người Việt» — Wikipedia tiếng Việt",
+   "credibility": "secondary_source",
+   "surprise_factor": "notable",
+   "usable_as": "[sealed kind: secondary; surprise: notable] C10; Ghi danh dành cho THỰC HÀNH, không xác thực truyền thuyết nhân vật. Trang ich.unesco.org bị captcha khi snapshot — dẫn theo tường thuật bách khoa, needs_input bản gốc."
+  },
+  {
+   "claim": "Hồ sơ UNESCO gồm 14 tỉnh thành (Ninh Bình… TP.HCM) theo vi.wiki.",
+   "source_url": "https://vi.wikipedia.org/wiki/T%C3%ADn_ng%C6%B0%E1%BB%A1ng_th%E1%BB%9D_M%E1%BA%ABu_c%E1%BB%A7a_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t",
+   "source_name": "«Tín ngưỡng thờ Mẫu của người Việt» — Wikipedia tiếng Việt",
+   "credibility": "secondary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: secondary; surprise: standard] C11; Phạm vi hồ sơ theo tường thuật; không suy ra «chỉ 14 tỉnh có thờ Mẫu»."
+  },
+  {
+   "claim": "Hội Phủ Dầy tổ chức hàng năm ngày 3/3 âm lịch; 3 nghi thức chính: Rước Mẫu Thỉnh Kinh, Rước Đuốc tại Phủ Chính, kéo chữ Hoa Trượng Hội.",
+   "source_url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%A7_D%E1%BA%A7y",
+   "source_name": "«Phủ Dầy» — Wikipedia tiếng Việt",
+   "credibility": "secondary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: secondary; surprise: standard] C12; Mô tả nghi lễ theo bách khoa; không dựng nghi lễ thành cảnh huyền bí câu view; không gọi là mê tín."
+  },
+  {
+   "claim": "Nghiên cứu tôn giáo: tục thờ Nữ thần/Mẫu thần bản địa kết hợp ảnh hưởng Đạo giáo hình thành đạo Tam phủ, Tứ phủ, mà Liễu Hạnh là một thần chủ.",
+   "source_url": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010",
+   "source_name": "«Thánh mẫu Liễu Hạnh: từ vị chúa đến thần chủ đạo Mẫu Việt Nam», Nghiên cứu Tôn giáo số 10/2010 (đăng lại diachivietnam.vn)",
+   "credibility": "secondary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: scholarly; surprise: standard] C13; Diễn giải học thuật (không phải chân lý duy nhất); trình bày như «một cách hiểu của nghiên cứu»."
+  },
+  {
+   "claim": "Lớp văn bản: Quảng Cung linh từ phả ký (Vũ Huy Trác, 1781) có niên đại gần Vân Cát thần nữ (Đoàn Thị Điểm); các tác phẩm Nho học XVIII–XX đều kể hai lần giáng sinh.",
+   "source_url": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010",
+   "source_name": "«Thánh mẫu Liễu Hạnh: từ vị chúa đến thần chủ đạo Mẫu Việt Nam», Nghiên cứu Tôn giáo số 10/2010 (đăng lại diachivietnam.vn)",
+   "credibility": "secondary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: scholarly; surprise: standard] C14; Niên đại văn bản ≠ niên đại nhân vật/sự kiện; Vân Cát thần nữ chưa snapshot trực tiếp — dẫn gián tiếp qua nghiên cứu."
+  },
+  {
+   "claim": "Dân thờ khắp nơi, tôn «Mẫu nghi thiên hạ»; triều đình «không những không bắt tội» mà tôn phong và xếp hạng thượng đẳng thần.",
+   "source_url": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010",
+   "source_name": "«Thánh mẫu Liễu Hạnh: từ vị chúa đến thần chủ đạo Mẫu Việt Nam», Nghiên cứu Tôn giáo số 10/2010 (đăng lại diachivietnam.vn)",
+   "credibility": "secondary_source",
+   "surprise_factor": "expected",
+   "usable_as": "[sealed kind: scholarly; surprise: standard] C15; Tóm tắt học thuật về quá trình chính danh; chi tiết sắc phong cụ thể chưa đối chiếu nguyên bản — không đọc số quyết định nào."
+  }
+ ],
+ "audience_insights": {
+  "common_questions": [
+   "Vì sao một người con gái mất ở tuổi 21 lại được thờ продолж hàng thế kỷ?",
+   "Bà là con gái Ngọc Hoàng bị đày hay một người phụ nữ thật được thần hóa?",
+   "Thờ Mẫu Tam phủ và truyền thuyết Liễu Hạnh là một hay hai chuyện khác nhau?"
+  ],
+  "misconceptions": [
+   {
+    "myth": "Mọi nữ thần Việt đều là hiện thân Liễu Hạnh.",
+    "reality": "Hệ Mẫu nhiều vị; Liễu Hạnh là một thần chủ trong Tam/Tứ phủ — không đánh đồng (roadmap S2E04 «Phải tránh»).",
+    "source": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010"
+   },
+   {
+    "myth": "UNESCO ghi danh «truyện Liễu Hạnh».",
+    "reality": "Ghi danh dành cho thực hành tín ngưỡng thờ Mẫu Tam phủ (1/12/2016).",
+    "source": "https://vi.wikipedia.org/wiki/T%C3%ADn_ng%C6%B0%E1%BB%A1ng_th%E1%BB%9D_M%E1%BA%ABu_c%E1%BB%A7a_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t"
+   },
+   {
+    "myth": "Bà sinh 1557, mất 1577 là sử liệu.",
+    "reality": "Mốc tổng hợp từ các bản kể/bách khoa; bản kể mở truyện ghi «thời vua Anh-tôn (1557)».",
+    "source": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45"
+   },
+   {
+    "myth": "Trừng trị ở phố Cát chứng minh bà hung ác / dâm.",
+    "reality": "Là lớp kể về việc trừng phạt kẻ đùa bỡn; khi kể phải giữ phẩm giá, không nhục cảm.",
+    "source": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45"
+   }
+  ],
+  "knowledge_level": "Giả định biên tập, chưa có khảo sát: người xem biết tên Liễu Hạnh và cụm «Tứ bất tử» qua trường học/đền Mẫu, thường lẫn ba lớp (bản kể – thực hành – di sản). Câu hỏi Q01–Q03 là editor-derived từ landscape đã truy hồi (xem metadata.audience_question_provenance), không phải khảo sát công bố."
+ },
+ "angles_discovered": [
+  {
+   "name": "Người con gái trở về",
+   "hook": "Cô con gái 21 tuổi mất vô bệnh ngày 3/3 — vì sao người đời tiếp tục gọi bà là Mẫu?",
+   "type": "narrative",
+   "why_now": "[sealed angle type: narrative] Khớp hook roadmap; chén ngọc vỡ → hai lần giáng sinh → phong vương → ngôi Mẫu; hoàn tất Tứ bất tử sau 3 tập đầu.",
+   "grounded_in": [
+    "C02",
+    "C03",
+    "C05",
+    "C13",
+    "C15"
+   ]
+  },
+  {
+   "name": "Ba lớp sự thật: bản kể, đền thờ, di sản",
+   "hook": "Truyện là chuyện kể, đền là di tích, UNESCO ghi danh thực hành — tách ba lớp ra để hiểu bà là ai.",
+   "type": "data_driven",
+   "why_now": "[sealed angle type: evidence_stratigraphy] Đây là tập cuối cụm Tứ bất tử — tổng kết cách đọc «bằng chứng thật» của cả mùa.",
+   "grounded_in": [
+    "C01",
+    "C06",
+    "C07",
+    "C10",
+    "C14"
+   ]
+  },
+  {
+   "name": "Tháng Ba giỗ Mẹ",
+   "hook": "Hàng triệu người về Phủ Dầy mỗi tháng Ba — họ đang giỗ ai?",
+   "type": "narrative",
+   "why_now": "[sealed angle type: practice_first] Mở từ lễ hội hôm nay đi ngược về Nam Giao thời Nguyễn và bản kể.",
+   "grounded_in": [
+    "C07",
+    "C10",
+    "C11",
+    "C12"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "url": "https://vi.wikisource.org/wiki/Nam_H%E1%BA%A3i_d%E1%BB%8B_nh%C3%A2n_li%E1%BB%87t_truy%E1%BB%87n/45",
+   "title": "Nam Hải dị nhân liệt truyện của Phan Kế Bính, mục 45 «Liễu-Hạnh tiên-chúa» — Wikisource tiếng Việt",
+   "used_for": "[sealed reliability: secondary-biên khảo in quốc ngữ early XX (primary về nội dung bản kể)] claims C01, C02, C03, C04, C05",
+   "reliability": "primary"
+  },
+  {
+   "url": "https://vi.wikisource.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+   "title": "«Liễu Hạnh Công Chúa» (tác giả không rõ) — Wikisource tiếng Việt",
+   "used_for": "[sealed reliability: folk variant, unsourced] claims C06",
+   "reliability": "anecdotal"
+  },
+  {
+   "url": "https://vi.wikisource.org/wiki/V%C5%A9_trung_t%C3%B9y_b%C3%BAt/Ch%C6%B0%C6%A1ng_XX",
+   "title": "Vũ trung tùy bút (Phạm Đình Hổ, Nguyễn Hữu Tiến dịch) — Chương XX (Tạp ký/Phong tục) — Wikisource",
+   "used_for": "[sealed reliability: secondary dịch hiện đại của ghi chép cổ] claims C07",
+   "reliability": "primary"
+  },
+  {
+   "url": "https://vi.wikipedia.org/wiki/Li%E1%BB%85u_H%E1%BA%A1nh_C%C3%B4ng_Ch%C3%BAa",
+   "title": "«Liễu Hạnh Công chúa» — Wikipedia tiếng Việt",
+   "used_for": "[sealed reliability: tertiary] claims C08, C09",
+   "reliability": "secondary"
+  },
+  {
+   "url": "https://vi.wikipedia.org/wiki/T%C3%ADn_ng%C6%B0%E1%BB%A1ng_th%E1%BB%9D_M%E1%BA%ABu_c%E1%BB%A7a_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t",
+   "title": "«Tín ngưỡng thờ Mẫu của người Việt» — Wikipedia tiếng Việt",
+   "used_for": "[sealed reliability: tertiary] claims C10, C11",
+   "reliability": "secondary"
+  },
+  {
+   "url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%A7_D%E1%BA%A7y",
+   "title": "«Phủ Dầy» — Wikipedia tiếng Việt",
+   "used_for": "[sealed reliability: tertiary] claims C12",
+   "reliability": "secondary"
+  },
+  {
+   "url": "https://diachivietnam.vn/thanh-mau-lieu-hanh-tu-vi-chua-den-than-chu-dao-mau-viet-nam-nghien-cuu-ton-giao-so-10-2010",
+   "title": "«Thánh mẫu Liễu Hạnh: từ vị chúa đến thần chủ đạo Mẫu Việt Nam», Nghiên cứu Tôn giáo số 10/2010 (đăng lại diachivietnam.vn)",
+   "used_for": "[sealed reliability: scholarly] claims C13, C14, C15",
+   "reliability": "secondary"
+  }
+ ],
+ "research_summary": "Truyện kể (Phan Kế Bính 1909, bản dân gian, tổng hợp bách khoa) cho nội dung: vỡ chén ngọc bị đày — Giáng Tiên mất 3/3 tuổi 21 — trở về, thơ ca, trừng trị, được phong vương. Thực hành có lớp chứng cứ riêng: đền Nam Giao thời Nguyễn (Vũ trung tùy bút), hội Phủ Dầy 3/3, UNESCO ghi danh thực hành 2016, nghiên cứu 2010 về việc hình thành đạo Mẫu. Ba lớp phải kể tách bạch: bản kể ≠ đền thờ ≠ di sản. Danh xưng «Mẫu» đến từ dân thờ và triều đình chính danh, không từ một văn kiện duy nhất.",
+ "metadata": {
+  "episode": "S2E04",
+  "package_version": "v1",
+  "claim_ledger": "claim_ledger.json",
+  "raw_data": "raw_data.json",
+  "approval_policy": "approval_policy.json",
+  "evidence_dir": "evidence/",
+  "source_independence": "7 nguồn: 3 văn bản khác nhau trên wikisource + 3 bài bách khoa + 1 nghiên cứu; không phải 7 chứng cứ lịch sử độc lập.",
+  "audience_question_provenance": {
+   "kind": "editor_derived_from_landscape_titles",
+   "claim_ids": [
+    "Q01",
+    "Q02",
+    "Q03"
+   ],
+   "not_forum_or_survey": true,
+   "note": "S2E03 có bộ câu hỏi giáo dục công bố; lần này chưa tìm được bộ tương đương đã snapshot — câu hỏi là biên tập, owner duyệt ở Gate B."
+  },
+  "limitations": [
+   "ich.unesco.org bị captcha khi snapshot — dẫn UNESCO qua tường thuật vi.wiki; needs_input bản gốc nếu owner muốn dẫn trực tiếp.",
+   "«Truyện Thánh mẫu Lang» (Tang thương ngẫu lục) chưa có bản số hóa tìm được trên vi.wikisource — needs_input nếu cần đối chiếu trực tiếp.",
+   "«Vân Cát thần nữ» (Đoàn Thị Điểm) chưa snapshot nguyên văn — mới dẫn qua nghiên cứu NCTR 10/2010.",
+   "Niên đại xuất bản cụ thể của bản NHDNLT/VTTP trên wikisource không ghi trong trang đã snapshot — không dựng số năm lên màn hình.",
+   "Sắc phong «Mẫu nghi thiên hạ»/vương hiệu chưa đối chiếu nguyên bản ngọc phả — kể như tổng hợp nghiên cứu.",
+   "Xếp hạng di tích Phủ Dầy/đền Sòng chưa verify — không dùng trong tập này."
+  ],
+  "approval_status": "pending_owner_research_script",
+  "landscape_note_verbatim": "Landscape lấy từ truy vấn truy hồi 2026-10-20 (grounded search); chỉ 7 nguồn trong evidence/ là được snapshot + seal.",
+  "import_adaptation": {
+   "adapted_at": "2026-10-20T07:40:00+07:00",
+   "sealed_source": "vn-myth-series/episodes/S2E04-lieu-hanh/research/v1/research_brief.json (sha256 100d3f3bcca5e9af84b13cee8345a1aece8a1744eace10fdcdb898daed6a5f59)",
+   "policy": "Shape-only mapping to satisfy schemas/artifacts/research_brief.schema.json. NO content added/removed: claims, quotes, hooks, sources unchanged. Original enum labels preserved inline in [sealed ...] prefixes; landscape note preserved verbatim in metadata.",
+   "mappings": {
+    "landscape.note": "moved to metadata.landscape_note_verbatim",
+    "landscape.saturated_angles/underserved_gaps": "derived from existing_content angle/what_it_misses of the same package",
+    "existing_content[].what_it_covers": "= angle (same package)",
+    "data_points[].credibility": {
+     "primary_source": "primary_source",
+     "myth_text": "primary_source",
+     "practice_record": "primary_source",
+     "folk_variant": "anecdotal",
+     "encyclopedic": "secondary_source",
+     "encyclopedic_date": "secondary_source",
+     "recognition_event": "secondary_source",
+     "recognition_scope": "secondary_source",
+     "festival_record": "secondary_source",
+     "scholarly": "secondary_source",
+     "scholarly_interpretation": "secondary_source",
+     "scholarly_textual": "secondary_source",
+     "secondary": "secondary_source"
+    },
+    "data_points[].surprise_factor": {
+     "standard": "expected",
+     "notable": "notable",
+     "surprising": "surprising",
+     "counterintuitive": "counterintuitive"
+    },
+    "audience_insights.knowledge_level": "added from metadata.audience_question_provenance (no new facts)",
+    "angles_discovered[].type": {
+     "narrative": "narrative",
+     "evidence_stratigraphy": "data_driven",
+     "practice_first": "narrative"
+    },
+    "sources[].reliability": "by source position 1-7: {\"1\": \"primary\", \"2\": \"anecdotal\", \"3\": \"primary\", \"4\": \"secondary\", \"5\": \"secondary\", \"6\": \"secondary\", \"7\": \"secondary\"}"
+   }
+  }
+ }
+}

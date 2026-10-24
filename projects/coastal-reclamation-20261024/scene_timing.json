@@ -1,0 +1,74 @@
+{
+  "fps": 30,
+  "total_scenes": 6,
+  "total_frames": 2910,
+  "total_duration_seconds": 97.0,
+  "scenes": [
+    {
+      "id": "scene-01",
+      "section_id": "sec-01",
+      "title": "Hook & Mở đầu",
+      "start_frame": 0,
+      "end_frame": 300,
+      "duration_frames": 300,
+      "duration_seconds": 10.0,
+      "voice_file": "sc01_voice.wav",
+      "image_file": "sc01_bg.png"
+    },
+    {
+      "id": "scene-02",
+      "section_id": "sec-02",
+      "title": "Lăng kính triều & Biến đổi độ sâu",
+      "start_frame": 300,
+      "end_frame": 840,
+      "duration_frames": 540,
+      "duration_seconds": 18.0,
+      "voice_file": "sc02_voice.wav",
+      "image_file": "sc02_bg.png"
+    },
+    {
+      "id": "scene-03",
+      "section_id": "sec-03",
+      "title": "Cân bằng bùn cát & Xói lở ven bờ",
+      "start_frame": 840,
+      "end_frame": 1410,
+      "duration_frames": 570,
+      "duration_seconds": 19.0,
+      "voice_file": "sc03_voice.wav",
+      "image_file": "sc03_bg.png"
+    },
+    {
+      "id": "scene-04",
+      "section_id": "sec-04",
+      "title": "Rừng ngập mặn thở thế nào?",
+      "start_frame": 1410,
+      "end_frame": 2010,
+      "duration_frames": 600,
+      "duration_seconds": 20.0,
+      "voice_file": "sc04_voice.wav",
+      "image_file": "sc04_bg.png"
+    },
+    {
+      "id": "scene-05",
+      "section_id": "sec-05",
+      "title": "Kỹ thuật công trình sinh thái thích ứng",
+      "start_frame": 2010,
+      "end_frame": 2490,
+      "duration_frames": 480,
+      "duration_seconds": 16.0,
+      "voice_file": "sc05_voice.wav",
+      "image_file": "sc05_bg.png"
+    },
+    {
+      "id": "scene-06",
+      "section_id": "sec-06",
+      "title": "Cân bằng động & Thông điệp kết",
+      "start_frame": 2490,
+      "end_frame": 2910,
+      "duration_frames": 420,
+      "duration_seconds": 14.0,
+      "voice_file": "sc06_voice.wav",
+      "image_file": "sc06_bg.png"
+    }
+  ]
+}

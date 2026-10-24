@@ -1,0 +1,430 @@
+{
+  "version": "1.0",
+  "project_id": "lieu-hanh",
+  "pipeline_type": "animated-explainer",
+  "stage": "proposal",
+  "status": "completed",
+  "timestamp": "2026-10-21T00:40:13.094497+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "proposal_packet": {
+      "version": "1.0",
+      "concept_options": [
+        {
+          "id": "c1",
+          "title": "Ng\u01b0\u1eddi con g\u00e1i tr\u1edf v\u1ec1",
+          "hook": "C\u00f4 con g\u00e1i 21 tu\u1ed5i m\u1ea5t v\u00f4 b\u1ec7nh ng\u00e0y 3/3 \u2014 v\u00ec sao ng\u01b0\u1eddi \u0111\u1eddi ti\u1ebfp t\u1ee5c g\u1ecdi b\u00e0 l\u00e0 M\u1eabu?",
+          "narrative_structure": "story",
+          "visual_approach": "M\u1edf t\u1eeb h\u00f4m nay (h\u1ed9i Ph\u1ee7 D\u1ea7y 3/3, C12) r\u1ed3i \u0111i ng\u01b0\u1ee3c v\u00e0o b\u1ea3n k\u1ec3 Phan K\u1ebf B\u00ednh theo tr\u1ee5c V\u1eacT TH\u1ec2 + \u0110\u1ec0N: ch\u00e9n ng\u1ecdc s\u1ee9t g\u00f3c (C02) \u2192 ng\u00e0y m\u1ea5t 3/3 tu\u1ed5i 21 (C03) \u2192 tr\u1edf v\u1ec1: \u0111\u1ed1i \u0111\u00e1p Tr\u1ea1ng B\u00f9ng (C04) \u2192 ph\u1ed1 C\u00e1t tr\u1eebng tr\u1ecb + b\u1ecb \u00abti\u1ec5u\u00bb (C05, t\u00f4ng ph\u1ea9m gi\u00e1) \u2192 \u0111\u1ec1n S\u00f9ng S\u01a1n/\u0111\u1ec1n Nam Giao (C05/C07) \u2192 phong v\u01b0\u01a1ng + \u00abM\u1eabu nghi thi\u00ean h\u1ea1\u00bb (C15) \u2192 UNESCO 2016 ghi danh th\u1ef1c h\u00e0nh (C10). Ba l\u1edbp k\u1ec3 T\u00c1CH B\u1ea0CH b\u1eb1ng hai tuy\u1ebfn m\u00e0u amber (b\u1ea3n k\u1ec3) / teal (\u0111\u1ec1n th\u1edd-th\u1ef1c h\u00e0nh) / gi\u1ea5y d\u1ea7u n\u00e2u (di s\u1ea3n-ghi danh) \u2014 \u0111\u00fang visual m\u00f9a S2 (\u0111\u1ecba h\u00ecnh + v\u1eadt th\u1ec3 + \u0111\u1ec1n, KH\u00d4NG DNA).",
+          "suggested_playbook": "ink-genome",
+          "target_audience": "Ng\u01b0\u1eddi xem \u0111\u00e3 theo d\u00f5i c\u1ee5m T\u1ee9 b\u1ea5t t\u1eed E01\u2013E03 + ng\u01b0\u1eddi bi\u1ebft t\u00ean Li\u1ec5u H\u1ea1nh qua \u0111\u1ec1n M\u1eabu/ph\u1ed1 c\u1ed5 nh\u01b0ng ch\u01b0a t\u00e1ch \u0111\u01b0\u1ee3c truy\u1ec1n thuy\u1ebft kh\u1ecfi th\u1ef1c h\u00e0nh",
+          "target_platform": "youtube",
+          "target_duration_seconds": 960,
+          "key_points": [
+            "B\u1ea3n k\u1ec3 (Phan K\u1ebf B\u00ednh \u0111\u1ea7u XX) k\u1ec3: v\u1ee1 ch\u00e9n ng\u1ecdc b\u1ecb \u0111\u00e0y \u2014 m\u1ea5t 3/3 tu\u1ed5i 21 \u2014 tr\u1edf v\u1ec1 tr\u1eebng tr\u1ecb \u2014 \u0111\u01b0\u1ee3c phong v\u01b0\u01a1ng (C02/C03/C05)",
+            "L\u1edbp th\u1ef1c h\u00e0nh C\u00d3 CH\u1ee8NG C\u1ee8 ri\u00eang: \u0111\u1ec1n th\u1edd \u00abb\u00e0 c\u00f4ng ch\u00faa Li\u1ec5u H\u1ea1nh\u00bb \u1edf Nam Giao \u0111\u01b0\u1ee3c V\u0169 trung t\u00f9y b\u00fat ghi th\u1eddi Nguy\u1ec5n (C07); h\u1ed9i Ph\u1ee7 D\u1ea7y 3/3 v\u1edbi 3 nghi th\u1ee9c (C12)",
+            "UNESCO 1/12/2016 ghi danh TH\u1ef0C H\u00c0NH th\u1edd M\u1eabu Tam ph\u1ee7 (h\u1ed3 s\u01a1 14 t\u1ec9nh) \u2014 kh\u00f4ng ch\u1ee9ng th\u1ef1c nh\u00e2n v\u1eadt (C10/C11)",
+            "Danh x\u01b0ng \u00abM\u1eabu\u00bb \u0111\u1ebfn t\u1eeb hai chi\u1ec1u: d\u00e2n th\u1edd tr\u01b0\u1edbc, tri\u1ec1u \u0111\u00ecnh ch\u00ednh danh sau (C15) \u2014 kh\u00f4ng t\u1eeb m\u1ed9t v\u0103n ki\u1ec7n duy nh\u1ea5t"
+          ],
+          "core_message": "Ng\u01b0\u1eddi \u0111\u1eddi g\u1ecdi b\u00e0 l\u00e0 M\u1eabu kh\u00f4ng v\u00ec m\u1ed9t v\u0103n b\u1ea3n n\u00e0o ra l\u1ec7nh \u2014 m\u00e0 v\u00ec d\u00e2n th\u1edd v\u00e0 tri\u1ec1u \u0111\u00ecnh c\u00f9ng ghi nh\u1eadn, m\u1ed7i l\u1edbp b\u1eb1ng ch\u1ee9ng k\u1ec3 m\u1ed9t ph\u1ea7n c\u00e2u chuy\u1ec7n.",
+          "cta": "Tease S2E05 Hai B\u00e0 Tr\u01b0ng (kh\u00f4ng spoil); m\u1eddi xem l\u1ea1i c\u1ee5m T\u1ee9 b\u1ea5t t\u1eed E01\u2013E03.",
+          "tone": "Tr\u1ea7m \u1ea5m, trang nghi\u00eam \u2014 ng\u01b0\u1eddi k\u1ec3 \u0111\u1ee9ng c\u1ea1nh ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n, kh\u00f4ng gi\u1eadt g\u00e2n ho\u00e1 nghi l\u1ec5",
+          "grounded_in": [
+            "C02",
+            "C03",
+            "C05",
+            "C12",
+            "C13",
+            "C15"
+          ],
+          "why_this_works": "\u0110\u00fang hook roadmap \u00a73 (\u00abM\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef tr\u1edf l\u1ea1i tr\u1ea7n gian \u2014 v\u00ec sao ng\u01b0\u1eddi \u0111\u1eddi ti\u1ebfp t\u1ee5c g\u1ecdi b\u00e0 l\u00e0 M\u1eabu?\u00bb); tr\u1ea3 l\u1eddi th\u1eb3ng c\u00e2u h\u1ecfi trung t\u00e2m \u00abv\u00ec sao m\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef \u0111\u01b0\u1ee3c \u0111\u1ee9ng trong h\u00e0ng T\u1ee9 b\u1ea5t t\u1eed?\u00bb b\u1eb1ng chu\u1ed7i v\u1eadt th\u1ec3 \u2192 \u0111\u1ec1n \u2192 danh x\u01b0ng; ho\u00e0n t\u1ea5t c\u1ee5m T\u1ee9 b\u1ea5t t\u1eed v\u1edbi callback E01\u2013E03 (C08); hai g\u00f3c c\u00f2n l\u1ea1i (ba l\u1edbp s\u1ef1 th\u1eadt, th\u00e1ng Ba gi\u1ed7 M\u1eb9) g\u1eafn L\u00c0M NH\u1ecaP b\u00ean trong thay v\u00ec b\u1ecf m\u1ea5t."
+        },
+        {
+          "id": "c2",
+          "title": "Ba l\u1edbp s\u1ef1 th\u1eadt: b\u1ea3n k\u1ec3, \u0111\u1ec1n th\u1edd, di s\u1ea3n",
+          "hook": "Truy\u1ec7n l\u00e0 chuy\u1ec7n k\u1ec3, \u0111\u1ec1n l\u00e0 di t\u00edch, UNESCO ghi danh th\u1ef1c h\u00e0nh \u2014 t\u00e1ch ba l\u1edbp ra \u0111\u1ec3 hi\u1ec3u b\u00e0 l\u00e0 ai.",
+          "narrative_structure": "data_narrative",
+          "visual_approach": "Evidence-stratigraphy: ba l\u1edbp t\u00e0i li\u1ec7u ch\u1ed3ng nhau tr\u00ean gi\u1ea5y d\u00f3 (b\u1ea3n k\u1ec3 amber / ghi ch\u00e9p phong t\u1ee5c teal / h\u1ed3 s\u01a1 di s\u1ea3n n\u00e2u) \u2014 m\u1ed7i h\u1ed3i \u00abb\u00f3c\u00bb m\u1ed9t l\u1edbp: l\u1edbp gi\u1ea5y b\u1ea3n k\u1ec3 (C01/C06 d\u1ecb b\u1ea3n An Th\u00e1i vs Y\u00ean Th\u00e1i) \u2192 l\u1edbp \u0111\u1ec1n th\u1edd (C07 Nam Giao) \u2192 l\u1edbp ghi danh (C10/C11 UNESCO 2016) \u2192 l\u1edbp di\u1ec5n gi\u1ea3i nghi\u00ean c\u1ee9u (C13/C14).",
+          "suggested_playbook": "ink-genome",
+          "target_audience": "Ng\u01b0\u1eddi xem th\u00edch ki\u1ec3m ch\u1ee9ng ngu\u1ed3n \u2014 \u0111\u00e3 quen nh\u1ecbp \u00abhai l\u1edbp c\u1ed5 th\u01b0\u00bb c\u1ee7a S2E01",
+          "target_platform": "youtube",
+          "target_duration_seconds": 900,
+          "key_points": [
+            "Ba l\u1edbp b\u1eb1ng ch\u1ee9ng \u0111\u1ed9c l\u1eadp: b\u1ea3n k\u1ec3 (C01\u2013C06) \u2260 \u0111\u1ec1n th\u1edd-th\u1ef1c h\u00e0nh (C07/C12) \u2260 ghi danh di s\u1ea3n (C10/C11)",
+            "D\u1ecb b\u1ea3n l\u00e0 t\u00edn hi\u1ec7u truy\u1ec1n kh\u1ea9u: An Th\u00e1i vs Y\u00ean Th\u00e1i, Gi\u00e1ng Ti\u00ean vs Qu\u1ef3nh Hoa (C06, raw_data variant_names)",
+            "Nghi\u00ean c\u1ee9u 2010: \u0111\u1ea1o M\u1eabu h\u00ecnh th\u00e0nh t\u1eeb N\u1eef th\u1ea7n b\u1ea3n \u0111\u1ecba + \u1ea3nh h\u01b0\u1edfng \u0110\u1ea1o gi\u00e1o (C13) \u2014 m\u1ed9t c\u00e1ch hi\u1ec3u h\u1ecdc thu\u1eadt, kh\u00f4ng ph\u1ea3i ch\u00e2n l\u00fd duy nh\u1ea5t"
+          ],
+          "core_message": "Hi\u1ec3u Li\u1ec5u H\u1ea1nh = \u0111\u1ecdc \u0111\u00fang l\u1edbp c\u1ee7a t\u1eebng b\u1eb1ng ch\u1ee9ng: v\u0103n b\u1ea3n ch\u1ee9ng minh n\u1ed9i dung b\u1ea3n k\u1ec3, ghi ch\u00e9p phong t\u1ee5c ch\u1ee9ng minh th\u1ef1c h\u00e0nh \u2014 kh\u00f4ng c\u00e1i n\u00e0o ch\u1ee9ng minh nh\u00e2n v\u1eadt l\u1ecbch s\u1eed.",
+          "cta": "\u00c1p d\u1ee5ng khung ba l\u1edbp khi \u0111\u1ecdc truy\u1ec1n thuy\u1ebft Vi\u1ec7t Nam.",
+          "tone": "T\u1ec9nh t\u00e1o, gi\u1ecdng \u00abki\u1ec3m k\u00ea\u00bb \u2014 \u0111\u00fang taste_profile m\u00f9a",
+          "grounded_in": [
+            "C01",
+            "C06",
+            "C07",
+            "C10",
+            "C13",
+            "C14"
+          ],
+          "why_this_works": "\u0110\u00e2y l\u00e0 tr\u1ee5c B\u1eaeT BU\u1ed8C c\u1ee7a t\u1eadp (roadmap: ph\u00e2n bi\u1ec7t truy\u1ec1n thuy\u1ebft nh\u00e2n v\u1eadt v\u1edbi l\u1ecbch s\u1eed th\u1ef1c h\u00e0nh) v\u00e0 l\u00e0 t\u1eadp cu\u1ed1i c\u1ee5m T\u1ee9 b\u1ea5t t\u1eed \u2014 t\u1ed5ng k\u1ebft c\u00e1ch \u0111\u1ecdc c\u1ee7a m\u00f9a; r\u1ee7i ro: c\u1ea3 t\u1eadp th\u00e0nh b\u00e0i h\u1ecdc ph\u01b0\u01a1ng ph\u00e1p lu\u1eadn, m\u1ea5t sweep huy\u1ec1n s\u1eed c\u1ee7a nh\u00e2n v\u1eadt."
+        },
+        {
+          "id": "c3",
+          "title": "Th\u00e1ng Ba gi\u1ed7 M\u1eb9",
+          "hook": "M\u1ed7i th\u00e1ng Ba \u00e2m l\u1ecbch, ng\u01b0\u1eddi ta l\u1ea1i v\u1ec1 Ph\u1ee7 D\u1ea7y \u2014 h\u1ecd \u0111ang gi\u1ed7 ai?",
+          "narrative_structure": "journey",
+          "visual_approach": "Practice-first: m\u1edf t\u1eeb h\u1ed9i Ph\u1ee7 D\u1ea7y h\u00f4m nay (3 nghi th\u1ee9c C12) \u0111i ng\u01b0\u1ee3c th\u1eddi gian: UNESCO 2016 (C10) \u2192 \u0111\u1ec1n Nam Giao th\u1eddi Nguy\u1ec5n (C07) \u2192 b\u1ea3n k\u1ec3 3/3 (C03) \u2192 v\u1ee1 ch\u00e9n ng\u1ecdc (C02). Kh\u00f4ng gian \u0111\u1ec1n l\u00e0 vein h\u00ecnh \u1ea3nh ch\u1ee7 \u0111\u1ea1o.",
+          "suggested_playbook": "ink-genome",
+          "target_audience": "Ng\u01b0\u1eddi t\u1eebng \u0111i h\u1ed9i \u0111\u1ec1n / bi\u1ebft Ph\u1ee7 D\u1ea7y qua du l\u1ecbch \u2014 mu\u1ed1n hi\u1ec3u \u00fd ngh\u0129a ng\u00e0y gi\u1ed7",
+          "target_platform": "youtube",
+          "target_duration_seconds": 900,
+          "key_points": [
+            "H\u1ed9i Ph\u1ee7 D\u1ea7y 3/3 \u00e2m l\u1ecbch v\u1edbi 3 nghi th\u1ee9c ch\u00ednh (C12) \u2014 ng\u00e0y tr\u00f9ng ng\u00e0y m\u1ea5t trong b\u1ea3n k\u1ec3 (C03)",
+            "Nghi l\u1ec5 h\u00f4m nay c\u00f3 l\u1edbp ch\u1ee9ng c\u1ee9 d\u00e0i: t\u1eeb \u0111\u1ec1n Nam Giao th\u1eddi Nguy\u1ec5n (C07) \u0111\u1ebfn ghi danh UNESCO 2016 (C10)",
+            "Ng\u00e0y 3/3 l\u00e0 \u0111i\u1ec3m \u1ed5n \u0111\u1ecbnh nh\u1ea5t across versions (research_notes \u00a7\u0110\u1ed1i chi\u1ebfu d\u1ecb b\u1ea3n)"
+          ],
+          "core_message": "Ng\u00e0y gi\u1ed7 3/3 l\u00e0 n\u01a1i b\u1ea3n k\u1ec3 v\u00e0 th\u1ef1c h\u00e0nh g\u1eb7p nhau \u2014 \u0111i\u1ec3mneo gi\u1eef c\u00e2u chuy\u1ec7n s\u1ed1ng h\u00e0ng th\u1ebf k\u1ef7.",
+          "cta": "Tease S2E05 Hai B\u00e0 Tr\u01b0ng.",
+          "tone": "\u1ea4m, g\u1ea7n \u2014 k\u1ec3 t\u1eeb b\u00ean trong l\u1ec5 h\u1ed9i, t\u00f4n tr\u1ecdng nghi l\u1ec5",
+          "grounded_in": [
+            "C03",
+            "C07",
+            "C10",
+            "C11",
+            "C12"
+          ],
+          "why_this_works": "M\u1edf t\u1eeb \u00abth\u1ee9 kh\u00e1n gi\u1ea3 c\u00f2n g\u1eb7p h\u00f4m nay\u00bb \u0111\u00fang r\u00e0ng bu\u1ed9c k\u1ec3 bible \u00a71; r\u1ee7i ro cao nh\u1ea5t v\u1ec1 \u00abc\u1ea3nh huy\u1ec1n b\u00ed c\u00e2u view\u00bb \u2014 ph\u1ea3i k\u1ef7 lu\u1eadt t\u00f4ng ph\u1ea9m gi\u00e1; m\u1ea1ch nh\u00e2n v\u1eadt (v\u1ee1 ch\u00e9n ng\u1ecdc \u2192 phong v\u01b0\u01a1ng) b\u1ecb n\u00e9n n\u1ebfu kh\u00f4ng c\u1ea9n th\u1eadn. GHI CH\u00da anti-s\u1ed1: hook g\u1ed1c trong research_brief (\u00abH\u00e0ng tri\u1ec7u ng\u01b0\u1eddi\u2026\u00bb) KH\u00d4NG d\u00f9ng \u2014 con s\u1ed1 ngo\u00e0i whitelist raw_data.json."
+        }
+      ],
+      "selected_concept": {
+        "concept_id": "c1",
+        "rationale": "c1 \u0111i tr\u1ecdn h\u01b0\u1edbng k\u1ec3 \u01b0u ti\u00ean c\u1ee7a roadmap \u00a73 + g\u00f3c 1 research_brief (grounded C02/C03/C05/C13/C15): tr\u1ea3 l\u1eddi th\u1eb3ng c\u00e2u h\u1ecfi trung t\u00e2m \u00abv\u00ec sao m\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef \u0111\u01b0\u1ee3c \u0111\u1ee9ng trong h\u00e0ng T\u1ee9 b\u1ea5t t\u1eed?\u00bb b\u1eb1ng chu\u1ed7i v\u1eadt th\u1ec3 \u2192 \u0111\u1ec1n \u2192 danh x\u01b0ng \u2014 \u0111\u00fang visual m\u00f9a S2 (\u0111\u1ecba h\u00ecnh/v\u1eadt th\u1ec3/\u0111\u1ec1n, kh\u00f4ng DNA). Ba l\u1edbp k\u1ec3 T\u00c1CH B\u1ea0CH (tr\u1ee5c b\u1eaft bu\u1ed9c) tr\u1edf th\u00e0nh khung ki\u1ec3m ch\u1ee9ng xuy\u00ean su\u1ed1t: m\u1ed7i h\u1ed3i k\u1ec3 xong m\u1ed9t l\u1edbp, nh\u1ecbp teal \u00ab\u0111i\u1ec1u g\u00ec ki\u1ec3m ch\u1ee9ng \u0111\u01b0\u1ee3c\u00bb \u0111\u1eb7t c\u1ea1nh. c2 (ba l\u1edbp) l\u00e0m khung, c3 (h\u1ed9i Ph\u1ee7 D\u1ea7y) l\u00e0m m\u1edf/\u0111\u00f3ng v\u00f2ng k\u1ebft c\u1ea5u \u2014 c\u1ea3 ba g\u00f3c \u0111\u1ec1u s\u1ed1ng trong c1. Climax \u0111\u1ecdc S2-C4 (\u0111\u1ec1 xu\u1ea5t) \u0111\u00f3ng khung \u00abc\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0\u00bb, ch\u1edd owner duy\u1ec7t.",
+        "modifications": [
+          "S2-C4 (\u0110\u1ec0 XU\u1ea4T canon, ch\u1edd owner duy\u1ec7t \u2014 KH\u00d4NG t\u1ef1 s\u1eeda bible): \u00abDanh x\u01b0ng M\u1eabu c\u1ee7a Li\u1ec5u H\u1ea1nh \u0111\u1ebfn t\u1eeb hai chi\u1ec1u \u2014 d\u00e2n th\u1edd tr\u01b0\u1edbc, tri\u1ec1u \u0111\u00ecnh ch\u00ednh danh sau \u2014 v\u00e0 UNESCO 2016 ghi danh th\u1ef1c h\u00e0nh th\u1edd M\u1eabu Tam ph\u1ee7, kh\u00f4ng ch\u1ee9ng th\u1ef1c truy\u1ec1n thuy\u1ebft nh\u00e2n v\u1eadt; ba l\u1edbp b\u1ea3n k\u1ec3 / \u0111\u1ec1n th\u1edd / ghi danh di s\u1ea3n l\u00e0 ba c\u00e2u chuy\u1ec7n kh\u00e1c nhau, ph\u1ea3i k\u1ec3 t\u00e1ch b\u1ea1ch.\u00bb Tr\u00ecnh b\u00e0y nh\u01b0 c\u00e1ch \u0111\u1ecdc bi\u00ean t\u1eadp \u0111\u00f3ng khung \u00abc\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0\u00bb, kh\u00f4ng k\u1ebft lu\u1eadn \u0111\u1ed9c quy\u1ec1n v\u1ec1 t\u00edn ng\u01b0\u1ee1ng.",
+          "Ba l\u1edbp k\u1ec3 t\u00e1ch b\u1ea1ch l\u00e0 TR\u1ee4C B\u1eaeT BU\u1ed8C (user_brief m\u1ee5c 1): m\u1ecdi section ph\u1ea3i r\u00f5 \u0111ang \u0111\u1ee9ng \u1edf l\u1edbp n\u00e0o \u2014 nh\u00e3n m\u00e0u + nh\u00e3n ch\u1eef (b\u1ea3n k\u1ec3 / \u0111\u1ec1n th\u1edd-th\u1ef1c h\u00e0nh / ghi danh di s\u1ea3n) tr\u00ean m\u00e0n h\u00ecnh.",
+          "T\u00ean d\u1ecb b\u1ea3n KH\u00d4NG h\u1ee3p nh\u1ea5t: Gi\u00e1ng Ti\u00ean vs Qu\u1ef3nh Hoa (t\u00ean \u0111\u1eb7t vs t\u00ean ti\u00ean, c\u00f9ng b\u1ea3n Phan K\u1ebf B\u00ednh \u2014 C02); An Th\u00e1i (b\u1ea3n d\u00e2n gian) vs Y\u00ean Th\u00e1i (b\u1ea3n Phan K\u1ebf B\u00ednh) vs Ti\u00ean H\u01b0\u01a1ng (b\u00e1ch khoa) \u2014 k\u1ec3 \u00abc\u00f9ng m\u1ed9t v\u00f9ng V\u00e2n C\u00e1t, m\u1ed7i b\u1ea3n g\u1ecdi kh\u00e1c\u00bb (C01/C06, raw_data variant_names).",
+          "M\u1ed1c 1557/1577 ch\u1ec9 hi\u1ec7n k\u00e8m khung \u00abtheo c\u00e1ch k\u1ec3/b\u00e1ch khoa\u00bb (C09 + raw_data scope); b\u1ea3n d\u00e2n gian m\u1edf \u00abn\u0103m Thi\u00eau H\u1ef1u, \u0111\u1eddi H\u1eadu L\u00ea (1557)\u00bb \u2014 k\u1ec3 nh\u01b0 c\u00e1ch m\u1edf truy\u1ec7n c\u1ee7a b\u1ea3n, kh\u00f4ng ph\u1ea3i n\u0103m sinh s\u1eed li\u1ec7u.",
+          "\u0110o\u1ea1n ph\u1ed1 C\u00e1t (C05): k\u1ec3 b\u1eb1ng NG\u00d4N T\u1eea B\u1ea2N K\u1ec2 (\u00abhi\u1ec7n ra l\u00e0m con g\u00e1i \u0111\u1eb9p b\u00e1n n\u01b0\u1edbc, nh\u1eefng k\u1ebb \u0111\u00f9a b\u1ee1n ch\u1ebft h\u1ea1i r\u1ea5t nhi\u1ec1u\u00bb, \u00abd\u00e2n x\u1ee9 \u1ea5y d\u1ecbch t\u1ec5, l\u1eadp \u0111\u00e0n c\u1ea7u kh\u1ea5n\u00bb), t\u00f4ng ph\u1ea9m gi\u00e1, zero nh\u1ee5c c\u1ea3m/kho\u00e1i kh\u00ed, kh\u00f4ng t\u1ea3 tr\u1ef1c di\u1ec7n c\u1ea3nh tr\u1eebng tr\u1ecb; chu\u1ed7i tr\u1eebng tr\u1ecb \u2192 ti\u1ec5u \u2192 c\u1ea7u kh\u1ea5n \u2192 phong v\u01b0\u01a1ng l\u00e0 L\u1edaP K\u1ec2 \u2014 kh\u00f4ng ph\u00e1t ng\u00f4n \u00abb\u00e0 hung \u00e1c\u00bb.",
+          "T\u1eafm/hi\u1ec7n h\u00ecnh (n\u1ebfu k\u1ec3): qua v\u1eadt th\u1ec3 v\u00e0 kho\u1ea3ng c\u00e1ch \u2014 m\u00e0n, kh\u00f3i h\u01b0\u01a1ng, b\u00f3ng n\u01b0\u1edbc \u2014 kh\u00f4ng tr\u1ef1c di\u1ec7n.",
+          "UNESCO (C10): lu\u00f4n \u0111\u1ecdc \u0111\u1ee7 \u00abTh\u1ef1c h\u00e0nh T\u00edn ng\u01b0\u1ee1ng th\u1edd M\u1eabu Tam ph\u1ee7 c\u1ee7a ng\u01b0\u1eddi Vi\u1ec7t\u00bb \u2014 ghi danh TH\u1ef0C H\u00c0NH t\u1ea1i phi\u00ean 11, 1/12/2016, h\u1ed3 s\u01a1 14 t\u1ec9nh (C11); kh\u00f4ng n\u00f3i UNESCO ghi danh \u00abtruy\u1ec7n/b\u00e0 Li\u1ec5u H\u1ea1nh\u00bb.",
+          "Kh\u00f4ng \u0111\u00e1nh \u0111\u1ed3ng m\u1ecdi n\u1eef th\u1ea7n = Li\u1ec5u H\u1ea1nh (misconception #1): h\u1ec7 M\u1eabu nhi\u1ec1u v\u1ecb, Li\u1ec5u H\u1ea1nh l\u00e0 m\u1ed9t th\u1ea7n ch\u1ee7 trong Tam/T\u1ee9 ph\u1ee7 (C13) \u2014 n\u00eau r\u00f5 \u00edt nh\u1ea5t 1 l\u1ea7n.",
+          "Kh\u00f4ng g\u1ecdi th\u1edd M\u1eabu l\u00e0 m\u00ea t\u00edn; nghi l\u1ec5 tr\u00ecnh b\u00e0y trang nghi\u00eam (C12 allowed_scope); kh\u00f4ng d\u1ef1ng l\u00ean \u0111\u1ed3ng/chi ti\u1ebft huy\u1ec1n b\u00ed c\u00e2u view.",
+          "Duration: bible 12\u201320' co gi\u00e3n; m\u1ee5c ti\u00eau bi\u00ean t\u1eadp \u0110\u1ec0 XU\u1ea4T 15\u201317' \u2192 target 960s (range 900\u20131020, \u0111o l\u1ea1i b\u1eb1ng audio th\u1eadt khi \u0111\u01b0\u1ee3c ph\u00e9p s\u1ea3n xu\u1ea5t) \u2014 KH\u00d4NG k\u00e9o filler.",
+          "Callback: E01 S\u01a1n Tinh \u2013 E02 Gi\u00f3ng \u2013 E03 Ch\u1eed \u0110\u1ed3ng T\u1eed \u2192 Li\u1ec5u H\u1ea1nh ho\u00e0n t\u1ea5t T\u1ee9 b\u1ea5t t\u1eed nh\u01b0 DANH S\u00c1CH PH\u1ed4 BI\u1ebeN \u0110\u01af\u01a0NG \u0110\u1ea0I (C08) \u2014 kh\u00f4ng n\u00f3i \u00abc\u1ed1 \u0111\u1ecbnh t\u1eeb ng\u00e0n x\u01b0a\u00bb; CTA tease S2E05 Hai B\u00e0 Tr\u01b0ng kh\u00f4ng spoil.",
+          "BGM: \u0111\u1ec1 xu\u1ea5t reuse 'Mesmerize' \u2014 Kevin MacLeod (CC BY 4.0), provenance \u0111\u00e3 ki\u1ec3m + credit \u0111\u1ea7y \u0111\u1ee7, \u0111\u00e3 d\u00f9ng S2E01\u2013S2E03; KH\u00d4NG k\u1ebf th\u1eeba track ch\u01b0a ki\u1ec3m \u2014 ch\u1edd owner duy\u1ec7t (d-002)."
+        ]
+      },
+      "production_plan": {
+        "pipeline": "animated-explainer",
+        "playbook": "ink-genome",
+        "stages": [
+          {
+            "stage": "research",
+            "tools": [],
+            "approach": "HO\u00c0N T\u1ea4T \u2014 sealed research v1 \u0111\u00e3 import (14/14 sha256 kh\u1edbp manifest; QA_REPORT pass_with_declared_limits), checkpoint research completed. KH\u00d4NG research th\u00eam sau seal; m\u1ecdi n\u1ed9i dung ch\u1ec9 t\u1eeb research/v1/ (claim_ledger + raw_data l\u00e0 whitelist s\u1ed1 li\u1ec7u + tr\u00edch d\u1eabn).",
+            "fallback_if_unavailable": "n/a \u2014 \u0111\u00e3 xong"
+          },
+          {
+            "stage": "proposal",
+            "tools": [],
+            "approach": "Artifact n\u00e0y (proposal_packet.json + PROPOSAL.md b\u1ea3n \u0111\u1ecdc owner). approval.status = pending \u2014 ch\u1edd owner duy\u1ec7t Gate B; KH\u00d4NG t\u1ef1 \u0111\u00e1nh d\u1ea5u approved.",
+            "fallback_if_unavailable": "n/a"
+          },
+          {
+            "stage": "script",
+            "tools": [],
+            "approach": "B\u1ea3n DRAFT ch\u1edd duy\u1ec7t vi\u1ebft v\u00e0o projects/lieu-hanh/drafts/ (KH\u00d4NG ph\u1ea3i artifacts/script.json \u2014 checkpoint native ch\u1eb7n script khi proposal ch\u01b0a duy\u1ec7t); ~3700 t\u1eeb (3500\u20134000) / 30\u201334 sections; m\u1ed7i section g\u1eafn claim IDs + l\u1edbp k\u1ec3; display t\u00e1ch narration cho t\u00ean ri\u00eang + tts_lexicon.json k\u1ebf th\u1eeba chu\u1ed7i S2E03. Sau owner duy\u1ec7t proposal: Hermes m\u1edbi ghi checkpoint script.",
+            "fallback_if_unavailable": "n/a \u2014 kh\u00f4ng c\u1ea7n tool"
+          },
+          {
+            "stage": "scene_plan",
+            "tools": [],
+            "approach": "SAU owner approval: scenes theo tr\u1ee5c v\u1eadt th\u1ec3 \u2192 \u0111\u1ec1n \u2192 danh x\u01b0ng c\u1ee7a c1; nh\u00e3n 3 l\u1edbp tr\u00ean m\u00e0n \u0111\u00fang th\u1ee9 t\u1ef1 narration; speech-lock theo word timings; hexpix anchor cho overlay v\u1ebd tay tr\u00ean \u1ea3nh base.",
+            "fallback_if_unavailable": "n/a"
+          },
+          {
+            "stage": "assets",
+            "tools": [
+              {
+                "tool_name": "openai_image",
+                "provider": "9router/cx-gpt-5.6-luna-image",
+                "role": "T2I \u1ea3nh base (ch\u00e9n ng\u1ecdc s\u1ee9t g\u00f3c, nh\u00e0 tranh V\u00e2n C\u00e1t, \u0111\u00e8o Ngang, \u0111\u1ec1n, h\u1ed9i Ph\u1ee7 D\u1ea7y h\u00f4m nay)",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Model T2I c\u1ee7a series, gateway local $0; demo 1 c\u1ea3nh duy\u1ec7t TR\u01af\u1edaC batch"
+              },
+              {
+                "tool_name": "vieneu_tts",
+                "provider": "vieneu (local)",
+                "role": "Narration ti\u1ebfng Vi\u1ec7t batch WAV",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Gi\u1ecdng series \u0111\u00e3 d\u00f9ng; batch mode tr\u00e1nh model load 8s/call; Gate A probe \u0111\u1ecba danh tr\u01b0\u1edbc (Ph\u1ee7 D\u1ea7y, V\u00e2n C\u00e1t, Y\u00ean Th\u00e1i, \u0111\u00e8o Ngang, ph\u1ed1 C\u00e1t, S\u00f9ng S\u01a1n, Nam Giao, Ph\u00f9ng Kh\u1eafc Khoan)"
+              },
+              {
+                "tool_name": "transcriber",
+                "provider": "faster-whisper vi",
+                "role": "Word timings + round-trip ASR QC",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Captions map canonical text v\u00e0o whisper word slots"
+              },
+              {
+                "tool_name": "music_library",
+                "provider": "incompetech (CC BY 4.0)",
+                "role": "BGM reuse 'Mesmerize' + credit",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "\u0110\u00e3 QC S2E01\u2013S2E03; ch\u1edd owner duy\u1ec7t (d-002)"
+              }
+            ],
+            "approach": "SAU owner approval + demo gate (duy\u1ec7t 1 c\u1ea3nh tr\u01b0\u1edbc batch): 10\u201312 \u1ea3nh T2I base + overlay TSX/SVG speech-locked; TTS batch + round-trip ASR QC; BGM v\u1edbi attribution.",
+            "fallback_if_unavailable": "openai_image l\u1ed7i \u2192 c\u1ea3nh code-drawn thu\u1ea7n (typographic ink + quote-card); vieneu l\u1ed7i \u2192 D\u1eeaNG v\u00e0 escalate \u2014 kh\u00f4ng t\u1ef1 \u0111\u1ed5i provider."
+          },
+          {
+            "stage": "edit",
+            "tools": [
+              {
+                "tool_name": "transcriber",
+                "provider": "faster-whisper vi",
+                "role": "word timings cho speech-lock",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Local, \u0111\u00e3 d\u00f9ng series cho speech-lock \u00b10,3s"
+              }
+            ],
+            "approach": "edit_decisions: cuts theo section; render_runtime remotion LOCKED t\u1eeb proposal (kh\u00f4ng silent swap); overlay ch\u1eef b\u00e1m word timestamps \u00b10,3s; scene KH\u00d4NG \u1ea9n/c\u1eaft khi narration panel c\u00f2n \u0111\u1ecdc (speech-window strict gate).",
+            "fallback_if_unavailable": "n/a"
+          },
+          {
+            "stage": "compose",
+            "tools": [
+              {
+                "tool_name": "video_compose",
+                "provider": "remotion (atelier continuation)",
+                "role": "render draft HUD 720p + final 1080p",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Continuation chassis ink-genome + speech-lock + HUD QC c\u1ee7a S2E01\u2013S2E03; hyperframes c\u0169ng available nh\u01b0ng KH\u00d4NG khuy\u1ebfn ngh\u1ecb \u2014 owner ch\u1ed1t \u1edf proposal"
+              }
+            ],
+            "approach": "Remotion atelier continuation series ink-genome (reuse engine knowledge, KH\u00d4NG reuse creative components); b\u1ea3n g\u1eedi duy\u1ec7t lu\u00f4n l\u00e0 draft HUD 720p + scene_index; final s\u1ea1ch ch\u1ec9 render sau APPROVE; scene_sweep + anchor audit strict tr\u01b0\u1edbc render.",
+            "fallback_if_unavailable": "N\u1ebfu remotion h\u1ecfng gi\u1eefa ch\u1eebng: escalate structured blocker \u2014 KH\u00d4NG t\u1ef1 swap runtime."
+          },
+          {
+            "stage": "publish",
+            "tools": [],
+            "approach": "Final s\u1ea1ch v\u00e0o projects/lieu-hanh/renders/ + exports metadata (title/description/tags + timestamps th\u1eadt + credit BGM CC BY); KH\u00d4NG t\u1ef1 upload \u2014 owner upload th\u1ee7 c\u00f4ng.",
+            "fallback_if_unavailable": "n/a"
+          }
+        ],
+        "quality_tradeoffs": [
+          {
+            "tradeoff": "Render runtime: Remotion (khuy\u1ebfn ngh\u1ecb) vs HyperFrames (c\u1ea3 hai available theo preflight m\u00f9a)",
+            "recommendation": "remotion",
+            "quality_impact": "Remotion = continuation chassis ink-genome + speech-lock + HUD QC \u0111\u00e3 ch\u1ee9ng minh S2E01\u2013S2E03 \u2014 gi\u1eef look m\u00f9a, r\u1ee7i ro th\u1ea5p nh\u1ea5t. HyperFrames linh ho\u1ea1t kinetic typography nh\u01b0ng l\u00e0 runtime M\u1edaI cho series: vi\u1ebft l\u1ea1i theme + QC t\u1eeb \u0111\u1ea7u, r\u1ee7i ro l\u1ec7ch look. Owner ch\u1ed1t (d-001)."
+          },
+          {
+            "tradeoff": "vieneu (free local, gi\u1ecdng series) vs TTS cloud (kh\u00f4ng c\u00f3 key)",
+            "recommendation": "vieneu_tts",
+            "quality_impact": "Ti\u1ebfng Vi\u1ec7t t\u1ef1 nhi\u00ean nh\u1ea5t kh\u1ea3 d\u1ee5ng $0; gi\u1ecdng default \u0111\u00e3 d\u00f9ng c\u1ea3 m\u00f9a; t\u00ean ri\u00eang (Ph\u1ee7 D\u1ea7y, Ph\u00f9ng Kh\u1eafc Khoan, M\u1eabu nghi thi\u00ean h\u1ea1\u2026) x\u1eed l\u00fd qua respelling lexicon + Gate A probe."
+          },
+          {
+            "tradeoff": "Reuse BGM 'Mesmerize' (\u0111\u00e3 QC) vs track m\u1edbi cho t\u00f4ng M\u1eabu",
+            "recommendation": "reuse Mesmerize",
+            "quality_impact": "\u0110\u00e3 ki\u1ec3m provenance/LRA/mix \u1edf S2E01\u2013S2E03, gi\u1eef n\u1ec1n quen m\u00f9a, $0; track m\u1edbi ph\u1ea3i listening QC + LRA l\u1ea1i t\u1eeb \u0111\u1ea7u \u2014 ch\u1ec9 \u0111\u1ed5i n\u1ebfu owner mu\u1ed1n m\u00e0u \u00e2m ri\u00eang (d-002)."
+          },
+          {
+            "tradeoff": "15\u201317' (960s) vs c\u1eaft g\u1ecdn 12\u201313'",
+            "recommendation": "960s target",
+            "quality_impact": "\u0110\u1ee7 ch\u1ed7 cho chu\u1ed7i v\u1eadt th\u1ec3 + 3 l\u1edbp ki\u1ec3m ch\u1ee9ng + climax \u00abhai chi\u1ec1u ch\u00ednh danh\u00bb kh\u00f4ng b\u1ecb d\u1ed3n; n\u1ebfu audio \u0111o l\u1ea1i v\u01b0\u1ee3t 1020s th\u00ec c\u1eaft B\u1ed0 C\u1ee4C (b\u1edbt panel), kh\u00f4ng c\u1eaft t\u1ed1c \u0111\u1ed9 k\u1ec3, kh\u00f4ng th\u00eam filler."
+          }
+        ],
+        "alternative_paths": [
+          {
+            "description": "Free thu\u1ea7n kh\u00f4ng gen \u1ea3nh m\u1edbi (ho\u1eb7c ch\u1ec9 3\u20134 \u1ea3nh hero): v\u1eadt th\u1ec3 + \u0111\u1ec1n code-drawn SVG/TSX ink-genome + quote-card nguy\u00ean v\u0103n.",
+            "total_cost_usd": 0.0,
+            "quality_level": "free",
+            "what_changes": "M\u1ea5t tranh full-bleed ch\u00e9n ng\u1ecdc/\u0111\u00e8o Ngang/h\u1ed9i Ph\u1ee7 D\u1ea7y \u2014 hero moment gi\u1ea3m l\u1eebng l\u1eaby; \u0111\u1ed5i l\u1ea1i ki\u1ec3m so\u00e1t chi ti\u1ebft cao, nhanh, speech-lock d\u1ec5 h\u01a1n."
+          },
+          {
+            "description": "Chuy\u1ec3n sang HyperFrames runtime (HTML/CSS/GSAP, kinetic typography m\u1ea1nh).",
+            "total_cost_usd": 0.0,
+            "quality_level": "standard",
+            "what_changes": "M\u1ea5t continuation chassis Remotion: vi\u1ebft l\u1ea1i theme + QC pipeline t\u1eeb \u0111\u1ea7u; r\u1ee7i ro l\u1ec7ch look m\u00f9a \u2014 ch\u1ec9 khi owner ch\u1ee7 \u0111\u00edch mu\u1ed1n th\u1eed."
+          },
+          {
+            "description": "C\u1eaft g\u1ecdn 12\u201313' n\u1ebfu owner mu\u1ed1n nh\u1ecbp nhanh.",
+            "total_cost_usd": 0.0,
+            "quality_level": "standard",
+            "what_changes": "G\u1ed9p nh\u1ecbp ki\u1ec3m ch\u1ee9ng d\u1ecb b\u1ea3n + UNESCO v\u00e0o panel \u0111\u01a1n, r\u00fat h\u1ed3i ph\u1ed1 C\u00e1t xu\u1ed1ng t\u1ed1i thi\u1ec3u b\u1eaft bu\u1ed9c; m\u1ea5t ph\u1ea7n th\u1edf c\u1ee7a tr\u1ee5c v\u1eadt th\u1ec3 \u2014 climax v\u1eabn nguy\u00ean."
+          }
+        ],
+        "delivery_promise": {
+          "promise_type": "data_explainer",
+          "motion_required": true,
+          "source_required": false,
+          "tone_mode": "epic",
+          "quality_floor": "presentable",
+          "approved_fallback": null
+        },
+        "renderer_family": "explainer-data",
+        "composition_mode": "atelier",
+        "art_direction": "CONTINUATION series vn-myth S2: ink-genome tr\u00ean gi\u1ea5y d\u00f3, composition_mode atelier nh\u01b0 S2E01\u2013S2E03. Visual ch\u00ednh c\u1ee7a t\u1eadp = V\u1eacT TH\u1ec2 + \u0110\u1ec0N + DANH X\u01afNG (ch\u00e9n ng\u1ecdc s\u1ee9t g\u00f3c, nh\u00e0 tranh V\u00e2n C\u00e1t, bi\u1ec3n v\u00e0ng \u00abS\u1eafc-gi\u00e1ng\u00bb, \u0111\u00e8o Ngang, \u0111\u1ec1n n\u00fai S\u00f9ng S\u01a1n, n\u1ec1n Nam Giao, h\u1ed9i Ph\u1ee7 D\u1ea7y h\u00f4m nay) \u2014 KH\u00d4NG DNA/s\u1ee3i xo\u1eafn. Ba tuy\u1ebfn m\u00e0u t\u00e1ch l\u1edbp k\u1ec3: amber = b\u1ea3n k\u1ec3 / teal = \u0111\u1ec1n th\u1edd-th\u1ef1c h\u00e0nh c\u00f3 ch\u1ee9ng c\u1ee9 / n\u00e2u gi\u1ea5y d\u1ea7u = ghi danh di s\u1ea3n-h\u1ed3 s\u01a1. Gen image ch\u1ec9 l\u00e0 base layer; overlay gi\u1ea3i th\u00edch l\u00e0 TSX/SVG v\u1ebd tay speech-locked. \u1ea2nh nghi l\u1ec5 h\u00f4m nay ph\u1ea3i g\u1eafn nh\u00e3n minh h\u1ecda \u2014 kh\u00f4ng gi\u1ea3 \u1ea3nh t\u01b0 li\u1ec7u.",
+        "taste_profile": {
+          "design_read": "M\u1edf \u1edf hi\u1ec7n t\u1ea1i \u2014 ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n th\u00e1ng Ba, kh\u00f3i h\u01b0\u01a1ng, d\u00f2ng ng\u01b0\u1eddi v\u1ec1 h\u1ed9i \u2014 r\u1ed3i l\u00f9i d\u1ea7n v\u00e0o gi\u1ea5y d\u00f3 c\u1ee7a b\u1ea3n k\u1ec3, v\u00e0 l\u1ea1i tr\u1edf ra s\u00e1ng h\u00f4m nay b\u1eb1ng h\u1ed3 s\u01a1 ghi danh. Kh\u00f4ng gian \u0111\u1ec1n l\u00e0 'nh\u00e0' c\u1ee7a t\u1eadp: m\u1ecdi l\u1edbp b\u1eb1ng ch\u1ee9ng \u0111\u1ec1u quay v\u1ec1 ng\u01b0\u1ee1ng c\u1eeda \u1ea5y. T\u00f4ng trang nghi\u00eam, \u1ea5m \u2014 kh\u00f4ng huy\u1ec1n b\u00ed h\u00f3a.",
+          "visual_variance": 6,
+          "motion_intensity": 3,
+          "information_density": 5,
+          "palette_discipline": "Gi\u1ea5y d\u00f3 n\u1ec1n \u1ea5m n\u1ed1i series; amber + m\u1ef1c \u1ea5m cho b\u1ea3n k\u1ec3 (ch\u00e9n ng\u1ecdc, nh\u00e0 tranh, \u0111\u00e8o Ngang); teal cho l\u1edbp ch\u1ee9ng c\u1ee9 th\u1ef1c h\u00e0nh (quote-card V\u0169 trung t\u00f9y b\u00fat, h\u1ed9i Ph\u1ee7 D\u1ea7y, UNESCO); n\u00e2u gi\u1ea5y d\u1ea7u cho h\u1ed3 s\u01a1/danh m\u1ee5c (T\u1ee9 b\u1ea5t t\u1eed, 14 t\u1ec9nh) \u2014 ch\u1ec9 ghi \u0111\u00fang ph\u1ea1m vi ngu\u1ed3n, KH\u00d4NG v\u1ebd \u0111\u1ec1n ch\u01b0a x\u00e1c minh nh\u01b0 b\u1ea3n \u0111\u1ed3 ch\u00ednh x\u00e1c. KH\u00d4NG gradient t\u00edm AI generic; KH\u00d4NG nh\u1ee5c c\u1ea3m ho\u00e1 c\u1ea3nh ph\u1ed1 C\u00e1t.",
+          "layout_variation": "Xen k\u1ebd: c\u1ea3nh v\u1eadt th\u1ec3 amber (ch\u00e9n ng\u1ecdc \u2192 nh\u00e0 V\u00e2n C\u00e1t \u2192 \u0111\u00e8o Ngang \u2192 \u0111\u1ec1n) \u2194 quote-card teal nguy\u00ean v\u0103n k\u00e8m ngu\u1ed3n + claim ID \u2194 strip n\u00e2u h\u1ed3 s\u01a1 (T\u1ee9 b\u1ea5t t\u1eed \u0111\u01b0\u01a1ng \u0111\u1ea1i, 14 t\u1ec9nh, 3 nghi th\u1ee9c) \u2194 khung 'h\u00f4m nay' (h\u1ed9i Ph\u1ee7 D\u1ea7y). M\u1ed7i h\u1ed3i c\u00f3 \u0111\u00fang m\u1ed9t v\u1eadt ch\u1ee7 \u0111\u1ea1o.",
+          "reference_strategy": "Hero visuals: ch\u00e9n ng\u1ecdc s\u1ee9t m\u1ed9t g\u00f3c r\u01a1i tr\u00ean n\u1ec1n tr\u1eddi ti\u00ean; bi\u1ec3n v\u00e0ng \u00abS\u1eafc-gi\u00e1ng Nam-nam\u00bb; ng\u00e0y 3/3 ti\u1ebfng chu\u00f4ng \u0111\u1ec1n; Ph\u00f9ng Kh\u1eafc Khoan \u0111\u1ed1i \u0111\u00e1p b\u00ean \u0111\u00e8o L\u1ea1ng (ch\u1eef H\u00e1n hi\u1ec7n nh\u01b0 n\u00e9t m\u1ef1c); \u0111\u1ec1n tr\u00ean n\u00fai S\u00f9ng S\u01a1n m\u00e2y ph\u1ee7; ng\u01b0\u1ee1ng c\u1eeda Ph\u1ee7 D\u1ea7y s\u00e1ng th\u00e1ng Ba.",
+          "anti_patterns": [
+            "\u0111\u00e1nh \u0111\u1ed3ng m\u1ecdi n\u1eef th\u1ea7n = Li\u1ec5u H\u1ea1nh",
+            "g\u1ecdi th\u1edd M\u1eabu l\u00e0 m\u00ea t\u00edn / d\u1ef1ng nghi l\u1ec5 th\u00e0nh c\u1ea3nh huy\u1ec1n b\u00ed c\u00e2u view",
+            "nh\u1ee5c c\u1ea3m ho\u00e1 \u0111o\u1ea1n ph\u1ed1 C\u00e1t (b\u00e1n n\u01b0\u1edbc/hi\u1ec7n h\u00ecnh)",
+            "UNESCO-ho\u00e1: n\u00f3i UNESCO ghi danh truy\u1ec7n/b\u00e0",
+            "\u0111\u1ebfm 1557/1577 l\u00e0 s\u1eed li\u1ec7u",
+            "h\u1ee3p nh\u1ea5t t\u00ean d\u1ecb b\u1ea3n (An Th\u00e1i/Y\u00ean Th\u00e1i, Gi\u00e1ng Ti\u00ean/Qu\u1ef3nh Hoa) th\u00e0nh m\u1ed9t t\u00ean '\u0111\u00fang duy nh\u1ea5t'",
+            "n\u00f3i T\u1ee9 b\u1ea5t t\u1eed c\u1ed1 \u0111\u1ecbnh t\u1eeb ng\u00e0n x\u01b0a",
+            "gradient t\u00edm AI generic",
+            "\u0111\u1ea7y m\u00e0n ch\u1eef \u0111\u1ecdc kh\u00f4ng k\u1ecbp",
+            "g\u00e1n \u1ea3nh AI l\u00e0 \u1ea3nh t\u01b0 li\u1ec7u l\u1ec5 h\u1ed9i th\u1eadt"
+          ],
+          "quality_gates": [
+            "Ba tuy\u1ebfn amber/teal/n\u00e2u nh\u1eadn ra ch\u1ec9 qua m\u00e0u + nh\u00e3n l\u1edbp (b\u1ea3n k\u1ec3 / \u0111\u1ec1n th\u1edd-th\u1ef1c h\u00e0nh / ghi danh di s\u1ea3n)",
+            "M\u1ecdi s\u1ed1 tr\u00ean m\u00e0n n\u1eb1m trong numeric whitelist raw_data.json (1557, 3/3, 21, 40, 07/09/1557+21/03/1577 k\u00e8m khung, 1781, 1/12/2016, l\u1ea7n 11, 14, 3 nghi th\u1ee9c)",
+            "M\u1ecdi tr\u00edch d\u1eabn kh\u1edbp nguy\u00ean v\u0103n claim_ledger + hi\u1ec7n ngu\u1ed3n",
+            "Speech-lock \u00b10,3s theo ASR word timings; n\u1ed9i dung tr\u00ean m\u00e0n \u0111\u00fang th\u1ee9 t\u1ef1 narration; scene kh\u00f4ng c\u1eaft khi narration c\u00f2n \u0111\u1ecdc",
+            "T\u00ean d\u1ecb b\u1ea3n \u0111\u00fang t\u1eebng b\u1ea3n; k\u1ec3 t\u1ed5ng h\u1ee3p d\u00f9ng danh x\u01b0ng chung \u00abti\u00ean ch\u00faa\u00bb/\u00abM\u1eabu\u00bb"
+          ]
+        },
+        "music_source": {
+          "source_type": "user_library",
+          "track_path": "TBD \u2014 'Mesmerize' (Kevin MacLeod) trong ~/project/media-library/bgm; file resolve \u1edf assets stage",
+          "provider": "incompetech (Kevin MacLeod, CC BY 4.0)",
+          "mood_direction": "REUSE track \u0111\u00e3 QC \u1edf S2E01\u2013S2E03 (d-002): ambient tr\u1ea7m, LRA th\u1ea5p, gi\u1eef n\u1ec1n quen m\u00f9a; n\u1ebfu owner mu\u1ed1n m\u00e0u \u00e2m ri\u00eang cho t\u1eadp M\u1eabu \u2192 ch\u1ecdn track m\u1edbi t\u1eeb catalog + listening QC tr\u01b0\u1edbc khi d\u00f9ng \u2014 KH\u00d4NG k\u1ebf th\u1eeba track ch\u01b0a ki\u1ec3m.",
+          "estimated_cost_usd": 0.0
+        },
+        "voice_selection": {
+          "provider": "vieneu",
+          "voice_id": "default (gi\u1ecdng \u0111\u1ecdc tin t\u1ee9c \u2014 owner's pick, \u0111\u00e3 d\u00f9ng S2E01\u2013S2E03)",
+          "rationale": "Ti\u1ebfng Vi\u1ec7t t\u1ef1 nhi\u00ean nh\u1ea5t kh\u1ea3 d\u1ee5ng, $0 local; gi\u1ecdng quen thu\u1ed9c series; t\u00ean ri\u00eang (Ph\u1ee7 D\u1ea7y, V\u00e2n C\u00e1t, Ph\u00f9ng Kh\u1eafc Khoan, M\u1eabu nghi thi\u00ean h\u1ea1\u2026) x\u1eed l\u00fd qua tts_lexicon.json k\u1ebf th\u1eeba + Gate A probe.",
+          "estimated_cost_usd": 0.0,
+          "delivery_style": "Ng\u01b0\u1eddi k\u1ec3 \u0111\u1ee9ng b\u00ean ng\u01b0\u1ee1ng c\u1eeda \u0111\u1ec1n: hook t\u00f2 m\u00f2 tr\u1ea7m t\u1eeb th\u00e1ng Ba h\u00f4m nay; c\u00e1c h\u1ed3i b\u1ea3n k\u1ec3 ch\u1eadm, \u1ea5m, trang nghi\u00eam \u2014 \u0111o\u1ea1n ph\u1ed1 C\u00e1t gi\u1eef t\u00f4ng ph\u1ea9m gi\u00e1, kh\u00f4ng gi\u1eadt g\u00e2n; nh\u1ecbp ki\u1ec3m ch\u1ee9ng s\u1ea1ch, r\u00f5; climax \u00abhai chi\u1ec1u ch\u00ednh danh\u00bb ch\u1eadm nh\u1ea5t t\u1eadp; landing nh\u1eb9, kh\u00e9p v\u00f2ng v\u1ec1 h\u1ed9i th\u00e1ng Ba.",
+          "pacing_policy": "~3700 t\u1eeb cho 960s (\u22483,8\u20134,0 t\u1eeb/gi\u00e2y); ngh\u1ec9 0,5\u20130,7s tr\u01b0\u1edbc m\u1ed7i chuy\u1ec3n h\u1ed3i; tr\u00edch nguy\u00ean v\u0103n \u0111\u1ecdc ch\u1eadm h\u01a1n nh\u1ecbp th\u01b0\u1eddng; \u0111o l\u1ea1i b\u1eb1ng audio th\u1eadt (range 900\u20131020s).",
+          "sample_approval_required": false
+        },
+        "decision_log_ref": "projects/lieu-hanh/decision_log.json",
+        "provider_rankings": {
+          "image": [
+            {
+              "tool_name": "openai_image",
+              "provider": "9router/cx-gpt-5.6-luna-image",
+              "weighted_score": 0.9,
+              "task_fit": 0.9,
+              "output_quality": 0.85,
+              "explanation": "Model T2I c\u1ee7a series; gateway local $0; ink-genome gi\u1ea5y d\u00f3; demo 1 c\u1ea3nh tr\u01b0\u1edbc batch"
+            }
+          ],
+          "tts": [
+            {
+              "tool_name": "vieneu_tts",
+              "provider": "vieneu",
+              "weighted_score": 0.95,
+              "task_fit": 1.0,
+              "output_quality": 0.9,
+              "explanation": "Ti\u1ebfng Vi\u1ec7t t\u1ef1 nhi\u00ean, free local, gi\u1ecdng series; Gate A probe \u0111\u1ecba danh tr\u01b0\u1edbc batch"
+            }
+          ],
+          "music": [
+            {
+              "tool_name": "music_library",
+              "provider": "incompetech (CC BY 4.0)",
+              "weighted_score": 0.9,
+              "task_fit": 0.9,
+              "output_quality": 0.85,
+              "explanation": "Mesmerize reuse \u2014 \u0111\u00e3 QC LRA/mix S2E01\u2013S2E03, credit b\u1eaft bu\u1ed9c; music_library 1/1 available"
+            }
+          ]
+        },
+        "render_runtime": "remotion"
+      },
+      "cost_estimate": {
+        "total_estimated_usd": 0.0,
+        "line_items": [
+          {
+            "tool": "vieneu_tts",
+            "operation": "Narration ~32 sections (~3700 t\u1eeb) batch WAV + Gate A probe \u0111\u1ecba danh + round-trip ASR QC",
+            "quantity": 32,
+            "estimated_usd": 0.0,
+            "notes": "Local Apple Silicon; batch mode; Gate A probe (Ph\u1ee7 D\u1ea7y, V\u00e2n C\u00e1t, Y\u00ean Th\u00e1i, \u0111\u00e8o Ngang, ph\u1ed1 C\u00e1t, S\u00f9ng S\u01a1n, Nam Giao, Ph\u00f9ng Kh\u1eafc Khoan) tr\u01b0\u1edbc batch"
+          },
+          {
+            "tool": "transcriber",
+            "operation": "faster-whisper vi \u2014 word timings + QC kh\u1edbp ch\u1eef",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "Captions d\u00f9ng canonical script text map v\u00e0o whisper word slots"
+          },
+          {
+            "tool": "openai_image",
+            "operation": "10\u201312 \u1ea3nh T2I 9router cx/gpt-5.6-luna-image (sau demo gate)",
+            "quantity": 12,
+            "estimated_usd": 0.0,
+            "notes": "Gateway local $0; hexpix anchor; size auto/1536x1024"
+          },
+          {
+            "tool": "music_library",
+            "operation": "BGM reuse 'Mesmerize' (CC BY 4.0) + attribution trong credits",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "\u0110\u00e3 QC S2E01\u2013S2E03; ch\u1edd owner duy\u1ec7t (d-002)"
+          },
+          {
+            "tool": "video_compose",
+            "operation": "Remotion atelier \u2014 draft HUD 720p + final 1080p",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "Local render"
+          }
+        ],
+        "budget_cap_usd": 0.0,
+        "budget_verdict": "within_budget",
+        "savings_options": []
+      },
+      "approval": {
+        "status": "approved",
+        "user_notes": "Ch\u1edd owner duy\u1ec7t Gate B (research + proposal + script draft k\u00e8m theo). Items ch\u1edd duy\u1ec7t: concept (khuy\u1ebfn ngh\u1ecb c1), S2-C4 canon \u0111\u1ec1 xu\u1ea5t, runtime Remotion (HyperFrames available), BGM reuse Mesmerize, duration 15\u201317'/960s, c\u00e1c \u0111i\u1ec3m bi\u00ean t\u1eadp modifications. KH\u00d4NG TTS/\u1ea3nh/render cho \u0111\u1ebfn khi duy\u1ec7t ri\u00eang (approval_policy gate_B). Runtime remotion is a schema-required proposal candidate only, NOT owner-approved or locked. Gate B pending. | FULL-RUN APPROVAL 2026-10-21T00:40:12.983866+00:00: \"Let finish the vn myth ep4 I approve all\" \u2014 concept c1 approved; runtime remotion approved; duration content-driven; internal demo/batch/QC/final authorized; no bible edit; no auto publish.",
+        "approved_budget_usd": 0.0
+      },
+      "metadata": {
+        "series": "vn-myth",
+        "season": 2,
+        "episode": "S2E04",
+        "research_package": "vnmyth-s2e04-research-v1",
+        "target_duration_seconds": 960,
+        "sections": 32,
+        "narration_words_target": 3700,
+        "narration_words_range": "3500\u20134000",
+        "canon_proposed_this_episode": "S2-C4 (PENDING owner) \u2014 \u00abM\u1eabu\u00bb l\u00e0 danh x\u01b0ng hai chi\u1ec1u (d\u00e2n th\u1edd tr\u01b0\u1edbc, tri\u1ec1u \u0111\u00ecnh ch\u00ednh danh sau); UNESCO 2016 ghi danh TH\u1ef0C H\u00c0NH kh\u00f4ng ch\u1ee9ng th\u1ef1c nh\u00e2n v\u1eadt; ba l\u1edbp b\u1ea3n k\u1ec3/\u0111\u1ec1n th\u1edd/ghi danh t\u00e1ch b\u1ea1ch; \u0111\u00f3ng khung \u00abc\u00f3 th\u1ec3 \u0111\u1ecdc l\u00e0\u00bb, KH\u00d4NG t\u1ef1 s\u1eeda bible",
+        "numbers_whitelist_ref": "research/v1/raw_data.json",
+        "speech_lock": "Animation b\u00e1m ASR word timestamps th\u1ef1c (\u00b10,3s) \u2014 KH\u00d4NG \u01b0\u1edbc l\u01b0\u1ee3ng theo s\u1ed1 t\u1eeb; n\u1ed9i dung tr\u00ean m\u00e0n \u0111\u00fang th\u1ee9 t\u1ef1 narration; display/narration t\u00e1ch + tts_lexicon.json cho t\u00ean ri\u00eang.",
+        "three_layers_axis": "B\u1ea2N K\u1ec2 (amber; C01\u2013C06) \u2260 \u0110\u1ec0N TH\u1edc-TH\u1ef0C H\u00c0NH (teal; C07/C12) \u2260 GHI DANH DI S\u1ea2N (n\u00e2u; C10/C11) \u2014 tr\u1ee5c b\u1eaft bu\u1ed9c c\u1ee7a t\u1eadp, t\u00e1ch b\u1eb1ng m\u00e0u + nh\u00e3n ch\u1eef tr\u00ean m\u00e0n; l\u1edbp di\u1ec5n gi\u1ea3i nghi\u00ean c\u1ee9u (C13\u2013C15) g\u1eafn nh\u00e3n \u00abm\u1ed9t c\u00e1ch hi\u1ec3u c\u1ee7a nghi\u00ean c\u1ee9u\u00bb.",
+        "timing_reconciliation": "target 960s = \u0111\u1ec1 xu\u1ea5t bi\u00ean t\u1eadp 15\u201317' (range 900\u20131020) trong khung bible 12\u201320'; sections plan 30\u201334 (ghi 32 l\u00e0m m\u1ed1c k\u1ebf ho\u1ea1ch); \u0111o l\u1ea1i b\u1eb1ng audio th\u1eadt khi \u0111\u01b0\u1ee3c ph\u00e9p s\u1ea3n xu\u1ea5t \u2014 KH\u00d4NG k\u00e9o filler.",
+        "runtime_continuation": "render_runtime=remotion + composition_mode=atelier = CONTINUATION series (ink-genome chassis, speech-lock, HUD QC S2E01\u2013S2E03). HyperFrames available nh\u01b0ng kh\u00f4ng khuy\u1ebfn ngh\u1ecb \u2014 tr\u00ecnh b\u00e0y c\u1ea3 hai \u1edf PROPOSAL.md, owner ch\u1ed1t (d-001).",
+        "image_plan": "10\u201312 \u1ea3nh sinh m\u1edbi (9router cx/gpt-5.6-luna-image T2I, hexpix-anchored, gen base + overlay v\u1ebd tay theo focal rule) \u2014 SAU owner approval + demo gate 1 c\u1ea3nh duy\u1ec7t tr\u01b0\u1edbc batch. KH\u00d4NG Read PNG trong CC session.",
+        "music_plan": "REUSE 'Mesmerize' \u2014 Kevin MacLeod (CC BY 4.0), \u0111\u00e3 QC S2E01\u2013S2E03 (d-002), credit \u0111\u1ee7; KH\u00d4NG k\u1ebf th\u1eeba track ch\u01b0a ki\u1ec3m; ch\u1edd owner duy\u1ec7t.",
+        "callback": "Callback E01 S\u01a1n Tinh \u2013 E02 Gi\u00f3ng \u2013 E03 Ch\u1eed \u0110\u1ed3ng T\u1eed \u2192 ho\u00e0n t\u1ea5t T\u1ee9 b\u1ea5t t\u1eed nh\u01b0 danh s\u00e1ch ph\u1ed5 bi\u1ebfn \u0111\u01b0\u01a1ng \u0111\u1ea1i (C08) \u2014 1 nh\u1ecbp \u1edf hook + 1 nh\u1ecbp climax; CTA tease S2E05 Hai B\u00e0 Tr\u01b0ng kh\u00f4ng spoil.",
+        "approval_scope": "d-000 scoped authorization \u2014 d\u1eebng \u1edf awaiting_human; Gate B: research + proposal + script draft ch\u1edd owner duy\u1ec7t; production stages ch\u1edd duy\u1ec7t ri\u00eang (demo gate \u2192 TTS Gate A \u2192 batch \u2192 draft HUD \u2192 final)."
+      }
+    }
+  },
+  "style_playbook": "ink-genome",
+  "review": {
+    "reviewer": "owner via full-run approval",
+    "notes": "Let finish the vn myth ep4 I approve all",
+    "result": "approved"
+  }
+}

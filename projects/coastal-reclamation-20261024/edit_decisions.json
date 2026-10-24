@@ -1,0 +1,165 @@
+{
+  "version": "1.0",
+  "render_runtime": "remotion",
+  "composition_mode": "atelier",
+  "renderer_family": "explainer-data",
+  "bespoke": {
+    "entry": "remotion-composer/src/Root.tsx",
+    "composition_id": "CoastalReclamationEpisode",
+    "art_direction": "Clean professional isometric scientific infographic with animated vector streamlines, bathymetry contours, and word-by-word karaoke subtitles.",
+    "concurrency": 4,
+    "scale": 0.6666667
+  },
+  "cuts": [
+    {
+      "id": "cut-01",
+      "source": "assets/images/sc01_bg.png",
+      "in_seconds": 0.0,
+      "out_seconds": 10.0,
+      "layer": "primary",
+      "transform": {
+        "animation": "ken-burns-slow-zoom",
+        "scale": 1.05
+      },
+      "transition_in": "fade",
+      "transition_out": "dissolve",
+      "transition_duration": 0.5,
+      "reason": "Hook scene establishing pristine coastline bathymetry"
+    },
+    {
+      "id": "cut-02",
+      "source": "assets/images/sc02_bg.png",
+      "in_seconds": 10.0,
+      "out_seconds": 28.0,
+      "layer": "primary",
+      "transform": {
+        "animation": "pan-right",
+        "scale": 1.04
+      },
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.5,
+      "reason": "Tidal prism constriction and hydrodynamic flow acceleration"
+    },
+    {
+      "id": "cut-03",
+      "source": "assets/images/sc03_bg.png",
+      "in_seconds": 28.0,
+      "out_seconds": 47.0,
+      "layer": "primary",
+      "transform": {
+        "animation": "tracking-right",
+        "scale": 1.04
+      },
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.5,
+      "reason": "Longshore drift sediment trapping and downdrift erosion"
+    },
+    {
+      "id": "cut-04",
+      "source": "assets/images/sc04_bg.png",
+      "in_seconds": 47.0,
+      "out_seconds": 67.0,
+      "layer": "primary",
+      "transform": {
+        "animation": "ken-burns-slow-zoom",
+        "scale": 1.05
+      },
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.5,
+      "reason": "Mangrove root architecture, wave attenuation, and tidal breathing"
+    },
+    {
+      "id": "cut-05",
+      "source": "assets/images/sc05_bg.png",
+      "in_seconds": 67.0,
+      "out_seconds": 83.0,
+      "layer": "primary",
+      "transform": {
+        "animation": "pan-left",
+        "scale": 1.04
+      },
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.5,
+      "reason": "Eco-engineering adaptation: permeable island channels and living shorelines"
+    },
+    {
+      "id": "cut-06",
+      "source": "assets/images/sc06_bg.png",
+      "in_seconds": 83.0,
+      "out_seconds": 97.0,
+      "layer": "primary",
+      "transform": {
+        "animation": "zoom-out",
+        "scale": 1.05
+      },
+      "transition_in": "dissolve",
+      "transition_out": "fade",
+      "transition_duration": 0.5,
+      "reason": "Dynamic equilibrium summary and closing CTA"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "segments": [
+        {
+          "asset_id": "audio-voice-scene-01",
+          "start_seconds": 0.0,
+          "end_seconds": 10.0
+        },
+        {
+          "asset_id": "audio-voice-scene-02",
+          "start_seconds": 10.0,
+          "end_seconds": 28.0
+        },
+        {
+          "asset_id": "audio-voice-scene-03",
+          "start_seconds": 28.0,
+          "end_seconds": 47.0
+        },
+        {
+          "asset_id": "audio-voice-scene-04",
+          "start_seconds": 47.0,
+          "end_seconds": 67.0
+        },
+        {
+          "asset_id": "audio-voice-scene-05",
+          "start_seconds": 67.0,
+          "end_seconds": 83.0
+        },
+        {
+          "asset_id": "audio-voice-scene-06",
+          "start_seconds": 83.0,
+          "end_seconds": 97.0
+        }
+      ]
+    },
+    "music": {
+      "asset_id": "audio-bgm-full",
+      "volume": 0.18,
+      "fade_in_seconds": 1.0,
+      "fade_out_seconds": 3.0,
+      "ducking": {
+        "enabled": true,
+        "reduction_db": -6.0
+      }
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "style": "karaoke",
+    "source": "public/coastal-reclamation-20261024/words.json",
+    "position": "bottom-center",
+    "font_size": 36,
+    "color": "#ffffff",
+    "background": "rgba(10, 25, 47, 0.90)"
+  },
+  "metadata": {
+    "total_duration_seconds": 97.0,
+    "total_frames": 2910,
+    "fps": 30
+  }
+}

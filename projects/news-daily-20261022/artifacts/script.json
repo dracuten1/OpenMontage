@@ -1,0 +1,127 @@
+{
+  "version": "1.0",
+  "title": "5 tin đáng chú ý ngày 22/10/2026",
+  "total_duration_seconds": 75,
+  "sections": [
+    {
+      "id": "S1",
+      "label": "Tin 1 — hook (Champi, owner chỉ định)",
+      "text": "Siêu bão Champi — cơn bão mạnh nhất hành tinh năm 2026 — đang áp sát Đài Loan với gió 210 km/h, cấp 16 giật trên cấp 17. Chứng khoán, trường học Đài Loan đóng cửa, chuyến bay đảo lộn; bão dự kiến tiếp tục hướng sang Nhật Bản. Bão ít khả năng vào Biển Đông, nhưng đông bắc Biển Đông có gió cấp 8 đến 9, sóng cao 4 đến 6 mét.",
+      "start_seconds": 0,
+      "end_seconds": 15,
+      "speaker_directions": "Hook: nhấn 'mạnh nhất hành tinh năm 2026'; 'ít khả năng' giữ nguyên mức độ uncertain; không nói bão sẽ vào/đổ bộ Việt Nam.",
+      "source_ref": "whitelist.json#VN-typhoon+whitelist.json#W-champi"
+    },
+    {
+      "id": "S2",
+      "label": "Tin 2 (não mô cầu TPHCM, owner chỉ định)",
+      "text": "TPHCM ghi nhận chùm 5 ca não mô cầu, trong đó một học sinh 12 tuổi đã tử vong. Gần 100 người tiếp xúc gần được uống kháng sinh dự phòng; hơn 50.000 mũi vaccine não mô cầu đã được tiêm chỉ trong 6 ngày.",
+      "start_seconds": 15,
+      "end_seconds": 26,
+      "speaker_directions": "Trung tính, không gây hoảng loạn; 'được uống kháng sinh dự phòng' là can thiệp y tế, không phải dịch toàn thành phố.",
+      "source_ref": "whitelist.json#VN-meningitis"
+    },
+    {
+      "id": "S3",
+      "label": "Tin 3",
+      "text": "Bảy tàu chở dầu bị tấn công ở eo biển Hormuz, nhiều tàu bốc cháy. Aramco sơ tán nhân viên khỏi trụ sở Dhahran; nỗi lo chiến tranh tái diễn đẩy giá dầu thế giới bật mạnh.",
+      "start_seconds": 26,
+      "end_seconds": 35,
+      "speaker_directions": "Không nêu bên tấn công (nguồn không nêu); 'được cho là cân nhắc đòn đánh mới' không đưa vào vì chỉ là đồn đoán.",
+      "source_ref": "whitelist.json#W-tankers+whitelist.json#W-aramco"
+    },
+    {
+      "id": "S4",
+      "label": "Tin 4",
+      "text": "Từ 15 giờ hôm nay, xăng E10 không cao hơn 25.213 đồng một lít, trong khi các loại dầu tăng 444 đến 1.238 đồng một lít.",
+      "start_seconds": 35,
+      "end_seconds": 43,
+      "speaker_directions": "Giữ 'không cao hơn' (mức trần), không nói 'giảm còn'; 'từ 15 giờ' là thời điểm hiệu lực trong nguồn.",
+      "source_ref": "whitelist.json#VN-fuel"
+    },
+    {
+      "id": "S5",
+      "label": "Tin 5",
+      "text": "Phái sinh Nasdaq giảm gần 2% vì nghi ngờ chi tiêu AI và giá dầu tăng, khiến Tesla và Meta lao dốc; IBM mất 7% dù doanh thu vượt dự báo.",
+      "start_seconds": 43,
+      "end_seconds": 52,
+      "speaker_directions": "'Gần 2%' giữ từ 'gần'; không suy diễn sàn, điểm số hay khuyên đầu tư.",
+      "source_ref": "whitelist.json#W-nasdaq"
+    },
+    {
+      "id": "S6a",
+      "label": "NHẬN ĐỊNH",
+      "text": "Với người đi làm: bão ít khả năng vào Biển Đông, nhưng sóng cao 4 đến 6 mét nghĩa là vùng biển đông bắc vẫn nguy hiểm với tàu thuyền; từ nay đến hết tháng 10 chưa có dấu hiệu bão mới.",
+      "start_seconds": 52,
+      "end_seconds": 61,
+      "speaker_directions": "Badge NHẬN ĐỊNH bắt buộc suốt scene; editorial_commentary — chỉ diễn giải fact đã có trong whitelist.",
+      "source_ref": "whitelist.json#commentary"
+    },
+    {
+      "id": "S6b",
+      "label": "NHẬN ĐỊNH",
+      "text": "Xăng giảm là tin vui cho túi tiền, nhưng dầu tăng 444 đến 1.238 đồng, nên chi phí vận chuyển, giao hàng có thể chưa hạ theo. Với nhà có trẻ nhỏ, hơn 50.000 mũi vaccine não mô cầu trong 6 ngày cho thấy nhiều gia đình đã chủ động tiêm chủng.",
+      "start_seconds": 61,
+      "end_seconds": 72,
+      "speaker_directions": "Giữ badge NHẬN ĐỊNH; 'có thể chưa hạ theo' là suy diễn có điều kiện, giọng trung tính, không dự báo.",
+      "source_ref": "whitelist.json#commentary"
+    },
+    {
+      "id": "S7",
+      "label": "Outro",
+      "text": "Theo dõi để cập nhật bản tin tiếp theo.",
+      "start_seconds": 72,
+      "end_seconds": 75,
+      "speaker_directions": "CTA trung tính; editorial_date_count_or_cta.",
+      "source_ref": "whitelist.json#cta"
+    }
+  ],
+  "metadata": {
+    "status": "brief_authorized_draft_run",
+    "editorial_draft_only": false,
+    "native_human_approved": true,
+    "stage_advancement": true,
+    "timing_status": "ALL start/end/duration values are schema-required editorial budget placeholders ONLY, not actual audio timestamps; pending actual audio and per-word alignment. Do not export into captions, HUD, chapter timestamps or animation cues.",
+    "tts_allowed": true,
+    "render_allowed": true,
+    "news_order": [
+      "VN-typhoon+W-champi",
+      "VN-meningitis",
+      "W-tankers+W-aramco",
+      "VN-fuel",
+      "W-nasdaq"
+    ],
+    "anchor_sections": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ],
+    "support_sections": [
+      "S6a",
+      "S6b",
+      "S7"
+    ],
+    "narration_sections": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6a",
+      "S6b",
+      "S7"
+    ],
+    "canonical_text_policy": "Sections.text is editorial display/caption master. provider_text built at TTS stage via project tts_lexicon.json (longest-first); canonical display never replaced.",
+    "commentary_classification": "editorial_commentary",
+    "outro_classification": "editorial_date_count_or_cta",
+    "music": {
+      "demo": "none",
+      "full": "voice-only (lane precedent 20261021); BGM có thể thêm sau duyệt nếu owner chọn track"
+    },
+    "source_limits": "Local sealed digests latest-vn.md + latest-world.md (22/10/2026) ONLY; no external facts/numbers/sources.",
+    "approval": "Owner brief 2026-10-22 (backup run 18h00 cron timeout) authorizes production of DRAFT HUD deliverable; final publish awaiting_human.",
+    "approval_quote": "Video tin tức ngày 2026-10-22 — từ bản tin 17h40–17h42 (bản bù cron 18h00 lỗi timeout): Deliver video (DRAFT HUD, ≤50MB Telegram) + QC numbers + caption TikTok qua Telegram DM Tuyên, trạng thái awaiting_human — KHÔNG tự đăng TikTok."
+  }
+}

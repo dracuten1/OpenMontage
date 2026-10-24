@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "episode": "S2E03",
+  "checked_at": "2026-10-18T19:08:07.197678+00:00",
+  "status": "pass_with_declared_limits",
+  "checks": {
+    "research_brief_schema": "pass",
+    "verbatim_evidence": "16/16",
+    "unique_claim_ids": "16/16",
+    "data_points": 13,
+    "sources": 6,
+    "angles": 3,
+    "landscape_entries": 3,
+    "published_educational_questions": 3,
+    "cited_source_set": "matches claim ledger",
+    "citation_verify_evidence": {
+      "exit_code": 0,
+      "output": "info: stats: 52 prose sentence(s), 21 with declared provenance (40%) — 21 cited, 0 marked [unverified] (a sentence may be both); 6 distinct source(s) cited, 8 in ledger (6 with evidence quotes)\nwarn: registered in the ledger but not cited in this draft: [6], [8]\ncitations OK\n"
+    }
+  },
+  "limits": [
+    "Verbatim match confirms retrieval fidelity, not historical truth.",
+    "No original heritage decision downloaded; claim attributed to the 2023 announcement.",
+    "No exact year asserted for the Phan Ke Binh edition.",
+    "Older event schedule is not a current-year ritual timetable.",
+    "Sources are not necessarily historically independent.",
+    "Owner approval still pending; no assets or renders authorized."
+  ]
+}

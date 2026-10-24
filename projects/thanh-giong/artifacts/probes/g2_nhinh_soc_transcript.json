@@ -1,0 +1,80 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.36,
+      "text": "N\u00ean s\u1eafp, nui n\u00ean s\u1eafp.",
+      "words": [
+        {
+          "word": " N\u00ean",
+          "start": 0.0,
+          "end": 0.26,
+          "probability": 0.59
+        },
+        {
+          "word": " s\u1eafp,",
+          "start": 0.26,
+          "end": 0.62,
+          "probability": 0.636
+        },
+        {
+          "word": " nui",
+          "start": 0.74,
+          "end": 0.88,
+          "probability": 0.459
+        },
+        {
+          "word": " n\u00ean",
+          "start": 0.88,
+          "end": 1.04,
+          "probability": 0.427
+        },
+        {
+          "word": " s\u1eafp.",
+          "start": 1.04,
+          "end": 1.36,
+          "probability": 0.988
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " N\u00ean",
+      "start": 0.0,
+      "end": 0.26,
+      "probability": 0.59
+    },
+    {
+      "word": " s\u1eafp,",
+      "start": 0.26,
+      "end": 0.62,
+      "probability": 0.636
+    },
+    {
+      "word": " nui",
+      "start": 0.74,
+      "end": 0.88,
+      "probability": 0.459
+    },
+    {
+      "word": " n\u00ean",
+      "start": 0.88,
+      "end": 1.04,
+      "probability": 0.427
+    },
+    {
+      "word": " s\u1eafp.",
+      "start": 1.04,
+      "end": 1.36,
+      "probability": 0.988
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.44,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "topic": "Đề xuất nhà ở thương mại giá phù hợp 60 - 70 triệu/m² cho người thu nhập thấp",
+  "editorial_stance": "Khách quan, dựa trên số liệu thực tế về thu nhập và giá nhà; phân định rõ giữa cơ chế chính sách, năng lực tài chính hộ gia đình và rủi ro tín dụng. Giọng trung tính, khoa học infographic, không kích động bi quan nhưng phơi bày trần trụi các con số.",
+  "verified_claims": [
+    {
+      "id": "CLM-001",
+      "topic": "Nội dung đề xuất chính sách của HoREA",
+      "statement": "HoREA đề xuất bổ sung vào luật phân khúc nhà ở thương mại giá phù hợp với giá 60 - 70 triệu đồng/m² tại Hà Nội, TP.HCM và 25 - 30 triệu đồng/m² tại các tỉnh, nhắm vào người có thu nhập trên 50 triệu/tháng cho gia đình hoặc trên 35 triệu/tháng cho người độc thân nuôi con.",
+      "sources": [
+        {
+          "citation": "Văn bản kiến nghị HoREA (10/2026)",
+          "url": "https://cafef.vn/horea-de-xuat-nha-o-thuong-mai-gia-phu-hop.chn",
+          "type": "Hiệp hội nghề nghiệp chính thức"
+        }
+      ]
+    },
+    {
+      "id": "CLM-002",
+      "topic": "Khoảng trống chính sách The Missing Middle",
+      "statement": "Hộ gia đình có thu nhập >50 triệu/tháng bị loại khỏi đối tượng mua nhà ở xã hội (vượt trần thu nhập), nhưng với giá nhà sơ cấp nội đô hiện tại (102-107 triệu/m²), họ cũng không thể tiếp cận nhà ở thương mại tự do.",
+      "sources": [
+        {
+          "citation": "Nghị định hướng dẫn Luật Nhà ở & CBRE Market Report Q3/2026",
+          "url": "https://www.cbrevietnam.com/insights/reports/q3-2026-vietnam-real-estate-market",
+          "type": "Văn bản pháp luật & Báo cáo nghiên cứu thị trường"
+        }
+      ]
+    },
+    {
+      "id": "CLM-003",
+      "topic": "Bài toán dòng tiền trả nợ ngân hàng",
+      "statement": "Một căn hộ 50m² giá 65 triệu/m² trị giá 3,25 tỷ đồng. Nếu vay ngân hàng 70% trong 20 năm, tiền gốc và lãi tháng đầu tiên dao động từ 27 - 29 triệu đồng/tháng (chiếm gần 60% thu nhập của gia đình kiếm 50 triệu/tháng).",
+      "sources": [
+        {
+          "citation": "Biểu tính lãi suất thả nổi và phương án trả nợ ngân hàng thương mại 2026",
+          "url": "https://vietnamnet.vn/tai-chinh-tinh-toan-dong-tien-mua-nha.html",
+          "type": "Số liệu tài chính ngân hàng"
+        }
+      ]
+    },
+    {
+      "id": "CLM-004",
+      "topic": "Chỉ số giá nhà trên thu nhập (Price-to-Income Ratio)",
+      "statement": "Tỷ lệ giá nhà trên thu nhập tại Hà Nội đạt 38.3 - 38.9 và TP.HCM đạt 32.4 - 33.6, thuộc top cao nhất châu Á, phản ánh sự mất cân đối nghiêm trọng giữa tốc độ tăng giá bất động sản và tốc độ tăng thu nhập.",
+      "sources": [
+        {
+          "citation": "Numbeo Property Price Index 2026",
+          "url": "https://www.numbeo.com/property-investment/in/Hanoi",
+          "type": "Cơ sở dữ liệu thống kê quốc tế"
+        }
+      ]
+    }
+  ]
+}

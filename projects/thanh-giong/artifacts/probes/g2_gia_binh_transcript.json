@@ -1,0 +1,56 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 0.96,
+      "text": "Zabbing, mi\u1ebfng zabbing.",
+      "words": [
+        {
+          "word": " Zabbing,",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.34
+        },
+        {
+          "word": " mi\u1ebfng",
+          "start": 0.48,
+          "end": 0.68,
+          "probability": 0.445
+        },
+        {
+          "word": " zabbing.",
+          "start": 0.68,
+          "end": 0.96,
+          "probability": 0.817
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " Zabbing,",
+      "start": 0.0,
+      "end": 0.42,
+      "probability": 0.34
+    },
+    {
+      "word": " mi\u1ebfng",
+      "start": 0.48,
+      "end": 0.68,
+      "probability": 0.445
+    },
+    {
+      "word": " zabbing.",
+      "start": 0.68,
+      "end": 0.96,
+      "probability": 0.817
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.2,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

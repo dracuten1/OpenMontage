@@ -1,0 +1,105 @@
+{
+  "version": "1.0",
+  "project_id": "news-daily-20261022",
+  "pipeline_type": "hybrid",
+  "stage": "publish",
+  "status": "completed",
+  "timestamp": "2026-10-22T14:28:44.329768+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "publish_log": {
+      "version": "1.0",
+      "entries": [
+        {
+          "platform": "tiktok",
+          "status": "exported",
+          "export_path": "out/news-daily-20261022.mp4",
+          "timestamp": "2026-10-22T14:27:55+00:00",
+          "metadata_used": {
+            "title": "Tin nhanh 22/10/2026 \u2014 si\u00eau b\u00e3o Champi m\u1ea1nh nh\u1ea5t h\u00e0nh tinh, n\u00e3o m\u00f4 c\u1ea7u TPHCM, x\u0103ng gi\u1ea3m",
+            "description": "Tin nhanh 22/10/2026 \u2014 si\u00eau b\u00e3o Champi m\u1ea1nh nh\u1ea5t h\u00e0nh tinh, n\u00e3o m\u00f4 c\u1ea7u TPHCM, 7 t\u00e0u d\u1ea7u \u1edf Hormuz, x\u0103ng gi\u1ea3m, Nasdaq\n\n5 tin \u0111\u00e1ng ch\u00fa \u00fd nh\u1ea5t ng\u00e0y 22/10/2026 k\u00e8m NH\u1eacN \u0110\u1ecaNH cho ng\u01b0\u1eddi \u0111i l\u00e0m:\n0:00 Si\u00eau b\u00e3o Champi \u2014 m\u1ea1nh nh\u1ea5t h\u00e0nh tinh 2026, gi\u00f3 210 km/h \u00e1p s\u00e1t \u0110\u00e0i Loan\n0:18 TPHCM: ch\u00f9m 5 ca n\u00e3o m\u00f4 c\u1ea7u, m\u1ed9t h\u1ecdc sinh 12 tu\u1ed5i t\u1eed vong\n0:29 7 t\u00e0u ch\u1edf d\u1ea7u b\u1ecb t\u1ea5n c\u00f4ng \u1edf eo bi\u1ec3n Hormuz, Aramco s\u01a1 t\u00e1n Dhahran\n0:37 X\u0103ng E10 kh\u00f4ng cao h\u01a1n 25.213 \u0111\u1ed3ng/l\u00edt, d\u1ea7u t\u0103ng 444\u20131.238 \u0111\u1ed3ng t\u1eeb 15h\n0:46 Ph\u00e1i sinh Nasdaq gi\u1ea3m g\u1ea7n 2%, IBM m\u1ea5t 7%\n0:55 NH\u1eacN \u0110\u1ecaNH cho ng\u01b0\u1eddi \u0111i l\u00e0m\n1:17 Tin nhanh 22/10 \u2014 h\u1eb9n g\u1eb7p l\u1ea1i\n\nChi ti\u1ebft: Champi \u00edt kh\u1ea3 n\u0103ng v\u00e0o Bi\u1ec3n \u0110\u00f4ng nh\u01b0ng \u0111\u00f4ng b\u1eafc Bi\u1ec3n \u0110\u00f4ng gi\u00f3 c\u1ea5p 8-9, s\u00f3ng 4-6 m; g\u1ea7n 100 ng\u01b0\u1eddi ti\u1ebfp x\u00fac g\u1ea7n u\u1ed1ng kh\u00e1ng sinh d\u1ef1 ph\u00f2ng, h\u01a1n 50.000 m\u0169i vaccine n\u00e3o m\u00f4 c\u1ea7u trong 6 ng\u00e0y; n\u1ed7i lo chi\u1ebfn tranh \u0111\u1ea9y gi\u00e1 d\u1ea7u b\u1eadt m\u1ea1nh.\nNgu\u1ed3n: b\u1ea3n tin t\u1ed5ng h\u1ee3p ng\u00e0y 22/10/2026. Voice-only, kh\u00f4ng nh\u1ea1c n\u1ec1n.\n#tinmoi #tintuc #thoisu #sieubao #champi #naomocau #xangdau #nasdaq",
+            "hashtags": [
+              "#tinmoi",
+              "#tintuc",
+              "#thoisu",
+              "#sieubao",
+              "#champi",
+              "#naomocau",
+              "#xangdau",
+              "#nasdaq"
+            ],
+            "chapters": [
+              {
+                "time": "0:00",
+                "label": "S1"
+              },
+              {
+                "time": "0:17",
+                "label": "S2"
+              },
+              {
+                "time": "0:28",
+                "label": "S3"
+              },
+              {
+                "time": "0:37",
+                "label": "S4"
+              },
+              {
+                "time": "0:45",
+                "label": "S5"
+              },
+              {
+                "time": "0:54",
+                "label": "S6a"
+              },
+              {
+                "time": "1:03",
+                "label": "S6b"
+              },
+              {
+                "time": "1:16",
+                "label": "S7"
+              }
+            ],
+            "caption_short_hook": "Si\u00eau b\u00e3o Champi \u2014 m\u1ea1nh nh\u1ea5t h\u00e0nh tinh n\u0103m 2026, gi\u00f3 210 km/h \ud83c\udf00 \u0110\u00e0i Loan \u0111\u00f3ng c\u1eeda ch\u1ee9ng kho\u00e1n & tr\u01b0\u1eddng h\u1ecdc; Bi\u1ec3n \u0110\u00f4ng s\u00f3ng 4\u20136 m. Tin nhanh 22/10 trong 80 gi\u00e2y \u2b07\ufe0f #tinmoi #tintuc #thoisu #sieubao #champi"
+          }
+        }
+      ],
+      "metadata": {
+        "delivery": "Telegram DM t\u1edbi owner (draft HUD 720p + QC numbers + caption copiable); KH\u00d4NG auto-post",
+        "bgm": "voice-only, kh\u00f4ng credit BGM",
+        "final_delivery": {
+          "approved_via": "owner Telegram DM (draft HUD msg #425 review)",
+          "delivered_utc": "2026-10-22T14:27:55+00:00",
+          "video_message_id": 428,
+          "caption_message_id": 429,
+          "file": "out/news-daily-20261022.mp4",
+          "note": "master untouched since render (mtime 21:16, ffprobe verified 21:25: h264/aac 79.133s)",
+          "tiktok": "NOT auto-posted \u2014 owner uploads manually"
+        }
+      }
+    }
+  },
+  "style_playbook": "flat-motion-graphics",
+  "cost_snapshot": {
+    "total_cost_usd": 0,
+    "authorized_paid_usd": 0
+  },
+  "metadata": {
+    "approved_by": "owner (Tuy\u00ean) qua Telegram DM",
+    "approved_at": "2026-10-22T14:28:44.264456+00:00",
+    "receipt": {
+      "approved_via": "owner Telegram DM (draft HUD msg #425 review)",
+      "delivered_utc": "2026-10-22T14:27:55+00:00",
+      "video_message_id": 428,
+      "caption_message_id": 429,
+      "file": "out/news-daily-20261022.mp4",
+      "note": "master untouched since render (mtime 21:16, ffprobe verified 21:25: h264/aac 79.133s)",
+      "tiktok": "NOT auto-posted \u2014 owner uploads manually"
+    },
+    "note": "Master final DM owner (msg #428 video+desc, #429 caption+full desc); owner t\u1ef1 upload TikTok \u2014 no auto-post"
+  }
+}

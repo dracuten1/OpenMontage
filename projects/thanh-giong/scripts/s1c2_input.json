@@ -1,0 +1,705 @@
+{
+ "_task": "Viết TOÀN BỘ projects/thanh-giong/artifacts/scene_plan.json: 60–70 scene objects sc001..scNNN (object, đúng keys như sample dưới) phủ 28 sections s01–s28 theo thứ tự thời gian, 2–3 scenes/section, 8–30 giây/scene. Viết CHIA NHỎ: Write phần mở (metadata + 15 scenes đầu) rồi Edit/append từng nhóm ~12–15 scenes — KHÔNG viết cả file trong 1 response. Sau khi xong: update metadata.scene_count + scene_types_breakdown, rồi chạy validate (lệnh ở _validate).",
+ "_rules": [
+  "Mỗi scene object ĐÚNG keys S2E01: {id, type, description, start_seconds, end_seconds, script_section_id, framing, movement, transition_in, transition_out, overlay_notes, shot_language{shot_size,camera_movement,lighting_key,depth_of_field,color_temperature}, shot_intent, narrative_role, information_role, hero_moment, texture_keywords[], required_assets[]}.",
+  "type enum dùng: text_card / quote_card / stat_card / image_scene / map_scene / diagram / compare / end_card.",
+  "description: 2–4 câu mô tả nội dung + 'Render template intent:' + 'Subject:' + 'Subject motion:' + 'Scene:' (format S2E01).",
+  "overlay_notes: 'anchors: «cụm từ» · «cụm từ»' — anchors = CỤM TỪ 2–5 từ lấy NGUYÊN VĂN substring của section text (speech-lock phrase-match); anchor đầu = mốc mở scene; kèm ghi chú timing speech-lock ±0,3s.",
+  "start/end_seconds: provisional theo budget section (liên tục, không chồng lấn, tổng khớp 870s).",
+  "required_assets: id ảnh trong _images nếu scene dùng focal image (VD 'img-04-nong-com'); [] nếu thuần TSX.",
+  "Số liệu trong description/overlay_notes CHỈ từ _whitelist; mọi số khác cấm.",
+  "quote_card: description chứa NGUYÊN VĂN câu trích đúng chữ + nguồn 'sách chép'.",
+  "Scene chứa câu 'Cả làng nuôi nó lớn.' (s23) = 1 scene riêng, type quote_card, hero_moment true, giữ màn hết câu.",
+  "60–70 scenes; 2–3 scenes/section theo độ dài (25s→2, 34s→2–3, 50s→3)."
+ ],
+ "_validate": ".venv/bin/python projects/thanh-giong/scripts/validate_sp.py (viết file này trước nếu chưa có: load scene_plan.json + json schema kiểm tra keys/enum/id liên tục/phủ 28 sections — in VALID hoặc lỗi đầu tiên)",
+ "_sample_scene": {
+  "id": "sc001",
+  "type": "text_card",
+  "description": "MỞ TẬP — HERO TITLE: 'Thánh Gióng: vì sao người cứu nước lại là một đứa trẻ?' mực kem trên nền tối, cụm 'một đứa trẻ' accent amber; ba vật thể neo (trang giấy dó, hạt gạo vàng, mái đền) hiện tuần tự theo ba mệnh đề điểm danh 'Một thanh gươm. Một con ngựa. Một roi sắt.'. Render template intent: hero_title + reveal tuần tự. Subject: tiêu đề + 3 vật thể. Subject motion: title spring-down → từng vật thể fade-in theo mệnh đề. Scene: tối, grain film mỏng. Camera: N/A — Remotion native.",
+  "start_seconds": 0.0,
+  "end_seconds": 12.0,
+  "script_section_id": "s01",
+  "framing": "Khối tiêu đề giữa trên, 3 vật thể so le dưới",
+  "movement": "Title spring-down → vật thể fade-in theo narration",
+  "transition_in": "fade",
+  "transition_out": "dissolve",
+  "overlay_notes": "anchors: «một roi sắt» · «Thánh Gióng» — hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+  "shot_language": {
+   "shot_size": "medium_close",
+   "camera_movement": "static",
+   "lighting_key": "low_key",
+   "depth_of_field": "deep",
+   "color_temperature": "warm"
+  },
+  "shot_intent": "Gieo nghịch lý đứa trẻ im lặng xin vũ khí ngay giây đầu",
+  "narrative_role": "establish_context",
+  "information_role": "Khán giả nắm chủ đề + 3 vật thể chứng cứ sẽ theo cả tập",
+  "hero_moment": false,
+  "texture_keywords": [
+   "myth_amber",
+   "nền tối",
+   "mực kem",
+   "accent vàng đồng",
+   "grain film mỏng"
+  ],
+  "required_assets": []
+ },
+ "_structure": {
+  "hook": "s01 (title + device)",
+  "setup": "s02–s04 (hội hôm nay → SGK → câu hỏi; callback S1 đền Hùng silhouette s03)",
+  "act1_ba_trang_sach": "s05–s09 (lật ngược 1697/1479 → 1492 → 1329; 3 trang cổ thư là 3 focal img-07/08/09)",
+  "act2_hat_gao": "s10–s15 (SCENE TRUNG TÂM img-04 nong gạo s10–s11; tráng sĩ img-05; tre img-06; bay về trời img-12 s14)",
+  "act3_hai_ngoi_den": "s16–s20 (đền Phù Đổng img-10; đền Sóc img-11; UNESCO s20)",
+  "climax": "s21–s23 (S2-C2 quote-card 'Cả làng nuôi nó lớn.' s23)",
+  "landing": "s24–s26 (ca dao, hội hôm nay img-13, Tứ bất tử callback S2E01 s25)",
+  "cta": "s27–s28 (tease S2E03 + end_card)"
+ },
+ "_images": [
+  "img-01-giong-tre",
+  "img-02-cu-gia",
+  "img-03-su-gia",
+  "img-04-nong-com",
+  "img-05-giong-trang-si",
+  "img-06-tre-dang-nga",
+  "img-07-co-thu-vdult",
+  "img-08-co-thu-lncq",
+  "img-09-co-thu-dvsktt",
+  "img-10-den-phu-dong",
+  "img-11-den-soc",
+  "img-12-bay-ve-troi",
+  "img-13-hoi-hom-nay",
+  "f07-hung-vuong (CHỈ silhouette, đúng 1 scene ở setup)"
+ ],
+ "_whitelist": [
+  "1329 (Việt Điện U Linh Tập, Lý Tế Xuyên)",
+  "1313 (Trần gia phong mĩ hiệu — chỉ dùng kèm câu chuyện VĐULT)",
+  "1492 (LNCQ hiệu chính Vũ Quỳnh – Kiều Phú)",
+  "1479 / 1697 (ĐVSKTT Ngô Sĩ Liên / bản Chính hiệu)",
+  "Hùng Vương thứ 6",
+  "3 tuổi (chưa biết nói)",
+  "ngoài 60 (tuổi cha mẹ, LNCQ)",
+  "18 thước (ngựa sắt, LNCQ)",
+  "7 thước (thanh kiếm, LNCQ)",
+  "100 mẫu ruộng tự điền (LNCQ)",
+  "núi Vũ Ninh (ĐVSKTT) · núi Ninh Sóc / núi Sóc / Vệ Linh (LNCQ – Sóc Sơn, Phù Linh)",
+  "Phù Đổng / Võ Ninh (Võ Giàng) / Tiên Du / chùa Kiến Sơ (VĐULT)",
+  "Gia Lâm · tre Đằng Ngà (Gia Bình) · làng Cháy",
+  "7–9 tháng 4 AL + chính hội 9/4 + bãi Soi Bia (đền Phù Đổng)",
+  "mùng 6–8 tháng Giêng + Mộc Dục đêm mùng 5 + 8 lễ vật + giò hoa tre làng Vệ Linh (đền Sóc)",
+  "16/11/2010 (UNESCO, Nairobi — hội Gióng đền Phù Đổng và đền Sóc)",
+  "Tứ bất tử (Tản Viên – Phù Đổng – Chử Đồng Tử – Liễu Hạnh)",
+  "\"Sung Thiên Thần Vương\" (đời Lý) · \"Xung Thiên Dũng Liệt Chiêu Ứng Uy Tín Đại Vương\" (đời Trần)",
+  "ca dao 2 câu mồng Chín tháng Tư",
+  "\"cao hơn hai trượng\" (LNCQ, khi vươn vai)"
+ ],
+ "sections": [
+  {
+   "id": "s01",
+   "text": "Người cứu nước nổi tiếng nhất của người Việt, theo truyện kể, là một đứa trẻ 3 tuổi, chưa từng nói một lời. Và khi cất tiếng nói đầu tiên, điều nó xin không phải cơm áo, cũng không phải mẹ. Mà là vũ khí. Một thanh gươm. Một con ngựa. Một roi sắt. Tối nay, ta truy dấu Thánh Gióng qua ba trang sách cách nhau ba trăm năm mươi năm, một chiếc nong gạo đong bằng gạo của cả làng, và hai ngôi đền mở hội ở hai mùa khác nhau, để hỏi vì sao người xưa chọn một đứa trẻ im lặng làm người cứu nước.",
+   "start_seconds": 0.0,
+   "end_seconds": 25.0,
+   "source_ref": "A_hook (research_digest.episode_premise + target_structure.hook_manifest)",
+   "cues": [
+    {
+     "desc": "Tiêu đề tập hiện trên nền giấy dó: THÁNH GIÓNG — VÌ SAO NGƯỜI CỨU NƯỚC LẠI LÀ MỘT ĐỨA TRẺ? (mực đen, accent vàng đồng một vệt)",
+     "anchor": "Thánh Gióng",
+     "ts": 1.0
+    },
+    {
+     "desc": "Đứa trẻ bụng mừng tròn ngồi im trên phản (bóng mực ấm), ba món vũ khí gươm, ngựa, roi sắt lần lượt hiện mờ phía sau lưng như dấu hỏi — khớp nhịp narration điểm danh",
+     "anchor": "Một roi sắt",
+     "ts": 9.0
+    },
+    {
+     "desc": "Ba vật thể làm chứng neo chéo màn hình theo nhịp đọc: một trang giấy dó, một hạt gạo vàng đồng, một mái đền — device vật thể của cả tập",
+     "anchor": "ba trang sách",
+     "ts": 17.0
+    }
+   ]
+  },
+  {
+   "id": "s02",
+   "text": "Mở từ hôm nay, những thứ vẫn còn gặp được. Mùng 9 tháng Tư âm lịch, phía đông Hà Nội, làng Phù Đổng đổ ra đường từ tờ mờ sáng. Trống hội dồn. Cờ hiệu giương. Người làng khoác áo lính theo lệ cổ: cả làng nhập vai thành quân đội. Người làm tướng, người làm lính, người cầm roi, người cầm cờ. Họ rước nước về làng lau rửa khí giới, duyệt binh, rồi tái hiện trận đánh xưa ngoài bãi. Không phải diễn cho khách xem. Đó là lệ, và lệ được giữ từ đời này sang đời kia. Nếu bạn từng đi hội Gióng, bạn đã đứng giữa câu chuyện tối nay. Trên mâm cỗ ngoài sân có hạt gạo, trong khói đền có tiếng trống, giữa làng có ngôi đền đỏ son thờ một đứa trẻ. Chẳng ai phải giải thích gì thêm. Câu chuyện này không nằm trong sách. Nó ra khỏi sách, về lại làng. Còn nó chép ra từ bao giờ, ta phải đi ngược về nơi trang giấy đầu tiên. Nhưng trước hết, quay lại chỗ hầu hết chúng ta gặp nó: trên ghế nhà trường.",
+   "start_seconds": 25.0,
+   "end_seconds": 75.0,
+   "source_ref": "B_setup (research_digest.target_structure.setup_manifest)",
+   "cues": [
+    {
+     "desc": "Làng hội hôm nay: đám đông áo lính nâu đỏ di chuyển theo nhịp trống, cờ hiệu giương lên khi narration đọc 'Cờ hiệu giương'",
+     "anchor": "Trống hội dồn",
+     "ts": 6.0
+    },
+    {
+     "desc": "Chữ display nhỏ góc màn: 'mùng 9 tháng Tư âm lịch' hiện khi narration đọc mồng Chín tháng Tư (đúng thứ tự narration)",
+     "anchor": "Mùng 9 tháng Tư âm lịch",
+     "ts": 3.0
+    },
+    {
+     "desc": "Mâm cỗ hội hiện gần: chén xôi khói, HẠT GẠO vàng đồng nổi lên như vật chứng đầu tiên — mồi cho trục vật thể xuyên tập",
+     "anchor": "hạt gạo",
+     "ts": 36.0
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "text": "Hầu hết chúng ta gặp Thánh Gióng qua một trang sách giáo khoa. Đời Hùng Vương thứ 6, truyện kể, giặc Ân kéo đến. Một bà mẹ nhà giàu sinh được một đứa con trai. Đứa trẻ lên 3 tuổi mà chưa biết nói, chưa biết cười, chỉ nằm một chỗ. Ngày kia mẹ nói giỡn: con đạp vào đây, mẹ mừng lắm. Đứa trẻ giơ chân dụi đầu, bụng bỗng to dần lên. Rồi tin sứ giả đi tìm người giúp nước lan đến làng. Đứa trẻ bỗng cất tiếng nói đầu tiên trong đời, bảo mẹ mời người khách quân xanh ấy vào nhà. Vua trong truyện là Hùng Vương, cái tên ta đã gặp từ mùa đầu của series, bên những ngôi đền cổ trên núi Hùng. Nhưng lớp sách giáo khoa kể vắn tắt: đứa trẻ nói, xin vũ khí, lớn nhanh như thổi, ra trận, thắng, bay về trời. Gọn trong một bài học. Chỉ có một điều kỳ lạ mà lớp học ấy không giải thích: trong biết bao vua chúa, thần tướng của truyện kể Việt Nam, người cứu nước nổi tiếng nhất lại là một đứa trẻ chưa từng nói một lời.",
+   "start_seconds": 75.0,
+   "end_seconds": 125.0,
+   "source_ref": "B_setup (research_digest.target_structure.setup_manifest + continuity_and_canon.already_established_s1)",
+   "cues": [
+    {
+     "desc": "Trang SGK mờ hiện: đứa trẻ nằm trên phản, mẹ ngồi gần (desc chuẩn Giong_tre + MeGiong, mực ấm trên giấy); bụng phồng nhẹ theo câu nói giỡn",
+     "anchor": "chưa biết nói, chưa biết cười",
+     "ts": 8.0
+    },
+    {
+     "desc": "Callback S1 duy nhất: silhouette đền Hùng / tranh cổ f07 hiện thoáng 2 giây trên nền núi xa khi narration đọc 'những ngôi đền cổ trên núi Hùng' — không số liệu, không mở rộng",
+     "anchor": "núi Hùng",
+     "ts": 32.0
+    },
+    {
+     "desc": "Chữ display 'Hùng Vương thứ 6' hiện khi narration đọc 'Đời Hùng Vương thứ sáu' (số whitelisted)",
+     "anchor": "Đời Hùng Vương thứ 6",
+     "ts": 4.0
+    }
+   ]
+  },
+  {
+   "id": "s04",
+   "text": "Series này mùa hai theo một câu hỏi: vì sao những chuyện tưởng như xa xưa vẫn sống trong đời thường của người Việt? Mùa này ta đi tìm câu trả lời nơi những vị thần ở lại, trong trống hội, mâm cỗ, hạt gạo, ngôi đền. Thánh Gióng là trường hợp kỳ lạ nhất. Người xưa có cả kho vua chúa thần thánh để chọn: thần núi, thần sông, những vị tướng cưỡi voi ra trận. Nhưng người họ nâng lên làm người cứu nước lớn nhất lại là một đứa trẻ 3 tuổi, chưa nói được một lời, con nhà giàu mà cha mẹ đã ngoài 60. Vì sao? Ai đã viết chuyện này? Họ viết bằng ý gì? Và điều gì khiến nó sống đến hôm nay, khi trên bãi đất cạnh làng, trẻ con vẫn cầm cờ múa mỗi mùng 9 tháng Tư? Tối nay ta đọc truyện này bằng một cách khác. Không đọc xuôi theo thời gian, mà đọc ngược: lùi từ trang sách mới nhất về trang cổ nhất còn lại. Và ở trang cổ nhất đó chờ một điều bất ngờ: gần như không có trận đánh nào.",
+   "start_seconds": 125.0,
+   "end_seconds": 175.0,
+   "source_ref": "B_setup (research_digest.continuity_and_canon.season_question + target_structure.timing_reconciliation)",
+   "cues": [
+    {
+     "desc": "Trục thời gian ngang vẽ ngược: mũi tên chạy TỪ hôm nay (mái đền) lùi về ba ô giấy dó mờ phía trước — device đọc ngược của Hồi một được cài ở đây",
+     "anchor": "đọc ngược",
+     "ts": 36.0
+    },
+    {
+     "desc": "Chữ display '3 tuổi · cha mẹ ngoài 60' hiện cạnh bóng đứa trẻ khi narration đọc hai con số whitelisted",
+     "anchor": "một đứa trẻ 3 tuổi",
+     "ts": 18.0
+    }
+   ]
+  },
+  {
+   "id": "s05",
+   "text": "Hồi một: ba trang sách. Trang mới nhất trước. Năm 1479, đại thần Ngô Sĩ Liên chép Đại Việt sử ký toàn thư, bản Chính hiệu lưu hành ngày nay chép lại năm 1697. Chính sử, chỗ nghiêm cẩn nhất của sử sách. Ở đó, câu chuyện Thánh Gióng chỉ chiếm vắn vọn vài dòng khô. Không thơ phú, không cầu kỳ. Sách chép nhà ông giàu nhất vùng, một mẹ một con. Về đứa trẻ, trích nguyên văn: 'Hơn ba tuổi, ăn uống, to béo, không biết nói cười.' Một câu ngắn. Toàn bộ tuổi thơ của người cứu nước nổi tiếng nhất trong sử Việt gói lại trong ấy: ăn, to béo, và im lặng. Không nói, không cười, nằm yên trên phản. Chưa có gươm, chưa có ngựa, chưa có roi sắt. Chỉ có một đứa trẻ béo tốt im lặng, và một vương quốc đang lo giặc, truyện kể gọi là giặc Ân.",
+   "start_seconds": 175.0,
+   "end_seconds": 209.0,
+   "source_ref": "C_act1 (research_digest.quotes_verbatim.dvsktt_ba_tuoi + sources.dvsktt)",
+   "cues": [
+    {
+     "desc": "Bộ ba trang giấy dó hiện ra (device Hồi 1): trang ĐVSKTT nghiêm cẩn nét mực ngắn, tông nâu xám — hiện đầu tiên, dày nhất màu bút",
+     "anchor": "ba trang sách",
+     "ts": 1.0
+    },
+    {
+     "desc": "Quote-card nguyên văn hiện ĐÚNG CHỮ 'Hơn ba tuổi, ăn uống, to béo, không biết nói cười.' kèm nguồn 'Đại Việt sử ký toàn thư · 1479/1697' — hiện khi narration bắt đầu đọc trích",
+     "anchor": "Hơn ba tuổi, ăn uống, to béo, không biết nói cười",
+     "ts": 14.0
+    },
+    {
+     "desc": "Trang giấy lật: vài dòng mực ngắn tô đậm đúng bằng độ dài câu trích — nhấn 'vắn vọn vài dòng khô' bằng khoảng trống giấy còn nguyên",
+     "anchor": "vài dòng khô",
+     "ts": 10.0
+    }
+   ]
+  },
+  {
+   "id": "s06",
+   "text": "Rồi truyện kể tiếp, vẫn bằng giọng chép sử khô khan. Sứ giả đi tìm người tài ghé qua làng. Đứa trẻ 3 tuổi chưa từng nói lời nào bỗng cất tiếng, nhờ mẹ mời sứ giả vào. Và đây, nguyên văn câu nói đầu tiên của người cứu nước: 'Xin cho một thanh gươm, một con ngựa và một roi sắt, nhà vua không phải lo gì cả!' Không xin vàng. Không xin ngôi báu. Tiếng nói đầu đời là một lời xin vũ khí. Giặc đến chân núi Vũ Ninh. Đứa trẻ vươn vai thành tráng sĩ, cưỡi ngựa xông ra. Và ở đây chính sử có hai câu từng khiến người đọc sử phải ngẩng lên: 'Giặc tự quay giáo đánh lẫn nhau.' rồi 'Đứa trẻ nhảy ngựa lên không mà đi.' rồi mất tích. Nhà vua sai sửa sang nơi vườn nhà nó ở, lập đền thờ phụng. Hết. Vài dòng. Một đứa trẻ im lặng, một lời xin vũ khí, một trận đánh mà giặc tự tan, một lần bay lên trời, và một ngôi đền.",
+   "start_seconds": 209.0,
+   "end_seconds": 243.0,
+   "source_ref": "C_act1 (research_digest.quotes_verbatim #2 #3 #4 #5 ĐVSKTT + numbers_allowed_on_screen: núi Vũ Ninh)",
+   "cues": [
+    {
+     "desc": "Quote-card nguyên văn 'Xin cho một thanh gươm, một con ngựa và một roi sắt, nhà vua không phải lo gì cả!' — hiện đúng lúc narration đọc câu này",
+     "anchor": "Xin cho một thanh gươm, một con ngựa và một roi sắt, nhà vua không phải lo gì cả!",
+     "ts": 10.0
+    },
+    {
+     "desc": "Hai quote-card nối tiếp hiện đúng chữ: 'Giặc tự quay giáo đánh lẫn nhau.' và 'Đứa trẻ nhảy ngựa lên không mà đi.' — mỗi card lặng đúng nửa giây như pause narration",
+     "anchor": "Giặc tự quay giáo đánh lẫn nhau",
+     "ts": 20.0
+    },
+    {
+     "desc": "Bản đồ giấy dầu nhỏ: đường mũi tên từ Phù Đổng ra núi Vũ Ninh hiện khi narration đọc 'chân núi Vũ Ninh' (bản đồ = tông sepia)",
+     "anchor": "núi Vũ Ninh",
+     "ts": 17.0
+    }
+   ]
+  },
+  {
+   "id": "s07",
+   "text": "Lùi tiếp về trước, sang trang thứ hai. Năm 1492, Vũ Quỳnh và Kiều Phú hiệu chính cuốn Lĩnh Nam chích quái, chép lại truyền kỳ cũ thời Trần về Phù Đổng Thiên Vương. Cùng một câu chuyện, nhưng trang giấy này rực rỡ hẳn. Trước khi có đứa trẻ, đã có một lời tiên tri. Truyện kể: Long Quân hóa thân thành cụ già tóc bạc trắng như cước, ngồi bất động nơi ngã ba đường. Cỗ kiệu của một vợ chồng nhà giàu, tuổi đã ngoài 60, đi chùa cầu tự đi ngang. Cụ già ngẩng lên, phán rằng hai người sắp sinh một trai. Rồi cụ dặn: khi giặc đến, cứ bảo đứa bé ấy ra phá giặc cho nước. Nói xong, cụ biến mất. Và đúng như lời, bà mẹ sinh một cậu con trai, lên 3 vẫn chưa biết nói. Ở trang chính sử, truyện bắt đầu từ một cái bụng béo nằm im. Ở trang truyền kỳ, truyện bắt đầu từ một lời hẹn của thần.",
+   "start_seconds": 243.0,
+   "end_seconds": 277.0,
+   "source_ref": "C_act1 (research_digest.target_structure.act_manifests[0] LNCQ 1492 + sources.lncq)",
+   "cues": [
+    {
+     "desc": "Trang giấy dó thứ hai lật ra (tông ấm hơn trang chính sử): cụ già tóc bạc ngồi ngã ba đường, cỗ kiệu đi ngang — đúng thứ tự narration (img-02)",
+     "anchor": "ngã ba đường",
+     "ts": 13.0
+    },
+    {
+     "desc": "Chữ display 'Lĩnh Nam chích quái · 1492' hiện cạnh gáy trang giấy khi narration đọc năm hiệu chính",
+     "anchor": "Năm 1492",
+     "ts": 4.0
+    },
+    {
+     "desc": "Chữ display 'cha mẹ ngoài 60' hiện khi narration đọc độ tuổi vợ chồng (whitelisted)",
+     "anchor": "ngoài 60",
+     "ts": 16.0
+    }
+   ]
+  },
+  {
+   "id": "s08",
+   "text": "Trang 1492 kể tiếp bằng những chi tiết rực lửa hơn. Hỏi cậu bé là ai, sách chép câu đáp của cậu: 'Ta là thiên tướng nhà Trời đây!' Một đứa trẻ 3 tuổi tự xưng là thiên tướng nhà Trời. Rồi vua sai đúc cho cậu một bộ đồ sắt không ai mang nổi: ngựa sắt cao 18 thước, thanh kiếm dài 7 thước, thêm nón sắt. Sách chép rõ kích thước, như một bản kê khai đồ binh khí. Chính sử chỉ xin gươm, ngựa, roi. Truyền kỳ vẽ ra cả một kỵ binh thép. Cùng một câu chuyện, hai cách chép. Càng đọc kỹ, ta càng thấy mỗi trang mang gương mặt của người chép: trang kia kiệm chữ như quan chép sử, trang này mê mâu như người kể đêm hội. Và trang thứ ba, trang cổ nhất, sẽ lật ngược mọi điều ta vừa đọc.",
+   "start_seconds": 277.0,
+   "end_seconds": 311.0,
+   "source_ref": "C_act1 (research_digest.quotes_verbatim.lncq_thien_tuong + numbers_allowed_on_screen: 18 thước, 7 thước)",
+   "cues": [
+    {
+     "desc": "Quote-card nguyên văn 'Ta là thiên tướng nhà Trời đây!' hiện đúng lúc narration đọc câu đáp",
+     "anchor": "Ta là thiên tướng nhà Trời đây!",
+     "ts": 6.0
+    },
+    {
+     "desc": "Bản kê khai binh khí vẽ nét mực: ngựa sắt, kiếm, nón sắt hiện lần lượt kèm số display '18 thước', '7 thước' theo đúng thứ tự narration đọc",
+     "anchor": "ngựa sắt cao 18 thước",
+     "ts": 12.0
+    },
+    {
+     "desc": "Hai trang giấy dó đặt cạnh nhau (1697 nghiêm cẩn vs 1492 rực rỡ), nét chữ hai tông khác nhau như hai gương mặt người chép",
+     "anchor": "gương mặt của người chép",
+     "ts": 22.0
+    }
+   ]
+  },
+  {
+   "id": "s09",
+   "text": "Và giờ, trang cổ nhất. Năm 1329, học giả Lý Tế Xuyên biên tập Việt Điện U Linh Tập, tuyển truyện về các vị thần của người Việt. Mở truyện về vị thần này, ta đọc được, nguyên văn: 'Theo truyện Báo Cực chép trong Việt Điện U Linh Tập, thần vốn là vị thần Thổ địa bên chùa Kiến Sơ, hương Phù Đổng, huyện Tiên Du.' Hết. Không có trận đánh. Không có gươm, không có ngựa sắt, không có đứa trẻ. Chỉ có một vị thần Thổ địa nhỏ, bên một ngôi chùa làng. Điều duy nhất liên quan đến triều đình: năm 1313, vua nhà Trần gia phong cho thần một mỹ hiệu dài: Xung Thiên Dũng Liệt Chiêu Ứng Uy Tín Đại Vương. Đọc lùi từ 1697 về 1492 rồi về 1329, tiếng gươm nhỏ dần theo năm tháng. Nhưng có năm điều không đổi qua cả ba trang: một đứa trẻ, một tiếng nói đầu tiên, một lời xin vũ khí, một lần bay về trời, và một ngôi đền. Lớp sau thêm gì cho lớp trước, đó là câu hỏi về người chép. Ta không kết luận gì vội. Ta chỉ đánh dấu điều bất ngờ: điểm xuất phát cổ nhất của Thánh Gióng là một vị thần im lặng bên chùa làng.",
+   "start_seconds": 311.0,
+   "end_seconds": 345.0,
+   "source_ref": "C_act1 (research_digest.quotes_verbatim.vdult_1329_goc + sources.vdult)",
+   "cues": [
+    {
+     "desc": "Trang giấy dó thứ ba lật ra (tông amber nhạt, cổ nhất): nét mực mờ gợi vị thần nhỏ cạnh chùa làng — không chữ đọc được (img-07)",
+     "anchor": "trang cổ nhất",
+     "ts": 2.0
+    },
+    {
+     "desc": "Quote-card nguyên văn #9 hiện đúng chữ 'Theo truyện Báo Cực chép trong Việt Điện U Linh Tập, thần vốn là vị thần Thổ địa bên chùa Kiến Sơ, hương Phù Đổng, huyện Tiên Du.' kèm 'Việt",
+     "anchor": "vị thần Thổ địa bên chùa Kiến Sơ, hương Phù Đổng, huyện Tiên Du",
+     "ts": 8.0
+    },
+    {
+     "desc": "Ba trang xếp hàng ngược năm (1697 → 1492 → 1329), thanh 'tiếng gươm' mờ dần về trang cũ; 5 con dấu nhỏ 'đứa trẻ / tiếng nói / vũ khí / bay về trời / ngôi đền' ghim giữ nguyên cả ba",
+     "anchor": "năm điều không đổi",
+     "ts": 22.0
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "text": "Hồi hai: hạt gạo. Quay lại trang 1492, chỗ cả chính sử lẫn sách giáo khoa đều kể lướt: cậu bé lớn nhanh như thế nào. Truyền kỳ chép bằng một đoạn đáng lẽ được thuộc lòng hơn mọi đoạn khác. Nguyên văn: 'Gia đình cậu tuy giàu có nhưng không đủ gạo cho cậu ăn no, không đủ vải để may áo quần. Xóm làng phải chung góp gạo vải với gia đình để nuôi cậu.' Hãy dừng lại ở đây. Nhà giàu nhất vùng. Không đủ gạo cho một đứa trẻ ăn no. Không đủ vải để may áo. Sự phi thường trong truyện này không nằm ở phép màu. Nó nằm ở gạo. Và gạo thì phải có người cho. Xóm làng phải chung góp. Nghĩa là: bữa cơm của người cứu nước là gạo của nhiều nhà.",
+   "start_seconds": 345.0,
+   "end_seconds": 377.0,
+   "source_ref": "D_act2 (research_digest.quotes_verbatim.lncq_xom_lang_gop_gao + narrative_anti_rules #4)",
+   "cues": [
+    {
+     "desc": "Quote-card nguyên văn LNCQ đầy đủ hiện đúng chữ đúng lúc bắt đầu trích, kèm nguồn 'Lĩnh Nam chích quái · 1492'",
+     "anchor": "Gia đình cậu tuy giàu có nhưng không đủ gạo cho cậu ăn no",
+     "ts": 9.0
+    },
+    {
+     "desc": "Cảnh mở đầu scene trung tâm: chiếc NONG tre trống đặt giữa sân làng (img-04 bắt đầu) — nong hiện trước khi hạt gạo bắt đầu bay (setup cho s11)",
+     "anchor": "hạt gạo",
+     "ts": 1.0
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "text": "Hãy hình dung cảnh đó như chính truyền kỳ dựng lên. Giữa sân làng, một chiếc nong tre cứ rộng ra theo ngày. Hạt gạo từ nhà này, nhà kia, từng gánh, từng bọc, đổ về một chỗ. Bàn tay nông dân buông hạt lúa xuống như thả một lời nguyện. Cậu bé ăn, và lớn. Lớn đến mức gia đình phải cất nhà to hơn cho ở. Rồi đến ngày vũ khí về làng, cậu bé vươn vai: sách chép cậu 'cao hơn hai trượng', một tráng sĩ giáp sắt xanh rêu đứng giữa sân, bộ giáp và thanh roi mà người làng phải khiêng hộ. Và đây là điều cần nói rõ từ trang này: Thánh Gióng không tự lớn. Cả làng nuôi nó lớn. Không một câu thần chú nào trong truyền kỳ biến cậu thành tráng sĩ. Chỉ có gạo, vải, và những bàn tay góp vào nong.",
+   "start_seconds": 377.0,
+   "end_seconds": 409.0,
+   "source_ref": "D_act2 (research_digest.target_structure.act_manifests[1] scene trung tâm nong gạo + quotes_verbatim.lncq_ca_hon_hai_truong)",
+   "cues": [
+    {
+     "desc": "SCENE TRUNG TÂM img-04 full-bleed: hạt gạo vàng đồng bay từ từng mái nhà trong làng vào CHIẾC NONG giữa sân, nong đầy dần đúng nhịp narration; nhiều bàn tay dân làng góp gạo vải",
+     "anchor": "chiếc nong tre cứ rộng ra theo ngày",
+     "ts": 4.0
+    },
+    {
+     "desc": "Quote-card nhỏ nguyên văn 'cao hơn hai trượng' (LNCQ) hiện đúng lúc vươn vai",
+     "anchor": "cao hơn hai trượng",
+     "ts": 18.0
+    },
+    {
+     "desc": "Overlay TSX vẽ tay lên ảnh base: vòng tròn mực quanh nong + nhãn 'cả làng góp' speech-locked vào câu 'Cả làng nuôi nó lớn'; đường đế mái nhà quanh nong sáng từng cái theo số nhà gó",
+     "anchor": "Cả làng nuôi nó lớn",
+     "ts": 24.0
+    }
+   ]
+  },
+  {
+   "id": "s12",
+   "text": "Truyện kể tiếp bằng những hình ảnh lửa khói nhất của trang 1492. Người tráng sĩ giáp sắt xanh rêu cưỡi ngựa sắt đen, con ngựa biết phun lửa đỏ từ miệng, roi sắt trên tay. Truyền kỳ gửi vào đó cả một địa danh thật: chỗ rèn và dọt ngựa sắt, sau này thành làng Cháy. Từ Phù Đổng, người tráng sĩ tiến ra Võ Ninh, nơi truyện kể giặc Ân đóng binh. Và hãy để ý ai đứng sau lưng cậu. Cả một làng. Những người đã góp gạo, góp vải, góp cả nhà to, giờ đứng nhìn con mình của chung cưỡi ngựa ra đi. Sách không chép họ khóc hay reo. Sách chỉ chép cậu. Nhưng hạt gạo vẫn còn đó, dưới lớp giáp sắt: sức mạnh được đong bằng nong, giờ gói trong một thân hình cao hơn hai trượng.",
+   "start_seconds": 409.0,
+   "end_seconds": 441.0,
+   "source_ref": "D_act2 (research_digest.characters_standard_descs.Giong_trang_si + numbers_allowed_on_screen: làng Cháy, Võ Ninh/Võ Giàng)",
+   "cues": [
+    {
+     "desc": "img-05: tráng sĩ khổng lồ giáp sắt xanh rêu trên ngựa sắt đen phun lửa, roi sắt — hero frame xuất trận theo đúng thứ tự narration (giáp → ngựa phun lửa → roi)",
+     "anchor": "phun lửa đỏ từ miệng",
+     "ts": 6.0
+    },
+    {
+     "desc": "Bản đồ giấy dầu: mũi tên từ Phù Đổng ra Võ Ninh, chấm nhỏ ghi 'làng Cháy' hiện khi narration đọc hai địa danh",
+     "anchor": "làng Cháy",
+     "ts": 11.0
+    },
+    {
+     "desc": "Cắt sang phía sau tráng sĩ: dãy mái nhà làng nhỏ, mỗi nhà một vệt vàng đồng còn sáng (gạo đã góp) — 'Cả một làng' hiện như một đội hậu thuẫn",
+     "anchor": "Cả một làng",
+     "ts": 18.0
+    }
+   ]
+  },
+  {
+   "id": "s13",
+   "text": "Trận đánh, truyện kể, dữ dội và lạ lùng. Roi sắt quất đến gãy. Cậu vồ luôn bụi tre bên đường quất tiếp. Tre ngả vàng theo vết roi, sau này mọc lại thành tre Đằng Ngà đất Gia Bình, thứ tre vàng óng người Bắc vẫn gọi tên đến nay. Giặc tan. Chính sử tóm tắt bằng câu ta đã đọc: giặc tự quay giáo đánh lẫn nhau. Không ai trong truyện này chém một tướng nào, không bắt một vua nào. Người cứu nước thắng bằng hiện diện: to lớn, lửa, tre, và một mình giữa bãi. Cái trận khán giả SGK nhớ là trận đánh. Cái trận người chép năm 1492 kể, đọc kỹ, lại là trận của một tráng sĩ tay không còn roi sắt, chỉ còn tre vệ đường.",
+   "start_seconds": 441.0,
+   "end_seconds": 473.0,
+   "source_ref": "D_act2 (research_digest.target_structure.act_manifests[1] tre Đằng Ngà + sources.lncq)",
+   "cues": [
+    {
+     "desc": "Roi sắt gãy làm đôi (nét mực giật), bụi tre vệ đường bung lên đón tay tráng sĩ — đúng nhịp 'vồ luôn bụi tre'",
+     "anchor": "bụi tre bên đường quất tiếp",
+     "ts": 4.0
+    },
+    {
+     "desc": "img-06: bụi tre Đằng Ngà vàng óng mọc san sát vệ đường sau trận; overlay nhãn 'Đằng Ngà · Gia Bình' khi narration đọc tên",
+     "anchor": "tre Đằng Ngà",
+     "ts": 8.0
+    },
+    {
+     "desc": "Chia đôi màn hình một nhịp: trái = trận đánh SGK (cờ, lính), phải = một bóng tráng sĩ đơn độc giữa bãi tre — theo hai câu đối chiếu cuối",
+     "anchor": "tre vệ đường",
+     "ts": 22.0
+    }
+   ]
+  },
+  {
+   "id": "s14",
+   "text": "Và kết trận, không phải lễ mừng công. Truyền kỳ chép: cậu phi ngựa đến chân núi Ninh Sóc, tháo giáp, cởi áo bào để lại trên tảng đá, rồi cưỡi ngựa bay lên Trời. Không cảnh tử trận. Không ngôi báu. Cả hai trang sách đều kết thúc bằng cùng một hình ảnh: một người rời đi, để lại áo. Vua Hùng nhớ công, phong tước Phù Đổng Thiên Vương, sai lập đền thờ. Và một chi tiết dễ bị đọc lướt nhất truyện: vua ban 100 mẫu ruộng tự điền. Ban cho ai? Không phải cho mẹ cậu. Không phải cho họ hàng. Ruộng ấy ban cho cả hương Phù Đổng, cho xóm làng đã góp gạo vải nuôi cậu. Người thắng trận không giữ lại gì: áo để trên núi, ruộng trả về làng, còn mình thì bay lên trời.",
+   "start_seconds": 473.0,
+   "end_seconds": 505.0,
+   "source_ref": "D_act2 (research_digest.narrative_anti_rules #5 + numbers_allowed_on_screen: 100 mẫu ruộng tự điền, núi Ninh Sóc)",
+   "cues": [
+    {
+     "desc": "img-12: đỉnh núi Ninh Sóc, tráng sĩ cởi áo bào gấp trên tảng đá, cưỡi ngựa sắt bay lên mây — ánh sáng vàng, KHÔNG tông bi ai",
+     "anchor": "cởi áo bào để lại",
+     "ts": 4.0
+    },
+    {
+     "desc": "Quote-card nhỏ display '100 mẫu ruộng tự điền' (LNCQ) hiện khi narration đọc con số; dưới card dòng nhỏ 'ban cho cả làng'",
+     "anchor": "100 mẫu ruộng tự điền",
+     "ts": 16.0
+    },
+    {
+     "desc": "Bản đồ giấy dầu: mảnh ruộng xanh phủ lên cả vùng Phù Đổng (không phải một ô riêng) — speech-locked vào 'Ruộng ấy ban cho cả hương Phù Đổng'",
+     "anchor": "cả hương Phù Đổng",
+     "ts": 20.0
+    }
+   ]
+  },
+  {
+   "id": "s15",
+   "text": "Trước khi rời trang 1492, một câu hỏi nhỏ về những món đồ sắt ấy. Ngựa sắt. Kiếm sắt. Nón sắt. Roi sắt. Kiếm dài 7 thước, ngựa cao 18 thước. Truyện kể về một thời vua Hùng rất xa, nhưng những người chép chuyện này, từ thời Trần đến năm 1492, sống giữa thế giới mà roi sắt và kỵ binh là công nghệ quen thuộc nhất. Vậy câu hỏi phải đặt cho đúng hướng: những hình ảnh ấy thuộc về thời được kể, hay thuộc về trí nhớ của người chép? Đây là câu hỏi, không phải kết luận. Ta không lấy vũ khí để đoán tuổi của truyện, theo bất kỳ chiều nào. Ta chỉ ghi nhận một điều dịu dàng hơn: dù sắt thuộc về ai, thì gạo trong truyện này không hề bị nghi ngờ. Gạo đến từ xóm làng. Không một trang nào chép khác đi.",
+   "start_seconds": 505.0,
+   "end_seconds": 535.0,
+   "source_ref": "D_act2 (research_digest.narrative_anti_rules #3 + target_structure.act_manifests[1] roi sắt đóng khung)",
+   "cues": [
+    {
+     "desc": "Bốn món đồ sắt xếp hàng hiện nhanh theo nhịp điểm danh; dấu hỏi mực lớn đè lên cả bốn món",
+     "anchor": "Roi sắt",
+     "ts": 4.0
+    },
+    {
+     "desc": "Hai ô đối lập: 'thời được kể' (hình vua Hùng mờ) ↔ 'trí nhớ người chép' (bút trí chép năm 1492) — giữa hai ô là dấu hỏi, KHÔNG tick chọn ô nào",
+     "anchor": "thuộc về trí nhớ của người chép?",
+     "ts": 16.0
+    },
+    {
+     "desc": "Hạt gạo vàng đồng hiện ra sáng chắc chắn giữa màn hình mờ sắt — visual chốt: sắt nghi vấn, gạo chắc chắn",
+     "anchor": "Gạo đến từ xóm làng",
+     "ts": 24.0
+    }
+   ]
+  },
+  {
+   "id": "s16",
+   "text": "Hồi ba: hai ngôi đền. Người tráng sĩ bay lên trời từ núi Sóc. Câu chuyện còn lại thì ở lại, và tách làm hai nơi. Nơi cậu sinh ra và ra trận: đền Phù Đổng, đồng bằng, bãi rộng. Nơi cậu cởi áo bay về: đền Sóc trên núi, với làng Vệ Linh dưới chân. Hai ngôi đền, hai mùa hội, cùng thờ một người. Hôm nay cả hai hội đều còn, đều có hồ sơ rõ ràng, và mở cách nhau đúng nửa vòng năm. Người ta tưởng nhớ hai điều khác nhau: nơi này giữ tiếng gươm, nơi kia giữ đêm cuối.",
+   "start_seconds": 535.0,
+   "end_seconds": 563.0,
+   "source_ref": "E_act3 (research_digest.target_structure.act_manifests[2] hai ngôi đền)",
+   "cues": [
+    {
+     "desc": "Bản đồ giấy dầu vùng Hà Nội – Bắc Ninh: hai chấm đền sáng (đồng bằng vs núi), đường bay mực nối từ Phù Đổng lên núi Sóc",
+     "anchor": "Hai ngôi đền",
+     "ts": 2.0
+    },
+    {
+     "desc": "Màn chia đôi: trái đền Phù Đổng giữa đồng (tông tháng Tư nắng), phải đền Sóc trên núi (tông tháng Giêng sương) — hai mùa hai màu theo đúng câu cuối",
+     "anchor": "nơi này giữ tiếng gươm, nơi kia giữ đêm cuối",
+     "ts": 20.0
+    }
+   ]
+  },
+  {
+   "id": "s17",
+   "text": "Ở đền Phù Đổng, hội diễn ra từ mùng 7 đến mùng 9 tháng Tư âm lịch, chính hội ngày 9 tháng Tư. Người ta gọi là hội trận, lớn bậc nhất trong các hội làng vùng đồng bằng. Lễ mở bằng rước nước: dân làng đi lấy nước về lau rửa khí giới ở đền. Rồi rước cờ. Rồi lễ khám đường, duyệt tướng. Cuối cùng là hội trận: tái hiện trận đánh năm xưa ngay trên bãi Soi Bia, nơi truyền kể là chiến trường. Và ai là quân trong hội? Không phải diễn viên. Cả làng. Nhà nông làm lính, dân làng làm tướng, trẻ con cầm cờ. Một làng đồng loạt nhập vai vào truyện, mỗi năm một lần, như một lời nhắc: chuyện này là chuyện của chúng ta.",
+   "start_seconds": 563.0,
+   "end_seconds": 591.0,
+   "source_ref": "E_act3 (research_digest.sources.hoi_phu_dong + numbers_allowed_on_screen: 7–9 tháng 4 AL + Soi Bia)",
+   "cues": [
+    {
+     "desc": "Chữ display '7–9 tháng 4 âm lịch · chính hội 9/4 · bãi Soi Bia' hiện khi narration đọc ngày hội (whitelisted)",
+     "anchor": "chính hội ngày 9 tháng Tư",
+     "ts": 5.0
+    },
+    {
+     "desc": "img-10: đền Phù Đổng đỏ son ngày hội, đoàn rước nước, cờ hội, đám đông áo lính — các bước lễ hiện đúng thứ tự narration (rước nước → rước cờ → khám đường, duyệt tướng)",
+     "anchor": "rước nước",
+     "ts": 8.0
+    },
+    {
+     "desc": "Bãi Soi Bia: đội quân nông dân tập trận, trẻ con cầm cờ chạy múa — overlay nhãn 'Cả làng' speech-locked vào câu 'Cả làng.'",
+     "anchor": "bãi Soi Bia",
+     "ts": 18.0
+    }
+   ]
+  },
+  {
+   "id": "s18",
+   "text": "Lên đền Sóc, tháng Giêng, hội mang một sắc khác, trầm và gần như tôn giáo hơn. Từ mùng 6 đến mùng 8 tháng Giêng, nhưng đêm quan trọng nhất là đêm mùng 5: lễ Mộc Dục, dân làng tắm rửa tượng thần bằng nước sạch. Sáng mùng 6, đoàn rước mang 8 lễ vật truyền thống lên đền Thượng: trầu cau, cầu húc, ngà voi, cỏ voi, ngựa sắt thần mã, voi chiến, kiệu nữ tướng trẻ, và một lễ vật không nơi nào có: giò hoa tre, bó tre hoa giấy đỏ, do làng Vệ Linh cung tiến. Tre, thứ vũ khí mộc mạc nhất truyện, được nâng lên thành lễ vật. Rồi hội võ: vật cầu húc, kéo mỏ, đấu vật, cờ tướng. Tháng Tư là tiếng trống trận. Tháng Giêng là đêm tưởng niệm.",
+   "start_seconds": 591.0,
+   "end_seconds": 619.0,
+   "source_ref": "E_act3 (research_digest.sources.hoi_soc + numbers_allowed_on_screen: mùng 6–8 tháng Giêng + 8 lễ vật + giò hoa tre làng Vệ Linh)",
+   "cues": [
+    {
+     "desc": "img-11: đền Sóc trên núi đêm tháng Giêng, ánh nến lễ Mộc Dục, dân làng tắm tượng — tông trầm teal ấm",
+     "anchor": "lễ Mộc Dục",
+     "ts": 6.0
+    },
+    {
+     "desc": "Đoàn rước 8 lễ vật hiện theo nhịp narration từng món: trầu cau, cầu húc, ngà voi, cỏ voi, ngựa sắt thần mã, voi chiến, kiệu nữ tướng trẻ, GIÒ HOA TRE (vàng đồng nổi bật nhất, nêu đ",
+     "anchor": "8 lễ vật truyền thống",
+     "ts": 12.0
+    },
+    {
+     "desc": "Chữ display 'mùng 6–8 tháng Giêng · Mộc Dục đêm mùng 5' hiện khi narration đọc ngày (whitelisted)",
+     "anchor": "Từ mùng 6 đến mùng 8 tháng Giêng",
+     "ts": 4.0
+    }
+   ]
+  },
+  {
+   "id": "s19",
+   "text": "Hai hội ấy, ngày 16 tháng 11 năm 2010, tại Nairobi, được UNESCO ghi danh Di sản văn hóa phi vật thể đại diện của nhân loại, dưới tên gọi Hội Gióng đền Phù Đổng và đền Sóc. Một vị thánh, hai loại kỷ niệm: đền sinh giữ trận đánh, đền bay giữ đêm cuối. Và nếu để ý cấu trúc của hai lễ, ta thấy điều sâu hơn cả danh hiệu: giá trị của hội không nằm ở việc tái hiện đúng lịch sử. Nó nằm ở việc cả làng cùng nhập vai. Người dự hội không đứng xem một vở kịch. Họ là kịch. Đó là lý do hội sống dai dẳng qua mọi đổi thay: trong hội này, không ai là khán giả.",
+   "start_seconds": 619.0,
+   "end_seconds": 647.0,
+   "source_ref": "E_act3 (research_digest.sources.unesco + numbers_allowed_on_screen: 16/11/2010)",
+   "cues": [
+    {
+     "desc": "Fact card teal UNESCO: '16/11/2010 · Nairobi — Di sản văn hóa phi vật thể đại diện của nhân loại · Hội Gióng đền Phù Đổng và đền Sóc' — hiện đúng lúc narration đọc ngày",
+     "anchor": "16 tháng 11 năm 2010",
+     "ts": 2.0
+    },
+    {
+     "desc": "Sơ đồ đôi khép Hồi 3: 'đền sinh — tháng Tư — tiếng gươm' ↔ 'đền bay — tháng Giêng — đêm cuối', giữa là một bóng đứa trẻ im lặng nối hai bên",
+     "anchor": "Một vị thánh, hai loại kỷ niệm",
+     "ts": 10.0
+    },
+    {
+     "desc": "Đám đông hội chuyển thành những vai truyện (tướng, lính, cờ) — mỗi người một vai sáng lên, không có bóng khán giả đứng ngoài",
+     "anchor": "không ai là khán giả",
+     "ts": 22.0
+    }
+   ]
+  },
+  {
+   "id": "s20",
+   "text": "Nhưng ở đây cần nói rõ một ranh giới, điều series này luôn giữ. Hội lớn. Đền đẹp. Danh tiếng thế giới. Tất cả những điều đó chứng minh một chuyện: người Việt đã thờ vị thần này bao đời nay, và thờ bằng cả tấm lòng. Nó không chứng minh trận đánh năm xưa có thật. Bằng chứng tín ngưỡng chỉ nói về người thờ, và điều họ chọn ghi nhớ. Chọn ghi nhớ một đứa trẻ im lặng. Chọn ghi nhớ lời xin vũ khí đầu đời. Chọn ghi nhớ gạo của cả làng. Vậy là câu hỏi mở đầu quay lại: vì sao trong cả kho thần tướng vua chúa, người xưa chọn một đứa trẻ 3 tuổi chưa từng nói? Để trả lời, ta quay về ba chi tiết nhỏ nhất của truyện, và đọc chậm.",
+   "start_seconds": 647.0,
+   "end_seconds": 675.0,
+   "source_ref": "E_act3 (research_digest.narrative_anti_rules #2)",
+   "cues": [
+    {
+     "desc": "Hai ô tách bạch: 'tín ngưỡng chứng minh' (đền, hội, UNESCO — teal) chỉ mũi tên về 'người thờ + điều họ ghi nhớ', KHÔNG có mũi tên nào về 'trận đánh có thật' (ô này mờ, khóa)",
+     "anchor": "không chứng minh trận đánh",
+     "ts": 10.0
+    },
+    {
+     "desc": "Ba câu 'Chọn ghi nhớ' hiện ba vật thể theo nhịp: bóng đứa trẻ im lặng → thanh gươm → hạt gạo vàng đồng (vật cuối sáng nhất)",
+     "anchor": "Chọn ghi nhớ gạo của cả làng",
+     "ts": 15.0
+    }
+   ]
+  },
+  {
+   "id": "s21",
+   "text": "Chi tiết thứ nhất: đứa trẻ im lặng. Ba năm không nói, không cười. Ta đã quen đọc đó là phép màu kỳ lạ. Nhưng có thể đọc là khác: tiếng im lặng ấy không thuộc về một đứa trẻ. Nó thuộc về cả một cộng đồng đang nín thở chờ đợi. Truyện kể nước sắp mất, sứ giả đi khắp nơi tìm người, và mọi người im lặng. Rồi từ chiếc phản của nhà giàu nhất làng, một tiếng nói cất lên. Chi tiết thứ hai: tiếng nói đầu tiên. Khi cất tiếng, đứa trẻ không gọi mẹ, không đòi ăn, không khóc. Nó xin vũ khí. Tiếng nói đầu đời là một lời đòi cho người khác. Và nó không xin cho mình một thanh gươm riêng. Nó xin để nhà vua không phải lo gì cả.",
+   "start_seconds": 675.0,
+   "end_seconds": 708.0,
+   "source_ref": "F_climax (research_digest.target_structure.climax_manifest — chi tiết 1+2)",
+   "cues": [
+    {
+     "desc": "Vòng tròn mực loang từ bóng đứa trẻ ra cả làng, rồi cả nước — 'im lặng' là của cộng đồng; speech-lock vào 'cả một cộng đồng đang nín thở chờ đợi'",
+     "anchor": "cả một cộng đồng đang nín thở chờ đợi",
+     "ts": 10.0
+    },
+    {
+     "desc": "Bong bóng thoại đầu đời của đứa trẻ: không phải chữ 'mẹ' hay 'ăn' — là hình thanh gươm + con ngựa + roi sắt; khớp câu 'Nó xin vũ khí'",
+     "anchor": "Nó xin vũ khí",
+     "ts": 22.0
+    },
+    {
+     "desc": "Quote-card nhỏ lặp lại đúng chữ '…nhà vua không phải lo gì cả!' nhấp nháy kết câu — khép vòng hook s01",
+     "anchor": "nhà vua không phải lo gì cả",
+     "ts": 30.0
+    }
+   ]
+  },
+  {
+   "id": "s22",
+   "text": "Chi tiết thứ ba, và là trung tâm của tối nay: đứa trẻ lớn lên bằng gạo của từng nhà. Truyện đã chép: nhà giàu nhất làng không đủ gạo. Xóm làng chung góp. Cậu ăn bằng nong của cả làng, mặc bằng vải của nhiều nhà. Nếu sức mạnh được nuôi bằng mọi nhà, thì khi thắng trận, nó về đâu? Sách trả lời gọn: không về đâu cả. Không lấy vợ. Không nối ngôi. Không nhận chức. Áo bào để lại trên núi. 100 mẫu ruộng tự điền ban cho cả làng, không cho một ai. Và mình thì bay về trời. Truyện không nói trắng điều gì. Nhưng có thể đọc là: sức mạnh được nuôi bằng mọi nhà, thì phải được trả về mọi nhà. Không một chữ nào trong ba trang sách chép ngược lại.",
+   "start_seconds": 708.0,
+   "end_seconds": 741.0,
+   "source_ref": "F_climax (research_digest.target_structure.climax_manifest — chi tiết 3 + chống khung)",
+   "cues": [
+    {
+     "desc": "Nong gạo trung tâm trở lại: hạt gạo tách khỏi nong, bay ngược về từng mái nhà đã cho — dòng chảy đảo chiều đúng câu 'trả về mọi nhà'",
+     "anchor": "nuôi bằng mọi nhà, thì phải được trả về mọi nhà",
+     "ts": 22.0
+    },
+    {
+     "desc": "Ba vế 'Không lấy vợ. Không nối ngôi. Không nhận chức.' = ba ô trống lần lượt gạch chéo; rồi áo bào đặt lên núi, mảnh ruộng phủ về làng (nối s14)",
+     "anchor": "không về đâu cả",
+     "ts": 14.0
+    }
+   ]
+  },
+  {
+   "id": "s23",
+   "text": "Và đó là câu trả lời của tối nay cho câu hỏi mở đầu. Vì sao người cứu nước là một đứa trẻ im lặng? Vì nó không phải là một cá nhân. Nó là hình dạng mà người xưa chọn để nói về sức mạnh cứu nước: không sinh ra đã thần thánh, không một mình to lớn. Thánh Gióng không tự lớn. Cả làng nuôi nó lớn. Hạt gạo từ nhà này, nhà kia, gặp nhau trong một chiếc nong, và thành một tráng sĩ. Khi trận đánh kết thúc, người tráng sĩ ấy bay về trời, để gạo trở về ruộng, ruộng trở về làng. Đây là cách đọc của chúng ta hôm nay, không phải điều truyện tuyên bố. Nhưng đóng sách lại, nhìn ra hội làng, ta thấy đúng thế: mỗi mùng 9 tháng Tư, cả làng lại cùng lớn lên một lần.",
+   "start_seconds": 741.0,
+   "end_seconds": 775.0,
+   "source_ref": "F_climax (research_digest.continuity_and_canon.new_canon_to_establish S2-C2)",
+   "cues": [
+    {
+     "desc": "Chữ mực lớn toàn màn hình đúng lúc chốt: 'Thánh Gióng không tự lớn. Cả làng nuôi nó lớn.' — chữ 'cả làng' nhấn vàng đồng; speech-lock từng chữ",
+     "anchor": "Cả làng nuôi nó lớn",
+     "ts": 14.0
+    },
+    {
+     "desc": "Tổng hợp trục vật thể: mái nhà → hạt gạo → nong → tráng sĩ → ruộng → mái nhà — vòng tròn khép speech-locked theo nhịp kể",
+     "anchor": "gặp nhau trong một chiếc nong",
+     "ts": 17.0
+    }
+   ]
+  },
+  {
+   "id": "s24",
+   "text": "Hôm nay, mùng 9 tháng Tư, nếu bạn có dịp về Phù Đổng, bạn sẽ nghe lại câu ca dao cũ: 'Ai ơi mồng Chín tháng Tư. Không đi hội Gióng cũng hư mất đời.' Trẻ con làng Phù Đổng cầm cờ múa qua bãi Soi Bia, theo lễ truyền thống bao đời. Trống vẫn dồn. Và trên mâm cỗ ngoài sân, vẫn có hạt gạo. Cùng một hạt gạo đã từng nuôi cậu bé năm nào.",
+   "start_seconds": 775.0,
+   "end_seconds": 798.0,
+   "source_ref": "G_landing (research_digest.target_structure.landing_manifest + numbers_allowed_on_screen: ca dao 2 câu)",
+   "cues": [
+    {
+     "desc": "Ca dao display 2 câu thư pháp mực ấm hiện đúng nhịp đọc: 'Ai ơi mồng Chín tháng Tư / Không đi hội Gióng cũng hư mất đời.'",
+     "anchor": "Ai ơi mồng Chín tháng Tư",
+     "ts": 4.0
+    },
+    {
+     "desc": "img-13: hội làng hôm nay — trẻ con cầm cờ múa qua bãi, trống hội, mâm cỗ; camera nhấn vào CHÉN XÔI HẠT GẠO sáng vàng đồng đúng câu cuối — cùng tông hạt gạo s11",
+     "anchor": "Cùng một hạt gạo",
+     "ts": 15.0
+    }
+   ]
+  },
+  {
+   "id": "s25",
+   "text": "Trong tín ngưỡng dân gian, Thánh Gióng thuộc Tứ bất tử, bốn vị thánh bất tử của người Việt đồng bằng: Tản Viên Sơn Thánh, Phù Đổng Thiên Vương, Chử Đồng Tử, và Liễu Hạnh. Phù Đổng đứng thứ hai, ngay sau Tản Viên, vị thần núi ta đã gặp ở đầu mùa này. Danh sách ấy thú vị ở chỗ: thần núi đứng trước, thần làng theo sau, và cả bốn vị, series sẽ còn quay lại. Vì mỗi vị là một cách người Việt trả lời cùng một câu hỏi: trong thời khó, ai sẽ đứng ra, và bằng sức mạnh nào?",
+   "start_seconds": 798.0,
+   "end_seconds": 822.0,
+   "source_ref": "G_landing (research_digest.continuity_and_canon.already_established_s2 + numbers_allowed_on_screen: Tứ bất tử)",
+   "cues": [
+    {
+     "desc": "Bốn tấm thẻ mực hiện theo nhịp đếm: Tản Viên – Phù Đổng – Chử Đồng Tử – Liễu Hạnh; thẻ Phù Đổng sáng vàng đồng và ghi nhỏ 'thứ hai'",
+     "anchor": "Tứ bất tử",
+     "ts": 3.0
+    },
+    {
+     "desc": "Silhouette núi Tản Viên thoáng phía sau thẻ thứ nhất (nhắc S2E01 đúng 1 nhịp, không chữ, không luận điểm)",
+     "anchor": "ngay sau Tản Viên",
+     "ts": 12.0
+    }
+   ]
+  },
+  {
+   "id": "s26",
+   "text": "Đêm hội tàn, trống lặng dần, người về làng, hạt gạo về kho. Một câu chuyện đã đi qua ba trang sách cách nhau ba trăm năm mươi năm, một chiếc nong, hai ngôi đền, và về lại đúng nơi nó bắt đầu hôm nay: bữa cơm của người Việt. Vị thần đó chưa bao giờ lớn lên một mình. Và vì thế, chưa bao giờ bị bỏ quên.",
+   "start_seconds": 822.0,
+   "end_seconds": 845.0,
+   "source_ref": "G_landing (research_digest.target_structure.landing_manifest câu khép nguyên văn)",
+   "cues": [
+    {
+     "desc": "Cảnh đêm làng tĩnh: khói bếp, mái nhà, chén cơm đặt trên mâm — hạt gạo vàng đồng cuối cùng nằm im trong chén (khép trục vật thể)",
+     "anchor": "hạt gạo về kho",
+     "ts": 2.0
+    },
+    {
+     "desc": "Chữ mục cuối toàn màn hình, mực nhạt: 'Vị thần đó chưa bao giờ lớn lên một mình.' rồi '…và vì thế, chưa bao giờ bị bỏ quên.' — hai dòng hiện tách theo pause narration",
+     "anchor": "chưa bao giờ bị bỏ quên",
+     "ts": 14.0
+    }
+   ]
+  },
+  {
+   "id": "s27",
+   "text": "Mà nói về Tứ bất tử: người được thờ tiếp theo còn nghèo hơn tất cả những vị ta đã gặp. Người được thờ tiếp theo còn nghèo hơn, nghèo đến mức không có nổi một chiếc khố. Ai đó, và vì sao nghèo lại thành thần, hẹn bạn ở tập sau.",
+   "start_seconds": 845.0,
+   "end_seconds": 857.0,
+   "source_ref": "H_cta (research_digest.target_structure.cta_manifest + proposal c1.cta)",
+   "cues": [
+    {
+     "desc": "Bóng silhouette người đàn ông đứng bên bờ sông, mờ sau tấm màn nước (không mặt, không tên — không spoil); một dải vải nhỏ trôi theo nước",
+     "anchor": "một chiếc khố",
+     "ts": 5.0
+    }
+   ]
+  },
+  {
+   "id": "s28",
+   "text": "Nếu bạn thích cách series này đọc lại thần thoại Việt Nam bằng sách chép, vật chứng và hội làng, hãy đăng ký kênh và bấm chuông để không bỏ lỡ tập mới. Cảm ơn bạn đã xem. Hẹn gặp lại ở tập sau.",
+   "start_seconds": 857.0,
+   "end_seconds": 870.0,
+   "source_ref": "H_cta (proposal_packet.selected_concept.cta)",
+   "cues": [
+    {
+     "desc": "Card cuối kênh: nút đăng ký vẽ mực + dòng chữ 'vn-myth · mùa 2' — hiện khi narration đọc 'đăng ký kênh'",
+     "anchor": "đăng ký kênh",
+     "ts": 5.0
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,2248 @@
+{
+  "version": "1.0",
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "total_duration_seconds": 869.2666666666667,
+    "scene_count": 63,
+    "scene_types_breakdown": {
+      "text_card": 13,
+      "diagram": 25,
+      "generated": 25
+    },
+    "scene_types_used": [
+      "text_card",
+      "diagram",
+      "generated"
+    ],
+    "consecutive_same_type_max": 4,
+    "renderer_family": "remotion",
+    "render_runtime": "remotion",
+    "composition_mode": "atelier",
+    "speech_lock_note": "Mọi scene khóa anchor phrase nguyên văn theo ASR narration_words.json ±0,3s — KHÔNG ước lượng; start/end_seconds tạm theo script.json section timing (960s), re-snap ở stage edit",
+    "layer_separation_device": "3 vật thể chứng cứ xuyên tập: trang giấy dó — dòng nước — mái đền",
+    "focal_visual_rule_compliance": "Mọi focal visual dùng ảnh gen có sẵn làm base (img-01..img-14 + demo_s03_kho; demo_s03_kho đúng 1 scene setup s03) + overlay TSX/SVG vẽ tay speech-locked trên top; secondary visuals thuần code; KHÔNG ảnh mới",
+    "asset_plan": "14 ảnh khả dụng tái dùng: demo_s03_kho focal s03 (1 lần); img-08-gay-non dùng nhiều hồi (gậy/nón) s13–s15, s21, s25; img-11-dam-nhat-da focal Hồi 4 + climax (s19, s22, s25); img-05-cho-pho-ven-song focal s09–s11; img-01-thuyen-ruc-nuoc s01/s24; KHÔNG sinh ảnh mới",
+    "numbers_whitelist_compliance": "100% số trên màn từ whitelist: 1492 · 1493 · 10–12 tháng Hai AL · 11/2 · 02/02/2023 · 153/QĐ-BVHTTDL · 01/03/2023 · 9 làng · 3 năm một lần · 2023 · 7–9 tháng 4 (callback S2E02, tối đa 1 nhịp) · Hùng Vương thứ 6 (callback, tối đa 1 nhịp) — KHÔNG số khác",
+    "engine_constraints_acknowledged": "Không AI motion clip — Remotion still-motion + TSX/SVG speech-locked overlays (ink-genome)",
+    "ep_continuity_compliance": "tease S2E04 Liễu Hạnh KHÔNG spoil tên ở sc crawl cuối — chỉ 'một người phụ nữ'; Tứ bất tử callback đúng 1 nhịp (sc061); callback S2E02 '7–9 tháng 4' + 'Hùng Vương thứ 6' mỗi cái tối đa 1 nhịp",
+    "scene_index_note": "scene index + timing snap sinh ở stage edit từ narration_words.json ASR (scripts/gen_scene_index.py / gen_scene_timing.py)",
+    "archived_preproduction_vocabulary": [
+      {
+        "scene_id": "sc003",
+        "narrative_role": "central_question"
+      },
+      {
+        "scene_id": "sc005",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc006",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc007",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc010",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc011",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc012",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc013",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc014",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc015",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc016",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc017",
+        "narrative_role": "act_transition"
+      },
+      {
+        "scene_id": "sc018",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc019",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc020",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc021",
+        "narrative_role": "editorial_restraint"
+      },
+      {
+        "scene_id": "sc022",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc023",
+        "narrative_role": "act_transition"
+      },
+      {
+        "scene_id": "sc024",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc025",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc026",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc027",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc028",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc029",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc030",
+        "narrative_role": "evidence_comparison"
+      },
+      {
+        "scene_id": "sc031",
+        "narrative_role": "evidence_introduction"
+      },
+      {
+        "scene_id": "sc032",
+        "narrative_role": "evidence_analysis"
+      },
+      {
+        "scene_id": "sc033",
+        "narrative_role": "evidence_analysis"
+      },
+      {
+        "scene_id": "sc034",
+        "narrative_role": "story_advancement"
+      },
+      {
+        "scene_id": "sc034",
+        "shot_language_field": "camera_movement",
+        "original_value": "pan"
+      },
+      {
+        "scene_id": "sc035",
+        "narrative_role": "pacing_beat"
+      },
+      {
+        "scene_id": "sc036",
+        "narrative_role": "climax_setup"
+      },
+      {
+        "scene_id": "sc037",
+        "narrative_role": "climax"
+      },
+      {
+        "scene_id": "sc040",
+        "narrative_role": "evidence_analysis"
+      },
+      {
+        "scene_id": "sc041",
+        "narrative_role": "evidence_analysis"
+      },
+      {
+        "scene_id": "sc042",
+        "narrative_role": "climax"
+      },
+      {
+        "scene_id": "sc043",
+        "narrative_role": "editorial_frame"
+      },
+      {
+        "scene_id": "sc044",
+        "narrative_role": "evidence_modern"
+      },
+      {
+        "scene_id": "sc045",
+        "narrative_role": "evidence_modern"
+      },
+      {
+        "scene_id": "sc046",
+        "narrative_role": "editorial_frame"
+      },
+      {
+        "scene_id": "sc047",
+        "narrative_role": "act_closing"
+      },
+      {
+        "scene_id": "sc048",
+        "narrative_role": "callback"
+      },
+      {
+        "scene_id": "sc049",
+        "narrative_role": "evidence_modern"
+      },
+      {
+        "scene_id": "sc050",
+        "narrative_role": "montage_callback"
+      },
+      {
+        "scene_id": "sc051",
+        "narrative_role": "editorial_frame"
+      },
+      {
+        "scene_id": "sc052",
+        "narrative_role": "evidence_education"
+      },
+      {
+        "scene_id": "sc053",
+        "narrative_role": "structural_synthesis"
+      },
+      {
+        "scene_id": "sc054",
+        "narrative_role": "evidence_living"
+      },
+      {
+        "scene_id": "sc055",
+        "narrative_role": "evidence_living"
+      },
+      {
+        "scene_id": "sc056",
+        "narrative_role": "thematic_close"
+      },
+      {
+        "scene_id": "sc057",
+        "narrative_role": "series_callback"
+      },
+      {
+        "scene_id": "sc058",
+        "narrative_role": "next_ep_tease"
+      },
+      {
+        "scene_id": "sc058",
+        "shot_language_field": "camera_movement",
+        "original_value": "push_in"
+      },
+      {
+        "scene_id": "sc059",
+        "narrative_role": "next_ep_tease"
+      },
+      {
+        "scene_id": "sc060",
+        "narrative_role": "series_brand"
+      },
+      {
+        "scene_id": "sc061",
+        "narrative_role": "sources"
+      },
+      {
+        "scene_id": "sc062",
+        "narrative_role": "concept_close"
+      },
+      {
+        "scene_id": "sc063",
+        "narrative_role": "credits"
+      }
+    ],
+    "final_metadata_backfill": "Exact approved speech-locked frame ranges; render inputs are unchanged. Original estimate retained in history."
+  },
+  "scenes": [
+    {
+      "id": "sc001",
+      "type": "generated",
+      "description": "MỞ TẬP — TỪ HIỆN TẠI: ảnh base img-01-thuyen-ruc-nuoc, đoàn thuyền rước nước sương sớm trên sông Hồng; overlay TSX vẽ tay dòng mực 'du thuyền rước nước trên sông Hồng' hiện dần theo nhịp đọc ở dải dưới; luồng mực ấm chạy dọc dòng nước như mở một trang truyện. Render template intent: still-image scene + speech-locked ink overlay. Subject: đoàn thuyền rước + luồng nước. Subject motion: ken-burns đẩy chậm theo chiều thuyền; dòng chữ overlay tracking-in theo narration. Scene: sương sớm tháng Hai, mặt nước tĩnh. Camera: dolly_in chậm.",
+      "start_seconds": 0.0,
+      "end_seconds": 7.966666666666667,
+      "script_section_id": "s01",
+      "framing": "Thuyền chiếm mặt nền, dòng chữ overlay dải dưới",
+      "movement": "Slow push-in + caption tracking-in theo narration",
+      "transition_in": "fade",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «thuyền rước nước» · «du thuyền rước nước trên sông Hồng» — hiện đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đưa khán giả đứng trên sông hôm nay trước khi vào truyện",
+      "narrative_role": "establish_context",
+      "information_role": "Nghi lễ rước nước đang sống, diễn ra thật hôm nay",
+      "hero_moment": false,
+      "texture_keywords": [
+        "sương sớm",
+        "nước sông",
+        "mực ấm overlay",
+        "myth_amber",
+        "grain film mỏng"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-01-thuyen-ruc-nuoc",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc002",
+      "type": "diagram",
+      "description": "BẢN ĐỒ GIẤY DẦU NÂU: bản đồ mực vẽ dòng sông Hồng chạy dọc; khi đọc «các làng lại tổ chức», chín chấm làng (9 làng — số whitelist) sáng lên lần lượt dọc hai bờ; đường nước mực nối các chấm thành một luồng. Render template intent: paper-map reveal + dot ignition. Subject: sông + 9 chấm làng. Subject motion: sông vẽ trước, chấm thắp tuần tự theo narration; nhãn '9 làng' góc trên. Scene: giấy dầu nâu, texture nếp giấy. Camera: N/A — Remotion native.",
+      "start_seconds": 7.966666666666667,
+      "end_seconds": 30.333333333333332,
+      "script_section_id": "s01",
+      "framing": "Dòng sông chéo giữa màn, chấm làng hai bờ",
+      "movement": "River draw → dot ignition tuần tự",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «các làng lại tổ chức» · «múc lên từ sông» — chấm làng sáng đúng nhịp câu thứ nhất. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Cài số 9 làng + hình dung không gian lễ hội dọc sông",
+      "narrative_role": "establish_context",
+      "information_role": "Phạm vi '9 làng' theo lịch được đăng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "giấy dầu nâu",
+        "map_paper",
+        "chấm mực vàng",
+        "dòng sông mực"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc003",
+      "type": "text_card",
+      "description": "CÂU HỎI TRUNG TÂM: thẻ chữ mực ấm trên giấy dó — «Vì sao một người không có cả chiếc khố lại được thờ làm thánh?» hiện đúng lúc đọc; cụm 'không có cả chiếc khố' accent amber đậm hơn phần còn lại; ngắt 0,8s giữ thẻ trầm. Render template intent: quote-card typographic reveal. Subject: câu hỏi trung tâm. Subject motion: chữ hiện theo nhịp đọc từng vế, accent nhấn cuối. Scene: giấy dó tối ấm, grain mỏng. Camera: N/A — Remotion native.",
+      "start_seconds": 30.333333333333332,
+      "end_seconds": 36.13333333333333,
+      "script_section_id": "s02",
+      "framing": "Câu hỏi giữa màn, căn trái nhẹ",
+      "movement": "Typographic reveal theo narration",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «người nghèo đến mức không có nổi một chiếc khố» · «được thờ làm thánh» — câu hỏi khóa đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đóng đinh nghịch lý trung tâm của cả tập",
+      "information_role": "Khán giả nắm câu hỏi sẽ được trả lời ở climax",
+      "hero_moment": false,
+      "texture_keywords": [
+        "giấy dó",
+        "mực kem",
+        "myth_amber",
+        "typography mực"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc004",
+      "type": "diagram",
+      "description": "CHIẾC KHỐ VẼ MỰC LẶNG IM: hình chiếc khố vải đơn giản vẽ nét mực hiện ra giữa màn, lặng im khi câu hỏi kết thúc — một vật thể duy nhất, không trang trí, nhiều khoảng trống giấy dó quanh vật; vệt mực nhỏ dưới chân khố như dấu quanting thời gian. Render template intent: single-object ink reveal + hold. Subject: chiếc khố nét mực. Subject motion: nét vẽ khối chạy một lượt rồi giữ tĩnh hoàn toàn. Scene: giấy dó trống, tĩnh. Camera: N/A — Remotion native.",
+      "start_seconds": 36.13333333333333,
+      "end_seconds": 52.266666666666666,
+      "script_section_id": "s02",
+      "framing": "Khối vải nhỏ giữa màn, nhiều khoảng trống",
+      "movement": "Ink draw-on rồi hold tĩnh",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «thờ đã lâu lắm rồi» · «phải hỏi cho ra» — khố hiện và giữ im đúng nhịp hai vế. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Cho vật thể đầu tiên của tập im lặng nhận trách nhiệm câu hỏi",
+      "narrative_role": "establish_context",
+      "information_role": "Chiếc khố = vật chứng cứ số 1 của series",
+      "hero_moment": false,
+      "texture_keywords": [
+        "khố vải",
+        "ink_draw",
+        "giấy dó trống",
+        "tĩnh lặng"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc005",
+      "type": "text_card",
+      "description": "QUOTE CARD THEO DEMO STYLE: quote mực ấm trên giấy dó — «một khố vải duy nhất, cha con ra vào thay nhau mà mặc» — trình bày đúng chất demo_s03_kho đã duyệt (tông giấy, cỡ chữ, biên lề). Render template intent: quote-card + ink-frame reveal. Subject: trích bản kể. Subject motion: chữ hiện theo nhịp đọc trích, khung mực vẽ quanh. Scene: giấy dó ấm tối. Camera: N/A — Remotion native.",
+      "start_seconds": 52.266666666666666,
+      "end_seconds": 54.166666666666664,
+      "script_section_id": "s03",
+      "framing": "Quote giữa màn, khung mực mỏng",
+      "movement": "Quote reveal theo trích",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «một khố vải duy nhất» — hiện đúng lúc đọc trích. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Bản kể tự nói về sự nghèo — trích nguyên văn",
+      "information_role": "Gia cảnh chép bằng dòng gọn của bản kể",
+      "hero_moment": false,
+      "texture_keywords": [
+        "quote_card",
+        "giấy dó",
+        "mực kem",
+        "myth_amber"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc006",
+      "type": "generated",
+      "description": "FOCAL S03 — ẢNH DEMO ĐÃ DUYỆT: ảnh base demo_s03_kho; overlay TSX mực ấm: hai bóng người cha con đơn giản, một chiếc khố chuyển qua lại giữa hai bóng theo nhịp kể; mảnh khố là điểm sáng amber duy nhất. Render template intent: still-image scene + speech-locked ink overlay. Subject: khố + hai bóng cha con. Subject motion: khố swap giữa hai vị trí theo narration; nền image hold. Scene: tông ấm kín. Camera: N/A — overlay Remotion native.",
+      "start_seconds": 54.166666666666664,
+      "end_seconds": 63.9,
+      "script_section_id": "s03",
+      "framing": "Hai bóng hai bên, khố di chuyển giữa",
+      "movement": "Khố swap theo nhịp kể",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Cha từ, con hiếu» · «thay nhau mà mặc» — khố chuyển đúng nhịp vế thứ hai. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Bằng vật thể: hai người, một khố — không lời thoại",
+      "information_role": "Sự nghèo hiện hình qua việc trao đổi vật che thân",
+      "hero_moment": false,
+      "texture_keywords": [
+        "myth_amber",
+        "bóng mực",
+        "khố vải",
+        "đêm ấm"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "demo_s03_kho",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc007",
+      "type": "text_card",
+      "description": "QUOTE LỜI DẶN CỦA CHA: quote card mực ấm — «để trần mà chôn, giữ khố lại cho con» hiện khi đọc lời dặn; nền tối hơn sc005, chữ nhỏ trang trọng như trang libro; vạch mực ngắn dưới quote như bookmark. Render template intent: quote-card typographic reveal, variant tối. Subject: lời dặn nguyên văn. Subject motion: chữ hiện chậm theo đọc. Scene: giấy dó sẫm. Camera: N/A — Remotion native.",
+      "start_seconds": 63.9,
+      "end_seconds": 77.46666666666667,
+      "script_section_id": "s03",
+      "framing": "Quote căn giữa, bookmark vạch dưới",
+      "movement": "Quote reveal chậm",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «để trần mà chôn» · «khỏi xấu hổ» — hiện đúng lúc đọc lời dặn. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Cái chết của cha đổi lấy lớp che thân cho con",
+      "information_role": "Chi tiết trao khố — mấu chốt cảm xúc đầu tập",
+      "hero_moment": false,
+      "texture_keywords": [
+        "quote_card",
+        "giấy dó sẫm",
+        "mực kem",
+        "bookmark mực"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc008",
+      "type": "diagram",
+      "description": "SƠ ĐỒ HAI LỚP: hai cột cạnh nhau trên giấy dó — cột amber 'truyện kể' (thế giới truyền khẩu, nét mực mềm) và cột teal 'kiểm chứng được' (bản sách, bài đăng, lễ hội có hồ sơ — nét thẳng gọn); hai cột hiện theo thứ tự đọc. Render template intent: two-column compare reveal. Subject: 2 cột lớp. Subject motion: cột trái fade-in khi đọc lớp 1, cột phải khi đọc lớp 2. Scene: giấy dó, chia đôi êm. Camera: N/A — Remotion native.",
+      "start_seconds": 77.46666666666667,
+      "end_seconds": 90.5,
+      "script_section_id": "s04",
+      "framing": "Hai cột đối xứng, nhãn trên đầu cột",
+      "movement": "Column reveal tuần tự",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «truyện kể» · «thứ kiểm chứng được» — cột hiện đúng nhịp hai vế. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Cài khung đọc hai lớp cho cả tập",
+      "narrative_role": "establish_context",
+      "information_role": "Khán giả phân biệt lớp kể và lớp kiểm chứng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "amber_vs_teal",
+        "hai cột",
+        "giấy dó",
+        "so sánh"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc009",
+      "type": "diagram",
+      "description": "TRỤC VẬT THỂ DỌC DÒNG SÔNG: dải sông mực chạy ngang dưới màn, sáu vật thể neo dọc — khố → màn → thuyền → gậy/nón → đầm → nước rước — từng vật sáng lên theo thứ tự đọc; đây là xương sống visual của cả tập. Render template intent: object-axis sequential reveal. Subject: 6 vật thể trên trục sông. Subject motion: từng vật pop theo narration, sông luôn chảy mờ. Scene: giấy dó, sông mực ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 90.5,
+      "end_seconds": 112.26666666666667,
+      "script_section_id": "s04",
+      "framing": "Trục ngang giữa màn, vật thể so le trên dưới",
+      "movement": "Object reveal tuần tự theo thứ tự đọc",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Chiếc khố, rồi tấm màn» · «dòng sông dẫn ta tới đâu» — vật sáng đúng thứ tự nhắc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Hứa hẹn cấu trúc: lần theo vật thể tới cuối dòng sông",
+      "narrative_role": "establish_context",
+      "information_role": "Bản đồ hành trình 6 vật thể của tập",
+      "hero_moment": false,
+      "texture_keywords": [
+        "trục vật thể",
+        "dòng sông mực",
+        "6 vật",
+        "ink-genome"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc010",
+      "type": "generated",
+      "description": "THUYỀN TIÊN DUNG DỪNG GIỮA DÒNG: ảnh base img-03-thuyen-tien-dung, thuyền sang trọng giữa sông; overlay TSX mực ấm: cánh màn che hạ xuống từ từ khi đọc «hạ màn xuống» — nét mực vẽ đường màn rủ; ken-burns rất chậm. Render template intent: still-image scene + speech-locked ink overlay. Subject: thuyền + màn hạ. Subject motion: push-in nhẹ; nét màn vẽ theo narration. Scene: chiều vàng, nước tĩnh. Camera: dolly_in chậm.",
+      "start_seconds": 112.26666666666667,
+      "end_seconds": 123.8,
+      "script_section_id": "s05",
+      "framing": "Thuyền giữa khung, màn hạ dọc mép ảnh",
+      "movement": "Slow push-in + màn vẽ hạ",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Tiên Dung, công chúa» · «hạ màn xuống» — màn vẽ đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Mở Hồi một bằng sự riêng tư của công chúa — chỉ màn, cát, nước",
+      "information_role": "Truyện kể dừng ở ba chữ vật thể, không tả hơn",
+      "hero_moment": false,
+      "texture_keywords": [
+        "màn che",
+        "thuyền gỗ",
+        "nước vàng",
+        "myth_amber"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-03-thuyen-tien-dung",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc011",
+      "type": "text_card",
+      "description": "BA CHỮ VẬT THỂ: ba chữ «màn» — «cát» — «nước» hiện lần lượt theo nhịp đọc, mỗi chữ kèm nét vẽ nhỏ vật thể (tấm màn rủ, đồi cát, vệt sóng); bố cục tối giản ba ô ngang. Render template intent: triptych word+glyph reveal. Subject: 3 chữ + 3 glyph. Subject motion: từng ô hiện theo narration. Scene: giấy dó trống. Camera: N/A — Remotion native.",
+      "start_seconds": 123.8,
+      "end_seconds": 136.4,
+      "script_section_id": "s05",
+      "framing": "Ba ô ngang giữa màn",
+      "movement": "Sequential reveal 3 ô",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «Chỉ có màn, cát, nước» — ba chữ hiện đúng chuỗi nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Khoảng lặng hiếm của truyện — gói bằng ba vật",
+      "information_role": "Truyện kể không tả gì hơn thế",
+      "hero_moment": false,
+      "texture_keywords": [
+        "triptych",
+        "glyph mực",
+        "giấy dó",
+        "tối giản"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc012",
+      "type": "generated",
+      "description": "NGƯỜI TRONG CÁT: ảnh base img-04-bai-cat-nguoi-vui, bãi cát hoang vắng với bụi lau, bóng người nấp chỉ là dáng vệt tối — kín đáo, không tả thân thể; overlay TSX mực ấm: đường viền mực quét nhẹ quanh chỗ vùi khi đọc «vùi mình vào cát». Render template intent: still-image scene + speech-locked ink overlay. Subject: bãi cát + bóng nấp. Subject motion: ken-burns chậm tiến về chỗ vùi; viền mực pulse một nhịp. Scene: hoàng hôn, im. Camera: dolly_in.",
+      "start_seconds": 136.4,
+      "end_seconds": 151.43333333333334,
+      "script_section_id": "s06",
+      "framing": "Bãi cát rộng, chỗ vùi lệch phải",
+      "movement": "Slow push-in + viền mực nhấn",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «vùi mình vào cát» · «nấp sau bụi lau» — viền mực đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Sự nghèo hiện thân bằng việc trốn — kín đáo nhất",
+      "information_role": "Người nghèo nhất truyện xuất hiện qua dáng nấp",
+      "hero_moment": false,
+      "texture_keywords": [
+        "bãi cát",
+        "bụi lau",
+        "dáng tối",
+        "kín đáo"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-04-bai-cat-nguoi-vui",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc013",
+      "type": "diagram",
+      "description": "MÀN CHIA HAI THẾ GIỚI: đường mực dọc chia màn hình làm hai nửa khi đọc câu chốt — nửa trái thế giới thuyền sang (nét vàng đồng), nửa phải bãi cát trần (nét mực nhạt); đường mực chính giữa là tấm màn. Render template intent: split-screen ink divide. Subject: 2 nửa thế giới + đường màn. Subject motion: đường mực vẽ dọc theo câu chốt, hai nửa fade đồng thời. Scene: giấy dó chia đôi. Camera: N/A — Remotion native.",
+      "start_seconds": 151.43333333333334,
+      "end_seconds": 163.7,
+      "script_section_id": "s06",
+      "framing": "Chia đôi dọc giữa màn",
+      "movement": "Ink divide draw + dual fade",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «hai thế giới cách nhau bởi một tấm màn» — đường mực vẽ đúng câu chốt. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Câu chốt của Hồi một thành hình: màn là biên giới",
+      "information_role": "Truyện không cho thoại — chỉ cho phản ứng hai bên màn",
+      "hero_moment": false,
+      "texture_keywords": [
+        "split_ink",
+        "màn che",
+        "hai thế giới",
+        "giấy dó"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc014",
+      "type": "diagram",
+      "description": "MÀN MỞ — KẾT DUYÊN: hai bóng người mực đứng hai bên tấm màn (tái dùng bố cục sc013), màn từ từ mở ra khi đọc «kết duyên» — hai nét mực tiến lại gần nhau; giữ tông amber kín. Render template intent: split-ink resolve → union. Subject: 2 bóng + màn mở. Subject motion: màn kéo sang một bên, hai bóng hội. Scene: giấy dó ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 163.7,
+      "end_seconds": 172.36666666666667,
+      "script_section_id": "s07",
+      "framing": "Hai bóng hai bên, màn kéo mở",
+      "movement": "Curtain pull + hai bóng hội",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «không về cung» · «kết duyên» — màn mở đúng lúc đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Lựa chọn của công chúa hiện hình bằng chuyển động màn",
+      "information_role": "Chi tiết lạ của bản kể — công chúa ở lại",
+      "hero_moment": false,
+      "texture_keywords": [
+        "màn mở",
+        "hai bóng",
+        "ink-genome",
+        "kín ấm"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc015",
+      "type": "text_card",
+      "description": "QUOTE CARD TEAL — BÀI TẬP ĐỌC: thẻ teal như trang sách bài tập in — «Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?» hiện đúng lúc đọc câu hỏi; nhãn nhỏ nguồn 'bài tập đọc lớp ba' góc thẻ; viền thẻ thẳng gọn khác chất quote mực amber. Render template intent: teal evidence-card reveal. Subject: câu hỏi bài tập. Subject motion: thẻ trượt nhẹ lên + chữ hiện. Scene: nền tối teal nhẹ. Camera: N/A — Remotion native.",
+      "start_seconds": 172.36666666666667,
+      "end_seconds": 205.46666666666667,
+      "script_section_id": "s07",
+      "framing": "Thẻ giữa màn, nhãn nguồn góc trên",
+      "movement": "Card slide-up + text reveal",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «in sẵn trong sách bài tập đọc lớp ba» · «Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?» — thẻ hiện đúng câu hỏi. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Câu hỏi lạ nằm ngay trong sách giáo khoa — bằng chứng lớp kể",
+      "information_role": "Lớp kiểm chứng: câu hỏi được in sẵn trong sách lớp ba",
+      "hero_moment": false,
+      "texture_keywords": [
+        "teal_card",
+        "trang sách in",
+        "evidence",
+        "viền thẳng"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc016",
+      "type": "diagram",
+      "description": "TRỤC VẬT THỂ MỞ RỘNG: tái dùng trục sc009 — ba vật đã sáng (khố, màn, thuyền) bên trái; ba ngăn tiếp theo (chợ, gậy/nón, đầm) hé mở mờ dần phía trước như chưa rẽocard; đường sông mực tiếp tục chảy về phải. Render template intent: object-axis extension reveal. Subject: trục 6 vật + phần hé mở. Subject motion: ba vật cũ nhấn lại, ba ngăn mới peek mờ. Scene: giấy dó, chiều sông. Camera: N/A — Remotion native.",
+      "start_seconds": 205.46666666666667,
+      "end_seconds": 210.63333333333333,
+      "script_section_id": "s08",
+      "framing": "Trục ngang, phần hé mở lệch phải",
+      "movement": "Old objects pulse + new slots peek",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Chiếc khố đã dẫn ta tới tấm màn» · «giờ tới lượt gậy, nón, và nước» — nhấn đúng vế. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Đám cưới không phải đích — trục vật thể còn dài phía trước",
+      "information_role": "Bản kể chạy rất xa sau đám cưới",
+      "hero_moment": false,
+      "texture_keywords": [
+        "trục vật thể",
+        "hé mở",
+        "dòng sông mực",
+        "ink-genome"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc017",
+      "type": "text_card",
+      "description": "THẺ CHUYỂN HỒI: chữ «Hồi hai — Phố chợ» hiện trên nền giấy dó khi đọc câu chuyển; chữ mực lớn căn giữa, vệt son nhỏ dưới chân như con dấu hồi; giữ 1 nhịp rồi dissolve. Render template intent: act-title card. Subject: tiêu đề hồi. Subject motion: chữ spring nhẹ xuống + seal fade. Scene: giấy dó tối ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 210.63333333333333,
+      "end_seconds": 225.4,
+      "script_section_id": "s08",
+      "framing": "Chữ giữa màn, seal dưới",
+      "movement": "Title spring-down + seal fade-in",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Hồi hai bắt đầu ở phố chợ» — thẻ hiện đúng câu chuyển. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Cắt nhịp sang đời sống phố chợ",
+      "information_role": "Đánh dấu Hồi hai",
+      "hero_moment": false,
+      "texture_keywords": [
+        "act_card",
+        "giấy dó",
+        "con dấu son",
+        "mực lớn"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc018",
+      "type": "text_card",
+      "description": "QUOTE MỞ CHỢ: quote card mực ấm trên giấy dó — «Tiên Dung nghe sợ không dám về, bèn cùng Đồng Tử mở chợ búa, lập phố xá, cùng dân buôn bán» hiện đúng lúc đọc trích; hai chữ «nghe sợ» accent nhẹ. Render template intent: quote-card reveal. Subject: trích bản kể. Subject motion: chữ hiện theo nhịp trích. Scene: giấy dó ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 225.4,
+      "end_seconds": 236.5,
+      "script_section_id": "s09",
+      "framing": "Quote giữa màn, accent «nghe sợ»",
+      "movement": "Quote reveal theo trích",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «mở chợ búa, lập phố xá» · «cùng dân buôn bán» — hiện đúng lúc đọc trích. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Bản kể gọn sự sợ hãi trong hai chữ — rồi sang đời sống",
+      "information_role": "Trích nguyên văn bước ngoặt không về cung",
+      "hero_moment": false,
+      "texture_keywords": [
+        "quote_card",
+        "giấy dó",
+        "mực kem",
+        "accent nhấn"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc019",
+      "type": "generated",
+      "description": "CHỢ MỌC TỪ HAI BÀN TAY TRỐNG: ảnh base img-05-cho-pho-ven-song, phố chợ ven sông đang nở; overlay TSX mực ấm vẽ tay: hai bàn tay trống mở ra ở góc dưới trước, từ đó các nét gian hàng mực mọc lan lên thành khu chợ theo nhịp đọc — không mưa vàng, không phép màu. Render template intent: still-image scene + hand-drawn growth overlay. Subject: chợ + hai bàn tay. Subject motion: nét chợ vẽ lan theo narration; ken-burns nhẹ. Scene: ban ngày ven sông, rộn. Camera: tilt_up nhẹ.",
+      "start_seconds": 236.5,
+      "end_seconds": 247.73333333333332,
+      "script_section_id": "s09",
+      "framing": "Bàn tay góc dưới, chợ lan lên trên",
+      "movement": "Ink growth + tilt-up",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «hai bàn tay trống» · «đời sống lặng lẽ xây lại từ đầu» — nét chợ mọc đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Tái sinh từ con số 0 — bằng m người thật",
+      "information_role": "Không thần kỳ — chợ búa, phố xá, dân buôn",
+      "hero_moment": false,
+      "texture_keywords": [
+        "phố chợ",
+        "hai bàn tay",
+        "ink_growth",
+        "myth_amber"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-05-cho-pho-ven-song",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc020",
+      "type": "text_card",
+      "description": "QUOTE PHỐ CHỢ LỚN: quote card mực ấm — «dần dần trở thành phố chợ lớn (nay là chợ Thám)...» hiện đúng lúc đọc trích; chip nhỏ 'nay là chợ Thám' tách riêng dưới quote như ghi chú bản dịch. Render template intent: quote-card + annotation chip. Subject: trích + chip ghi chú. Subject motion: quote reveal, chip pop sau đó. Scene: giấy dó ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 247.73333333333332,
+      "end_seconds": 271.06666666666666,
+      "script_section_id": "s10",
+      "framing": "Quote giữa, chip dưới",
+      "movement": "Quote reveal + chip pop",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «trở thành phố chợ lớn» · «thương nhân nước ngoài tới lui» — hiện đúng lúc đọc trích. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Dấu mốc địa danh còn đọc được hôm nay",
+      "information_role": "Chợ Thám — dấu mốc của bản kể",
+      "hero_moment": false,
+      "texture_keywords": [
+        "quote_card",
+        "chip ghi chú",
+        "giấy dó",
+        "mực kem"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc021",
+      "type": "text_card",
+      "description": "NHỊP TEAL CẢNH TỈNH: màu chuyển sang teal gọn — dòng chữ «phần kể chỉ dừng ở đó» hiện gọn khi đọc câu cảnh tỉnh; nền tối teal, chữ tỉnh táo; kéo dài 1 nhịp rồi cut. Render template intent: teal caution-card. Subject: câu cảnh tỉnh. Subject motion: chữ hiện gọn, giữ, out. Scene: nền teal tối. Camera: N/A — Remotion native.",
+      "start_seconds": 271.06666666666666,
+      "end_seconds": 288.5,
+      "script_section_id": "s10",
+      "framing": "Chữ giữa màn, tối giản",
+      "movement": "Text in-hold-out gọn",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «phần kể chỉ dừng ở đó» · «giữ cho đúng mức của bản kể» — hiện đúng câu cảnh tỉnh. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Neo mức kể — không suy diễn danh xưng lớn hơn",
+      "information_role": "Ranh giới khẳng định của người kể",
+      "hero_moment": false,
+      "texture_keywords": [
+        "teal_card",
+        "tỉnh táo",
+        "tối giản",
+        "caution"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc022",
+      "type": "diagram",
+      "description": "SÔNG LẤY NHỊP KỂ: dòng sông mực ấm chảy ngang màn hình, thuyền tréo sông hai chiều, bè hàng nhỏ trôi theo khi đọc «người, hàng, thuyền»; mỗi từ khóa pop một vật trên dòng nước; nhịp đều như thở. Render template intent: river-rhythm diagram loop. Subject: sông + thuyền hai chiều. Subject motion: nước chảy liên tục, vật pop theo narration. Scene: giấy dó, dòng nước ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 288.5,
+      "end_seconds": 309.5,
+      "script_section_id": "s11",
+      "framing": "Dòng sông ngang giữa, vật qua lại",
+      "movement": "River loop + object pop theo từ khóa",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «người, hàng, thuyền» · «thuyền xuôi, thuyền ngược» — vật pop đúng chuỗi. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Cảm nhận trang sách như nghe dòng nước chảy",
+      "information_role": "Thế giới truyện = bãi bồi, mưa nắng, chuyến hàng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "dòng sông mực",
+        "thuyền hai chiều",
+        "nhịp nước",
+        "ink-genome"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc023",
+      "type": "text_card",
+      "description": "THẺ CHUYỂN HỒI BA: chữ «Hồi ba — Chuyến thuyền» trên nền giấy dó khi đọc câu chuyển; cùng template act-card sc017 (spring + seal son); dòng sông mực mờ chạy qua chân thẻ. Render template intent: act-title card. Subject: tiêu đề hồi. Subject motion: title spring-down + seal. Scene: giấy dó tối ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 309.5,
+      "end_seconds": 316.43333333333334,
+      "script_section_id": "s11",
+      "framing": "Chữ giữa màn, sông mờ chân thẻ",
+      "movement": "Title spring-down + seal fade",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Hồi ba bắt đầu từ đây» — thẻ hiện đúng câu chuyển. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Cắt nhịp lên chuyến thuyền buôn",
+      "information_role": "Đánh dấu Hồi ba",
+      "hero_moment": false,
+      "texture_keywords": [
+        "act_card",
+        "giấy dó",
+        "con dấu son",
+        "sông mờ"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc024",
+      "type": "text_card",
+      "description": "QUOTE CHUYỆN BUÔN: quote card mực ấm — «Đồng Tử bèn cùng lái buôn đi buôn bán. Đến núi Quỳnh Vi, trên núi có am nhỏ...» hiện đúng lúc đọc trích; từ 'núi Quỳnh Vi' gạch chân mực mảnh. Render template intent: quote-card reveal + underline. Subject: trích bản kể. Subject motion: chữ hiện theo trích, underline vẽ sau. Scene: giấy dó ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 316.43333333333334,
+      "end_seconds": 318.76666666666665,
+      "script_section_id": "s12",
+      "framing": "Quote giữa màn, underline tên núi",
+      "movement": "Quote reveal + underline draw",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «cùng lái buôn đi buôn bán» · «lấy uống nước» — hiện đúng lúc đọc trích. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Vẫn chữ rất tỉnh — nhưng hé ra chiếc am",
+      "information_role": "Am nhỏ = trạm nghỉ đường buôn (tên núi để dành đối chiếu)",
+      "hero_moment": false,
+      "texture_keywords": [
+        "quote_card",
+        "underline mực",
+        "giấy dó",
+        "mực kem"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc025",
+      "type": "generated",
+      "description": "AM NHỎ TRÊN NÚI: ảnh base img-06-nui-quynh-vi-am, am nhỏ sau cây trên triền núi; overlay TSX: đường mực dẫn từ chân núi lên cửa am — cửa am giữ tối, chưa thấy người; khói nhang mờ trôi. Render template intent: still-image scene + path-draw overlay. Subject: am + đường mòn. Subject motion: ken-burns chậm tiến lên núi; đường mòn vẽ theo narration. Scene: sương núi sớm. Camera: crane_up nhẹ.",
+      "start_seconds": 318.76666666666665,
+      "end_seconds": 346.06666666666666,
+      "script_section_id": "s12",
+      "framing": "Am giữa-lệch trên, mòn dẫn từ dưới",
+      "movement": "Slow crane-up + path draw",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «trên núi có am nhỏ» · «trong am có người» — cửa am tối giữ đúng câu cuối. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "natural",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Trạm nghỉ vắng đã không còn vắng",
+      "information_role": "Am nhỏ trên núi — nơi dân buôn ghé nước",
+      "hero_moment": false,
+      "texture_keywords": [
+        "am núi",
+        "sương sớm",
+        "khói nhang",
+        "cửa tối"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-06-nui-quynh-vi-am",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc026",
+      "type": "text_card",
+      "description": "QUOTE VỊ SƯ: quote card mực ấm — «trong am có sư tên gọi Phu Quang truyền phép cho Đồng Tử, Đồng Tử ở lại học phép» hiện đúng lúc đọc trích; chữ «ở lại» accent amber. Render template intent: quote-card reveal + accent. Subject: trích một dòng gọn. Subject motion: chữ hiện theo trích. Scene: giấy dó ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 346.06666666666666,
+      "end_seconds": 348.23333333333335,
+      "script_section_id": "s13",
+      "framing": "Quote giữa màn, accent «ở lại»",
+      "movement": "Quote reveal theo trích",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «trong am có sư» — hiện đúng lúc đọc trích. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Chỉ một dòng — nhưng đổi hướng cả truyện",
+      "information_role": "Người không khố ở lại học thứ không mua bán được",
+      "hero_moment": false,
+      "texture_keywords": [
+        "quote_card",
+        "accent «ở lại»",
+        "giấy dó",
+        "mực kem"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc027",
+      "type": "generated",
+      "description": "SƯ TRAO GẬY NÓN: ảnh base img-07-su-phu-quang, vị sư già trao gậy tre và nón lá cho người quỳ; overlay TSX: vòng hào quang mực ấm pulse khi đọc «truyền phép». Render template intent: still-image scene + speech-locked glow overlay. Subject: sư + học trò. Subject motion: ken-burns chậm; halo pulse theo narration. Scene: đèn dầu ấm trong am. Camera: dolly_in chậm.",
+      "start_seconds": 348.23333333333335,
+      "end_seconds": 386.26666666666665,
+      "script_section_id": "s13",
+      "framing": "Hai bóng giữa am, đèn dầu góc",
+      "movement": "Slow push-in + halo pulse",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «gặp sư» · «truyền phép» — halo pulse đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "dolly_in",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Khoảnh khắc trao đổi thầm lặng trong am",
+      "information_role": "Tên sư tạm cầm lại — chỉ 'một vị sư'",
+      "hero_moment": false,
+      "texture_keywords": [
+        "sư già",
+        "đèn dầu",
+        "am nhỏ",
+        "halo mực"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-07-su-phu-quang",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc028",
+      "type": "text_card",
+      "description": "QUOTE TRAO TẶNG: quote card mực ấm — «Sư bèn tặng Đồng Tử một cây trượng và một chiếc nón mà nói rằng: 'Linh thiêng ở những vật này đây'» hiện theo trích; chữ «Linh thiêng» accent amber. Góc dưới: bóng nhỏ chiếc khố mực nhạt — callback vật đầu tiên. Render template intent: quote-card reveal + callback silhouette. Subject: trích nguyên văn. Subject motion: chữ hiện theo trích, bóng khố fade-in cuối. Scene: giấy dó ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 386.26666666666665,
+      "end_seconds": 408.2,
+      "script_section_id": "s14",
+      "framing": "Quote giữa màn, bóng khố góc dưới",
+      "movement": "Quote reveal + khố fade-in",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «mà tôi muốn đọc nguyên văn» · «Linh thiêng ở những vật này đây» — hiện đúng lúc đọc trích. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Lời trao tặng đọc nguyên văn — vật nhỏ mang linh thiêng",
+      "information_role": "Hai vật mới: cây trượng và chiếc nón",
+      "hero_moment": false,
+      "texture_keywords": [
+        "quote_card",
+        "accent «Linh thiêng»",
+        "bóng khố",
+        "giấy dó"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc029",
+      "type": "generated",
+      "description": "GẬY NÓN TRAO TAY: ảnh base img-08-gay-non, Đồng Tử quỳ nhận cây gậy tre và chiếc nón lá từ tay sư; overlay TSX: hai vật phát hào quang mực ấm nhẹ khi đọc «Linh thiêng»; chữ nhỏ cạnh vật: gậy — «để tựa», nón — «để che». Render template intent: still-image scene + speech-locked glow + label chips. Subject: hai bàn tay và hai vật. Subject motion: ken-burns chậm; glow pulse theo narration. Scene: núi Quỳnh Vi, nắng xiên. Camera: slow push-in.",
+      "start_seconds": 408.2,
+      "end_seconds": 424.5,
+      "script_section_id": "s14",
+      "framing": "Hai vật giữa khung, sư và trò hai bên",
+      "movement": "Slow push-in + glow pulse",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «một cây gậy để tựa» · «một chiếc nón để che» — glow đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "dolly_in",
+        "lighting_key": "high_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Không vàng, không ruộng — gậy để tựa, nón để che",
+      "information_role": "Trao giá trị bằng vật dụng che chở",
+      "hero_moment": false,
+      "texture_keywords": [
+        "gậy tre",
+        "nón lá",
+        "hào quang mực",
+        "núi Quỳnh Vi"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-08-gay-non",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc030",
+      "type": "diagram",
+      "description": "BA TRANG — BA TÊN SƯ: diagram giấy dó — ba trang giấy xếp lệch ba lớp, mỗi trang ghi một dòng teal: «Phu Quang — núi Quỳnh Vi (Lĩnh Nam chích quái)» · «Phật-Quang — núi Quình-lãng (Phan Kế Bính)» · «Ngưỡng Quang — núi Quỳnh Viên (website bảo tàng)»; mỗi trang hiện đúng nhịp đọc. Render template intent: TSX staggered page reveal. Subject: ba trang giấy. Subject motion: trang rơi vào chỗ, chữ teal fade theo narration. Scene: nền giấy dó, mực teal. Camera: N/A — Remotion native.",
+      "start_seconds": 424.5,
+      "end_seconds": 445.06666666666666,
+      "script_section_id": "s15",
+      "framing": "Ba trang xếp bậc thang từ trên xuống",
+      "movement": "Trang rơi staggered + text fade",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «mở ba cuốn ra» · «gọi vị sư là Phu Quang» — trang 1 hiện đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Ba cuốn sách — ba câu trả lời cho một câu hỏi nhỏ",
+      "information_role": "Ba bản kể, ba tên sư, ba quả núi",
+      "hero_moment": false,
+      "texture_keywords": [
+        "trang giấy",
+        "mực teal",
+        "staggered reveal",
+        "bảo tàng"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc031",
+      "type": "text_card",
+      "description": "BA TÊN MỘT SƯ: text card — chuỗi «Phu Quang — Phật-Quang — Ngưỡng Quang» viết mực lớn giữa màn, ba nhịp gạch nối; dòng dưới mực nhạt: «Ba cái tên, ba bản kể». Render template intent: kinetic text card. Subject: ba cái tên. Subject motion: từng tên stroke-in theo nhịp đọc. Scene: giấy dó, mực ấm + teal. Camera: N/A — Remotion native.",
+      "start_seconds": 445.06666666666666,
+      "end_seconds": 464.73333333333335,
+      "script_section_id": "s15",
+      "framing": "Ba tên giữa màn, dòng phụ dưới",
+      "movement": "Stroke-in từng tên theo nhịp",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Phu Quang — Phật-Quang — Ngưỡng Quang» · «Ba cái tên, ba bản kể» — hiện đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Không bản nào tuyên bố mình là nguyên gốc duy nhất",
+      "information_role": "Truyện được chép đi chép lại qua nhiều bàn tay",
+      "hero_moment": false,
+      "texture_keywords": [
+        "kinetic text",
+        "stroke-in",
+        "mực ấm",
+        "mực teal"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc032",
+      "type": "diagram",
+      "description": "DẤU TAY NGƯỜI CHÉP: diagram — một trang giấy phóng to, ba dấu tay mực nhạt in lên ba chỗ khác nhau; mỗi dấu tay hiện đúng nhịp đọc «một lần người chép in dấu tay». Render template intent: SVG handprint stamp-in. Subject: trang giấy + dấu tay. Subject motion: trang ken-burns nhẹ, dấu tay đóng dấu (stamp) từng cái. Scene: giấy dó cũ, mực nhạt. Camera: N/A — Remotion native.",
+      "start_seconds": 464.73333333333335,
+      "end_seconds": 479.06666666666666,
+      "script_section_id": "s16",
+      "framing": "Trang giấy gần full, dấu tay rải ba góc",
+      "movement": "Stamp-in từng dấu tay",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «tôi thấy dấu tay» · «mỗi lần một bản được chép lại» — dấu tay đầu đóng đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "close_up",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Không phải nhầm lẫn — là dấu tay người kể",
+      "information_role": "Chép lại là in dấu tay lên truyện",
+      "hero_moment": false,
+      "texture_keywords": [
+        "dấu tay",
+        "giấy dó cũ",
+        "stamp-in",
+        "mực nhạt"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc033",
+      "type": "diagram",
+      "description": "SÁU TRANG MỘT NGUỒN: diagram teal — sáu ô vuông đại diện sáu trang web xếp vòng cung, đường kẻ teal truy về một ô nguồn duy nhất ở tâm; khi đọc «sự đồng thuận của những trang giấy» thì các đường kẻ pulse. Render template intent: TSX dependency fan-in diagram. Subject: sáu ô + một nguồn. Subject motion: ô hiện staggered, đường truy vết vẽ dần. Scene: nền tối, mực teal. Camera: N/A — Remotion native.",
+      "start_seconds": 479.06666666666666,
+      "end_seconds": 506.6666666666667,
+      "script_section_id": "s16",
+      "framing": "Sáu ô vòng cung, nguồn ở tâm",
+      "movement": "Fan-in lines draw-on",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «sáu trang web» · «không phải thang đo cho độ cổ» — fan-in vẽ đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Đồng thuận nhiều trang không bằng chứng độc lập",
+      "information_role": "Nhiều bản kể có thể chung một nguồn cũ",
+      "hero_moment": false,
+      "texture_keywords": [
+        "fan-in diagram",
+        "mực teal",
+        "nguồn chung",
+        "vòng cung"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc034",
+      "type": "generated",
+      "description": "QUÂN ĐÓNG TRẠI ĐÊM: ảnh base img-09-quan-quan-bai-tu-nhien, hàng trại quân triều đình bên bãi cát trong đêm, đuốc lửa thưa; overlay TSX: đường mực chỉ «bãi Tự Nhiên» + nhãn «cách con sông lớn». Render template intent: still-image scene + speech-locked map pin. Subject: trại quân trong đêm. Subject motion: ken-burns ngang chậm; đuốc lấp lánh procedural. Scene: đêm, bãi cát ven sông. Camera: slow pan.",
+      "start_seconds": 506.6666666666667,
+      "end_seconds": 518.6,
+      "script_section_id": "s17",
+      "framing": "Trại quân giữa, sông ở mép khung",
+      "movement": "Slow pan + đuốc flicker",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «đóng trại ở bãi Tự Nhiên» · «trời tối không kịp tiến quân» — pin hiện đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Một câu hành quân — không trận đánh, không kèn trống",
+      "information_role": "Quân triều đình đến sau đám cưới",
+      "hero_moment": false,
+      "texture_keywords": [
+        "trại quân",
+        "đuốc đêm",
+        "bãi cát",
+        "map pin"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-09-quan-quan-bai-tu-nhien",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc035",
+      "type": "text_card",
+      "description": "CARD «ĐỂ ĐÊM TỰ LÀM VIỆC»: text card tối giản nền giấy dó — câu «để đêm ấy tự làm phần việc của nó» viết mực lớn; chữ «đêm» accent mực trầm. Render template intent: text card với accent. Subject: một câu. Subject motion: fade + chữ «đêm» chậm rãi đậm thêm. Scene: giấy dó, không vật thể. Camera: N/A — Remotion native.",
+      "start_seconds": 518.6,
+      "end_seconds": 524.1,
+      "script_section_id": "s17",
+      "framing": "Câu giữa màn",
+      "movement": "Fade-in + accent đậm dần",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «để đêm ấy tự làm phần việc của nó» — nguyên văn giữ nguyên. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Truyện giao việc cho màn đêm",
+      "information_role": "Không trận đánh — đêm tự làm phần việc",
+      "hero_moment": false,
+      "texture_keywords": [
+        "text card",
+        "accent «đêm»",
+        "giấy dó",
+        "tối giản"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc036",
+      "type": "generated",
+      "description": "NỬA ĐÊM GIÓ LỚN: ảnh base img-10-gio-cat-thanh-bay, bão cát đêm — cát bay ngang, cây cong, bóng quân hỗn loạn; overlay TSX: vệt gió mực vẽ chéo theo hướng cat, chữ «gió lớn» hiện đúng nhịp. Render template intent: still-image scene + wind-stroke overlay. Subject: bãi cát trong bão. Subject motion: ken-burns chéo theo gió; vệt mực lướt ngang. Scene: nửa đêm, gió cát. Camera: handheld-style drift.",
+      "start_seconds": 524.1,
+      "end_seconds": 528.3666666666667,
+      "script_section_id": "s18",
+      "framing": "Cát và gió chiếm toàn khung",
+      "movement": "Diagonal drift + wind strokes",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «gió lớn nổi lên» · «cát bay, cây đổ» — vệt gió đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "handheld",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Tất cả diễn ra trong một hơi thở",
+      "information_role": "Nửa đêm bão nổi, quan quân hỗn loạn",
+      "hero_moment": false,
+      "texture_keywords": [
+        "bão cát",
+        "vệt gió mực",
+        "đêm",
+        "hỗn loạn"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-10-gio-cat-thanh-bay",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc037",
+      "type": "diagram",
+      "description": "THÀNH BAY — ĐẤT SỤT: diagram hai mặt — nửa trên: thành quách mực ấm nhấc lên khỏi mặt đất (mũi tên lên + «bay bổng lên trời»); nửa dưới: đất sụt thành lòng chảo, mực teal đổ đầy thành mặt nước «sụt xuống thành cái đầm lớn». Render template intent: TSX split transformation diagram. Subject: thành bay / đất sụt. Subject motion: thành rise-out, đất sink-in hai nhịp liên tiếp theo trích. Scene: nền giấy dó hai tầng. Camera: N/A — Remotion native.",
+      "start_seconds": 528.3666666666667,
+      "end_seconds": 549.0666666666667,
+      "script_section_id": "s18",
+      "framing": "Chia đôi trên-dưới: bay và sụt",
+      "movement": "Rise-out + sink-in hai nhịp",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «thành quách phút chốc bay bổng lên trời» · «sụt xuống thành cái đầm lớn» — hai nhịp biến hình đúng trích. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Nơi ở dựng công phu biến mất — chỉ còn mặt nước",
+      "information_role": "Không ai bị trừng phạt — chỉ còn mặt nước",
+      "hero_moment": true,
+      "texture_keywords": [
+        "biến hình",
+        "thành bay",
+        "đất sụt",
+        "mực teal"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc038",
+      "type": "generated",
+      "description": "SÁNG HÔM SAU — ĐẦM LẶNG: ảnh base img-11-dam-nhat-da, mặt đầm phẳng lặng ánh nắng sớm, không còn thành quách; overlay TSX: chữ «không thấy thành quách đâu cả» mực teal hiện rồi tan. Render template intent: still-image scene + dissolve caption. Subject: mặt đầm bình yên. Subject motion: ken-burns rất chậm; caption tan như sương. Scene: bình minh sau đêm bão. Camera: static hold.",
+      "start_seconds": 549.0666666666667,
+      "end_seconds": 554.4,
+      "script_section_id": "s19",
+      "framing": "Mặt đầm full khung, caption mờ",
+      "movement": "Very slow push + caption dissolve",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «không thấy thành quách đâu cả» · «đều cho là linh dị» — caption đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Sáng hôm sau — chỉ còn mặt nước",
+      "narrative_role": "resolution",
+      "information_role": "Dân chúng cho là linh dị, lập miếu thờ",
+      "hero_moment": false,
+      "texture_keywords": [
+        "đầm lặng",
+        "bình minh",
+        "caption tan",
+        "linh dị"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-11-dam-nhat-da",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc039",
+      "type": "diagram",
+      "description": "TÊN GỌI — ĐẦM MỘT ĐÊM: diagram — dòng mực viết «Nhất Dạ Trạch» rồi tách thành hai nhãn: «Nhất Dạ = một đêm» · «Trạch = đầm»; bên cạnh bản đồ giấy dầu nâu nhỏ đánh dấu vị trí đầm. Render template intent: TSX etymology split + map chip. Subject: cái tên. Subject motion: chữ tách nhãn theo nhịp; chấm bản đồ pulse. Scene: giấy dầu nâu cho map, mực ấm cho tên. Camera: N/A — Remotion native.",
+      "start_seconds": 554.4,
+      "end_seconds": 581.3666666666667,
+      "script_section_id": "s19",
+      "framing": "Tên giữa màn, bản đồ bên phải",
+      "movement": "Etymology split + map pulse",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «gọi đầm là đầm Nhất Dạ» · «đầm một đêm» — nhãn tách đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Truyện trả về đúng việc của nó: giải thích một cái tên",
+      "narrative_role": "resolution",
+      "information_role": "Nhất Dạ Trạch = đầm một đêm",
+      "hero_moment": false,
+      "texture_keywords": [
+        "etymology",
+        "giấy dầu nâu",
+        "bản đồ",
+        "tách nhãn"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc040",
+      "type": "diagram",
+      "description": "AI CHÉP — KHI NÀO: diagram kiểm kê — thanh thời gian mực từ «truyện kể» (mực amber mờ) tới «bản dịch hiện đại» (teal rõ); hai cờ mốc 1492/1493 cắm ở đoạn đầu, cờ «hôm nay» ở cuối; nhãn «không phải ảnh chụp thủ bản cổ» đặt cạnh bản dịch. Render template intent: TSX timeline with flags. Subject: chuỗi thời gian. Subject motion: thanh vẽ dần trái→phải, cờ cắm theo nhịp. Scene: nền giấy dó. Camera: N/A — Remotion native.",
+      "start_seconds": 581.3666666666667,
+      "end_seconds": 588.4333333333333,
+      "script_section_id": "s20",
+      "framing": "Timeline ngang giữa màn",
+      "movement": "Draw-on + cờ cắm staggered",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «bản dịch hiện đại» · «không phải ảnh chụp thủ bản cổ» — nhãn đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Ta vừa đọc theo bản dịch — mốc văn bản, không tuổi truyện",
+      "information_role": "Phân lớp: truyện kể vs văn bản ghi lại",
+      "hero_moment": false,
+      "texture_keywords": [
+        "timeline",
+        "cờ mốc",
+        "mực amber",
+        "mực teal"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc041",
+      "type": "text_card",
+      "description": "HAI MỐC — 1492 & 1493: text card teal — hai cột mốc giấy: «Lời tựa — Vũ Quỳnh — Hồng Đức 23 → 1492» · «Lời bạt — Kiều Phú — Hồng Đức 24 → 1493»; số 1492/1493 chữ teal lớn, hiện đúng nhịp đọc. Dòng cẩn thận dưới: «mốc văn bản, không phải tuổi của truyện». Render template intent: dual milestone card. Subject: hai mốc. Subject motion: hai cột slide-in hai bên; dòng cẩn thận fade cuối. Scene: giấy dó + mực teal. Camera: N/A — Remotion native.",
+      "start_seconds": 588.4333333333333,
+      "end_seconds": 613.2,
+      "script_section_id": "s20",
+      "framing": "Hai cột mốc đối xứng",
+      "movement": "Slide-in đôi + fade dòng cẩn thận",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «quy đổi ra năm 1492» · «chú thích quy đổi 1493» — số hiện đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Đây là chỗ cần cẩn thận nhất tối nay",
+      "information_role": "1492/1493 là mốc lời tựa/lời bạt theo chú thích bản dịch",
+      "hero_moment": false,
+      "texture_keywords": [
+        "milestone card",
+        "mực teal",
+        "1492",
+        "1493"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc042",
+      "type": "diagram",
+      "description": "TRỤC VẬT THỂ — XÂU LẠI (climax): diagram trục ngang — năm vật thể lần lượt sáng lên theo nhịp đọc: khố («thứ duy nhất nhà có») · màn («công chúa tự chọn») · chợ («người nghèo đứng bán») · gậy+nón («trao tay») · mặt nước («tên còn đọc được»); tất cả nối bằng một dòng mực liên tục. Render template intent: TSX axis-of-objects montage. Subject: năm vật. Subject motion: từng vật sáng staggered, dòng mực chạy qua. Scene: giấy dó, mực ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 613.2,
+      "end_seconds": 630.9333333333333,
+      "script_section_id": "s21",
+      "framing": "Trục ngang năm vật",
+      "movement": "Staggered highlight + ink line chạy",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «lần theo từng vật thể» · «Chiếc gậy, chiếc nón» — vật 4 sáng đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Tối nay ta đã lần theo từng vật thể",
+      "information_role": "Năm vật thể — năm lớp ý nghĩa",
+      "hero_moment": true,
+      "texture_keywords": [
+        "trục vật thể",
+        "montage",
+        "dòng mực",
+        "năm vật"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc043",
+      "type": "text_card",
+      "description": "CÁCH ĐỌC BIÊN TẬP: text card — câu «cộng đồng nhớ Chử Đồng Tử như một khát vọng về đời sống có phẩm giá» viết mực lớn; nhãn nhỏ dưới: «cách đọc biên tập — một đề xuất còn chờ duyệt». Render template intent: claim card + disclaimer chip. Subject: câu cách đọc. Subject motion: chữ hiện dòng, chip disclaimer fade cuối. Scene: giấy dó, mực ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 630.9333333333333,
+      "end_seconds": 654.1333333333333,
+      "script_section_id": "s21",
+      "framing": "Câu giữa màn, chip dưới",
+      "movement": "Line reveal + chip fade",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «có thể đọc là» · «khát vọng về đời sống có phẩm giá» — hiện đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Tôi nói là «có thể đọc» — không phải kết luận độc quyền",
+      "information_role": "Cách đọc biên tập, còn chờ duyệt",
+      "hero_moment": false,
+      "texture_keywords": [
+        "claim card",
+        "disclaimer chip",
+        "mực ấm",
+        "giấy dó"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc044",
+      "type": "generated",
+      "description": "ĐỀN ĐA HÒA HÔM NAY: ảnh base img-13-dinh-da-hoa, đền Đa Hòa trong nắng, mái đền lớp lớp; overlay TSX: thẻ teal «153/QĐ-BVHTTDL · 02/02/2023» gắn cạnh mái đền đúng nhịp đọc; chip nhỏ «ghi danh quốc gia — không phải UNESCO». Render template intent: still-image scene + speech-locked stat chip. Subject: mái đền. Subject motion: ken-burns đẩy nhẹ lên mái; thẻ teal slide-in. Scene: ngày hội, cờ lễ. Camera: tilt-up chậm.",
+      "start_seconds": 654.1333333333333,
+      "end_seconds": 673.1666666666666,
+      "script_section_id": "s22",
+      "framing": "Mái đền chiếm nửa trên, thẻ teal cạnh",
+      "movement": "Tilt-up + chip slide-in",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «Quyết định 153/QĐ-BVHTTDL» · «ngày 02/02/2023» — thẻ hiện đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tilt_up",
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Người thờ hôm nay vẫn giữ chữ ký của mình",
+      "information_role": "Ghi danh di sản phi vật thể quốc gia 2023",
+      "hero_moment": false,
+      "texture_keywords": [
+        "mái đền",
+        "thẻ teal",
+        "đền Đa Hòa",
+        "chip pháp lý"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-13-dinh-da-hoa",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc045",
+      "type": "diagram",
+      "description": "NHỊP HỘI — 9 LÀNG / 3 NĂM MỘT LẦN: diagram teal — vòng tròn ba nhịp «3 năm một lần», quanh vành ghi «9 làng · Tổng Mễ xưa»; một nhịp pulse khi đọc «vẫn đang chạy». Render template intent: TSX rhythm ring. Subject: vòng nhịp hội. Subject motion: vòng quay rất chậm, nhịp pulse theo narration. Scene: nền tối, mực teal. Camera: N/A — Remotion native.",
+      "start_seconds": 673.1666666666666,
+      "end_seconds": 684.8333333333334,
+      "script_section_id": "s22",
+      "framing": "Vòng tròn giữa màn",
+      "movement": "Ring rotate + pulse",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «chín làng, ba năm một lần» · «Tổng Mễ xưa» — vòng pulse đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Nhịp ấy vẫn đang chạy — không cần chứng minh thần kỳ",
+      "information_role": "9 làng · 3 năm một lần · hàng tổng",
+      "hero_moment": false,
+      "texture_keywords": [
+        "rhythm ring",
+        "mực teal",
+        "9 làng",
+        "3 năm một lần"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc046",
+      "type": "diagram",
+      "description": "SỐ PHẬN CÂU CHUYỆN: diagram — ba nhịp proof đang chạy: «rước nước mỗi kỳ hội» · «chín làng hẹn nhau» · «đầm một đêm còn đọc được trên bản đồ» — ba dòng mực chảy ngang không dừng, gặp nhau về một chữ «kể». Render template intent: TSX flowing lines converge. Subject: ba dòng đời sống. Subject motion: dòng chảy liên tục, hội tụ cuối scene. Scene: nền tối, mực ấm + teal. Camera: N/A — Remotion native.",
+      "start_seconds": 684.8333333333334,
+      "end_seconds": 700.9666666666667,
+      "script_section_id": "s23",
+      "framing": "Ba dòng ngang, hội tụ phải",
+      "movement": "Flowing lines converge",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «vẫn có người rước nước» · «vẫn có người cần kể nó» — dòng chảy đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Sống vì vẫn có người cần kể nó",
+      "information_role": "Số phận truyện nằm ở người kể, không ở phép màu",
+      "hero_moment": false,
+      "texture_keywords": [
+        "dòng chảy",
+        "hội tụ",
+        "mực ấm",
+        "người kể"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc047",
+      "type": "text_card",
+      "description": "CARD CHỐT — DÒNG SÔNG VẪN CHẢY: text card — câu «Đêm còn dài, và dòng sông thì vẫn chảy» viết mực lớn; ba chữ «vẫn chảy» accent amber, gợn sóng mực nhạt dưới chữ. Render template intent: text card + wave underline. Subject: câu chốt. Subject motion: fade-in, sóng mực lăn nhẹ liên tục. Scene: giấy dó, mực ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 700.9666666666667,
+      "end_seconds": 706.8333333333334,
+      "script_section_id": "s23",
+      "framing": "Câu giữa màn, sóng dưới",
+      "movement": "Fade + wave underline lăn nhẹ",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «dòng sông thì vẫn chảy» — nguyên văn giữ nguyên. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Chốt Hồi 5 — dòng sông vẫn chảy",
+      "information_role": "Đêm còn dài, sông vẫn chảy",
+      "hero_moment": false,
+      "texture_keywords": [
+        "text card",
+        "sóng mực",
+        "accent amber",
+        "chốt hồi"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc048",
+      "type": "text_card",
+      "description": "CÂU HỎI BÀI TẬP ĐỌC: text card — câu hỏi «Nhân dân làm gì để tưởng nhớ ông?» hiện như trang bài tập đọc lớp ba (khung trang, lề đỏ nhạt); đáp án để trống một nhịp rồi chữ mực teal «Nó nằm trên sông» viết tay vào chỗ trống. Render template intent: worksheet card + handwritten answer. Subject: trang bài tập. Subject motion: câu hỏi in sẵn, đáp án viết tay theo narration. Scene: giấy vở học trò. Camera: N/A — Remotion native.",
+      "start_seconds": 706.8333333333334,
+      "end_seconds": 712.0666666666667,
+      "script_section_id": "s24",
+      "framing": "Trang bài tập giữa màn",
+      "movement": "Handwrite-in đáp án",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «câu trả lời không nằm trên trang sách» · «Nó nằm trên sông» — viết tay đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Câu trả lời của bài tập đọc nằm ngoài trang sách",
+      "information_role": "Tưởng nhớ bằng nước — thứ từng che cho hai người",
+      "hero_moment": false,
+      "texture_keywords": [
+        "worksheet",
+        "viết tay",
+        "lề đỏ",
+        "mực teal"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc049",
+      "type": "generated",
+      "description": "LỊCH HỘI — THUYỀN RƯỚC NƯỚC: ảnh base img-01-thuyen-ruc-nuoc tái dùng, đoàn thuyền rước nước sáng sớm; overlay TSX: thẻ lịch «10–12 tháng Hai âm lịch» + nhịp «sáng 11/2 · 9 làng du thuyền rước nước» hiện đúng nhịp; nguồn chip nhỏ «lịch cổng du lịch Hưng Yên đăng». Render template intent: still-image scene + speech-locked schedule chip. Subject: thuyền rước nước. Subject motion: ken-burns chậm; chip slide theo nhịp. Scene: sương sớm sông Hồng. Camera: dolly_in chậm.",
+      "start_seconds": 712.0666666666667,
+      "end_seconds": 731.2666666666667,
+      "script_section_id": "s24",
+      "framing": "Thuyền nền, thẻ lịch góc phải",
+      "movement": "Slow push + chip slide-in",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «10–12 tháng Hai âm lịch» · «sáng ngày 11/2» — thẻ hiện đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Câu trả lời hóa ra là chính dòng nước ấy",
+      "information_role": "Lịch hội đăng: 10–12/2 AL, sáng 11/2, 9 làng rước nước",
+      "hero_moment": false,
+      "texture_keywords": [
+        "thẻ lịch",
+        "thuyền rước",
+        "sương sớm",
+        "9 làng"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-01-thuyen-ruc-nuoc",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc050",
+      "type": "diagram",
+      "description": "MONTAGE CALLBACK — VẬT THỂ XƯA&NAY (chạy nhanh): diagram montage — năm cặp nhỏ «xưa → nay» lướt qua theo nhịp: màn che → lễ · phố chợ → hội · thuyền buôn → du thuyền · đầm → địa danh · khố → mở đầu truyện; mỗi cặp một dòng mực chuyển amber sang teal. Render template intent: TSX then-now flip montage. Subject: năm cặp chuyển đổi. Subject motion: từng cặp flip staggered nhanh theo narration. Scene: giấy dó hai mực. Camera: N/A — Remotion native.",
+      "start_seconds": 731.2666666666667,
+      "end_seconds": 749.0333333333333,
+      "script_section_id": "s25",
+      "framing": "Lưới cặp xưa-nay lướt qua",
+      "movement": "Flip montage staggered",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «Xin nhìn lại các vật thể» · «chỉ có nước là chảy liên tục» — cặp cuối chốt đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Truyện kể và đời sống gặp nhau ở đúng một dòng nước",
+      "information_role": "Mỗi vật thể xưa có một hình thái nay",
+      "hero_moment": false,
+      "texture_keywords": [
+        "montage",
+        "xưa-nay",
+        "amber-teal",
+        "flip"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc051",
+      "type": "diagram",
+      "description": "CHỈ CÓ NƯỚC CHẢY LIÊN TỤC: diagram — các vật thể (khố, màn, chợ, gậy, nón) vẽ mực tĩnh dần nhạt; một dòng nước teal duy nhất chạy xuyên qua tất cả và vẫn chảy ra mép phải khung. Render template intent: TSX continuity line. Subject: dòng nước xuyên suốt. Subject motion: vật khác đậm-nhạt theo nhịp, dòng nước chảy không dừng. Scene: giấy dó, mực teal. Camera: N/A — Remotion native.",
+      "start_seconds": 749.0333333333333,
+      "end_seconds": 763.1666666666666,
+      "script_section_id": "s25",
+      "framing": "Dòng nước ngang xuyên năm vật",
+      "movement": "Objects fade, line flows",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «chỉ có nước là chảy liên tục» · «từ truyện tới hôm nay» — dòng chảy đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Đó là câu biên tập — không phải bằng chứng lịch sử",
+      "information_role": "Nước là chất liệu liên tục duy nhất của truyện",
+      "hero_moment": false,
+      "texture_keywords": [
+        "dòng nước",
+        "liên tục",
+        "mực teal",
+        "biên tập"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc052",
+      "type": "text_card",
+      "description": "QUOTE C13 — LỚP KỂ GIÁO DỤC: quote card giấy dó, mực teal, chữ «giúp dân làm nhiều việc lợi ích như dạy cách trồng lúa, nuôi tằm, dệt vải» hiện dòng dòng theo nhịp đọc; nhãn nhỏ góc trên «lớp kể giáo dục» màu teal, nguồn chip «trang bài tập đọc». Render template intent: quote card + label chip, speech-locked. Subject: trang bài tập đọc. Subject motion: chữ hiện theo nhịp narration. Scene: giấy dó, mực teal. Camera: N/A — Remotion native.",
+      "start_seconds": 763.1666666666666,
+      "end_seconds": 777.4333333333333,
+      "script_section_id": "s26",
+      "framing": "Quote giữa khung, nhãn teal góc trên",
+      "movement": "Lines reveal theo nhịp",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «giúp dân làm nhiều việc lợi ích» · «dạy cách trồng lúa, nuôi tằm, dệt vải» — đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Lớp kể cuối cùng là lớp giáo dục — cũng đáng quý theo cách của nó",
+      "information_role": "Quote nguyên văn trang bài tập đọc, nhãn lớp kể",
+      "hero_moment": false,
+      "texture_keywords": [
+        "quote card",
+        "mực teal",
+        "bài tập đọc",
+        "giáo dục"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc053",
+      "type": "diagram",
+      "description": "SƠ ĐỒ LỚP KỂ CHỒNG GIẤY: diagram — bốn lớp giấy dó xếp chồng hiện đúng nhịp đọc: biên soạn (ghi tư liệu) — chức sắc (ghi nghi thức) — du lịch (ghi lịch hội) — giáo dục (ghi bài học); mỗi lớp một mực hơi khác, chồng lên nhau như tờ giấy lót; dòng chân «không lớp nào là lịch sử kỹ thuật». Render template intent: TSX stacked-layers reveal. Subject: bốn lớp giấy. Subject motion: từng lớp slide-in + drop shadow theo narration. Scene: giấy dó nhiều lớp. Camera: N/A — Remotion native.",
+      "start_seconds": 777.4333333333333,
+      "end_seconds": 802.6,
+      "script_section_id": "s26",
+      "framing": "Lớp giấy xếp chồng lệch góc",
+      "movement": "Layer slide-in staggered",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «lớp biên soạn ghi tư liệu» · «lớp nào cũng đáng quý» · «không lớp nào là lịch sử kỹ thuật» — lớp cuối + dòng chân đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Mỗi lớp kể lại thêm điều nó muốn nhớ — và giới hạn của nó",
+      "information_role": "Bốn lớp kể và chức năng từng lớp",
+      "hero_moment": false,
+      "texture_keywords": [
+        "lớp giấy",
+        "chồng",
+        "bốn lớp kể",
+        "dòng chân"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc054",
+      "type": "diagram",
+      "description": "BA VÒNG SÓNG «VẪN»: diagram — mặt nước phẳng lặng mực ấm; ba vòng sóng lan nhỏ hiện đúng nhịp chuỗi «vẫn rước nước … vẫn ghé đền … vẫn kể»: mỗi vòng kèm hình phác họa nhỏ (thuyền — đền — người kể) mực ấm. Render template intent: TSX ripple reveal + mini icons. Subject: ba vòng sóng. Subject motion: ripple lan theo nhịp, icon fade-in khi vòng tới. Scene: mặt nước giấy dó. Camera: N/A — Remotion native.",
+      "start_seconds": 802.6,
+      "end_seconds": 808.6333333333333,
+      "script_section_id": "s27",
+      "framing": "Vòng sóng giữa, icon ven vòng",
+      "movement": "Ripple staggered + icon fade",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «vẫn rước nước» · «vẫn ghé đền, thắp hương, kể lại» — vòng hiện đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Những điều ta biết rõ: dân gian vẫn làm, đều đặn",
+      "information_role": "Ba thực hành sống còn tiếp diễn hôm nay",
+      "hero_moment": false,
+      "texture_keywords": [
+        "vòng sóng",
+        "vẫn",
+        "thuyền",
+        "đền",
+        "người kể"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc055",
+      "type": "diagram",
+      "description": "CHỖ THỜ KẺ NGHÈO NHẤT XÓM BÃI: diagram — góc đền nhỏ phác họa mực ấm; một ô thờ nhỏ đơn giản hiện đúng nhịp «dành một chỗ thờ cho kẻ nghèo nhất xóm bãi»; dòng mảnh «không phải vì thần tích — mà vì cách truyện ấy nhìn người nghèo» mực teal hiện đúng nhịp. Render template intent: TSX shrine-niche reveal. Subject: ô thờ nhỏ trong góc đền. Subject motion: góc đền vẽ mực, ô thờ sáng dần đúng nhịp. Scene: đền mực ấm, góc tối. Camera: N/A — Remotion native.",
+      "start_seconds": 808.6333333333333,
+      "end_seconds": 818.5,
+      "script_section_id": "s27",
+      "framing": "Ô thờ nhỏ góc trái dưới",
+      "movement": "Corner shine reveal",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «dành một chỗ thờ cho kẻ nghèo nhất xóm bãi» · «cách truyện ấy nhìn người nghèo» — đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Người nghèo nhất xóm bãi vẫn có chỗ trong đền — và trong truyện",
+      "information_role": "Thực hành thờ cúng dành cho người nghèo nhất xóm bãi",
+      "hero_moment": false,
+      "texture_keywords": [
+        "ô thờ",
+        "góc đền",
+        "kẻ nghèo nhất xóm bãi",
+        "mực teal"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc056",
+      "type": "text_card",
+      "description": "CHỮ TAN VÀO MẶT NƯỚC: text card — dòng «còn người kể, và còn người nghe» hiện đúng nhịp đọc, sau đó tan dần vào mặt nước mực ấm (dissolve chữ → gợn mực); nền là mặt nước phẳng lặng. Render template intent: text-on-water dissolve card. Subject: dòng chữ cuối. Subject motion: chữ reveal rồi dissolve như mực loang. Scene: mặt nước mực ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 818.5,
+      "end_seconds": 825.2666666666667,
+      "script_section_id": "s27",
+      "framing": "Chữ giữa mặt nước",
+      "movement": "Reveal rồi ink-dissolve",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «chắc chắn, không phải vì phép màu» · «còn người kể, và còn người nghe» — đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Truyện sống vì còn người kể và còn người nghe",
+      "information_role": "Chốt ý: sự sống còn của truyền thuyết",
+      "hero_moment": false,
+      "texture_keywords": [
+        "tan vào nước",
+        "mực ấm",
+        "người kể",
+        "người nghe"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc057",
+      "type": "diagram",
+      "description": "TỨ BẤT TỬ — BỐN CHÂN ĐÈN: diagram — bốn chân đèn trong tối; ba chân đã cháy sáng đúng nhịp đọc (Tản Viên — Phù Đổng — Chử Đồng Tử, phác họa mực); chân thứ tư còn tối, chỉ hiện rõ đúng nhịp «Còn một người». Render template intent: TSX lamp-lit reveal, speech-locked. Subject: bốn chân đèn. Subject motion: ba chân sáng tuần tự, chân tư giữ tối. Scene: nền tối, mực ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 825.2666666666667,
+      "end_seconds": 828.6,
+      "script_section_id": "s28",
+      "framing": "Bốn chân đèn ngang khung",
+      "movement": "Lamp lights staggered",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchor: «Tứ bất tử» — hiện đúng nhịp mở. Speech-lock ±0,3s theo ASR narration_words. Callback Tứ bất tử: đúng 1 nhịp, không lặp.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Ba vị đã kể — còn một người chưa",
+      "information_role": "Tứ bất tử: ba vị đã kể trong series",
+      "hero_moment": false,
+      "texture_keywords": [
+        "Tứ bất tử",
+        "chân đèn",
+        "ba sáng một tối",
+        "callback"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc058",
+      "type": "generated",
+      "description": "MỘT NGƯỜI PHỤ NỮ — BÓNG MỰC: ảnh base img-14-bon-chan-den tái dùng cho cảnh này: chân đèn thứ tư thắp sáng thành bóng phác họa mực của một người phụ nữ đứng — KHÔNG tên, KHÔNG nhãn tên; chỉ dòng chữ mảnh «còn một người» hiện đúng nhịp. Render template intent: still-image scene + speech-locked caption. Subject: bóng người phụ nữ. Subject motion: ken-burns rất chậm, sáng dần từ chân đèn. Scene: tối, mực ấm. Camera: push_in nhẹ.",
+      "start_seconds": 828.6,
+      "end_seconds": 829.8,
+      "script_section_id": "s28",
+      "framing": "Bóng đứng giữa, đèn thứ tư dưới",
+      "movement": "Slow push + glow rise",
+      "transition_in": "cut",
+      "transition_out": "dissolve",
+      "overlay_notes": "anchors: «Còn một người» · «một người phụ nữ» — KHÔNG hiện tên, KHÔNG spoil S2E04. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "lighting_key": "low_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Hẹn tập sau — chỉ một bóng, không tên",
+      "information_role": "Tease S2E04: một người phụ nữ, không spoil",
+      "hero_moment": false,
+      "texture_keywords": [
+        "bóng mực",
+        "người phụ nữ",
+        "chân đèn tư",
+        "tease"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "img-14-bon-chan-den",
+          "source": "provided"
+        }
+      ]
+    },
+    {
+      "id": "sc059",
+      "type": "text_card",
+      "description": "HẸN TẬP SAU — KHÔNG TÊN: text card giấy dó tối — dòng «hẹn bạn ở tập sau» hiện đúng nhịp; dưới nó một dòng mảnh «một người phụ nữ — tự viết lại nhân dạng của truyện» mực teal, KHÔNG tên nhân vật, KHÔNG hiện chữ Liễu Hạnh. Render template intent: tease text card, speech-locked. Subject: thẻ hẹn. Subject motion: hai dòng reveal theo nhịp. Scene: giấy dó tối. Camera: N/A — Remotion native.",
+      "start_seconds": 829.8,
+      "end_seconds": 845.3333333333334,
+      "script_section_id": "s28",
+      "framing": "Hai dòng giữa khung",
+      "movement": "Two-line reveal",
+      "transition_in": "dissolve",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «Hẹn bạn ở tập sau» · «một người phụ nữ» — KHÔNG spoil tên S2E04. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Câu hỏi để ngỏ — lý do quay lại tập sau",
+      "information_role": "Tease nội dung S2E04 không tiết lộ",
+      "hero_moment": false,
+      "texture_keywords": [
+        "hẹn tập sau",
+        "tease",
+        "mực teal",
+        "không tên"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc060",
+      "type": "text_card",
+      "description": "THẺ SERIES: thẻ series trên giấy dó — «Những vị thần ở lại — mỗi tập một truyền thuyết · một bằng chứng thật» hiện đúng nhịp đọc, kèm series mark mực ấm nhỏ. Render template intent: series title card, speech-locked. Subject: thẻ series. Subject motion: chữ + mark reveal theo nhịp. Scene: giấy dó. Camera: N/A — Remotion native.",
+      "start_seconds": 845.3333333333334,
+      "end_seconds": 854.3333333333334,
+      "script_section_id": "s29",
+      "framing": "Thẻ series giữa khung",
+      "movement": "Title reveal + mark fade",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "anchors: «mỗi tập, một truyền thuyết, một bằng chứng thật» — đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Khẳng định format series — truyền thuyết + bằng chứng",
+      "information_role": "Tên series và lời hứa format",
+      "hero_moment": false,
+      "texture_keywords": [
+        "series card",
+        "giấy dó",
+        "series mark"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc061",
+      "type": "text_card",
+      "description": "CARD NGUỒN: card nguồn trên giấy dó — liệt kê tĩnh để người xem tự đọc: «Nguồn: Lĩnh Nam chích quái (bản dịch) · Phan Kế Bính (Wikisource) · Bảo tàng Lịch sử quốc gia · Cổng du lịch & Cổng hành chính Hưng Yên · VnDoc»; cỡ chữ nhỏ, mực tĩnh, không reveal theo nhịp. Render template intent: static source card. Subject: danh sách nguồn. Subject motion: tĩnh, chỉ fade-in đầu scene. Scene: giấy dó. Camera: N/A — Remotion native.",
+      "start_seconds": 854.3333333333334,
+      "end_seconds": 862.0666666666667,
+      "script_section_id": "s30",
+      "framing": "Danh sách nguồn giữa khung",
+      "movement": "Static fade-in",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "anchor: «Tất cả những gì tôi kể tối nay đều có nguồn» — card hiện trọn vẹn để tự đọc. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Mọi tuyên bố tối nay đều truy được nguồn",
+      "information_role": "Danh sách nguồn đầy đủ của tập",
+      "hero_moment": false,
+      "texture_keywords": [
+        "card nguồn",
+        "giấy dó",
+        "liệt kê tĩnh"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc062",
+      "type": "diagram",
+      "description": "DÒNG NƯỚC KHÉP TẬP: diagram — dòng nước mực ấm chảy ngang màn hình, mang theo vệt mờ của các vật thể của tập (khố — màn che — chợ — gậy — nón — đầm — đền) rồi từng vệt tan hết, cuối chỉ còn nước chảy ra mép phải; khép trọn concept «dòng sông còn chảy». Render template intent: TSX flowing-water close. Subject: dòng nước + vệt vật thể. Subject motion: nước chảy liên tục, vệt tan tuần tự. Scene: giấy dó, mực ấm. Camera: N/A — Remotion native.",
+      "start_seconds": 862.0666666666667,
+      "end_seconds": 865.7333333333333,
+      "script_section_id": "s31",
+      "framing": "Dòng nước ngang xuyên khung",
+      "movement": "Flow + trace dissolve",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "anchor: «nó chảy tiếp, như dòng nước được rước mỗi năm» — dòng chảy đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Câu chuyện không dừng — dòng sông còn chảy",
+      "information_role": "Khái niệm xuyên tập: dòng nước liên tục",
+      "hero_moment": false,
+      "texture_keywords": [
+        "dòng nước",
+        "vệt mờ",
+        "tan hết",
+        "khép tập"
+      ],
+      "required_assets": []
+    },
+    {
+      "id": "sc063",
+      "type": "text_card",
+      "description": "CREDITS — CẢM ƠN: credits card giấy dó tối — «Những vị thần ở lại · S2E03 — Chử Đồng Tử» + series mark mực ấm hiện đúng nhịp đọc «Cảm ơn bạn đã xem»; giữ khung tĩnh để kết. Render template intent: credits card, speech-locked. Subject: credits. Subject motion: title + mark reveal. Scene: giấy dó tối. Camera: N/A — Remotion native.",
+      "start_seconds": 865.7333333333333,
+      "end_seconds": 869.2666666666667,
+      "script_section_id": "s32",
+      "framing": "Credits giữa khung",
+      "movement": "Credits reveal",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "anchor: «Cảm ơn bạn đã xem» — đúng nhịp. Speech-lock ±0,3s theo ASR narration_words.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Kết trọn vẹn — lời cảm ơn người xem",
+      "information_role": "Tên tập và series",
+      "hero_moment": false,
+      "texture_keywords": [
+        "credits",
+        "giấy dó tối",
+        "series mark",
+        "S2E03"
+      ],
+      "required_assets": []
+    }
+  ]
+}

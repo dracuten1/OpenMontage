@@ -1,0 +1,602 @@
+{
+  "verdict": "PASS_WITH_WARNINGS",
+  "checks": [
+    {
+      "check": "local_flat_element_schema",
+      "passed": true,
+      "details": "No canonical render_report exists: compose-only, no render requested."
+    },
+    {
+      "check": "unique_element_ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "21_scene_coverage",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s01_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s01_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s01_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s02_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s02_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s02_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s03_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s03_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s03_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s04_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s04_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s04_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s05_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s05_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s05_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s06_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s06_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s06_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s07_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s07_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s07_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s08_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s08_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s08_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s09_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s09_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s09_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s10_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s10_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s10_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s11_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s11_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s11_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s12_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s12_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s12_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s13_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s13_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s13_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s14_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s14_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s14_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s15_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s15_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s15_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s16_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s16_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s16_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s17_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s17_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s17_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s18_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s18_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s18_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s19_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s19_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s19_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s20_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s20_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s20_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s21_wav_duration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s21_frame_window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "s21_script_provider_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "duration_formula",
+      "passed": true,
+      "details": {
+        "frames": 8039,
+        "audio_seconds": 249.90160416666666
+      }
+    },
+    {
+      "check": "word_windows",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "anchor_identity",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "reveal_formula_and_windows",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "caption_length_85",
+      "passed": true,
+      "details": 72
+    },
+    {
+      "check": "caption_windows",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "forbidden_Marseille_counts_absent",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "S14_full_force_composition",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "S17_precise_annulment",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "chart_speech_order",
+      "passed": true,
+      "details": [
+        {
+          "kind": "bar2026",
+          "start_frame_local": 269,
+          "display": "2026\n>1.000–1.200\nƯỚC TÍNH · FT · Morningstar"
+        },
+        {
+          "kind": "bar2023",
+          "start_frame_local": 363,
+          "display": "2023\n730–798\nFrance Assureurs · Morningstar"
+        },
+        {
+          "kind": "bar2018",
+          "start_frame_local": 494,
+          "display": "2018–19\n≈220\nMorningstar"
+        }
+      ]
+    },
+    {
+      "check": "static_camera_code_scan",
+      "passed": true,
+      "details": "Source inspection only; opacity + <=8px element translation, no camera transform."
+    },
+    {
+      "check": "HUD_fields",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "registration_entry",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "media_paths_exist",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "fixed_photo_credit",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "named_card_claim_regressions",
+      "passed": true,
+      "details": [
+        {
+          "scene": "s03",
+          "element": "e4",
+          "display": "Hàng triệu lượt xem",
+          "later_claim": "thứ Bảy",
+          "claim_present": false,
+          "resolved": true
+        },
+        {
+          "scene": "s04",
+          "element": "e2",
+          "display": "Thiếu giáo viên",
+          "later_claim": "trường học xuống cấp",
+          "claim_present": false,
+          "resolved": true
+        },
+        {
+          "scene": "s13",
+          "element": "e4",
+          "display": "174 tạm giam\nTheo Bộ trưởng Tư pháp",
+          "later_claim": "hơn 900",
+          "claim_present": false,
+          "resolved": true
+        },
+        {
+          "scene": "s16",
+          "element": "e1",
+          "display": "Macron: giận và thẹn",
+          "later_claim": "không khoan nhượng",
+          "claim_present": false,
+          "resolved": true
+        },
+        {
+          "scene": "s16",
+          "element": "e3",
+          "display": "Nuñez xin từ chức\nTheo Euronews",
+          "later_claim": "Macron từ chối",
+          "claim_present": false,
+          "resolved": true
+        },
+        {
+          "scene": "s17",
+          "element": "e0",
+          "display": "Thứ Năm 22/10",
+          "later_claim": "toà hành chính Paris",
+          "claim_present": false,
+          "resolved": true
+        },
+        {
+          "scene": "s20",
+          "element": "e1",
+          "display": "Sáu tháng trước bầu cử",
+          "later_claim": "tháng 4",
+          "claim_present": false,
+          "resolved": true
+        }
+      ]
+    },
+    {
+      "check": "three_point_timeline_user_SSOT",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "retrospective_references_genuine",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "133_elements",
+      "passed": true,
+      "details": 133
+    },
+    {
+      "check": "artifact_runtime_copies_equal",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "builder_runtime_displays_match",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "scoped_tsc",
+      "passed": true,
+      "details": {
+        "returncode": 0,
+        "output": ""
+      }
+    },
+    {
+      "check": "V1_and_inputs_unchanged_during_audit",
+      "passed": true,
+      "details": "SHA256 audit-start/end comparison only; cannot prove historical V1 immutability without pre-compose baseline."
+    }
+  ],
+  "findings": [
+    {
+      "severity": "suggestion",
+      "reference": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/src/france-riots-20261023/v2/EpisodeFullV2.tsx:15-20,48",
+      "description": "Generic stacked-card treatment dominates; slideshow/readability floor cannot be certified without visual review.",
+      "proposed_fix": "Lead should perform scene-by-scene mobile readability, clipping and slideshow QC before release; static camera is required, not a defect."
+    }
+  ],
+  "compound_claim_measurements": [],
+  "regression_status": [
+    {
+      "scene": "s03",
+      "element": "e4",
+      "display": "Hàng triệu lượt xem",
+      "later_claim": "thứ Bảy",
+      "claim_present": false,
+      "resolved": true
+    },
+    {
+      "scene": "s04",
+      "element": "e2",
+      "display": "Thiếu giáo viên",
+      "later_claim": "trường học xuống cấp",
+      "claim_present": false,
+      "resolved": true
+    },
+    {
+      "scene": "s13",
+      "element": "e4",
+      "display": "174 tạm giam\nTheo Bộ trưởng Tư pháp",
+      "later_claim": "hơn 900",
+      "claim_present": false,
+      "resolved": true
+    },
+    {
+      "scene": "s16",
+      "element": "e1",
+      "display": "Macron: giận và thẹn",
+      "later_claim": "không khoan nhượng",
+      "claim_present": false,
+      "resolved": true
+    },
+    {
+      "scene": "s16",
+      "element": "e3",
+      "display": "Nuñez xin từ chức\nTheo Euronews",
+      "later_claim": "Macron từ chối",
+      "claim_present": false,
+      "resolved": true
+    },
+    {
+      "scene": "s17",
+      "element": "e0",
+      "display": "Thứ Năm 22/10",
+      "later_claim": "toà hành chính Paris",
+      "claim_present": false,
+      "resolved": true
+    },
+    {
+      "scene": "s20",
+      "element": "e1",
+      "display": "Sáu tháng trước bầu cử",
+      "later_claim": "tháng 4",
+      "claim_present": false,
+      "resolved": true
+    }
+  ],
+  "unperformed": [
+    "No PNG/image reads, render, MP4 playback, perceptual readability, source-media visual verification, actual mix loudness/RMS, transcript round-trip, or full CLI bundling/browser registration test.",
+    "Canonical render_report schema not applicable: no render_report produced. Local element schema checked; no claim all pipeline artifacts validated.",
+    "Active preset pacing/color/bounce superseded by task-specific navy/coral theme, natural-duration scenes and static-camera veto."
+  ],
+  "entry_usage": "remotion render /Users/tuyennguyen/project/OpenMontage/remotion-composer/src/france-riots-20261023/v2/entryV2.tsx FranceRiots20261023V2Debug <output> (NOT EXECUTED)"
+}

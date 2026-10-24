@@ -1,0 +1,203 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "img-scene-01",
+      "type": "image",
+      "path": "assets/images/sc01_bg.png",
+      "source_tool": "image_generator",
+      "scene_id": "scene-01",
+      "model": "cx/gpt-5.6-luna-image",
+      "cost_usd": 0.0,
+      "format": "png",
+      "subtype": "background",
+      "provider": "9router_local",
+      "license": "Custom/Internal"
+    },
+    {
+      "id": "img-scene-02",
+      "type": "image",
+      "path": "assets/images/sc02_bg.png",
+      "source_tool": "image_generator",
+      "scene_id": "scene-02",
+      "model": "cx/gpt-5.6-luna-image",
+      "cost_usd": 0.0,
+      "format": "png",
+      "subtype": "background",
+      "provider": "9router_local",
+      "license": "Custom/Internal"
+    },
+    {
+      "id": "img-scene-03",
+      "type": "image",
+      "path": "assets/images/sc03_bg.png",
+      "source_tool": "image_generator",
+      "scene_id": "scene-03",
+      "model": "cx/gpt-5.6-luna-image",
+      "cost_usd": 0.0,
+      "format": "png",
+      "subtype": "background",
+      "provider": "9router_local",
+      "license": "Custom/Internal"
+    },
+    {
+      "id": "img-scene-04",
+      "type": "image",
+      "path": "assets/images/sc04_bg.png",
+      "source_tool": "image_generator",
+      "scene_id": "scene-04",
+      "model": "cx/gpt-5.6-luna-image",
+      "cost_usd": 0.0,
+      "format": "png",
+      "subtype": "background",
+      "provider": "9router_local",
+      "license": "Custom/Internal"
+    },
+    {
+      "id": "img-scene-05",
+      "type": "image",
+      "path": "assets/images/sc05_bg.png",
+      "source_tool": "image_generator",
+      "scene_id": "scene-05",
+      "model": "cx/gpt-5.6-luna-image",
+      "cost_usd": 0.0,
+      "format": "png",
+      "subtype": "background",
+      "provider": "9router_local",
+      "license": "Custom/Internal"
+    },
+    {
+      "id": "img-scene-06",
+      "type": "image",
+      "path": "assets/images/sc06_bg.png",
+      "source_tool": "image_generator",
+      "scene_id": "scene-06",
+      "model": "cx/gpt-5.6-luna-image",
+      "cost_usd": 0.0,
+      "format": "png",
+      "subtype": "background",
+      "provider": "9router_local",
+      "license": "Custom/Internal"
+    },
+    {
+      "id": "audio-voice-scene-01",
+      "type": "narration",
+      "path": "assets/audio/sc01_voice.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-01",
+      "model": "vieneu_thien_minh",
+      "cost_usd": 0.0,
+      "format": "wav",
+      "provider": "local_vieneu",
+      "voice_performance": {
+        "source_section_id": "sec-01",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "audio-voice-scene-02",
+      "type": "narration",
+      "path": "assets/audio/sc02_voice.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-02",
+      "model": "vieneu_thien_minh",
+      "cost_usd": 0.0,
+      "format": "wav",
+      "provider": "local_vieneu",
+      "voice_performance": {
+        "source_section_id": "sec-02",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "audio-voice-scene-03",
+      "type": "narration",
+      "path": "assets/audio/sc03_voice.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-03",
+      "model": "vieneu_thien_minh",
+      "cost_usd": 0.0,
+      "format": "wav",
+      "provider": "local_vieneu",
+      "voice_performance": {
+        "source_section_id": "sec-03",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "audio-voice-scene-04",
+      "type": "narration",
+      "path": "assets/audio/sc04_voice.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-04",
+      "model": "vieneu_thien_minh",
+      "cost_usd": 0.0,
+      "format": "wav",
+      "provider": "local_vieneu",
+      "voice_performance": {
+        "source_section_id": "sec-04",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "audio-voice-scene-05",
+      "type": "narration",
+      "path": "assets/audio/sc05_voice.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-05",
+      "model": "vieneu_thien_minh",
+      "cost_usd": 0.0,
+      "format": "wav",
+      "provider": "local_vieneu",
+      "voice_performance": {
+        "source_section_id": "sec-05",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "audio-voice-scene-06",
+      "type": "narration",
+      "path": "assets/audio/sc06_voice.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-06",
+      "model": "vieneu_thien_minh",
+      "cost_usd": 0.0,
+      "format": "wav",
+      "provider": "local_vieneu",
+      "voice_performance": {
+        "source_section_id": "sec-06",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "audio-bgm-full",
+      "type": "music",
+      "path": "assets/audio/full_bgm.wav",
+      "source_tool": "media_library",
+      "scene_id": "scene-01",
+      "cost_usd": 0.0,
+      "duration_seconds": 100.0,
+      "format": "wav",
+      "provider": "incompetech",
+      "license": "CC-BY 3.0"
+    }
+  ],
+  "total_cost_usd": 0.0,
+  "metadata": {
+    "project_id": "coastal-reclamation-20261024",
+    "pipeline": "animated-explainer",
+    "total_assets": 13
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "status": "brief_authorized_draft_run",
+  "editorial_draft_only": false,
+  "line_numbering": "1-based physical lines in inputs/research_brief.md",
+  "source_manifest": [
+    "inputs/research_brief.md (sealed copy, owner-đã duyệt Gate 2)",
+    "inputs/evidence_manifest.txt (13 evidence files, originals at ~/project/research/france-riots-2026-10-23/evidence/)"
+  ],
+  "evidence_level": "sealed approved research brief ONLY; không thêm fact/số ngoài brief",
+  "qa_flags_binding": [
+    "'gần 2.400' bắt giữ LUÔN kèm 'theo tổng kê của giới chức'",
+    "~1 tỷ € là ước tính bảo hiểm — chart phải ghi 'ước tính'",
+    "BỎ khỏi video (an toàn fact): 900 trường học (medium confidence), 30.000 kẻ cướp Marseille (bị tranh cãi), người chết Paris Q10 do đột quỵ, thiếu niên Saint-Étienne cụt tay — không dùng, không hiển thị"
+  ],
+  "claims": [
+    {
+      "id": "W-elysee-200m",
+      "section": "S1,S5",
+      "classification": "source_supported_news",
+      "brief_line": 24,
+      "exact_quote": "các nhóm tới **cách Điện Élysée 200m**, dựng barricade trên Champs-Élysées",
+      "used_for": "hook (owner duyệt) + scene Paris"
+    },
+    {
+      "id": "W-causes",
+      "section": "S2",
+      "classification": "source_supported_news",
+      "brief_line": 16,
+      "exact_quote": "thiếu giáo viên (lớp không người dạy nhiều tuần), cắt giảm ngân sách + xóa vị trí giáo viên trong dự án budget 2027... yêu cầu **xóa nền tảng tuyển sinh đại học Parcoursup**",
+      "used_for": "gốc rễ tháng 9/2026"
+    },
+    {
+      "id": "W-spread",
+      "section": "S3",
+      "classification": "source_supported_news",
+      "brief_line": 19,
+      "exact_quote": "Công đoàn CGT + Confédération paysanne tham gia; Gilets jaunes tái xuất (\"Jaunes et jeunes\") — chống lạm phát, giá xăng, dự án budget 2027 **đóng băng lương + trợ cấp công chức**",
+      "used_for": "lan toàn quốc + áo vàng tham gia"
+    },
+    {
+      "id": "W-hack",
+      "section": "S3",
+      "classification": "source_supported_news",
+      "brief_line": 20,
+      "exact_quote": "**16/10**: Website đảng Les Républicains bị hack, thay bằng lời kêu gọi xuống đường ngày mai.",
+      "used_for": "mốc 16/10"
+    },
+    {
+      "id": "W-tiktok-call",
+      "section": "S3",
+      "classification": "source_supported_news",
+      "brief_line": 18,
+      "exact_quote": "**Lời kêu gọi ngày 17/10 phát từ TikTok** — creator bí danh **\"V2\"/\"v2.95\"\"... có **bản đồ cộng tác trực tuyến** chỉ điểm tập hợp + vị trí cảnh sát/barricade/khói cay",
+      "used_for": "đòn bẩy TikTok + bản đồ cộng tác"
+    },
+    {
+      "id": "W-scale",
+      "section": "S4",
+      "classification": "source_supported_news",
+      "brief_line": 23,
+      "exact_quote": "Bộ Nội vụ: **550.000 người, 110 cuộc tuần hành, riêng Paris 110.000**... Ban tổ chức: **800.000**",
+      "used_for": "stat card quy mô đêm 17/10"
+    },
+    {
+      "id": "W-paris-looting",
+      "section": "S5",
+      "classification": "source_supported_news",
+      "brief_line": 24,
+      "exact_quote": "18h đoàn chính thức tan → đám đông cướp **hàng chục cửa hàng**",
+      "used_for": "hàng chục cửa hàng bị cướp"
+    },
+    {
+      "id": "W-limoges",
+      "section": "S6",
+      "classification": "source_supported_news",
+      "brief_line": 25,
+      "exact_quote": "vài trăm \"casseurs\" đập kính xông vào **toà thị chính inaugurated 1883**... **phóng hỏa — mái vòm + tháp chuông sụp**... chính quyền gọi là **\"thảm họa di sản\" (catastrophe patrimoniale)**",
+      "used_for": "Limoges 1883 cháy"
+    },
+    {
+      "id": "W-lyon",
+      "section": "S6",
+      "classification": "source_supported_news",
+      "brief_line": 26,
+      "exact_quote": "**Lyon**: **200-300 cửa hàng** bị đập phá/cướp (S2), **đốt văn phòng du lịch place Bellecour**",
+      "used_for": "Lyon 200-300 cửa hàng"
+    },
+    {
+      "id": "W-marseille",
+      "section": "S6",
+      "classification": "source_supported_news",
+      "brief_line": 27,
+      "exact_quote": "**Marseille**: đám đông xông vào sảnh toà thị chính",
+      "used_for": "Marseille xông toà thị chính (KHÔNG dùng số 30.000 bị tranh cãi)"
+    },
+    {
+      "id": "W-arrests",
+      "section": "S7",
+      "classification": "source_supported_news",
+      "brief_line": 32,
+      "exact_quote": "đêm 17/10 sơ kết **1.200 người (855 ở vùng Paris)**; sau các ngày truy quét tổng cộng lên **gần 2.400** [S1+S5; 2.400 = grounded, medium-high confidence]",
+      "used_for": "stat card bắt giữ với attribution bắt buộc"
+    },
+    {
+      "id": "W-police-injured",
+      "section": "S7",
+      "classification": "source_supported_news",
+      "brief_line": 33,
+      "exact_quote": "tổng cộng liên quan biểu tình **997 lực lượng** bị thương",
+      "used_for": "997 cảnh sát thương"
+    },
+    {
+      "id": "W-shops",
+      "section": "S7",
+      "classification": "source_supported_news",
+      "brief_line": 34,
+      "exact_quote": "bộ trưởng Serge Papin 19/10: **3.000 cửa hàng**",
+      "used_for": "~3.000 cửa hàng"
+    },
+    {
+      "id": "W-insurance-chart",
+      "section": "S8",
+      "classification": "source_supported_news",
+      "brief_line": 35,
+      "exact_quote": "**Bảo hiểm ước tính tổng chi phí cỡ ~1 TỶ €** — so Gilets jaunes 2018-19: 256 triệu €, bạo loạn 2023: 795 triệu €; thiệt hại bạo loạn **không được bảo hiểm mặc định**",
+      "used_for": "bar chart zero-based 256/795/~1.000, 2026 ghi 'ước tính'"
+    },
+    {
+      "id": "W-government",
+      "section": "S9",
+      "classification": "source_supported_news",
+      "brief_line": 36,
+      "exact_quote": "nổi \"cơn giận\" và \"nhục nhã\", hứa **\"intraitable\"** (không khoan nhượng)... Bộ trưởng Nội vụ **Laurent Nuñez nộp đơn từ chức — Macron KHÔNG chấp nhận**",
+      "used_for": "Macron + Nuñez bị giữ lại"
+    },
+    {
+      "id": "W-ban",
+      "section": "S9",
+      "classification": "source_supported_news",
+      "brief_line": 39,
+      "exact_quote": "Macron tuyên bố **cấm biểu tình \"bất hợp pháp\"** — các nhóm \"không có tính chính danh\" bị cấm",
+      "used_for": "22/10 cấm biểu tình bất hợp pháp"
+    },
+    {
+      "id": "W-timeline",
+      "section": "S10",
+      "classification": "editorial_date_count_or_cta",
+      "brief_line": 47,
+      "exact_quote": "**Timeline ngang** T9 → 16/10 → 17/10 → 18/10 → 22/10 → 23/10 → **24/10 (?)**",
+      "used_for": "chart timeline ngang"
+    },
+    {
+      "id": "W-current",
+      "section": "S10,S13",
+      "classification": "source_supported_news",
+      "brief_line": 41,
+      "exact_quote": "Macron chủ trì **hội đồng quốc phòng** quyết định biện pháp cụ thể cho **cuộc tổng huy động toàn quốc mới được kêu gọi THỨ BẢY 24/10**",
+      "used_for": "cliffhanger 24/10 + CTA; brief_line 40: Lyon cấm MỌI biểu tình Thứ Bảy; Marseille, Nice, Toulon ra lệnh cấm tương tự"
+    },
+    {
+      "id": "W-vn-angle",
+      "section": "S11",
+      "classification": "source_supported_news",
+      "brief_line": 43,
+      "exact_quote": "du học sinh Trịnh Minh Hằng (Nice): trường nằm trong khu vực biểu tình, sinh hoạt đảo lộn... người Việt lâu năm \"không ngạc nhiên\", người mới đến bị \"sốc khi thấy cảnh đốt phá\"",
+      "used_for": "góc người Việt"
+    },
+    {
+      "id": "W-nhandinh",
+      "section": "S12",
+      "classification": "editorial_commentary",
+      "brief_line": 67,
+      "exact_quote": "Bất ổn bùng 6 tháng trước bầu cử tổng thống 2027 → biến số chính trị lớn nhất của Macron những tháng tới... Với người đi làm 25-35: \"chi phí sinh hoạt\" đủ sức lật đổ trật tự 1 nước phát triển — bài học về đệm chi phí cá nhân",
+      "used_for": "segment NHẬN ĐỊNH (badge) — chỉ diễn giải fact trong whitelist"
+    }
+  ]
+}

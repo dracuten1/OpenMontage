@@ -30,8 +30,29 @@ tests/qa/output/
 out/
 
 
-# Project workspaces (generated assets, renders — all regenerable)
-projects/
+# Project workspaces: media/renders/audio stay LOCAL (regenerable or too big);
+# track per-project SOURCES + QC metadata only (scripts/, artifacts/, root *.json/*.md).
+projects/*/*
+!projects/*/scripts
+!projects/*/artifacts
+!projects/*/*.json
+!projects/*/*.md
+# CC session task specs are working junk, not sources — never track
+projects/**/TASK_*.md
+# media & runtime junk never tracked, even inside whitelisted dirs
+projects/**/__pycache__/
+projects/**/*.png
+projects/**/*.jpg
+projects/**/*.jpeg
+projects/**/*.wav
+projects/**/*.mp3
+projects/**/*.mp4
+projects/**/*.mov
+projects/**/*.webm
+projects/**/*.zip
+projects/**/*.pkl
+projects/**/*.pt
+projects/**/*.onnx
 
 # Corpus directories (downloaded stock clips, thumbnails, embeddings —
 # regenerable from source APIs via corpus_builder). Explicit rule even

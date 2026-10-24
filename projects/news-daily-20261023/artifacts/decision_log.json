@@ -1,0 +1,30 @@
+{
+ "version": "1.0",
+ "project_id": "news-daily-20261023",
+ "entries": [
+  {
+   "timestamp": "2026-10-23T18:09:36.089725+07:00",
+   "stage": "idea",
+   "decision": "Chọn 5 tin giảm dần: thi lớp 10 2 môn (hook) → thuế đất bỏ hoang 0,2% → 1.500 văn bằng giả → tay chân miệng 40.000 ca → Long Thành 4 gói thầu.",
+   "rationale": "Owner mandate 19/10: ấn tượng mạnh nhất, giảm dần. Thi lớp 10 2 môn = thay đổi thi cử toàn quốc, chạm trực tiếp gia đình có con 25-35; thuế đất 0,2% = chạm tài sản/túi tiền; 1.500 văn bằng giả + 2 giảng viên ĐH = sốc pháp luật; 40.000 ca +32,2%/tuần = sức khỏe gia đình; Long Thành = dự án quốc gia nổi tiếng nhất, mốc 24/12 gần. Các tin thế giới hôm nay (Starlink, Lula, diesel Trump, Canada thuế quan, AI quân sự Ấn Độ, lũ Australia) đều thiếu cú sốc/quy mô/chạm đời sống trực tiếp hơn 5 tin trên cho khán giả VN."
+  },
+  {
+   "timestamp": "2026-10-23T18:09:36.089725+07:00",
+   "stage": "script",
+   "decision": "NHẬN ĐỊNH dạng segment riêng S6a/S6b trước outro (option b), badge coral persist — như shape owner đã duyệt 20261022.",
+   "rationale": "Chỉ diễn giải fact đã có: chi phí giữ đất nếu đề xuất thông qua (không thêm kỳ hạn /năm vì nguồn không nêu); 2 môn = giảm áp lực nhưng vẫn là đề xuất; nhận biết sớm dấu hiệu nặng = khuyến cáo bác sĩ."
+  },
+  {
+   "timestamp": "2026-10-23T18:09:36.089725+07:00",
+   "stage": "script",
+   "decision": "Qualifier bắt buộc giữ trong narration + trên hình: 'chưa phải quy định chính thức' (S1 chip viền vàng), 'nguy cơ'/'dự kiến' (S5), 'gần' (S3), 'hơn' (S4).",
+   "rationale": "Chống cường điệu theo whitelist forbidden lists."
+  },
+  {
+   "timestamp": "2026-10-23T18:09:36.089725+07:00",
+   "stage": "assets",
+   "decision": "Voice-only không BGM (lane precedent); vieneu Turbo default + atempo 1.15; lexicon 11 entry mới cho số/tên ngày 23/10.",
+   "rationale": "Kế thừa pipeline đã duyệt 20261021/20261022; $0."
+  }
+ ]
+}

@@ -1,0 +1,1340 @@
+{
+  "fps": 30,
+  "totalFrames": 28466,
+  "totalDurationSeconds": 948.87,
+  "generated": "2026-10-17T02:46:43+00:00",
+  "scenes": [
+    {
+      "scene_id": "sc001",
+      "section_id": "s01",
+      "start_frame": 0,
+      "duration_frames": 358,
+      "start_seconds": 0.0,
+      "duration_seconds": 11.933,
+      "end_seconds": 11.933,
+      "first_anchor": "Người cứu nước",
+      "first_anchor_start": 0.0
+    },
+    {
+      "scene_id": "sc002",
+      "section_id": "s01",
+      "start_frame": 358,
+      "duration_frames": 363,
+      "start_seconds": 11.933,
+      "duration_seconds": 12.1,
+      "end_seconds": 24.033,
+      "first_anchor": "Tối nay",
+      "first_anchor_start": 12.26
+    },
+    {
+      "scene_id": "sc003",
+      "section_id": "s02",
+      "start_frame": 721,
+      "duration_frames": 254,
+      "start_seconds": 24.033,
+      "duration_seconds": 8.467,
+      "end_seconds": 32.5,
+      "first_anchor": "Mở từ hôm nay",
+      "first_anchor_start": 24.34
+    },
+    {
+      "scene_id": "sc004",
+      "section_id": "s02",
+      "start_frame": 975,
+      "duration_frames": 550,
+      "start_seconds": 32.5,
+      "duration_seconds": 18.333,
+      "end_seconds": 50.833,
+      "first_anchor": "Người làng khoác áo lính",
+      "first_anchor_start": 32.82
+    },
+    {
+      "scene_id": "sc005",
+      "section_id": "s02",
+      "start_frame": 1525,
+      "duration_frames": 577,
+      "start_seconds": 50.833,
+      "duration_seconds": 19.233,
+      "end_seconds": 70.067,
+      "first_anchor": "Trên mâm cỗ",
+      "first_anchor_start": 51.16
+    },
+    {
+      "scene_id": "sc006",
+      "section_id": "s03",
+      "start_frame": 2102,
+      "duration_frames": 556,
+      "start_seconds": 70.067,
+      "duration_seconds": 18.533,
+      "end_seconds": 88.6,
+      "first_anchor": "Hầu hết chúng ta",
+      "first_anchor_start": 70.39
+    },
+    {
+      "scene_id": "sc007",
+      "section_id": "s03",
+      "start_frame": 2658,
+      "duration_frames": 365,
+      "start_seconds": 88.6,
+      "duration_seconds": 12.167,
+      "end_seconds": 100.767,
+      "first_anchor": "Rồi tin sứ giả",
+      "first_anchor_start": 88.91
+    },
+    {
+      "scene_id": "sc008",
+      "section_id": "s03",
+      "start_frame": 3023,
+      "duration_frames": 502,
+      "start_seconds": 100.767,
+      "duration_seconds": 16.733,
+      "end_seconds": 117.5,
+      "first_anchor": "Nhưng lớp sách giáo khoa",
+      "first_anchor_start": 101.09
+    },
+    {
+      "scene_id": "sc009",
+      "section_id": "s04",
+      "start_frame": 3525,
+      "duration_frames": 390,
+      "start_seconds": 117.5,
+      "duration_seconds": 13.0,
+      "end_seconds": 130.5,
+      "first_anchor": "Series này mùa hai",
+      "first_anchor_start": 117.83
+    },
+    {
+      "scene_id": "sc010",
+      "section_id": "s04",
+      "start_frame": 3915,
+      "duration_frames": 635,
+      "start_seconds": 130.5,
+      "duration_seconds": 21.167,
+      "end_seconds": 151.667,
+      "first_anchor": "Người xưa có cả kho",
+      "first_anchor_start": 130.81
+    },
+    {
+      "scene_id": "sc011",
+      "section_id": "s04",
+      "start_frame": 4550,
+      "duration_frames": 377,
+      "start_seconds": 151.667,
+      "duration_seconds": 12.567,
+      "end_seconds": 164.233,
+      "first_anchor": "Tối nay ta đọc",
+      "first_anchor_start": 151.97
+    },
+    {
+      "scene_id": "sc012",
+      "section_id": "s05",
+      "start_frame": 4927,
+      "duration_frames": 507,
+      "start_seconds": 164.233,
+      "duration_seconds": 16.9,
+      "end_seconds": 181.133,
+      "first_anchor": "Hồi một",
+      "first_anchor_start": 164.56
+    },
+    {
+      "scene_id": "sc013",
+      "section_id": "s05",
+      "start_frame": 5434,
+      "duration_frames": 736,
+      "start_seconds": 181.133,
+      "duration_seconds": 24.533,
+      "end_seconds": 205.667,
+      "first_anchor": "Sách chép nhà ông",
+      "first_anchor_start": 181.46
+    },
+    {
+      "scene_id": "sc014",
+      "section_id": "s06",
+      "start_frame": 6170,
+      "duration_frames": 266,
+      "start_seconds": 205.667,
+      "duration_seconds": 8.867,
+      "end_seconds": 214.533,
+      "first_anchor": "Rồi truyện kể tiếp",
+      "first_anchor_start": 206.0
+    },
+    {
+      "scene_id": "sc015",
+      "section_id": "s06",
+      "start_frame": 6436,
+      "duration_frames": 341,
+      "start_seconds": 214.533,
+      "duration_seconds": 11.367,
+      "end_seconds": 225.9,
+      "first_anchor": "Và đây, nguyên văn",
+      "first_anchor_start": 214.84
+    },
+    {
+      "scene_id": "sc016",
+      "section_id": "s06",
+      "start_frame": 6777,
+      "duration_frames": 697,
+      "start_seconds": 225.9,
+      "duration_seconds": 23.233,
+      "end_seconds": 249.133,
+      "first_anchor": "Giặc đến chân núi Vũ Ninh",
+      "first_anchor_start": 226.22
+    },
+    {
+      "scene_id": "sc017",
+      "section_id": "s07",
+      "start_frame": 7474,
+      "duration_frames": 416,
+      "start_seconds": 249.133,
+      "duration_seconds": 13.867,
+      "end_seconds": 263.0,
+      "first_anchor": "Lùi tiếp về trước",
+      "first_anchor_start": 249.45
+    },
+    {
+      "scene_id": "sc018",
+      "section_id": "s07",
+      "start_frame": 7890,
+      "duration_frames": 367,
+      "start_seconds": 263.0,
+      "duration_seconds": 12.233,
+      "end_seconds": 275.233,
+      "first_anchor": "Truyện kể: Long Quân",
+      "first_anchor_start": 263.31
+    },
+    {
+      "scene_id": "sc019",
+      "section_id": "s07",
+      "start_frame": 8257,
+      "duration_frames": 469,
+      "start_seconds": 275.233,
+      "duration_seconds": 15.633,
+      "end_seconds": 290.867,
+      "first_anchor": "Rồi cụ dặn",
+      "first_anchor_start": 275.55
+    },
+    {
+      "scene_id": "sc020",
+      "section_id": "s08",
+      "start_frame": 8726,
+      "duration_frames": 311,
+      "start_seconds": 290.867,
+      "duration_seconds": 10.367,
+      "end_seconds": 301.233,
+      "first_anchor": "Trang 1492 kể tiếp",
+      "first_anchor_start": 291.18
+    },
+    {
+      "scene_id": "sc021",
+      "section_id": "s08",
+      "start_frame": 9037,
+      "duration_frames": 382,
+      "start_seconds": 301.233,
+      "duration_seconds": 12.733,
+      "end_seconds": 313.967,
+      "first_anchor": "Rồi vua sai đúc",
+      "first_anchor_start": 301.54
+    },
+    {
+      "scene_id": "sc022",
+      "section_id": "s08",
+      "start_frame": 9419,
+      "duration_frames": 407,
+      "start_seconds": 313.967,
+      "duration_seconds": 13.567,
+      "end_seconds": 327.533,
+      "first_anchor": "Cùng một câu chuyện",
+      "first_anchor_start": 314.3
+    },
+    {
+      "scene_id": "sc023",
+      "section_id": "s09",
+      "start_frame": 9826,
+      "duration_frames": 219,
+      "start_seconds": 327.533,
+      "duration_seconds": 7.3,
+      "end_seconds": 334.833,
+      "first_anchor": "Và giờ",
+      "first_anchor_start": 327.85
+    },
+    {
+      "scene_id": "sc024",
+      "section_id": "s09",
+      "start_frame": 10045,
+      "duration_frames": 724,
+      "start_seconds": 334.833,
+      "duration_seconds": 24.133,
+      "end_seconds": 358.967,
+      "first_anchor": "Mở truyện về vị thần này",
+      "first_anchor_start": 335.15
+    },
+    {
+      "scene_id": "sc025",
+      "section_id": "s09",
+      "start_frame": 10769,
+      "duration_frames": 873,
+      "start_seconds": 358.967,
+      "duration_seconds": 29.1,
+      "end_seconds": 388.067,
+      "first_anchor": "Đọc lùi từ",
+      "first_anchor_start": 359.29
+    },
+    {
+      "scene_id": "sc026",
+      "section_id": "s10",
+      "start_frame": 11642,
+      "duration_frames": 321,
+      "start_seconds": 388.067,
+      "duration_seconds": 10.7,
+      "end_seconds": 398.767,
+      "first_anchor": "Hồi hai",
+      "first_anchor_start": 388.39
+    },
+    {
+      "scene_id": "sc027",
+      "section_id": "s10",
+      "start_frame": 11963,
+      "duration_frames": 692,
+      "start_seconds": 398.767,
+      "duration_seconds": 23.067,
+      "end_seconds": 421.833,
+      "first_anchor": "Nguyên văn",
+      "first_anchor_start": 399.09
+    },
+    {
+      "scene_id": "sc028",
+      "section_id": "s11",
+      "start_frame": 12655,
+      "duration_frames": 432,
+      "start_seconds": 421.833,
+      "duration_seconds": 14.4,
+      "end_seconds": 436.233,
+      "first_anchor": "Hãy hình dung",
+      "first_anchor_start": 422.16
+    },
+    {
+      "scene_id": "sc029",
+      "section_id": "s11",
+      "start_frame": 13087,
+      "duration_frames": 315,
+      "start_seconds": 436.233,
+      "duration_seconds": 10.5,
+      "end_seconds": 446.733,
+      "first_anchor": "Lớn đến mức",
+      "first_anchor_start": 436.56
+    },
+    {
+      "scene_id": "sc030",
+      "section_id": "s11",
+      "start_frame": 13402,
+      "duration_frames": 343,
+      "start_seconds": 446.733,
+      "duration_seconds": 11.433,
+      "end_seconds": 458.167,
+      "first_anchor": "Và đây là điều",
+      "first_anchor_start": 447.04
+    },
+    {
+      "scene_id": "sc031",
+      "section_id": "s12",
+      "start_frame": 13745,
+      "duration_frames": 308,
+      "start_seconds": 458.167,
+      "duration_seconds": 10.267,
+      "end_seconds": 468.433,
+      "first_anchor": "Truyện kể tiếp",
+      "first_anchor_start": 458.48
+    },
+    {
+      "scene_id": "sc032",
+      "section_id": "s12",
+      "start_frame": 14053,
+      "duration_frames": 262,
+      "start_seconds": 468.433,
+      "duration_seconds": 8.733,
+      "end_seconds": 477.167,
+      "first_anchor": "Truyền kỳ gửi",
+      "first_anchor_start": 468.76
+    },
+    {
+      "scene_id": "sc033",
+      "section_id": "s12",
+      "start_frame": 14315,
+      "duration_frames": 516,
+      "start_seconds": 477.167,
+      "duration_seconds": 17.2,
+      "end_seconds": 494.367,
+      "first_anchor": "Và hãy để ý",
+      "first_anchor_start": 477.5
+    },
+    {
+      "scene_id": "sc034",
+      "section_id": "s13",
+      "start_frame": 14831,
+      "duration_frames": 153,
+      "start_seconds": 494.367,
+      "duration_seconds": 5.1,
+      "end_seconds": 499.467,
+      "first_anchor": "Trận đánh, truyện kể",
+      "first_anchor_start": 494.68
+    },
+    {
+      "scene_id": "sc035",
+      "section_id": "s13",
+      "start_frame": 14984,
+      "duration_frames": 168,
+      "start_seconds": 499.467,
+      "duration_seconds": 5.6,
+      "end_seconds": 505.067,
+      "first_anchor": "Tre ngả vàng",
+      "first_anchor_start": 499.78
+    },
+    {
+      "scene_id": "sc036",
+      "section_id": "s13",
+      "start_frame": 15152,
+      "duration_frames": 686,
+      "start_seconds": 505.067,
+      "duration_seconds": 22.867,
+      "end_seconds": 527.933,
+      "first_anchor": "Giặc tan",
+      "first_anchor_start": 505.38
+    },
+    {
+      "scene_id": "sc037",
+      "section_id": "s14",
+      "start_frame": 15838,
+      "duration_frames": 443,
+      "start_seconds": 527.933,
+      "duration_seconds": 14.767,
+      "end_seconds": 542.7,
+      "first_anchor": "Và kết trận",
+      "first_anchor_start": 528.25
+    },
+    {
+      "scene_id": "sc038",
+      "section_id": "s14",
+      "start_frame": 16281,
+      "duration_frames": 329,
+      "start_seconds": 542.7,
+      "duration_seconds": 10.967,
+      "end_seconds": 553.667,
+      "first_anchor": "Vua Hùng nhớ công",
+      "first_anchor_start": 543.01
+    },
+    {
+      "scene_id": "sc039",
+      "section_id": "s14",
+      "start_frame": 16610,
+      "duration_frames": 298,
+      "start_seconds": 553.667,
+      "duration_seconds": 9.933,
+      "end_seconds": 563.6,
+      "first_anchor": "Ruộng ấy ban",
+      "first_anchor_start": 553.97
+    },
+    {
+      "scene_id": "sc040",
+      "section_id": "s15",
+      "start_frame": 16908,
+      "duration_frames": 607,
+      "start_seconds": 563.6,
+      "duration_seconds": 20.233,
+      "end_seconds": 583.833,
+      "first_anchor": "Đối chiếu hai trang",
+      "first_anchor_start": 563.92
+    },
+    {
+      "scene_id": "sc041",
+      "section_id": "s15",
+      "start_frame": 17515,
+      "duration_frames": 511,
+      "start_seconds": 583.833,
+      "duration_seconds": 17.033,
+      "end_seconds": 600.867,
+      "first_anchor": "Vậy câu hỏi phải đặt",
+      "first_anchor_start": 584.14
+    },
+    {
+      "scene_id": "sc042",
+      "section_id": "s16",
+      "start_frame": 18026,
+      "duration_frames": 195,
+      "start_seconds": 600.867,
+      "duration_seconds": 6.5,
+      "end_seconds": 607.367,
+      "first_anchor": "Hồi ba",
+      "first_anchor_start": 601.2
+    },
+    {
+      "scene_id": "sc043",
+      "section_id": "s16",
+      "start_frame": 18221,
+      "duration_frames": 582,
+      "start_seconds": 607.367,
+      "duration_seconds": 19.4,
+      "end_seconds": 626.767,
+      "first_anchor": "Nơi cậu sinh ra",
+      "first_anchor_start": 607.7
+    },
+    {
+      "scene_id": "sc044",
+      "section_id": "s17",
+      "start_frame": 18803,
+      "duration_frames": 270,
+      "start_seconds": 626.767,
+      "duration_seconds": 9.0,
+      "end_seconds": 635.767,
+      "first_anchor": "Ở đền Phù Đổng",
+      "first_anchor_start": 627.08
+    },
+    {
+      "scene_id": "sc045",
+      "section_id": "s17",
+      "start_frame": 19073,
+      "duration_frames": 193,
+      "start_seconds": 635.767,
+      "duration_seconds": 6.433,
+      "end_seconds": 642.2,
+      "first_anchor": "Lễ mở bằng",
+      "first_anchor_start": 636.1
+    },
+    {
+      "scene_id": "sc046",
+      "section_id": "s17",
+      "start_frame": 19266,
+      "duration_frames": 516,
+      "start_seconds": 642.2,
+      "duration_seconds": 17.2,
+      "end_seconds": 659.4,
+      "first_anchor": "Cuối cùng là hội trận",
+      "first_anchor_start": 642.52
+    },
+    {
+      "scene_id": "sc047",
+      "section_id": "s18",
+      "start_frame": 19782,
+      "duration_frames": 335,
+      "start_seconds": 659.4,
+      "duration_seconds": 11.167,
+      "end_seconds": 670.567,
+      "first_anchor": "Lên đền Sóc",
+      "first_anchor_start": 659.71
+    },
+    {
+      "scene_id": "sc048",
+      "section_id": "s18",
+      "start_frame": 20117,
+      "duration_frames": 611,
+      "start_seconds": 670.567,
+      "duration_seconds": 20.367,
+      "end_seconds": 690.933,
+      "first_anchor": "Sáng mùng 6",
+      "first_anchor_start": 670.89
+    },
+    {
+      "scene_id": "sc049",
+      "section_id": "s18",
+      "start_frame": 20728,
+      "duration_frames": 97,
+      "start_seconds": 690.933,
+      "duration_seconds": 3.233,
+      "end_seconds": 694.167,
+      "first_anchor": "Tháng Tư là tiếng trống trận",
+      "first_anchor_start": 691.25
+    },
+    {
+      "scene_id": "sc050",
+      "section_id": "s19",
+      "start_frame": 20825,
+      "duration_frames": 299,
+      "start_seconds": 694.167,
+      "duration_seconds": 9.967,
+      "end_seconds": 704.133,
+      "first_anchor": "Hai hội ấy",
+      "first_anchor_start": 694.48
+    },
+    {
+      "scene_id": "sc051",
+      "section_id": "s19",
+      "start_frame": 21124,
+      "duration_frames": 686,
+      "start_seconds": 704.133,
+      "duration_seconds": 22.867,
+      "end_seconds": 727.0,
+      "first_anchor": "Một vị thánh",
+      "first_anchor_start": 704.46
+    },
+    {
+      "scene_id": "sc052",
+      "section_id": "s20",
+      "start_frame": 21810,
+      "duration_frames": 480,
+      "start_seconds": 727.0,
+      "duration_seconds": 16.0,
+      "end_seconds": 743.0,
+      "first_anchor": "Nhưng ở đây",
+      "first_anchor_start": 727.32
+    },
+    {
+      "scene_id": "sc053",
+      "section_id": "s20",
+      "start_frame": 22290,
+      "duration_frames": 503,
+      "start_seconds": 743.0,
+      "duration_seconds": 16.767,
+      "end_seconds": 759.767,
+      "first_anchor": "Chọn ghi nhớ một đứa trẻ",
+      "first_anchor_start": 743.32
+    },
+    {
+      "scene_id": "sc054",
+      "section_id": "s21",
+      "start_frame": 22793,
+      "duration_frames": 553,
+      "start_seconds": 759.767,
+      "duration_seconds": 18.433,
+      "end_seconds": 778.2,
+      "first_anchor": "Chi tiết thứ nhất",
+      "first_anchor_start": 760.08
+    },
+    {
+      "scene_id": "sc055",
+      "section_id": "s21",
+      "start_frame": 23346,
+      "duration_frames": 198,
+      "start_seconds": 778.2,
+      "duration_seconds": 6.6,
+      "end_seconds": 784.8,
+      "first_anchor": "Chi tiết thứ hai",
+      "first_anchor_start": 778.52
+    },
+    {
+      "scene_id": "sc056",
+      "section_id": "s21",
+      "start_frame": 23544,
+      "duration_frames": 214,
+      "start_seconds": 784.8,
+      "duration_seconds": 7.133,
+      "end_seconds": 791.933,
+      "first_anchor": "Tiếng nói đầu đời",
+      "first_anchor_start": 785.12
+    },
+    {
+      "scene_id": "sc057",
+      "section_id": "s22",
+      "start_frame": 23758,
+      "duration_frames": 412,
+      "start_seconds": 791.933,
+      "duration_seconds": 13.733,
+      "end_seconds": 805.667,
+      "first_anchor": "Chi tiết thứ ba",
+      "first_anchor_start": 792.25
+    },
+    {
+      "scene_id": "sc058",
+      "section_id": "s22",
+      "start_frame": 24170,
+      "duration_frames": 299,
+      "start_seconds": 805.667,
+      "duration_seconds": 9.967,
+      "end_seconds": 815.633,
+      "first_anchor": "Sách trả lời gọn",
+      "first_anchor_start": 805.99
+    },
+    {
+      "scene_id": "sc059",
+      "section_id": "s22",
+      "start_frame": 24469,
+      "duration_frames": 320,
+      "start_seconds": 815.633,
+      "duration_seconds": 10.667,
+      "end_seconds": 826.3,
+      "first_anchor": "Truyện không nói trắng",
+      "first_anchor_start": 815.95
+    },
+    {
+      "scene_id": "sc060",
+      "section_id": "s23",
+      "start_frame": 24789,
+      "duration_frames": 386,
+      "start_seconds": 826.3,
+      "duration_seconds": 12.867,
+      "end_seconds": 839.167,
+      "first_anchor": "Và đó là",
+      "first_anchor_start": 826.63
+    },
+    {
+      "scene_id": "sc061",
+      "section_id": "s23",
+      "start_frame": 25175,
+      "duration_frames": 172,
+      "start_seconds": 839.167,
+      "duration_seconds": 5.733,
+      "end_seconds": 844.9,
+      "first_anchor": "Thánh Gióng không tự lớn",
+      "first_anchor_start": 839.49
+    },
+    {
+      "scene_id": "sc062",
+      "section_id": "s23",
+      "start_frame": 25347,
+      "duration_frames": 556,
+      "start_seconds": 844.9,
+      "duration_seconds": 18.533,
+      "end_seconds": 863.433,
+      "first_anchor": "Hạt gạo từ nhà này",
+      "first_anchor_start": 845.21
+    },
+    {
+      "scene_id": "sc063",
+      "section_id": "s24",
+      "start_frame": 25903,
+      "duration_frames": 229,
+      "start_seconds": 863.433,
+      "duration_seconds": 7.633,
+      "end_seconds": 871.067,
+      "first_anchor": "Hôm nay",
+      "first_anchor_start": 863.76
+    },
+    {
+      "scene_id": "sc064",
+      "section_id": "s24",
+      "start_frame": 26132,
+      "duration_frames": 326,
+      "start_seconds": 871.067,
+      "duration_seconds": 10.867,
+      "end_seconds": 881.933,
+      "first_anchor": "Trẻ con làng",
+      "first_anchor_start": 871.38
+    },
+    {
+      "scene_id": "sc065",
+      "section_id": "s25",
+      "start_frame": 26458,
+      "duration_frames": 249,
+      "start_seconds": 881.933,
+      "duration_seconds": 8.3,
+      "end_seconds": 890.233,
+      "first_anchor": "Trong tín ngưỡng dân gian",
+      "first_anchor_start": 882.25
+    },
+    {
+      "scene_id": "sc066",
+      "section_id": "s25",
+      "start_frame": 26707,
+      "duration_frames": 501,
+      "start_seconds": 890.233,
+      "duration_seconds": 16.7,
+      "end_seconds": 906.933,
+      "first_anchor": "Phù Đổng đứng thứ hai",
+      "first_anchor_start": 890.55
+    },
+    {
+      "scene_id": "sc067",
+      "section_id": "s26",
+      "start_frame": 27208,
+      "duration_frames": 356,
+      "start_seconds": 906.933,
+      "duration_seconds": 11.867,
+      "end_seconds": 918.8,
+      "first_anchor": "Đêm hội tàn",
+      "first_anchor_start": 907.25
+    },
+    {
+      "scene_id": "sc068",
+      "section_id": "s26",
+      "start_frame": 27564,
+      "duration_frames": 146,
+      "start_seconds": 918.8,
+      "duration_seconds": 4.867,
+      "end_seconds": 923.667,
+      "first_anchor": "Vị thần đó",
+      "first_anchor_start": 919.13
+    },
+    {
+      "scene_id": "sc069",
+      "section_id": "s27",
+      "start_frame": 27710,
+      "duration_frames": 372,
+      "start_seconds": 923.667,
+      "duration_seconds": 12.4,
+      "end_seconds": 936.067,
+      "first_anchor": "Mà nói về",
+      "first_anchor_start": 923.98
+    },
+    {
+      "scene_id": "sc070",
+      "section_id": "s28",
+      "start_frame": 28082,
+      "duration_frames": 384,
+      "start_seconds": 936.067,
+      "duration_seconds": 12.8,
+      "end_seconds": 948.867,
+      "first_anchor": "Nếu bạn thích",
+      "first_anchor_start": 936.38
+    }
+  ],
+  "scenes_camel": [
+    {
+      "sceneId": "sc001",
+      "sectionId": "s01",
+      "startFrame": 0,
+      "firstAnchorStart": 0.0,
+      "firstAnchor": "Người cứu nước",
+      "durationInFrames": 358
+    },
+    {
+      "sceneId": "sc002",
+      "sectionId": "s01",
+      "startFrame": 358,
+      "firstAnchorStart": 12.26,
+      "firstAnchor": "Tối nay",
+      "durationInFrames": 363
+    },
+    {
+      "sceneId": "sc003",
+      "sectionId": "s02",
+      "startFrame": 721,
+      "firstAnchorStart": 24.34,
+      "firstAnchor": "Mở từ hôm nay",
+      "durationInFrames": 254
+    },
+    {
+      "sceneId": "sc004",
+      "sectionId": "s02",
+      "startFrame": 975,
+      "firstAnchorStart": 32.82,
+      "firstAnchor": "Người làng khoác áo lính",
+      "durationInFrames": 550
+    },
+    {
+      "sceneId": "sc005",
+      "sectionId": "s02",
+      "startFrame": 1525,
+      "firstAnchorStart": 51.16,
+      "firstAnchor": "Trên mâm cỗ",
+      "durationInFrames": 577
+    },
+    {
+      "sceneId": "sc006",
+      "sectionId": "s03",
+      "startFrame": 2102,
+      "firstAnchorStart": 70.39,
+      "firstAnchor": "Hầu hết chúng ta",
+      "durationInFrames": 556
+    },
+    {
+      "sceneId": "sc007",
+      "sectionId": "s03",
+      "startFrame": 2658,
+      "firstAnchorStart": 88.91,
+      "firstAnchor": "Rồi tin sứ giả",
+      "durationInFrames": 365
+    },
+    {
+      "sceneId": "sc008",
+      "sectionId": "s03",
+      "startFrame": 3023,
+      "firstAnchorStart": 101.09,
+      "firstAnchor": "Nhưng lớp sách giáo khoa",
+      "durationInFrames": 502
+    },
+    {
+      "sceneId": "sc009",
+      "sectionId": "s04",
+      "startFrame": 3525,
+      "firstAnchorStart": 117.83,
+      "firstAnchor": "Series này mùa hai",
+      "durationInFrames": 390
+    },
+    {
+      "sceneId": "sc010",
+      "sectionId": "s04",
+      "startFrame": 3915,
+      "firstAnchorStart": 130.81,
+      "firstAnchor": "Người xưa có cả kho",
+      "durationInFrames": 635
+    },
+    {
+      "sceneId": "sc011",
+      "sectionId": "s04",
+      "startFrame": 4550,
+      "firstAnchorStart": 151.97,
+      "firstAnchor": "Tối nay ta đọc",
+      "durationInFrames": 377
+    },
+    {
+      "sceneId": "sc012",
+      "sectionId": "s05",
+      "startFrame": 4927,
+      "firstAnchorStart": 164.56,
+      "firstAnchor": "Hồi một",
+      "durationInFrames": 507
+    },
+    {
+      "sceneId": "sc013",
+      "sectionId": "s05",
+      "startFrame": 5434,
+      "firstAnchorStart": 181.46,
+      "firstAnchor": "Sách chép nhà ông",
+      "durationInFrames": 736
+    },
+    {
+      "sceneId": "sc014",
+      "sectionId": "s06",
+      "startFrame": 6170,
+      "firstAnchorStart": 206.0,
+      "firstAnchor": "Rồi truyện kể tiếp",
+      "durationInFrames": 266
+    },
+    {
+      "sceneId": "sc015",
+      "sectionId": "s06",
+      "startFrame": 6436,
+      "firstAnchorStart": 214.84,
+      "firstAnchor": "Và đây, nguyên văn",
+      "durationInFrames": 341
+    },
+    {
+      "sceneId": "sc016",
+      "sectionId": "s06",
+      "startFrame": 6777,
+      "firstAnchorStart": 226.22,
+      "firstAnchor": "Giặc đến chân núi Vũ Ninh",
+      "durationInFrames": 697
+    },
+    {
+      "sceneId": "sc017",
+      "sectionId": "s07",
+      "startFrame": 7474,
+      "firstAnchorStart": 249.45,
+      "firstAnchor": "Lùi tiếp về trước",
+      "durationInFrames": 416
+    },
+    {
+      "sceneId": "sc018",
+      "sectionId": "s07",
+      "startFrame": 7890,
+      "firstAnchorStart": 263.31,
+      "firstAnchor": "Truyện kể: Long Quân",
+      "durationInFrames": 367
+    },
+    {
+      "sceneId": "sc019",
+      "sectionId": "s07",
+      "startFrame": 8257,
+      "firstAnchorStart": 275.55,
+      "firstAnchor": "Rồi cụ dặn",
+      "durationInFrames": 469
+    },
+    {
+      "sceneId": "sc020",
+      "sectionId": "s08",
+      "startFrame": 8726,
+      "firstAnchorStart": 291.18,
+      "firstAnchor": "Trang 1492 kể tiếp",
+      "durationInFrames": 311
+    },
+    {
+      "sceneId": "sc021",
+      "sectionId": "s08",
+      "startFrame": 9037,
+      "firstAnchorStart": 301.54,
+      "firstAnchor": "Rồi vua sai đúc",
+      "durationInFrames": 382
+    },
+    {
+      "sceneId": "sc022",
+      "sectionId": "s08",
+      "startFrame": 9419,
+      "firstAnchorStart": 314.3,
+      "firstAnchor": "Cùng một câu chuyện",
+      "durationInFrames": 407
+    },
+    {
+      "sceneId": "sc023",
+      "sectionId": "s09",
+      "startFrame": 9826,
+      "firstAnchorStart": 327.85,
+      "firstAnchor": "Và giờ",
+      "durationInFrames": 219
+    },
+    {
+      "sceneId": "sc024",
+      "sectionId": "s09",
+      "startFrame": 10045,
+      "firstAnchorStart": 335.15,
+      "firstAnchor": "Mở truyện về vị thần này",
+      "durationInFrames": 724
+    },
+    {
+      "sceneId": "sc025",
+      "sectionId": "s09",
+      "startFrame": 10769,
+      "firstAnchorStart": 359.29,
+      "firstAnchor": "Đọc lùi từ",
+      "durationInFrames": 873
+    },
+    {
+      "sceneId": "sc026",
+      "sectionId": "s10",
+      "startFrame": 11642,
+      "firstAnchorStart": 388.39,
+      "firstAnchor": "Hồi hai",
+      "durationInFrames": 321
+    },
+    {
+      "sceneId": "sc027",
+      "sectionId": "s10",
+      "startFrame": 11963,
+      "firstAnchorStart": 399.09,
+      "firstAnchor": "Nguyên văn",
+      "durationInFrames": 692
+    },
+    {
+      "sceneId": "sc028",
+      "sectionId": "s11",
+      "startFrame": 12655,
+      "firstAnchorStart": 422.16,
+      "firstAnchor": "Hãy hình dung",
+      "durationInFrames": 432
+    },
+    {
+      "sceneId": "sc029",
+      "sectionId": "s11",
+      "startFrame": 13087,
+      "firstAnchorStart": 436.56,
+      "firstAnchor": "Lớn đến mức",
+      "durationInFrames": 315
+    },
+    {
+      "sceneId": "sc030",
+      "sectionId": "s11",
+      "startFrame": 13402,
+      "firstAnchorStart": 447.04,
+      "firstAnchor": "Và đây là điều",
+      "durationInFrames": 343
+    },
+    {
+      "sceneId": "sc031",
+      "sectionId": "s12",
+      "startFrame": 13745,
+      "firstAnchorStart": 458.48,
+      "firstAnchor": "Truyện kể tiếp",
+      "durationInFrames": 308
+    },
+    {
+      "sceneId": "sc032",
+      "sectionId": "s12",
+      "startFrame": 14053,
+      "firstAnchorStart": 468.76,
+      "firstAnchor": "Truyền kỳ gửi",
+      "durationInFrames": 262
+    },
+    {
+      "sceneId": "sc033",
+      "sectionId": "s12",
+      "startFrame": 14315,
+      "firstAnchorStart": 477.5,
+      "firstAnchor": "Và hãy để ý",
+      "durationInFrames": 516
+    },
+    {
+      "sceneId": "sc034",
+      "sectionId": "s13",
+      "startFrame": 14831,
+      "firstAnchorStart": 494.68,
+      "firstAnchor": "Trận đánh, truyện kể",
+      "durationInFrames": 153
+    },
+    {
+      "sceneId": "sc035",
+      "sectionId": "s13",
+      "startFrame": 14984,
+      "firstAnchorStart": 499.78,
+      "firstAnchor": "Tre ngả vàng",
+      "durationInFrames": 168
+    },
+    {
+      "sceneId": "sc036",
+      "sectionId": "s13",
+      "startFrame": 15152,
+      "firstAnchorStart": 505.38,
+      "firstAnchor": "Giặc tan",
+      "durationInFrames": 686
+    },
+    {
+      "sceneId": "sc037",
+      "sectionId": "s14",
+      "startFrame": 15838,
+      "firstAnchorStart": 528.25,
+      "firstAnchor": "Và kết trận",
+      "durationInFrames": 443
+    },
+    {
+      "sceneId": "sc038",
+      "sectionId": "s14",
+      "startFrame": 16281,
+      "firstAnchorStart": 543.01,
+      "firstAnchor": "Vua Hùng nhớ công",
+      "durationInFrames": 329
+    },
+    {
+      "sceneId": "sc039",
+      "sectionId": "s14",
+      "startFrame": 16610,
+      "firstAnchorStart": 553.97,
+      "firstAnchor": "Ruộng ấy ban",
+      "durationInFrames": 298
+    },
+    {
+      "sceneId": "sc040",
+      "sectionId": "s15",
+      "startFrame": 16908,
+      "firstAnchorStart": 563.92,
+      "firstAnchor": "Đối chiếu hai trang",
+      "durationInFrames": 607
+    },
+    {
+      "sceneId": "sc041",
+      "sectionId": "s15",
+      "startFrame": 17515,
+      "firstAnchorStart": 584.14,
+      "firstAnchor": "Vậy câu hỏi phải đặt",
+      "durationInFrames": 511
+    },
+    {
+      "sceneId": "sc042",
+      "sectionId": "s16",
+      "startFrame": 18026,
+      "firstAnchorStart": 601.2,
+      "firstAnchor": "Hồi ba",
+      "durationInFrames": 195
+    },
+    {
+      "sceneId": "sc043",
+      "sectionId": "s16",
+      "startFrame": 18221,
+      "firstAnchorStart": 607.7,
+      "firstAnchor": "Nơi cậu sinh ra",
+      "durationInFrames": 582
+    },
+    {
+      "sceneId": "sc044",
+      "sectionId": "s17",
+      "startFrame": 18803,
+      "firstAnchorStart": 627.08,
+      "firstAnchor": "Ở đền Phù Đổng",
+      "durationInFrames": 270
+    },
+    {
+      "sceneId": "sc045",
+      "sectionId": "s17",
+      "startFrame": 19073,
+      "firstAnchorStart": 636.1,
+      "firstAnchor": "Lễ mở bằng",
+      "durationInFrames": 193
+    },
+    {
+      "sceneId": "sc046",
+      "sectionId": "s17",
+      "startFrame": 19266,
+      "firstAnchorStart": 642.52,
+      "firstAnchor": "Cuối cùng là hội trận",
+      "durationInFrames": 516
+    },
+    {
+      "sceneId": "sc047",
+      "sectionId": "s18",
+      "startFrame": 19782,
+      "firstAnchorStart": 659.71,
+      "firstAnchor": "Lên đền Sóc",
+      "durationInFrames": 335
+    },
+    {
+      "sceneId": "sc048",
+      "sectionId": "s18",
+      "startFrame": 20117,
+      "firstAnchorStart": 670.89,
+      "firstAnchor": "Sáng mùng 6",
+      "durationInFrames": 611
+    },
+    {
+      "sceneId": "sc049",
+      "sectionId": "s18",
+      "startFrame": 20728,
+      "firstAnchorStart": 691.25,
+      "firstAnchor": "Tháng Tư là tiếng trống trận",
+      "durationInFrames": 97
+    },
+    {
+      "sceneId": "sc050",
+      "sectionId": "s19",
+      "startFrame": 20825,
+      "firstAnchorStart": 694.48,
+      "firstAnchor": "Hai hội ấy",
+      "durationInFrames": 299
+    },
+    {
+      "sceneId": "sc051",
+      "sectionId": "s19",
+      "startFrame": 21124,
+      "firstAnchorStart": 704.46,
+      "firstAnchor": "Một vị thánh",
+      "durationInFrames": 686
+    },
+    {
+      "sceneId": "sc052",
+      "sectionId": "s20",
+      "startFrame": 21810,
+      "firstAnchorStart": 727.32,
+      "firstAnchor": "Nhưng ở đây",
+      "durationInFrames": 480
+    },
+    {
+      "sceneId": "sc053",
+      "sectionId": "s20",
+      "startFrame": 22290,
+      "firstAnchorStart": 743.32,
+      "firstAnchor": "Chọn ghi nhớ một đứa trẻ",
+      "durationInFrames": 503
+    },
+    {
+      "sceneId": "sc054",
+      "sectionId": "s21",
+      "startFrame": 22793,
+      "firstAnchorStart": 760.08,
+      "firstAnchor": "Chi tiết thứ nhất",
+      "durationInFrames": 553
+    },
+    {
+      "sceneId": "sc055",
+      "sectionId": "s21",
+      "startFrame": 23346,
+      "firstAnchorStart": 778.52,
+      "firstAnchor": "Chi tiết thứ hai",
+      "durationInFrames": 198
+    },
+    {
+      "sceneId": "sc056",
+      "sectionId": "s21",
+      "startFrame": 23544,
+      "firstAnchorStart": 785.12,
+      "firstAnchor": "Tiếng nói đầu đời",
+      "durationInFrames": 214
+    },
+    {
+      "sceneId": "sc057",
+      "sectionId": "s22",
+      "startFrame": 23758,
+      "firstAnchorStart": 792.25,
+      "firstAnchor": "Chi tiết thứ ba",
+      "durationInFrames": 412
+    },
+    {
+      "sceneId": "sc058",
+      "sectionId": "s22",
+      "startFrame": 24170,
+      "firstAnchorStart": 805.99,
+      "firstAnchor": "Sách trả lời gọn",
+      "durationInFrames": 299
+    },
+    {
+      "sceneId": "sc059",
+      "sectionId": "s22",
+      "startFrame": 24469,
+      "firstAnchorStart": 815.95,
+      "firstAnchor": "Truyện không nói trắng",
+      "durationInFrames": 320
+    },
+    {
+      "sceneId": "sc060",
+      "sectionId": "s23",
+      "startFrame": 24789,
+      "firstAnchorStart": 826.63,
+      "firstAnchor": "Và đó là",
+      "durationInFrames": 386
+    },
+    {
+      "sceneId": "sc061",
+      "sectionId": "s23",
+      "startFrame": 25175,
+      "firstAnchorStart": 839.49,
+      "firstAnchor": "Thánh Gióng không tự lớn",
+      "durationInFrames": 172
+    },
+    {
+      "sceneId": "sc062",
+      "sectionId": "s23",
+      "startFrame": 25347,
+      "firstAnchorStart": 845.21,
+      "firstAnchor": "Hạt gạo từ nhà này",
+      "durationInFrames": 556
+    },
+    {
+      "sceneId": "sc063",
+      "sectionId": "s24",
+      "startFrame": 25903,
+      "firstAnchorStart": 863.76,
+      "firstAnchor": "Hôm nay",
+      "durationInFrames": 229
+    },
+    {
+      "sceneId": "sc064",
+      "sectionId": "s24",
+      "startFrame": 26132,
+      "firstAnchorStart": 871.38,
+      "firstAnchor": "Trẻ con làng",
+      "durationInFrames": 326
+    },
+    {
+      "sceneId": "sc065",
+      "sectionId": "s25",
+      "startFrame": 26458,
+      "firstAnchorStart": 882.25,
+      "firstAnchor": "Trong tín ngưỡng dân gian",
+      "durationInFrames": 249
+    },
+    {
+      "sceneId": "sc066",
+      "sectionId": "s25",
+      "startFrame": 26707,
+      "firstAnchorStart": 890.55,
+      "firstAnchor": "Phù Đổng đứng thứ hai",
+      "durationInFrames": 501
+    },
+    {
+      "sceneId": "sc067",
+      "sectionId": "s26",
+      "startFrame": 27208,
+      "firstAnchorStart": 907.25,
+      "firstAnchor": "Đêm hội tàn",
+      "durationInFrames": 356
+    },
+    {
+      "sceneId": "sc068",
+      "sectionId": "s26",
+      "startFrame": 27564,
+      "firstAnchorStart": 919.13,
+      "firstAnchor": "Vị thần đó",
+      "durationInFrames": 146
+    },
+    {
+      "sceneId": "sc069",
+      "sectionId": "s27",
+      "startFrame": 27710,
+      "firstAnchorStart": 923.98,
+      "firstAnchor": "Mà nói về",
+      "durationInFrames": 372
+    },
+    {
+      "sceneId": "sc070",
+      "sectionId": "s28",
+      "startFrame": 28082,
+      "firstAnchorStart": 936.38,
+      "firstAnchor": "Nếu bạn thích",
+      "durationInFrames": 384
+    }
+  ]
+}

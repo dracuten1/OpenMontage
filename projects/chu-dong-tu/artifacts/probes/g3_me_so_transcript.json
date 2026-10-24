@@ -1,0 +1,80 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.28,
+      "text": "M\u1eb9 s\u1edf, ch\u1ecdn m\u1eb9 s\u1edf",
+      "words": [
+        {
+          "word": " M\u1eb9",
+          "start": 0.0,
+          "end": 0.26,
+          "probability": 0.37
+        },
+        {
+          "word": " s\u1edf,",
+          "start": 0.26,
+          "end": 0.54,
+          "probability": 0.41
+        },
+        {
+          "word": " ch\u1ecdn",
+          "start": 0.72,
+          "end": 0.86,
+          "probability": 0.459
+        },
+        {
+          "word": " m\u1eb9",
+          "start": 0.86,
+          "end": 1.02,
+          "probability": 0.765
+        },
+        {
+          "word": " s\u1edf",
+          "start": 1.02,
+          "end": 1.28,
+          "probability": 0.989
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " M\u1eb9",
+      "start": 0.0,
+      "end": 0.26,
+      "probability": 0.37
+    },
+    {
+      "word": " s\u1edf,",
+      "start": 0.26,
+      "end": 0.54,
+      "probability": 0.41
+    },
+    {
+      "word": " ch\u1ecdn",
+      "start": 0.72,
+      "end": 0.86,
+      "probability": 0.459
+    },
+    {
+      "word": " m\u1eb9",
+      "start": 0.86,
+      "end": 1.02,
+      "probability": 0.765
+    },
+    {
+      "word": " s\u1edf",
+      "start": 1.02,
+      "end": 1.28,
+      "probability": 0.989
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.52,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

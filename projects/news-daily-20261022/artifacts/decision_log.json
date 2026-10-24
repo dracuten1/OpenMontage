@@ -1,0 +1,165 @@
+{
+  "version": "1.0",
+  "project_id": "news-daily-20261022",
+  "decisions": [
+    {
+      "decision_id": "idea-20261022-1",
+      "stage": "idea",
+      "category": "pipeline_selection",
+      "subject": "Pipeline and anchor medium",
+      "options_considered": [
+        {
+          "option_id": "hybrid",
+          "label": "Hybrid narration_led_graphics",
+          "score": 1,
+          "reason": "Sealed text digest narration anchors bespoke factual support graphics; lane precedent."
+        }
+      ],
+      "selected": "hybrid",
+      "reason": "News-lane standing pipeline (20261016-20261021).",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-20261022-2",
+      "stage": "idea",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion",
+          "score": 1,
+          "reason": "Frame-accurate speech-locked factual graphics + captions; proven lane toolchain (words.json/scene_timing/scene_elements)."
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 0.8,
+          "reason": "HTML/GSAP viable for typographic callouts.",
+          "rejected_because": "Không phải chuẩn hiện hành của news lane; đổi runtime cần owner duyệt."
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg only",
+          "score": 0.4,
+          "reason": "Encoding/cuts only.",
+          "rejected_because": "Không đáp ứng bespoke speech-locked infographics."
+        }
+      ],
+      "selected": "remotion",
+      "reason": "Standing news-lane standard reaffirmed by brief 'camera/compose theo chuẩn hiện hành'; both runtimes available.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-20261022-3",
+      "stage": "idea",
+      "category": "composition_mode",
+      "subject": "Composition authoring mode",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "Bespoke factual infographics",
+          "score": 1,
+          "reason": "Piece-specific factual visual support mirroring proven 20261021 engine shape."
+        }
+      ],
+      "selected": "atelier",
+      "reason": "Lane precedent; reuse engine knowledge, not creative components.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-20261022-4",
+      "stage": "idea",
+      "category": "concept_selection",
+      "subject": "Evidence whitelist",
+      "options_considered": [
+        {
+          "option_id": "sealed_2_files",
+          "label": "latest-vn.md + latest-world.md ONLY",
+          "score": 1,
+          "reason": "Owner brief: mọi thông tin PHẢI truy về 2 file này."
+        }
+      ],
+      "selected": "sealed_2_files",
+      "reason": "Anti-fabrication QC whitelist; sealed copies + sha256 in inputs/.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-20261022-5",
+      "stage": "idea",
+      "category": "concept_selection",
+      "subject": "Chọn và xếp tin",
+      "options_considered": [
+        {
+          "option_id": "5tin",
+          "label": "Champi→não mô cầu→Hormuz→xăng/dầu→Nasdaq (giảm dần ấn tượng)",
+          "score": 1,
+          "reason": "Owner chỉ định Champi hook + não mô cầu ưu tiên; 3 tin còn lại chọn theo độ ấn tượng & góc nhìn 25-35."
+        }
+      ],
+      "selected": "5tin",
+      "reason": "Champi = quy mô 'mạnh nhất hành tinh' + tác động Đài Loan/Nhật/Biển Đông; não mô cầu = tử vong + quy mô 50k mũi/6 ngày; Hormuz+xăng = chuỗi giá dầu chạm túi tiền; Nasdaq = công nghệ/đầu tư. Cúm A & sốt xuất huyết bỏ (đã có 1 tin y tế; bảo lưu nếu owner muốn 6 tin).",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-20261022-6",
+      "stage": "idea",
+      "category": "music_source",
+      "subject": "BGM plan",
+      "options_considered": [
+        {
+          "option_id": "voice_only",
+          "label": "Voice-only (no BGM)",
+          "score": 1,
+          "reason": "Lane precedent 20261021 owner-approved voice-only; brief im lặng về nhạc."
+        }
+      ],
+      "selected": "voice_only",
+      "reason": "Không cần credit license; có thể thêm sau duyệt nếu owner chọn track.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-20261022-7",
+      "stage": "idea",
+      "category": "budget_tradeoff",
+      "subject": "Budget",
+      "options_considered": [
+        {
+          "option_id": "zero",
+          "label": "$0 — free gateway/local only",
+          "score": 1,
+          "reason": "Brief: budget $0."
+        }
+      ],
+      "selected": "zero",
+      "reason": "Local vieneu TTS + local ASR + CC free gateway + Remotion local.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "owner-20261022-brief",
+      "stage": "idea",
+      "category": "concept_selection",
+      "subject": "Owner production authorization (draft run)",
+      "options_considered": [
+        {
+          "option_id": "draft_run",
+          "label": "Produce DRAFT HUD + deliver Telegram, publish awaiting_human",
+          "score": 1,
+          "reason": "Owner brief 2026-10-22 backup run (18h00 cron timeout)."
+        }
+      ],
+      "selected": "draft_run",
+      "reason": "Brief quote: 'Deliver video (DRAFT HUD, ≤50MB Telegram) + QC numbers + caption TikTok qua Telegram DM Tuyên, trạng thái awaiting_human — KHÔNG tự đăng TikTok.' Authorizes idea/script/scene_plan/assets/edit/compose for the DRAFT; publish gate stays awaiting_human.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    }
+  ]
+}

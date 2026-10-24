@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "project_id": "news-daily-20261022",
+  "pipeline_type": "hybrid",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-10-22T14:23:06.882645+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "out/news-daily-20261022.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "audio_codec": "aac",
+          "resolution": "1080x1920",
+          "fps": 30,
+          "duration_seconds": 79.133,
+          "file_size_bytes": 6710367,
+          "platform_target": "tiktok"
+        },
+        {
+          "path": "out/news-daily-20261022-draft-HUD-720p.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "audio_codec": "aac",
+          "resolution": "720x1280",
+          "fps": 30,
+          "duration_seconds": 79.133,
+          "file_size_bytes": 5866457,
+          "platform_target": "preview_dm"
+        }
+      ],
+      "render_time_seconds": 250.0,
+      "warnings": [],
+      "verification_notes": [
+        "tsc --noEmit exit 0 (sau caption fix, qc/fix_tsc.txt)",
+        "scene_sweep NewsDaily20261022Debug PASS edge=0 panel=0 dense=0 (16 stills, sweep + sweep2 sau fix)",
+        "element_frame_audit PASS 34/34 reveal in-window",
+        "speech_window_audit PASS 0 overflow \u00b10.2s (qc/speech_window_audit.json)",
+        "asr_roundtrip PASS 8/8 scenes ratio 1.0 (qc/asr_roundtrip.json; proper names = ASR phonetic noise, mapped)",
+        "audio_batch lexicon coverage PASS 8/8 (27 entries, nested subsumed)",
+        "vision QC master stills f360/f1230/f2040: 210 km/h coral nguy\u00ean v\u0103n, captions \u0111\u00fang chunk \u0111\u1ea7y \u0111\u1ee7, badge NH\u1eacN \u0110\u1ecaNH persist, KH\u00d4NG HUD",
+        "vision QC draft still f360: HUD 'S1 f360 12.0s [360/536]' hi\u1ec7n \u0111\u00fang, n\u1ed9i dung kh\u1edbp master, \u0111\u1ecdc \u0111\u01b0\u1ee3c \u1edf 720p",
+        "caption-fix verification: fix_s01_f321 + fix_s07_f1970 \u2014 chunk 63-90 k\u00fd t\u1ef1 hi\u1ec3n th\u1ecb \u0111\u1ee7 2 d\u00f2ng, kh\u00f4ng c\u00f2n clamp",
+        "ffprobe master: 1080x1920 30fps h264 + aac 48k stereo, 79.133s = 2374 frames; draft 720x1280 c\u00f9ng timeline"
+      ],
+      "render_grammar": "explainer-data",
+      "slideshow_risk_score": {
+        "average": 0.18,
+        "verdict": "strong"
+      },
+      "decision_log_ref": "projects/news-daily-20261022/artifacts/decision_log.json",
+      "final_review_ref": "projects/news-daily-20261022/qc/lead_verification.json",
+      "metadata": {
+        "voice": "vieneu Turbo default, atempo 1.15, ~-14.5 LUFS path",
+        "bgm": "voice-only (lane precedent, no credit needed)",
+        "cost_usd": 0,
+        "cc_sessions": {
+          "audio": "38 turns $0",
+          "compose": "30 turns $0",
+          "fix_caption": "5 turns $0"
+        }
+      }
+    }
+  },
+  "style_playbook": "flat-motion-graphics",
+  "cost_snapshot": {
+    "total_cost_usd": 0,
+    "authorized_paid_usd": 0
+  },
+  "metadata": {
+    "note": "master + draft HUD rendered, QC green, awaiting publish approval"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "project_id": "news-daily-20261023",
+  "pipeline_type": "hybrid",
+  "stage": "publish",
+  "status": "completed",
+  "timestamp": "2026-10-23T19:35:00+07:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "publish_log": {
+      "version": "1.0",
+      "entries": [
+        {
+          "platform": "tiktok",
+          "status": "exported",
+          "export_path": "out/news-daily-20261023.mp4",
+          "timestamp": "2026-10-23T18:35:24.174061+07:00",
+          "metadata_used": {
+            "title": "Tin nhanh 23/10/2026 — thi lớp 10 chỉ Toán & Văn, thuế đất bỏ hoang 0,2%, gần 1.500 văn bằng giả",
+            "caption": "Thi lớp 10 chỉ còn Toán & Văn? 📚 Bộ GD&ĐT đề xuất giảm áp lực thi cử — nhưng chưa phải quy định chính thức. Kèm 4 tin nữa: thuế 0,2% với đất bỏ hoang, gần 1.500 văn bằng giả, tay chân miệng tăng 32,2% trong 1 tuần, Long Thành nguy cơ trễ hẹn. Có NHẬN ĐỊNH cho người đi làm 👇 #tinmoi #tintuc #thoisu #thilop10 #giaoduc\n",
+            "description": "Tin nhanh 23/10/2026 — thi lớp 10 chỉ Toán & Văn, thuế đất bỏ hoang 0,2%, gần 1.500 văn bằng giả\n\n5 tin đáng chú ý nhất ngày 23/10/2026 kèm NHẬN ĐỊNH cho người đi làm:\n0:00 Thi vào lớp 10 chỉ còn Toán và Văn — Bộ GD&ĐT đề xuất nhằm giảm áp lực thi cử (chưa phải quy định chính thức)\n0:07 Chính phủ trình Quốc hội: thuế 0,2% với đất bỏ hoang, toàn bộ diện tích, không hạn mức\n0:15 Công an Hà Nội khởi tố đường dây gần 1.500 văn bằng, chứng chỉ giả — 10 bị can, 2 giảng viên đại học, thu lời bất chính gần 3 tỷ đồng\n0:23 TP.HCM hơn 40.000 ca tay chân miệng từ đầu năm — tăng 32,2% trong một tuần\n0:31 Sân bay Long Thành: 4 gói thầu nguy cơ trễ hẹn (thiếu nhân lực, chậm thanh toán) trước ngày dự kiến khai thác 24/12\n0:39 NHẬN ĐỊNH cho người đi làm\n0:59 Tin nhanh 23/10 — hẹn gặp lại\n\nChi tiết: thi 2 môn hiện là đề xuất, chưa phải quy định chính thức; thuế đất bỏ hoang 0,2% áp dụng toàn bộ diện tích, không áp dụng hạn mức; giữ mốc 24/12 là ngày dự kiến khai thác của Long Thành.\nNguồn: bản tin tổng hợp ngày 23/10/2026. Voice-only, không nhạc nền.\n#tinmoi #tintuc #thoisu #thilop10 #giaoduc\n",
+            "thumbnail_path": "projects/news-daily-20261023/exports/thumbnails/news-daily-20261023-tiktok.png",
+            "draft_delivered": "Telegram DM to Tuyên (awaiting human approval)",
+            "auto_post": false
+          }
+        }
+      ]
+    },
+    "master_video": "out/news-daily-20261023.mp4",
+    "draft_video": "out/news-daily-20261023-draft-HUD-720p.mp4",
+    "thumbnail": "projects/news-daily-20261023/exports/thumbnails/news-daily-20261023-tiktok.png",
+    "caption": "out/news-daily-20261023-caption.txt",
+    "description": "out/news-daily-20261023-description.txt"
+  },
+  "metadata": {
+    "delivery_channel": "Telegram DM chat 615761638",
+    "approval_state": "approved — final master delivered to owner DM",
+    "delivery_receipts": [
+      445,
+      446,
+      447,
+      448,
+      449,
+      456,
+      457
+    ],
+    "final_delivery": {
+      "video_message_id": 456,
+      "caption_message_id": 457,
+      "delivered_at": "2026-10-23T19:35:00+07:00",
+      "export_file": "out/news-daily-20261023.mp4",
+      "note": "master clean (1080x1920, 61.5s, 4.9MB, no HUD)"
+    },
+    "draft_message_ids": {
+      "video": 445,
+      "thumbnail": 446,
+      "caption": 447,
+      "description": 448,
+      "qc_summary": 449
+    }
+  }
+}

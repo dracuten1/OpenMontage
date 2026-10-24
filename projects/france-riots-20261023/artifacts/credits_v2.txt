@@ -1,0 +1,30 @@
+CREDITS & LICENSES — france-riots-20261023 v2 (draft cho owner duyệt)
+
+1. Ảnh hiện trường Paris 17/10/2026 (2 ảnh, scene HIỆN TRƯỜNG)
+   - "Paris riots, 17 October 2026 - Firefighters extinguishing a burning car - JJxFile 0048.jpg"
+     Tác giả: Jorge Jaramillo (JJxFile) · License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+     File page: https://commons.wikimedia.org/wiki/File:Paris_riots,_17_October_2026_-_Firefighters_extinguishing_a_burning_car_-_JJxFile_0048.jpg
+     Khai báo: Boulevard Voltaire, Paris — 17/10/2026 12:31 (Commons/EXIF). Chỉnh sửa: resize 1920px.
+   - "Paris riots, 17 October 2026 - Crowd facing Place de la République in tear gas - JJxFile 0012.jpg"
+     Tác giả: Jorge Jaramillo (JJxFile) · License: CC BY-SA 4.0
+     File page: https://commons.wikimedia.org/wiki/File:Paris_riots,_17_October_2026_-_Crowd_facing_Place_de_la_R%C3%A9publique_in_tear_gas_-_JJxFile_0012.jpg
+     Khai báo: Place de la République, Paris — 17/10/2026 12:19. Chỉnh sửa: resize 1920px.
+   Ghi chú minh bạch: license đã verify trực tiếp file page; NGÀY CHỤP theo khai báo người tải (Commons + EXIF) + chuỗi ảnh được báo chí độc lập dùng cùng sự kiện — video hiển thị caption "khai báo 17/10/2026", không khẳng định tuyệt đối.
+
+2. Clip cảnh tuần hành ôn hòa (b-roll, scene CƠ CHẾ LEO THANG)
+   - "Manifestation du 17 octobre 2026 à la gare routière d'Aix-en-Provence 08.webm"
+     Tác giả: gabrielfrom92 · License: CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)
+     File page: https://commons.wikimedia.org/wiki/File:Manifestation_du_17_octobre_2026_%C3%A0_la_gare_routi%C3%A8re_d%27Aix-en-Provence_08.webm
+     Khai báo: Gare routière Aix-en-Provence — 17/10/2026 14:24. Chỉnh sửa: trim/crop trong khung.
+     Gắn nhãn trên hình: "CẢNH TUẦN HÀNH ÔN HÒA" — KHÔNG dùng như cảnh bạo loạn.
+
+3. Nhạc nền
+   - "Mesmerize" — Kevin MacLeod (incompetech.com) · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+     Sử dụng: tái dùng bed/gain đã duyệt, volume 0.7, lặp theo thời lượng video và fade đầu/cuối. Chưa đo loudness bản mix V2.
+
+4. Ảnh bị LOẠI (không dùng)
+   - "Manifestation du 17 octobre 2026 à Paris 71.jpg" (graffiti close-up) — nội dung không khớp hiện trường cần minh họa.
+   - Mọi ảnh AP/Getty/Reuters/AFP — không có license commercial, KHÔNG dùng (owner rule: không fair use).
+
+5. Nguồn nội dung (đã Lead spot-verify trực tiếp 23/10/2026)
+   Élysée (discours 18/10) · The Guardian 22/10 · RFI 22/10 · DW 22/10 · CNews 18/10 (2.397/997) · franceinfo (550k/800k/110k/110) · Courrier International/FT/Morningstar (bảo hiểm) · TF1 LCI 17/10 (200m) · Café pédagogique (budget 2027) · La Croix 13/10 (800 lycées) · Wikipedia FR refs (Limoges 1883). Chi tiết: artifacts/whitelist.json v2 + history/revision-source-audit.md.

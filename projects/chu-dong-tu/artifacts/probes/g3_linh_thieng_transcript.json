@@ -1,0 +1,104 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.2,
+      "text": "Linh thi\u1ebfu \u1edf nh\u1eefng v\u1eadt n\u00e0y \u0111\u00e2y.",
+      "words": [
+        {
+          "word": " Linh",
+          "start": 0.0,
+          "end": 0.28,
+          "probability": 0.599
+        },
+        {
+          "word": " thi\u1ebfu",
+          "start": 0.28,
+          "end": 0.46,
+          "probability": 0.431
+        },
+        {
+          "word": " \u1edf",
+          "start": 0.46,
+          "end": 0.6,
+          "probability": 0.662
+        },
+        {
+          "word": " nh\u1eefng",
+          "start": 0.6,
+          "end": 0.68,
+          "probability": 0.584
+        },
+        {
+          "word": " v\u1eadt",
+          "start": 0.68,
+          "end": 0.92,
+          "probability": 0.817
+        },
+        {
+          "word": " n\u00e0y",
+          "start": 0.92,
+          "end": 1.04,
+          "probability": 0.947
+        },
+        {
+          "word": " \u0111\u00e2y.",
+          "start": 1.04,
+          "end": 1.2,
+          "probability": 0.844
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " Linh",
+      "start": 0.0,
+      "end": 0.28,
+      "probability": 0.599
+    },
+    {
+      "word": " thi\u1ebfu",
+      "start": 0.28,
+      "end": 0.46,
+      "probability": 0.431
+    },
+    {
+      "word": " \u1edf",
+      "start": 0.46,
+      "end": 0.6,
+      "probability": 0.662
+    },
+    {
+      "word": " nh\u1eefng",
+      "start": 0.6,
+      "end": 0.68,
+      "probability": 0.584
+    },
+    {
+      "word": " v\u1eadt",
+      "start": 0.68,
+      "end": 0.92,
+      "probability": 0.817
+    },
+    {
+      "word": " n\u00e0y",
+      "start": 0.92,
+      "end": 1.04,
+      "probability": 0.947
+    },
+    {
+      "word": " \u0111\u00e2y.",
+      "start": 1.04,
+      "end": 1.2,
+      "probability": 0.844
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.44,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

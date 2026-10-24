@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "output_path": "projects/france-riots-20261023/renders/france-riots-v2-draft-hud.mp4",
+  "status": "revise",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 262.997333,
+      "resolution": "720x1280",
+      "fps": 30.0,
+      "has_audio": true,
+      "codec": "h264",
+      "file_size_bytes": 14786360,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "issues": [
+        "Not performed by mechanical closeout; pending lead/owner."
+      ]
+    },
+    "audio_spotcheck": {
+      "issues": [
+        "Not performed by mechanical closeout; pending lead/owner."
+      ]
+    },
+    "promise_preservation": {
+      "issues": [
+        "Not performed by mechanical closeout; pending lead/owner."
+      ]
+    },
+    "subtitle_check": {
+      "issues": [
+        "Not performed by mechanical closeout; pending lead/owner."
+      ]
+    }
+  },
+  "issues_found": [
+    "DRAFT HUD: pending owner review; no clean-final approval.",
+    "No auditory listening performed by closeout; pronunciation, numbers and mix intelligibility pending.",
+    "ffprobe inspects container/streams only; no full decode, black-frame, visual, subtitle or speech-lock certification.",
+    "Final integrated LUFS/true peak not measured by closeout.",
+    "Media dates, claims, provenance and license validity not independently verified by closeout.",
+    "Existing automated audits are referenced evidence only, not a new independent PASS.",
+    "Telegram V2 delivery receipts pending lead; V1 receipts do not apply."
+  ],
+  "recommended_action": "block",
+  "metadata": {
+    "draft_only": true,
+    "owner_review": "pending",
+    "authorization": "Owner “Cho chạy” authorizes draft production only. Not clean-final approval, publication permission, or listening sign-off."
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "version": "2.0",
+  "project_id": "france-riots-20261023",
+  "decisions": [
+    {
+      "decision_id": "script-france-riots-20261023-v2-1",
+      "stage": "script",
+      "category": "concept_selection",
+      "subject": "Duration policy override",
+      "options_considered": [
+        {
+          "option_id": "deep_3_5min",
+          "label": "3-5 phút nhịp tự nhiên, 21 sections",
+          "score": 1,
+          "reason": "Owner override 23/10: 'TĂNG THỜI LƯỢNG THOẢI MÁI... 3-5 phút OK, KHÔNG kéo dài bằng lặp/nhồi'."
+        },
+        {
+          "option_id": "keep_118",
+          "label": "Giữ 118s v1",
+          "score": 0.4,
+          "reason": "Đúng trần lane news 100-120s.",
+          "rejected_because": "Owner đã override trần cho tập này."
+        }
+      ],
+      "selected": "deep_3_5min",
+      "reason": "Owner override trực tiếp; ưu tiên chiều sâu 3 lớp nguyên nhân + timeline + hậu quả + hiện trạng.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "script-france-riots-20261023-v2-2",
+      "stage": "script",
+      "category": "fact_discipline",
+      "subject": "Claims discipline theo whitelist v2",
+      "options_considered": [
+        {
+          "option_id": "wl_v2",
+          "label": "whitelist v2 + Lead direct spot-verify",
+          "score": 1,
+          "reason": "Audit độc lập + Lead verify trực tiếp publisher/official (Élysée/Guardian/RFI/DW/CNews/franceinfo/Courrier/TF1/Café pédagogique/La Croix)."
+        },
+        {
+          "option_id": "wl_v1_sealed",
+          "label": "Giữ whitelist v1 sealed",
+          "score": 0.2,
+          "reason": "Tiết kiệm công.",
+          "rejected_because": "Owner: 'không coi whitelist cũ là bằng chứng tuyệt đối'."
+        }
+      ],
+      "selected": "wl_v2",
+      "reason": "Bỏ 'đắt nhất lịch sử'; 2.397 tách khung thời gian; 997 ghi rõ cảnh sát+hiến binh; budget ghi tăng+cut; không hồi sinh 30.000/thương vong thường dân.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "assets-france-riots-20261023-v2-1",
+      "stage": "scene_plan",
+      "category": "media_selection",
+      "subject": "Ảnh hiện trường — license-first",
+      "options_considered": [
+        {
+          "option_id": "jjxfile_ccbysa",
+          "label": "JJxFile Paris 17/10 (CC BY-SA 4.0)",
+          "score": 1,
+          "reason": "License verify trực tiếp file page; nội dung khớp sự kiện (vision); series được media độc lập dùng; credit + caption tư liệu khai báo."
+        },
+        {
+          "option_id": "agency_photos",
+          "label": "Ảnh AP/Getty/Reuters/AFP",
+          "score": 0.2,
+          "reason": "Chất lượng cao.",
+          "rejected_because": "Owner: không mặc định free, không dựa fair use — KHÔNG dùng."
+        },
+        {
+          "option_id": "no_media",
+          "label": "Chỉ graphics",
+          "score": 0.6,
+          "reason": "An toàn tuyệt đối.",
+          "rejected_because": "Owner yêu cầu ảnh thực tế đúng license — Commons có sẵn đủ điều kiện."
+        }
+      ],
+      "selected": "jjxfile_ccbysa",
+      "reason": "CC BY-SA 4.0 cho phép commercial; credit trên hình + description; caption ghi 'khai báo 17/10/2026' vì ngày dựa Commons/EXIF declaration.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "assets-france-riots-20261023-v2-2",
+      "stage": "scene_plan",
+      "category": "media_selection",
+      "subject": "B-roll cảnh ôn hòa Aix-en-Provence",
+      "options_considered": [
+        {
+          "option_id": "aix_cc0",
+          "label": "Clip Aix CC0 — gắn nhãn cảnh tập hợp ôn hòa",
+          "score": 1,
+          "reason": "CC0 verify trực tiếp; dùng làm tương phản 'tuần hành ≠ bạo lực' đúng ràng buộc không quy kết."
+        },
+        {
+          "option_id": "aix_as_riot",
+          "label": "Dùng như cảnh bạo loạn",
+          "score": 0,
+          "reason": "Sai sự kiện.",
+          "rejected_because": "Nội dung là tập hợp ôn hòa — gắn sai bản chất là misinformation."
+        }
+      ],
+      "selected": "aix_cc0",
+      "reason": "B-roll trung thực với nhãn đúng bản chất.",
+      "user_visible": true,
+      "user_approved": true
+    }
+  ]
+}

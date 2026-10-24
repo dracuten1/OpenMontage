@@ -1,0 +1,387 @@
+{
+ "generated": "2026-10-17T02:44:04+00:00",
+ "summary": {
+  "scenes": 70,
+  "conflicts": 20,
+  "conflictScenes": [
+   "sc003",
+   "sc004",
+   "sc005",
+   "sc007",
+   "sc009",
+   "sc010",
+   "sc013",
+   "sc016",
+   "sc034",
+   "sc040",
+   "sc046",
+   "sc052",
+   "sc065"
+  ],
+  "pushes": 2,
+  "resolveFailures": 21
+ },
+ "planEdits": null,
+ "appliedCodemod": [],
+ "occFixesDerived": [],
+ "pushes": [
+  {
+   "scene": "sc063",
+   "boundaryAfter": "sc064",
+   "from": 26147,
+   "to": 26152,
+   "trailingAnchor": "hư mất đời",
+   "trailingEnd": 871.66,
+   "protectionEnd": 871.66,
+   "reason": "anchorEnd"
+  },
+  {
+   "scene": "sc065",
+   "boundaryAfter": "sc066",
+   "from": 26743,
+   "to": 26753,
+   "trailingAnchor": "Phù Đổng đứng thứ hai",
+   "trailingEnd": 891.41,
+   "protectionEnd": 894.51,
+   "reason": "sentenceRetention"
+  }
+ ],
+ "conflicts": [
+  {
+   "scene": "sc003",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Mở từ hôm nay",
+   "occ": 1,
+   "span": {
+    "start": 24.34,
+    "end": 25.06
+   },
+   "rawFraction": -1.75,
+   "window": [
+    30.63,
+    34.23
+   ]
+  },
+  {
+   "scene": "sc003",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Mùng 9 tháng Tư âm lịch",
+   "occ": 1,
+   "span": {
+    "start": 26.76,
+    "end": 27.82
+   },
+   "rawFraction": -1.0741,
+   "window": [
+    30.63,
+    34.23
+   ]
+  },
+  {
+   "scene": "sc003",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "phía đông Hà Nội",
+   "occ": 1,
+   "span": {
+    "start": 28.0,
+    "end": 28.56
+   },
+   "rawFraction": -0.7315,
+   "window": [
+    30.63,
+    34.23
+   ]
+  },
+  {
+   "scene": "sc003",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "làng Phù Đổng",
+   "occ": 1,
+   "span": {
+    "start": 28.9,
+    "end": 29.32
+   },
+   "rawFraction": -0.4815,
+   "window": [
+    30.63,
+    34.23
+   ]
+  },
+  {
+   "scene": "sc003",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "tờ mờ sáng",
+   "occ": 1,
+   "span": {
+    "start": 30.12,
+    "end": 30.62
+   },
+   "rawFraction": -0.1389,
+   "window": [
+    30.63,
+    34.23
+   ]
+  },
+  {
+   "scene": "sc004",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Người làng khoác áo lính",
+   "occ": 1,
+   "span": {
+    "start": 32.82,
+    "end": 33.82
+   },
+   "rawFraction": -0.0789,
+   "window": [
+    34.23,
+    51.97
+   ]
+  },
+  {
+   "scene": "sc005",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Trên mâm cỗ",
+   "occ": 1,
+   "span": {
+    "start": 51.16,
+    "end": 51.68
+   },
+   "rawFraction": -0.0382,
+   "window": [
+    51.97,
+    72.93
+   ]
+  },
+  {
+   "scene": "sc007",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "bảo mẹ mời người sứ giả vào nhà",
+   "occ": 1,
+   "span": {
+    "start": 93.93,
+    "end": 95.27
+   },
+   "rawFraction": -0.8932,
+   "window": [
+    100.07,
+    106.93
+   ]
+  },
+  {
+   "scene": "sc007",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "bên những ngôi đền cổ trên núi Hùng",
+   "occ": 1,
+   "span": {
+    "start": 99.45,
+    "end": 100.71
+   },
+   "rawFraction": -0.0874,
+   "window": [
+    100.07,
+    106.93
+   ]
+  },
+  {
+   "scene": "sc009",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Series này mùa hai",
+   "occ": 1,
+   "span": {
+    "start": 117.83,
+    "end": 118.75
+   },
+   "rawFraction": -0.4988,
+   "window": [
+    124.67,
+    138.37
+   ]
+  },
+  {
+   "scene": "sc009",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "vì sao",
+   "occ": 1,
+   "span": {
+    "start": 119.81,
+    "end": 120.07
+   },
+   "rawFraction": -0.3552,
+   "window": [
+    124.67,
+    138.37
+   ]
+  },
+  {
+   "scene": "sc009",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "tìm câu trả lời",
+   "occ": 1,
+   "span": {
+    "start": 123.89,
+    "end": 124.63
+   },
+   "rawFraction": -0.056,
+   "window": [
+    124.67,
+    138.37
+   ]
+  },
+  {
+   "scene": "sc010",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Người xưa có cả kho",
+   "occ": 1,
+   "span": {
+    "start": 130.81,
+    "end": 131.87
+   },
+   "rawFraction": -0.4251,
+   "window": [
+    138.37,
+    156.17
+   ]
+  },
+  {
+   "scene": "sc013",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Sách chép nhà ông",
+   "occ": 1,
+   "span": {
+    "start": 182.08,
+    "end": 182.9
+   },
+   "rawFraction": -0.1557,
+   "window": [
+    185.77,
+    209.53
+   ]
+  },
+  {
+   "scene": "sc016",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Giặc đến chân núi Vũ Ninh",
+   "occ": 1,
+   "span": {
+    "start": 226.7,
+    "end": 227.88
+   },
+   "rawFraction": -0.4106,
+   "window": [
+    233.9,
+    251.43
+   ]
+  },
+  {
+   "scene": "sc034",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Kiếm sắt gãy",
+   "occ": 1,
+   "span": {
+    "start": 497.14,
+    "end": 497.72
+   },
+   "rawFraction": -0.1495,
+   "window": [
+    497.67,
+    501.23
+   ]
+  },
+  {
+   "scene": "sc040",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Đối chiếu hai trang",
+   "occ": 1,
+   "span": {
+    "start": 563.92,
+    "end": 564.66
+   },
+   "rawFraction": -0.1909,
+   "window": [
+    567.83,
+    588.27
+   ]
+  },
+  {
+   "scene": "sc046",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "Cuối cùng là hội trận",
+   "occ": 1,
+   "span": {
+    "start": 642.52,
+    "end": 643.42
+   },
+   "rawFraction": -0.1165,
+   "window": [
+    644.77,
+    663.93
+   ]
+  },
+  {
+   "scene": "sc052",
+   "type": "out_early",
+   "kind": "call",
+   "phrase": "thờ vị thần này bao đời nay",
+   "occ": 1,
+   "span": {
+    "start": 734.6,
+    "end": 735.78
+   },
+   "rawFraction": -0.3285,
+   "window": [
+    737.63,
+    746.87
+   ]
+  },
+  {
+   "scene": "sc065",
+   "type": "retention_cut",
+   "protectionEnd": 894.51,
+   "sceneEnd": 891.767,
+   "cutSec": 2.743,
+   "note": "sentence of last anchor extends past scene end and cannot be pushed before next scene's first spoken word — real content conflict"
+  }
+ ],
+ "resolveFailures": [
+  "sc003 A(\"Mở từ hôm nay\", occ 1): spoken 24.34-25.06s outside window [30.63,34.23] — content conflict",
+  "sc003 A(\"Mùng 9 tháng Tư âm lịch\", occ 1): spoken 26.76-27.82s outside window [30.63,34.23] — content conflict",
+  "sc003 A(\"phía đông Hà Nội\", occ 1): spoken 28.00-28.56s outside window [30.63,34.23] — content conflict",
+  "sc003 A(\"làng Phù Đổng\", occ 1): spoken 28.90-29.32s outside window [30.63,34.23] — content conflict",
+  "sc003 A(\"tờ mờ sáng\", occ 1): spoken 30.12-30.62s outside window [30.63,34.23] — content conflict",
+  "sc004 A(\"Người làng khoác áo lính\", occ 1): spoken 32.82-33.82s outside window [34.23,51.97] — content conflict",
+  "sc005 A(\"Trên mâm cỗ\", occ 1): spoken 51.16-51.68s outside window [51.97,72.93] — content conflict",
+  "sc007 «người khách quân xanh»: no occurrence inside window [100.07,106.93] in s03 — phrase absent from section",
+  "sc007 A(\"bảo mẹ mời người sứ giả vào nhà\", occ 1): spoken 93.93-95.27s outside window [100.07,106.93] — content conflict",
+  "sc007 A(\"bên những ngôi đền cổ trên núi Hùng\", occ 1): spoken 99.45-100.71s outside window [100.07,106.93] — content conflict",
+  "sc009 A(\"Series này mùa hai\", occ 1): spoken 117.83-118.75s outside window [124.67,138.37] — content conflict",
+  "sc009 A(\"vì sao\", occ 1): spoken 119.81-120.07s outside window [124.67,138.37] — content conflict",
+  "sc009 A(\"tìm câu trả lời\", occ 1): spoken 123.89-124.63s outside window [124.67,138.37] — content conflict",
+  "sc010 A(\"Người xưa có cả kho\", occ 1): spoken 130.81-131.87s outside window [138.37,156.17] — content conflict",
+  "sc013 A(\"Sách chép nhà ông\", occ 1): spoken 182.08-182.90s outside window [185.77,209.53] — content conflict",
+  "sc016 A(\"Giặc đến chân núi Vũ Ninh\", occ 1): spoken 226.70-227.88s outside window [233.90,251.43] — content conflict",
+  "sc034 «Roi sắt quất đến gãy»: no occurrence inside window [497.67,501.23] in s13 — phrase absent from section",
+  "sc034 A(\"Kiếm sắt gãy\", occ 1): spoken 497.14-497.72s outside window [497.67,501.23] — content conflict",
+  "sc040 A(\"Đối chiếu hai trang\", occ 1): spoken 563.92-564.66s outside window [567.83,588.27] — content conflict",
+  "sc046 A(\"Cuối cùng là hội trận\", occ 1): spoken 642.52-643.42s outside window [644.77,663.93] — content conflict",
+  "sc052 A(\"thờ vị thần này bao đời nay\", occ 1): spoken 734.60-735.78s outside window [737.63,746.87] — content conflict"
+ ],
+ "note": "Interleaved narration vs plan order (4 pairs) is REAL content conflict: anchors spoken inside the neighbouring scene's window. Enumerated exactly; NOT silently clamped, reassigned, or proportionally faked. Owner decision required (swap scene order / re-anchor panel / re-record narration bit)."
+}

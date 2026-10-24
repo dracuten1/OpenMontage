@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "project_id": "coastal-reclamation-20261024",
+  "stage": "script",
+  "status": "completed",
+  "timestamp": "2026-10-24T08:00:32.234819+00:00",
+  "pipeline_type": "animated-explainer",
+  "style_playbook": "clean-professional",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": true,
+  "artifacts": {
+    "script": "projects/coastal-reclamation-20261024/script.json"
+  },
+  "cost_snapshot": {
+    "total_spent_usd": 0.0,
+    "total_reserved_usd": 0.0,
+    "budget_remaining_usd": 2.0
+  },
+  "metadata": {
+    "total_scenes": 6,
+    "planned_duration_seconds": 118.0,
+    "language": "vi"
+  }
+}

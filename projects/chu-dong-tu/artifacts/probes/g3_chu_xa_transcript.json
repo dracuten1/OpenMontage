@@ -1,0 +1,80 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.24,
+      "text": "T\u1eeb xa, l\u1ea7n t\u1eeb xa.",
+      "words": [
+        {
+          "word": " T\u1eeb",
+          "start": 0.0,
+          "end": 0.18,
+          "probability": 0.3
+        },
+        {
+          "word": " xa,",
+          "start": 0.18,
+          "end": 0.5,
+          "probability": 0.538
+        },
+        {
+          "word": " l\u1ea7n",
+          "start": 0.66,
+          "end": 0.8,
+          "probability": 0.596
+        },
+        {
+          "word": " t\u1eeb",
+          "start": 0.8,
+          "end": 0.98,
+          "probability": 0.444
+        },
+        {
+          "word": " xa.",
+          "start": 0.98,
+          "end": 1.24,
+          "probability": 0.99
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " T\u1eeb",
+      "start": 0.0,
+      "end": 0.18,
+      "probability": 0.3
+    },
+    {
+      "word": " xa,",
+      "start": 0.18,
+      "end": 0.5,
+      "probability": 0.538
+    },
+    {
+      "word": " l\u1ea7n",
+      "start": 0.66,
+      "end": 0.8,
+      "probability": 0.596
+    },
+    {
+      "word": " t\u1eeb",
+      "start": 0.8,
+      "end": 0.98,
+      "probability": 0.444
+    },
+    {
+      "word": " xa.",
+      "start": 0.98,
+      "end": 1.24,
+      "probability": 0.99
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.44,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

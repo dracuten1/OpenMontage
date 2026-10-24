@@ -1,0 +1,72 @@
+{
+ "version": "1.0",
+ "project_id": "news-daily-20261023",
+ "pipeline_type": "hybrid",
+ "stage": "assets",
+ "status": "completed",
+ "timestamp": "2026-10-23T18:16:26.046249+07:00",
+ "checkpoint_policy": "guided",
+ "human_approval_required": true,
+ "human_approved": true,
+ "artifacts": {
+  "tts_lexicon": {
+   "entries": 11,
+   "file": "projects/news-daily-20261023/tts_lexicon.json",
+   "coverage": "qc/audio_batch.json PASS 8/8, 0 residual digit tokens"
+  },
+  "narration": [
+   {
+    "scene": "s01",
+    "path": "assets/audio/voice_s01.wav",
+    "voice_seconds": 6.123
+   },
+   {
+    "scene": "s02",
+    "path": "assets/audio/voice_s02.wav",
+    "voice_seconds": 6.898
+   },
+   {
+    "scene": "s03",
+    "path": "assets/audio/voice_s03.wav",
+    "voice_seconds": 7.171
+   },
+   {
+    "scene": "s04",
+    "path": "assets/audio/voice_s04.wav",
+    "voice_seconds": 7.859
+   },
+   {
+    "scene": "s05",
+    "path": "assets/audio/voice_s05.wav",
+    "voice_seconds": 6.623
+   },
+   {
+    "scene": "s06",
+    "path": "assets/audio/voice_s06.wav",
+    "voice_seconds": 7.87
+   },
+   {
+    "scene": "s07",
+    "path": "assets/audio/voice_s07.wav",
+    "voice_seconds": 10.64
+   },
+   {
+    "scene": "s08",
+    "path": "assets/audio/voice_s08.wav",
+    "voice_seconds": 1.736
+   }
+  ],
+  "timing": {
+   "public": "remotion-composer/public/news-daily-20261023/scene_timing.json",
+   "total_frames": 1844,
+   "total_seconds": 61.4667
+  },
+  "audits": {
+   "speech_window": "qc/speech_window_audit.json 32/32 pass, 0 overflow",
+   "asr_roundtrip": "qc/asr_roundtrip.json 8/8 pass (head/tail ratio 1.0)",
+   "audio_batch": "qc/audio_batch.json pass"
+  },
+  "thumbnail": "exports/thumbnails/news-daily-20261023-tiktok.png 1080x1920 (lead-generated, vision QC PASS)",
+  "music": "voice-only, no BGM (lane precedent)"
+ }
+}

@@ -1,0 +1,117 @@
+[
+ {
+  "id": "img-01-thuyen-ruc-nuoc",
+  "status": "cached",
+  "bytes": 970062,
+  "resolution": "1264x848",
+  "path": "assets/images/img-01-thuyen-ruc-nuoc.png"
+ },
+ {
+  "id": "img-03-thuyen-tien-dung",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 13.4,
+  "bytes": 1007184,
+  "resolution": "1264x848",
+  "path": "assets/images/img-03-thuyen-tien-dung.png"
+ },
+ {
+  "id": "img-04-bai-cat-nguoi-vui",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 12.3,
+  "bytes": 997407,
+  "resolution": "1264x848",
+  "path": "assets/images/img-04-bai-cat-nguoi-vui.png"
+ },
+ {
+  "id": "img-05-cho-pho-ven-song",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 11.9,
+  "bytes": 1321135,
+  "resolution": "1264x848",
+  "path": "assets/images/img-05-cho-pho-ven-song.png"
+ },
+ {
+  "id": "img-06-nui-quynh-vi-am",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 34.4,
+  "bytes": 1129873,
+  "resolution": "1264x848",
+  "path": "assets/images/img-06-nui-quynh-vi-am.png"
+ },
+ {
+  "id": "img-07-su-phu-quang",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 10.6,
+  "bytes": 948425,
+  "resolution": "1264x848",
+  "path": "assets/images/img-07-su-phu-quang.png"
+ },
+ {
+  "id": "img-08-gay-non",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 10.9,
+  "bytes": 750014,
+  "resolution": "1264x848",
+  "path": "assets/images/img-08-gay-non.png"
+ },
+ {
+  "id": "img-09-quan-quan-bai-tu-nhien",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 14.0,
+  "bytes": 1076455,
+  "resolution": "1264x848",
+  "path": "assets/images/img-09-quan-quan-bai-tu-nhien.png"
+ },
+ {
+  "id": "img-10-gio-cat-thanh-bay",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 35.7,
+  "bytes": 1020093,
+  "resolution": "1264x848",
+  "path": "assets/images/img-10-gio-cat-thanh-bay.png"
+ },
+ {
+  "id": "img-11-dam-nhat-da",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 11.6,
+  "bytes": 957593,
+  "resolution": "1264x848",
+  "path": "assets/images/img-11-dam-nhat-da.png"
+ },
+ {
+  "id": "img-12-trang-ban-dich",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 11.1,
+  "bytes": 792220,
+  "resolution": "1264x848",
+  "path": "assets/images/img-12-trang-ban-dich.png"
+ },
+ {
+  "id": "img-13-dinh-da-hoa",
+  "status": "gen",
+  "model": "ag/gemini-3.1-flash-image",
+  "seconds": 11.8,
+  "bytes": 1038269,
+  "resolution": "1264x848",
+  "path": "assets/images/img-13-dinh-da-hoa.png"
+ },
+ {
+  "id": "img-14-bon-chan-den",
+  "status": "gen",
+  "model": "cx/gpt-5.6-luna-image",
+  "seconds": 23.5,
+  "bytes": 1860071,
+  "resolution": "1536x1024",
+  "path": "assets/images/img-14-bon-chan-den.png"
+ }
+]

@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "policy": "Chỉ dùng số trong claims này trên hình + narration. MEDIUM confidence phải kèm qualifier đúng chỗ. KHÔNG bịa số ngoài whitelist.",
+  "claims": [
+    {"id": "W-hook", "text": "Nợ 7 triệu USD thời COVID → đóng băng 251 triệu USD tài sản toàn cầu", "confidence": "verified", "source": "S1/S2/S3, H1 owner duyệt"},
+    {"id": "W-4a321", "text": "2018-2019 nhận 4 Airbus A321 thuê (JOLCO)", "confidence": "verified", "source": "brief TIMELINE"},
+    {"id": "W-74", "text": "Chậm trả ~7,4 triệu USD tiền thuê (COVID); 10/2021 chấm dứt hợp đồng", "confidence": "verified", "source": "brief TIMELINE"},
+    {"id": "W-fwa", "text": "Nợ bị chuyển nhượng cho FWA — công ty quỹ săn nợ Anh FitzWalter (London)", "confidence": "verified", "source": "brief TIMELINE; vj8 mục 3"},
+    {"id": "W-1815", "text": "Bản án 4/2025: 181,5 triệu USD (termination payments + outstanding rent)", "confidence": "verified", "source": "vj7 Aviation Today"},
+    {"id": "W-split", "text": "181,5 gồm ~164,8 bồi thường chấm dứt + ~16,7 tiền thuê quá hạn", "confidence": "medium", "qualifier_required": "theo phân tích phán quyết / ước tính theo phân tích phán quyết", "source": "vj8 grounded (CHƯA fetch full text)"},
+    {"id": "W-penalty", "text": "VietJet phản đối bồi thường chấm dứt là 'khoản phạt' vô hiệu → tòa Anh BÁC (test Cavendish Square v Makessi)", "confidence": "medium-high", "phrasing": "chỉ nói 'tòa bác lập luận của VietJet' — không tự kết luận điều khoản hợp lý/phi lý", "source": "vj8 mục 5"},
+    {"id": "W-judgments", "text": "3 bản án: 2024 ~18,8 triệu; 4/2025 ~181,5 triệu; thêm ~18,3 triệu → tổng >250, lệnh đóng băng tới 251,6 triệu", "confidence": "verified", "source": "brief TIMELINE + vj7"},
+    {"id": "W-paid", "text": "VietJet mới trả ~2 triệu USD (2025)", "confidence": "verified", "source": "brief TIMELINE"},
+    {"id": "W-ahl", "text": "12/2024 PDP Participation Agreements: chuyển gần như toàn bộ giá trị kinh tế order book ~300 máy bay cho Angelica Holding Ltd (Cayman) — 'liên quan tới VietJet'", "confidence": "verified", "qualifier_required": "'liên quan tới VietJet' — KHÔNG 'công ty con'", "source": "brief TIMELINE 12/2024"},
+    {"id": "W-sg", "text": "Singapore: lệnh thu giữ 9 máy bay — hãng ngừng bay tới Singapore nên không thu được", "confidence": "verified", "source": "brief TIMELINE"},
+    {"id": "W-wfo", "text": "15/10/2026 thẩm phán Pushpinder Singh Saini (Commercial Court, [2026] EWHC 2633 (Comm)) ra WFO tới 251,6 triệu USD vì 'solid evidence showing a real risk of dissipation'", "confidence": "verified", "source": "brief TIMELINE"},
+    {"id": "W-quotes", "text": "Quotes Saini: 'wholly illusory' (hoàn toàn ảo), 'bizarre' (quái đản), 'won't pay' (không chịu trả) — LỜI TÒA, chưa phải kết luận gian lận cuối", "confidence": "verified", "qualifier_required": "trình bày như trích dẫn", "source": "brief TIMELINE + QA flags"},
+    {"id": "W-scope", "text": "Phạm vi đóng băng: máy bay đặt-chưa-nhận, PDP, động cơ, thiết bị cabin, quỹ bảo dưỡng, tiền cọc, doanh thu vé qua đại lý — NHƯNG không phải lệnh cấm bay; chuyến bay vẫn bình thường", "confidence": "verified", "source": "brief TIMELINE 'Phạm vi'"},
+    {"id": "W-vjc", "text": "VJC không bán tháo, giao dịch quanh ~128.600 đồng", "confidence": "medium", "qualifier_required": "theo giao dịch gần đây", "source": "grounded tapchihangkhong/fireant"},
+    {"id": "W-aus", "text": "Kế hoạch Úc: 10 Boeing 737, thương hiệu mới — dự kiến gặp trở ngại", "confidence": "verified", "source": "Australian Aviation qua S2"},
+    {"id": "W-2516cap", "text": "251,6 triệu là TRẦN lệnh đóng băng — KHÔNG phải số đã thu hồi được", "confidence": "verified", "qualifier_required": "label trên chart 'TRẦN đóng băng'", "source": "brief QA flags"},
+    {"id": "W-rebuttal", "text": "VietJet phản bác: 'tài trợ/tái tài trợ thông thường trong ngành', không tẩu tán; có quyền kháng án", "confidence": "verified", "source": "brief TIMELINE 'Phản ứng'"},
+    {"id": "W-interest", "text": "Lãi chậm trả cộng dồn (compounding default interest) + chi phí pháp lý — KHÔNG dùng chữ 'lãi kép'", "confidence": "verified", "source": "vj8 mục 6 + QA flag"}
+  ],
+  "dropped_claims": [
+    {"text": "7,4-8,1 khoảng dao động — chỉ dùng 7,4 cho nhất quán", "reason": "hook dùng 7 triệu; 7,4 là cận dưới verified"},
+    {"text": "Receivers 30/9/2026 (Butcher J)", "reason": "chi tiết pháp lý phụ, không cần cho TikTok 150s"},
+    {"text": "Hà Nội–Prague, Top 50 ESG, Satair", "reason": "đối trọng tùy chọn — bỏ để giữ nhịp rise-fall"},
+    {"text": "Thai VietJet không bị ảnh hưởng", "reason": "phụ, không thêm"}
+  ]
+}

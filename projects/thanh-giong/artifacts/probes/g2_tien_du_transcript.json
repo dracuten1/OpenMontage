@@ -1,0 +1,80 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.16,
+      "text": "\u0110\u00ean gi\u00f9, h\u00e3y \u0110\u00ean gi\u00f9",
+      "words": [
+        {
+          "word": " \u0110\u00ean",
+          "start": 0.0,
+          "end": 0.18,
+          "probability": 0.21
+        },
+        {
+          "word": " gi\u00f9,",
+          "start": 0.18,
+          "end": 0.48,
+          "probability": 0.211
+        },
+        {
+          "word": " h\u00e3y",
+          "start": 0.62,
+          "end": 0.76,
+          "probability": 0.204
+        },
+        {
+          "word": " \u0110\u00ean",
+          "start": 0.76,
+          "end": 0.96,
+          "probability": 0.659
+        },
+        {
+          "word": " gi\u00f9",
+          "start": 0.96,
+          "end": 1.16,
+          "probability": 0.973
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " \u0110\u00ean",
+      "start": 0.0,
+      "end": 0.18,
+      "probability": 0.21
+    },
+    {
+      "word": " gi\u00f9,",
+      "start": 0.18,
+      "end": 0.48,
+      "probability": 0.211
+    },
+    {
+      "word": " h\u00e3y",
+      "start": 0.62,
+      "end": 0.76,
+      "probability": 0.204
+    },
+    {
+      "word": " \u0110\u00ean",
+      "start": 0.76,
+      "end": 0.96,
+      "probability": 0.659
+    },
+    {
+      "word": " gi\u00f9",
+      "start": 0.96,
+      "end": 1.16,
+      "probability": 0.973
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.36,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

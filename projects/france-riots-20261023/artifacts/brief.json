@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "title": "Bạo loạn Pháp 10/2026 — đêm 17/10 (bản phân tích chiều sâu)",
+  "core_message": "Đêm 17/10/2026 gây thiệt hại ước tính vượt 1 tỷ € (có thể tới 1,2 tỷ — FT/Morningstar), thuộc nhóm đợt biểu tình tốn kém nhất với ngành bảo hiểm Pháp. Ba lớp nguyên nhân: ngòi nổ học sinh/giáo dục, bất mãn nền sức mua/ngân sách, cơ chế huy động qua mạng xã hội leo thang. Chưa kết thúc: lời gọi hành động mới 24/10.",
+  "hook": "Cách Điện tổng thống Pháp 200m, đám đông đã dựng barricade. Đây là chuyện đã xảy ra. (owner duyệt nguyên văn — H2 trong brief)",
+  "selected_angle": "Deep-dive single-topic 3 lớp nguyên nhân + timeline + hậu quả + hiện trạng; phân biệt yêu sách người biểu tình / nhận định giới chức / phân tích biên tập; số liệu theo whitelist v2 (revision-source-audit) đã được Lead spot-verify trực tiếp.",
+  "target_duration_seconds": 240,
+  "target_platform": "tiktok",
+  "target_audience": "người đi làm 25-35 Việt Nam",
+  "tone": "trung tính, kỷ luật số liệu; không giật gân, không hưng phấn; BGM trung tính không vui nhộn",
+  "style": "flat-motion-graphics 9:16 (1080x1920), navy #0F172A + coral #FF7F6E như lane news; camera tĩnh tuyệt đối (2 owner vetoes); reveal theo word timestamps thật (speech-lock); charts: bar zero-based ≈220/730–798/>1.000–1.200 triệu € nguồn ghi từng cột (2026 ghi 'ước tính'), timeline ngang 17→24/10, stat card đôi 550.000/800.000, map Pháp (MINH HỌA); ảnh hiện trường Commons CC BY-SA 4.0 có credit + caption tư liệu",
+  "key_points": [
+    "Hook 200m barricade (duyệt nguyên văn)",
+    "Lớp 1 ngòi nổ: lời kêu gọi v2.95 mạng xã hội (TF1 VÉRIF/La Croix) — một kênh huy động, không phải nguyên nhân duy nhất",
+    "Lớp 2a: phong trào lycée Créteil — yêu sách điều kiện học, Parcoursup (Guardian); 800 lycée đóng 6/10 (Bộ GD)",
+    "Lớp 2b: budget 2027 tăng 1,2 tỷ € nhưng cắt 1.588 post (Café pédagogique); sức mua/giá xăng; KHÔNG nói 'ngân sách bị cắt'",
+    "Lớp 3: học sinh + công đoàn + áo vàng; bản đồ điểm tập kết; quy trách nhiệm cực tả/tội phạm = nhận định chính phủ, không phải kết luận tư pháp",
+    "Hiện trường: 2 ảnh JJxFile CC BY-SA 4.0 (credit + caption khai báo 17/10); b-roll Aix CC0 cảnh ôn hòa",
+    "Quy mô: 550.000 (Bộ Nội vụ) vs 800.000 (tổ chức), 110.000 Paris, 110 cuộc (franceinfo)",
+    "Paris 200m (TF1 LCI); Limoges 1883 campanile sụp (Le Parisien/France 3/AFP); Lyon 200–300 cửa hàng (Guardian); Marseille bỏ số tranh cãi; Bordeaux/Lille/Marseille mairies (Élysée/TF1)",
+    "Bilan: 2.397 đêm 17–18/10 (CNews) + ≈2.500 lũy kế đến 22/10 (RFI/Bộ Nội vụ); 997 cảnh sát+hiến binh bị thương, 7 nặng (CNews)",
+    "Chart bảo hiểm: Áo vàng 18–19 ≈220 · 2023 730–798 · 2026 >1.000–1.200 ƯỚC TÍNH (FT/Morningstar) — KHÔNG superlative",
+    "Phản ứng: Macron 18/10 'giận và xấu hổ', không đồng hóa ôn hòa/bạo lực; Nuñez từ chối từ chức (Euronews); giới nghiêm khu vực",
+    "22/10: hồ sơ cấm Saturday; tòa hành chính hủy nhiều lệnh, Paris giữ 8h–20h (Guardian/RFI)",
+    "24/10: kế hoạch điểm hành động trạm xăng/lọc dầu (site điều phối) — KẾ HOẠCH, chưa xảy ra",
+    "Góc VN: đại sứ quán khuyến cáo, du học sinh, Đề Pa từ xa (Thanh Niên/VnExpress)",
+    "NHẬN ĐỊNH (badge): hội tụ nhiều bất mãn + nhiều kênh huy động; quyền biểu tình ≠ phá hoại; quy trách nhiệm ≠ kết luận điều tra",
+    "CTA: theo dõi cập nhật 24/10"
+  ],
+  "reference_material": [
+    "inputs/research_brief.md — research brief gốc (tham chiếu; whitelist v2 thay thế cho claims)",
+    "history/revision-source-audit.md — audit nguồn độc lập 23/10 (Lead đã spot-verify trực tiếp các nguồn then chốt)",
+    "history/revision-media-rights.md — audit quyền media 23/10"
+  ],
+  "metadata": {
+    "project_id": "france-riots-20261023",
+    "revision": "v2 — 2026-10-23 owner-directed revision (3 lớp nguyên nhân, whitelist v2, media license-first)",
+    "lane": "news deep-dive (news-video-pipeline contract)",
+    "pipeline": "hybrid",
+    "style_playbook": "flat-motion-graphics",
+    "render_runtime": "remotion",
+    "voice": "vieneu Turbo default 48kHz, atempo 1.15; Macron đọc 'mác cờ ron' (owner mandate), display vẫn Macron",
+    "bgm": "Mesmerize (ambient trung tính) — KHÔNG vui nhộn; CC BY 4.0 credit trong description",
+    "duration_policy": "OWNER OVERRIDE 23/10/2026: bỏ trần 100–120s/180s cho tập này; nhịp tự nhiên 3–5 phút, không nén, không lặp/nhồi; thời lượng cuối = tổng audio thật speed 1.15",
+    "claims_policy": "whitelist v2 (version 2.0) là chuẩn claim; KHÔNG hồi sinh claim đã bỏ (đắt nhất lịch sử, 30.000 Marseille, thương vong thường dân); KHÔNG quy kết nhập cư/sắc tộc/toàn bộ người biểu tình là bạo loạn",
+    "media_policy": "Chỉ dùng ảnh/video có license verify trực tiếp (CC BY-SA 4.0/CC0 Commons); credit trên hình + description; caption tư liệu ghi nguồn khai báo; KHÔNG dùng ảnh AP/Getty/Reuters/AFP"
+  }
+}

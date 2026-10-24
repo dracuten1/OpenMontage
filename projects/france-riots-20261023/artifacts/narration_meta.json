@@ -1,0 +1,106 @@
+{
+  "s01": {
+    "section_id": "S1",
+    "scene_id": "s01",
+    "canonical_text": "Cách Điện tổng thống Pháp 200m, đám đông đã dựng barricade. Đây là chuyện đã xảy ra. Đêm 17/10, ở Paris.",
+    "provider_text": "Cách Điện tổng thống Pháp hai trăm mét, đám đông đã dựng ba ri cát. Đây là chuyện đã xảy ra. Đêm mười bảy tháng mười, ở Pa ri.",
+    "voice_seconds": 5.501,
+    "audio_file": "voice_s01.wav"
+  },
+  "s02": {
+    "section_id": "S2",
+    "scene_id": "s02",
+    "canonical_text": "Từ tháng 9, học sinh xuống đường vì thiếu giáo viên, cắt vị trí trong ngân sách 2027, và đòi bỏ nền tảng tuyển sinh Parcoursup.",
+    "provider_text": "Từ tháng chín, học sinh xuống đường vì thiếu giáo viên, cắt vị trí trong ngân sách hai nghìn không trăm hai mươi bảy, và đòi bỏ nền tảng tuyển sinh Pác ku xúp.",
+    "voice_seconds": 6.744708,
+    "audio_file": "voice_s02.wav"
+  },
+  "s03": {
+    "section_id": "S3",
+    "scene_id": "s03",
+    "canonical_text": "Người lao động, áo vàng cũng nhập cuộc. Ngày 16/10, trang đảng bị hack. Lời kêu gọi trên TikTok của tài khoản V2 kèm bản đồ điểm tập hợp và barricade.",
+    "provider_text": "Người lao động, áo vàng cũng nhập cuộc. Ngày mười sáu tháng mười, trang đảng bị hách. Lời kêu gọi trên Tích Tọc của tài khoản vê hai kèm bản đồ điểm tập hợp và ba ri cát.",
+    "voice_seconds": 6.895813,
+    "audio_file": "voice_s03.wav"
+  },
+  "s04": {
+    "section_id": "S4",
+    "scene_id": "s04",
+    "canonical_text": "Thứ Bảy 17/10, cả nước có 550.000 người tuần hành theo Bộ Nội vụ, trong 110 cuộc biểu tình, riêng Paris là 110.000. Ban tổ chức nói con số lên tới 800.000.",
+    "provider_text": "Thứ Bảy mười bảy tháng mười, cả nước có năm trăm năm mươi nghìn người tuần hành theo Bộ Nội vụ, trong một trăm mười cuộc biểu tình, riêng Pa ri là một trăm mười nghìn. Ban tổ chức nói con số lên tới tám trăm nghìn.",
+    "voice_seconds": 8.838896,
+    "audio_file": "voice_s04.wav"
+  },
+  "s05": {
+    "section_id": "S5",
+    "scene_id": "s05",
+    "canonical_text": "Tại Paris, đám đông tiến tới cách Điện Élysée 200 mét, dựng barricade ngay trên đại lộ Champs-Élysées. Khi đoàn tuần hành tan, hàng chục cửa hàng bị đập phá và cướp.",
+    "provider_text": "Tại Pa ri, đám đông tiến tới cách Điện ê li zê hai trăm mét, dựng ba ri cát ngay trên đại lộ Săng ê li zê. Khi đoàn tuần hành tan, hàng chục cửa hàng bị đập phá và cướp.",
+    "voice_seconds": 7.453042,
+    "audio_file": "voice_s05.wav"
+  },
+  "s06": {
+    "section_id": "S6",
+    "scene_id": "s06",
+    "canonical_text": "Sau Paris, Limoges mất toà thị chính khánh thành năm 1883 — nó bị phóng hỏa, mái vòm và tháp chuông sụp: chính quyền gọi là thảm họa di sản. Lyon ghi nhận 200–300 cửa hàng bị đập phá. Marseille chứng kiến đám đông xông vào toà thị chính.",
+    "provider_text": "Sau Pa ri, Li mốt mất toà thị chính khánh thành năm một nghìn tám trăm tám mươi ba nó bị phóng hỏa, mái vòm và tháp chuông sụp: chính quyền gọi là thảm họa di sản. Li ông ghi nhận hai trăm đến ba trăm cửa hàng bị đập phá. Mác xây chứng kiến đám đông xông vào toà thị chính.",
+    "voice_seconds": 11.433042,
+    "audio_file": "voice_s06.wav"
+  },
+  "s07": {
+    "section_id": "S7",
+    "scene_id": "s07",
+    "canonical_text": "Đêm đó, 1.200 người bị bắt, riêng vùng Paris 855. Sau các ngày truy quét, tổng cộng lên tới gần 2.400, theo tổng kê của giới chức. 997 cảnh sát bị thương. Và khoảng 3.000 cửa hàng bị cướp, đập phá.",
+    "provider_text": "Đêm đó, một nghìn hai trăm người bị bắt, riêng vùng Pa ri tám trăm năm mươi lăm. Sau các ngày truy quét, tổng cộng lên tới gần hai nghìn bốn trăm, theo tổng kê của giới chức. chín trăm chín mươi bảy cảnh sát bị thương. Và khoảng ba nghìn cửa hàng bị cướp, đập phá.",
+    "voice_seconds": 11.419938,
+    "audio_file": "voice_s07.wav"
+  },
+  "s08": {
+    "section_id": "S8",
+    "scene_id": "s08",
+    "canonical_text": "Ngành bảo hiểm ước tính thiệt hại đêm 17/10 cỡ 1 tỷ euro — so với 795 triệu euro của bạo loạn 2023, và 256 triệu euro của áo vàng 2018–2019. Đợt đắt nhất lịch sử hiện đại của Pháp.",
+    "provider_text": "Ngành bảo hiểm ước tính thiệt hại đêm mười bảy tháng mười cỡ một tỷ ê rô so với bảy trăm chín mươi lăm triệu ê rô của bạo loạn hai nghìn không trăm hai mươi ba, và hai trăm năm mươi sáu triệu ê rô của áo vàng hai nghìn không trăm mười tám đến hai nghìn không trăm mười chín. Đợt đắt nhất lịch sử hiện đại của Pháp.",
+    "voice_seconds": 12.810083,
+    "audio_file": "voice_s08.wav"
+  },
+  "s09": {
+    "section_id": "S9",
+    "scene_id": "s09",
+    "canonical_text": "Tối hôm sau, Tổng thống Macron lên truyền hình trong cơn giận, hứa không khoan nhượng với người đập phá. Bộ trưởng Nội vụ Nuñez nộp đơn từ chức — nhưng bị từ chối. Đến 22/10, chính phủ cấm các cuộc biểu tình bất hợp pháp.",
+    "provider_text": "Tối hôm sau, Tổng thống Ma crông lên truyền hình trong cơn giận, hứa không khoan nhượng với người đập phá. Bộ trưởng Nội vụ Nu nết nộp đơn từ chức nhưng bị từ chối. Đến hai mươi hai tháng mười, chính phủ cấm các cuộc biểu tình bất hợp pháp.",
+    "voice_seconds": 10.580583,
+    "audio_file": "voice_s09.wav"
+  },
+  "s10": {
+    "section_id": "S10",
+    "scene_id": "s10",
+    "canonical_text": "Từ tháng 9 đến 22/10, biểu tình leo thang rồi bị cấm. Hôm nay 23/10, hội đồng quốc phòng họp trước tổng huy động thứ Bảy 24/10. Lyon, Marseille, Nice đã cấm sẵn.",
+    "provider_text": "Từ tháng chín đến hai mươi hai tháng mười, biểu tình leo thang rồi bị cấm. Hôm nay hai mươi ba tháng mười, hội đồng quốc phòng họp trước tổng huy động thứ Bảy hai mươi bốn tháng mười. Li ông, Mác xây, Nít đã cấm sẵn.",
+    "voice_seconds": 9.050917,
+    "audio_file": "voice_s10.wav"
+  },
+  "s11": {
+    "section_id": "S11",
+    "scene_id": "s11",
+    "canonical_text": "Ở Nice, du học sinh Trịnh Minh Hằng kể trường mình nằm trong khu vực biểu tình, sinh hoạt đảo lộn. Người Việt lâu năm không ngạc nhiên; người mới đến bị sốc khi thấy cảnh đốt phá.",
+    "provider_text": "Ở Nít, du học sinh Trịnh Minh Hằng kể trường mình nằm trong khu vực biểu tình, sinh hoạt đảo lộn. Người Việt lâu năm không ngạc nhiên; người mới đến bị sốc khi thấy cảnh đốt phá.",
+    "voice_seconds": 7.443958,
+    "audio_file": "voice_s11.wav"
+  },
+  "s12": {
+    "section_id": "S12",
+    "scene_id": "s12",
+    "canonical_text": "Nhận định: sáu tháng trước bầu cử 2027, sống đắt thành khủng hoảng chính trị. Với người đi làm, đây là lời nhắc cần đệm chi phí cá nhân.",
+    "provider_text": "Nhận định: sáu tháng trước bầu cử hai nghìn không trăm hai mươi bảy, sống đắt thành khủng hoảng chính trị. Với người đi làm, đây là lời nhắc cần đệm chi phí cá nhân.",
+    "voice_seconds": 6.761333,
+    "audio_file": "voice_s12.wav"
+  },
+  "s13": {
+    "section_id": "S13",
+    "scene_id": "s13",
+    "canonical_text": "Theo dõi, để xem thứ Bảy 24/10 chuyện gì sẽ xảy ra.",
+    "provider_text": "Theo dõi, để xem thứ Bảy hai mươi bốn tháng mười chuyện gì sẽ xảy ra.",
+    "voice_seconds": 3.006125,
+    "audio_file": "voice_s13.wav"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.22,
+      "text": "So be ya, bye so be ya",
+      "words": [
+        {
+          "word": " So",
+          "start": 0.0,
+          "end": 0.22,
+          "probability": 0.063
+        },
+        {
+          "word": " be",
+          "start": 0.22,
+          "end": 0.38,
+          "probability": 0.191
+        },
+        {
+          "word": " ya,",
+          "start": 0.38,
+          "end": 0.52,
+          "probability": 0.371
+        },
+        {
+          "word": " bye",
+          "start": 0.62,
+          "end": 0.72,
+          "probability": 0.645
+        },
+        {
+          "word": " so",
+          "start": 0.72,
+          "end": 0.9,
+          "probability": 0.643
+        },
+        {
+          "word": " be",
+          "start": 0.9,
+          "end": 1.08,
+          "probability": 0.988
+        },
+        {
+          "word": " ya",
+          "start": 1.08,
+          "end": 1.22,
+          "probability": 0.991
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": " So",
+      "start": 0.0,
+      "end": 0.22,
+      "probability": 0.063
+    },
+    {
+      "word": " be",
+      "start": 0.22,
+      "end": 0.38,
+      "probability": 0.191
+    },
+    {
+      "word": " ya,",
+      "start": 0.38,
+      "end": 0.52,
+      "probability": 0.371
+    },
+    {
+      "word": " bye",
+      "start": 0.62,
+      "end": 0.72,
+      "probability": 0.645
+    },
+    {
+      "word": " so",
+      "start": 0.72,
+      "end": 0.9,
+      "probability": 0.643
+    },
+    {
+      "word": " be",
+      "start": 0.9,
+      "end": 1.08,
+      "probability": 0.988
+    },
+    {
+      "word": " ya",
+      "start": 1.08,
+      "end": 1.22,
+      "probability": 0.991
+    }
+  ],
+  "language": "vi",
+  "duration_seconds": 1.44,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

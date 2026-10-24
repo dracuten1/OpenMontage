@@ -1,0 +1,20 @@
+{
+ "news-daily-20261023": {
+  "TP.HCM": "thành phố Hồ Chí Minh",
+  "lớp 10": "lớp mười",
+  "0,2%": "không phẩy hai phần trăm",
+  "1.500": "một nghìn năm trăm",
+  "10 bị can": "mười bị can",
+  "2 giảng viên": "hai giảng viên",
+  "3 tỷ": "ba tỷ",
+  "40.000 ca": "bốn mươi nghìn ca",
+  "32,2%": "ba mươi hai phẩy hai phần trăm",
+  "4 gói thầu": "bốn gói thầu",
+  "24/12": "hai mươi tư tháng mười hai"
+ },
+ "provenance": "Lead-authored 2026-10-23 from standing lexicon rules (TPHCM→thành phố Hồ Chí Minh; số đếm viết thành chữ cho TTS) + new respellings cho tên riêng/ngày của ngày 23/10. Canonical display never replaced.",
+ "_inherited_from": [
+  "projects/news-daily-20261022/tts_lexicon.json",
+  "standing rules media/video-producer"
+ ]
+}

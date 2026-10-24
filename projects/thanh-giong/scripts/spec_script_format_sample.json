@@ -1,0 +1,221 @@
+{
+  "_note": "MẪU FORMAT — script.json của son-tinh-thuy-tinh PHẢI có đúng cấu trúc này (keys, types). Section s01 là hook mẫu thật từ Ep.06 để bắt nhịp giọng.",
+  "voice_performance": {
+    "performance_intent": "Người kể cầm tấm gương đồng: hook tò mò trầm bằng nghịch lý 'kẻ thắng vẽ hình kẻ thua lên cờ'; Setup thân tình gọi về sáu tập đã qua rồi sắc dần khi sơ đồ mới hiện ra; Hồi một trầm hùng như đọc điếu văn một chiến binh — trích cổ thư chậm, rõ từng chữ, không bi kịch hóa; Hồi hai ba màu giọng trên cùng một người kể (thành kính Hán — ấm áp truyền khẩu H'Mông — tỉnh táo trước mạng xã hội Việt), nén dần về mini-reveal tấm gương; Hồi ba rành mạch như phiên tòa đọc hồ sơ — từng mắt xích một nhịp đóng đinh; climax dồn nén rồi lắng hẳn cho câu C1 nguyên văn như tiếng chuông khép phiên; landing trân trọng, ấm, thành kính khép mùa; CTA mời gọi, gọn.",
+    "pacing_profile": "conversational",
+    "energy_curve": "Hook (tò mò trầm, nghịch lý) -> Setup (thân tình gọi về series, rồi sắc) -> Hồi một (trầm hùng, điếu văn chiến binh) -> Hồi hai (ba màu ký ức, nén dần) -> Hồi ba (rành mạch phiên tòa, đóng đinh từng mắt xích) -> Climax (dồn nén, lắng hẳn ở C1) -> Landing (trân trọng, khép vòng tròn) -> CTA (mời gọi, gọn)",
+    "pause_policy": "Pause 0,5–0,7 giây trước mỗi bước chuyển hồi (chèn '...' trong provider_text); trích nguyên văn cổ thư đọc chậm hơn nhịp thường, ngắt sau mỗi vế; câu C1 nguyên văn ở Climax ngắt 0,8 giây trước khi đọc và đọc chậm nhất tập; không SSML (vieneu).",
+    "provider_notes": {
+      "vieneu": "v3 Turbo 48kHz, voice mặc định (news) — giọng duyệt series từ Ep.01–05. Kịch bản ~4.000 từ cho 1020 giây. Mọi số trong narration spelled-out bằng chữ; chữ Hán và chữ H'Mông display KHÔNG có trong provider_text (chỉ hiển thị màn hình qua overlay); DNA đọc 'di-en-ét', gene đọc 'gen', Txiv Yawg đọc 'xi-dầu', Cuab Cuaj Lig đọc 'cua-cuông-li', keev kwm đọc 'kê kừm', MRCA đọc 'em-rờ-xê-a'; 'H'Mông' trong provider_text viết 'H Mông'; không dấu '/', không en dash trong provider_text."
+    }
+  },
+  "sections_sample": [
+    {
+      "id": "s01",
+      "label": "Hook — Kẻ thắng vẽ hình kẻ thua lên lá cờ của mình",
+      "text": "Có một vị tướng thua trận — thua đến mức, theo huyền sử, thân thể bị thiên hạ chia nhau mang đi mỗi nơi một xứ. Và người thắng cuộc phải làm một việc không tưởng: vẽ hình ông lên lá cờ của chính mình, giương lên để dẹp loạn. Kẻ thua ấy, người Hán thờ làm thần chiến tranh. Người H'Mông giữ ông trong truyền khẩu như vị vua tổ khai sáng. Và trên mạng xã hội Việt Nam, người ta vẽ phả hệ, gọi ông là thủy tổ của Bách Việt — tổ tiên của người Việt. Ba tộc người. Một kẻ thua trận. Tên ông: Xi Vưu. Tối nay, tập cuối mùa một, ta đặt ba ký ức ấy lên cùng một tấm gương đồng — và soi từng lớp một.",
+      "start_seconds": 0.0,
+      "end_seconds": 30.0,
+      "speaker_directions": "Mở trầm, chậm; ba câu 'người Hán / người H'Mông / người Việt' ngắt đều như điểm danh; tên 'Xi Vưu' đọc rõ, giữ lặng nửa giây sau đó; câu cuối vươn lên mở màn.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "urgent-curious",
+        "emphasis_words": [
+          "vẽ hình ông lên lá cờ",
+          "Ba tộc người",
+          "một kẻ thua trận",
+          "Xi Vưu"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.8,
+        "delivery_note": "Nghịch lý mở đầu gieo device tấm gương của cả tập; không giải thích gì sớm.",
+        "provider_text": "Có một vị tướng thua trận ... thua đến mức, theo huyền sử, thân thể bị thiên hạ chia nhau mang đi mỗi nơi một xứ. ... Và người thắng cuộc phải làm một việc không tưởng: vẽ hình ông lên lá cờ của chính mình, giương lên để dẹp loạn. ... Kẻ thua ấy, người Hán thờ làm thần chiến tranh. ... Người H Mông giữ ông trong truyền khẩu như vị vua tổ khai sáng. ... Và trên mạng xã hội Việt Nam, người ta vẽ phả hệ, gọi ông là thủy tổ của Bách Việt — tổ tiên của người Việt. ... Ba tộc người. Một kẻ thua trận. Tên ông: Xi Vưu. ... Tối nay, tập cuối mùa một, ta đặt ba ký ức ấy lên cùng một tấm gương đồng — và soi từng lớp một."
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "Tiêu đề tập: VN-MYTH — Xi Vưu: vị tổ chung của ba tộc người? (chữ Hán display 蚩尤 góc trên, serif đen trên giấy dó)",
+          "timestamp_seconds": 1.0
+        },
+        {
+          "type": "animation",
+          "description": "Lá cờ vẽ hình Xi Vưu giương lên giữa sương mù chiến trường — mực ấm trên nền tối; ba bóng người (ba lớp mực khác nhau) lần lượt bước tới quanh lá cờ theo nhịp narration điểm danh ba tộc",
+          "timestamp_seconds": 9.0
+        },
+        {
+          "type": "animation",
+          "description": "Tấm gương đồng ink-genome hiện ra ở giữa màn hình, ba lớp phản chiếu mờ đè nhau; chữ Hán display 百越 góc phải khi narration nói 'Bách Việt'",
+          "timestamp_seconds": 23.0
+        }
+      ],
+      "pronunciation_guides": [
+        {
+          "word": "H'Mông",
+          "phonetic": "H Mông"
+        }
+      ],
+      "source_ref": "research_digest.episode_premise + proposal_packet.selected_concept c1.hook"
+    },
+    {
+      "id": "s02",
+      "label": "Setup a — Vòng tròn sáu tập khép lại",
+      "text": "Series này khởi đầu bằng một câu hỏi tưởng rất đơn giản: người Việt đến từ đâu? Tập đầu tiên, ta mổ một tấm sơ đồ tổ tông đang lan trên mạng. Những tập sau, câu chuyện huyết thống đã được khép lại bằng chứng cứ di truyền học — chuyện gene, ta sẽ nói lại ở cuối tập. Rồi ta đi qua từng lớp đất: quốc hiệu, danh xưng, những cư dân thật trên đồng bằng sông Hồng. Hôm nay, vòng tròn khép lại ở đúng chỗ nó bắt đầu: một tấm sơ đồ — nhưng lần này không phải sơ đồ Rồng Tiên, mà là sơ đồ mang tên một kẻ thua trận. Xi Vưu — và ba tộc người cùng nhận ông làm tổ.",
+      "start_seconds": 30.0,
+      "end_seconds": 62.0,
+      "speaker_directions": "Giọng thân tình gọi lại khán giả cũ; 'chuyện gene, ta sẽ nói lại ở cuối tập' hạ giọng như hứa hẹn; câu cuối chậm, giới thiệu nhân vật tối nay.",
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "warm-recap",
+        "emphasis_words": [
+          "chuyện gene, ta sẽ nói lại ở cuối tập",
+          "vòng tròn khép lại",
+          "một kẻ thua trận"
+        ],
+        "pause_before_seconds": 0.5,
+        "pause_after_seconds": 0.7,
+        "delivery_note": "Setup như lời dẫn người xem cũ về nhà; chỉ ÁM CHỈ C1 (d-001: không lặp câu nguyên văn ở Setup).",
+        "provider_text": "Sê-ri này khởi đầu bằng một câu hỏi tưởng rất đơn giản: người Việt đến từ đâu? ... Tập đầu tiên, ta mổ một tấm sơ đồ tổ tông đang lan trên mạng. ... Những tập sau, câu chuyện huyết thống đã được khép lại bằng chứng cứ di truyền học — chuyện gene, ta sẽ nói lại ở cuối tập. ... Rồi ta đi qua từng lớp đất: quốc hiệu, danh xưng, những cư dân thật trên đồng bằng sông Hồng. ... Hôm nay, vòng tròn khép lại ở đúng chỗ nó bắt đầu: một tấm sơ đồ — nhưng lần này không phải sơ đồ Rồng Tiên, mà là sơ đồ mang tên một kẻ thua trận. ... Xi Vưu — và ba tộc người cùng nhận ông làm tổ."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Vòng tròn mực nhỏ chứa 6 chấm tập (1→6) tự vẽ quanh mép màn hình; chấm số 1 và số 6 nối thành đường khép vòng khi narration nói 'vòng tròn khép lại'",
+          "timestamp_seconds": 15.0
+        },
+        {
+          "type": "diagram",
+          "description": "Sơ đồ tổ tông Ep.01 hiện mờ làm nền rồi mờ đi; sơ đồ mới 'Xi Vưu → Cửu Lê → Tam Miêu → Bách Việt' bắt đầu vẽ nét đầu (chưa hoàn chỉnh — để hồi 3 mổ)",
+          "timestamp_seconds": 24.0
+        }
+      ],
+      "pronunciation_guides": [
+        {
+          "word": "series",
+          "phonetic": "sê-ri"
+        },
+        {
+          "word": "gene",
+          "phonetic": "gen"
+        }
+      ],
+      "source_ref": "research_digest.continuity_and_canon (C1 lặp ở Climax — Setup chỉ ám chỉ; decision d-001)"
+    }
+  ],
+  "metadata_sample": {
+    "eligible_for_tts": true,
+    "lexicon_applied": true,
+    "series": "vn-myth",
+    "episode": 6,
+    "season_finale": true,
+    "language": "vi",
+    "section_count": 30,
+    "target_duration_seconds": 1020,
+    "narration_words_estimate": 4050,
+    "tts_provider": "vieneu (v3 Turbo 48kHz, voice mặc định news — series Ep.01–05)",
+    "timing_blocks_seconds": {
+      "hook": 30,
+      "setup": 155,
+      "hoi_1": 190,
+      "hoi_2": 215,
+      "hoi_3": 215,
+      "climax": 105,
+      "landing": 80,
+      "cta": 30
+    },
+    "block_section_ids": {
+      "hook": [
+        "s01"
+      ],
+      "setup": [
+        "s02",
+        "s03",
+        "s04",
+        "s05",
+        "s06"
+      ],
+      "hoi_1": [
+        "s07",
+        "s08",
+        "s09",
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "hoi_2": [
+        "s13",
+        "s14",
+        "s15",
+        "s16",
+        "s17",
+        "s18"
+      ],
+      "hoi_3": [
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s23",
+        "s24"
+      ],
+      "climax": [
+        "s25",
+        "s26",
+        "s27"
+      ],
+      "landing": [
+        "s28",
+        "s29"
+      ],
+      "cta": [
+        "s30"
+      ]
+    },
+    "canon_established": "C12 — chuỗi 'Xi Vưu → Cửu Lê → Tam Miêu → Bách Việt' là tập hợp các mắt xích chú giải và diễn giải cổ, không phải phả hệ có thật trong sử liệu hay kiểm chứng được bằng DNA (đặt tại s24)",
+    "c1_callback": "s26 — 'DNA khẳng định: không hề có một mã gene nào tên là Bách Việt.' (nguyên văn, lần 3, duy nhất trong tập; Setup s02 chỉ ám chỉ)",
+    "callbacks_season1": [
+      "C1 (s26, nguyên văn)",
+      "C4 Thần Nông–Viêm Đế đối chiếu (s03, ~15s)",
+      "C9 Phùng Nguyên→Đông Sơn (s04, s27, s28)",
+      "C10 Cổ Loa (s04, s27, s28)",
+      "C11 Bách Việt danh xưng tập hợp (s05, s21, s28)"
+    ],
+    "anti_rules_status": {
+      "1_khong_xac_nhan_xi_vuu_to_tien_viet": "OK — s17/s24/s26 nói ngược lại; C12 thiết lập s24",
+      "2_khong_dong_nhat_mieu_co_hmong_hien_dai": "OK — cảnh báo nguyên văn trong s15",
+      "3_trac_loc_la_truyen_thuyet": "OK — đóng khung s07 (con dấu 'TRUYỀN THUYẾT')",
+      "4_khong_noi_diet_chung": "OK — s20 chối 'diệt chủng', chép tán loạn/đày/dời dân",
+      "5_khong_bop_meo_dna_phu_dinh_huyen_su": "OK — hai tầng tách bạch s16 + chốt s23",
+      "6_c1_nguyen_van_climax": "OK — s26, đúng 1 lần, nguyên văn",
+      "7_landing_khep_vong_ep01": "OK — s29 lật gương vẽ lại biểu tượng Ep.01"
+    },
+    "numbers_source": "research_digest.numbers_allowed_on_screen — mọi số/địa danh/trích dẫn trên màn hình thuộc whitelist: Trác Lộc, Dương Cốc, Ký Châu, Tam Nguy/Đôn Hoàng, Bành Thủy, kỳ Xi Vưu, 81, 3 ngày, xe chỉ nam, ngũ binh, Binh chủ, Tam Tổ Đường, 5.800 năm, 8.200 năm, ~TK2 SCN, 54 dân tộc, 968/1054/1804, chữ Hán display (蚩尤 黃帝 炎帝 九黎 三苗 百越 冀州 蚩尤之旗), chữ H'Mông display (Txiv Yawg, Cuab Cuaj Lig)",
+    "lexicon_terms_applied": [
+      "DNA=di-en-ét",
+      "gene=gen",
+      "mtDNA=em-ti-di-en-ét (không dùng tập này)",
+      "Xi Vưu (giữ nguyên)",
+      "Txiv Yawg=xi-dầu",
+      "Cuab Cuaj Lig=cua-cuông-li",
+      "keev kwm=kê kừm",
+      "MRCA=em-rờ-xê-a",
+      "H'Mông=H Mông",
+      "Hmong-Mien=H Mông Miền",
+      "5.800 năm=năm nghìn tám trăm năm",
+      "8.200 năm=tám nghìn hai trăm năm",
+      "series=sê-ri"
+    ],
+    "han_display_only_not_in_provider_text": "蚩尤 黃帝 炎帝 九黎 三苗 百越 冀州 蚩尤之旗 戰神 — chỉ qua enhancement_cues overlay, KHÔNG có trong text/provider_text",
+    "data_points_covered": [
+      "1. Trác Lộc 1 câu sử (s07)",
+      "2. 81 anh em + cờ Xi Vưu (s09)",
+      "3. Lưu Bang tế Xi Vưu (s10)",
+      "4. bia Vũ Thị Từ (s11)",
+      "5. 'Tam Miêu phục Cửu Lê chi đức' (s20)",
+      "6. sao chổi kỳ Xi Vưu (s10, s14)",
+      "7. DNA Hmong-Mien 5.800 năm (s22, s23)",
+      "8. đền thờ hôm nay / Tam Tổ Đường (s12)"
+    ],
+    "signature_device": "GƯƠNG ĐỒNG BA CHIẾU — tấm gương đồng ink-genome: rèn từ tro Trác Lộc (s06/s12), ba tộc soi (s13–s18), ghim sơ đồ vỡ từng mắt xích (s19–s24), lặng cho C1 (s25–s26), lật mặt sau thành biểu tượng Ep.01 (s29)",
+    "notes": "S1b script session (2026-10-09); digest-driven; shape theo ep05_script_shape; timing reconcile theo proposal modifications (30/155/190/215/215/105/80/30 = 1020s); chữ Hán/chữ H'Mông display-only; mọi enhancement_cues có narration đọc nội dung tương ứng (d-011); nội dung lên màn đúng thứ tự narration (standing rule 2026-10-02)."
+  }
+}

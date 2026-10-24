@@ -1,0 +1,411 @@
+{
+ "version": "1.0",
+ "concept_options": [
+  {
+   "id": "c1",
+   "title": "Người con gái trở về",
+   "hook": "Cô con gái 21 tuổi mất vô bệnh ngày 3/3 — vì sao người đời tiếp tục gọi bà là Mẫu?",
+   "narrative_structure": "story",
+   "visual_approach": "Mở từ hôm nay (hội Phủ Dầy 3/3, C12) rồi đi ngược vào bản kể Phan Kế Bính theo trục VẬT THỂ + ĐỀN: chén ngọc sứt góc (C02) → ngày mất 3/3 tuổi 21 (C03) → trở về: đối đáp Trạng Bùng (C04) → phố Cát trừng trị + bị «tiễu» (C05, tông phẩm giá) → đền Sùng Sơn/đền Nam Giao (C05/C07) → phong vương + «Mẫu nghi thiên hạ» (C15) → UNESCO 2016 ghi danh thực hành (C10). Ba lớp kể TÁCH BẠCH bằng hai tuyến màu amber (bản kể) / teal (đền thờ-thực hành) / giấy dầu nâu (di sản-ghi danh) — đúng visual mùa S2 (địa hình + vật thể + đền, KHÔNG DNA).",
+   "suggested_playbook": "ink-genome",
+   "target_audience": "Người xem đã theo dõi cụm Tứ bất tử E01–E03 + người biết tên Liễu Hạnh qua đền Mẫu/phố cổ nhưng chưa tách được truyền thuyết khỏi thực hành",
+   "target_platform": "youtube",
+   "target_duration_seconds": 960,
+   "key_points": [
+    "Bản kể (Phan Kế Bính đầu XX) kể: vỡ chén ngọc bị đày — mất 3/3 tuổi 21 — trở về trừng trị — được phong vương (C02/C03/C05)",
+    "Lớp thực hành CÓ CHỨNG CỨ riêng: đền thờ «bà công chúa Liễu Hạnh» ở Nam Giao được Vũ trung tùy bút ghi thời Nguyễn (C07); hội Phủ Dầy 3/3 với 3 nghi thức (C12)",
+    "UNESCO 1/12/2016 ghi danh THỰC HÀNH thờ Mẫu Tam phủ (hồ sơ 14 tỉnh) — không chứng thực nhân vật (C10/C11)",
+    "Danh xưng «Mẫu» đến từ hai chiều: dân thờ trước, triều đình chính danh sau (C15) — không từ một văn kiện duy nhất"
+   ],
+   "core_message": "Người đời gọi bà là Mẫu không vì một văn bản nào ra lệnh — mà vì dân thờ và triều đình cùng ghi nhận, mỗi lớp bằng chứng kể một phần câu chuyện.",
+   "cta": "Tease S2E05 Hai Bà Trưng (không spoil); mời xem lại cụm Tứ bất tử E01–E03.",
+   "tone": "Trầm ấm, trang nghiêm — người kể đứng cạnh ngưỡng cửa đền, không giật gân hoá nghi lễ",
+   "grounded_in": [
+    "C02",
+    "C03",
+    "C05",
+    "C12",
+    "C13",
+    "C15"
+   ],
+   "why_this_works": "Đúng hook roadmap §3 («Một người phụ nữ trở lại trần gian — vì sao người đời tiếp tục gọi bà là Mẫu?»); trả lời thẳng câu hỏi trung tâm «vì sao một người phụ nữ được đứng trong hàng Tứ bất tử?» bằng chuỗi vật thể → đền → danh xưng; hoàn tất cụm Tứ bất tử với callback E01–E03 (C08); hai góc còn lại (ba lớp sự thật, tháng Ba giỗ Mẹ) gắn LÀM NHỊP bên trong thay vì bỏ mất."
+  },
+  {
+   "id": "c2",
+   "title": "Ba lớp sự thật: bản kể, đền thờ, di sản",
+   "hook": "Truyện là chuyện kể, đền là di tích, UNESCO ghi danh thực hành — tách ba lớp ra để hiểu bà là ai.",
+   "narrative_structure": "data_narrative",
+   "visual_approach": "Evidence-stratigraphy: ba lớp tài liệu chồng nhau trên giấy dó (bản kể amber / ghi chép phong tục teal / hồ sơ di sản nâu) — mỗi hồi «bóc» một lớp: lớp giấy bản kể (C01/C06 dị bản An Thái vs Yên Thái) → lớp đền thờ (C07 Nam Giao) → lớp ghi danh (C10/C11 UNESCO 2016) → lớp diễn giải nghiên cứu (C13/C14).",
+   "suggested_playbook": "ink-genome",
+   "target_audience": "Người xem thích kiểm chứng nguồn — đã quen nhịp «hai lớp cổ thư» của S2E01",
+   "target_platform": "youtube",
+   "target_duration_seconds": 900,
+   "key_points": [
+    "Ba lớp bằng chứng độc lập: bản kể (C01–C06) ≠ đền thờ-thực hành (C07/C12) ≠ ghi danh di sản (C10/C11)",
+    "Dị bản là tín hiệu truyền khẩu: An Thái vs Yên Thái, Giáng Tiên vs Quỳnh Hoa (C06, raw_data variant_names)",
+    "Nghiên cứu 2010: đạo Mẫu hình thành từ Nữ thần bản địa + ảnh hưởng Đạo giáo (C13) — một cách hiểu học thuật, không phải chân lý duy nhất"
+   ],
+   "core_message": "Hiểu Liễu Hạnh = đọc đúng lớp của từng bằng chứng: văn bản chứng minh nội dung bản kể, ghi chép phong tục chứng minh thực hành — không cái nào chứng minh nhân vật lịch sử.",
+   "cta": "Áp dụng khung ba lớp khi đọc truyền thuyết Việt Nam.",
+   "tone": "Tỉnh táo, giọng «kiểm kê» — đúng taste_profile mùa",
+   "grounded_in": [
+    "C01",
+    "C06",
+    "C07",
+    "C10",
+    "C13",
+    "C14"
+   ],
+   "why_this_works": "Đây là trục BẮT BUỘC của tập (roadmap: phân biệt truyền thuyết nhân vật với lịch sử thực hành) và là tập cuối cụm Tứ bất tử — tổng kết cách đọc của mùa; rủi ro: cả tập thành bài học phương pháp luận, mất sweep huyền sử của nhân vật."
+  },
+  {
+   "id": "c3",
+   "title": "Tháng Ba giỗ Mẹ",
+   "hook": "Mỗi tháng Ba âm lịch, người ta lại về Phủ Dầy — họ đang giỗ ai?",
+   "narrative_structure": "journey",
+   "visual_approach": "Practice-first: mở từ hội Phủ Dầy hôm nay (3 nghi thức C12) đi ngược thời gian: UNESCO 2016 (C10) → đền Nam Giao thời Nguyễn (C07) → bản kể 3/3 (C03) → vỡ chén ngọc (C02). Không gian đền là vein hình ảnh chủ đạo.",
+   "suggested_playbook": "ink-genome",
+   "target_audience": "Người từng đi hội đền / biết Phủ Dầy qua du lịch — muốn hiểu ý nghĩa ngày giỗ",
+   "target_platform": "youtube",
+   "target_duration_seconds": 900,
+   "key_points": [
+    "Hội Phủ Dầy 3/3 âm lịch với 3 nghi thức chính (C12) — ngày trùng ngày mất trong bản kể (C03)",
+    "Nghi lễ hôm nay có lớp chứng cứ dài: từ đền Nam Giao thời Nguyễn (C07) đến ghi danh UNESCO 2016 (C10)",
+    "Ngày 3/3 là điểm ổn định nhất across versions (research_notes §Đối chiếu dị bản)"
+   ],
+   "core_message": "Ngày giỗ 3/3 là nơi bản kể và thực hành gặp nhau — điểmneo giữ câu chuyện sống hàng thế kỷ.",
+   "cta": "Tease S2E05 Hai Bà Trưng.",
+   "tone": "Ấm, gần — kể từ bên trong lễ hội, tôn trọng nghi lễ",
+   "grounded_in": [
+    "C03",
+    "C07",
+    "C10",
+    "C11",
+    "C12"
+   ],
+   "why_this_works": "Mở từ «thứ khán giả còn gặp hôm nay» đúng ràng buộc kể bible §1; rủi ro cao nhất về «cảnh huyền bí câu view» — phải kỷ luật tông phẩm giá; mạch nhân vật (vỡ chén ngọc → phong vương) bị nén nếu không cẩn thận. GHI CHÚ anti-số: hook gốc trong research_brief («Hàng triệu người…») KHÔNG dùng — con số ngoài whitelist raw_data.json."
+  }
+ ],
+ "selected_concept": {
+  "concept_id": "c1",
+  "rationale": "c1 đi trọn hướng kể ưu tiên của roadmap §3 + góc 1 research_brief (grounded C02/C03/C05/C13/C15): trả lời thẳng câu hỏi trung tâm «vì sao một người phụ nữ được đứng trong hàng Tứ bất tử?» bằng chuỗi vật thể → đền → danh xưng — đúng visual mùa S2 (địa hình/vật thể/đền, không DNA). Ba lớp kể TÁCH BẠCH (trục bắt buộc) trở thành khung kiểm chứng xuyên suốt: mỗi hồi kể xong một lớp, nhịp teal «điều gì kiểm chứng được» đặt cạnh. c2 (ba lớp) làm khung, c3 (hội Phủ Dầy) làm mở/đóng vòng kết cấu — cả ba góc đều sống trong c1. Climax đọc S2-C4 (đề xuất) đóng khung «có thể đọc là», chờ owner duyệt.",
+  "modifications": [
+   "S2-C4 (ĐỀ XUẤT canon, chờ owner duyệt — KHÔNG tự sửa bible): «Danh xưng Mẫu của Liễu Hạnh đến từ hai chiều — dân thờ trước, triều đình chính danh sau — và UNESCO 2016 ghi danh thực hành thờ Mẫu Tam phủ, không chứng thực truyền thuyết nhân vật; ba lớp bản kể / đền thờ / ghi danh di sản là ba câu chuyện khác nhau, phải kể tách bạch.» Trình bày như cách đọc biên tập đóng khung «có thể đọc là», không kết luận độc quyền về tín ngưỡng.",
+   "Ba lớp kể tách bạch là TRỤC BẮT BUỘC (user_brief mục 1): mọi section phải rõ đang đứng ở lớp nào — nhãn màu + nhãn chữ (bản kể / đền thờ-thực hành / ghi danh di sản) trên màn hình.",
+   "Tên dị bản KHÔNG hợp nhất: Giáng Tiên vs Quỳnh Hoa (tên đặt vs tên tiên, cùng bản Phan Kế Bính — C02); An Thái (bản dân gian) vs Yên Thái (bản Phan Kế Bính) vs Tiên Hương (bách khoa) — kể «cùng một vùng Vân Cát, mỗi bản gọi khác» (C01/C06, raw_data variant_names).",
+   "Mốc 1557/1577 chỉ hiện kèm khung «theo cách kể/bách khoa» (C09 + raw_data scope); bản dân gian mở «năm Thiêu Hựu, đời Hậu Lê (1557)» — kể như cách mở truyện của bản, không phải năm sinh sử liệu.",
+   "Đoạn phố Cát (C05): kể bằng NGÔN TỪ BẢN KỂ («hiện ra làm con gái đẹp bán nước, những kẻ đùa bỡn chết hại rất nhiều», «dân xứ ấy dịch tễ, lập đàn cầu khấn»), tông phẩm giá, zero nhục cảm/khoái khí, không tả trực diện cảnh trừng trị; chuỗi trừng trị → tiễu → cầu khấn → phong vương là LỚP KỂ — không phát ngôn «bà hung ác».",
+   "Tắm/hiện hình (nếu kể): qua vật thể và khoảng cách — màn, khói hương, bóng nước — không trực diện.",
+   "UNESCO (C10): luôn đọc đủ «Thực hành Tín ngưỡng thờ Mẫu Tam phủ của người Việt» — ghi danh THỰC HÀNH tại phiên 11, 1/12/2016, hồ sơ 14 tỉnh (C11); không nói UNESCO ghi danh «truyện/bà Liễu Hạnh».",
+   "Không đánh đồng mọi nữ thần = Liễu Hạnh (misconception #1): hệ Mẫu nhiều vị, Liễu Hạnh là một thần chủ trong Tam/Tứ phủ (C13) — nêu rõ ít nhất 1 lần.",
+   "Không gọi thờ Mẫu là mê tín; nghi lễ trình bày trang nghiêm (C12 allowed_scope); không dựng lên đồng/chi tiết huyền bí câu view.",
+   "Duration: bible 12–20' co giãn; mục tiêu biên tập ĐỀ XUẤT 15–17' → target 960s (range 900–1020, đo lại bằng audio thật khi được phép sản xuất) — KHÔNG kéo filler.",
+   "Callback: E01 Sơn Tinh – E02 Gióng – E03 Chử Đồng Tử → Liễu Hạnh hoàn tất Tứ bất tử như DANH SÁCH PHỔ BIẾN ĐƯƠNG ĐẠI (C08) — không nói «cố định từ ngàn xưa»; CTA tease S2E05 Hai Bà Trưng không spoil.",
+   "BGM: đề xuất reuse 'Mesmerize' — Kevin MacLeod (CC BY 4.0), provenance đã kiểm + credit đầy đủ, đã dùng S2E01–S2E03; KHÔNG kế thừa track chưa kiểm — chờ owner duyệt (d-002)."
+  ]
+ },
+ "production_plan": {
+  "pipeline": "animated-explainer",
+  "playbook": "ink-genome",
+  "stages": [
+   {
+    "stage": "research",
+    "tools": [],
+    "approach": "HOÀN TẤT — sealed research v1 đã import (14/14 sha256 khớp manifest; QA_REPORT pass_with_declared_limits), checkpoint research completed. KHÔNG research thêm sau seal; mọi nội dung chỉ từ research/v1/ (claim_ledger + raw_data là whitelist số liệu + trích dẫn).",
+    "fallback_if_unavailable": "n/a — đã xong"
+   },
+   {
+    "stage": "proposal",
+    "tools": [],
+    "approach": "Artifact này (proposal_packet.json + PROPOSAL.md bản đọc owner). approval.status = pending — chờ owner duyệt Gate B; KHÔNG tự đánh dấu approved.",
+    "fallback_if_unavailable": "n/a"
+   },
+   {
+    "stage": "script",
+    "tools": [],
+    "approach": "Bản DRAFT chờ duyệt viết vào projects/lieu-hanh/drafts/ (KHÔNG phải artifacts/script.json — checkpoint native chặn script khi proposal chưa duyệt); ~3700 từ (3500–4000) / 30–34 sections; mỗi section gắn claim IDs + lớp kể; display tách narration cho tên riêng + tts_lexicon.json kế thừa chuỗi S2E03. Sau owner duyệt proposal: Hermes mới ghi checkpoint script.",
+    "fallback_if_unavailable": "n/a — không cần tool"
+   },
+   {
+    "stage": "scene_plan",
+    "tools": [],
+    "approach": "SAU owner approval: scenes theo trục vật thể → đền → danh xưng của c1; nhãn 3 lớp trên màn đúng thứ tự narration; speech-lock theo word timings; hexpix anchor cho overlay vẽ tay trên ảnh base.",
+    "fallback_if_unavailable": "n/a"
+   },
+   {
+    "stage": "assets",
+    "tools": [
+     {
+      "tool_name": "openai_image",
+      "provider": "9router/cx-gpt-5.6-luna-image",
+      "role": "T2I ảnh base (chén ngọc sứt góc, nhà tranh Vân Cát, đèo Ngang, đền, hội Phủ Dầy hôm nay)",
+      "available": true,
+      "estimated_cost_usd": 0.0,
+      "why_this_provider": "Model T2I của series, gateway local $0; demo 1 cảnh duyệt TRƯỚC batch"
+     },
+     {
+      "tool_name": "vieneu_tts",
+      "provider": "vieneu (local)",
+      "role": "Narration tiếng Việt batch WAV",
+      "available": true,
+      "estimated_cost_usd": 0.0,
+      "why_this_provider": "Giọng series đã dùng; batch mode tránh model load 8s/call; Gate A probe địa danh trước (Phủ Dầy, Vân Cát, Yên Thái, đèo Ngang, phố Cát, Sùng Sơn, Nam Giao, Phùng Khắc Khoan)"
+     },
+     {
+      "tool_name": "transcriber",
+      "provider": "faster-whisper vi",
+      "role": "Word timings + round-trip ASR QC",
+      "available": true,
+      "estimated_cost_usd": 0.0,
+      "why_this_provider": "Captions map canonical text vào whisper word slots"
+     },
+     {
+      "tool_name": "music_library",
+      "provider": "incompetech (CC BY 4.0)",
+      "role": "BGM reuse 'Mesmerize' + credit",
+      "available": true,
+      "estimated_cost_usd": 0.0,
+      "why_this_provider": "Đã QC S2E01–S2E03; chờ owner duyệt (d-002)"
+     }
+    ],
+    "approach": "SAU owner approval + demo gate (duyệt 1 cảnh trước batch): 10–12 ảnh T2I base + overlay TSX/SVG speech-locked; TTS batch + round-trip ASR QC; BGM với attribution.",
+    "fallback_if_unavailable": "openai_image lỗi → cảnh code-drawn thuần (typographic ink + quote-card); vieneu lỗi → DỪNG và escalate — không tự đổi provider."
+   },
+   {
+    "stage": "edit",
+    "tools": [
+     {
+      "tool_name": "transcriber",
+      "provider": "faster-whisper vi",
+      "role": "word timings cho speech-lock",
+      "available": true,
+      "estimated_cost_usd": 0.0,
+      "why_this_provider": "Local, đã dùng series cho speech-lock ±0,3s"
+     }
+    ],
+    "approach": "edit_decisions: cuts theo section; render_runtime remotion LOCKED từ proposal (không silent swap); overlay chữ bám word timestamps ±0,3s; scene KHÔNG ẩn/cắt khi narration panel còn đọc (speech-window strict gate).",
+    "fallback_if_unavailable": "n/a"
+   },
+   {
+    "stage": "compose",
+    "tools": [
+     {
+      "tool_name": "video_compose",
+      "provider": "remotion (atelier continuation)",
+      "role": "render draft HUD 720p + final 1080p",
+      "available": true,
+      "estimated_cost_usd": 0.0,
+      "why_this_provider": "Continuation chassis ink-genome + speech-lock + HUD QC của S2E01–S2E03; hyperframes cũng available nhưng KHÔNG khuyến nghị — owner chốt ở proposal"
+     }
+    ],
+    "approach": "Remotion atelier continuation series ink-genome (reuse engine knowledge, KHÔNG reuse creative components); bản gửi duyệt luôn là draft HUD 720p + scene_index; final sạch chỉ render sau APPROVE; scene_sweep + anchor audit strict trước render.",
+    "fallback_if_unavailable": "Nếu remotion hỏng giữa chừng: escalate structured blocker — KHÔNG tự swap runtime."
+   },
+   {
+    "stage": "publish",
+    "tools": [],
+    "approach": "Final sạch vào projects/lieu-hanh/renders/ + exports metadata (title/description/tags + timestamps thật + credit BGM CC BY); KHÔNG tự upload — owner upload thủ công.",
+    "fallback_if_unavailable": "n/a"
+   }
+  ],
+  "quality_tradeoffs": [
+   {
+    "tradeoff": "Render runtime: Remotion (khuyến nghị) vs HyperFrames (cả hai available theo preflight mùa)",
+    "recommendation": "remotion",
+    "quality_impact": "Remotion = continuation chassis ink-genome + speech-lock + HUD QC đã chứng minh S2E01–S2E03 — giữ look mùa, rủi ro thấp nhất. HyperFrames linh hoạt kinetic typography nhưng là runtime MỚI cho series: viết lại theme + QC từ đầu, rủi ro lệch look. Owner chốt (d-001)."
+   },
+   {
+    "tradeoff": "vieneu (free local, giọng series) vs TTS cloud (không có key)",
+    "recommendation": "vieneu_tts",
+    "quality_impact": "Tiếng Việt tự nhiên nhất khả dụng $0; giọng default đã dùng cả mùa; tên riêng (Phủ Dầy, Phùng Khắc Khoan, Mẫu nghi thiên hạ…) xử lý qua respelling lexicon + Gate A probe."
+   },
+   {
+    "tradeoff": "Reuse BGM 'Mesmerize' (đã QC) vs track mới cho tông Mẫu",
+    "recommendation": "reuse Mesmerize",
+    "quality_impact": "Đã kiểm provenance/LRA/mix ở S2E01–S2E03, giữ nền quen mùa, $0; track mới phải listening QC + LRA lại từ đầu — chỉ đổi nếu owner muốn màu âm riêng (d-002)."
+   },
+   {
+    "tradeoff": "15–17' (960s) vs cắt gọn 12–13'",
+    "recommendation": "960s target",
+    "quality_impact": "Đủ chỗ cho chuỗi vật thể + 3 lớp kiểm chứng + climax «hai chiều chính danh» không bị dồn; nếu audio đo lại vượt 1020s thì cắt BỐ CỤC (bớt panel), không cắt tốc độ kể, không thêm filler."
+   }
+  ],
+  "alternative_paths": [
+   {
+    "description": "Free thuần không gen ảnh mới (hoặc chỉ 3–4 ảnh hero): vật thể + đền code-drawn SVG/TSX ink-genome + quote-card nguyên văn.",
+    "total_cost_usd": 0.0,
+    "quality_level": "free",
+    "what_changes": "Mất tranh full-bleed chén ngọc/đèo Ngang/hội Phủ Dầy — hero moment giảm lừng lẫy; đổi lại kiểm soát chi tiết cao, nhanh, speech-lock dễ hơn."
+   },
+   {
+    "description": "Chuyển sang HyperFrames runtime (HTML/CSS/GSAP, kinetic typography mạnh).",
+    "total_cost_usd": 0.0,
+    "quality_level": "standard",
+    "what_changes": "Mất continuation chassis Remotion: viết lại theme + QC pipeline từ đầu; rủi ro lệch look mùa — chỉ khi owner chủ đích muốn thử."
+   },
+   {
+    "description": "Cắt gọn 12–13' nếu owner muốn nhịp nhanh.",
+    "total_cost_usd": 0.0,
+    "quality_level": "standard",
+    "what_changes": "Gộp nhịp kiểm chứng dị bản + UNESCO vào panel đơn, rút hồi phố Cát xuống tối thiểu bắt buộc; mất phần thở của trục vật thể — climax vẫn nguyên."
+   }
+  ],
+  "delivery_promise": {
+   "promise_type": "data_explainer",
+   "motion_required": true,
+   "source_required": false,
+   "tone_mode": "epic",
+   "quality_floor": "presentable",
+   "approved_fallback": null
+  },
+  "renderer_family": "explainer-data",
+  "composition_mode": "atelier",
+  "art_direction": "CONTINUATION series vn-myth S2: ink-genome trên giấy dó, composition_mode atelier như S2E01–S2E03. Visual chính của tập = VẬT THỂ + ĐỀN + DANH XƯNG (chén ngọc sứt góc, nhà tranh Vân Cát, biển vàng «Sắc-giáng», đèo Ngang, đền núi Sùng Sơn, nền Nam Giao, hội Phủ Dầy hôm nay) — KHÔNG DNA/sợi xoắn. Ba tuyến màu tách lớp kể: amber = bản kể / teal = đền thờ-thực hành có chứng cứ / nâu giấy dầu = ghi danh di sản-hồ sơ. Gen image chỉ là base layer; overlay giải thích là TSX/SVG vẽ tay speech-locked. Ảnh nghi lễ hôm nay phải gắn nhãn minh họa — không giả ảnh tư liệu.",
+  "taste_profile": {
+   "design_read": "Mở ở hiện tại — ngưỡng cửa đền tháng Ba, khói hương, dòng người về hội — rồi lùi dần vào giấy dó của bản kể, và lại trở ra sáng hôm nay bằng hồ sơ ghi danh. Không gian đền là 'nhà' của tập: mọi lớp bằng chứng đều quay về ngưỡng cửa ấy. Tông trang nghiêm, ấm — không huyền bí hóa.",
+   "visual_variance": 6,
+   "motion_intensity": 3,
+   "information_density": 5,
+   "palette_discipline": "Giấy dó nền ấm nối series; amber + mực ấm cho bản kể (chén ngọc, nhà tranh, đèo Ngang); teal cho lớp chứng cứ thực hành (quote-card Vũ trung tùy bút, hội Phủ Dầy, UNESCO); nâu giấy dầu cho hồ sơ/danh mục (Tứ bất tử, 14 tỉnh) — chỉ ghi đúng phạm vi nguồn, KHÔNG vẽ đền chưa xác minh như bản đồ chính xác. KHÔNG gradient tím AI generic; KHÔNG nhục cảm hoá cảnh phố Cát.",
+   "layout_variation": "Xen kẽ: cảnh vật thể amber (chén ngọc → nhà Vân Cát → đèo Ngang → đền) ↔ quote-card teal nguyên văn kèm nguồn + claim ID ↔ strip nâu hồ sơ (Tứ bất tử đương đại, 14 tỉnh, 3 nghi thức) ↔ khung 'hôm nay' (hội Phủ Dầy). Mỗi hồi có đúng một vật chủ đạo.",
+   "reference_strategy": "Hero visuals: chén ngọc sứt một góc rơi trên nền trời tiên; biển vàng «Sắc-giáng Nam-nam»; ngày 3/3 tiếng chuông đền; Phùng Khắc Khoan đối đáp bên đèo Lạng (chữ Hán hiện như nét mực); đền trên núi Sùng Sơn mây phủ; ngưỡng cửa Phủ Dầy sáng tháng Ba.",
+   "anti_patterns": [
+    "đánh đồng mọi nữ thần = Liễu Hạnh",
+    "gọi thờ Mẫu là mê tín / dựng nghi lễ thành cảnh huyền bí câu view",
+    "nhục cảm hoá đoạn phố Cát (bán nước/hiện hình)",
+    "UNESCO-hoá: nói UNESCO ghi danh truyện/bà",
+    "đếm 1557/1577 là sử liệu",
+    "hợp nhất tên dị bản (An Thái/Yên Thái, Giáng Tiên/Quỳnh Hoa) thành một tên 'đúng duy nhất'",
+    "nói Tứ bất tử cố định từ ngàn xưa",
+    "gradient tím AI generic",
+    "đầy màn chữ đọc không kịp",
+    "gán ảnh AI là ảnh tư liệu lễ hội thật"
+   ],
+   "quality_gates": [
+    "Ba tuyến amber/teal/nâu nhận ra chỉ qua màu + nhãn lớp (bản kể / đền thờ-thực hành / ghi danh di sản)",
+    "Mọi số trên màn nằm trong numeric whitelist raw_data.json (1557, 3/3, 21, 40, 07/09/1557+21/03/1577 kèm khung, 1781, 1/12/2016, lần 11, 14, 3 nghi thức)",
+    "Mọi trích dẫn khớp nguyên văn claim_ledger + hiện nguồn",
+    "Speech-lock ±0,3s theo ASR word timings; nội dung trên màn đúng thứ tự narration; scene không cắt khi narration còn đọc",
+    "Tên dị bản đúng từng bản; kể tổng hợp dùng danh xưng chung «tiên chúa»/«Mẫu»"
+   ]
+  },
+  "music_source": {
+   "source_type": "user_library",
+   "track_path": "TBD — 'Mesmerize' (Kevin MacLeod) trong ~/project/media-library/bgm; file resolve ở assets stage",
+   "provider": "incompetech (Kevin MacLeod, CC BY 4.0)",
+   "mood_direction": "REUSE track đã QC ở S2E01–S2E03 (d-002): ambient trầm, LRA thấp, giữ nền quen mùa; nếu owner muốn màu âm riêng cho tập Mẫu → chọn track mới từ catalog + listening QC trước khi dùng — KHÔNG kế thừa track chưa kiểm.",
+   "estimated_cost_usd": 0.0
+  },
+  "voice_selection": {
+   "provider": "vieneu",
+   "voice_id": "default (giọng đọc tin tức — owner's pick, đã dùng S2E01–S2E03)",
+   "rationale": "Tiếng Việt tự nhiên nhất khả dụng, $0 local; giọng quen thuộc series; tên riêng (Phủ Dầy, Vân Cát, Phùng Khắc Khoan, Mẫu nghi thiên hạ…) xử lý qua tts_lexicon.json kế thừa + Gate A probe.",
+   "estimated_cost_usd": 0.0,
+   "delivery_style": "Người kể đứng bên ngưỡng cửa đền: hook tò mò trầm từ tháng Ba hôm nay; các hồi bản kể chậm, ấm, trang nghiêm — đoạn phố Cát giữ tông phẩm giá, không giật gân; nhịp kiểm chứng sạch, rõ; climax «hai chiều chính danh» chậm nhất tập; landing nhẹ, khép vòng về hội tháng Ba.",
+   "pacing_policy": "~3700 từ cho 960s (≈3,8–4,0 từ/giây); nghỉ 0,5–0,7s trước mỗi chuyển hồi; trích nguyên văn đọc chậm hơn nhịp thường; đo lại bằng audio thật (range 900–1020s).",
+   "sample_approval_required": false
+  },
+  "decision_log_ref": "projects/lieu-hanh/decision_log.json",
+  "provider_rankings": {
+   "image": [
+    {
+     "tool_name": "openai_image",
+     "provider": "9router/cx-gpt-5.6-luna-image",
+     "weighted_score": 0.9,
+     "task_fit": 0.9,
+     "output_quality": 0.85,
+     "explanation": "Model T2I của series; gateway local $0; ink-genome giấy dó; demo 1 cảnh trước batch"
+    }
+   ],
+   "tts": [
+    {
+     "tool_name": "vieneu_tts",
+     "provider": "vieneu",
+     "weighted_score": 0.95,
+     "task_fit": 1.0,
+     "output_quality": 0.9,
+     "explanation": "Tiếng Việt tự nhiên, free local, giọng series; Gate A probe địa danh trước batch"
+    }
+   ],
+   "music": [
+    {
+     "tool_name": "music_library",
+     "provider": "incompetech (CC BY 4.0)",
+     "weighted_score": 0.9,
+     "task_fit": 0.9,
+     "output_quality": 0.85,
+     "explanation": "Mesmerize reuse — đã QC LRA/mix S2E01–S2E03, credit bắt buộc; music_library 1/1 available"
+    }
+   ]
+  },
+  "render_runtime": "remotion"
+ },
+ "cost_estimate": {
+  "total_estimated_usd": 0.0,
+  "line_items": [
+   {
+    "tool": "vieneu_tts",
+    "operation": "Narration ~32 sections (~3700 từ) batch WAV + Gate A probe địa danh + round-trip ASR QC",
+    "quantity": 32,
+    "estimated_usd": 0.0,
+    "notes": "Local Apple Silicon; batch mode; Gate A probe (Phủ Dầy, Vân Cát, Yên Thái, đèo Ngang, phố Cát, Sùng Sơn, Nam Giao, Phùng Khắc Khoan) trước batch"
+   },
+   {
+    "tool": "transcriber",
+    "operation": "faster-whisper vi — word timings + QC khớp chữ",
+    "quantity": 1,
+    "estimated_usd": 0.0,
+    "notes": "Captions dùng canonical script text map vào whisper word slots"
+   },
+   {
+    "tool": "openai_image",
+    "operation": "10–12 ảnh T2I 9router cx/gpt-5.6-luna-image (sau demo gate)",
+    "quantity": 12,
+    "estimated_usd": 0.0,
+    "notes": "Gateway local $0; hexpix anchor; size auto/1536x1024"
+   },
+   {
+    "tool": "music_library",
+    "operation": "BGM reuse 'Mesmerize' (CC BY 4.0) + attribution trong credits",
+    "quantity": 1,
+    "estimated_usd": 0.0,
+    "notes": "Đã QC S2E01–S2E03; chờ owner duyệt (d-002)"
+   },
+   {
+    "tool": "video_compose",
+    "operation": "Remotion atelier — draft HUD 720p + final 1080p",
+    "quantity": 1,
+    "estimated_usd": 0.0,
+    "notes": "Local render"
+   }
+  ],
+  "budget_cap_usd": 0.0,
+  "budget_verdict": "within_budget",
+  "savings_options": []
+ },
+ "approval": {
+  "status": "approved",
+  "user_notes": "Chờ owner duyệt Gate B (research + proposal + script draft kèm theo). Items chờ duyệt: concept (khuyến nghị c1), S2-C4 canon đề xuất, runtime Remotion (HyperFrames available), BGM reuse Mesmerize, duration 15–17'/960s, các điểm biên tập modifications. KHÔNG TTS/ảnh/render cho đến khi duyệt riêng (approval_policy gate_B). Runtime remotion is a schema-required proposal candidate only, NOT owner-approved or locked. Gate B pending. | FULL-RUN APPROVAL 2026-10-21T00:40:12.983866+00:00: \"Let finish the vn myth ep4 I approve all\" — concept c1 approved; runtime remotion approved; duration content-driven; internal demo/batch/QC/final authorized; no bible edit; no auto publish.",
+  "approved_budget_usd": 0.0
+ },
+ "metadata": {
+  "series": "vn-myth",
+  "season": 2,
+  "episode": "S2E04",
+  "research_package": "vnmyth-s2e04-research-v1",
+  "target_duration_seconds": 960,
+  "sections": 32,
+  "narration_words_target": 3700,
+  "narration_words_range": "3500–4000",
+  "canon_proposed_this_episode": "S2-C4 (PENDING owner) — «Mẫu» là danh xưng hai chiều (dân thờ trước, triều đình chính danh sau); UNESCO 2016 ghi danh THỰC HÀNH không chứng thực nhân vật; ba lớp bản kể/đền thờ/ghi danh tách bạch; đóng khung «có thể đọc là», KHÔNG tự sửa bible",
+  "numbers_whitelist_ref": "research/v1/raw_data.json",
+  "speech_lock": "Animation bám ASR word timestamps thực (±0,3s) — KHÔNG ước lượng theo số từ; nội dung trên màn đúng thứ tự narration; display/narration tách + tts_lexicon.json cho tên riêng.",
+  "three_layers_axis": "BẢN KỂ (amber; C01–C06) ≠ ĐỀN THỜ-THỰC HÀNH (teal; C07/C12) ≠ GHI DANH DI SẢN (nâu; C10/C11) — trục bắt buộc của tập, tách bằng màu + nhãn chữ trên màn; lớp diễn giải nghiên cứu (C13–C15) gắn nhãn «một cách hiểu của nghiên cứu».",
+  "timing_reconciliation": "target 960s = đề xuất biên tập 15–17' (range 900–1020) trong khung bible 12–20'; sections plan 30–34 (ghi 32 làm mốc kế hoạch); đo lại bằng audio thật khi được phép sản xuất — KHÔNG kéo filler.",
+  "runtime_continuation": "render_runtime=remotion + composition_mode=atelier = CONTINUATION series (ink-genome chassis, speech-lock, HUD QC S2E01–S2E03). HyperFrames available nhưng không khuyến nghị — trình bày cả hai ở PROPOSAL.md, owner chốt (d-001).",
+  "image_plan": "10–12 ảnh sinh mới (9router cx/gpt-5.6-luna-image T2I, hexpix-anchored, gen base + overlay vẽ tay theo focal rule) — SAU owner approval + demo gate 1 cảnh duyệt trước batch. KHÔNG Read PNG trong CC session.",
+  "music_plan": "REUSE 'Mesmerize' — Kevin MacLeod (CC BY 4.0), đã QC S2E01–S2E03 (d-002), credit đủ; KHÔNG kế thừa track chưa kiểm; chờ owner duyệt.",
+  "callback": "Callback E01 Sơn Tinh – E02 Gióng – E03 Chử Đồng Tử → hoàn tất Tứ bất tử như danh sách phổ biến đương đại (C08) — 1 nhịp ở hook + 1 nhịp climax; CTA tease S2E05 Hai Bà Trưng không spoil.",
+  "approval_scope": "d-000 scoped authorization — dừng ở awaiting_human; Gate B: research + proposal + script draft chờ owner duyệt; production stages chờ duyệt riêng (demo gate → TTS Gate A → batch → draft HUD → final)."
+ }
+}

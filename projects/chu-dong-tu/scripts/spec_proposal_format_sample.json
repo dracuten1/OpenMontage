@@ -1,0 +1,183 @@
+{
+  "_note": "MẪU FORMAT proposal_packet.json — giữ đúng keys/types, nội dung viết mới cho S2E01.",
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "c1",
+      "title": "Khép Season 1 — Xi Vưu: vị tổ chung của ba tộc người?",
+      "hook": "Người thắng trận phải vẽ hình kẻ thua lên lá cờ của chính mình. Ba tộc người cùng nhận kẻ thua ấy làm tổ.",
+      "narrative_structure": "myth_busting",
+      "visual_approach": "Signature device cả tập: GƯƠNG ĐỒNG BA CHIẾU — một tấm gương đồng ink-genome đặt giữa màn hình; Hồi 2 ba tộc n…",
+      "suggested_playbook": "ink-genome",
+      "target_audience": "Người xem series vn-myth Ep.01–05 (đã biết C1 'không có gene Bách Việt' và C11 'danh xưng tập hợp', đang chờ t…",
+      "target_platform": "youtube",
+      "target_duration_seconds": 1020,
+      "key_points": [
+        "Trác Lộc là TRUYỀN THUYẾT, không phải lịch sử đo được: Sử ký chép trận ấy sạch gọn đúng một câu; các sách sau …",
+        "...(len=6)"
+      ],
+      "core_message": "Xi Vưu không phải thủy tổ người Việt — và người Việt không cần vay mượn một vị thần chiến tranh ngoại bang để …",
+      "cta": "Season 1 khép trọn. Season 2: từ huyền sử sang lịch sử. Đăng ký để không lỡ.",
+      "tone": "Tôn trọng — tò mò — chứng cứ dẫn đường (series voice): công bằng với cả ba ký ức, không dèm pha truyền thuyết,…",
+      "grounded_in": [
+        "research_digest.json episode_premise (ba tộc một vị thua trận; chuỗi đứt gãy; DNA Trường Giang 5.800 năm; 'khô…",
+        "...(len=5)"
+      ],
+      "why_this_works": "Đây là tập CUỐI Season 1 — digest closing_convention yêu cầu montage khép Ep.01→05 và vòng tròn về biểu tượng …"
+    },
+    "...(len=3)"
+  ],
+  "selected_concept": {
+    "concept_id": "c1",
+    "rationale": "Ep.06 là tập CUỐI Season 1 — digest closing_convention bắt buộc montage khép Ep.01→05 kết thúc bằng biểu tượng…",
+    "modifications": [
+      "TIMING RECONCILE: digest.target_duration_seconds = 1020 (SSOT) nhưng tổng act-seconds trong digest.target_stru…",
+      "...(len=9)"
+    ]
+  },
+  "production_plan": {
+    "pipeline": "animated-explainer",
+    "playbook": "ink-genome",
+    "stages": [
+      {
+        "stage": "script",
+        "tools": [],
+        "approach": "Kịch bản tiếng Việt ~4.100 từ cho 1020 giây / 30 sections theo ngân sách khối đã reconcile: hook 30s (1) + set…",
+        "fallback_if_unavailable": "n/a — không cần tool"
+      },
+      "...(len=6)"
+    ],
+    "quality_tradeoffs": [
+      {
+        "tradeoff": "vieneu v3 Turbo (free, local) vs ElevenLabs multilingual (~$0,30+, không có key)",
+        "recommendation": "vieneu Turbo",
+        "quality_impact": "Prosody tiếng Việt tốt nhất khả dụng $0; giọng đã duyệt series Ep.01–05; rủi ro phát âm tên H'Mông (Txiv Yawg)…"
+      },
+      "...(len=4)"
+    ],
+    "alternative_paths": [
+      {
+        "description": "Free thuần: vieneu + Remotion atelier KHÔNG gen ảnh mới (thuần typographic/gương code-drawn + quote-card + reu…",
+        "total_cost_usd": 0.0,
+        "quality_level": "free",
+        "what_changes": "Mất tranh full-bleed Trác Lộc sương mù, Txiv Yawg truyền khẩu, thiên di, montage mực — Hồi 1 và Landing phụ th…"
+      },
+      "...(len=3)"
+    ],
+    "delivery_promise": {
+      "promise_type": "data_explainer",
+      "motion_required": true,
+      "source_required": false,
+      "tone_mode": "epic",
+      "quality_floor": "presentable",
+      "approved_fallback": null
+    },
+    "renderer_family": "explainer-data",
+    "render_runtime": "remotion",
+    "composition_mode": "atelier",
+    "art_direction": "CONTINUATION series: atelier là quyết định Ep.01–05 (bespoke scenes, ink-genome chassis) — tiếp nối, không phả…",
+    "taste_profile": {
+      "design_read": "Tiếp nối 'bảo tàng đêm kể chuyện' của series nhưng tonight là đêm cuối mùa: mở đầu bằng một câu sử sạch gọn so…",
+      "visual_variance": 6,
+      "motion_intensity": 5,
+      "information_density": 5,
+      "palette_discipline": "Nền #1A1714 nối series; myth = mực #E8DCC8 + accent #D9A441 (truyền thuyết, tín ngưỡng, cổ thư); ký ức H'Mông …",
+      "layout_variation": "Xen kẽ: gương đồng ba chiếu code-drawn (động tác chính) ↔ quote-card cổ thư nguyên văn kèm nguồn ↔ stat_card (…",
+      "reference_strategy": "Hero Ep.06 (gương đồng, Trác Lộc sương mù, 81 bóng đầu đồng, cờ Xi Vưu, Lưu Bang tế, sao chổi, Txiv Yawg quanh…",
+      "anti_patterns": [
+        "gradient tím AI generic",
+        "...(len=13)"
+      ],
+      "quality_gates": [
+        "Người xem nhận ra lớp myth/ký ức H'Mông/science chỉ bằng màu nền",
+        "...(len=6)"
+      ]
+    },
+    "music_source": {
+      "source_type": "user_library",
+      "track_path": "TBD — chọn ở assets stage từ media-library Incompetech (CC BY 4.0, attribution bắt buộc trong credits); copy v…",
+      "provider": "incompetech (Kevin MacLeod, CC BY 4.0)",
+      "mood_direction": "Tập khép season cần nhạc RIÊNG (không kế thừa track Ep.01–05): ambient phương Đông trầm hùng, ngân dài, không …",
+      "estimated_cost_usd": 0.0
+    },
+    "voice_selection": {
+      "provider": "vieneu",
+      "voice_id": "default (giodoc_macdinh_48k, 48kHz v3 Turbo)",
+      "rationale": "Giọng đã duyệt từ Ep.01–05: tiếng Việt chuẩn, tự nhiên, ấm và uy nghi phù hợp truyền thuyết + bằng chứng; loca…",
+      "estimated_cost_usd": 0.0,
+      "delivery_style": "Người kể đứng trước tấm gương đồng: hook tò mò trầm; Setup thân tình gọi về 5 tập đã qua; Hồi 1 trầm hùng như …",
+      "pacing_policy": "~4.100 từ cho 1020s (≈4,0–4,2 từ/giây, nhịp tiếng Việt tự nhiên); nghỉ 0,5–0,7 giây trước mỗi bước chuyển hồi …",
+      "sample_approval_required": false
+    },
+    "decision_log_ref": "projects/xi-vu-ba-toc/decision_log.json",
+    "provider_rankings": {
+      "image": [
+        {
+          "tool_name": "openai_image",
+          "provider": "9router/cx-gpt-5.6-luna-image",
+          "weighted_score": 0.9,
+          "task_fit": 0.9,
+          "output_quality": 0.85,
+          "explanation": "Model T2I series Ep.01–05; gateway local $0; style ink-genome chuẩn; size auto/1536x1024"
+        }
+      ],
+      "tts": [
+        {
+          "tool_name": "vieneu_tts",
+          "provider": "vieneu",
+          "weighted_score": 0.95,
+          "task_fit": 1.0,
+          "output_quality": 0.9,
+          "explanation": "Tiếng Việt tự nhiên nhất khả dụng, free local, giọng user-approved series Ep.01–05"
+        }
+      ],
+      "music": [
+        {
+          "tool_name": "music_library",
+          "provider": "incompetech (CC BY 4.0)",
+          "weighted_score": 0.85,
+          "task_fit": 0.85,
+          "output_quality": 0.8,
+          "explanation": "BGM mới theo yêu cầu tập khép season; catalogue ambient ổn định $0; cần chọn LRA ≤ 4.0 + attribution credits"
+        }
+      ]
+    }
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0.0,
+    "line_items": [
+      {
+        "tool": "vieneu_tts",
+        "operation": "Narration ~30 sections (~4.100 từ) batch WAV + round-trip ASR QC",
+        "quantity": 30,
+        "estimated_usd": 0.0,
+        "notes": "Local inference Apple Silicon; batch mode để tránh model load 8s/call"
+      },
+      "...(len=5)"
+    ],
+    "budget_cap_usd": 0.0,
+    "budget_verdict": "within_budget",
+    "savings_options": []
+  },
+  "approval": {
+    "status": "approved",
+    "user_notes": "Owner (Tuyên) phê duyệt full-run cho SERIES vn-myth — ghi chính thức decision d-000 (approval_policy, full_run…",
+    "approved_budget_usd": 0.0
+  },
+  "metadata": {
+    "series": "vn-myth",
+    "episode": 6,
+    "season_finale": true,
+    "target_duration_seconds": 1020,
+    "sections": 30,
+    "narration_words_target": 4100,
+    "timing_reconciliation": "digest.target_duration_seconds = 1020 (SSOT) ≠ tổng act-seconds digest.target_structure = 1.140 (30+180+210+24…",
+    "runtime_continuation": "render_runtime=remotion + composition_mode=atelier là CONTINUATION quyết định series Ep.01–05 (ink-genome besp…",
+    "image_plan": "10–12 ảnh sinh mới (9router T2I cx/gpt-5.6-luna-image, hexpix-anchored) + REUSE 8 ảnh reference PD có sẵn proj…",
+    "music_plan": "BGM MỚI (không kế thừa track Ep.01–05): media-library Incompetech CC BY 4.0, chọn track LRA ≤ 4.0 ở assets sta…",
+    "speech_lock": "Animation bám ASR word timestamps thực (±0,3s) — KHÔNG ước lượng theo số từ; nội dung lên màn đúng thứ tự narr…",
+    "canon_established_this_episode": "C12 — chuỗi 'Xi Vưu → Cửu Lê → Tam Miêu → Bách Việt' là tập hợp các mắt xích chú giải và diễn giải cổ, không p…",
+    "digest_sealed": true,
+    "authorized_by": "Tuyên (Series Owner) — decision d-000 (approval_policy, full_run), user_approved=true"
+  }
+}

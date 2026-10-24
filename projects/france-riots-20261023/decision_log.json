@@ -1,0 +1,145 @@
+{
+  "version": "1.0",
+  "project_id": "france-riots-20261023",
+  "decisions": [
+    {
+      "decision_id": "idea-france-riots-20261023-1",
+      "stage": "idea",
+      "category": "pipeline_selection",
+      "subject": "Pipeline and anchor medium",
+      "options_considered": [
+        {
+          "option_id": "hybrid",
+          "label": "Hybrid narration_led_graphics",
+          "score": 1,
+          "reason": "Narration t\u1eeb sealed research brief d\u1eabn \u0111\u01b0\u1eddng bespoke factual graphics; lane precedent news-daily 20261016-20261022."
+        },
+        {
+          "option_id": "animated-explainer",
+          "label": "Animated explainer",
+          "score": 0.8,
+          "reason": "Kh\u1edbp d\u1ea1ng explainer nh\u01b0ng lane news \u0111ang ch\u1ea1y hybrid + engine k\u1ebf th\u1eeba news-daily.",
+          "rejected_because": "\u0110\u1ed5i pipeline kh\u1ecfi lane chu\u1ea9n news c\u1ea7n owner duy\u1ec7t."
+        }
+      ],
+      "selected": "hybrid",
+      "reason": "News-lane standing pipeline; brief owner ch\u1ec9 \u0111\u1ecbnh 'chu\u1ea9n news-video-pipeline'.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-france-riots-20261023-2",
+      "stage": "idea",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion",
+          "score": 1,
+          "reason": "Frame-accurate speech-locked factual graphics + charts SVG + captions; engine words.json/scene_timing/scene_elements \u0111\u00e3 prove 5 episode lane news."
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 0.7,
+          "reason": "Viable cho typographic callouts.",
+          "rejected_because": "Kh\u00f4ng ph\u1ea3i chu\u1ea9n hi\u1ec7n h\u00e0nh c\u1ee7a news lane; \u0111\u1ed5i runtime c\u1ea7n owner duy\u1ec7t."
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg only",
+          "score": 0.3,
+          "reason": "Cut/concat/subtitle.",
+          "rejected_because": "Kh\u00f4ng c\u00f3 speech-locked chart animation."
+        }
+      ],
+      "selected": "remotion",
+      "reason": "Standing lane runtime (owner d\u00f9ng li\u00ean t\u1ee5c news-daily 20261018-22); brief y\u00eau c\u1ea7u chart + speech-lock.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-france-riots-20261023-3",
+      "stage": "idea",
+      "category": "hook_selection",
+      "subject": "Hook opening line",
+      "options_considered": [
+        {
+          "option_id": "H2",
+          "label": "C\u00e1ch \u0110i\u1ec7n t\u1ed5ng th\u1ed1ng Ph\u00e1p 200m\u2026",
+          "score": 1,
+          "reason": "Owner DUY\u1ec6T NGUY\u00caN V\u0102N trong brief dispatch \u2014 b\u1eaft bu\u1ed9c m\u1edf video."
+        },
+        {
+          "option_id": "H1",
+          "label": "1 t\u1ef7 \u20ac + video TikTok",
+          "score": 0.8,
+          "reason": "\u0110\u1ec1 xu\u1ea5t khuy\u1ebfn ngh\u1ecb trong research brief.",
+          "rejected_because": "Owner \u0111\u00e3 ch\u1ecdn H2 \u2014 aesthetic/editorial veto c\u1ee7a owner l\u00e0 quy\u1ebft \u0111\u1ecbnh cu\u1ed1i."
+        },
+        {
+          "option_id": "H3",
+          "label": "To\u00e0 th\u1ecb ch\u00ednh 143 n\u0103m tu\u1ed5i",
+          "score": 0.6,
+          "reason": "M\u1ea1nh nh\u01b0ng \u00edt tr\u1ef1c di\u1ec7n.",
+          "rejected_because": "Owner \u0111\u00e3 ch\u1ecdn H2."
+        }
+      ],
+      "selected": "H2",
+      "reason": "Ch\u1ec9 \u0111\u1ecbnh tr\u1ef1c ti\u1ebfp c\u1ee7a owner trong brief: 'HOOK \u0110\u00c3 DUY\u1ec6T (b\u1eaft bu\u1ed9c m\u1edf video)'.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-france-riots-20261023-4",
+      "stage": "idea",
+      "category": "music_selection",
+      "subject": "BGM bed",
+      "options_considered": [
+        {
+          "option_id": "mesmerize",
+          "label": "Mesmerize (explainer/ambient)",
+          "score": 1,
+          "reason": "Ambient trung t\u00ednh \u2014 kh\u00f4ng vui nh\u1ed9n, kh\u00f4ng thriller; \u0111\u00fang y\u00eau c\u1ea7u 'BGM trung t\u00ednh' cho n\u1ed9i dung b\u1ea5t \u1ed5n (news skill: no cheerful bed for distress). CC BY 4.0, credit v\u00e0o description."
+        },
+        {
+          "option_id": "lightless_dawn",
+          "label": "Lightless Dawn (risk)",
+          "score": 0.7,
+          "reason": "Somber \u0111\u00fang ch\u1ea5t nh\u01b0ng 'eerie/unnerving' c\u00f3 nguy c\u01a1 l\u1ec7ch sang gi\u1eadt g\u00e2n.",
+          "rejected_because": "README th\u01b0 vi\u1ec7n c\u1ea3nh b\u00e1o kh\u00f4ng d\u00f9ng cho gi\u1eadt g\u00e2n; ambient an to\u00e0n h\u01a1n."
+        },
+        {
+          "option_id": "none",
+          "label": "Voice-only",
+          "score": 0.5,
+          "reason": "Precedent news-daily voice-only.",
+          "rejected_because": "Brief episode n\u00e0y y\u00eau c\u1ea7u BGM trung t\u00ednh r\u00f5 r\u00e0ng."
+        }
+      ],
+      "selected": "mesmerize",
+      "reason": "Ambient trung t\u00ednh cho n\u1ed9i dung b\u1ea5t \u1ed5n; measure RMS tr\u01b0\u1edbc mix (bed 15-20 dB d\u01b0\u1edbi voice).",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "idea-france-riots-20261023-5",
+      "stage": "idea",
+      "category": "voice_selection",
+      "subject": "Narration TTS",
+      "options_considered": [
+        {
+          "option_id": "vieneu_default",
+          "label": "VieNeu Turbo default 48kHz, atempo 1.15",
+          "score": 1,
+          "reason": "Chu\u1ea9n lane news (news-video-pipeline): VieNeu Turbo default 48kHz, speed 1.15, voice=None."
+        }
+      ],
+      "selected": "vieneu_default",
+      "reason": "Standing lane default (5 episode li\u00ean ti\u1ebfp); brief ch\u1ec9 \u0111\u1ecbnh TTS chu\u1ea9n news-video-pipeline.",
+      "user_visible": true,
+      "user_approved": true
+    }
+  ]
+}

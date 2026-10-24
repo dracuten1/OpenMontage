@@ -1,0 +1,73 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "tiktok",
+      "status": "exported",
+      "export_path": "out/news-daily-20261022.mp4",
+      "timestamp": "2026-10-22T14:27:55+00:00",
+      "metadata_used": {
+        "title": "Tin nhanh 22/10/2026 — siêu bão Champi mạnh nhất hành tinh, não mô cầu TPHCM, xăng giảm",
+        "description": "Tin nhanh 22/10/2026 — siêu bão Champi mạnh nhất hành tinh, não mô cầu TPHCM, 7 tàu dầu ở Hormuz, xăng giảm, Nasdaq\n\n5 tin đáng chú ý nhất ngày 22/10/2026 kèm NHẬN ĐỊNH cho người đi làm:\n0:00 Siêu bão Champi — mạnh nhất hành tinh 2026, gió 210 km/h áp sát Đài Loan\n0:18 TPHCM: chùm 5 ca não mô cầu, một học sinh 12 tuổi tử vong\n0:29 7 tàu chở dầu bị tấn công ở eo biển Hormuz, Aramco sơ tán Dhahran\n0:37 Xăng E10 không cao hơn 25.213 đồng/lít, dầu tăng 444–1.238 đồng từ 15h\n0:46 Phái sinh Nasdaq giảm gần 2%, IBM mất 7%\n0:55 NHẬN ĐỊNH cho người đi làm\n1:17 Tin nhanh 22/10 — hẹn gặp lại\n\nChi tiết: Champi ít khả năng vào Biển Đông nhưng đông bắc Biển Đông gió cấp 8-9, sóng 4-6 m; gần 100 người tiếp xúc gần uống kháng sinh dự phòng, hơn 50.000 mũi vaccine não mô cầu trong 6 ngày; nỗi lo chiến tranh đẩy giá dầu bật mạnh.\nNguồn: bản tin tổng hợp ngày 22/10/2026. Voice-only, không nhạc nền.\n#tinmoi #tintuc #thoisu #sieubao #champi #naomocau #xangdau #nasdaq",
+        "hashtags": [
+          "#tinmoi",
+          "#tintuc",
+          "#thoisu",
+          "#sieubao",
+          "#champi",
+          "#naomocau",
+          "#xangdau",
+          "#nasdaq"
+        ],
+        "chapters": [
+          {
+            "time": "0:00",
+            "label": "S1"
+          },
+          {
+            "time": "0:17",
+            "label": "S2"
+          },
+          {
+            "time": "0:28",
+            "label": "S3"
+          },
+          {
+            "time": "0:37",
+            "label": "S4"
+          },
+          {
+            "time": "0:45",
+            "label": "S5"
+          },
+          {
+            "time": "0:54",
+            "label": "S6a"
+          },
+          {
+            "time": "1:03",
+            "label": "S6b"
+          },
+          {
+            "time": "1:16",
+            "label": "S7"
+          }
+        ],
+        "caption_short_hook": "Siêu bão Champi — mạnh nhất hành tinh năm 2026, gió 210 km/h 🌀 Đài Loan đóng cửa chứng khoán & trường học; Biển Đông sóng 4–6 m. Tin nhanh 22/10 trong 80 giây ⬇️ #tinmoi #tintuc #thoisu #sieubao #champi"
+      }
+    }
+  ],
+  "metadata": {
+    "delivery": "Telegram DM tới owner (draft HUD 720p + QC numbers + caption copiable); KHÔNG auto-post",
+    "bgm": "voice-only, không credit BGM",
+    "final_delivery": {
+      "approved_via": "owner Telegram DM (draft HUD msg #425 review)",
+      "delivered_utc": "2026-10-22T14:27:55+00:00",
+      "video_message_id": 428,
+      "caption_message_id": 429,
+      "file": "out/news-daily-20261022.mp4",
+      "note": "master untouched since render (mtime 21:16, ffprobe verified 21:25: h264/aac 79.133s)",
+      "tiktok": "NOT auto-posted — owner uploads manually"
+    }
+  }
+}

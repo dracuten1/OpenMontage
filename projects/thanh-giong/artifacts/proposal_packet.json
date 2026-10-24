@@ -1,0 +1,397 @@
+{
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "c1",
+      "title": "Vật thể làm chứng — Thánh Gióng qua ba trang sách, một nong gạo, hai ngôi đền",
+      "hook": "Một đứa trẻ không nói. Khi cất tiếng, điều đầu tiên nó xin là vũ khí.",
+      "narrative_structure": "timeline",
+      "visual_approach": "Trục VẬT THỂ mùa S2 (KHÔNG DNA): hạt gạo bay từ từng mái nhà vào chiếc nong ngày một đầy (img-04 scene trung tâm) → tre Đằng Ngà → áo bào trên tảng đá → giò hoa tre → hai ngôi đền hai mùa; myth amber/mực ấm trên giấy dó vs bằng chứng teal; 3 trang cổ thư 3 tông phân biệt; reuse silhouette f07 đúng 1 lần thoáng ở setup.",
+      "suggested_playbook": "ink-genome",
+      "target_audience": "Người xem series vn-myth S1 C1–C12 + S2E01 (biết Tứ bất tử, Tản Viên thắng mỗi năm — đang chờ lời giải 'vì sao thần thoại vẫn sống trong đời thường') + người Việt biết truyện Thánh Gióng qua SGK nhưng chưa từng đọc 1329 / 1492 / 1697.",
+      "target_platform": "youtube",
+      "target_duration_seconds": 870,
+      "key_points": [
+        "Trang cũ nhất 1329 (VĐULT) KHÔNG có trận đánh — chỉ một vị thần Thổ địa bên chùa Kiến Sơ; càng lùi về trước, tiếng gươm càng nhỏ dần (quan sát văn bản, KHÔNG kết luận truyện 'bịa sau').",
+        "LNCQ 1492 nguyên văn: nhà giàu nhất làng cũng KHÔNG đủ gạo — 'Xóm làng phải chung góp gạo vải với gia đình để nuôi cậu' → chiếc nong cơm đong bằng gạo của CẢ LÀNG (thiết lập S2-C2).",
+        "Điều bất biến qua 3 lớp văn bản: đứa trẻ — tiếng nói đầu tiên — vũ khí — bay về trời — được thờ.",
+        "Thắng trận không về công danh: cởi áo bào để lại, cưỡi ngựa bay lên Trời; 100 mẫu ruộng tự điền ban cho CẢ LÀNG, không cho một ai.",
+        "Hai hội thật hôm nay, hồ sơ rõ: Phù Đổng 7–9 tháng 4 AL hội trận bãi Soi Bia; Sóc 6–8 tháng Giêng với Mộc Dục đêm mùng 5 + 8 lễ vật + giò hoa tre làng Vệ Linh; UNESCO 16/11/2010 — bằng chứng tín ngưỡng chỉ nói về NGƯỜI THỜ và điều họ chọn ghi nhớ, KHÔNG chứng minh trận đánh có thật.",
+        "Climax là CÁCH ĐỌC (đóng khung 'có thể đọc là…'): đứa trẻ im lặng 3 năm = cộng đồng im lặng chờ; tiếng nói đầu tiên đòi vũ khí cho mọi người; lớn bằng gạo của TỪNG NHÀ → thắng trận trả về MỌI NHÀ."
+      ],
+      "core_message": "S2-C2: sức mạnh anh hùng = cả làng nuôi lớn — Thánh Gióng không tự lớn; hạt gạo nhiều nhà nuôi nó thành tráng sĩ, và khi thắng trận nó không giữ gì cho mình: bay về trời, ruộng ban cho cả làng.",
+      "cta": "Tease S2E03 Chử Đồng Tử (không spoil): 'Người được thờ tiếp theo còn nghèo hơn — nghèo đến mức không có nổi một chiếc khố.' + mời đăng ký/theo dõi.",
+      "tone": "Series voice: tôn trọng — tò mò — chứng cứ dẫn đường; công bằng với văn bản cổ (mọi chi tiết vô nguồn đóng khung 'sách chép / truyện kể / dân gian làm lễ'); trầm ấm ở Hồi 2 hạt gạo; không kịch hóa tử trận; không dèm pha tín ngưỡng.",
+      "grounded_in": [
+        "research_digest.json episode_premise (ba trang sách cách nhau 350 năm; chiếc nong cơm đong bằng gạo của cả làng; hai ngôi đền mở hội hai mùa)",
+        "research_digest.json target_structure (hook→setup từ hôm nay→3 evidence acts→climax→landing→cta + timing_reconciliation)",
+        "research_digest.json quotes_verbatim (9 nguyên văn ĐVSKTT/LNCQ/VĐULT — hiện đúng chữ trên màn, đóng khung 'sách chép')",
+        "research_digest.json numbers_allowed_on_screen (legend + rules: số ngoài legend không lên màn; narration đọc chữ theo tts_lexicon)",
+        "research_digest.json narrative_anti_rules (8 rules: không lịch sử hóa nhân vật; không chứng minh trận đánh bằng tín ngưỡng; không gán niên đại bằng vũ khí sắt; không tử trận; không '7 nong/3 chum/3 vò' như nguyên văn; không DNA; không lặp S2-C1; climax giữ đóng khung)",
+        "research_digest.json image_plan (13 ảnh) + visual_rules (style suffix bắt buộc, palette amber/teal, season2_change kể bằng VẬT THỂ)",
+        "research_digest.json continuity_and_canon (S2-C2 bắt buộc chốt climax; callback S1 chọn 1 trong 2; callback S2E01 Tứ bất tử nhắc Tản Viên) + bgm_plan (REUSE Mesmerize, d-001)"
+      ],
+      "why_this_works": "Đi ĐÚNG digest.target_structure: timeline CHẠY NGƯỢC — mở TỪ HÔM NAY (mùng 9 tháng Tư, trống hội Phù Đổng) → lùi vào lớp SGK khán giả nhớ → 3 hồi bằng chứng (Ba trang sách lật NGƯỢC 1697→1492→1329; Hạt gạo — scene trung tâm; Hai ngôi đền) → climax trả lời hook → landing hôm nay → CTA. Đủ 5 góc kể đề tài mở ra: (1) mở từ thứ khán giả GẶP HÔM NAY đi ngược vào thần thoại; (2) ba trang sách lật ngược thời gian; (3) hạt gạo — nong — tráng sĩ; (4) hai ngôi đền hai mùa nhớ; (5) hook 'tiếng nói đầu tiên là lời xin vũ khí' được TRẢ LỜI ở climax theo trục diễn giải mùa. Là concept duy nhất đặt chiếc nong làm trái tim hình ảnh → thiết lập S2-C2 bằng VẬT THỂ (hạt gạo nhiều nhà), đúng tinh thần Season 2 'Những vị thần ở lại' và đúng season2_change (KHÔNG DNA). Rollout hook: người cứu nước nổi tiếng nhất của người Việt... là một đứa trẻ 3 tuổi chưa từng nói lời nào."
+    },
+    {
+      "id": "c2",
+      "title": "Ba trang sách — phiên tòa văn bản cách nhau 350 năm",
+      "hook": "Trang sách cũ nhất nói về Thánh Gióng (1329) không hề có trận đánh — chỉ còn một vị thần bên chùa làng.",
+      "narrative_structure": "comparison",
+      "visual_approach": "Cổ thư làm chủ đạo: 3 trang giấy dó 3 tông chiếm phần lớn màn hình, quote-card nguyên văn kèm nguồn, bảng so 3 cột code-drawn; tráng sĩ/nong gạo chỉ là minh họa phụ; hội làng xuất hiện mỏng ở cuối.",
+      "suggested_playbook": "ink-genome",
+      "target_audience": "Người xem ưa khảo cứu văn bản — history nerd; hẹp hơn khán giả chính của series.",
+      "target_platform": "youtube",
+      "target_duration_seconds": 870,
+      "key_points": [
+        "3 lớp văn bản sơ cấp (1329 / 1492 / 1697) đọc cạnh nhau như 3 hồ sơ",
+        "Mini-reveal 'càng lùi tiếng gươm càng nhỏ' + điều bất biến qua 3 lớp",
+        "Đóng khung quan sát: nói về NGƯỜI CHÉP, không phán xét 'bịa sau'"
+      ],
+      "core_message": "Truyện Thánh Gióng là các lớp văn bản chồng lấn — đọc ba trang sách thấy người chép mỗi thời thêm điều họ muốn ghi nhớ.",
+      "cta": "Tease S2E03 Chử Đồng Tử + mời đăng ký/theo dõi.",
+      "tone": "Học thuật tò mò, điềm tĩnh — thiên về giảng giải thư tịch hơn là kể chuyện.",
+      "grounded_in": [
+        "research_digest.json sources (vdult / lncq / dvsktt — 3 sơ cấp)",
+        "research_digest.json target_structure.act_manifests[0] (Hồi 1 — Ba trang sách)"
+      ],
+      "why_this_works": "Đủ sức hút người xem thích văn bản cổ: comparison chạy xuôi 1329→1492→1697, so từng chi tiết như đối chiếu hồ sơ, climax là bảng 'điều bất biến / điều thêm vào'; NHƯNG biến tập thành bài giảng thư tịch: mất trục mùa S2 'mở từ hôm nay đi ngược vào thần thoại', demote nong gạo (scene trung tâm + S2-C2) thành chi tiết phụ, cắt nhịp cảm xúc Hồi 2 và landing hội làng ấm — lệch target_structure digest."
+    },
+    {
+      "id": "c3",
+      "title": "Một vị thánh, hai mùa nhớ — đôi đền Gióng",
+      "hook": "Cùng một vị thánh, hai ngôi đền mở hội ở hai mùa khác nhau — nơi sinh giữ tiếng gươm, nơi bay về trời giữ đêm cuối.",
+      "narrative_structure": "journey",
+      "visual_approach": "Lễ hội teal-dominant: rước nước, rước cờ, khám đường, duyệt tướng, Mộc Dục, 8 lễ vật, giò hoa tre, đấu vật — thiên về tài liệu hội làng (documentary); myth amber chỉ ở các đoạn hồi tưởng lồng.",
+      "suggested_playbook": "ink-genome",
+      "target_audience": "Người yêu lễ hội / văn hóa sống; người xem từng đi hội Gióng hoặc nghe ca dao mồng Chín tháng Tư.",
+      "target_platform": "youtube",
+      "target_duration_seconds": 870,
+      "key_points": [
+        "Hai hội thật với hồ sơ rõ (7–9/4 AL hội trận; 6–8 tháng Giêng Mộc Dục + 8 lễ vật)",
+        "UNESCO 16/11/2010 ghi danh đôi hội",
+        "Giá trị nằm ở việc CẢ LÀNG nhập vai — ký ức sống lâu hơn tranh cãi lịch sử"
+      ],
+      "core_message": "Hội Gióng là nơi cả làng cùng nhập vai vào truyện — một vị thánh, hai loại kỷ niệm, và giá trị nằm ở người thờ.",
+      "cta": "Tease S2E03 Chử Đồng Tử + mời đăng ký/theo dõi.",
+      "tone": "Rộn ràng hội làng, ấm áp — nhịp nhanh hơn hai concept kia.",
+      "grounded_in": [
+        "research_digest.json target_structure.act_manifests[2] (Hồi 3 — Hai ngôi đền)",
+        "research_digest.json sources (hoi_phu_dong / hoi_soc / unesco)"
+      ],
+      "why_this_works": "Gần đời thường nhất, mở từ hôm nay đúng tinh thần mùa; NHƯNG nén cả 3 hồi myth thành hồi tưởng lồng: mất nhịp 'ba trang sách' (Hồi 1), cắt ngang thiết lập S2-C2 ở nong gạo, và climax diễn giải thiếu lớp chứng cứ văn bản để trả lời hook 'lời xin vũ khí' — lệch target_structure digest."
+    }
+  ],
+  "selected_concept": {
+    "concept_id": "c1",
+    "rationale": "c1 là concept duy nhất đi trọn digest.target_structure + 5 góc kể của đề tài, mở TỪ HÔM NAY (trống hội làng, mâm cỗ, hạt gạo, đền) đi ngược vào thần thoại đúng câu hỏi mùa 'Những vị thần ở lại', kể qua VẬT THỂ (hạt gạo → nong → tre → áo bào → đền) thay vì DNA, đặt nong gạo làm scene trung tâm để S2-C2 ('sức mạnh anh hùng = cả làng nuôi lớn') được thiết lập bằng HÌNH rồi chốt nguyên văn ý ở climax theo trục diễn giải — mọi claim đều truy được về digest sealed.",
+    "modifications": [
+      "TIMING RECONCILE: digest.target_duration_seconds = 870 (SSOT) ≠ tổng act-seconds digest.target_structure = 1.025 (30+175+200+225+165+115+85+30) → giữ TỶ LỆ cấu trúc BRIEF, scale ~0,85 về 870: hook 25s + setup 150s + Hồi 1 Ba trang sách 170s + Hồi 2 Hạt gạo 190s + Hồi 3 Hai ngôi đền 140s + climax 100s + landing 70s + CTA 25s; word count 3.650 (range 3.400–3.900) là chuẩn đối chiếu cuối.",
+      "Callback S1: chọn 1 trong 2 (đền Hùng HOẶC trống đồng — silhouette/tranh cổ reuse f07), chốt ở script stage theo nhịp setup; KHÔNG dùng cả hai. Callback S2E01 chỉ 1 lần nhẹ (Tứ bất tử nhắc Tản Viên, Phù Đổng đứng thứ hai — landing).",
+      "Số đọc bằng chữ trong provider_text theo tts_lexicon (1329 → 'một nghìn ba trăm hai mươi chín', 16/11/2010 → đọc chữ...); display giữ dạng số; nguyên văn trích dẫn hiện ĐÚNG CHỮ trên narration + đóng khung 'sách chép'.",
+      "'7 nong cơm / 3 chum cà / 3 vò rượu' KHÔNG dùng — thay bằng nguyên văn LNCQ 'không đủ gạo... xóm làng chung góp gạo vải' (khuyến nghị digest).",
+      "KHÔNG dựng cảnh tử trận: bay về trời đúng nguyên văn ('cởi áo bào để lại, cưỡi ngựa bay lên Trời' / 'nhảy ngựa lên không mà đi'); img-12 là cảnh bay lên mây, không phải cảnh chết.",
+      "Roi sắt / ngựa sắt: CHỈ câu hỏi đóng khung về thế giới NGƯỜI CHÉP (TK XIV–XV) — không kết luận hai chiều, không gán niên đại.",
+      "Lễ hội / đền thờ / UNESCO không dùng để chứng minh trận đánh có thật — bằng chứng tín ngưỡng chỉ nói về người thờ và điều họ chọn ghi nhớ.",
+      "BGM: REUSE 'Mesmerize' — Kevin MacLeod (CC BY 4.0) theo d-001 — track đã QC ở S2E01; KHÔNG chọn track mới; credit vào youtube.json + metadata."
+    ]
+  },
+  "production_plan": {
+    "pipeline": "animated-explainer",
+    "playbook": "ink-genome",
+    "stages": [
+      {
+        "stage": "research",
+        "tools": [],
+        "approach": "HOÀN TẤT trước phiên này — research_digest.json sealed by Hermes 2026-10-17 từ sources/07-thanh-giong.md; checkpoint research completed. KHÔNG research thêm trong run.",
+        "fallback_if_unavailable": "n/a — đã xong"
+      },
+      {
+        "stage": "proposal",
+        "tools": [],
+        "approach": "Artifact này (proposal_packet.json): chọn c1, plan 8 stage, budget $0, full-run theo d-000.",
+        "fallback_if_unavailable": "n/a — không cần tool"
+      },
+      {
+        "stage": "script",
+        "tools": [],
+        "approach": "Kịch bản tiếng Việt ~3.650 từ (3.400–3.900) / 870 giây / 28–31 sections (target 30) theo ngân sách khối đã reconcile: hook 25s + setup 150s (mở từ hội hôm nay → lớp SGK → câu hỏi) + Hồi 1 Ba trang sách 170s + Hồi 2 Hạt gạo 190s (scene trung tâm, thiết lập S2-C2) + Hồi 3 Hai ngôi đền 140s + climax 100s + landing 70s + CTA 25s. Nguyên văn quotes_verbatim hiện đúng chữ; số đọc chữ theo tts_lexicon; áp lexicon TRƯỚC TTS; tách display/narration cho từ nước ngoài.",
+        "fallback_if_unavailable": "n/a — không cần tool"
+      },
+      {
+        "stage": "scene_plan",
+        "tools": [],
+        "approach": "~64 scenes (60–70) map 1:1 theo thứ tự narration; 13 ảnh digest.image_plan làm BASE layer focal + TSX/SVG overlay vẽ tay trên top (focal-visual rule, hexpix-anchored); trục vật thể hạt gạo → nong → tre → áo bào → đền xuyên tập; speech-lock mọi timing theo SRT cues thực (±0,3s).",
+        "fallback_if_unavailable": "n/a — không cần tool"
+      },
+      {
+        "stage": "assets",
+        "tools": [
+          {
+            "tool_name": "openai_image",
+            "role": "13 ảnh T2I ink-genome hexpix-anchored — canvas focal cho overlay TSX",
+            "provider": "9router/cx-gpt-5.6-luna-image",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Model T2I chuẩn series, gateway local $0, style suffix ổn định"
+          },
+          {
+            "tool_name": "vieneu_tts",
+            "role": "Narration batch WAV tiếng Việt (~3.650 từ) + round-trip ASR QC",
+            "provider": "vieneu (local)",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Tiếng Việt tự nhiên nhất $0, giọng default news đã duyệt toàn series"
+          },
+          {
+            "tool_name": "transcriber",
+            "role": "Whisper round-trip QC narration + sinh subtitles.srt (word timestamps)",
+            "provider": "faster-whisper small vi (local)",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Local $0; proper nouns map từ canonical text (bài học Xi Vưu)"
+          },
+          {
+            "tool_name": "music_library",
+            "role": "Copy BGM 'Mesmerize' reuse (d-001) vào assets/music/",
+            "provider": "incompetech CC BY 4.0 (media-library)",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Track đã QC S2E01; license CC BY 4.0 cho phép tái sử dụng có credit"
+          }
+        ],
+        "approach": "13 ảnh 9router T2I (cx/gpt-5.6-luna-image, style suffix bắt buộc, hexpix markers) $0 + REUSE assets/reference/f07-hung-vuong.png (silhouette, 1 callback) + vieneu batch TTS WAV (batch mode tránh model load 8s/call) + Whisper round-trip ASR QC (map proper nouns từ canonical text) + copy BGM Mesmerize từ media-library, loop bed crossfade ~3 đoạn, loudnorm I=-24 TP=-2.",
+        "fallback_if_unavailable": "Ảnh: nếu gateway 9router lỗi → fallback quote-card/stat_card/code-drawn thuần (vẫn giữ cấu trúc, giảm hero frames); TTS: vieneu là path duy nhất $0 — nếu hỏng thì escalate blocker, KHÔNG swap provider."
+      },
+      {
+        "stage": "edit",
+        "tools": [],
+        "approach": "edit_decisions giữ nguyên render_runtime remotion + composition_mode atelier khóa từ proposal; cuts/overlays/subtitle burn (canonical text map lên whisper word-slots); master -14 LUFS (loudnorm I=-14:TP=-1.0:LRA=7), voice -14..-15 LUFS, BGM bed ~-34 LUFS; music credit Kevin MacLeod CC BY 4.0.",
+        "fallback_if_unavailable": "n/a — không cần tool"
+      },
+      {
+        "stage": "compose",
+        "tools": [
+          {
+            "tool_name": "video_compose",
+            "role": "Remotion atelier hand-authored render 1080p ~870s vào renders/",
+            "provider": "remotion (local)",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Runtime khóa continuation series; node_modules đã cài và render đã chứng minh qua S1+S2E01"
+          }
+        ],
+        "approach": "Remotion atelier hand-authored (continuation engine S2E01 Ep.06): bespoke scenes ink-genome chassis, theme riêng tập này (vật thể làm chứng); KHÔNG dùng stock scene-types làm look (đọc như mechanics codex); render 1080p vào projects/thanh-giong/renders/.",
+        "fallback_if_unavailable": "Nếu Remotion hỏng → escalate blocker theo AGENT_GUIDE (KHÔNG silent swap runtime; FFmpeg/Ken Burns KHÔNG được phép thay thế treatment motion)."
+      },
+      {
+        "stage": "publish",
+        "tools": [],
+        "approach": "Final mp4 chuẩn hoá trong projects/thanh-giong/renders/ (Backlot chỉ scan đây); youtube.json + metadata ghi credit BGM 'Mesmerize' Kevin MacLeod (incompetech.com) CC BY 4.0; gate publish chờ owner.",
+        "fallback_if_unavailable": "n/a — không cần tool"
+      }
+    ],
+    "quality_tradeoffs": [
+      {
+        "tradeoff": "vieneu v3 Turbo (free, local) vs ElevenLabs multilingual (~$0,30+, không có key)",
+        "recommendation": "vieneu Turbo default news",
+        "quality_impact": "Prosody tiếng Việt tốt nhất khả dụng $0; giọng đã duyệt series; rủi ro phát âm tên riêng (Phù Đổng, Vệ Linh, Mộc Dục, cầu húc...) — lexicon giữ nguyên chờ Gate A probe + round-trip ASR QC bắt lỗi."
+      },
+      {
+        "tradeoff": "REUSE BGM 'Mesmerize' (đã QC S2E01, CC BY 4.0) vs chọn track mới cho từng tập",
+        "recommendation": "REUSE Mesmerize (d-001)",
+        "quality_impact": "Nhất quán giọng Season 2, $0, license CC BY 4.0 cho phép tái sử dụng có credit; đổi track mới = phải QC lại LRA/mix (bài học Ep.03 d-008) — rủi ro không tương xứng."
+      },
+      {
+        "tradeoff": "13 ảnh gen (nong gạo full-bleed làm scene trung tâm) vs thuần code-drawn",
+        "recommendation": "Gen 13 ảnh theo digest.image_plan",
+        "quality_impact": "Ảnh = canvas focal + overlay TSX vẽ tay trên top (focal-visual rule); bỏ gen ảnh = mất hero frames Hồi 2 và hai đền, chất lượng cảm xúc giảm mạnh."
+      },
+      {
+        "tradeoff": "Atelier hand-authored vs templated scene-types",
+        "recommendation": "Atelier (continuation S2E01)",
+        "quality_impact": "Hero work chuẩn series, không lặp look chung; tốn token + iteration hơn templated — đã opt-in từ series, owner biết."
+      }
+    ],
+    "alternative_paths": [
+      {
+        "description": "Free thuần KHÔNG gen ảnh: vieneu + Remotion atelier code-drawn (quote-card cổ thư, nong gạo vẽ code, bản đồ giấy dầu) + reuse f07.",
+        "total_cost_usd": 0.0,
+        "quality_level": "free",
+        "what_changes": "Mất tranh full-bleed nong gạo / tráng sĩ / hai đền — Hồi 2 scene trung tâm và hero frames phụ thuộc sức vẽ code (chất lượng cảm xúc thấp hơn hẳn dù vẫn $0); cấu trúc + S2-C2 vẫn giữ nguyên."
+      },
+      {
+        "description": "Giảm scope còn ~600 giây (nén Hồi 3 và landing).",
+        "total_cost_usd": 0.0,
+        "quality_level": "free",
+        "what_changes": "TRÁI SSOT digest (870s / 28–31 sections / 3.650 từ) — KHÔNG khuyến nghị; chỉ làm nếu owner chốt lại brief."
+      },
+      {
+        "description": "Templated scene-types (text_card / stat_card / comparison...) thay atelier.",
+        "total_cost_usd": 0.0,
+        "quality_level": "budget",
+        "what_changes": "Nhanh và rẻ hơn nhưng phá continuation ink-genome của series — dùng lại look chung khiến tập trông như video khác; KHÔNG theo."
+      }
+    ],
+    "delivery_promise": {
+      "promise_type": "data_explainer",
+      "motion_required": true,
+      "source_required": false,
+      "tone_mode": "epic",
+      "quality_floor": "presentable",
+      "approved_fallback": null
+    },
+    "renderer_family": "explainer-data",
+    "render_runtime": "remotion",
+    "composition_mode": "atelier",
+    "art_direction": "CONTINUATION series: atelier là quyết định đã chốt từ S1 Ep.01–06 và giữ nguyên qua S2E01 — tập này tiếp nối engine (ink-genome chassis, hexpix anchor, speech-lock), KHÔNG tái sử dụng creative components. Mùa S2 kể bằng ĐỊA HÌNH + VẬT THỂ: hạt gạo, nong, tre, áo bào, giò hoa tre, hai ngôi đền — KHÔNG DNA/sợi xoắn teal.",
+    "taste_profile": {
+      "design_read": "Tiếp nối 'bảo tàng đêm kể chuyện' của series; Season 2 'Những vị thần ở lại': mở từ những thứ khán giả GẶP HÔM NAY (mùng 9 tháng Tư, trống hội, mâm cỗ, hạt gạo, đền) rồi đi ngược qua ba trang sách cách nhau 350 năm; mỗi vật thể là một mắt xích chứng cứ; chiếc nong ngày một đầy là trái tim cảm xúc; hai ngôi đền hai mùa khép vòng một vị thánh — hai loại kỷ niệm.",
+      "visual_variance": 6,
+      "motion_intensity": 5,
+      "information_density": 5,
+      "palette_discipline": "Nền #1A1714 nối series; myth = mực #E8DCC8 + accent #D9A441 amber trên giấy dó; bằng chứng = teal; bản đồ = giấy dầu nâu sepia; accent vàng đồng dành riêng cho HẠT GẠO xuyên trục (mái nhà → nong → tráng sĩ → mâm cỗ hội).",
+      "layout_variation": "Xen kẽ: 3 trang giấy dó 3 tông lật ngược thời gian (code-drawn) ↔ nong gạo hạt bay full-bleed (img-04) + TSX overlay speech-locked ↔ quote-card nguyên văn kèm nguồn-năm ↔ ảnh gen đền/hội trận ↔ fact card teal UNESCO; không 2 layout giống nhau liền kề trong cùng hồi.",
+      "reference_strategy": "Hero frames: img-04 nong cơm (scene trung tâm), img-05 tráng sĩ ngựa sắt phun lửa, img-12 bay về trời (KHÔNG tử trận), bộ 3 trang cổ thư img-07/08/09 (3 tông phân biệt 3 lớp văn bản), img-10/11 hai đền hai mùa; hỗ trợ: img-01/02/03/06/13; reuse f07 silhouette đúng 1 lần; overlay hexpix-anchored (mũi tên, vòng tròn, nhãn) bám word-timestamps.",
+      "anti_patterns": [
+        "gradient tím AI generic",
+        "DNA / sợi xoắn teal làm visual mặc định (banned mùa S2)",
+        "Ken Burns pan-and-zoom thay motion Remotion",
+        "kết luận 'truyện bịa sau' áp lên văn bản",
+        "dựng cảnh tử trận Gióng",
+        "số liệu ngoài legend lên màn hình",
+        "'7 nong cơm / 3 chum cà / 3 vò rượu' trình bày như nguyên văn sách",
+        "dùng lễ hội / UNESCO chứng minh trận đánh có thật",
+        "gán niên đại truyện bằng vũ khí sắt / ngựa sắt",
+        "lặp luận điểm S2-C1 (Sơn Tinh thắng mỗi năm)",
+        "callback S1 quá 1 lần hoặc dùng cả đền Hùng LẪN trống đồng",
+        "neon glow chữ / 3D render lệch tông ink-genome",
+        "watermark / chữ trong ảnh gen"
+      ],
+      "quality_gates": [
+        "Người xem nhận ra lớp myth amber vs bằng chứng teal chỉ qua màu nền",
+        "Nguyên văn trích dẫn hiện đúng chữ + nguồn (sách chép / năm) trên màn",
+        "Hạt gạo xuyên suốt trục tập: mái nhà → nong → mâm cỗ hôm nay (S2-C2 NHÌN THẤY được)",
+        "Speech-lock ±0,3s cho mọi reveal / diagram pop / CountUp",
+        "Nội dung lên màn đúng thứ tự narration mention",
+        "Không số ngoài legend; số trong narration luôn đọc chữ (provider_text)",
+        "Hai đền phân biệt rõ 2 mùa (tháng Tư vs tháng Giêng) + 8 lễ vật Sóc",
+        "Không cảnh tử trận; climax giữ đóng khung 'có thể đọc là…'"
+      ]
+    },
+    "music_source": {
+      "source_type": "user_library",
+      "track_path": "media-library/bgm/explainer/Mesmerize.mp3 (sha256 trong catalog.json) — copy vào projects/thanh-giong/assets/music/ ở assets stage",
+      "provider": "incompetech (Kevin MacLeod, CC BY 4.0)",
+      "mood_direction": "REUSE theo d-001: 'Mesmerize' piano ambient đã QC ở S2E01 (424s, bed ổn định LRA thấp) — loop bed crossfade ~3 đoạn phủ 870s, loudnorm I=-24 TP=-2, fade-out 4s; nhất quán giọng Season 2; credit bắt buộc trong youtube.json + metadata.",
+      "estimated_cost_usd": 0.0
+    },
+    "voice_selection": {
+      "provider": "vieneu",
+      "voice_id": "default (news, 48kHz v3 Turbo)",
+      "rationale": "Giọng series đã duyệt S1 Ep.01–06 + S2E01: tiếng Việt chuẩn, tự nhiên, ấm — phù hợp truyền thuyết + bằng chứng; free local; tên riêng rủi ro phát âm xử lý bằng tts_lexicon (giữ nguyên chờ Gate A probe) + round-trip ASR QC.",
+      "estimated_cost_usd": 0.0,
+      "delivery_style": "Người kể bảo tàng đêm: hook tò mò trầm; setup thân tình từ hội làng hôm nay; Hồi 1 chậm rãi như lật từng trang giấy dó; Hồi 2 ấm dần theo hạt gạo đổ vào nong; Hồi 3 rộn ràng sắc hội; climax trầm hùng nhưng đóng khung ('có thể đọc là…', không nói trắng); landing nhẹ nhàng khép bằng ca dao.",
+      "pacing_policy": "~3.650 từ cho 870 giây (≈4,2 từ/giây, nhịp tiếng Việt tự nhiên); nghỉ 0,5–0,7 giây trước mỗi bước chuyển hồi; câu 3 vế tách dấu chấm không ';' theo policy lexicon; số luôn đọc chữ.",
+      "sample_approval_required": false
+    },
+    "decision_log_ref": "projects/thanh-giong/decision_log.json",
+    "provider_rankings": {
+      "image": [
+        {
+          "tool_name": "openai_image",
+          "provider": "9router/cx-gpt-5.6-luna-image",
+          "weighted_score": 0.9,
+          "task_fit": 0.9,
+          "output_quality": 0.85,
+          "explanation": "Model T2I chuẩn series (S1 + S2E01); gateway local $0; style suffix ink-genome ổn định; size auto/1536x1024; hexpix markers nhúng prompt."
+        }
+      ],
+      "tts": [
+        {
+          "tool_name": "vieneu_tts",
+          "provider": "vieneu",
+          "weighted_score": 0.95,
+          "task_fit": 1.0,
+          "output_quality": 0.9,
+          "explanation": "Tiếng Việt tự nhiên nhất khả dụng, free local, giọng default news user-approved toàn series."
+        }
+      ],
+      "music": [
+        {
+          "tool_name": "music_library",
+          "provider": "incompetech (CC BY 4.0)",
+          "weighted_score": 0.9,
+          "task_fit": 0.9,
+          "output_quality": 0.85,
+          "explanation": "REUSE 'Mesmerize' đã QC S2E01 (d-001) — bed LRA thấp phù hợp mix voice -14 LUFS; $0; chỉ cần credit."
+        }
+      ]
+    }
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0.0,
+    "line_items": [
+      {
+        "tool": "openai_image",
+        "operation": "13 ảnh T2I ink-genome theo digest.image_plan (hexpix-anchored, 1 redraw buffer)",
+        "quantity": 13,
+        "estimated_usd": 0.0,
+        "notes": "9router gateway local free (cx/gpt-5.6-luna-image)"
+      },
+      {
+        "tool": "vieneu_tts",
+        "operation": "Narration ~28–31 sections (~3.650 từ) batch WAV + round-trip ASR QC",
+        "quantity": 30,
+        "estimated_usd": 0.0,
+        "notes": "Local inference Apple Silicon; batch mode để tránh model load 8s/call"
+      },
+      {
+        "tool": "music_library",
+        "operation": "REUSE BGM Mesmerize — copy + loop bed crossfade + loudnorm",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "CC BY 4.0, credit bắt buộc; không mua track mới"
+      },
+      {
+        "tool": "video_compose",
+        "operation": "Remotion atelier render 1080p ~870s",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "Local render; remotion-composer/node_modules đã cài"
+      },
+      {
+        "tool": "transcriber",
+        "operation": "Whisper round-trip QC narration + subtitles.srt",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "faster-whisper small vi local; proper nouns map từ canonical text"
+      }
+    ],
+    "budget_cap_usd": 0.0,
+    "budget_verdict": "within_budget",
+    "savings_options": []
+  },
+  "approval": {
+    "status": "approved",
+    "user_notes": "Owner (Tuyên) dispatch full-run S2E02 ngày 2026-10-17 — ghi chính thức decision d-000 (approval_policy, full_run authorization): stage-worker tự review + viết artifact, Hermes (lead) audit + viết checkpoint sau. Budget $0, ảnh 9router free, không gen ảnh / không TTS trong session proposal.",
+    "approved_budget_usd": 0.0
+  },
+  "metadata": {
+    "series": "vn-myth",
+    "season": 2,
+    "episode": "S2E02",
+    "season_finale": false,
+    "target_duration_seconds": 870,
+    "sections": 30,
+    "narration_words_target": 3650,
+    "timing_reconciliation": "digest.target_duration_seconds = 870 (SSOT) ≠ tổng act-seconds digest.target_structure = 1.025 (30+175+200+225+165+115+85+30) → giữ TỶ LỆ cấu trúc BRIEF, scale ~0,85 về 870: hook 25 + setup 150 + Hồi1 170 + Hồi2 190 + Hồi3 140 + climax 100 + landing 70 + CTA 25; sections target 30 (range 28–31); word count 3.650 (range 3.400–3.900) là chuẩn đối chiếu cuối.",
+    "runtime_continuation": "render_runtime=remotion + composition_mode=atelier là CONTINUATION quyết định series (S1 Ep.01–06 → S2E01) — reuse ENGINE knowledge (ink-genome chassis, hexpix, speech-lock), không phải quyết định mới của tập này; stock scene-types chỉ đọc như mechanics codex, không dùng làm look.",
+    "image_plan": "13 ảnh sinh mới theo digest.image_plan (9router T2I cx/gpt-5.6-luna-image, style suffix bắt buộc, hexpix-anchored) + REUSE assets/reference/f07-hung-vuong.png (silhouette Hùng Vương — callback S1 đúng 1 lần, chọn 1 trong 2 đền Hùng/trống đồng, chốt ở script).",
+    "music_plan": "REUSE 'Mesmerize' — Kevin MacLeod (incompetech.com, CC BY 4.0), track đã QC S2E01 (d-001): loop bed crossfade ~3 đoạn, loudnorm I=-24 TP=-2 bed dưới voice; master -14 LUFS; credit youtube.json + metadata.",
+    "speech_lock": "Animation bám ASR word timestamps THỰC (±0,3s) từ assets/subtitles.srt cues / assets/audio/transcripts per-word — KHÔNG ước lượng theo số từ; nội dung lên màn đúng thứ tự narration mention (standing rules 2026-10-02/04).",
+    "canon_established_this_episode": "S2-C2 — sức mạnh anh hùng = cả làng nuôi lớn (hạt gạo nhiều nhà): Thánh Gióng không tự lớn; nhà giàu nhất làng cũng không đủ gạo, xóm làng phải chung góp gạo vải; thắng trận không về công danh mà bay về trời, 100 mẫu ruộng tự điền ban cho CẢ LÀNG.",
+    "digest_sealed": true,
+    "authorized_by": "Tuyên (Series Owner) — decision d-000 (approval_policy, full_run), dispatch 2026-10-17"
+  }
+}

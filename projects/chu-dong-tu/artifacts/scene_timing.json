@@ -1,0 +1,4378 @@
+{
+ "fps": 30,
+ "generated": "2026-10-19T03:41:39+00:00",
+ "retentionRequirements": [],
+ "retentionChecks": [],
+ "scenes": [
+  {
+   "sceneId": "sc001",
+   "sectionId": "s01",
+   "startFrame": 0,
+   "durationInFrames": 239,
+   "firstAnchor": "thuyền rước nước",
+   "firstAnchorStart": 3.18,
+   "maxAnchorEnd": 4.7,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 3.8,
+    "sceneEnd": 7.967,
+    "marginSec": 4.167,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "thuyền rước nước",
+     "occ": 1,
+     "start": 3.18,
+     "end": 3.8,
+     "protectionEnd": 3.8,
+     "rawFraction": 0.3975,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "giữa tháng Hai",
+     "occ": 1,
+     "start": 0.82,
+     "end": 1.3,
+     "protectionEnd": 3.8,
+     "rawFraction": 0.1046,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "thuyền rước nước.",
+     "occ": 1,
+     "start": 3.18,
+     "end": 3.8,
+     "protectionEnd": 3.8,
+     "rawFraction": 0.3975,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "nước. Theo lịch được",
+     "occ": 1,
+     "start": 3.68,
+     "end": 4.7,
+     "protectionEnd": 10.44,
+     "rawFraction": 0.4603,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc002",
+   "sectionId": "s01",
+   "startFrame": 239,
+   "durationInFrames": 671,
+   "firstAnchor": "các làng lại tổ chức",
+   "firstAnchorStart": 8.3,
+   "maxAnchorEnd": 15.3,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 16.44,
+    "sceneEnd": 30.333,
+    "marginSec": 13.893,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "các làng lại tổ chức",
+     "occ": 1,
+     "start": 8.3,
+     "end": 9.06,
+     "protectionEnd": 10.44,
+     "rawFraction": 0.0149,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "múc lên từ sông",
+     "occ": 1,
+     "start": 14.48,
+     "end": 15.3,
+     "protectionEnd": 16.44,
+     "rawFraction": 0.2906,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "du thuyền rước nước trên sông Hồng",
+     "occ": 1,
+     "start": 9.06,
+     "end": 10.44,
+     "protectionEnd": 10.44,
+     "rawFraction": 0.0492,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "các làng lại tổ chức",
+     "occ": 1,
+     "start": 8.3,
+     "end": 9.06,
+     "protectionEnd": 10.44,
+     "rawFraction": 0.0149,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "múc lên từ sông",
+     "occ": 1,
+     "start": 14.48,
+     "end": 15.3,
+     "protectionEnd": 16.44,
+     "rawFraction": 0.2906,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc003",
+   "sectionId": "s02",
+   "startFrame": 910,
+   "durationInFrames": 174,
+   "firstAnchor": "người nghèo đến mức không có nổi một chiếc khố",
+   "firstAnchorStart": 30.65,
+   "maxAnchorEnd": 34.81,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 32.41,
+    "sceneEnd": 36.133,
+    "marginSec": 3.723,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "người nghèo đến mức không có nổi một chiếc khố",
+     "occ": 1,
+     "start": 30.65,
+     "end": 32.41,
+     "protectionEnd": 32.41,
+     "rawFraction": 0.0575,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "một người từng",
+     "occ": 1,
+     "start": 34.29,
+     "end": 34.81,
+     "protectionEnd": 37.43,
+     "rawFraction": 0.6839,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "không có nổi một chiếc khố.",
+     "occ": 1,
+     "start": 31.39,
+     "end": 32.41,
+     "protectionEnd": 32.41,
+     "rawFraction": 0.1839,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "thờ một người từng",
+     "occ": 1,
+     "start": 34.15,
+     "end": 34.81,
+     "protectionEnd": 37.43,
+     "rawFraction": 0.6609,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc004",
+   "sectionId": "s02",
+   "startFrame": 1084,
+   "durationInFrames": 484,
+   "firstAnchor": "thờ đã lâu lắm rồi",
+   "firstAnchorStart": 36.45,
+   "maxAnchorEnd": 40.95,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 41.87,
+    "sceneEnd": 52.267,
+    "marginSec": 10.397,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "thờ đã lâu lắm rồi",
+     "occ": 1,
+     "start": 36.45,
+     "end": 37.43,
+     "protectionEnd": 37.43,
+     "rawFraction": 0.0207,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "phải hỏi cho ra",
+     "occ": 1,
+     "start": 38.17,
+     "end": 38.97,
+     "protectionEnd": 41.87,
+     "rawFraction": 0.126,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "không có cả chiếc khố",
+     "occ": 1,
+     "start": 40.19,
+     "end": 40.95,
+     "protectionEnd": 41.87,
+     "rawFraction": 0.2521,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "thờ đã lâu lắm rồi",
+     "occ": 1,
+     "start": 36.45,
+     "end": 37.43,
+     "protectionEnd": 37.43,
+     "rawFraction": 0.0207,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc005",
+   "sectionId": "s03",
+   "startFrame": 1568,
+   "durationInFrames": 57,
+   "firstAnchor": "một khố vải duy nhất",
+   "firstAnchorStart": 52.57,
+   "maxAnchorEnd": 53.47,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 54.75,
+    "sceneEnd": 54.167,
+    "marginSec": -0.583,
+    "ok": false
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "một khố vải duy nhất",
+     "occ": 1,
+     "start": 52.57,
+     "end": 53.47,
+     "protectionEnd": 54.75,
+     "rawFraction": 0.1579,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "một khố vải duy nhất",
+     "occ": 1,
+     "start": 52.57,
+     "end": 53.47,
+     "protectionEnd": 54.75,
+     "rawFraction": 0.1579,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc006",
+   "sectionId": "s03",
+   "startFrame": 1625,
+   "durationInFrames": 292,
+   "firstAnchor": "thay nhau mà mặc",
+   "firstAnchorStart": 54.15,
+   "maxAnchorEnd": 59.27,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 54.75,
+    "sceneEnd": 63.9,
+    "marginSec": 9.15,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "thay nhau mà mặc",
+     "occ": 1,
+     "start": 54.15,
+     "end": 54.75,
+     "protectionEnd": 54.75,
+     "rawFraction": 0.0,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Cha và con,",
+     "occ": 1,
+     "start": 57.65,
+     "end": 58.27,
+     "protectionEnd": 60.57,
+     "rawFraction": 0.3596,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Cha và con, hai người, thay",
+     "occ": 1,
+     "start": 57.65,
+     "end": 59.27,
+     "protectionEnd": 60.57,
+     "rawFraction": 0.3596,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "thay nhau mà mặc",
+     "occ": 1,
+     "start": 54.15,
+     "end": 54.75,
+     "protectionEnd": 54.75,
+     "rawFraction": 0.0,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc007",
+   "sectionId": "s03",
+   "startFrame": 1917,
+   "durationInFrames": 407,
+   "firstAnchor": "để trần mà chôn",
+   "firstAnchorStart": 64.21,
+   "maxAnchorEnd": 66.79,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 66.79,
+    "sceneEnd": 77.467,
+    "marginSec": 10.677,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "để trần mà chôn",
+     "occ": 1,
+     "start": 64.21,
+     "end": 64.93,
+     "protectionEnd": 66.79,
+     "rawFraction": 0.0221,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "khỏi xấu hổ",
+     "occ": 1,
+     "start": 66.19,
+     "end": 66.79,
+     "protectionEnd": 66.79,
+     "rawFraction": 0.1695,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "để trần mà chôn",
+     "occ": 1,
+     "start": 64.21,
+     "end": 64.93,
+     "protectionEnd": 66.79,
+     "rawFraction": 0.0221,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "khỏi xấu hổ",
+     "occ": 1,
+     "start": 66.19,
+     "end": 66.79,
+     "protectionEnd": 66.79,
+     "rawFraction": 0.1695,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc008",
+   "sectionId": "s04",
+   "startFrame": 2324,
+   "durationInFrames": 391,
+   "firstAnchor": "truyện kể",
+   "firstAnchorStart": 77.77,
+   "maxAnchorEnd": 90.59,
+   "overflowSec": 0.09,
+   "retention": {
+    "protectionEnd": 85.69,
+    "sceneEnd": 90.5,
+    "marginSec": 4.81,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "truyện kể",
+     "occ": 1,
+     "start": 77.77,
+     "end": 78.17,
+     "protectionEnd": 81.45,
+     "rawFraction": 0.023,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "thứ kiểm chứng được",
+     "occ": 1,
+     "start": 82.49,
+     "end": 83.03,
+     "protectionEnd": 85.69,
+     "rawFraction": 0.3862,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "nhỏ mà cả hai lớp cùng giữ.",
+     "occ": 1,
+     "start": 89.31,
+     "end": 90.59,
+     "protectionEnd": 90.59,
+     "rawFraction": 0.9079,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "truyện kể",
+     "occ": 1,
+     "start": 77.77,
+     "end": 78.17,
+     "protectionEnd": 81.45,
+     "rawFraction": 0.023,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "thứ kiểm chứng được",
+     "occ": 1,
+     "start": 82.49,
+     "end": 83.03,
+     "protectionEnd": 85.69,
+     "rawFraction": 0.3862,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc009",
+   "sectionId": "s04",
+   "startFrame": 2715,
+   "durationInFrames": 653,
+   "firstAnchor": "Chiếc khố, rồi tấm màn",
+   "firstAnchorStart": 90.83,
+   "maxAnchorEnd": 106.35,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 106.35,
+    "sceneEnd": 112.267,
+    "marginSec": 5.917,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Chiếc khố, rồi tấm màn",
+     "occ": 1,
+     "start": 90.83,
+     "end": 92.23,
+     "protectionEnd": 92.23,
+     "rawFraction": 0.0153,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "dòng sông dẫn ta tới đâu",
+     "occ": 1,
+     "start": 105.05,
+     "end": 106.35,
+     "protectionEnd": 106.35,
+     "rawFraction": 0.6692,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Tôi chỉ lần theo các vật",
+     "occ": 1,
+     "start": 103.27,
+     "end": 104.45,
+     "protectionEnd": 106.35,
+     "rawFraction": 0.5865,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Chiếc khố, rồi tấm màn",
+     "occ": 1,
+     "start": 90.83,
+     "end": 92.23,
+     "protectionEnd": 92.23,
+     "rawFraction": 0.0153,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "tấm màn",
+     "occ": 1,
+     "start": 91.79,
+     "end": 92.23,
+     "protectionEnd": 92.23,
+     "rawFraction": 0.0597,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Chuyến thuyền, rồi cây gậy",
+     "occ": 1,
+     "start": 92.49,
+     "end": 93.63,
+     "protectionEnd": 94.11,
+     "rawFraction": 0.0919,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "chiếc nón",
+     "occ": 1,
+     "start": 93.73,
+     "end": 94.11,
+     "protectionEnd": 94.11,
+     "rawFraction": 0.1485,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Cái đầm, và cuối cùng",
+     "occ": 1,
+     "start": 94.45,
+     "end": 95.57,
+     "protectionEnd": 96.15,
+     "rawFraction": 0.1822,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "nước rước",
+     "occ": 1,
+     "start": 95.73,
+     "end": 96.15,
+     "protectionEnd": 96.15,
+     "rawFraction": 0.2404,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "dòng sông dẫn ta tới đâu",
+     "occ": 1,
+     "start": 105.05,
+     "end": 106.35,
+     "protectionEnd": 106.35,
+     "rawFraction": 0.6692,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc010",
+   "sectionId": "s05",
+   "startFrame": 3368,
+   "durationInFrames": 346,
+   "firstAnchor": "Tiên Dung, công chúa",
+   "firstAnchorStart": 112.59,
+   "maxAnchorEnd": 120.51,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 121.89,
+    "sceneEnd": 123.8,
+    "marginSec": 1.91,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Tiên Dung, công chúa",
+     "occ": 1,
+     "start": 112.59,
+     "end": 113.49,
+     "protectionEnd": 113.49,
+     "rawFraction": 0.0289,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "hạ màn xuống",
+     "occ": 1,
+     "start": 119.79,
+     "end": 120.51,
+     "protectionEnd": 121.89,
+     "rawFraction": 0.6532,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Tiên Dung, công chúa",
+     "occ": 1,
+     "start": 112.59,
+     "end": 113.49,
+     "protectionEnd": 113.49,
+     "rawFraction": 0.0289,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "hạ màn xuống",
+     "occ": 1,
+     "start": 119.79,
+     "end": 120.51,
+     "protectionEnd": 121.89,
+     "rawFraction": 0.6532,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc011",
+   "sectionId": "s05",
+   "startFrame": 3714,
+   "durationInFrames": 378,
+   "firstAnchor": "Chỉ có màn, cát, nước",
+   "firstAnchorStart": 124.13,
+   "maxAnchorEnd": 125.63,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 127.59,
+    "sceneEnd": 136.4,
+    "marginSec": 8.81,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Chỉ có màn, cát, nước",
+     "occ": 1,
+     "start": 124.13,
+     "end": 125.63,
+     "protectionEnd": 127.59,
+     "rawFraction": 0.0265,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Chỉ có màn",
+     "occ": 1,
+     "start": 124.13,
+     "end": 124.89,
+     "protectionEnd": 127.59,
+     "rawFraction": 0.0265,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cát",
+     "occ": 2,
+     "start": 125.15,
+     "end": 125.49,
+     "protectionEnd": 127.59,
+     "rawFraction": 0.1085,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "nước",
+     "occ": 2,
+     "start": 125.55,
+     "end": 125.63,
+     "protectionEnd": 127.59,
+     "rawFraction": 0.1402,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc012",
+   "sectionId": "s06",
+   "startFrame": 4092,
+   "durationInFrames": 451,
+   "firstAnchor": "vùi mình vào cát",
+   "firstAnchorStart": 136.72,
+   "maxAnchorEnd": 138.62,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 138.62,
+    "sceneEnd": 151.433,
+    "marginSec": 12.813,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "vùi mình vào cát",
+     "occ": 1,
+     "start": 136.72,
+     "end": 137.5,
+     "protectionEnd": 138.62,
+     "rawFraction": 0.0222,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "nấp sau bụi lau",
+     "occ": 1,
+     "start": 137.82,
+     "end": 138.62,
+     "protectionEnd": 138.62,
+     "rawFraction": 0.0953,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "vùi mình vào cát",
+     "occ": 1,
+     "start": 136.72,
+     "end": 137.5,
+     "protectionEnd": 138.62,
+     "rawFraction": 0.0222,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "nấp sau bụi lau",
+     "occ": 1,
+     "start": 137.82,
+     "end": 138.62,
+     "protectionEnd": 138.62,
+     "rawFraction": 0.0953,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc013",
+   "sectionId": "s06",
+   "startFrame": 4543,
+   "durationInFrames": 368,
+   "firstAnchor": "hai thế giới cách nhau bởi một tấm màn",
+   "firstAnchorStart": 151.74,
+   "maxAnchorEnd": 154.36,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 154.94,
+    "sceneEnd": 163.7,
+    "marginSec": 8.76,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "hai thế giới cách nhau bởi một tấm màn",
+     "occ": 1,
+     "start": 151.74,
+     "end": 153.36,
+     "protectionEnd": 154.94,
+     "rawFraction": 0.0245,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "tấm màn, chạm nhau trên",
+     "occ": 1,
+     "start": 152.92,
+     "end": 154.36,
+     "protectionEnd": 154.94,
+     "rawFraction": 0.1223,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "hai thế giới cách nhau bởi một tấm màn",
+     "occ": 1,
+     "start": 151.74,
+     "end": 153.36,
+     "protectionEnd": 154.94,
+     "rawFraction": 0.0245,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "hai thế giới cách nhau bởi một tấm màn",
+     "occ": 1,
+     "start": 151.74,
+     "end": 153.36,
+     "protectionEnd": 154.94,
+     "rawFraction": 0.0245,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc014",
+   "sectionId": "s07",
+   "startFrame": 4911,
+   "durationInFrames": 260,
+   "firstAnchor": "không về cung",
+   "firstAnchorStart": 164.01,
+   "maxAnchorEnd": 166.85,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 167.91,
+    "sceneEnd": 172.367,
+    "marginSec": 4.457,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "không về cung",
+     "occ": 1,
+     "start": 164.01,
+     "end": 164.55,
+     "protectionEnd": 164.55,
+     "rawFraction": 0.0346,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "kết duyên",
+     "occ": 1,
+     "start": 166.37,
+     "end": 166.85,
+     "protectionEnd": 167.91,
+     "rawFraction": 0.3077,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "không về cung",
+     "occ": 1,
+     "start": 164.01,
+     "end": 164.55,
+     "protectionEnd": 164.55,
+     "rawFraction": 0.0346,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "kết duyên",
+     "occ": 1,
+     "start": 166.37,
+     "end": 166.85,
+     "protectionEnd": 167.91,
+     "rawFraction": 0.3077,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "ở lại bãi cát, kết duyên",
+     "occ": 1,
+     "start": 165.37,
+     "end": 166.85,
+     "protectionEnd": 167.91,
+     "rawFraction": 0.1923,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc015",
+   "sectionId": "s07",
+   "startFrame": 5171,
+   "durationInFrames": 993,
+   "firstAnchor": "in sẵn trong sách bài tập đọc lớp ba",
+   "firstAnchorStart": 172.67,
+   "maxAnchorEnd": 177.95,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 177.95,
+    "sceneEnd": 205.467,
+    "marginSec": 27.517,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "in sẵn trong sách bài tập đọc lớp ba",
+     "occ": 1,
+     "start": 172.67,
+     "end": 174.49,
+     "protectionEnd": 177.95,
+     "rawFraction": 0.0091,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?",
+     "occ": 1,
+     "start": 175.69,
+     "end": 177.95,
+     "protectionEnd": 177.95,
+     "rawFraction": 0.1007,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "in sẵn trong sách bài tập đọc lớp ba",
+     "occ": 1,
+     "start": 172.67,
+     "end": 174.49,
+     "protectionEnd": 177.95,
+     "rawFraction": 0.0091,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử",
+     "occ": 1,
+     "start": 175.69,
+     "end": 177.95,
+     "protectionEnd": 177.95,
+     "rawFraction": 0.1007,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc016",
+   "sectionId": "s08",
+   "startFrame": 6164,
+   "durationInFrames": 155,
+   "firstAnchor": "Chiếc khố đã dẫn ta tới tấm màn",
+   "firstAnchorStart": 205.8,
+   "maxAnchorEnd": 210.26,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 210.26,
+    "sceneEnd": 210.633,
+    "marginSec": 0.373,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Chiếc khố đã dẫn ta tới tấm màn",
+     "occ": 1,
+     "start": 205.8,
+     "end": 207.16,
+     "protectionEnd": 208.18,
+     "rawFraction": 0.0645,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "giờ tới lượt gậy, nón, và nước",
+     "occ": 1,
+     "start": 208.78,
+     "end": 210.26,
+     "protectionEnd": 210.26,
+     "rawFraction": 0.6387,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Chiếc khố đã dẫn ta tới tấm màn",
+     "occ": 1,
+     "start": 205.8,
+     "end": 207.16,
+     "protectionEnd": 208.18,
+     "rawFraction": 0.0645,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "tấm màn tới chuyến thuyền",
+     "occ": 1,
+     "start": 207.34,
+     "end": 208.18,
+     "protectionEnd": 208.18,
+     "rawFraction": 0.3613,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "giờ tới lượt gậy, nón, và nước",
+     "occ": 1,
+     "start": 208.78,
+     "end": 210.26,
+     "protectionEnd": 210.26,
+     "rawFraction": 0.6387,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "tới lượt gậy, nón, và nước",
+     "occ": 1,
+     "start": 208.84,
+     "end": 210.26,
+     "protectionEnd": 210.26,
+     "rawFraction": 0.6516,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc017",
+   "sectionId": "s08",
+   "startFrame": 6319,
+   "durationInFrames": 443,
+   "firstAnchor": "Hồi hai bắt đầu ở phố chợ",
+   "firstAnchorStart": 210.94,
+   "maxAnchorEnd": 212.26,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 212.26,
+    "sceneEnd": 225.4,
+    "marginSec": 13.14,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Hồi hai bắt đầu ở phố chợ",
+     "occ": 1,
+     "start": 210.94,
+     "end": 212.26,
+     "protectionEnd": 212.26,
+     "rawFraction": 0.0203,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Hồi hai bắt đầu ở phố chợ",
+     "occ": 1,
+     "start": 210.94,
+     "end": 212.26,
+     "protectionEnd": 212.26,
+     "rawFraction": 0.0203,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc018",
+   "sectionId": "s09",
+   "startFrame": 6762,
+   "durationInFrames": 333,
+   "firstAnchor": "mở chợ búa, lập phố xá",
+   "firstAnchorStart": 225.71,
+   "maxAnchorEnd": 232.19,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 227.81,
+    "sceneEnd": 236.5,
+    "marginSec": 8.69,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "mở chợ búa, lập phố xá",
+     "occ": 1,
+     "start": 225.71,
+     "end": 227.01,
+     "protectionEnd": 227.81,
+     "rawFraction": 0.027,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "cùng dân buôn bán",
+     "occ": 1,
+     "start": 227.23,
+     "end": 227.81,
+     "protectionEnd": 227.81,
+     "rawFraction": 0.1652,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "mở chợ búa, lập phố xá",
+     "occ": 1,
+     "start": 225.71,
+     "end": 227.01,
+     "protectionEnd": 227.81,
+     "rawFraction": 0.027,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cùng dân buôn bán",
+     "occ": 1,
+     "start": 227.23,
+     "end": 227.81,
+     "protectionEnd": 227.81,
+     "rawFraction": 0.1652,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "nghe sợ. Công chúa",
+     "occ": 1,
+     "start": 230.93,
+     "end": 232.19,
+     "protectionEnd": 232.75,
+     "rawFraction": 0.4985,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc019",
+   "sectionId": "s09",
+   "startFrame": 7095,
+   "durationInFrames": 337,
+   "firstAnchor": "hai bàn tay trống",
+   "firstAnchorStart": 236.81,
+   "maxAnchorEnd": 243.77,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 243.77,
+    "sceneEnd": 247.733,
+    "marginSec": 3.963,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "hai bàn tay trống",
+     "occ": 1,
+     "start": 236.81,
+     "end": 237.55,
+     "protectionEnd": 237.55,
+     "rawFraction": 0.0267,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "đời sống lặng lẽ xây lại từ đầu",
+     "occ": 1,
+     "start": 242.27,
+     "end": 243.77,
+     "protectionEnd": 243.77,
+     "rawFraction": 0.5134,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "hai bàn tay trống",
+     "occ": 1,
+     "start": 236.81,
+     "end": 237.55,
+     "protectionEnd": 237.55,
+     "rawFraction": 0.0267,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "đời sống lặng lẽ xây lại từ đầu",
+     "occ": 1,
+     "start": 242.27,
+     "end": 243.77,
+     "protectionEnd": 243.77,
+     "rawFraction": 0.5134,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc020",
+   "sectionId": "s10",
+   "startFrame": 7432,
+   "durationInFrames": 700,
+   "firstAnchor": "trở thành phố chợ lớn",
+   "firstAnchorStart": 248.06,
+   "maxAnchorEnd": 251.62,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 254.5,
+    "sceneEnd": 271.067,
+    "marginSec": 16.567,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "trở thành phố chợ lớn",
+     "occ": 1,
+     "start": 248.06,
+     "end": 249.08,
+     "protectionEnd": 250.06,
+     "rawFraction": 0.0143,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "thương nhân nước ngoài tới lui",
+     "occ": 1,
+     "start": 250.48,
+     "end": 251.62,
+     "protectionEnd": 254.5,
+     "rawFraction": 0.1171,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "trở thành phố chợ lớn",
+     "occ": 1,
+     "start": 248.06,
+     "end": 249.08,
+     "protectionEnd": 250.06,
+     "rawFraction": 0.0143,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "thương nhân nước ngoài tới lui",
+     "occ": 1,
+     "start": 250.48,
+     "end": 251.62,
+     "protectionEnd": 254.5,
+     "rawFraction": 0.1171,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "chợ Thám",
+     "occ": 1,
+     "start": 249.62,
+     "end": 250.06,
+     "protectionEnd": 250.06,
+     "rawFraction": 0.0814,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc021",
+   "sectionId": "s10",
+   "startFrame": 8132,
+   "durationInFrames": 523,
+   "firstAnchor": "phần kể chỉ dừng ở đó",
+   "firstAnchorStart": 271.4,
+   "maxAnchorEnd": 279.42,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 281.14,
+    "sceneEnd": 288.5,
+    "marginSec": 7.36,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "phần kể chỉ dừng ở đó",
+     "occ": 1,
+     "start": 271.4,
+     "end": 272.42,
+     "protectionEnd": 272.42,
+     "rawFraction": 0.0191,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "giữ cho đúng mức của bản kể",
+     "occ": 1,
+     "start": 278.16,
+     "end": 279.42,
+     "protectionEnd": 281.14,
+     "rawFraction": 0.4073,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "phần kể chỉ dừng ở đó",
+     "occ": 1,
+     "start": 271.4,
+     "end": 272.42,
+     "protectionEnd": 272.42,
+     "rawFraction": 0.0191,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "giữ cho đúng mức của bản kể",
+     "occ": 1,
+     "start": 278.16,
+     "end": 279.42,
+     "protectionEnd": 281.14,
+     "rawFraction": 0.4073,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc022",
+   "sectionId": "s11",
+   "startFrame": 8655,
+   "durationInFrames": 630,
+   "firstAnchor": "người, hàng, thuyền",
+   "firstAnchorStart": 288.83,
+   "maxAnchorEnd": 308.53,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 296.61,
+    "sceneEnd": 309.5,
+    "marginSec": 12.89,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "người, hàng, thuyền",
+     "occ": 1,
+     "start": 288.83,
+     "end": 289.97,
+     "protectionEnd": 290.85,
+     "rawFraction": 0.0159,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "thuyền xuôi, thuyền ngược",
+     "occ": 1,
+     "start": 294.07,
+     "end": 295.23,
+     "protectionEnd": 296.61,
+     "rawFraction": 0.2651,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "dòng sông đưa truyện sang khúc mới:",
+     "occ": 1,
+     "start": 303.99,
+     "end": 305.33,
+     "protectionEnd": 307.21,
+     "rawFraction": 0.7381,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Chuyến thuyền ấy rời phố chợ,",
+     "occ": 1,
+     "start": 307.41,
+     "end": 308.53,
+     "protectionEnd": 310.79,
+     "rawFraction": 0.9,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "người, hàng, thuyền",
+     "occ": 1,
+     "start": 288.83,
+     "end": 289.97,
+     "protectionEnd": 290.85,
+     "rawFraction": 0.0159,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "thuyền xuôi, thuyền ngược",
+     "occ": 1,
+     "start": 294.07,
+     "end": 295.23,
+     "protectionEnd": 296.61,
+     "rawFraction": 0.2651,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "hàng lên, hàng xuống",
+     "occ": 1,
+     "start": 295.65,
+     "end": 296.61,
+     "protectionEnd": 296.61,
+     "rawFraction": 0.3413,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc023",
+   "sectionId": "s11",
+   "startFrame": 9285,
+   "durationInFrames": 208,
+   "firstAnchor": "Hồi ba bắt đầu từ đây",
+   "firstAnchorStart": 309.83,
+   "maxAnchorEnd": 310.79,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 310.79,
+    "sceneEnd": 316.433,
+    "marginSec": 5.643,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Hồi ba bắt đầu từ đây",
+     "occ": 1,
+     "start": 309.83,
+     "end": 310.79,
+     "protectionEnd": 310.79,
+     "rawFraction": 0.0481,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Hồi ba bắt đầu từ đây",
+     "occ": 1,
+     "start": 309.83,
+     "end": 310.79,
+     "protectionEnd": 310.79,
+     "rawFraction": 0.0481,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Hồi ba bắt đầu từ đây",
+     "occ": 1,
+     "start": 309.83,
+     "end": 310.79,
+     "protectionEnd": 310.79,
+     "rawFraction": 0.0481,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc024",
+   "sectionId": "s12",
+   "startFrame": 9493,
+   "durationInFrames": 70,
+   "firstAnchor": "cùng lái buôn đi buôn bán",
+   "firstAnchorStart": 316.74,
+   "maxAnchorEnd": 318.66,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 317.76,
+    "sceneEnd": 318.767,
+    "marginSec": 1.007,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "cùng lái buôn đi buôn bán",
+     "occ": 1,
+     "start": 316.74,
+     "end": 317.76,
+     "protectionEnd": 317.76,
+     "rawFraction": 0.1286,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "cùng lái buôn đi buôn bán",
+     "occ": 1,
+     "start": 316.74,
+     "end": 317.76,
+     "protectionEnd": 317.76,
+     "rawFraction": 0.1286,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "núi Quỳnh Vi",
+     "occ": 1,
+     "start": 318.22,
+     "end": 318.66,
+     "protectionEnd": 321.9,
+     "rawFraction": 0.7714,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cùng lái buôn đi buôn bán",
+     "occ": 1,
+     "start": 316.74,
+     "end": 317.76,
+     "protectionEnd": 317.76,
+     "rawFraction": 0.1286,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc025",
+   "sectionId": "s12",
+   "startFrame": 9563,
+   "durationInFrames": 819,
+   "firstAnchor": "trên núi có am nhỏ",
+   "firstAnchorStart": 319.1,
+   "maxAnchorEnd": 343.34,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 343.34,
+    "sceneEnd": 346.067,
+    "marginSec": 2.727,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "trên núi có am nhỏ",
+     "occ": 1,
+     "start": 319.1,
+     "end": 319.86,
+     "protectionEnd": 321.9,
+     "rawFraction": 0.0122,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "trong am có người",
+     "occ": 1,
+     "start": 342.26,
+     "end": 343.34,
+     "protectionEnd": 343.34,
+     "rawFraction": 0.8608,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "trên núi có am nhỏ",
+     "occ": 1,
+     "start": 319.1,
+     "end": 319.86,
+     "protectionEnd": 321.9,
+     "rawFraction": 0.0122,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "người lên lấy nước",
+     "occ": 1,
+     "start": 329.94,
+     "end": 330.54,
+     "protectionEnd": 331.0,
+     "rawFraction": 0.409,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "trong am có người",
+     "occ": 1,
+     "start": 342.26,
+     "end": 343.34,
+     "protectionEnd": 343.34,
+     "rawFraction": 0.8608,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc026",
+   "sectionId": "s13",
+   "startFrame": 10382,
+   "durationInFrames": 65,
+   "firstAnchor": "trong am có sư",
+   "firstAnchorStart": 346.37,
+   "maxAnchorEnd": 348.23,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 350.51,
+    "sceneEnd": 348.233,
+    "marginSec": -2.277,
+    "ok": false
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "trong am có sư",
+     "occ": 1,
+     "start": 346.37,
+     "end": 347.47,
+     "protectionEnd": 350.51,
+     "rawFraction": 0.1385,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "trong am có sư",
+     "occ": 1,
+     "start": 346.37,
+     "end": 347.47,
+     "protectionEnd": 350.51,
+     "rawFraction": 0.1385,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "tên gọi Phu Quang",
+     "occ": 1,
+     "start": 347.47,
+     "end": 348.23,
+     "protectionEnd": 350.51,
+     "rawFraction": 0.6462,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "trong am có sư",
+     "occ": 1,
+     "start": 346.37,
+     "end": 347.47,
+     "protectionEnd": 350.51,
+     "rawFraction": 0.1385,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc027",
+   "sectionId": "s13",
+   "startFrame": 10447,
+   "durationInFrames": 1141,
+   "firstAnchor": "truyền phép",
+   "firstAnchorStart": 348.23,
+   "maxAnchorEnd": 354.25,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 354.25,
+    "sceneEnd": 386.267,
+    "marginSec": 32.017,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "truyền phép",
+     "occ": 1,
+     "start": 348.23,
+     "end": 348.69,
+     "protectionEnd": 350.51,
+     "rawFraction": 0.0,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "gặp sư",
+     "occ": 1,
+     "start": 353.87,
+     "end": 354.25,
+     "protectionEnd": 354.25,
+     "rawFraction": 0.1481,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "gặp sư",
+     "occ": 1,
+     "start": 353.87,
+     "end": 354.25,
+     "protectionEnd": 354.25,
+     "rawFraction": 0.1481,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "truyền phép",
+     "occ": 1,
+     "start": 348.23,
+     "end": 348.69,
+     "protectionEnd": 350.51,
+     "rawFraction": 0.0,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc028",
+   "sectionId": "s14",
+   "startFrame": 11588,
+   "durationInFrames": 658,
+   "firstAnchor": "mà tôi muốn đọc nguyên văn",
+   "firstAnchorStart": 386.58,
+   "maxAnchorEnd": 398.04,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 392.8,
+    "sceneEnd": 408.2,
+    "marginSec": 15.4,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "mà tôi muốn đọc nguyên văn",
+     "occ": 1,
+     "start": 386.58,
+     "end": 387.64,
+     "protectionEnd": 392.8,
+     "rawFraction": 0.0137,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "Linh thiêng ở những vật này đây",
+     "occ": 1,
+     "start": 391.62,
+     "end": 392.8,
+     "protectionEnd": 392.8,
+     "rawFraction": 0.2447,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "mà tôi muốn đọc nguyên văn",
+     "occ": 1,
+     "start": 386.58,
+     "end": 387.64,
+     "protectionEnd": 392.8,
+     "rawFraction": 0.0137,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "một chiếc khố",
+     "occ": 1,
+     "start": 397.06,
+     "end": 398.04,
+     "protectionEnd": 401.0,
+     "rawFraction": 0.4924,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc029",
+   "sectionId": "s14",
+   "startFrame": 12246,
+   "durationInFrames": 489,
+   "firstAnchor": "một cây gậy để tựa",
+   "firstAnchorStart": 408.52,
+   "maxAnchorEnd": 410.56,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 412.66,
+    "sceneEnd": 424.5,
+    "marginSec": 11.84,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "một cây gậy để tựa",
+     "occ": 1,
+     "start": 408.52,
+     "end": 409.36,
+     "protectionEnd": 412.66,
+     "rawFraction": 0.0204,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "một chiếc nón để che",
+     "occ": 1,
+     "start": 409.78,
+     "end": 410.56,
+     "protectionEnd": 412.66,
+     "rawFraction": 0.0961,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "một cây gậy để tựa,",
+     "occ": 1,
+     "start": 408.52,
+     "end": 409.36,
+     "protectionEnd": 412.66,
+     "rawFraction": 0.0204,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "một cây gậy để tựa",
+     "occ": 1,
+     "start": 408.52,
+     "end": 409.36,
+     "protectionEnd": 412.66,
+     "rawFraction": 0.0204,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "một chiếc nón để che",
+     "occ": 1,
+     "start": 409.78,
+     "end": 410.56,
+     "protectionEnd": 412.66,
+     "rawFraction": 0.0961,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc030",
+   "sectionId": "s15",
+   "startFrame": 12735,
+   "durationInFrames": 617,
+   "firstAnchor": "mở ba cuốn ra",
+   "firstAnchorStart": 424.83,
+   "maxAnchorEnd": 442.59,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 430.45,
+    "sceneEnd": 445.067,
+    "marginSec": 14.617,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "mở ba cuốn ra",
+     "occ": 1,
+     "start": 424.83,
+     "end": 425.51,
+     "protectionEnd": 426.79,
+     "rawFraction": 0.0162,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "gọi vị sư là Phu Quang",
+     "occ": 1,
+     "start": 428.19,
+     "end": 429.37,
+     "protectionEnd": 430.45,
+     "rawFraction": 0.1799,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "mở ba cuốn ra",
+     "occ": 1,
+     "start": 424.83,
+     "end": 425.51,
+     "protectionEnd": 426.79,
+     "rawFraction": 0.0162,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "gọi vị sư là Phu Quang",
+     "occ": 1,
+     "start": 428.19,
+     "end": 429.37,
+     "protectionEnd": 430.45,
+     "rawFraction": 0.1799,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Phật-Quang",
+     "occ": 1,
+     "start": 432.71,
+     "end": 433.19,
+     "protectionEnd": 438.19,
+     "rawFraction": 0.3987,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Ngưỡng Quang",
+     "occ": 1,
+     "start": 442.17,
+     "end": 442.59,
+     "protectionEnd": 445.37,
+     "rawFraction": 0.859,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc031",
+   "sectionId": "s15",
+   "startFrame": 13352,
+   "durationInFrames": 590,
+   "firstAnchor": "Phu Quang — Phật-Quang — Ngưỡng Quang",
+   "firstAnchorStart": 445.39,
+   "maxAnchorEnd": 448.89,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 448.89,
+    "sceneEnd": 464.733,
+    "marginSec": 15.843,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Phu Quang — Phật-Quang — Ngưỡng Quang",
+     "occ": 1,
+     "start": 445.39,
+     "end": 447.37,
+     "protectionEnd": 447.37,
+     "rawFraction": 0.0169,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "Ba cái tên, ba bản kể",
+     "occ": 1,
+     "start": 447.47,
+     "end": 448.89,
+     "protectionEnd": 448.89,
+     "rawFraction": 0.122,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Phu Quang — Phật-Quang — Ngưỡng Quang",
+     "occ": 1,
+     "start": 445.39,
+     "end": 447.37,
+     "protectionEnd": 447.37,
+     "rawFraction": 0.0169,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Ba cái tên, ba bản kể",
+     "occ": 1,
+     "start": 447.47,
+     "end": 448.89,
+     "protectionEnd": 448.89,
+     "rawFraction": 0.122,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Phu Quang",
+     "occ": 2,
+     "start": 445.39,
+     "end": 446.23,
+     "protectionEnd": 447.37,
+     "rawFraction": 0.0169,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Phật-Quang",
+     "occ": 3,
+     "start": 446.37,
+     "end": 446.79,
+     "protectionEnd": 447.37,
+     "rawFraction": 0.0661,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Ngưỡng Quang",
+     "occ": 2,
+     "start": 446.89,
+     "end": 447.37,
+     "protectionEnd": 447.37,
+     "rawFraction": 0.0932,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc032",
+   "sectionId": "s16",
+   "startFrame": 13942,
+   "durationInFrames": 430,
+   "firstAnchor": "tôi thấy dấu tay",
+   "firstAnchorStart": 465.06,
+   "maxAnchorEnd": 472.24,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 474.36,
+    "sceneEnd": 479.067,
+    "marginSec": 4.707,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "tôi thấy dấu tay",
+     "occ": 1,
+     "start": 465.06,
+     "end": 465.7,
+     "protectionEnd": 465.7,
+     "rawFraction": 0.0233,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "mỗi lần một bản được chép lại",
+     "occ": 1,
+     "start": 466.1,
+     "end": 467.34,
+     "protectionEnd": 474.36,
+     "rawFraction": 0.0953,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "tôi thấy dấu tay",
+     "occ": 1,
+     "start": 465.06,
+     "end": 465.7,
+     "protectionEnd": 465.7,
+     "rawFraction": 0.0233,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "một lần người chép",
+     "occ": 1,
+     "start": 467.58,
+     "end": 468.28,
+     "protectionEnd": 474.36,
+     "rawFraction": 0.1977,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cách gọi một cái tên",
+     "occ": 1,
+     "start": 469.68,
+     "end": 470.88,
+     "protectionEnd": 474.36,
+     "rawFraction": 0.3442,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cách ghi một quả núi",
+     "occ": 1,
+     "start": 471.4,
+     "end": 472.24,
+     "protectionEnd": 474.36,
+     "rawFraction": 0.4651,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc033",
+   "sectionId": "s16",
+   "startFrame": 14372,
+   "durationInFrames": 828,
+   "firstAnchor": "sáu trang web",
+   "firstAnchorStart": 479.38,
+   "maxAnchorEnd": 486.94,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 486.94,
+    "sceneEnd": 506.667,
+    "marginSec": 19.727,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "sáu trang web",
+     "occ": 1,
+     "start": 479.38,
+     "end": 480.3,
+     "protectionEnd": 481.8,
+     "rawFraction": 0.0109,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "không phải thang đo cho độ cổ",
+     "occ": 1,
+     "start": 485.8,
+     "end": 486.94,
+     "protectionEnd": 486.94,
+     "rawFraction": 0.244,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "sáu trang web",
+     "occ": 1,
+     "start": 479.38,
+     "end": 480.3,
+     "protectionEnd": 481.8,
+     "rawFraction": 0.0109,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "chung một nguồn cũ",
+     "occ": 1,
+     "start": 483.3,
+     "end": 484.04,
+     "protectionEnd": 486.94,
+     "rawFraction": 0.1534,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "sự đồng thuận của những trang giấy",
+     "occ": 1,
+     "start": 484.4,
+     "end": 485.8,
+     "protectionEnd": 486.94,
+     "rawFraction": 0.1932,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "không phải thang đo cho độ cổ",
+     "occ": 1,
+     "start": 485.8,
+     "end": 486.94,
+     "protectionEnd": 486.94,
+     "rawFraction": 0.244,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc034",
+   "sectionId": "s17",
+   "startFrame": 15200,
+   "durationInFrames": 358,
+   "firstAnchor": "đóng trại ở bãi Tự Nhiên",
+   "firstAnchorStart": 507.0,
+   "maxAnchorEnd": 512.28,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 510.92,
+    "sceneEnd": 518.6,
+    "marginSec": 7.68,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "đóng trại ở bãi Tự Nhiên",
+     "occ": 1,
+     "start": 507.0,
+     "end": 508.1,
+     "protectionEnd": 510.92,
+     "rawFraction": 0.0279,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "trời tối không kịp tiến quân",
+     "occ": 1,
+     "start": 509.78,
+     "end": 510.92,
+     "protectionEnd": 510.92,
+     "rawFraction": 0.2598,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "đóng trại ở bãi Tự Nhiên",
+     "occ": 1,
+     "start": 507.0,
+     "end": 508.1,
+     "protectionEnd": 510.92,
+     "rawFraction": 0.0279,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cách con sông lớn",
+     "occ": 1,
+     "start": 508.66,
+     "end": 509.56,
+     "protectionEnd": 510.92,
+     "rawFraction": 0.1676,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Chỉ một câu hành quân",
+     "occ": 1,
+     "start": 511.24,
+     "end": 512.28,
+     "protectionEnd": 513.92,
+     "rawFraction": 0.3827,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Chỉ một câu hành quân",
+     "occ": 1,
+     "start": 511.24,
+     "end": 512.28,
+     "protectionEnd": 513.92,
+     "rawFraction": 0.3827,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc035",
+   "sectionId": "s17",
+   "startFrame": 15558,
+   "durationInFrames": 165,
+   "firstAnchor": "để đêm ấy tự làm phần việc của nó",
+   "firstAnchorStart": 518.92,
+   "maxAnchorEnd": 520.42,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 520.42,
+    "sceneEnd": 524.1,
+    "marginSec": 3.68,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "để đêm ấy tự làm phần việc của nó",
+     "occ": 1,
+     "start": 518.92,
+     "end": 520.42,
+     "protectionEnd": 520.42,
+     "rawFraction": 0.0606,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "để đêm ấy tự làm phần việc của nó",
+     "occ": 1,
+     "start": 518.92,
+     "end": 520.42,
+     "protectionEnd": 520.42,
+     "rawFraction": 0.0606,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc036",
+   "sectionId": "s18",
+   "startFrame": 15723,
+   "durationInFrames": 128,
+   "firstAnchor": "gió lớn nổi lên",
+   "firstAnchorStart": 524.43,
+   "maxAnchorEnd": 527.17,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 527.17,
+    "sceneEnd": 528.367,
+    "marginSec": 1.197,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "gió lớn nổi lên",
+     "occ": 1,
+     "start": 524.43,
+     "end": 525.07,
+     "protectionEnd": 527.17,
+     "rawFraction": 0.0781,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "cát bay, cây đổ",
+     "occ": 1,
+     "start": 525.31,
+     "end": 526.21,
+     "protectionEnd": 527.17,
+     "rawFraction": 0.2812,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "gió lớn nổi lên",
+     "occ": 1,
+     "start": 524.43,
+     "end": 525.07,
+     "protectionEnd": 527.17,
+     "rawFraction": 0.0781,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cát bay, cây đổ",
+     "occ": 1,
+     "start": 525.31,
+     "end": 526.21,
+     "protectionEnd": 527.17,
+     "rawFraction": 0.2812,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "quan quân hỗn loạn",
+     "occ": 1,
+     "start": 526.37,
+     "end": 527.17,
+     "protectionEnd": 527.17,
+     "rawFraction": 0.5312,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc037",
+   "sectionId": "s18",
+   "startFrame": 15851,
+   "durationInFrames": 621,
+   "firstAnchor": "thành quách phút chốc bay bổng lên trời",
+   "firstAnchorStart": 528.69,
+   "maxAnchorEnd": 532.25,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 532.25,
+    "sceneEnd": 549.067,
+    "marginSec": 16.817,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "thành quách phút chốc bay bổng lên trời",
+     "occ": 1,
+     "start": 528.69,
+     "end": 530.19,
+     "protectionEnd": 530.19,
+     "rawFraction": 0.0161,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "sụt xuống thành cái đầm lớn",
+     "occ": 1,
+     "start": 531.07,
+     "end": 532.25,
+     "protectionEnd": 532.25,
+     "rawFraction": 0.1304,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "thành quách phút chốc bay bổng lên trời",
+     "occ": 1,
+     "start": 528.69,
+     "end": 530.19,
+     "protectionEnd": 530.19,
+     "rawFraction": 0.0161,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "sụt xuống thành cái đầm lớn",
+     "occ": 1,
+     "start": 531.07,
+     "end": 532.25,
+     "protectionEnd": 532.25,
+     "rawFraction": 0.1304,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc038",
+   "sectionId": "s19",
+   "startFrame": 16472,
+   "durationInFrames": 160,
+   "firstAnchor": "không thấy thành quách đâu cả",
+   "firstAnchorStart": 549.39,
+   "maxAnchorEnd": 551.73,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 551.73,
+    "sceneEnd": 554.4,
+    "marginSec": 2.67,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "không thấy thành quách đâu cả",
+     "occ": 1,
+     "start": 549.39,
+     "end": 550.43,
+     "protectionEnd": 551.73,
+     "rawFraction": 0.0625,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "đều cho là linh dị",
+     "occ": 1,
+     "start": 550.87,
+     "end": 551.73,
+     "protectionEnd": 551.73,
+     "rawFraction": 0.3375,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "không thấy thành quách đâu cả",
+     "occ": 1,
+     "start": 549.39,
+     "end": 550.43,
+     "protectionEnd": 551.73,
+     "rawFraction": 0.0625,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "đều cho là linh dị",
+     "occ": 1,
+     "start": 550.87,
+     "end": 551.73,
+     "protectionEnd": 551.73,
+     "rawFraction": 0.3375,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc039",
+   "sectionId": "s19",
+   "startFrame": 16632,
+   "durationInFrames": 809,
+   "firstAnchor": "gọi đầm là đầm Nhất Dạ",
+   "firstAnchorStart": 554.71,
+   "maxAnchorEnd": 557.83,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 557.83,
+    "sceneEnd": 581.367,
+    "marginSec": 23.537,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "gọi đầm là đầm Nhất Dạ",
+     "occ": 1,
+     "start": 554.71,
+     "end": 555.73,
+     "protectionEnd": 557.83,
+     "rawFraction": 0.0111,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "đầm một đêm",
+     "occ": 1,
+     "start": 557.31,
+     "end": 557.83,
+     "protectionEnd": 557.83,
+     "rawFraction": 0.1075,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "gọi đầm là đầm Nhất Dạ",
+     "occ": 1,
+     "start": 554.71,
+     "end": 555.73,
+     "protectionEnd": 557.83,
+     "rawFraction": 0.0111,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "đầm một đêm",
+     "occ": 1,
+     "start": 557.31,
+     "end": 557.83,
+     "protectionEnd": 557.83,
+     "rawFraction": 0.1075,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc040",
+   "sectionId": "s20",
+   "startFrame": 17441,
+   "durationInFrames": 212,
+   "firstAnchor": "bản dịch hiện đại",
+   "firstAnchorStart": 581.68,
+   "maxAnchorEnd": 588.26,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 584.0,
+    "sceneEnd": 588.433,
+    "marginSec": 4.433,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "bản dịch hiện đại",
+     "occ": 1,
+     "start": 581.68,
+     "end": 582.36,
+     "protectionEnd": 584.0,
+     "rawFraction": 0.0425,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "không phải ảnh chụp thủ bản cổ",
+     "occ": 1,
+     "start": 582.76,
+     "end": 584.0,
+     "protectionEnd": 584.0,
+     "rawFraction": 0.1981,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "bản dịch hiện đại",
+     "occ": 1,
+     "start": 581.68,
+     "end": 582.36,
+     "protectionEnd": 584.0,
+     "rawFraction": 0.0425,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "không phải ảnh chụp thủ bản cổ",
+     "occ": 1,
+     "start": 582.76,
+     "end": 584.0,
+     "protectionEnd": 584.0,
+     "rawFraction": 0.1981,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "năm Hồng Đức hai mươi ba",
+     "occ": 1,
+     "start": 586.46,
+     "end": 587.4,
+     "protectionEnd": 595.68,
+     "rawFraction": 0.7217,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Hồng Đức hai mươi ba chú thích",
+     "occ": 1,
+     "start": 586.64,
+     "end": 588.26,
+     "protectionEnd": 595.68,
+     "rawFraction": 0.7453,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "lời tựa của Vũ Quỳnh",
+     "occ": 1,
+     "start": 585.34,
+     "end": 586.26,
+     "protectionEnd": 595.68,
+     "rawFraction": 0.5613,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc041",
+   "sectionId": "s20",
+   "startFrame": 17653,
+   "durationInFrames": 743,
+   "firstAnchor": "quy đổi ra năm 1492",
+   "firstAnchorStart": 588.74,
+   "maxAnchorEnd": 602.64,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 595.68,
+    "sceneEnd": 613.2,
+    "marginSec": 17.52,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "quy đổi ra năm 1492",
+     "occ": 1,
+     "start": 588.74,
+     "end": 590.88,
+     "protectionEnd": 595.68,
+     "rawFraction": 0.0121,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "chú thích quy đổi 1493",
+     "occ": 1,
+     "start": 593.68,
+     "end": 595.68,
+     "protectionEnd": 595.68,
+     "rawFraction": 0.2113,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "quy đổi ra năm 1492",
+     "occ": 1,
+     "start": 588.74,
+     "end": 590.88,
+     "protectionEnd": 595.68,
+     "rawFraction": 0.0121,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "chú thích quy đổi 1493",
+     "occ": 1,
+     "start": 593.68,
+     "end": 595.68,
+     "protectionEnd": 595.68,
+     "rawFraction": 0.2113,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "mốc văn bản, không phải tuổi của truyện",
+     "occ": 1,
+     "start": 600.98,
+     "end": 602.64,
+     "protectionEnd": 602.64,
+     "rawFraction": 0.5061,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc042",
+   "sectionId": "s21",
+   "startFrame": 18396,
+   "durationInFrames": 532,
+   "firstAnchor": "lần theo từng vật thể",
+   "firstAnchorStart": 613.51,
+   "maxAnchorEnd": 628.31,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 627.63,
+    "sceneEnd": 630.933,
+    "marginSec": 3.303,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "lần theo từng vật thể",
+     "occ": 1,
+     "start": 613.51,
+     "end": 614.43,
+     "protectionEnd": 614.43,
+     "rawFraction": 0.0169,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "Chiếc gậy, chiếc nón",
+     "occ": 1,
+     "start": 624.95,
+     "end": 625.71,
+     "protectionEnd": 627.63,
+     "rawFraction": 0.6635,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "lần theo từng vật thể",
+     "occ": 1,
+     "start": 613.51,
+     "end": 614.43,
+     "protectionEnd": 614.43,
+     "rawFraction": 0.0169,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Chiếc khố thứ duy nhất nhà có,",
+     "occ": 1,
+     "start": 614.81,
+     "end": 616.69,
+     "protectionEnd": 618.05,
+     "rawFraction": 0.0902,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Lựa chọn của Tiên Dung",
+     "occ": 1,
+     "start": 618.47,
+     "end": 619.41,
+     "protectionEnd": 622.05,
+     "rawFraction": 0.297,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Cái chợ",
+     "occ": 1,
+     "start": 622.35,
+     "end": 622.89,
+     "protectionEnd": 624.51,
+     "rawFraction": 0.5169,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Chiếc gậy, chiếc nón",
+     "occ": 1,
+     "start": 624.95,
+     "end": 625.71,
+     "protectionEnd": 627.63,
+     "rawFraction": 0.6635,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Và mặt nước",
+     "occ": 1,
+     "start": 627.65,
+     "end": 628.31,
+     "protectionEnd": 630.13,
+     "rawFraction": 0.8158,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc043",
+   "sectionId": "s21",
+   "startFrame": 18928,
+   "durationInFrames": 696,
+   "firstAnchor": "có thể đọc là",
+   "firstAnchorStart": 631.27,
+   "maxAnchorEnd": 640.53,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 636.41,
+    "sceneEnd": 654.133,
+    "marginSec": 17.723,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "có thể đọc là",
+     "occ": 1,
+     "start": 631.27,
+     "end": 631.79,
+     "protectionEnd": 636.41,
+     "rawFraction": 0.0144,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "khát vọng về đời sống có phẩm giá",
+     "occ": 1,
+     "start": 633.83,
+     "end": 635.39,
+     "protectionEnd": 636.41,
+     "rawFraction": 0.125,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "có thể đọc là",
+     "occ": 1,
+     "start": 631.27,
+     "end": 631.79,
+     "protectionEnd": 636.41,
+     "rawFraction": 0.0144,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "khát vọng về đời sống có phẩm giá",
+     "occ": 1,
+     "start": 633.83,
+     "end": 635.39,
+     "protectionEnd": 636.41,
+     "rawFraction": 0.125,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "đề xuất còn chờ duyệt",
+     "occ": 1,
+     "start": 639.57,
+     "end": 640.53,
+     "protectionEnd": 644.09,
+     "rawFraction": 0.3721,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc044",
+   "sectionId": "s22",
+   "startFrame": 19624,
+   "durationInFrames": 571,
+   "firstAnchor": "Quyết định 153/QĐ-BVHTTDL",
+   "firstAnchorStart": 654.46,
+   "maxAnchorEnd": 667.16,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 660.36,
+    "sceneEnd": 673.167,
+    "marginSec": 12.807,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Quyết định 153/QĐ-BVHTTDL",
+     "occ": 1,
+     "start": 654.46,
+     "end": 658.16,
+     "protectionEnd": 660.36,
+     "rawFraction": 0.0175,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "ngày 02/02/2023",
+     "occ": 1,
+     "start": 658.44,
+     "end": 660.36,
+     "protectionEnd": 660.36,
+     "rawFraction": 0.2259,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "tôi dẫn theo bài công bố",
+     "occ": 1,
+     "start": 661.48,
+     "end": 663.0,
+     "protectionEnd": 667.16,
+     "rawFraction": 0.3853,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Quyết định 153/QĐ-BVHTTDL",
+     "occ": 1,
+     "start": 654.46,
+     "end": 658.16,
+     "protectionEnd": 660.36,
+     "rawFraction": 0.0175,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "không phải ghi danh UNESCO",
+     "occ": 1,
+     "start": 665.12,
+     "end": 667.16,
+     "protectionEnd": 667.16,
+     "rawFraction": 0.5779,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc045",
+   "sectionId": "s22",
+   "startFrame": 20195,
+   "durationInFrames": 350,
+   "firstAnchor": "Tổng Mễ xưa",
+   "firstAnchorStart": 673.5,
+   "maxAnchorEnd": 680.04,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 680.04,
+    "sceneEnd": 684.833,
+    "marginSec": 4.793,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Tổng Mễ xưa",
+     "occ": 1,
+     "start": 673.5,
+     "end": 674.1,
+     "protectionEnd": 675.68,
+     "rawFraction": 0.0286,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "chín làng, ba năm một lần",
+     "occ": 1,
+     "start": 675.98,
+     "end": 677.24,
+     "protectionEnd": 680.04,
+     "rawFraction": 0.24,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "nhịp ấy vẫn đang chạy",
+     "occ": 1,
+     "start": 677.24,
+     "end": 678.66,
+     "protectionEnd": 680.04,
+     "rawFraction": 0.3486,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Tổng Mễ xưa",
+     "occ": 1,
+     "start": 673.5,
+     "end": 674.1,
+     "protectionEnd": 675.68,
+     "rawFraction": 0.0286,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Chín làng, ba năm một lần",
+     "occ": 1,
+     "start": 675.98,
+     "end": 677.24,
+     "protectionEnd": 680.04,
+     "rawFraction": 0.24,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "vẫn đang chạy",
+     "occ": 1,
+     "start": 678.02,
+     "end": 678.66,
+     "protectionEnd": 680.04,
+     "rawFraction": 0.4171,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "chứng minh thần kỳ",
+     "occ": 1,
+     "start": 679.24,
+     "end": 680.04,
+     "protectionEnd": 680.04,
+     "rawFraction": 0.52,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc046",
+   "sectionId": "s23",
+   "startFrame": 20545,
+   "durationInFrames": 484,
+   "firstAnchor": "vẫn có người rước nước",
+   "firstAnchorStart": 685.14,
+   "maxAnchorEnd": 698.78,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 698.06,
+    "sceneEnd": 700.967,
+    "marginSec": 2.907,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "vẫn có người rước nước",
+     "occ": 1,
+     "start": 685.14,
+     "end": 686.68,
+     "protectionEnd": 694.0,
+     "rawFraction": 0.0186,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "vẫn có người cần kể nó",
+     "occ": 1,
+     "start": 697.0,
+     "end": 698.06,
+     "protectionEnd": 698.06,
+     "rawFraction": 0.7541,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Câu chuyện sống được tới hôm nay,",
+     "occ": 1,
+     "start": 694.36,
+     "end": 695.54,
+     "protectionEnd": 698.06,
+     "rawFraction": 0.5909,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "rước nước",
+     "occ": 1,
+     "start": 686.22,
+     "end": 686.68,
+     "protectionEnd": 694.0,
+     "rawFraction": 0.0868,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "chín làng",
+     "occ": 1,
+     "start": 688.04,
+     "end": 688.56,
+     "protectionEnd": 694.0,
+     "rawFraction": 0.1983,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "đầm một đêm",
+     "occ": 1,
+     "start": 691.5,
+     "end": 692.0,
+     "protectionEnd": 694.0,
+     "rawFraction": 0.4132,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cần kể nó",
+     "occ": 1,
+     "start": 697.52,
+     "end": 698.06,
+     "protectionEnd": 698.06,
+     "rawFraction": 0.7872,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "vẫn có người cần kể nó. Tối",
+     "occ": 1,
+     "start": 697.0,
+     "end": 698.78,
+     "protectionEnd": 700.0,
+     "rawFraction": 0.7541,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc047",
+   "sectionId": "s23",
+   "startFrame": 21029,
+   "durationInFrames": 176,
+   "firstAnchor": "dòng sông thì vẫn chảy",
+   "firstAnchorStart": 701.3,
+   "maxAnchorEnd": 702.28,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 702.28,
+    "sceneEnd": 706.833,
+    "marginSec": 4.553,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "dòng sông thì vẫn chảy",
+     "occ": 1,
+     "start": 701.3,
+     "end": 702.28,
+     "protectionEnd": 702.28,
+     "rawFraction": 0.0568,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "dòng sông thì vẫn chảy",
+     "occ": 1,
+     "start": 701.3,
+     "end": 702.28,
+     "protectionEnd": 702.28,
+     "rawFraction": 0.0568,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc048",
+   "sectionId": "s24",
+   "startFrame": 21205,
+   "durationInFrames": 157,
+   "firstAnchor": "câu trả lời không nằm trên trang sách",
+   "firstAnchorStart": 707.17,
+   "maxAnchorEnd": 709.65,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 709.65,
+    "sceneEnd": 712.067,
+    "marginSec": 2.417,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "câu trả lời không nằm trên trang sách",
+     "occ": 1,
+     "start": 707.17,
+     "end": 708.55,
+     "protectionEnd": 708.55,
+     "rawFraction": 0.0637,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "Nó nằm trên sông",
+     "occ": 1,
+     "start": 708.91,
+     "end": 709.65,
+     "protectionEnd": 709.65,
+     "rawFraction": 0.3949,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "không nằm trên trang sách",
+     "occ": 1,
+     "start": 707.63,
+     "end": 708.55,
+     "protectionEnd": 708.55,
+     "rawFraction": 0.1529,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "không nằm trên trang sách",
+     "occ": 1,
+     "start": 707.63,
+     "end": 708.55,
+     "protectionEnd": 708.55,
+     "rawFraction": 0.1529,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Nó nằm trên sông",
+     "occ": 1,
+     "start": 708.91,
+     "end": 709.65,
+     "protectionEnd": 709.65,
+     "rawFraction": 0.3949,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc049",
+   "sectionId": "s24",
+   "startFrame": 21362,
+   "durationInFrames": 576,
+   "firstAnchor": "10–12 tháng Hai âm lịch",
+   "firstAnchorStart": 712.37,
+   "maxAnchorEnd": 725.47,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 718.89,
+    "sceneEnd": 731.267,
+    "marginSec": 12.377,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "10–12 tháng Hai âm lịch",
+     "occ": 1,
+     "start": 712.37,
+     "end": 713.75,
+     "protectionEnd": 713.75,
+     "rawFraction": 0.0156,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "sáng ngày 11/2",
+     "occ": 1,
+     "start": 715.25,
+     "end": 716.77,
+     "protectionEnd": 718.89,
+     "rawFraction": 0.1667,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Câu trả lời cho câu hỏi",
+     "occ": 1,
+     "start": 724.39,
+     "end": 725.47,
+     "protectionEnd": 730.55,
+     "rawFraction": 0.6424,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "10–12 tháng Hai âm lịch",
+     "occ": 1,
+     "start": 712.37,
+     "end": 713.75,
+     "protectionEnd": 713.75,
+     "rawFraction": 0.0156,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "sáng ngày 11/2",
+     "occ": 1,
+     "start": 715.25,
+     "end": 716.77,
+     "protectionEnd": 718.89,
+     "rawFraction": 0.1667,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "được ghi nhận",
+     "occ": 1,
+     "start": 722.51,
+     "end": 723.05,
+     "protectionEnd": 724.07,
+     "rawFraction": 0.5434,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc050",
+   "sectionId": "s25",
+   "startFrame": 21938,
+   "durationInFrames": 533,
+   "firstAnchor": "Xin nhìn lại các vật thể",
+   "firstAnchorStart": 731.57,
+   "maxAnchorEnd": 746.57,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 733.35,
+    "sceneEnd": 749.033,
+    "marginSec": 15.683,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Xin nhìn lại các vật thể",
+     "occ": 1,
+     "start": 731.57,
+     "end": 732.65,
+     "protectionEnd": 733.35,
+     "rawFraction": 0.0169,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Xin nhìn lại",
+     "occ": 1,
+     "start": 731.57,
+     "end": 732.17,
+     "protectionEnd": 733.35,
+     "rawFraction": 0.0169,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "rước về hôm nay",
+     "occ": 1,
+     "start": 734.27,
+     "end": 734.83,
+     "protectionEnd": 734.83,
+     "rawFraction": 0.1689,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "như một địa danh",
+     "occ": 1,
+     "start": 736.63,
+     "end": 737.27,
+     "protectionEnd": 737.27,
+     "rawFraction": 0.3021,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "du thuyền rước nước",
+     "occ": 1,
+     "start": 738.87,
+     "end": 739.57,
+     "protectionEnd": 739.57,
+     "rawFraction": 0.4278,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "nay là hội",
+     "occ": 1,
+     "start": 741.49,
+     "end": 742.01,
+     "protectionEnd": 742.01,
+     "rawFraction": 0.576,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "thành lễ",
+     "occ": 1,
+     "start": 744.03,
+     "end": 744.35,
+     "protectionEnd": 744.35,
+     "rawFraction": 0.7186,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "một chiếc khố nhỏ đến thế",
+     "occ": 1,
+     "start": 745.11,
+     "end": 746.57,
+     "protectionEnd": 747.99,
+     "rawFraction": 0.7786,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "nước. Phố chợ từng nhộn nhịp quanh",
+     "occ": 1,
+     "start": 739.47,
+     "end": 741.13,
+     "protectionEnd": 742.01,
+     "rawFraction": 0.4615,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc051",
+   "sectionId": "s25",
+   "startFrame": 22471,
+   "durationInFrames": 424,
+   "firstAnchor": "chỉ có nước là chảy liên tục",
+   "firstAnchorStart": 749.35,
+   "maxAnchorEnd": 758.37,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 751.43,
+    "sceneEnd": 763.167,
+    "marginSec": 11.737,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "chỉ có nước là chảy liên tục",
+     "occ": 1,
+     "start": 749.35,
+     "end": 750.47,
+     "protectionEnd": 751.43,
+     "rawFraction": 0.0236,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "từ truyện tới hôm nay",
+     "occ": 1,
+     "start": 750.59,
+     "end": 751.43,
+     "protectionEnd": 751.43,
+     "rawFraction": 0.1108,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Nhưng nhìn theo cách ấy, thì truyện",
+     "occ": 1,
+     "start": 754.93,
+     "end": 756.59,
+     "protectionEnd": 758.37,
+     "rawFraction": 0.4175,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "gặp nhau ở đúng một dòng nước",
+     "occ": 1,
+     "start": 757.25,
+     "end": 758.37,
+     "protectionEnd": 758.37,
+     "rawFraction": 0.5825,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "không phải một bằng chứng lịch sử",
+     "occ": 1,
+     "start": 753.39,
+     "end": 754.55,
+     "protectionEnd": 754.55,
+     "rawFraction": 0.309,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "một câu biên tập của tôi",
+     "occ": 1,
+     "start": 752.17,
+     "end": 753.17,
+     "protectionEnd": 754.55,
+     "rawFraction": 0.2217,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "từ truyện tới hôm nay",
+     "occ": 1,
+     "start": 750.59,
+     "end": 751.43,
+     "protectionEnd": 751.43,
+     "rawFraction": 0.1108,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "gặp nhau ở đúng một dòng nước.",
+     "occ": 1,
+     "start": 757.25,
+     "end": 758.37,
+     "protectionEnd": 758.37,
+     "rawFraction": 0.5825,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "chỉ có nước là chảy liên tục",
+     "occ": 1,
+     "start": 749.35,
+     "end": 750.47,
+     "protectionEnd": 751.43,
+     "rawFraction": 0.0236,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "từ truyện tới hôm nay",
+     "occ": 1,
+     "start": 750.59,
+     "end": 751.43,
+     "protectionEnd": 751.43,
+     "rawFraction": 0.1108,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "câu biên tập",
+     "occ": 1,
+     "start": 752.29,
+     "end": 752.79,
+     "protectionEnd": 754.55,
+     "rawFraction": 0.2311,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "gặp nhau",
+     "occ": 1,
+     "start": 757.25,
+     "end": 757.61,
+     "protectionEnd": 758.37,
+     "rawFraction": 0.5825,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc052",
+   "sectionId": "s26",
+   "startFrame": 22895,
+   "durationInFrames": 428,
+   "firstAnchor": "giúp dân làm nhiều việc lợi ích",
+   "firstAnchorStart": 763.47,
+   "maxAnchorEnd": 777.01,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 767.35,
+    "sceneEnd": 777.433,
+    "marginSec": 10.083,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "giúp dân làm nhiều việc lợi ích",
+     "occ": 1,
+     "start": 763.47,
+     "end": 765.29,
+     "protectionEnd": 767.35,
+     "rawFraction": 0.021,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "dạy cách trồng lúa, nuôi tằm, dệt vải",
+     "occ": 1,
+     "start": 765.41,
+     "end": 767.35,
+     "protectionEnd": 767.35,
+     "rawFraction": 0.1565,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "lớp kể lại thêm điều nó muốn",
+     "occ": 1,
+     "start": 775.89,
+     "end": 777.01,
+     "protectionEnd": 781.79,
+     "rawFraction": 0.8925,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "giúp dân làm nhiều việc lợi ích",
+     "occ": 1,
+     "start": 763.47,
+     "end": 765.29,
+     "protectionEnd": 767.35,
+     "rawFraction": 0.021,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc053",
+   "sectionId": "s26",
+   "startFrame": 23323,
+   "durationInFrames": 755,
+   "firstAnchor": "lớp biên soạn ghi tư liệu",
+   "firstAnchorStart": 777.77,
+   "maxAnchorEnd": 785.27,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 785.27,
+    "sceneEnd": 802.6,
+    "marginSec": 17.33,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "lớp biên soạn ghi tư liệu",
+     "occ": 1,
+     "start": 777.77,
+     "end": 778.71,
+     "protectionEnd": 781.79,
+     "rawFraction": 0.0132,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "lớp nào cũng đáng quý",
+     "occ": 1,
+     "start": 782.13,
+     "end": 783.15,
+     "protectionEnd": 783.15,
+     "rawFraction": 0.1868,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "không lớp nào là lịch sử kỹ thuật",
+     "occ": 1,
+     "start": 783.95,
+     "end": 785.27,
+     "protectionEnd": 785.27,
+     "rawFraction": 0.2596,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "lớp nào là lịch sử",
+     "occ": 1,
+     "start": 784.07,
+     "end": 784.95,
+     "protectionEnd": 785.27,
+     "rawFraction": 0.2636,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "không lớp nào là lịch sử kỹ",
+     "occ": 1,
+     "start": 783.95,
+     "end": 785.13,
+     "protectionEnd": 785.27,
+     "rawFraction": 0.2596,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "lớp biên soạn ghi tư liệu",
+     "occ": 1,
+     "start": 777.77,
+     "end": 778.71,
+     "protectionEnd": 781.79,
+     "rawFraction": 0.0132,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "lớp chức sắc ghi nghi thức",
+     "occ": 1,
+     "start": 779.17,
+     "end": 780.41,
+     "protectionEnd": 781.79,
+     "rawFraction": 0.0689,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "lớp du lịch ghi lịch hội",
+     "occ": 1,
+     "start": 780.93,
+     "end": 781.79,
+     "protectionEnd": 781.79,
+     "rawFraction": 0.1391,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Lớp nào cũng đáng quý",
+     "occ": 1,
+     "start": 782.13,
+     "end": 783.15,
+     "protectionEnd": 783.15,
+     "rawFraction": 0.1868,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "không lớp nào là lịch sử kỹ thuật",
+     "occ": 1,
+     "start": 783.95,
+     "end": 785.27,
+     "protectionEnd": 785.27,
+     "rawFraction": 0.2596,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc054",
+   "sectionId": "s27",
+   "startFrame": 24078,
+   "durationInFrames": 181,
+   "firstAnchor": "vẫn rước nước",
+   "firstAnchorStart": 802.93,
+   "maxAnchorEnd": 806.55,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 808.11,
+    "sceneEnd": 808.633,
+    "marginSec": 0.523,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "vẫn rước nước",
+     "occ": 1,
+     "start": 802.93,
+     "end": 803.45,
+     "protectionEnd": 804.47,
+     "rawFraction": 0.0552,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "vẫn ghé đền, thắp hương, kể lại",
+     "occ": 1,
+     "start": 804.99,
+     "end": 806.55,
+     "protectionEnd": 808.11,
+     "rawFraction": 0.3978,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "người Việt vẫn rước nước",
+     "occ": 1,
+     "start": 802.65,
+     "end": 803.45,
+     "protectionEnd": 804.47,
+     "rawFraction": 0.011,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "vẫn rước nước",
+     "occ": 1,
+     "start": 802.93,
+     "end": 803.45,
+     "protectionEnd": 804.47,
+     "rawFraction": 0.0552,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Vẫn ghé đền",
+     "occ": 1,
+     "start": 804.99,
+     "end": 805.59,
+     "protectionEnd": 808.11,
+     "rawFraction": 0.3978,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "kể lại",
+     "occ": 1,
+     "start": 806.27,
+     "end": 806.55,
+     "protectionEnd": 808.11,
+     "rawFraction": 0.6077,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc055",
+   "sectionId": "s27",
+   "startFrame": 24259,
+   "durationInFrames": 296,
+   "firstAnchor": "dành một chỗ thờ cho kẻ nghèo nhất xóm bãi",
+   "firstAnchorStart": 808.95,
+   "maxAnchorEnd": 814.01,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 814.01,
+    "sceneEnd": 818.5,
+    "marginSec": 4.49,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "dành một chỗ thờ cho kẻ nghèo nhất xóm bãi",
+     "occ": 1,
+     "start": 808.95,
+     "end": 810.89,
+     "protectionEnd": 814.01,
+     "rawFraction": 0.0338,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "cách truyện ấy nhìn người nghèo",
+     "occ": 1,
+     "start": 812.83,
+     "end": 814.01,
+     "protectionEnd": 814.01,
+     "rawFraction": 0.4257,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "dành một chỗ thờ cho kẻ nghèo nhất xóm bãi",
+     "occ": 1,
+     "start": 808.95,
+     "end": 810.89,
+     "protectionEnd": 814.01,
+     "rawFraction": 0.0338,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cách truyện ấy nhìn người nghèo",
+     "occ": 1,
+     "start": 812.83,
+     "end": 814.01,
+     "protectionEnd": 814.01,
+     "rawFraction": 0.4257,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cho kẻ nghèo nhất xóm bãi",
+     "occ": 1,
+     "start": 809.67,
+     "end": 810.89,
+     "protectionEnd": 814.01,
+     "rawFraction": 0.1047,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "vẫn dành một chỗ thờ",
+     "occ": 1,
+     "start": 808.79,
+     "end": 809.67,
+     "protectionEnd": 814.01,
+     "rawFraction": 0.0169,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "cách truyện ấy nhìn người nghèo",
+     "occ": 1,
+     "start": 812.83,
+     "end": 814.01,
+     "protectionEnd": 814.01,
+     "rawFraction": 0.4257,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc056",
+   "sectionId": "s27",
+   "startFrame": 24555,
+   "durationInFrames": 203,
+   "firstAnchor": "chắc chắn, không phải vì phép màu",
+   "firstAnchorStart": 818.83,
+   "maxAnchorEnd": 822.39,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 822.39,
+    "sceneEnd": 825.267,
+    "marginSec": 2.877,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "chắc chắn, không phải vì phép màu",
+     "occ": 1,
+     "start": 818.83,
+     "end": 820.31,
+     "protectionEnd": 822.39,
+     "rawFraction": 0.0493,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "còn người kể, và còn người nghe",
+     "occ": 1,
+     "start": 820.85,
+     "end": 822.39,
+     "protectionEnd": 822.39,
+     "rawFraction": 0.3498,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Chắc chắn, không phải vì phép màu",
+     "occ": 1,
+     "start": 818.83,
+     "end": 820.31,
+     "protectionEnd": 822.39,
+     "rawFraction": 0.0493,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "còn người kể, và còn người nghe",
+     "occ": 1,
+     "start": 820.85,
+     "end": 822.39,
+     "protectionEnd": 822.39,
+     "rawFraction": 0.3498,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc057",
+   "sectionId": "s28",
+   "startFrame": 24758,
+   "durationInFrames": 100,
+   "firstAnchor": "Tứ bất tử",
+   "firstAnchorStart": 825.58,
+   "maxAnchorEnd": 828.6,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 828.6,
+    "sceneEnd": 828.6,
+    "marginSec": 0.0,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Tứ bất tử",
+     "occ": 1,
+     "start": 825.58,
+     "end": 826.2,
+     "protectionEnd": 828.6,
+     "rawFraction": 0.09,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Tứ bất tử",
+     "occ": 1,
+     "start": 825.58,
+     "end": 826.2,
+     "protectionEnd": 828.6,
+     "rawFraction": 0.09,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "tôi đã kể ba",
+     "occ": 1,
+     "start": 827.96,
+     "end": 828.6,
+     "protectionEnd": 828.6,
+     "rawFraction": 0.81,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "còn ở lại với đất nước này",
+     "occ": 1,
+     "start": 826.5,
+     "end": 827.58,
+     "protectionEnd": 828.6,
+     "rawFraction": 0.37,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc058",
+   "sectionId": "s28",
+   "startFrame": 24858,
+   "durationInFrames": 36,
+   "firstAnchor": "Còn một người",
+   "firstAnchorStart": 828.9,
+   "maxAnchorEnd": 829.68,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 829.68,
+    "sceneEnd": 829.8,
+    "marginSec": 0.12,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Còn một người",
+     "occ": 1,
+     "start": 828.9,
+     "end": 829.68,
+     "protectionEnd": 829.68,
+     "rawFraction": 0.25,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Còn một người",
+     "occ": 1,
+     "start": 828.9,
+     "end": 829.68,
+     "protectionEnd": 829.68,
+     "rawFraction": 0.25,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Còn một người",
+     "occ": 1,
+     "start": 828.9,
+     "end": 829.68,
+     "protectionEnd": 829.68,
+     "rawFraction": 0.25,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc059",
+   "sectionId": "s28",
+   "startFrame": 24894,
+   "durationInFrames": 466,
+   "firstAnchor": "một người phụ nữ",
+   "firstAnchorStart": 830.12,
+   "maxAnchorEnd": 842.94,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 842.94,
+    "sceneEnd": 845.333,
+    "marginSec": 2.393,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "một người phụ nữ",
+     "occ": 1,
+     "start": 830.12,
+     "end": 831.0,
+     "protectionEnd": 831.0,
+     "rawFraction": 0.0215,
+     "status": "ok"
+    },
+    {
+     "kind": "plan",
+     "phrase": "Hẹn bạn ở tập sau",
+     "occ": 1,
+     "start": 837.68,
+     "end": 838.78,
+     "protectionEnd": 842.94,
+     "rawFraction": 0.5064,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Vì sao",
+     "occ": 1,
+     "start": 836.56,
+     "end": 837.2,
+     "protectionEnd": 837.2,
+     "rawFraction": 0.4356,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "Hẹn bạn ở tập sau",
+     "occ": 1,
+     "start": 837.68,
+     "end": 838.78,
+     "protectionEnd": 842.94,
+     "rawFraction": 0.5064,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "tự mình viết lại nhân dạng của truyện",
+     "occ": 1,
+     "start": 841.38,
+     "end": 842.94,
+     "protectionEnd": 842.94,
+     "rawFraction": 0.7446,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc060",
+   "sectionId": "s29",
+   "startFrame": 25360,
+   "durationInFrames": 270,
+   "firstAnchor": "mỗi tập, một truyền thuyết, một bằng chứng thật",
+   "firstAnchorStart": 845.64,
+   "maxAnchorEnd": 847.8,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 847.8,
+    "sceneEnd": 854.333,
+    "marginSec": 6.533,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "mỗi tập, một truyền thuyết, một bằng chứng thật",
+     "occ": 1,
+     "start": 845.64,
+     "end": 847.8,
+     "protectionEnd": 847.8,
+     "rawFraction": 0.0333,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "mỗi tập, một truyền thuyết",
+     "occ": 1,
+     "start": 845.64,
+     "end": 847.02,
+     "protectionEnd": 847.8,
+     "rawFraction": 0.0333,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "một truyền thuyết, một bằng chứng thật",
+     "occ": 1,
+     "start": 846.5,
+     "end": 847.8,
+     "protectionEnd": 847.8,
+     "rawFraction": 0.1296,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc061",
+   "sectionId": "s30",
+   "startFrame": 25630,
+   "durationInFrames": 232,
+   "firstAnchor": "Tất cả những gì tôi kể tối nay đều có nguồn",
+   "firstAnchorStart": 854.66,
+   "maxAnchorEnd": 856.7,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 859.96,
+    "sceneEnd": 862.067,
+    "marginSec": 2.107,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Tất cả những gì tôi kể tối nay đều có nguồn",
+     "occ": 1,
+     "start": 854.66,
+     "end": 856.7,
+     "protectionEnd": 859.96,
+     "rawFraction": 0.0431,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Tất cả những gì tôi kể tối nay đều có nguồn",
+     "occ": 1,
+     "start": 854.66,
+     "end": 856.7,
+     "protectionEnd": 859.96,
+     "rawFraction": 0.0431,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc062",
+   "sectionId": "s31",
+   "startFrame": 25862,
+   "durationInFrames": 110,
+   "firstAnchor": "nó chảy tiếp, như dòng nước được rước mỗi năm",
+   "firstAnchorStart": 862.4,
+   "maxAnchorEnd": 864.8,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 864.8,
+    "sceneEnd": 865.733,
+    "marginSec": 0.933,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "nó chảy tiếp, như dòng nước được rước mỗi năm",
+     "occ": 1,
+     "start": 862.4,
+     "end": 864.8,
+     "protectionEnd": 864.8,
+     "rawFraction": 0.0909,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "cưới nó chảy tiếp, như dòng nước",
+     "occ": 1,
+     "start": 862.12,
+     "end": 864.02,
+     "protectionEnd": 864.8,
+     "rawFraction": 0.0182,
+     "status": "ok"
+    },
+    {
+     "kind": "call",
+     "phrase": "nó chảy tiếp, như dòng nước được rước mỗi năm",
+     "occ": 1,
+     "start": 862.4,
+     "end": 864.8,
+     "protectionEnd": 864.8,
+     "rawFraction": 0.0909,
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "sceneId": "sc063",
+   "sectionId": "s32",
+   "startFrame": 25972,
+   "durationInFrames": 106,
+   "firstAnchor": "Cảm ơn bạn đã xem",
+   "firstAnchorStart": 866.04,
+   "maxAnchorEnd": 866.9,
+   "overflowSec": 0.0,
+   "retention": {
+    "protectionEnd": 866.9,
+    "sceneEnd": 869.267,
+    "marginSec": 2.367,
+    "ok": true
+   },
+   "anchors": [
+    {
+     "kind": "plan",
+     "phrase": "Cảm ơn bạn đã xem",
+     "occ": 1,
+     "start": 866.04,
+     "end": 866.9,
+     "protectionEnd": 866.9,
+     "rawFraction": 0.0849,
+     "status": "ok"
+    }
+   ],
+   "calls": [
+    {
+     "kind": "call",
+     "phrase": "Cảm ơn bạn đã xem",
+     "occ": 1,
+     "start": 866.04,
+     "end": 866.9,
+     "protectionEnd": 866.9,
+     "rawFraction": 0.0849,
+     "status": "ok"
+    }
+   ]
+  }
+ ]
+}

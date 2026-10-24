@@ -1,0 +1,87 @@
+{
+ "generated": "2026-10-21T02:26:35+00:00",
+ "summary": {
+  "scenes": 50,
+  "conflicts": 0,
+  "conflictScenes": [],
+  "pushes": 2,
+  "resolveFailures": 0
+ },
+ "planEdits": null,
+ "appliedCodemod": [],
+ "occFixesDerived": [
+  {
+   "scene": "sc039",
+   "file": "scenes-e.tsx",
+   "phrase": "theo bách khoa",
+   "oldCall": "A(\"theo bách khoa\")",
+   "newCall": "A(\"theo bách khoa\", 2)",
+   "oldOcc": 1,
+   "newOcc": 2,
+   "oldSpan": {
+    "occ": 1,
+    "startWord": 18,
+    "endWord": 20,
+    "start": 760.09,
+    "end": 760.71
+   },
+   "newSpan": {
+    "occ": 2,
+    "startWord": 155,
+    "endWord": 157,
+    "start": 790.13,
+    "end": 790.71
+   },
+   "reason": "occ resolves outside scene window; in-window occurrence selected"
+  },
+  {
+   "scene": "sc039",
+   "file": "scenes-e.tsx",
+   "phrase": "theo bách khoa",
+   "oldCall": "A(\"theo bách khoa\")",
+   "newCall": "A(\"theo bách khoa\", 2)",
+   "oldOcc": 1,
+   "newOcc": 2,
+   "oldSpan": {
+    "occ": 1,
+    "startWord": 18,
+    "endWord": 20,
+    "start": 760.09,
+    "end": 760.71
+   },
+   "newSpan": {
+    "occ": 2,
+    "startWord": 155,
+    "endWord": 157,
+    "start": 790.13,
+    "end": 790.71
+   },
+   "reason": "occ resolves outside scene window; in-window occurrence selected"
+  }
+ ],
+ "pushes": [
+  {
+   "scene": "sc042",
+   "boundaryAfter": "sc043",
+   "from": 24604,
+   "to": 24609,
+   "trailingAnchor": "Mỗi trang giữ",
+   "trailingEnd": 817.35,
+   "protectionEnd": 820.27,
+   "reason": "sentenceRetention"
+  },
+  {
+   "scene": "sc045",
+   "boundaryAfter": "sc046",
+   "from": 25424,
+   "to": 25431,
+   "trailingAnchor": "Có thể đọc",
+   "trailingEnd": 844.68,
+   "protectionEnd": 847.7,
+   "reason": "sentenceRetention"
+  }
+ ],
+ "conflicts": [],
+ "resolveFailures": [],
+ "note": "Interleaved narration vs plan order (4 pairs) is REAL content conflict: anchors spoken inside the neighbouring scene's window. Enumerated exactly; NOT silently clamped, reassigned, or proportionally faked. Owner decision required (swap scene order / re-anchor panel / re-record narration bit)."
+}

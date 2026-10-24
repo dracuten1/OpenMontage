@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "project_id": "vietjet-20261023",
+    "date": "2026-10-23",
+    "genre": "deep-dive single-topic news (TikTok 9:16)",
+    "research_brief": "/Users/tuyennguyen/project/research/vietjet-2026-10-23/research_brief.md",
+    "sources": [
+      "S1 Aviation Today 19/10 (evidence/vj7_aviationtoday_in.md)",
+      "S2 Nguoi Viet / Australian Aviation 19/10 (evidence/vj6_nguoi-viet_com.md)",
+      "S3 tapchihangkhong.vn + grounded summaries 15-22/10 (evidence/vj1-vj6_grounded.txt)"
+    ]
+  },
+  "title": "VietJet bị tòa Anh đóng băng 251,6 triệu USD tài sản toàn cầu",
+  "core_message": "Khoản nợ thuê máy bay ~7,4 triệu USD thời COVID, qua 3 bản án + lãi + chi phí, thành lệnh đóng băng tài sản toàn cầu tới 251,6 triệu USD ngày 15/10/2026 — nhưng chuyến bay vẫn bình thường, và phía VietJet phản bác.",
+  "hook": "Nợ 7 triệu USD thời COVID vừa khiến VietJet bị tòa Anh đóng băng 251 triệu USD tài sản toàn cầu.",
+  "selected_angle": "Quy trình pháp lý - tài chính từng bước: gốc rễ COVID → 3 bản án → chuyển giá trị order book cho công ty Cayman → lệnh WFO; trung tính 2 chiều (luôn kèm phản bác của VietJet); nhấn mạnh KHÔNG phải lệnh cấm bay.",
+  "target_audience": "người đi làm 25-35",
+  "target_platform": "TikTok 9:16 1080x1920",
+  "target_duration_seconds": [100, 120],
+  "tone": "trung tính, phân tích, không giật gân; BGM trung tính không vui nhộn",
+  "style": "flat-motion-graphics news; palette navy #0F172A + trắng + coral #FF7F6E + muted blue; camera tĩnh",
+  "key_points": [
+    "2018-2019: nhận 4 Airbus A321 thuê (JOLCO); COVID chậm trả ~7,4 triệu USD; 10/2021 chấm dứt hợp đồng, nợ bị bán cho quỹ săn nợ Anh FitzWalter",
+    "3 bản án: 2024 ~18,8 triệu + 4/2025 ~181,5 triệu + ~18,3 triệu lãi/chi phí → tổng 251,6 triệu (TRẦN đóng băng); VietJet mới trả ~2 triệu",
+    "12/2024: PDP agreements chuyển gần như toàn bộ giá trị order book ~300 máy bay cho Angelica Holding Ltd (Cayman) — 'liên quan tới VietJet' (linked, KHÔNG nói công ty con)",
+    "Singapore: lệnh thu giữ 9 máy bay không thành do hãng ngừng bay tới Singapore",
+    "15/10/2026: thẩm phán Saini (Commercial Court) ra WFO tới 251,6 triệu USD; trích dẫn 'bizarre', 'wholly illusory', 'won't pay' — LỜI TÒA, không phải kết luận gian lận cuối",
+    "Phạm vi: order ~300 máy bay, PDP, động cơ, cả tiền vé qua đại lý — NHƯNG không cấm bay; VJC không sàn (~128.600 đồng 'theo giao dịch gần đây' — medium confidence); mộng Úc (10 Boeing 737) khó hơn"
+  ],
+  "qa_flags": [
+    "AHL chỉ được gọi là 'liên quan tới VietJet' — KHÔNG 'công ty con'",
+    "'won't pay' là LỜI thẩm phán (trích dẫn) — không tự kết luận hãng gian lận",
+    "251,6 triệu là TRẦN lệnh đóng băng, không phải số đã thu hồi được",
+    "128.600 đồng VJC medium confidence — phải kèm 'theo giao dịch gần đây'",
+    "Luôn kèm phần VietJet phản bác (đối thoại 2 chiều)",
+    "KHÔNG dùng số ngoài whitelist brief; ảnh minh họa phải có label MINH HỌA",
+    "Không nhắc tên tool nội bộ"
+  ],
+  "reference_material": {
+    "evidence_dir": "/Users/tuyennguyen/project/research/vietjet-2026-10-23/evidence/"
+  }
+}

@@ -1,0 +1,1031 @@
+{
+  "version": "1.0",
+  "render_runtime": "remotion",
+  "renderer_family": "explainer-data",
+  "composition_mode": "atelier",
+  "bespoke": {
+    "entry": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/src/index.tsx",
+    "composition_id": "ChuDongTuDraft",
+    "art_direction": "Approved ink-genome S2E03 composition; final is identical source with draftHud=false.",
+    "concurrency": 4,
+    "crf": 22
+  },
+  "cuts": [
+    {
+      "id": "cut-s01",
+      "source": "assets/audio/s01.wav",
+      "in_seconds": 0.0,
+      "out_seconds": 22.47,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s02",
+      "source": "assets/audio/s02.wav",
+      "in_seconds": 23.07,
+      "out_seconds": 42.11,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s03",
+      "source": "assets/audio/s03.wav",
+      "in_seconds": 42.91,
+      "out_seconds": 73.57,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s04",
+      "source": "assets/audio/s04.wav",
+      "in_seconds": 74.27,
+      "out_seconds": 106.61,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s05",
+      "source": "assets/audio/s05.wav",
+      "in_seconds": 107.31,
+      "out_seconds": 127.86,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s06",
+      "source": "assets/audio/s06.wav",
+      "in_seconds": 128.56,
+      "out_seconds": 155.21,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s07",
+      "source": "assets/audio/s07.wav",
+      "in_seconds": 155.91,
+      "out_seconds": 187.24,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s08",
+      "source": "assets/audio/s08.wav",
+      "in_seconds": 187.94,
+      "out_seconds": 212.49,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s09",
+      "source": "assets/audio/s09.wav",
+      "in_seconds": 213.19,
+      "out_seconds": 244.0,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s10",
+      "source": "assets/audio/s10.wav",
+      "in_seconds": 244.7,
+      "out_seconds": 281.51,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s11",
+      "source": "assets/audio/s11.wav",
+      "in_seconds": 282.21,
+      "out_seconds": 311.15999999999997,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s12",
+      "source": "assets/audio/s12.wav",
+      "in_seconds": 311.85999999999996,
+      "out_seconds": 343.66999999999996,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s13",
+      "source": "assets/audio/s13.wav",
+      "in_seconds": 344.36999999999995,
+      "out_seconds": 382.63999999999993,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s14",
+      "source": "assets/audio/s14.wav",
+      "in_seconds": 383.3399999999999,
+      "out_seconds": 419.8499999999999,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s15",
+      "source": "assets/audio/s15.wav",
+      "in_seconds": 420.5499999999999,
+      "out_seconds": 460.7799999999999,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s16",
+      "source": "assets/audio/s16.wav",
+      "in_seconds": 461.5799999999999,
+      "out_seconds": 501.63999999999993,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s17",
+      "source": "assets/audio/s17.wav",
+      "in_seconds": 502.43999999999994,
+      "out_seconds": 520.7099999999999,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s18",
+      "source": "assets/audio/s18.wav",
+      "in_seconds": 521.41,
+      "out_seconds": 545.9699999999999,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s19",
+      "source": "assets/audio/s19.wav",
+      "in_seconds": 546.7699999999999,
+      "out_seconds": 575.4199999999998,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s20",
+      "source": "assets/audio/s20.wav",
+      "in_seconds": 576.1199999999999,
+      "out_seconds": 606.7699999999999,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s21",
+      "source": "assets/audio/s21.wav",
+      "in_seconds": 607.5699999999998,
+      "out_seconds": 644.2799999999999,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s22",
+      "source": "assets/audio/s22.wav",
+      "in_seconds": 645.0799999999998,
+      "out_seconds": 680.2599999999998,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s23",
+      "source": "assets/audio/s23.wav",
+      "in_seconds": 680.9599999999998,
+      "out_seconds": 702.4699999999998,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s24",
+      "source": "assets/audio/s24.wav",
+      "in_seconds": 703.4699999999998,
+      "out_seconds": 730.8699999999998,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s25",
+      "source": "assets/audio/s25.wav",
+      "in_seconds": 731.5699999999998,
+      "out_seconds": 758.6299999999998,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s26",
+      "source": "assets/audio/s26.wav",
+      "in_seconds": 759.4299999999997,
+      "out_seconds": 792.9699999999997,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s27",
+      "source": "assets/audio/s27.wav",
+      "in_seconds": 793.7699999999996,
+      "out_seconds": 822.6199999999997,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s28",
+      "source": "assets/audio/s28.wav",
+      "in_seconds": 823.5199999999996,
+      "out_seconds": 843.0799999999996,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s29",
+      "source": "assets/audio/s29.wav",
+      "in_seconds": 843.7799999999996,
+      "out_seconds": 853.8599999999997,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s30",
+      "source": "assets/audio/s30.wav",
+      "in_seconds": 854.6599999999996,
+      "out_seconds": 860.2599999999996,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s31",
+      "source": "assets/audio/s31.wav",
+      "in_seconds": 860.9599999999997,
+      "out_seconds": 865.0399999999997,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    },
+    {
+      "id": "cut-s32",
+      "source": "assets/audio/s32.wav",
+      "in_seconds": 866.0399999999997,
+      "out_seconds": 867.2399999999998,
+      "layer": "primary",
+      "reason": "Approved narration section cut; bespoke scene timing is independent in metadata.visual_segments."
+    }
+  ],
+  "audio": {
+    "narration": {
+      "segments": [
+        {
+          "asset_id": "narr_s01",
+          "start_seconds": 0.0,
+          "end_seconds": 22.47
+        },
+        {
+          "asset_id": "narr_s02",
+          "start_seconds": 23.07,
+          "end_seconds": 42.11
+        },
+        {
+          "asset_id": "narr_s03",
+          "start_seconds": 42.91,
+          "end_seconds": 73.57
+        },
+        {
+          "asset_id": "narr_s04",
+          "start_seconds": 74.27,
+          "end_seconds": 106.61
+        },
+        {
+          "asset_id": "narr_s05",
+          "start_seconds": 107.31,
+          "end_seconds": 127.86
+        },
+        {
+          "asset_id": "narr_s06",
+          "start_seconds": 128.56,
+          "end_seconds": 155.21
+        },
+        {
+          "asset_id": "narr_s07",
+          "start_seconds": 155.91,
+          "end_seconds": 187.24
+        },
+        {
+          "asset_id": "narr_s08",
+          "start_seconds": 187.94,
+          "end_seconds": 212.49
+        },
+        {
+          "asset_id": "narr_s09",
+          "start_seconds": 213.19,
+          "end_seconds": 244.0
+        },
+        {
+          "asset_id": "narr_s10",
+          "start_seconds": 244.7,
+          "end_seconds": 281.51
+        },
+        {
+          "asset_id": "narr_s11",
+          "start_seconds": 282.21,
+          "end_seconds": 311.15999999999997
+        },
+        {
+          "asset_id": "narr_s12",
+          "start_seconds": 311.85999999999996,
+          "end_seconds": 343.66999999999996
+        },
+        {
+          "asset_id": "narr_s13",
+          "start_seconds": 344.36999999999995,
+          "end_seconds": 382.63999999999993
+        },
+        {
+          "asset_id": "narr_s14",
+          "start_seconds": 383.3399999999999,
+          "end_seconds": 419.8499999999999
+        },
+        {
+          "asset_id": "narr_s15",
+          "start_seconds": 420.5499999999999,
+          "end_seconds": 460.7799999999999
+        },
+        {
+          "asset_id": "narr_s16",
+          "start_seconds": 461.5799999999999,
+          "end_seconds": 501.63999999999993
+        },
+        {
+          "asset_id": "narr_s17",
+          "start_seconds": 502.43999999999994,
+          "end_seconds": 520.7099999999999
+        },
+        {
+          "asset_id": "narr_s18",
+          "start_seconds": 521.41,
+          "end_seconds": 545.9699999999999
+        },
+        {
+          "asset_id": "narr_s19",
+          "start_seconds": 546.7699999999999,
+          "end_seconds": 575.4199999999998
+        },
+        {
+          "asset_id": "narr_s20",
+          "start_seconds": 576.1199999999999,
+          "end_seconds": 606.7699999999999
+        },
+        {
+          "asset_id": "narr_s21",
+          "start_seconds": 607.5699999999998,
+          "end_seconds": 644.2799999999999
+        },
+        {
+          "asset_id": "narr_s22",
+          "start_seconds": 645.0799999999998,
+          "end_seconds": 680.2599999999998
+        },
+        {
+          "asset_id": "narr_s23",
+          "start_seconds": 680.9599999999998,
+          "end_seconds": 702.4699999999998
+        },
+        {
+          "asset_id": "narr_s24",
+          "start_seconds": 703.4699999999998,
+          "end_seconds": 730.8699999999998
+        },
+        {
+          "asset_id": "narr_s25",
+          "start_seconds": 731.5699999999998,
+          "end_seconds": 758.6299999999998
+        },
+        {
+          "asset_id": "narr_s26",
+          "start_seconds": 759.4299999999997,
+          "end_seconds": 792.9699999999997
+        },
+        {
+          "asset_id": "narr_s27",
+          "start_seconds": 793.7699999999996,
+          "end_seconds": 822.6199999999997
+        },
+        {
+          "asset_id": "narr_s28",
+          "start_seconds": 823.5199999999996,
+          "end_seconds": 843.0799999999996
+        },
+        {
+          "asset_id": "narr_s29",
+          "start_seconds": 843.7799999999996,
+          "end_seconds": 853.8599999999997
+        },
+        {
+          "asset_id": "narr_s30",
+          "start_seconds": 854.6599999999996,
+          "end_seconds": 860.2599999999996
+        },
+        {
+          "asset_id": "narr_s31",
+          "start_seconds": 860.9599999999997,
+          "end_seconds": 865.0399999999997
+        },
+        {
+          "asset_id": "narr_s32",
+          "start_seconds": 866.0399999999997,
+          "end_seconds": 867.2399999999998
+        }
+      ]
+    },
+    "music": {
+      "asset_id": "bgm_mesmerize_approved",
+      "volume": 0.32,
+      "fade_in_seconds": 1,
+      "fade_out_seconds": 3
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "style": "sentence",
+    "source": "/Users/tuyennguyen/project/OpenMontage/projects/chu-dong-tu/assets/audio/transcripts/narration_words.json"
+  },
+  "metadata": {
+    "bookkeeping_only": true,
+    "cut_semantics": "32 approved narration performance cuts; visuals are the exact 63-scene timeline below, not these audio cuts.",
+    "visual_segments": [
+      {
+        "scene_id": "sc001",
+        "section_id": "s01",
+        "start_frame": 0,
+        "duration_frames": 239,
+        "start_seconds": 0.0,
+        "end_seconds": 7.9667,
+        "duration_seconds": 7.9667
+      },
+      {
+        "scene_id": "sc002",
+        "section_id": "s01",
+        "start_frame": 239,
+        "duration_frames": 671,
+        "start_seconds": 7.9667,
+        "end_seconds": 30.3333,
+        "duration_seconds": 22.3667
+      },
+      {
+        "scene_id": "sc003",
+        "section_id": "s02",
+        "start_frame": 910,
+        "duration_frames": 174,
+        "start_seconds": 30.3333,
+        "end_seconds": 36.1333,
+        "duration_seconds": 5.8
+      },
+      {
+        "scene_id": "sc004",
+        "section_id": "s02",
+        "start_frame": 1084,
+        "duration_frames": 484,
+        "start_seconds": 36.1333,
+        "end_seconds": 52.2667,
+        "duration_seconds": 16.1333
+      },
+      {
+        "scene_id": "sc005",
+        "section_id": "s03",
+        "start_frame": 1568,
+        "duration_frames": 57,
+        "start_seconds": 52.2667,
+        "end_seconds": 54.1667,
+        "duration_seconds": 1.9
+      },
+      {
+        "scene_id": "sc006",
+        "section_id": "s03",
+        "start_frame": 1625,
+        "duration_frames": 292,
+        "start_seconds": 54.1667,
+        "end_seconds": 63.9,
+        "duration_seconds": 9.7333
+      },
+      {
+        "scene_id": "sc007",
+        "section_id": "s03",
+        "start_frame": 1917,
+        "duration_frames": 407,
+        "start_seconds": 63.9,
+        "end_seconds": 77.4667,
+        "duration_seconds": 13.5667
+      },
+      {
+        "scene_id": "sc008",
+        "section_id": "s04",
+        "start_frame": 2324,
+        "duration_frames": 391,
+        "start_seconds": 77.4667,
+        "end_seconds": 90.5,
+        "duration_seconds": 13.0333
+      },
+      {
+        "scene_id": "sc009",
+        "section_id": "s04",
+        "start_frame": 2715,
+        "duration_frames": 653,
+        "start_seconds": 90.5,
+        "end_seconds": 112.2667,
+        "duration_seconds": 21.7667
+      },
+      {
+        "scene_id": "sc010",
+        "section_id": "s05",
+        "start_frame": 3368,
+        "duration_frames": 346,
+        "start_seconds": 112.2667,
+        "end_seconds": 123.8,
+        "duration_seconds": 11.5333
+      },
+      {
+        "scene_id": "sc011",
+        "section_id": "s05",
+        "start_frame": 3714,
+        "duration_frames": 378,
+        "start_seconds": 123.8,
+        "end_seconds": 136.4,
+        "duration_seconds": 12.6
+      },
+      {
+        "scene_id": "sc012",
+        "section_id": "s06",
+        "start_frame": 4092,
+        "duration_frames": 451,
+        "start_seconds": 136.4,
+        "end_seconds": 151.4333,
+        "duration_seconds": 15.0333
+      },
+      {
+        "scene_id": "sc013",
+        "section_id": "s06",
+        "start_frame": 4543,
+        "duration_frames": 368,
+        "start_seconds": 151.4333,
+        "end_seconds": 163.7,
+        "duration_seconds": 12.2667
+      },
+      {
+        "scene_id": "sc014",
+        "section_id": "s07",
+        "start_frame": 4911,
+        "duration_frames": 260,
+        "start_seconds": 163.7,
+        "end_seconds": 172.3667,
+        "duration_seconds": 8.6667
+      },
+      {
+        "scene_id": "sc015",
+        "section_id": "s07",
+        "start_frame": 5171,
+        "duration_frames": 993,
+        "start_seconds": 172.3667,
+        "end_seconds": 205.4667,
+        "duration_seconds": 33.1
+      },
+      {
+        "scene_id": "sc016",
+        "section_id": "s08",
+        "start_frame": 6164,
+        "duration_frames": 155,
+        "start_seconds": 205.4667,
+        "end_seconds": 210.6333,
+        "duration_seconds": 5.1667
+      },
+      {
+        "scene_id": "sc017",
+        "section_id": "s08",
+        "start_frame": 6319,
+        "duration_frames": 443,
+        "start_seconds": 210.6333,
+        "end_seconds": 225.4,
+        "duration_seconds": 14.7667
+      },
+      {
+        "scene_id": "sc018",
+        "section_id": "s09",
+        "start_frame": 6762,
+        "duration_frames": 333,
+        "start_seconds": 225.4,
+        "end_seconds": 236.5,
+        "duration_seconds": 11.1
+      },
+      {
+        "scene_id": "sc019",
+        "section_id": "s09",
+        "start_frame": 7095,
+        "duration_frames": 337,
+        "start_seconds": 236.5,
+        "end_seconds": 247.7333,
+        "duration_seconds": 11.2333
+      },
+      {
+        "scene_id": "sc020",
+        "section_id": "s10",
+        "start_frame": 7432,
+        "duration_frames": 700,
+        "start_seconds": 247.7333,
+        "end_seconds": 271.0667,
+        "duration_seconds": 23.3333
+      },
+      {
+        "scene_id": "sc021",
+        "section_id": "s10",
+        "start_frame": 8132,
+        "duration_frames": 523,
+        "start_seconds": 271.0667,
+        "end_seconds": 288.5,
+        "duration_seconds": 17.4333
+      },
+      {
+        "scene_id": "sc022",
+        "section_id": "s11",
+        "start_frame": 8655,
+        "duration_frames": 630,
+        "start_seconds": 288.5,
+        "end_seconds": 309.5,
+        "duration_seconds": 21.0
+      },
+      {
+        "scene_id": "sc023",
+        "section_id": "s11",
+        "start_frame": 9285,
+        "duration_frames": 208,
+        "start_seconds": 309.5,
+        "end_seconds": 316.4333,
+        "duration_seconds": 6.9333
+      },
+      {
+        "scene_id": "sc024",
+        "section_id": "s12",
+        "start_frame": 9493,
+        "duration_frames": 70,
+        "start_seconds": 316.4333,
+        "end_seconds": 318.7667,
+        "duration_seconds": 2.3333
+      },
+      {
+        "scene_id": "sc025",
+        "section_id": "s12",
+        "start_frame": 9563,
+        "duration_frames": 819,
+        "start_seconds": 318.7667,
+        "end_seconds": 346.0667,
+        "duration_seconds": 27.3
+      },
+      {
+        "scene_id": "sc026",
+        "section_id": "s13",
+        "start_frame": 10382,
+        "duration_frames": 65,
+        "start_seconds": 346.0667,
+        "end_seconds": 348.2333,
+        "duration_seconds": 2.1667
+      },
+      {
+        "scene_id": "sc027",
+        "section_id": "s13",
+        "start_frame": 10447,
+        "duration_frames": 1141,
+        "start_seconds": 348.2333,
+        "end_seconds": 386.2667,
+        "duration_seconds": 38.0333
+      },
+      {
+        "scene_id": "sc028",
+        "section_id": "s14",
+        "start_frame": 11588,
+        "duration_frames": 658,
+        "start_seconds": 386.2667,
+        "end_seconds": 408.2,
+        "duration_seconds": 21.9333
+      },
+      {
+        "scene_id": "sc029",
+        "section_id": "s14",
+        "start_frame": 12246,
+        "duration_frames": 489,
+        "start_seconds": 408.2,
+        "end_seconds": 424.5,
+        "duration_seconds": 16.3
+      },
+      {
+        "scene_id": "sc030",
+        "section_id": "s15",
+        "start_frame": 12735,
+        "duration_frames": 617,
+        "start_seconds": 424.5,
+        "end_seconds": 445.0667,
+        "duration_seconds": 20.5667
+      },
+      {
+        "scene_id": "sc031",
+        "section_id": "s15",
+        "start_frame": 13352,
+        "duration_frames": 590,
+        "start_seconds": 445.0667,
+        "end_seconds": 464.7333,
+        "duration_seconds": 19.6667
+      },
+      {
+        "scene_id": "sc032",
+        "section_id": "s16",
+        "start_frame": 13942,
+        "duration_frames": 430,
+        "start_seconds": 464.7333,
+        "end_seconds": 479.0667,
+        "duration_seconds": 14.3333
+      },
+      {
+        "scene_id": "sc033",
+        "section_id": "s16",
+        "start_frame": 14372,
+        "duration_frames": 828,
+        "start_seconds": 479.0667,
+        "end_seconds": 506.6667,
+        "duration_seconds": 27.6
+      },
+      {
+        "scene_id": "sc034",
+        "section_id": "s17",
+        "start_frame": 15200,
+        "duration_frames": 358,
+        "start_seconds": 506.6667,
+        "end_seconds": 518.6,
+        "duration_seconds": 11.9333
+      },
+      {
+        "scene_id": "sc035",
+        "section_id": "s17",
+        "start_frame": 15558,
+        "duration_frames": 165,
+        "start_seconds": 518.6,
+        "end_seconds": 524.1,
+        "duration_seconds": 5.5
+      },
+      {
+        "scene_id": "sc036",
+        "section_id": "s18",
+        "start_frame": 15723,
+        "duration_frames": 128,
+        "start_seconds": 524.1,
+        "end_seconds": 528.3667,
+        "duration_seconds": 4.2667
+      },
+      {
+        "scene_id": "sc037",
+        "section_id": "s18",
+        "start_frame": 15851,
+        "duration_frames": 621,
+        "start_seconds": 528.3667,
+        "end_seconds": 549.0667,
+        "duration_seconds": 20.7
+      },
+      {
+        "scene_id": "sc038",
+        "section_id": "s19",
+        "start_frame": 16472,
+        "duration_frames": 160,
+        "start_seconds": 549.0667,
+        "end_seconds": 554.4,
+        "duration_seconds": 5.3333
+      },
+      {
+        "scene_id": "sc039",
+        "section_id": "s19",
+        "start_frame": 16632,
+        "duration_frames": 809,
+        "start_seconds": 554.4,
+        "end_seconds": 581.3667,
+        "duration_seconds": 26.9667
+      },
+      {
+        "scene_id": "sc040",
+        "section_id": "s20",
+        "start_frame": 17441,
+        "duration_frames": 212,
+        "start_seconds": 581.3667,
+        "end_seconds": 588.4333,
+        "duration_seconds": 7.0667
+      },
+      {
+        "scene_id": "sc041",
+        "section_id": "s20",
+        "start_frame": 17653,
+        "duration_frames": 743,
+        "start_seconds": 588.4333,
+        "end_seconds": 613.2,
+        "duration_seconds": 24.7667
+      },
+      {
+        "scene_id": "sc042",
+        "section_id": "s21",
+        "start_frame": 18396,
+        "duration_frames": 532,
+        "start_seconds": 613.2,
+        "end_seconds": 630.9333,
+        "duration_seconds": 17.7333
+      },
+      {
+        "scene_id": "sc043",
+        "section_id": "s21",
+        "start_frame": 18928,
+        "duration_frames": 696,
+        "start_seconds": 630.9333,
+        "end_seconds": 654.1333,
+        "duration_seconds": 23.2
+      },
+      {
+        "scene_id": "sc044",
+        "section_id": "s22",
+        "start_frame": 19624,
+        "duration_frames": 571,
+        "start_seconds": 654.1333,
+        "end_seconds": 673.1667,
+        "duration_seconds": 19.0333
+      },
+      {
+        "scene_id": "sc045",
+        "section_id": "s22",
+        "start_frame": 20195,
+        "duration_frames": 350,
+        "start_seconds": 673.1667,
+        "end_seconds": 684.8333,
+        "duration_seconds": 11.6667
+      },
+      {
+        "scene_id": "sc046",
+        "section_id": "s23",
+        "start_frame": 20545,
+        "duration_frames": 484,
+        "start_seconds": 684.8333,
+        "end_seconds": 700.9667,
+        "duration_seconds": 16.1333
+      },
+      {
+        "scene_id": "sc047",
+        "section_id": "s23",
+        "start_frame": 21029,
+        "duration_frames": 176,
+        "start_seconds": 700.9667,
+        "end_seconds": 706.8333,
+        "duration_seconds": 5.8667
+      },
+      {
+        "scene_id": "sc048",
+        "section_id": "s24",
+        "start_frame": 21205,
+        "duration_frames": 157,
+        "start_seconds": 706.8333,
+        "end_seconds": 712.0667,
+        "duration_seconds": 5.2333
+      },
+      {
+        "scene_id": "sc049",
+        "section_id": "s24",
+        "start_frame": 21362,
+        "duration_frames": 576,
+        "start_seconds": 712.0667,
+        "end_seconds": 731.2667,
+        "duration_seconds": 19.2
+      },
+      {
+        "scene_id": "sc050",
+        "section_id": "s25",
+        "start_frame": 21938,
+        "duration_frames": 533,
+        "start_seconds": 731.2667,
+        "end_seconds": 749.0333,
+        "duration_seconds": 17.7667
+      },
+      {
+        "scene_id": "sc051",
+        "section_id": "s25",
+        "start_frame": 22471,
+        "duration_frames": 424,
+        "start_seconds": 749.0333,
+        "end_seconds": 763.1667,
+        "duration_seconds": 14.1333
+      },
+      {
+        "scene_id": "sc052",
+        "section_id": "s26",
+        "start_frame": 22895,
+        "duration_frames": 428,
+        "start_seconds": 763.1667,
+        "end_seconds": 777.4333,
+        "duration_seconds": 14.2667
+      },
+      {
+        "scene_id": "sc053",
+        "section_id": "s26",
+        "start_frame": 23323,
+        "duration_frames": 755,
+        "start_seconds": 777.4333,
+        "end_seconds": 802.6,
+        "duration_seconds": 25.1667
+      },
+      {
+        "scene_id": "sc054",
+        "section_id": "s27",
+        "start_frame": 24078,
+        "duration_frames": 181,
+        "start_seconds": 802.6,
+        "end_seconds": 808.6333,
+        "duration_seconds": 6.0333
+      },
+      {
+        "scene_id": "sc055",
+        "section_id": "s27",
+        "start_frame": 24259,
+        "duration_frames": 296,
+        "start_seconds": 808.6333,
+        "end_seconds": 818.5,
+        "duration_seconds": 9.8667
+      },
+      {
+        "scene_id": "sc056",
+        "section_id": "s27",
+        "start_frame": 24555,
+        "duration_frames": 203,
+        "start_seconds": 818.5,
+        "end_seconds": 825.2667,
+        "duration_seconds": 6.7667
+      },
+      {
+        "scene_id": "sc057",
+        "section_id": "s28",
+        "start_frame": 24758,
+        "duration_frames": 100,
+        "start_seconds": 825.2667,
+        "end_seconds": 828.6,
+        "duration_seconds": 3.3333
+      },
+      {
+        "scene_id": "sc058",
+        "section_id": "s28",
+        "start_frame": 24858,
+        "duration_frames": 36,
+        "start_seconds": 828.6,
+        "end_seconds": 829.8,
+        "duration_seconds": 1.2
+      },
+      {
+        "scene_id": "sc059",
+        "section_id": "s28",
+        "start_frame": 24894,
+        "duration_frames": 466,
+        "start_seconds": 829.8,
+        "end_seconds": 845.3333,
+        "duration_seconds": 15.5333
+      },
+      {
+        "scene_id": "sc060",
+        "section_id": "s29",
+        "start_frame": 25360,
+        "duration_frames": 270,
+        "start_seconds": 845.3333,
+        "end_seconds": 854.3333,
+        "duration_seconds": 9.0
+      },
+      {
+        "scene_id": "sc061",
+        "section_id": "s30",
+        "start_frame": 25630,
+        "duration_frames": 232,
+        "start_seconds": 854.3333,
+        "end_seconds": 862.0667,
+        "duration_seconds": 7.7333
+      },
+      {
+        "scene_id": "sc062",
+        "section_id": "s31",
+        "start_frame": 25862,
+        "duration_frames": 110,
+        "start_seconds": 862.0667,
+        "end_seconds": 865.7333,
+        "duration_seconds": 3.6667
+      },
+      {
+        "scene_id": "sc063",
+        "section_id": "s32",
+        "start_frame": 25972,
+        "duration_frames": 106,
+        "start_seconds": 865.7333,
+        "end_seconds": 869.2667,
+        "duration_seconds": 3.5333
+      }
+    ],
+    "composition_frames": 26078,
+    "composition_fps": 30,
+    "composition_duration_seconds": 869.2666666666667,
+    "narration_duration_seconds": 867.24,
+    "final_props": {
+      "draftHud": false,
+      "withMusic": true
+    },
+    "credits_hold_after_narration_seconds": 2.0266666666666424,
+    "caption_timing_unchanged": true
+  }
+}

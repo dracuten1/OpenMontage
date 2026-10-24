@@ -1,0 +1,58 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "projects/france-riots-20261023/renders/france-riots-v2-draft-hud.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "720x1280",
+      "fps": 30.0,
+      "duration_seconds": 262.997333,
+      "file_size_bytes": 14786360,
+      "platform_target": "tiktok"
+    }
+  ],
+  "render_grammar": "explainer-data",
+  "final_review_ref": "projects/france-riots-20261023/artifacts/final_review.json",
+  "verification_notes": [
+    "ffprobe container/stream metadata collected from actual V2 MP4.",
+    "21 public V2 WAV durations measured; scene frame arithmetic reconciled."
+  ],
+  "warnings": [
+    "DRAFT HUD: pending owner review; no clean-final approval.",
+    "No auditory listening performed by closeout; pronunciation, numbers and mix intelligibility pending.",
+    "ffprobe inspects container/streams only; no full decode, black-frame, visual, subtitle or speech-lock certification.",
+    "Final integrated LUFS/true peak not measured by closeout.",
+    "Media dates, claims, provenance and license validity not independently verified by closeout.",
+    "Existing automated audits are referenced evidence only, not a new independent PASS.",
+    "Telegram V2 delivery receipts pending lead; V1 receipts do not apply.",
+    "Manifest asset narration-s01 path 'remotion-composer/public/france-riots-20261023/v2/voice_s01.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s02 path 'remotion-composer/public/france-riots-20261023/v2/voice_s02.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s03 path 'remotion-composer/public/france-riots-20261023/v2/voice_s03.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s04 path 'remotion-composer/public/france-riots-20261023/v2/voice_s04.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s05 path 'remotion-composer/public/france-riots-20261023/v2/voice_s05.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s06 path 'remotion-composer/public/france-riots-20261023/v2/voice_s06.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s07 path 'remotion-composer/public/france-riots-20261023/v2/voice_s07.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s08 path 'remotion-composer/public/france-riots-20261023/v2/voice_s08.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s09 path 'remotion-composer/public/france-riots-20261023/v2/voice_s09.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s10 path 'remotion-composer/public/france-riots-20261023/v2/voice_s10.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s11 path 'remotion-composer/public/france-riots-20261023/v2/voice_s11.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s12 path 'remotion-composer/public/france-riots-20261023/v2/voice_s12.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s13 path 'remotion-composer/public/france-riots-20261023/v2/voice_s13.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s14 path 'remotion-composer/public/france-riots-20261023/v2/voice_s14.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s15 path 'remotion-composer/public/france-riots-20261023/v2/voice_s15.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s16 path 'remotion-composer/public/france-riots-20261023/v2/voice_s16.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s17 path 'remotion-composer/public/france-riots-20261023/v2/voice_s17.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s18 path 'remotion-composer/public/france-riots-20261023/v2/voice_s18.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s19 path 'remotion-composer/public/france-riots-20261023/v2/voice_s19.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s20 path 'remotion-composer/public/france-riots-20261023/v2/voice_s20.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json).",
+    "Manifest asset narration-s21 path 'remotion-composer/public/france-riots-20261023/v2/voice_s21.wav' does not exist on disk; falling back to manifest duration for it (source of truth: asset_manifest.json)."
+  ],
+  "metadata": {
+    "draft_only": true,
+    "composition_id": "FranceRiots20261023V2Debug",
+    "total_frames": 7888,
+    "render_time_seconds": "not measured"
+  }
+}

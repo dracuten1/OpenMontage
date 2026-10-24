@@ -1,0 +1,141 @@
+{
+ "version": "1.0",
+ "project_id": "news-daily-20261023",
+ "pipeline_type": "hybrid",
+ "stage": "script",
+ "status": "completed",
+ "timestamp": "2026-10-23T18:09:36.089725+07:00",
+ "checkpoint_policy": "guided",
+ "human_approval_required": true,
+ "human_approved": true,
+ "artifacts": {
+  "script": {
+   "version": "1.0",
+   "title": "5 tin đáng chú ý ngày 23/10/2026",
+   "total_duration_seconds": 75,
+   "sections": [
+    {
+     "id": "S1",
+     "label": "Tin 1 — hook (thi lớp 10 chỉ Toán+Văn)",
+     "text": "Bộ Giáo dục và Đào tạo đề xuất thi vào lớp 10 chỉ còn hai môn Toán và Văn, nhằm giảm áp lực thi cử. Phương án hiện chưa phải quy định chính thức.",
+     "start_seconds": 0,
+     "end_seconds": 11,
+     "speaker_directions": "Hook: nhấn 'chỉ còn hai môn Toán và Văn'; 'chưa phải quy định chính thức' đọc rõ — đây là đề xuất, không nói đã áp dụng.",
+     "source_ref": "whitelist.json#VN-l10-exam"
+    },
+    {
+     "id": "S2",
+     "label": "Tin 2 (thuế đất bỏ hoang 0,2%)",
+     "text": "Chính phủ trình Quốc hội đề xuất đánh thuế 0,2% với đất bỏ hoang, áp thuế trên toàn bộ diện tích đất thuộc diện này, không áp dụng hạn mức.",
+     "start_seconds": 11,
+     "end_seconds": 20,
+     "speaker_directions": "Giữ 'trình Quốc hội' (đề xuất, chưa thông qua); không thêm kỳ hạn thuế (/năm) vì nguồn không nêu.",
+     "source_ref": "whitelist.json#VN-vacant-land-tax"
+    },
+    {
+     "id": "S3",
+     "label": "Tin 3 (gần 1.500 văn bằng giả)",
+     "text": "Công an Hà Nội khởi tố đường dây gần 1.500 văn bằng, chứng chỉ giả với 10 bị can, trong đó có 2 giảng viên đại học; khoản thu lời bất chính gần 3 tỷ đồng.",
+     "start_seconds": 20,
+     "end_seconds": 31,
+     "speaker_directions": "Trung tính; giữ 'gần' trước 1.500 và 3 tỷ; không suy diễn tội danh, không nêu tên trường.",
+     "source_ref": "whitelist.json#VN-fake-degrees"
+    },
+    {
+     "id": "S4",
+     "label": "Tin 4 (tay chân miệng TPHCM)",
+     "text": "TP.HCM ghi nhận hơn 40.000 ca tay chân miệng từ đầu năm; số ca tăng 32,2% trong một tuần. Bác sĩ khuyến cáo phụ huynh nhận biết sớm dấu hiệu nặng.",
+     "start_seconds": 31,
+     "end_seconds": 42,
+     "speaker_directions": "Không gây hoảng loạn; '32,2% trong một tuần' giữ đúng窗口; khuyến cáo bác sĩ đọc như khuyến cáo.",
+     "source_ref": "whitelist.json#VN-hfm"
+    },
+    {
+     "id": "S5",
+     "label": "Tin 5 (Long Thành nguy cơ trễ)",
+     "text": "Sân bay Long Thành có 4 gói thầu nguy cơ trễ hẹn vì thiếu nhân lực và chậm thanh toán, đe dọa tiến độ trước ngày dự kiến khai thác 24/12.",
+     "start_seconds": 42,
+     "end_seconds": 51,
+     "speaker_directions": "'nguy cơ' giữ mức độ rủi ro (không nói chắc chắn trễ); 24/12 là ngày dự kiến khai thác.",
+     "source_ref": "whitelist.json#VN-longthanh"
+    },
+    {
+     "id": "S6a",
+     "label": "NHẬN ĐỊNH",
+     "text": "Với người có đất: nếu đề xuất được thông qua, giữ đất bỏ hoang sẽ tốn thêm thuế. Vì áp dụng trên toàn bộ diện tích và không có hạn mức, diện tích càng lớn thì số thuế càng cao.",
+     "start_seconds": 51,
+     "end_seconds": 60,
+     "speaker_directions": "Badge NHẬN ĐỊNH bắt buộc suốt scene; editorial_commentary — chỉ diễn giải fact đã có trong whitelist.",
+     "source_ref": "whitelist.json#commentary"
+    },
+    {
+     "id": "S6b",
+     "label": "NHẬN ĐỊNH",
+     "text": "Với nhà có con sắp thi lớp 10: hai môn Toán và Văn có thể giảm áp lực thi cử, nhưng đây vẫn là đề xuất, chưa phải quy định. Với nhà có trẻ nhỏ: số ca tay chân miệng đang tăng — nhận biết sớm dấu hiệu nặng là khuyến cáo của bác sĩ.",
+     "start_seconds": 60,
+     "end_seconds": 72,
+     "speaker_directions": "Giữ badge NHẬN ĐỊNH; giọng trung tính, không hứa hẹn, không khủng bố hóa.",
+     "source_ref": "whitelist.json#commentary"
+    },
+    {
+     "id": "S7",
+     "label": "Outro",
+     "text": "Theo dõi để cập nhật bản tin tiếp theo.",
+     "start_seconds": 72,
+     "end_seconds": 75,
+     "speaker_directions": "CTA trung tính; editorial_date_count_or_cta.",
+     "source_ref": "whitelist.json#cta"
+    }
+   ],
+   "metadata": {
+    "status": "brief_authorized_draft_run",
+    "editorial_draft_only": false,
+    "native_human_approved": true,
+    "stage_advancement": true,
+    "timing_status": "ALL start/end/duration values are schema-required editorial budget placeholders ONLY, not actual audio timestamps; pending actual audio and per-word alignment. Do not export into captions, HUD, chapter timestamps or animation cues.",
+    "tts_allowed": true,
+    "render_allowed": true,
+    "news_order": [
+     "VN-l10-exam",
+     "VN-vacant-land-tax",
+     "VN-fake-degrees",
+     "VN-hfm",
+     "VN-longthanh"
+    ],
+    "anchor_sections": [
+     "S1",
+     "S2",
+     "S3",
+     "S4",
+     "S5"
+    ],
+    "support_sections": [
+     "S6a",
+     "S6b",
+     "S7"
+    ],
+    "narration_sections": [
+     "S1",
+     "S2",
+     "S3",
+     "S4",
+     "S5",
+     "S6a",
+     "S6b",
+     "S7"
+    ],
+    "canonical_text_policy": "Sections.text is editorial display/caption master. provider_text built at TTS stage via project tts_lexicon.json (longest-first); canonical display never replaced.",
+    "commentary_classification": "editorial_commentary",
+    "outro_classification": "editorial_date_count_or_cta",
+    "music": {
+     "demo": "none",
+     "full": "voice-only (lane precedent 20261021/20261022)"
+    },
+    "source_limits": "Local sealed digests inputs/20261023T180936+0700/latest-vn.md + latest-world.md (23/10/2026) ONLY; no external facts/numbers/sources.",
+    "approval": "Owner brief 2026-10-23 18:0x authorizes production of DRAFT HUD deliverable; final publish awaiting_human.",
+    "approval_quote": "Video tin tức ngày 2026-10-23 — từ bản tin 17h40–17h42 ... Deliver video + thumbnail (riêng biệt) + QC numbers + caption TikTok ... qua Telegram DM Tuyên, trạng thái awaiting_human — KHÔNG tự đăng TikTok.",
+    "selection_rule": "owner mandate 19/10: 4-6 tin ấn tượng mạnh nhất, xếp GIẢM DẦN, tin mạnh nhất mở video; NHẬN ĐỊNH layer bắt buộc (19/10)."
+   }
+  }
+ }
+}

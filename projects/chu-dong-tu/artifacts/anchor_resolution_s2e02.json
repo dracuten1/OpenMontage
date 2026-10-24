@@ -1,0 +1,2547 @@
+{
+ "generated": "2026-10-19T03:41:39+00:00",
+ "note": "occ 1-based per section; exact engine parity (anchors.ts greedy join + normalization); boundaries firstAnchor-0.32s",
+ "scenes": {
+  "sc001": {
+   "section": "s01",
+   "firstAnchor": "thuyền rước nước",
+   "firstAnchorStart": 3.18,
+   "anchors": [
+    {
+     "phrase": "thuyền rước nước",
+     "occ": 1,
+     "start": 3.18,
+     "end": 3.8,
+     "protectionEnd": 3.8
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "giữa tháng Hai",
+     "occ": 1,
+     "start": 0.82,
+     "end": 1.3
+    },
+    {
+     "phrase": "thuyền rước nước.",
+     "occ": 1,
+     "start": 3.18,
+     "end": 3.8
+    },
+    {
+     "phrase": "nước. Theo lịch được",
+     "occ": 1,
+     "start": 3.68,
+     "end": 4.7
+    }
+   ]
+  },
+  "sc002": {
+   "section": "s01",
+   "firstAnchor": "các làng lại tổ chức",
+   "firstAnchorStart": 8.3,
+   "anchors": [
+    {
+     "phrase": "các làng lại tổ chức",
+     "occ": 1,
+     "start": 8.3,
+     "end": 9.06,
+     "protectionEnd": 10.44
+    },
+    {
+     "phrase": "múc lên từ sông",
+     "occ": 1,
+     "start": 14.48,
+     "end": 15.3,
+     "protectionEnd": 16.44
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "du thuyền rước nước trên sông Hồng",
+     "occ": 1,
+     "start": 9.06,
+     "end": 10.44
+    },
+    {
+     "phrase": "các làng lại tổ chức",
+     "occ": 1,
+     "start": 8.3,
+     "end": 9.06
+    },
+    {
+     "phrase": "múc lên từ sông",
+     "occ": 1,
+     "start": 14.48,
+     "end": 15.3
+    }
+   ]
+  },
+  "sc003": {
+   "section": "s02",
+   "firstAnchor": "người nghèo đến mức không có nổi một chiếc khố",
+   "firstAnchorStart": 30.65,
+   "anchors": [
+    {
+     "phrase": "người nghèo đến mức không có nổi một chiếc khố",
+     "occ": 1,
+     "start": 30.65,
+     "end": 32.41,
+     "protectionEnd": 32.41
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "một người từng",
+     "occ": 1,
+     "start": 34.29,
+     "end": 34.81
+    },
+    {
+     "phrase": "không có nổi một chiếc khố.",
+     "occ": 1,
+     "start": 31.39,
+     "end": 32.41
+    },
+    {
+     "phrase": "thờ một người từng",
+     "occ": 1,
+     "start": 34.15,
+     "end": 34.81
+    }
+   ]
+  },
+  "sc004": {
+   "section": "s02",
+   "firstAnchor": "thờ đã lâu lắm rồi",
+   "firstAnchorStart": 36.45,
+   "anchors": [
+    {
+     "phrase": "thờ đã lâu lắm rồi",
+     "occ": 1,
+     "start": 36.45,
+     "end": 37.43,
+     "protectionEnd": 37.43
+    },
+    {
+     "phrase": "phải hỏi cho ra",
+     "occ": 1,
+     "start": 38.17,
+     "end": 38.97,
+     "protectionEnd": 41.87
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "không có cả chiếc khố",
+     "occ": 1,
+     "start": 40.19,
+     "end": 40.95
+    },
+    {
+     "phrase": "thờ đã lâu lắm rồi",
+     "occ": 1,
+     "start": 36.45,
+     "end": 37.43
+    }
+   ]
+  },
+  "sc005": {
+   "section": "s03",
+   "firstAnchor": "một khố vải duy nhất",
+   "firstAnchorStart": 52.57,
+   "anchors": [
+    {
+     "phrase": "một khố vải duy nhất",
+     "occ": 1,
+     "start": 52.57,
+     "end": 53.47,
+     "protectionEnd": 54.75
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "một khố vải duy nhất",
+     "occ": 1,
+     "start": 52.57,
+     "end": 53.47
+    }
+   ]
+  },
+  "sc006": {
+   "section": "s03",
+   "firstAnchor": "thay nhau mà mặc",
+   "firstAnchorStart": 54.15,
+   "anchors": [
+    {
+     "phrase": "thay nhau mà mặc",
+     "occ": 1,
+     "start": 54.15,
+     "end": 54.75,
+     "protectionEnd": 54.75
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Cha và con,",
+     "occ": 1,
+     "start": 57.65,
+     "end": 58.27
+    },
+    {
+     "phrase": "Cha và con, hai người, thay",
+     "occ": 1,
+     "start": 57.65,
+     "end": 59.27
+    },
+    {
+     "phrase": "thay nhau mà mặc",
+     "occ": 1,
+     "start": 54.15,
+     "end": 54.75
+    }
+   ]
+  },
+  "sc007": {
+   "section": "s03",
+   "firstAnchor": "để trần mà chôn",
+   "firstAnchorStart": 64.21,
+   "anchors": [
+    {
+     "phrase": "để trần mà chôn",
+     "occ": 1,
+     "start": 64.21,
+     "end": 64.93,
+     "protectionEnd": 66.79
+    },
+    {
+     "phrase": "khỏi xấu hổ",
+     "occ": 1,
+     "start": 66.19,
+     "end": 66.79,
+     "protectionEnd": 66.79
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "để trần mà chôn",
+     "occ": 1,
+     "start": 64.21,
+     "end": 64.93
+    },
+    {
+     "phrase": "khỏi xấu hổ",
+     "occ": 1,
+     "start": 66.19,
+     "end": 66.79
+    }
+   ]
+  },
+  "sc008": {
+   "section": "s04",
+   "firstAnchor": "truyện kể",
+   "firstAnchorStart": 77.77,
+   "anchors": [
+    {
+     "phrase": "truyện kể",
+     "occ": 1,
+     "start": 77.77,
+     "end": 78.17,
+     "protectionEnd": 81.45
+    },
+    {
+     "phrase": "thứ kiểm chứng được",
+     "occ": 1,
+     "start": 82.49,
+     "end": 83.03,
+     "protectionEnd": 85.69
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "nhỏ mà cả hai lớp cùng giữ.",
+     "occ": 1,
+     "start": 89.31,
+     "end": 90.59
+    },
+    {
+     "phrase": "truyện kể",
+     "occ": 1,
+     "start": 77.77,
+     "end": 78.17
+    },
+    {
+     "phrase": "thứ kiểm chứng được",
+     "occ": 1,
+     "start": 82.49,
+     "end": 83.03
+    }
+   ]
+  },
+  "sc009": {
+   "section": "s04",
+   "firstAnchor": "Chiếc khố, rồi tấm màn",
+   "firstAnchorStart": 90.83,
+   "anchors": [
+    {
+     "phrase": "Chiếc khố, rồi tấm màn",
+     "occ": 1,
+     "start": 90.83,
+     "end": 92.23,
+     "protectionEnd": 92.23
+    },
+    {
+     "phrase": "dòng sông dẫn ta tới đâu",
+     "occ": 1,
+     "start": 105.05,
+     "end": 106.35,
+     "protectionEnd": 106.35
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Tôi chỉ lần theo các vật",
+     "occ": 1,
+     "start": 103.27,
+     "end": 104.45
+    },
+    {
+     "phrase": "Chiếc khố, rồi tấm màn",
+     "occ": 1,
+     "start": 90.83,
+     "end": 92.23
+    },
+    {
+     "phrase": "tấm màn",
+     "occ": 1,
+     "start": 91.79,
+     "end": 92.23
+    },
+    {
+     "phrase": "Chuyến thuyền, rồi cây gậy",
+     "occ": 1,
+     "start": 92.49,
+     "end": 93.63
+    },
+    {
+     "phrase": "chiếc nón",
+     "occ": 1,
+     "start": 93.73,
+     "end": 94.11
+    },
+    {
+     "phrase": "Cái đầm, và cuối cùng",
+     "occ": 1,
+     "start": 94.45,
+     "end": 95.57
+    },
+    {
+     "phrase": "nước rước",
+     "occ": 1,
+     "start": 95.73,
+     "end": 96.15
+    },
+    {
+     "phrase": "dòng sông dẫn ta tới đâu",
+     "occ": 1,
+     "start": 105.05,
+     "end": 106.35
+    }
+   ]
+  },
+  "sc010": {
+   "section": "s05",
+   "firstAnchor": "Tiên Dung, công chúa",
+   "firstAnchorStart": 112.59,
+   "anchors": [
+    {
+     "phrase": "Tiên Dung, công chúa",
+     "occ": 1,
+     "start": 112.59,
+     "end": 113.49,
+     "protectionEnd": 113.49
+    },
+    {
+     "phrase": "hạ màn xuống",
+     "occ": 1,
+     "start": 119.79,
+     "end": 120.51,
+     "protectionEnd": 121.89
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Tiên Dung, công chúa",
+     "occ": 1,
+     "start": 112.59,
+     "end": 113.49
+    },
+    {
+     "phrase": "hạ màn xuống",
+     "occ": 1,
+     "start": 119.79,
+     "end": 120.51
+    }
+   ]
+  },
+  "sc011": {
+   "section": "s05",
+   "firstAnchor": "Chỉ có màn, cát, nước",
+   "firstAnchorStart": 124.13,
+   "anchors": [
+    {
+     "phrase": "Chỉ có màn, cát, nước",
+     "occ": 1,
+     "start": 124.13,
+     "end": 125.63,
+     "protectionEnd": 127.59
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Chỉ có màn",
+     "occ": 1,
+     "start": 124.13,
+     "end": 124.89
+    },
+    {
+     "phrase": "cát",
+     "occ": 2,
+     "start": 125.15,
+     "end": 125.49
+    },
+    {
+     "phrase": "nước",
+     "occ": 2,
+     "start": 125.55,
+     "end": 125.63
+    }
+   ]
+  },
+  "sc012": {
+   "section": "s06",
+   "firstAnchor": "vùi mình vào cát",
+   "firstAnchorStart": 136.72,
+   "anchors": [
+    {
+     "phrase": "vùi mình vào cát",
+     "occ": 1,
+     "start": 136.72,
+     "end": 137.5,
+     "protectionEnd": 138.62
+    },
+    {
+     "phrase": "nấp sau bụi lau",
+     "occ": 1,
+     "start": 137.82,
+     "end": 138.62,
+     "protectionEnd": 138.62
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "vùi mình vào cát",
+     "occ": 1,
+     "start": 136.72,
+     "end": 137.5
+    },
+    {
+     "phrase": "nấp sau bụi lau",
+     "occ": 1,
+     "start": 137.82,
+     "end": 138.62
+    }
+   ]
+  },
+  "sc013": {
+   "section": "s06",
+   "firstAnchor": "hai thế giới cách nhau bởi một tấm màn",
+   "firstAnchorStart": 151.74,
+   "anchors": [
+    {
+     "phrase": "hai thế giới cách nhau bởi một tấm màn",
+     "occ": 1,
+     "start": 151.74,
+     "end": 153.36,
+     "protectionEnd": 154.94
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "tấm màn, chạm nhau trên",
+     "occ": 1,
+     "start": 152.92,
+     "end": 154.36
+    },
+    {
+     "phrase": "hai thế giới cách nhau bởi một tấm màn",
+     "occ": 1,
+     "start": 151.74,
+     "end": 153.36
+    },
+    {
+     "phrase": "hai thế giới cách nhau bởi một tấm màn",
+     "occ": 1,
+     "start": 151.74,
+     "end": 153.36
+    }
+   ]
+  },
+  "sc014": {
+   "section": "s07",
+   "firstAnchor": "không về cung",
+   "firstAnchorStart": 164.01,
+   "anchors": [
+    {
+     "phrase": "không về cung",
+     "occ": 1,
+     "start": 164.01,
+     "end": 164.55,
+     "protectionEnd": 164.55
+    },
+    {
+     "phrase": "kết duyên",
+     "occ": 1,
+     "start": 166.37,
+     "end": 166.85,
+     "protectionEnd": 167.91
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "không về cung",
+     "occ": 1,
+     "start": 164.01,
+     "end": 164.55
+    },
+    {
+     "phrase": "kết duyên",
+     "occ": 1,
+     "start": 166.37,
+     "end": 166.85
+    },
+    {
+     "phrase": "ở lại bãi cát, kết duyên",
+     "occ": 1,
+     "start": 165.37,
+     "end": 166.85
+    }
+   ]
+  },
+  "sc015": {
+   "section": "s07",
+   "firstAnchor": "in sẵn trong sách bài tập đọc lớp ba",
+   "firstAnchorStart": 172.67,
+   "anchors": [
+    {
+     "phrase": "in sẵn trong sách bài tập đọc lớp ba",
+     "occ": 1,
+     "start": 172.67,
+     "end": 174.49,
+     "protectionEnd": 177.95
+    },
+    {
+     "phrase": "Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử?",
+     "occ": 1,
+     "start": 175.69,
+     "end": 177.95,
+     "protectionEnd": 177.95
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "in sẵn trong sách bài tập đọc lớp ba",
+     "occ": 1,
+     "start": 172.67,
+     "end": 174.49
+    },
+    {
+     "phrase": "Vì sao công chúa Tiên Dung kết duyên cùng Chử Đồng Tử",
+     "occ": 1,
+     "start": 175.69,
+     "end": 177.95
+    }
+   ]
+  },
+  "sc016": {
+   "section": "s08",
+   "firstAnchor": "Chiếc khố đã dẫn ta tới tấm màn",
+   "firstAnchorStart": 205.8,
+   "anchors": [
+    {
+     "phrase": "Chiếc khố đã dẫn ta tới tấm màn",
+     "occ": 1,
+     "start": 205.8,
+     "end": 207.16,
+     "protectionEnd": 208.18
+    },
+    {
+     "phrase": "giờ tới lượt gậy, nón, và nước",
+     "occ": 1,
+     "start": 208.78,
+     "end": 210.26,
+     "protectionEnd": 210.26
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Chiếc khố đã dẫn ta tới tấm màn",
+     "occ": 1,
+     "start": 205.8,
+     "end": 207.16
+    },
+    {
+     "phrase": "tấm màn tới chuyến thuyền",
+     "occ": 1,
+     "start": 207.34,
+     "end": 208.18
+    },
+    {
+     "phrase": "giờ tới lượt gậy, nón, và nước",
+     "occ": 1,
+     "start": 208.78,
+     "end": 210.26
+    },
+    {
+     "phrase": "tới lượt gậy, nón, và nước",
+     "occ": 1,
+     "start": 208.84,
+     "end": 210.26
+    }
+   ]
+  },
+  "sc017": {
+   "section": "s08",
+   "firstAnchor": "Hồi hai bắt đầu ở phố chợ",
+   "firstAnchorStart": 210.94,
+   "anchors": [
+    {
+     "phrase": "Hồi hai bắt đầu ở phố chợ",
+     "occ": 1,
+     "start": 210.94,
+     "end": 212.26,
+     "protectionEnd": 212.26
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Hồi hai bắt đầu ở phố chợ",
+     "occ": 1,
+     "start": 210.94,
+     "end": 212.26
+    }
+   ]
+  },
+  "sc018": {
+   "section": "s09",
+   "firstAnchor": "mở chợ búa, lập phố xá",
+   "firstAnchorStart": 225.71,
+   "anchors": [
+    {
+     "phrase": "mở chợ búa, lập phố xá",
+     "occ": 1,
+     "start": 225.71,
+     "end": 227.01,
+     "protectionEnd": 227.81
+    },
+    {
+     "phrase": "cùng dân buôn bán",
+     "occ": 1,
+     "start": 227.23,
+     "end": 227.81,
+     "protectionEnd": 227.81
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "mở chợ búa, lập phố xá",
+     "occ": 1,
+     "start": 225.71,
+     "end": 227.01
+    },
+    {
+     "phrase": "cùng dân buôn bán",
+     "occ": 1,
+     "start": 227.23,
+     "end": 227.81
+    },
+    {
+     "phrase": "nghe sợ. Công chúa",
+     "occ": 1,
+     "start": 230.93,
+     "end": 232.19
+    }
+   ]
+  },
+  "sc019": {
+   "section": "s09",
+   "firstAnchor": "hai bàn tay trống",
+   "firstAnchorStart": 236.81,
+   "anchors": [
+    {
+     "phrase": "hai bàn tay trống",
+     "occ": 1,
+     "start": 236.81,
+     "end": 237.55,
+     "protectionEnd": 237.55
+    },
+    {
+     "phrase": "đời sống lặng lẽ xây lại từ đầu",
+     "occ": 1,
+     "start": 242.27,
+     "end": 243.77,
+     "protectionEnd": 243.77
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "hai bàn tay trống",
+     "occ": 1,
+     "start": 236.81,
+     "end": 237.55
+    },
+    {
+     "phrase": "đời sống lặng lẽ xây lại từ đầu",
+     "occ": 1,
+     "start": 242.27,
+     "end": 243.77
+    }
+   ]
+  },
+  "sc020": {
+   "section": "s10",
+   "firstAnchor": "trở thành phố chợ lớn",
+   "firstAnchorStart": 248.06,
+   "anchors": [
+    {
+     "phrase": "trở thành phố chợ lớn",
+     "occ": 1,
+     "start": 248.06,
+     "end": 249.08,
+     "protectionEnd": 250.06
+    },
+    {
+     "phrase": "thương nhân nước ngoài tới lui",
+     "occ": 1,
+     "start": 250.48,
+     "end": 251.62,
+     "protectionEnd": 254.5
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "trở thành phố chợ lớn",
+     "occ": 1,
+     "start": 248.06,
+     "end": 249.08
+    },
+    {
+     "phrase": "thương nhân nước ngoài tới lui",
+     "occ": 1,
+     "start": 250.48,
+     "end": 251.62
+    },
+    {
+     "phrase": "chợ Thám",
+     "occ": 1,
+     "start": 249.62,
+     "end": 250.06
+    }
+   ]
+  },
+  "sc021": {
+   "section": "s10",
+   "firstAnchor": "phần kể chỉ dừng ở đó",
+   "firstAnchorStart": 271.4,
+   "anchors": [
+    {
+     "phrase": "phần kể chỉ dừng ở đó",
+     "occ": 1,
+     "start": 271.4,
+     "end": 272.42,
+     "protectionEnd": 272.42
+    },
+    {
+     "phrase": "giữ cho đúng mức của bản kể",
+     "occ": 1,
+     "start": 278.16,
+     "end": 279.42,
+     "protectionEnd": 281.14
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "phần kể chỉ dừng ở đó",
+     "occ": 1,
+     "start": 271.4,
+     "end": 272.42
+    },
+    {
+     "phrase": "giữ cho đúng mức của bản kể",
+     "occ": 1,
+     "start": 278.16,
+     "end": 279.42
+    }
+   ]
+  },
+  "sc022": {
+   "section": "s11",
+   "firstAnchor": "người, hàng, thuyền",
+   "firstAnchorStart": 288.83,
+   "anchors": [
+    {
+     "phrase": "người, hàng, thuyền",
+     "occ": 1,
+     "start": 288.83,
+     "end": 289.97,
+     "protectionEnd": 290.85
+    },
+    {
+     "phrase": "thuyền xuôi, thuyền ngược",
+     "occ": 1,
+     "start": 294.07,
+     "end": 295.23,
+     "protectionEnd": 296.61
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "dòng sông đưa truyện sang khúc mới:",
+     "occ": 1,
+     "start": 303.99,
+     "end": 305.33
+    },
+    {
+     "phrase": "Chuyến thuyền ấy rời phố chợ,",
+     "occ": 1,
+     "start": 307.41,
+     "end": 308.53
+    },
+    {
+     "phrase": "người, hàng, thuyền",
+     "occ": 1,
+     "start": 288.83,
+     "end": 289.97
+    },
+    {
+     "phrase": "thuyền xuôi, thuyền ngược",
+     "occ": 1,
+     "start": 294.07,
+     "end": 295.23
+    },
+    {
+     "phrase": "hàng lên, hàng xuống",
+     "occ": 1,
+     "start": 295.65,
+     "end": 296.61
+    }
+   ]
+  },
+  "sc023": {
+   "section": "s11",
+   "firstAnchor": "Hồi ba bắt đầu từ đây",
+   "firstAnchorStart": 309.83,
+   "anchors": [
+    {
+     "phrase": "Hồi ba bắt đầu từ đây",
+     "occ": 1,
+     "start": 309.83,
+     "end": 310.79,
+     "protectionEnd": 310.79
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Hồi ba bắt đầu từ đây",
+     "occ": 1,
+     "start": 309.83,
+     "end": 310.79
+    },
+    {
+     "phrase": "Hồi ba bắt đầu từ đây",
+     "occ": 1,
+     "start": 309.83,
+     "end": 310.79
+    }
+   ]
+  },
+  "sc024": {
+   "section": "s12",
+   "firstAnchor": "cùng lái buôn đi buôn bán",
+   "firstAnchorStart": 316.74,
+   "anchors": [
+    {
+     "phrase": "cùng lái buôn đi buôn bán",
+     "occ": 1,
+     "start": 316.74,
+     "end": 317.76,
+     "protectionEnd": 317.76
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "cùng lái buôn đi buôn bán",
+     "occ": 1,
+     "start": 316.74,
+     "end": 317.76
+    },
+    {
+     "phrase": "núi Quỳnh Vi",
+     "occ": 1,
+     "start": 318.22,
+     "end": 318.66
+    },
+    {
+     "phrase": "cùng lái buôn đi buôn bán",
+     "occ": 1,
+     "start": 316.74,
+     "end": 317.76
+    }
+   ]
+  },
+  "sc025": {
+   "section": "s12",
+   "firstAnchor": "trên núi có am nhỏ",
+   "firstAnchorStart": 319.1,
+   "anchors": [
+    {
+     "phrase": "trên núi có am nhỏ",
+     "occ": 1,
+     "start": 319.1,
+     "end": 319.86,
+     "protectionEnd": 321.9
+    },
+    {
+     "phrase": "trong am có người",
+     "occ": 1,
+     "start": 342.26,
+     "end": 343.34,
+     "protectionEnd": 343.34
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "trên núi có am nhỏ",
+     "occ": 1,
+     "start": 319.1,
+     "end": 319.86
+    },
+    {
+     "phrase": "người lên lấy nước",
+     "occ": 1,
+     "start": 329.94,
+     "end": 330.54
+    },
+    {
+     "phrase": "trong am có người",
+     "occ": 1,
+     "start": 342.26,
+     "end": 343.34
+    }
+   ]
+  },
+  "sc026": {
+   "section": "s13",
+   "firstAnchor": "trong am có sư",
+   "firstAnchorStart": 346.37,
+   "anchors": [
+    {
+     "phrase": "trong am có sư",
+     "occ": 1,
+     "start": 346.37,
+     "end": 347.47,
+     "protectionEnd": 350.51
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "trong am có sư",
+     "occ": 1,
+     "start": 346.37,
+     "end": 347.47
+    },
+    {
+     "phrase": "tên gọi Phu Quang",
+     "occ": 1,
+     "start": 347.47,
+     "end": 348.23
+    },
+    {
+     "phrase": "trong am có sư",
+     "occ": 1,
+     "start": 346.37,
+     "end": 347.47
+    }
+   ]
+  },
+  "sc027": {
+   "section": "s13",
+   "firstAnchor": "truyền phép",
+   "firstAnchorStart": 348.23,
+   "anchors": [
+    {
+     "phrase": "truyền phép",
+     "occ": 1,
+     "start": 348.23,
+     "end": 348.69,
+     "protectionEnd": 350.51
+    },
+    {
+     "phrase": "gặp sư",
+     "occ": 1,
+     "start": 353.87,
+     "end": 354.25,
+     "protectionEnd": 354.25
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "gặp sư",
+     "occ": 1,
+     "start": 353.87,
+     "end": 354.25
+    },
+    {
+     "phrase": "truyền phép",
+     "occ": 1,
+     "start": 348.23,
+     "end": 348.69
+    }
+   ]
+  },
+  "sc028": {
+   "section": "s14",
+   "firstAnchor": "mà tôi muốn đọc nguyên văn",
+   "firstAnchorStart": 386.58,
+   "anchors": [
+    {
+     "phrase": "mà tôi muốn đọc nguyên văn",
+     "occ": 1,
+     "start": 386.58,
+     "end": 387.64,
+     "protectionEnd": 392.8
+    },
+    {
+     "phrase": "Linh thiêng ở những vật này đây",
+     "occ": 1,
+     "start": 391.62,
+     "end": 392.8,
+     "protectionEnd": 392.8
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "mà tôi muốn đọc nguyên văn",
+     "occ": 1,
+     "start": 386.58,
+     "end": 387.64
+    },
+    {
+     "phrase": "một chiếc khố",
+     "occ": 1,
+     "start": 397.06,
+     "end": 398.04
+    }
+   ]
+  },
+  "sc029": {
+   "section": "s14",
+   "firstAnchor": "một cây gậy để tựa",
+   "firstAnchorStart": 408.52,
+   "anchors": [
+    {
+     "phrase": "một cây gậy để tựa",
+     "occ": 1,
+     "start": 408.52,
+     "end": 409.36,
+     "protectionEnd": 412.66
+    },
+    {
+     "phrase": "một chiếc nón để che",
+     "occ": 1,
+     "start": 409.78,
+     "end": 410.56,
+     "protectionEnd": 412.66
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "một cây gậy để tựa,",
+     "occ": 1,
+     "start": 408.52,
+     "end": 409.36
+    },
+    {
+     "phrase": "một cây gậy để tựa",
+     "occ": 1,
+     "start": 408.52,
+     "end": 409.36
+    },
+    {
+     "phrase": "một chiếc nón để che",
+     "occ": 1,
+     "start": 409.78,
+     "end": 410.56
+    }
+   ]
+  },
+  "sc030": {
+   "section": "s15",
+   "firstAnchor": "mở ba cuốn ra",
+   "firstAnchorStart": 424.83,
+   "anchors": [
+    {
+     "phrase": "mở ba cuốn ra",
+     "occ": 1,
+     "start": 424.83,
+     "end": 425.51,
+     "protectionEnd": 426.79
+    },
+    {
+     "phrase": "gọi vị sư là Phu Quang",
+     "occ": 1,
+     "start": 428.19,
+     "end": 429.37,
+     "protectionEnd": 430.45
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "mở ba cuốn ra",
+     "occ": 1,
+     "start": 424.83,
+     "end": 425.51
+    },
+    {
+     "phrase": "gọi vị sư là Phu Quang",
+     "occ": 1,
+     "start": 428.19,
+     "end": 429.37
+    },
+    {
+     "phrase": "Phật-Quang",
+     "occ": 1,
+     "start": 432.71,
+     "end": 433.19
+    },
+    {
+     "phrase": "Ngưỡng Quang",
+     "occ": 1,
+     "start": 442.17,
+     "end": 442.59
+    }
+   ]
+  },
+  "sc031": {
+   "section": "s15",
+   "firstAnchor": "Phu Quang — Phật-Quang — Ngưỡng Quang",
+   "firstAnchorStart": 445.39,
+   "anchors": [
+    {
+     "phrase": "Phu Quang — Phật-Quang — Ngưỡng Quang",
+     "occ": 1,
+     "start": 445.39,
+     "end": 447.37,
+     "protectionEnd": 447.37
+    },
+    {
+     "phrase": "Ba cái tên, ba bản kể",
+     "occ": 1,
+     "start": 447.47,
+     "end": 448.89,
+     "protectionEnd": 448.89
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Phu Quang — Phật-Quang — Ngưỡng Quang",
+     "occ": 1,
+     "start": 445.39,
+     "end": 447.37
+    },
+    {
+     "phrase": "Ba cái tên, ba bản kể",
+     "occ": 1,
+     "start": 447.47,
+     "end": 448.89
+    },
+    {
+     "phrase": "Phu Quang",
+     "occ": 2,
+     "start": 445.39,
+     "end": 446.23
+    },
+    {
+     "phrase": "Phật-Quang",
+     "occ": 3,
+     "start": 446.37,
+     "end": 446.79
+    },
+    {
+     "phrase": "Ngưỡng Quang",
+     "occ": 2,
+     "start": 446.89,
+     "end": 447.37
+    }
+   ]
+  },
+  "sc032": {
+   "section": "s16",
+   "firstAnchor": "tôi thấy dấu tay",
+   "firstAnchorStart": 465.06,
+   "anchors": [
+    {
+     "phrase": "tôi thấy dấu tay",
+     "occ": 1,
+     "start": 465.06,
+     "end": 465.7,
+     "protectionEnd": 465.7
+    },
+    {
+     "phrase": "mỗi lần một bản được chép lại",
+     "occ": 1,
+     "start": 466.1,
+     "end": 467.34,
+     "protectionEnd": 474.36
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "tôi thấy dấu tay",
+     "occ": 1,
+     "start": 465.06,
+     "end": 465.7
+    },
+    {
+     "phrase": "một lần người chép",
+     "occ": 1,
+     "start": 467.58,
+     "end": 468.28
+    },
+    {
+     "phrase": "cách gọi một cái tên",
+     "occ": 1,
+     "start": 469.68,
+     "end": 470.88
+    },
+    {
+     "phrase": "cách ghi một quả núi",
+     "occ": 1,
+     "start": 471.4,
+     "end": 472.24
+    }
+   ]
+  },
+  "sc033": {
+   "section": "s16",
+   "firstAnchor": "sáu trang web",
+   "firstAnchorStart": 479.38,
+   "anchors": [
+    {
+     "phrase": "sáu trang web",
+     "occ": 1,
+     "start": 479.38,
+     "end": 480.3,
+     "protectionEnd": 481.8
+    },
+    {
+     "phrase": "không phải thang đo cho độ cổ",
+     "occ": 1,
+     "start": 485.8,
+     "end": 486.94,
+     "protectionEnd": 486.94
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "sáu trang web",
+     "occ": 1,
+     "start": 479.38,
+     "end": 480.3
+    },
+    {
+     "phrase": "chung một nguồn cũ",
+     "occ": 1,
+     "start": 483.3,
+     "end": 484.04
+    },
+    {
+     "phrase": "sự đồng thuận của những trang giấy",
+     "occ": 1,
+     "start": 484.4,
+     "end": 485.8
+    },
+    {
+     "phrase": "không phải thang đo cho độ cổ",
+     "occ": 1,
+     "start": 485.8,
+     "end": 486.94
+    }
+   ]
+  },
+  "sc034": {
+   "section": "s17",
+   "firstAnchor": "đóng trại ở bãi Tự Nhiên",
+   "firstAnchorStart": 507.0,
+   "anchors": [
+    {
+     "phrase": "đóng trại ở bãi Tự Nhiên",
+     "occ": 1,
+     "start": 507.0,
+     "end": 508.1,
+     "protectionEnd": 510.92
+    },
+    {
+     "phrase": "trời tối không kịp tiến quân",
+     "occ": 1,
+     "start": 509.78,
+     "end": 510.92,
+     "protectionEnd": 510.92
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "đóng trại ở bãi Tự Nhiên",
+     "occ": 1,
+     "start": 507.0,
+     "end": 508.1
+    },
+    {
+     "phrase": "cách con sông lớn",
+     "occ": 1,
+     "start": 508.66,
+     "end": 509.56
+    },
+    {
+     "phrase": "Chỉ một câu hành quân",
+     "occ": 1,
+     "start": 511.24,
+     "end": 512.28
+    },
+    {
+     "phrase": "Chỉ một câu hành quân",
+     "occ": 1,
+     "start": 511.24,
+     "end": 512.28
+    }
+   ]
+  },
+  "sc035": {
+   "section": "s17",
+   "firstAnchor": "để đêm ấy tự làm phần việc của nó",
+   "firstAnchorStart": 518.92,
+   "anchors": [
+    {
+     "phrase": "để đêm ấy tự làm phần việc của nó",
+     "occ": 1,
+     "start": 518.92,
+     "end": 520.42,
+     "protectionEnd": 520.42
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "để đêm ấy tự làm phần việc của nó",
+     "occ": 1,
+     "start": 518.92,
+     "end": 520.42
+    }
+   ]
+  },
+  "sc036": {
+   "section": "s18",
+   "firstAnchor": "gió lớn nổi lên",
+   "firstAnchorStart": 524.43,
+   "anchors": [
+    {
+     "phrase": "gió lớn nổi lên",
+     "occ": 1,
+     "start": 524.43,
+     "end": 525.07,
+     "protectionEnd": 527.17
+    },
+    {
+     "phrase": "cát bay, cây đổ",
+     "occ": 1,
+     "start": 525.31,
+     "end": 526.21,
+     "protectionEnd": 527.17
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "gió lớn nổi lên",
+     "occ": 1,
+     "start": 524.43,
+     "end": 525.07
+    },
+    {
+     "phrase": "cát bay, cây đổ",
+     "occ": 1,
+     "start": 525.31,
+     "end": 526.21
+    },
+    {
+     "phrase": "quan quân hỗn loạn",
+     "occ": 1,
+     "start": 526.37,
+     "end": 527.17
+    }
+   ]
+  },
+  "sc037": {
+   "section": "s18",
+   "firstAnchor": "thành quách phút chốc bay bổng lên trời",
+   "firstAnchorStart": 528.69,
+   "anchors": [
+    {
+     "phrase": "thành quách phút chốc bay bổng lên trời",
+     "occ": 1,
+     "start": 528.69,
+     "end": 530.19,
+     "protectionEnd": 530.19
+    },
+    {
+     "phrase": "sụt xuống thành cái đầm lớn",
+     "occ": 1,
+     "start": 531.07,
+     "end": 532.25,
+     "protectionEnd": 532.25
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "thành quách phút chốc bay bổng lên trời",
+     "occ": 1,
+     "start": 528.69,
+     "end": 530.19
+    },
+    {
+     "phrase": "sụt xuống thành cái đầm lớn",
+     "occ": 1,
+     "start": 531.07,
+     "end": 532.25
+    }
+   ]
+  },
+  "sc038": {
+   "section": "s19",
+   "firstAnchor": "không thấy thành quách đâu cả",
+   "firstAnchorStart": 549.39,
+   "anchors": [
+    {
+     "phrase": "không thấy thành quách đâu cả",
+     "occ": 1,
+     "start": 549.39,
+     "end": 550.43,
+     "protectionEnd": 551.73
+    },
+    {
+     "phrase": "đều cho là linh dị",
+     "occ": 1,
+     "start": 550.87,
+     "end": 551.73,
+     "protectionEnd": 551.73
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "không thấy thành quách đâu cả",
+     "occ": 1,
+     "start": 549.39,
+     "end": 550.43
+    },
+    {
+     "phrase": "đều cho là linh dị",
+     "occ": 1,
+     "start": 550.87,
+     "end": 551.73
+    }
+   ]
+  },
+  "sc039": {
+   "section": "s19",
+   "firstAnchor": "gọi đầm là đầm Nhất Dạ",
+   "firstAnchorStart": 554.71,
+   "anchors": [
+    {
+     "phrase": "gọi đầm là đầm Nhất Dạ",
+     "occ": 1,
+     "start": 554.71,
+     "end": 555.73,
+     "protectionEnd": 557.83
+    },
+    {
+     "phrase": "đầm một đêm",
+     "occ": 1,
+     "start": 557.31,
+     "end": 557.83,
+     "protectionEnd": 557.83
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "gọi đầm là đầm Nhất Dạ",
+     "occ": 1,
+     "start": 554.71,
+     "end": 555.73
+    },
+    {
+     "phrase": "đầm một đêm",
+     "occ": 1,
+     "start": 557.31,
+     "end": 557.83
+    }
+   ]
+  },
+  "sc040": {
+   "section": "s20",
+   "firstAnchor": "bản dịch hiện đại",
+   "firstAnchorStart": 581.68,
+   "anchors": [
+    {
+     "phrase": "bản dịch hiện đại",
+     "occ": 1,
+     "start": 581.68,
+     "end": 582.36,
+     "protectionEnd": 584.0
+    },
+    {
+     "phrase": "không phải ảnh chụp thủ bản cổ",
+     "occ": 1,
+     "start": 582.76,
+     "end": 584.0,
+     "protectionEnd": 584.0
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "bản dịch hiện đại",
+     "occ": 1,
+     "start": 581.68,
+     "end": 582.36
+    },
+    {
+     "phrase": "không phải ảnh chụp thủ bản cổ",
+     "occ": 1,
+     "start": 582.76,
+     "end": 584.0
+    },
+    {
+     "phrase": "năm Hồng Đức hai mươi ba",
+     "occ": 1,
+     "start": 586.46,
+     "end": 587.4
+    },
+    {
+     "phrase": "Hồng Đức hai mươi ba chú thích",
+     "occ": 1,
+     "start": 586.64,
+     "end": 588.26
+    },
+    {
+     "phrase": "lời tựa của Vũ Quỳnh",
+     "occ": 1,
+     "start": 585.34,
+     "end": 586.26
+    }
+   ]
+  },
+  "sc041": {
+   "section": "s20",
+   "firstAnchor": "quy đổi ra năm 1492",
+   "firstAnchorStart": 588.74,
+   "anchors": [
+    {
+     "phrase": "quy đổi ra năm 1492",
+     "occ": 1,
+     "start": 588.74,
+     "end": 590.88,
+     "protectionEnd": 595.68
+    },
+    {
+     "phrase": "chú thích quy đổi 1493",
+     "occ": 1,
+     "start": 593.68,
+     "end": 595.68,
+     "protectionEnd": 595.68
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "quy đổi ra năm 1492",
+     "occ": 1,
+     "start": 588.74,
+     "end": 590.88
+    },
+    {
+     "phrase": "chú thích quy đổi 1493",
+     "occ": 1,
+     "start": 593.68,
+     "end": 595.68
+    },
+    {
+     "phrase": "mốc văn bản, không phải tuổi của truyện",
+     "occ": 1,
+     "start": 600.98,
+     "end": 602.64
+    }
+   ]
+  },
+  "sc042": {
+   "section": "s21",
+   "firstAnchor": "lần theo từng vật thể",
+   "firstAnchorStart": 613.51,
+   "anchors": [
+    {
+     "phrase": "lần theo từng vật thể",
+     "occ": 1,
+     "start": 613.51,
+     "end": 614.43,
+     "protectionEnd": 614.43
+    },
+    {
+     "phrase": "Chiếc gậy, chiếc nón",
+     "occ": 1,
+     "start": 624.95,
+     "end": 625.71,
+     "protectionEnd": 627.63
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "lần theo từng vật thể",
+     "occ": 1,
+     "start": 613.51,
+     "end": 614.43
+    },
+    {
+     "phrase": "Chiếc khố thứ duy nhất nhà có,",
+     "occ": 1,
+     "start": 614.81,
+     "end": 616.69
+    },
+    {
+     "phrase": "Lựa chọn của Tiên Dung",
+     "occ": 1,
+     "start": 618.47,
+     "end": 619.41
+    },
+    {
+     "phrase": "Cái chợ",
+     "occ": 1,
+     "start": 622.35,
+     "end": 622.89
+    },
+    {
+     "phrase": "Chiếc gậy, chiếc nón",
+     "occ": 1,
+     "start": 624.95,
+     "end": 625.71
+    },
+    {
+     "phrase": "Và mặt nước",
+     "occ": 1,
+     "start": 627.65,
+     "end": 628.31
+    }
+   ]
+  },
+  "sc043": {
+   "section": "s21",
+   "firstAnchor": "có thể đọc là",
+   "firstAnchorStart": 631.27,
+   "anchors": [
+    {
+     "phrase": "có thể đọc là",
+     "occ": 1,
+     "start": 631.27,
+     "end": 631.79,
+     "protectionEnd": 636.41
+    },
+    {
+     "phrase": "khát vọng về đời sống có phẩm giá",
+     "occ": 1,
+     "start": 633.83,
+     "end": 635.39,
+     "protectionEnd": 636.41
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "có thể đọc là",
+     "occ": 1,
+     "start": 631.27,
+     "end": 631.79
+    },
+    {
+     "phrase": "khát vọng về đời sống có phẩm giá",
+     "occ": 1,
+     "start": 633.83,
+     "end": 635.39
+    },
+    {
+     "phrase": "đề xuất còn chờ duyệt",
+     "occ": 1,
+     "start": 639.57,
+     "end": 640.53
+    }
+   ]
+  },
+  "sc044": {
+   "section": "s22",
+   "firstAnchor": "Quyết định 153/QĐ-BVHTTDL",
+   "firstAnchorStart": 654.46,
+   "anchors": [
+    {
+     "phrase": "Quyết định 153/QĐ-BVHTTDL",
+     "occ": 1,
+     "start": 654.46,
+     "end": 658.16,
+     "protectionEnd": 660.36
+    },
+    {
+     "phrase": "ngày 02/02/2023",
+     "occ": 1,
+     "start": 658.44,
+     "end": 660.36,
+     "protectionEnd": 660.36
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "tôi dẫn theo bài công bố",
+     "occ": 1,
+     "start": 661.48,
+     "end": 663.0
+    },
+    {
+     "phrase": "Quyết định 153/QĐ-BVHTTDL",
+     "occ": 1,
+     "start": 654.46,
+     "end": 658.16
+    },
+    {
+     "phrase": "không phải ghi danh UNESCO",
+     "occ": 1,
+     "start": 665.12,
+     "end": 667.16
+    }
+   ]
+  },
+  "sc045": {
+   "section": "s22",
+   "firstAnchor": "Tổng Mễ xưa",
+   "firstAnchorStart": 673.5,
+   "anchors": [
+    {
+     "phrase": "Tổng Mễ xưa",
+     "occ": 1,
+     "start": 673.5,
+     "end": 674.1,
+     "protectionEnd": 675.68
+    },
+    {
+     "phrase": "chín làng, ba năm một lần",
+     "occ": 1,
+     "start": 675.98,
+     "end": 677.24,
+     "protectionEnd": 680.04
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "nhịp ấy vẫn đang chạy",
+     "occ": 1,
+     "start": 677.24,
+     "end": 678.66
+    },
+    {
+     "phrase": "Tổng Mễ xưa",
+     "occ": 1,
+     "start": 673.5,
+     "end": 674.1
+    },
+    {
+     "phrase": "Chín làng, ba năm một lần",
+     "occ": 1,
+     "start": 675.98,
+     "end": 677.24
+    },
+    {
+     "phrase": "vẫn đang chạy",
+     "occ": 1,
+     "start": 678.02,
+     "end": 678.66
+    },
+    {
+     "phrase": "chứng minh thần kỳ",
+     "occ": 1,
+     "start": 679.24,
+     "end": 680.04
+    }
+   ]
+  },
+  "sc046": {
+   "section": "s23",
+   "firstAnchor": "vẫn có người rước nước",
+   "firstAnchorStart": 685.14,
+   "anchors": [
+    {
+     "phrase": "vẫn có người rước nước",
+     "occ": 1,
+     "start": 685.14,
+     "end": 686.68,
+     "protectionEnd": 694.0
+    },
+    {
+     "phrase": "vẫn có người cần kể nó",
+     "occ": 1,
+     "start": 697.0,
+     "end": 698.06,
+     "protectionEnd": 698.06
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Câu chuyện sống được tới hôm nay,",
+     "occ": 1,
+     "start": 694.36,
+     "end": 695.54
+    },
+    {
+     "phrase": "rước nước",
+     "occ": 1,
+     "start": 686.22,
+     "end": 686.68
+    },
+    {
+     "phrase": "chín làng",
+     "occ": 1,
+     "start": 688.04,
+     "end": 688.56
+    },
+    {
+     "phrase": "đầm một đêm",
+     "occ": 1,
+     "start": 691.5,
+     "end": 692.0
+    },
+    {
+     "phrase": "cần kể nó",
+     "occ": 1,
+     "start": 697.52,
+     "end": 698.06
+    },
+    {
+     "phrase": "vẫn có người cần kể nó. Tối",
+     "occ": 1,
+     "start": 697.0,
+     "end": 698.78
+    }
+   ]
+  },
+  "sc047": {
+   "section": "s23",
+   "firstAnchor": "dòng sông thì vẫn chảy",
+   "firstAnchorStart": 701.3,
+   "anchors": [
+    {
+     "phrase": "dòng sông thì vẫn chảy",
+     "occ": 1,
+     "start": 701.3,
+     "end": 702.28,
+     "protectionEnd": 702.28
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "dòng sông thì vẫn chảy",
+     "occ": 1,
+     "start": 701.3,
+     "end": 702.28
+    }
+   ]
+  },
+  "sc048": {
+   "section": "s24",
+   "firstAnchor": "câu trả lời không nằm trên trang sách",
+   "firstAnchorStart": 707.17,
+   "anchors": [
+    {
+     "phrase": "câu trả lời không nằm trên trang sách",
+     "occ": 1,
+     "start": 707.17,
+     "end": 708.55,
+     "protectionEnd": 708.55
+    },
+    {
+     "phrase": "Nó nằm trên sông",
+     "occ": 1,
+     "start": 708.91,
+     "end": 709.65,
+     "protectionEnd": 709.65
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "không nằm trên trang sách",
+     "occ": 1,
+     "start": 707.63,
+     "end": 708.55
+    },
+    {
+     "phrase": "không nằm trên trang sách",
+     "occ": 1,
+     "start": 707.63,
+     "end": 708.55
+    },
+    {
+     "phrase": "Nó nằm trên sông",
+     "occ": 1,
+     "start": 708.91,
+     "end": 709.65
+    }
+   ]
+  },
+  "sc049": {
+   "section": "s24",
+   "firstAnchor": "10–12 tháng Hai âm lịch",
+   "firstAnchorStart": 712.37,
+   "anchors": [
+    {
+     "phrase": "10–12 tháng Hai âm lịch",
+     "occ": 1,
+     "start": 712.37,
+     "end": 713.75,
+     "protectionEnd": 713.75
+    },
+    {
+     "phrase": "sáng ngày 11/2",
+     "occ": 1,
+     "start": 715.25,
+     "end": 716.77,
+     "protectionEnd": 718.89
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Câu trả lời cho câu hỏi",
+     "occ": 1,
+     "start": 724.39,
+     "end": 725.47
+    },
+    {
+     "phrase": "10–12 tháng Hai âm lịch",
+     "occ": 1,
+     "start": 712.37,
+     "end": 713.75
+    },
+    {
+     "phrase": "sáng ngày 11/2",
+     "occ": 1,
+     "start": 715.25,
+     "end": 716.77
+    },
+    {
+     "phrase": "được ghi nhận",
+     "occ": 1,
+     "start": 722.51,
+     "end": 723.05
+    }
+   ]
+  },
+  "sc050": {
+   "section": "s25",
+   "firstAnchor": "Xin nhìn lại các vật thể",
+   "firstAnchorStart": 731.57,
+   "anchors": [
+    {
+     "phrase": "Xin nhìn lại các vật thể",
+     "occ": 1,
+     "start": 731.57,
+     "end": 732.65,
+     "protectionEnd": 733.35
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Xin nhìn lại",
+     "occ": 1,
+     "start": 731.57,
+     "end": 732.17
+    },
+    {
+     "phrase": "rước về hôm nay",
+     "occ": 1,
+     "start": 734.27,
+     "end": 734.83
+    },
+    {
+     "phrase": "như một địa danh",
+     "occ": 1,
+     "start": 736.63,
+     "end": 737.27
+    },
+    {
+     "phrase": "du thuyền rước nước",
+     "occ": 1,
+     "start": 738.87,
+     "end": 739.57
+    },
+    {
+     "phrase": "nay là hội",
+     "occ": 1,
+     "start": 741.49,
+     "end": 742.01
+    },
+    {
+     "phrase": "thành lễ",
+     "occ": 1,
+     "start": 744.03,
+     "end": 744.35
+    },
+    {
+     "phrase": "một chiếc khố nhỏ đến thế",
+     "occ": 1,
+     "start": 745.11,
+     "end": 746.57
+    },
+    {
+     "phrase": "nước. Phố chợ từng nhộn nhịp quanh",
+     "occ": 1,
+     "start": 739.47,
+     "end": 741.13
+    }
+   ]
+  },
+  "sc051": {
+   "section": "s25",
+   "firstAnchor": "chỉ có nước là chảy liên tục",
+   "firstAnchorStart": 749.35,
+   "anchors": [
+    {
+     "phrase": "chỉ có nước là chảy liên tục",
+     "occ": 1,
+     "start": 749.35,
+     "end": 750.47,
+     "protectionEnd": 751.43
+    },
+    {
+     "phrase": "từ truyện tới hôm nay",
+     "occ": 1,
+     "start": 750.59,
+     "end": 751.43,
+     "protectionEnd": 751.43
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Nhưng nhìn theo cách ấy, thì truyện",
+     "occ": 1,
+     "start": 754.93,
+     "end": 756.59
+    },
+    {
+     "phrase": "gặp nhau ở đúng một dòng nước",
+     "occ": 1,
+     "start": 757.25,
+     "end": 758.37
+    },
+    {
+     "phrase": "không phải một bằng chứng lịch sử",
+     "occ": 1,
+     "start": 753.39,
+     "end": 754.55
+    },
+    {
+     "phrase": "một câu biên tập của tôi",
+     "occ": 1,
+     "start": 752.17,
+     "end": 753.17
+    },
+    {
+     "phrase": "từ truyện tới hôm nay",
+     "occ": 1,
+     "start": 750.59,
+     "end": 751.43
+    },
+    {
+     "phrase": "gặp nhau ở đúng một dòng nước.",
+     "occ": 1,
+     "start": 757.25,
+     "end": 758.37
+    },
+    {
+     "phrase": "chỉ có nước là chảy liên tục",
+     "occ": 1,
+     "start": 749.35,
+     "end": 750.47
+    },
+    {
+     "phrase": "từ truyện tới hôm nay",
+     "occ": 1,
+     "start": 750.59,
+     "end": 751.43
+    },
+    {
+     "phrase": "câu biên tập",
+     "occ": 1,
+     "start": 752.29,
+     "end": 752.79
+    },
+    {
+     "phrase": "gặp nhau",
+     "occ": 1,
+     "start": 757.25,
+     "end": 757.61
+    }
+   ]
+  },
+  "sc052": {
+   "section": "s26",
+   "firstAnchor": "giúp dân làm nhiều việc lợi ích",
+   "firstAnchorStart": 763.47,
+   "anchors": [
+    {
+     "phrase": "giúp dân làm nhiều việc lợi ích",
+     "occ": 1,
+     "start": 763.47,
+     "end": 765.29,
+     "protectionEnd": 767.35
+    },
+    {
+     "phrase": "dạy cách trồng lúa, nuôi tằm, dệt vải",
+     "occ": 1,
+     "start": 765.41,
+     "end": 767.35,
+     "protectionEnd": 767.35
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "lớp kể lại thêm điều nó muốn",
+     "occ": 1,
+     "start": 775.89,
+     "end": 777.01
+    },
+    {
+     "phrase": "giúp dân làm nhiều việc lợi ích",
+     "occ": 1,
+     "start": 763.47,
+     "end": 765.29
+    }
+   ]
+  },
+  "sc053": {
+   "section": "s26",
+   "firstAnchor": "lớp biên soạn ghi tư liệu",
+   "firstAnchorStart": 777.77,
+   "anchors": [
+    {
+     "phrase": "lớp biên soạn ghi tư liệu",
+     "occ": 1,
+     "start": 777.77,
+     "end": 778.71,
+     "protectionEnd": 781.79
+    },
+    {
+     "phrase": "lớp nào cũng đáng quý",
+     "occ": 1,
+     "start": 782.13,
+     "end": 783.15,
+     "protectionEnd": 783.15
+    },
+    {
+     "phrase": "không lớp nào là lịch sử kỹ thuật",
+     "occ": 1,
+     "start": 783.95,
+     "end": 785.27,
+     "protectionEnd": 785.27
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "lớp nào là lịch sử",
+     "occ": 1,
+     "start": 784.07,
+     "end": 784.95
+    },
+    {
+     "phrase": "không lớp nào là lịch sử kỹ",
+     "occ": 1,
+     "start": 783.95,
+     "end": 785.13
+    },
+    {
+     "phrase": "lớp biên soạn ghi tư liệu",
+     "occ": 1,
+     "start": 777.77,
+     "end": 778.71
+    },
+    {
+     "phrase": "lớp chức sắc ghi nghi thức",
+     "occ": 1,
+     "start": 779.17,
+     "end": 780.41
+    },
+    {
+     "phrase": "lớp du lịch ghi lịch hội",
+     "occ": 1,
+     "start": 780.93,
+     "end": 781.79
+    },
+    {
+     "phrase": "Lớp nào cũng đáng quý",
+     "occ": 1,
+     "start": 782.13,
+     "end": 783.15
+    },
+    {
+     "phrase": "không lớp nào là lịch sử kỹ thuật",
+     "occ": 1,
+     "start": 783.95,
+     "end": 785.27
+    }
+   ]
+  },
+  "sc054": {
+   "section": "s27",
+   "firstAnchor": "vẫn rước nước",
+   "firstAnchorStart": 802.93,
+   "anchors": [
+    {
+     "phrase": "vẫn rước nước",
+     "occ": 1,
+     "start": 802.93,
+     "end": 803.45,
+     "protectionEnd": 804.47
+    },
+    {
+     "phrase": "vẫn ghé đền, thắp hương, kể lại",
+     "occ": 1,
+     "start": 804.99,
+     "end": 806.55,
+     "protectionEnd": 808.11
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "người Việt vẫn rước nước",
+     "occ": 1,
+     "start": 802.65,
+     "end": 803.45
+    },
+    {
+     "phrase": "vẫn rước nước",
+     "occ": 1,
+     "start": 802.93,
+     "end": 803.45
+    },
+    {
+     "phrase": "Vẫn ghé đền",
+     "occ": 1,
+     "start": 804.99,
+     "end": 805.59
+    },
+    {
+     "phrase": "kể lại",
+     "occ": 1,
+     "start": 806.27,
+     "end": 806.55
+    }
+   ]
+  },
+  "sc055": {
+   "section": "s27",
+   "firstAnchor": "dành một chỗ thờ cho kẻ nghèo nhất xóm bãi",
+   "firstAnchorStart": 808.95,
+   "anchors": [
+    {
+     "phrase": "dành một chỗ thờ cho kẻ nghèo nhất xóm bãi",
+     "occ": 1,
+     "start": 808.95,
+     "end": 810.89,
+     "protectionEnd": 814.01
+    },
+    {
+     "phrase": "cách truyện ấy nhìn người nghèo",
+     "occ": 1,
+     "start": 812.83,
+     "end": 814.01,
+     "protectionEnd": 814.01
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "dành một chỗ thờ cho kẻ nghèo nhất xóm bãi",
+     "occ": 1,
+     "start": 808.95,
+     "end": 810.89
+    },
+    {
+     "phrase": "cách truyện ấy nhìn người nghèo",
+     "occ": 1,
+     "start": 812.83,
+     "end": 814.01
+    },
+    {
+     "phrase": "cho kẻ nghèo nhất xóm bãi",
+     "occ": 1,
+     "start": 809.67,
+     "end": 810.89
+    },
+    {
+     "phrase": "vẫn dành một chỗ thờ",
+     "occ": 1,
+     "start": 808.79,
+     "end": 809.67
+    },
+    {
+     "phrase": "cách truyện ấy nhìn người nghèo",
+     "occ": 1,
+     "start": 812.83,
+     "end": 814.01
+    }
+   ]
+  },
+  "sc056": {
+   "section": "s27",
+   "firstAnchor": "chắc chắn, không phải vì phép màu",
+   "firstAnchorStart": 818.83,
+   "anchors": [
+    {
+     "phrase": "chắc chắn, không phải vì phép màu",
+     "occ": 1,
+     "start": 818.83,
+     "end": 820.31,
+     "protectionEnd": 822.39
+    },
+    {
+     "phrase": "còn người kể, và còn người nghe",
+     "occ": 1,
+     "start": 820.85,
+     "end": 822.39,
+     "protectionEnd": 822.39
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Chắc chắn, không phải vì phép màu",
+     "occ": 1,
+     "start": 818.83,
+     "end": 820.31
+    },
+    {
+     "phrase": "còn người kể, và còn người nghe",
+     "occ": 1,
+     "start": 820.85,
+     "end": 822.39
+    }
+   ]
+  },
+  "sc057": {
+   "section": "s28",
+   "firstAnchor": "Tứ bất tử",
+   "firstAnchorStart": 825.58,
+   "anchors": [
+    {
+     "phrase": "Tứ bất tử",
+     "occ": 1,
+     "start": 825.58,
+     "end": 826.2,
+     "protectionEnd": 828.6
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Tứ bất tử",
+     "occ": 1,
+     "start": 825.58,
+     "end": 826.2
+    },
+    {
+     "phrase": "tôi đã kể ba",
+     "occ": 1,
+     "start": 827.96,
+     "end": 828.6
+    },
+    {
+     "phrase": "còn ở lại với đất nước này",
+     "occ": 1,
+     "start": 826.5,
+     "end": 827.58
+    }
+   ]
+  },
+  "sc058": {
+   "section": "s28",
+   "firstAnchor": "Còn một người",
+   "firstAnchorStart": 828.9,
+   "anchors": [
+    {
+     "phrase": "Còn một người",
+     "occ": 1,
+     "start": 828.9,
+     "end": 829.68,
+     "protectionEnd": 829.68
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Còn một người",
+     "occ": 1,
+     "start": 828.9,
+     "end": 829.68
+    },
+    {
+     "phrase": "Còn một người",
+     "occ": 1,
+     "start": 828.9,
+     "end": 829.68
+    }
+   ]
+  },
+  "sc059": {
+   "section": "s28",
+   "firstAnchor": "một người phụ nữ",
+   "firstAnchorStart": 830.12,
+   "anchors": [
+    {
+     "phrase": "một người phụ nữ",
+     "occ": 1,
+     "start": 830.12,
+     "end": 831.0,
+     "protectionEnd": 831.0
+    },
+    {
+     "phrase": "Hẹn bạn ở tập sau",
+     "occ": 1,
+     "start": 837.68,
+     "end": 838.78,
+     "protectionEnd": 842.94
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Vì sao",
+     "occ": 1,
+     "start": 836.56,
+     "end": 837.2
+    },
+    {
+     "phrase": "Hẹn bạn ở tập sau",
+     "occ": 1,
+     "start": 837.68,
+     "end": 838.78
+    },
+    {
+     "phrase": "tự mình viết lại nhân dạng của truyện",
+     "occ": 1,
+     "start": 841.38,
+     "end": 842.94
+    }
+   ]
+  },
+  "sc060": {
+   "section": "s29",
+   "firstAnchor": "mỗi tập, một truyền thuyết, một bằng chứng thật",
+   "firstAnchorStart": 845.64,
+   "anchors": [
+    {
+     "phrase": "mỗi tập, một truyền thuyết, một bằng chứng thật",
+     "occ": 1,
+     "start": 845.64,
+     "end": 847.8,
+     "protectionEnd": 847.8
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "mỗi tập, một truyền thuyết",
+     "occ": 1,
+     "start": 845.64,
+     "end": 847.02
+    },
+    {
+     "phrase": "một truyền thuyết, một bằng chứng thật",
+     "occ": 1,
+     "start": 846.5,
+     "end": 847.8
+    }
+   ]
+  },
+  "sc061": {
+   "section": "s30",
+   "firstAnchor": "Tất cả những gì tôi kể tối nay đều có nguồn",
+   "firstAnchorStart": 854.66,
+   "anchors": [
+    {
+     "phrase": "Tất cả những gì tôi kể tối nay đều có nguồn",
+     "occ": 1,
+     "start": 854.66,
+     "end": 856.7,
+     "protectionEnd": 859.96
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Tất cả những gì tôi kể tối nay đều có nguồn",
+     "occ": 1,
+     "start": 854.66,
+     "end": 856.7
+    }
+   ]
+  },
+  "sc062": {
+   "section": "s31",
+   "firstAnchor": "nó chảy tiếp, như dòng nước được rước mỗi năm",
+   "firstAnchorStart": 862.4,
+   "anchors": [
+    {
+     "phrase": "nó chảy tiếp, như dòng nước được rước mỗi năm",
+     "occ": 1,
+     "start": 862.4,
+     "end": 864.8,
+     "protectionEnd": 864.8
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "cưới nó chảy tiếp, như dòng nước",
+     "occ": 1,
+     "start": 862.12,
+     "end": 864.02
+    },
+    {
+     "phrase": "nó chảy tiếp, như dòng nước được rước mỗi năm",
+     "occ": 1,
+     "start": 862.4,
+     "end": 864.8
+    }
+   ]
+  },
+  "sc063": {
+   "section": "s32",
+   "firstAnchor": "Cảm ơn bạn đã xem",
+   "firstAnchorStart": 866.04,
+   "anchors": [
+    {
+     "phrase": "Cảm ơn bạn đã xem",
+     "occ": 1,
+     "start": 866.04,
+     "end": 866.9,
+     "protectionEnd": 866.9
+    }
+   ],
+   "calls": [
+    {
+     "phrase": "Cảm ơn bạn đã xem",
+     "occ": 1,
+     "start": 866.04,
+     "end": 866.9
+    }
+   ]
+  }
+ }
+}

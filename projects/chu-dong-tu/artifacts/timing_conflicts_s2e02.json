@@ -1,0 +1,68 @@
+{
+ "generated": "2026-10-19T03:41:39+00:00",
+ "summary": {
+  "scenes": 63,
+  "conflicts": 2,
+  "conflictScenes": [
+   "sc005",
+   "sc026"
+  ],
+  "pushes": 3,
+  "resolveFailures": 0
+ },
+ "planEdits": null,
+ "appliedCodemod": [],
+ "occFixesDerived": [],
+ "pushes": [
+  {
+   "scene": "sc005",
+   "boundaryAfter": "sc006",
+   "from": 1615,
+   "to": 1625,
+   "trailingAnchor": "một khố vải duy nhất",
+   "trailingEnd": 53.47,
+   "protectionEnd": 54.75,
+   "reason": "sentenceRetention"
+  },
+  {
+   "scene": "sc026",
+   "boundaryAfter": "sc027",
+   "from": 10437,
+   "to": 10447,
+   "trailingAnchor": "trong am có sư",
+   "trailingEnd": 347.47,
+   "protectionEnd": 350.51,
+   "reason": "sentenceRetention"
+  },
+  {
+   "scene": "sc057",
+   "boundaryAfter": "sc058",
+   "from": 24857,
+   "to": 24858,
+   "trailingAnchor": "Tứ bất tử",
+   "trailingEnd": 826.2,
+   "protectionEnd": 828.6,
+   "reason": "sentenceRetention"
+  }
+ ],
+ "conflicts": [
+  {
+   "scene": "sc005",
+   "type": "retention_cut",
+   "protectionEnd": 54.75,
+   "sceneEnd": 54.167,
+   "cutSec": 0.583,
+   "note": "sentence of last anchor extends past scene end and cannot be pushed before next scene's first spoken word — real content conflict"
+  },
+  {
+   "scene": "sc026",
+   "type": "retention_cut",
+   "protectionEnd": 350.51,
+   "sceneEnd": 348.233,
+   "cutSec": 2.277,
+   "note": "sentence of last anchor extends past scene end and cannot be pushed before next scene's first spoken word — real content conflict"
+  }
+ ],
+ "resolveFailures": [],
+ "note": "Interleaved narration vs plan order (4 pairs) is REAL content conflict: anchors spoken inside the neighbouring scene's window. Enumerated exactly; NOT silently clamped, reassigned, or proportionally faked. Owner decision required (swap scene order / re-anchor panel / re-record narration bit)."
+}

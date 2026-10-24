@@ -1,0 +1,156 @@
+{
+  "status": "draft_pending_owner_review",
+  "render": {
+    "path": "projects/france-riots-20261023/renders/france-riots-v2-draft-hud.mp4",
+    "format": "mp4",
+    "codec": "h264",
+    "audio_codec": "aac",
+    "resolution": "720x1280",
+    "fps": 30.0,
+    "duration_seconds": 262.997333,
+    "file_size_bytes": 14786360,
+    "platform_target": "tiktok"
+  },
+  "backup": "projects/france-riots-20261023/history/closeout-v2-20261023T074913888377Z",
+  "authorization": "Owner “Cho chạy” authorizes draft production only. Not clean-final approval, publication permission, or listening sign-off.",
+  "checks_performed": [
+    "artifact schema validation",
+    "checkpoint validation via lib.checkpoint",
+    "ffprobe streams/container",
+    "21 WAV measurements and frame arithmetic",
+    "edit timing validation",
+    "referenced media existence"
+  ],
+  "audio_measurements": [
+    {
+      "scene_id": "s01",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s01.wav",
+      "seconds": 5.637854
+    },
+    {
+      "scene_id": "s02",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s02.wav",
+      "seconds": 11.857542
+    },
+    {
+      "scene_id": "s03",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s03.wav",
+      "seconds": 18.12225
+    },
+    {
+      "scene_id": "s04",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s04.wav",
+      "seconds": 15.831583
+    },
+    {
+      "scene_id": "s05",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s05.wav",
+      "seconds": 15.287083
+    },
+    {
+      "scene_id": "s06",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s06.wav",
+      "seconds": 19.527417
+    },
+    {
+      "scene_id": "s07",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s07.wav",
+      "seconds": 7.313396
+    },
+    {
+      "scene_id": "s08",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s08.wav",
+      "seconds": 8.422604
+    },
+    {
+      "scene_id": "s09",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s09.wav",
+      "seconds": 10.723271
+    },
+    {
+      "scene_id": "s10",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s10.wav",
+      "seconds": 9.954833
+    },
+    {
+      "scene_id": "s11",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s11.wav",
+      "seconds": 9.1205
+    },
+    {
+      "scene_id": "s12",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s12.wav",
+      "seconds": 9.60325
+    },
+    {
+      "scene_id": "s13",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s13.wav",
+      "seconds": 11.995854
+    },
+    {
+      "scene_id": "s14",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s14.wav",
+      "seconds": 7.526708
+    },
+    {
+      "scene_id": "s15",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s15.wav",
+      "seconds": 19.894333
+    },
+    {
+      "scene_id": "s16",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s16.wav",
+      "seconds": 14.184917
+    },
+    {
+      "scene_id": "s17",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s17.wav",
+      "seconds": 12.830729
+    },
+    {
+      "scene_id": "s18",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s18.wav",
+      "seconds": 10.651729
+    },
+    {
+      "scene_id": "s19",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s19.wav",
+      "seconds": 8.902375
+    },
+    {
+      "scene_id": "s20",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s20.wav",
+      "seconds": 13.923292
+    },
+    {
+      "scene_id": "s21",
+      "path": "remotion-composer/public/france-riots-20261023/v2/voice_s21.wav",
+      "seconds": 3.550833
+    }
+  ],
+  "limitations": [
+    "DRAFT HUD: pending owner review; no clean-final approval.",
+    "No auditory listening performed by closeout; pronunciation, numbers and mix intelligibility pending.",
+    "ffprobe inspects container/streams only; no full decode, black-frame, visual, subtitle or speech-lock certification.",
+    "Final integrated LUFS/true peak not measured by closeout.",
+    "Media dates, claims, provenance and license validity not independently verified by closeout.",
+    "Existing automated audits are referenced evidence only, not a new independent PASS.",
+    "Telegram V2 delivery receipts pending lead; V1 receipts do not apply."
+  ],
+  "exact_paths": {
+    "asset_manifest": "projects/france-riots-20261023/artifacts/asset_manifest.json",
+    "edit_decisions": "projects/france-riots-20261023/artifacts/edit_decisions.json",
+    "render_report": "projects/france-riots-20261023/artifacts/render_report.json",
+    "publish_log": "projects/france-riots-20261023/artifacts/publish_log.json",
+    "final_review": "projects/france-riots-20261023/artifacts/final_review.json"
+  },
+  "existing_evidence_refs": [
+    "projects/france-riots-20261023/artifacts/v2/independent_audit_qc.json",
+    "projects/france-riots-20261023/artifacts/v2/independent_audit_report.md",
+    "projects/france-riots-20261023/artifacts/v2/independent_audit.py"
+  ],
+  "telegram_receipts": {
+    "status": "pending_lead",
+    "message_ids": []
+  }
+}

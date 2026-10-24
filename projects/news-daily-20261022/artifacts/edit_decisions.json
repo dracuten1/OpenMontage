@@ -1,0 +1,177 @@
+{
+  "version": "1.0",
+  "composition_mode": "atelier",
+  "render_runtime": "remotion",
+  "renderer_family": "explainer-data",
+  "bespoke": {
+    "entry": "remotion-composer/src/news-daily-20261022/entry.tsx",
+    "composition_id": "NewsDaily20261022Full",
+    "art_direction": "Bespoke factual news infographics, navy #0F172A + coral #FF7F6E; static camera, speech-locked reveals; SVG minh họa (bão/geoải) gắn nhãn MINH HỌA; captions canonical từ captions.json; HUD debug chỉ trong composition Debug (draft review).",
+    "components": [
+      "theme.ts",
+      "timing.ts",
+      "EpisodeFull.tsx (NewsDailyFull)",
+      "entry.tsx (Full + Debug)"
+    ]
+  },
+  "cuts": [
+    {
+      "id": "cut_s01",
+      "source": "projects/news-daily-20261022/assets/audio/voice_s01.wav",
+      "in_seconds": 0,
+      "out_seconds": 17.036,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "s01 narration drives scene; speech-locked element reveals from scene_elements.json; +0.8s tail padding at render, not part of cut"
+    },
+    {
+      "id": "cut_s02",
+      "source": "projects/news-daily-20261022/assets/audio/voice_s02.wav",
+      "in_seconds": 0,
+      "out_seconds": 9.956,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "s02 narration drives scene; speech-locked element reveals from scene_elements.json; +0.8s tail padding at render, not part of cut"
+    },
+    {
+      "id": "cut_s03",
+      "source": "projects/news-daily-20261022/assets/audio/voice_s03.wav",
+      "in_seconds": 0,
+      "out_seconds": 7.734,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "s03 narration drives scene; speech-locked element reveals from scene_elements.json; +0.8s tail padding at render, not part of cut"
+    },
+    {
+      "id": "cut_s04",
+      "source": "projects/news-daily-20261022/assets/audio/voice_s04.wav",
+      "in_seconds": 0,
+      "out_seconds": 7.594,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "s04 narration drives scene; speech-locked element reveals from scene_elements.json; +0.8s tail padding at render, not part of cut"
+    },
+    {
+      "id": "cut_s05",
+      "source": "projects/news-daily-20261022/assets/audio/voice_s05.wav",
+      "in_seconds": 0,
+      "out_seconds": 8.085,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "s05 narration drives scene; speech-locked element reveals from scene_elements.json; +0.8s tail padding at render, not part of cut"
+    },
+    {
+      "id": "cut_s06",
+      "source": "projects/news-daily-20261022/assets/audio/voice_s06.wav",
+      "in_seconds": 0,
+      "out_seconds": 8.359,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "s06 narration drives scene; speech-locked element reveals from scene_elements.json; +0.8s tail padding at render, not part of cut"
+    },
+    {
+      "id": "cut_s07",
+      "source": "projects/news-daily-20261022/assets/audio/voice_s07.wav",
+      "in_seconds": 0,
+      "out_seconds": 12.213,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "s07 narration drives scene; speech-locked element reveals from scene_elements.json; +0.8s tail padding at render, not part of cut"
+    },
+    {
+      "id": "cut_s08",
+      "source": "projects/news-daily-20261022/assets/audio/voice_s08.wav",
+      "in_seconds": 0,
+      "out_seconds": 1.615,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "s08 narration drives scene; speech-locked element reveals from scene_elements.json; +0.8s tail padding at render, not part of cut"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "segments": [
+        {
+          "asset_id": "narration-s01",
+          "start_seconds": 0.0,
+          "end_seconds": 17.036
+        },
+        {
+          "asset_id": "narration-s02",
+          "start_seconds": 17.866667,
+          "end_seconds": 27.823
+        },
+        {
+          "asset_id": "narration-s03",
+          "start_seconds": 28.633333,
+          "end_seconds": 36.367
+        },
+        {
+          "asset_id": "narration-s04",
+          "start_seconds": 37.2,
+          "end_seconds": 44.794
+        },
+        {
+          "asset_id": "narration-s05",
+          "start_seconds": 45.6,
+          "end_seconds": 53.685
+        },
+        {
+          "asset_id": "narration-s06",
+          "start_seconds": 54.5,
+          "end_seconds": 62.859
+        },
+        {
+          "asset_id": "narration-s07",
+          "start_seconds": 63.666667,
+          "end_seconds": 75.88
+        },
+        {
+          "asset_id": "narration-s08",
+          "start_seconds": 76.7,
+          "end_seconds": 78.315
+        }
+      ]
+    },
+    "music": {
+      "asset_id": "none",
+      "volume": 0
+    },
+    "sfx": []
+  },
+  "subtitles": {
+    "enabled": true,
+    "style": "sentence",
+    "source": "remotion-composer/public/news-daily-20261022/captions.json",
+    "position": "bottom-center",
+    "max_words_per_line": 14
+  },
+  "music": {
+    "asset_id": "none",
+    "volume": 0
+  },
+  "slideshow_risk_score": {
+    "average": 0.18,
+    "verdict": "strong",
+    "notes": "speech-locked per-element reveals, animated chips/captions, static camera by design"
+  },
+  "metadata": {
+    "total_frames": 2374,
+    "fps": 30,
+    "duration_seconds": 79.133,
+    "composition_ids": [
+      "NewsDaily20261022Full",
+      "NewsDaily20261022Debug"
+    ],
+    "hud_policy": "HUD chỉ trong Debug composition (draft review 720p); master render Full = sạch",
+    "caption_fix": "CaptionBox adaptive fontSize = clamp(28..48, floor(2843/len)) sau lead QC bắt clip dòng 3 (chunks tới 90 ký tự); sweep2 PASS"
+  }
+}

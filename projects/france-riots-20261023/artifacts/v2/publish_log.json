@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "tiktok",
+      "status": "pending_review",
+      "timestamp": "2026-10-23T07:49:12.694551+00:00",
+      "export_path": "projects/france-riots-20261023/renders/france-riots-v2-draft-hud.mp4",
+      "metadata_used": {
+        "description": "Draft HUD only; description copy: projects/france-riots-20261023/artifacts/description_tiktok_v2.txt"
+      }
+    }
+  ],
+  "metadata": {
+    "draft_only": true,
+    "authorization": "Owner “Cho chạy” authorizes draft production only. Not clean-final approval, publication permission, or listening sign-off.",
+    "telegram_receipts": {
+      "status": "pending_lead",
+      "message_ids": []
+    },
+    "blockers": [
+      "DRAFT HUD: pending owner review; no clean-final approval.",
+      "No auditory listening performed by closeout; pronunciation, numbers and mix intelligibility pending.",
+      "ffprobe inspects container/streams only; no full decode, black-frame, visual, subtitle or speech-lock certification.",
+      "Final integrated LUFS/true peak not measured by closeout.",
+      "Media dates, claims, provenance and license validity not independently verified by closeout.",
+      "Existing automated audits are referenced evidence only, not a new independent PASS.",
+      "Telegram V2 delivery receipts pending lead; V1 receipts do not apply."
+    ]
+  }
+}

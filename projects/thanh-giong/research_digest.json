@@ -1,0 +1,150 @@
+{
+  "project_id": "thanh-giong",
+  "series": "vn-myth",
+  "season": 2,
+  "episode": "S2E02",
+  "title_working": "Thánh Gióng: vì sao người cứu nước lại là một đứa trẻ? (VN-Myth S2E02)",
+  "analysis_date": "2026-10-17",
+  "produced": "Hermes (sealed digest từ sources/07-thanh-giong.md + SEASON-02-BIBLE.md + BRIEF.md — research ĐÃ XONG, KHÔNG research thêm)",
+  "language": "vi",
+  "target_duration_seconds": 870,
+  "target_duration_range_seconds": [780, 900],
+  "narration_words_target": 3650,
+  "narration_words_range": [3400, 3900],
+  "sections_target": 30,
+  "sections_range": [28, 31],
+  "scenes_target": 64,
+  "scenes_range": [60, 70],
+  "episode_premise": "Người cứu nước nổi tiếng nhất của người Việt là một đứa trẻ 3 tuổi chưa từng nói một lời — và khi cất tiếng, điều đầu tiên nó xin là vũ khí. Truy dấu câu chuyện qua ba trang sách cách nhau 350 năm (trang cũ nhất 1329 không hề có trận đánh), một chiếc nong cơm đong bằng gạo của cả làng, và hai ngôi đền mở hội ở hai mùa khác nhau — nơi sinh nhớ trận đánh, nơi bay về trời nhớ đêm cuối.",
+
+  "continuity_and_canon": {
+    "already_established_s1": [
+      "S1 C1–C12 đã lên sóng (Nguồn gốc dân tộc → Xi Vưu). KHÔNG đưa claim trái C1–C12.",
+      "Callback S1 tối đa 1 lần nhẹ: đền Hùng HOẶC trống đồng thoáng qua trong setup (silhouette/tranh cổ reuse f07, không mở số liệu). BRIEF chốt: chọn 1 trong 2."
+    ],
+    "already_established_s2": [
+      "S2-C1 (S2E01): Sơn Tinh thắng mỗi năm một lần — KHÔNG lặp luận điểm này; callback S2E01 tối đa 1 lần nhẹ (Tứ bất tử nhắc Tản Viên ở landing, Phù Đổng đứng thứ hai)."
+    ],
+    "new_canon_to_establish": "S2-C2 (nguyên văn ý, bắt buộc chốt climax): \"sức mạnh anh hùng = cả làng nuôi lớn (hạt gạo nhiều nhà)\" — Thánh Gióng không tự lớn; nhà giàu nhất làng cũng không đủ gạo, xóm làng phải chung góp; thắng trận không về công danh mà bay về trời, ruộng ban cho CẢ LÀNG.",
+    "season_question": "Vì sao những chuyện tưởng như xa xưa vẫn sống trong đời thường người Việt? Mở từ một thứ khán giả còn GẶP HÔM NAY (trống hội làng, mâm cỗ, hạt gạo, đền) → đi ngược vào thần thoại.",
+    "no_source_frame_rule": "Mọi chi tiết vô nguồn phải đóng khung \"truyện kể / sách chép / dân gian làm lễ\". Nguyên văn trích dẫn luôn đóng khung \"sách chép\" và hiện đúng chữ trên narration."
+  },
+
+  "target_structure": {
+    "hook_seconds": 30,
+    "setup_seconds": 175,
+    "evidence_acts": [
+      {"id": "act1_ba_trang_sach", "title": "Ba trang sách", "seconds": 200, "layer": "myth→evidence (amber giáp teal) — lật ngược 1697→1492→1329"},
+      {"id": "act2_hat_gao", "title": "Hạt gạo", "seconds": 225, "layer": "myth amber — SCENE TRUNG TÂM: hạt gạo nhiều nhà → nong cơm → tráng sĩ; thiết lập S2-C2"},
+      {"id": "act3_hai_ngoi_den", "title": "Hai ngôi đền", "seconds": 165, "layer": "evidence teal (2 lễ hội thật + UNESCO) + myth đóng khung"}
+    ],
+    "climax_seconds": 115,
+    "landing_seconds": 85,
+    "cta_seconds": 30,
+    "timing_reconciliation": "BRIEF liệt kê 13–15' ≈ 3.400–3.900 từ / 28–31 section (SSOT). Budget dưới đây giữ TỶ LỆ cấu trúc BRIEF, scale về ~870s. Word count là chuẩn đối chiếu cuối.",
+    "hook_manifest": "\"Một đứa trẻ không nói. Khi cất tiếng, điều đầu tiên nó xin là vũ khí.\" + rollout: người cứu nước nổi tiếng nhất của người Việt... là một đứa trẻ 3 tuổi chưa từng nói lời nào.",
+    "setup_manifest": "Mở TỪ HÔM NAY đúng ràng buộc mùa: mùng 9 tháng Tư, nhịp trống hội làng Phù Đổng, cả làng thành quân đội → lùi vào lớp SGK kể như khán giả nhớ (3 tuổi chưa biết nói, bà mẹ nói giỡn, sứ giả đến, đứa bỗng cất tiếng gọi sứ giả) → đóng khung câu hỏi: vì sao người xưa chọn MỘT ĐỨA TRẺ IM LẶNG làm người cứu nước? Ai viết chuyện này, và họ thực sự đang kể chuyện gì? Callback S1: 1 lần thoáng (đền Hùng hoặc trống đồng silhouette).",
+    "act_manifests": [
+      "Hồi 1 — Ba trang sách (3,5'): 3 lớp văn bản lật NGƯỢC thời gian đặt cạnh nhau như 3 trang giấy dó: 1697/1479 ĐVSKTT (vài dòng khô: 'ông nhà giàu... hơn ba tuổi... không biết nói cười'; xin 'một thanh gươm, một con ngựa và một roi sắt'; 'giặc tự quay giáo đánh lẫn nhau'; 'đứa trẻ nhảy ngựa lên không mà đi'; 'lập đền thờ phụng') → 1492 LNCQ truyền kỳ rực rỡ (Long Quân hóa cụ già tóc bạc ngã ba đường báo trước 3 năm; nhà giàu ngoài 60 tuổi; ngựa sắt 18 thước, kiếm 7 thước, nón sắt; 'Ta là thiên tướng nhà Trời đây!'; kiếm gãy → bụi tre vệ đường; núi Ninh Sóc cởi áo bào bay về trời; 100 mẫu ruộng tự điền; đời Lý 'Sung Thiên Thần Vương') → 1329 VĐULT (bất ngờ nhất: chỉ có vị thần Thổ địa bên chùa Kiến Sơ, hương Phù Đổng, huyện Tiên Du — ChƯA CÓ TRUYỆN ĐÁNH GIẶC; mĩ hiệu đời Trần 'Xung Thiên Dũng Liệt Chiêu Ứng Uy Tín Đại Vương', gia phong 1313). Mini-reveal: càng lùi về trước, tiếng gươm càng nhỏ dần — và gần nhất với điểm xuất phát, chỉ còn một ngôi đền nhỏ cạnh chùa làng. (Đóng khung: quan sát văn bản, KHÔNG kết luận truyện 'bịa sau'.) Điều bất biến qua 3 lớp: đứa trẻ — tiếng nói đầu tiên — vũ khí — bay về trời — được thờ.",
+      "Hồi 2 — Hạt gạo (4', scene trung tâm, visual trục mùa): kể tiếp truyền kỳ LNCQ — cậu bé lớn nhanh như thổi; nguyên văn lên màn hình: 'Gia đình cậu tuy giàu có nhưng không đủ gạo cho cậu ăn no, không đủ vải để may áo quần. Xóm làng phải chung góp gạo vải với gia đình để nuôi cậu.' Visual trung tâm: HẠT GẠO bay từ từng mái nhà trong làng vào CHIẾC NONG ngày một đầy (vật thể, KHÔNG DNA); phải cất nhà to cho ở; vươn vai 'cao hơn hai trượng' thành tráng sĩ giáp sắt xanh rêu trên ngựa sắt phun lửa (làng Cháy); đánh trận: roi sắt, kiếm gãy → nhổ bụi tre vệ đường quất giặc (tre Đằng Ngà mọc lại); núi Ninh Sóc: cởi áo bào để lại, cưỡi ngựa bay lên Trời (KHÔNG dựng cảnh tử trận). Mini-reveal + canon S2-C2: 'Thánh Gióng không tự lớn. Cả làng nuôi nó lớn.' Vũ khí sắt + ngựa sắt: chỉ CÂU HỎI đóng khung về thế giới NGƯỜI CHÉP (TK XIV–XV, khi roi sắt và kỵ mã là công nghệ quen thuộc) — giống thế giới người chép hơn thế giới được kể; KHÔNG kết luận hai chiều, KHÔNG gán niên đại.",
+      "Hồi 3 — Hai ngôi đền (3'): sau khi bay về trời — vua Hùng phong Phù Đổng Thiên Vương, lập miếu, ban CẢ LÀNG 100 mẫu ruộng tự điền (ruộng ban cho làng, không cho một ai). Hôm nay hai hội thật, hồ sơ rõ: Phù Đổng 7–9/4 AL chính hội 9/4 = HỘI TRẬN lớn bậc nhất (lễ rước nước lau rửa khí giới, rước cờ, khám đường, duyệt tướng; tái hiện trận đánh tại bãi Soi Bia); Sóc 6–8 tháng Giêng (đêm mùng 5 lễ Mộc Dục tắm tượng; mùng 6 rước 8 lễ vật truyền thống lên đền Thượng: trầu cau, cầu húc, ngà voi, cỏ voi, ngựa sắt thần mã, voi chiến, kiệu nữ tướng trẻ, và GIÒ HOA TRE do làng Vệ Linh cung tiến; hội võ vật cầu húc, kéo mỏ, đấu vật, cờ tướng). 16/11/2010 Nairobi: UNESCO ghi danh 'Hội Gióng đền Phù Đổng và đền Sóc' Di sản văn hóa phi vật thể đại diện của nhân loại. Mini-reveal: một vị thánh, hai loại kỷ niệm — đền sinh giữ tiếng gươm (tháng Tư), đền bay giữ đêm cuối (tháng Giêng); giá trị nằm ở việc CẢ LÀNG nhập vai. Lễ hội KHÔNG chứng minh trận đánh có thật — bằng chứng tín ngưỡng chỉ nói về NGƯỜI THỜ và điều họ chọn ghi nhớ."
+    ],
+    "climax_manifest": "Trả lời hook bằng trục diễn giải mùa (KHÔNG kết luận áp lên truyện — narration giữ 'có thể đọc là…', 'truyện không nói trắng'): đứa trẻ im lặng 3 năm = cộng đồng im lặng chờ; khi cất tiếng, tiếng nói đầu tiên là đòi vũ khí cho mọi người; nó lớn bằng gạo của TỪNG NHÀ — nên thắng trận, nó không về công danh (không gả, không nối ngôi, không hưởng ruộng ban — ruộng ban cho CẢ LÀNG) mà bay về trời, trả lại chiếc áo bào. Có thể đọc là: sức mạnh cứu nước không thuộc về MỘT cá nhân — nó được nuôi bằng mọi nhà và phải được trả về mọi nhà. Chốt S2-C2 nguyên văn ý.",
+    "landing_manifest": "Landing ấm: mùng 9 tháng Tư hôm nay — trống hội, ca dao 'Ai ơi mồng Chín tháng Tư / Không đi hội Gióng cũng hư mất đời.'; trẻ con làng Phù Đổng cầm cờ múa qua bãi Soi Bia như bao đời (đóng khung 'lễ truyền thống'); hạt gạo trên mâm cỗ hội = cùng một hạt gạo từng nuôi cậu bé. Tứ bất tử (Tản Viên – Phù Đổng – Chử Đồng Tử – Liễu Hạnh) — Phù Đổng đứng thứ hai sau Tản Viên (callback S2E01 nhẹ). Khép: 'Vị thần đó chưa bao giờ lớn lên một mình — và vì thế chưa bao giờ bị bỏ quên.'",
+    "cta_manifest": "Tease S2E03 Chử Đồng Tử (không spoil): 'Người được thờ tiếp theo còn nghèo hơn — nghèo đến mức không có nổi một chiếc khố.' + mời đăng ký/theo dõi."
+  },
+
+  "characters_standard_descs": {
+    "Giong_tre": "đứa trẻ bụng mừng tròn 3 tuổi ngồi yên im lặng trên phản, mắt mở to nhìn thẳng, quấn khố đỏ đơn giản, mẹ ngồi gần — trạng thái 1 (im lặng)",
+    "Giong_trang_si": "tráng sĩ khổng lồ giáp sắt xanh rêu, cưỡi ngựa sắt đen phun lửa đỏ từ miệng, roi sắt trong tay, dáng vươn mình cao lớn 'cao hơn hai trượng' — trạng thái 2 (xuất trận)",
+    "MeGiong": "phụ nữ làng quê Việt đời Hùng, áo nâu váy đen, tóc vấn khăn, dáng hiền, đứng cạnh đứa trẻ nằm ngửa trên phản",
+    "Cu_gia_Long_Quan": "cụ già tóc bạc trắng như cước, áo the nâu, ngồi bất động ở ngã ba đường, gậy tre, khí chất thần bí (Long Quân hóa thân — LNCQ)",
+    "Su_gia": "quan sứ thần đời Hùng, áo mũ lễ, cưỡi ngựa, đến tận nhà (đóng khung truyện kể)",
+    "HungVuong_reuse": "CHỈ silhouette/tranh cổ từ assets/reference/f07-hung-vuong.png — KHÔNG vẽ lại mới"
+  },
+
+  "visual_rules": {
+    "style_suffix_mandatory": ", hand-drawn whiteboard storytelling illustration, loose black ink marker line art on warm cream parchment paper, minimal flat shading, a few golden yellow accents, Vietnamese folk tale art, no text, no watermark",
+    "map_suffix_extra": ", aged parchment map, sepia tones",
+    "palette": "myth = amber/mực ấm trên giấy dó; bằng chứng = teal; bản đồ = giấy dầu nâu",
+    "season2_change": "kể bằng ĐỊA HÌNH + NƯỚC + VẬT THỂ (đền, bếp, lá, HẠT GẠO, nong, tre, giò hoa tre, giấy sớ); KHÔNG dùng DNA/sợi xoắn teal làm visual mặc định",
+    "reuse_s1": "Hùng Vương f07 (đã copy vào assets/reference/) — chỉ silhouette/tranh cổ, 1 lần thoáng. Trống đồng/Đền Hùng: callback 1 lần nhẹ nếu khớp (chọn 1 trong 2, không cả hai)."
+  },
+
+  "quotes_verbatim": {
+    "dvsktt_ba_tuoi": "Hơn ba tuổi, ăn uống, to béo, không biết nói cười.",
+    "dvsktt_xin_vu_khi": "Xin cho một thanh gươm, một con ngựa và một roi sắt, nhà vua không phải lo gì cả!",
+    "dvsktt_giac_danh_nhau": "Giặc tự quay giáo đánh lẫn nhau.",
+    "dvsktt_bay_ve_troi": "Đứa trẻ nhảy ngựa lên không mà đi.",
+    "dvsktt_lap_den": "Nhà vua sai sửa sang nơi vườn nhà nó ở, lập đền thờ phụng.",
+    "lncq_xom_lang_gop_gao": "Gia đình cậu tuy giàu có nhưng không đủ gạo cho cậu ăn no, không đủ vải để may áo quần. Xóm làng phải chung góp gạo vải với gia đình để nuôi cậu.",
+    "lncq_thien_tuong": "Ta là thiên tướng nhà Trời đây!",
+    "lncq_ca_hon_hai_truong": "cao hơn hai trượng",
+    "vdult_1329_goc": "Theo truyện Báo Cực chép trong Việt Điện U Linh Tập, thần vốn là vị thần Thổ địa bên chùa Kiến Sơ, hương Phù Đổng, huyện Tiên Du."
+  },
+
+  "numbers_allowed_on_screen": {
+    "legend": [
+      "1329 (Việt Điện U Linh Tập, Lý Tế Xuyên)",
+      "1313 (Trần gia phong mĩ hiệu — chỉ dùng kèm câu chuyện VĐULT)",
+      "1492 (LNCQ hiệu chính Vũ Quỳnh – Kiều Phú)",
+      "1479 / 1697 (ĐVSKTT Ngô Sĩ Liên / bản Chính hiệu)",
+      "Hùng Vương thứ 6",
+      "3 tuổi (chưa biết nói)",
+      "ngoài 60 (tuổi cha mẹ, LNCQ)",
+      "18 thước (ngựa sắt, LNCQ)",
+      "7 thước (thanh kiếm, LNCQ)",
+      "100 mẫu ruộng tự điền (LNCQ)",
+      "núi Vũ Ninh (ĐVSKTT) · núi Ninh Sóc / núi Sóc / Vệ Linh (LNCQ – Sóc Sơn, Phù Linh)",
+      "Phù Đổng / Võ Ninh (Võ Giàng) / Tiên Du / chùa Kiến Sơ (VĐULT)",
+      "Gia Lâm · tre Đằng Ngà (Gia Bình) · làng Cháy",
+      "7–9 tháng 4 AL + chính hội 9/4 + bãi Soi Bia (đền Phù Đổng)",
+      "mùng 6–8 tháng Giêng + Mộc Dục đêm mùng 5 + 8 lễ vật + giò hoa tre làng Vệ Linh (đền Sóc)",
+      "16/11/2010 (UNESCO, Nairobi — hội Gióng đền Phù Đổng và đền Sóc)",
+      "Tứ bất tử (Tản Viên – Phù Đổng – Chử Đồng Tử – Liễu Hạnh)",
+      "\"Sung Thiên Thần Vương\" (đời Lý) · \"Xung Thiên Dũng Liệt Chiêu Ứng Uy Tín Đại Vương\" (đời Trần)",
+      "ca dao 2 câu mồng Chín tháng Tư",
+      "\"cao hơn hai trượng\" (LNCQ, khi vươn vai)"
+    ],
+    "rules": "Số liệu ngoài legend KHÔNG lên màn hình (bất kỳ chiều nào). Số trong narration LUÔN đọc bằng chữ Việt trong provider_text (vieneu), display giữ dạng số. \"7 nong cơm / 3 chum cà / 3 vò rượu\" KHÔNG có trong văn bản gốc — nếu dùng PHẢI đóng khung \"dân gian kể thêm\" (khuyến nghị: KHÔNG dùng, thay bằng nguyên văn LNCQ xóm làng góp gạo). Không display số đời Hùng Vương khác 'thứ 6'; không gán niên đại cho truyện."
+  },
+
+  "narrative_anti_rules": [
+    "KHÔNG khẳng định Thánh Gióng / mẹ Gióng / sứ giả là nhân vật lịch sử; \"giặc Ân\" luôn đóng khung \"truyện kể\" — KHÔNG dựng quan hệ Thương–Văn Lang như sử liệu.",
+    "KHÔNG dùng lễ hội / đền thờ / UNESCO để chứng minh trận đánh có thật — bằng chứng tín ngưỡng chỉ nói về NGƯỜI THỜ và điều họ chọn ghi nhớ.",
+    "KHÔNG dùng vũ khí sắt / ngựa sắt để gán niên đại cho truyện — theo BẤT KỲ chiều nào; chi tiết này chỉ được PHÁT BIỂU như câu hỏi đóng khung về thế giới của người chép (TK XIV–XV), không kết luận.",
+    "\"7 nong cơm / 3 chum cà / 3 vò rượu\" = lớp kể dân gian–SGK, KHÔNG có trong LNCQ/ĐVSKTT nguyên bản → nếu dùng PHẢI đóng khung \"dân gian kể thêm\"; ưu tiên nguyên văn LNCQ \"không đủ gạo... xóm làng chung góp gạo vải\".",
+    "Gióng KHÔNG \"chết\" — văn bản nói \"cởi áo bào để lại, cưỡi ngựa bay lên Trời / nhảy ngựa lên không mà đi\"; không dựng cảnh tử trận.",
+    "Số liệu ngoài whitelist KHÔNG lên màn hình; nguyên văn trích dẫn luôn đóng khung \"sách chép / truyện kể\" + hiện đúng chữ trên narration (canonical_text giữ nguyên văn, provider_text có thể ngắt câu cho TTS nhưng không đổi chữ).",
+    "KHÔNG tái dùng visual DNA; KHÔNG lặp luận điểm S2-C1 (Sơn Tinh) — callback S2E01 tối đa 1 lần nhẹ (Tứ bất tử nhắc Tản Viên); callback S1 tối đa 1 lần nhẹ (đền Hùng/trống đồng thoáng setup, chọn 1).",
+    "Climax là CÁCH ĐỌC theo trục diễn giải mùa, không phải \"ý định nguyên thủy của người xưa\" — narration phải giữ đóng khung (\"có thể đọc là…\", \"truyện không nói trắng\")."
+  ],
+
+  "image_plan": [
+    "img-01-giong-tre: đứa trẻ 3 tuổi bụng mừng tròn nằm ngửa ngồi yên im lặng trên phản, mẹ Gióng ngồi gần lo lắng — desc chuẩn + style suffix",
+    "img-02 cu-gia ngã ba đường: cụ già tóc bạc trắng ngồi bất động ngã ba đường làng, gậy tre, khí chất thần bí",
+    "img-03 su-gia đến làng: quan sứ thần áo mũ lễ cưỡi ngựa đến cổng nhà giàu làng Phù Đổng",
+    "img-04 nong com (SCENE TRUNG TÂM): chiếc nong tre lớn giữa sân làng, hạt gạo bay từ các mái nhà quanh làng vào nong, nhiều bàn tay dân làng góp gạo vải — KHÔNG chữ",
+    "img-05 giong trang si: tráng sĩ khổng lồ giáp sắt xanh rêu cưỡi ngựa sắt đen phun lửa, roi sắt, vươn mình cao lớn giữa trận địa",
+    "img-06 tre dang nga: bụi tre xanh vàng mọc san sát vệ đường quất xuống, sau trận — tre Đằng Ngà",
+    "img-07 trang co thu vdult 1329: trang giấy dó cổ amber, nét mực thư pháp mờ gợi vị thần thổ địa cạnh chùa làng — không chữ đọc được",
+    "img-08 trang co thu lncq 1492: trang giấy dó khác tông, cảnh chép truyền kỳ có hình bé bỏ lên ngựa sắt",
+    "img-09 trang co thu dvsktt: trang chính sử nghiêm cẩn, vài dòng mực ngắn — cảnh quan chép sử",
+    "img-10 den phu dong: đền Phù Đổng đỏ son ngày hội trận, cờ hội, đám đông nhập vai quân sĩ (nhà nông làm quân)",
+    "img-11 den soc: đền Sóc trên núi Sóc + giò hoa tre (bó tre hoa giấy đỏ) là lễ vật",
+    "img-12 bay ve troi: đỉnh núi Ninh Sóc, tráng sĩ cởi áo bào để lại trên tảng đá, cưỡi ngựa sắt bay lên mây — KHÔNG phải cảnh chết",
+    "img-13 hoi hom nay: hội làng hôm nay mùng 9 tháng Tư, trẻ con cầm cờ múa, trống hội, mâm cỗ hạt gạo"
+  ],
+
+  "sources": [
+    {"id": "vdult", "title": "Việt Điện U Linh Tập (Lý Tế Xuyên, 1329) · Hạo khí anh linh — 'Xung Thiên Dũng Liệt Chiêu Ứng Uy Tín Đại Vương' (truyện Báo Cực)", "used_for": "lớp sớm nhất 1329: thần Thổ địa chùa Kiến Sơ, hương Phù Đổng, huyện Tiên Du; gia phong 1313; chưa có truyện đánh giặc", "reliability": "primary"},
+    {"id": "lncq", "title": "Lĩnh Nam chích quái · truyền kỳ 'Phù Đổng Thiên Vương' (gốc Trần Thế Pháp TK XIV; Vũ Quỳnh – Kiều Phú hiệu chính 1492) — nguyên văn đầy đủ vi.wikisource 2026-10-17", "used_for": "Long Quân cụ già; 3 tuổi chưa nói; ngoài 60; ngựa sắt 18 thước/kiếm 7 thước/nón sắt; 'Xóm làng phải chung góp gạo vải'; 'Ta là thiên tướng nhà Trời đây!'; kiếm gãy → bụi tre; núi Ninh Sóc bay về trời; 100 mẫu ruộng tự điền; đời Lý 'Sung Thiên Thần Vương'; tre Đằng Ngà, làng Cháy", "reliability": "primary"},
+    {"id": "dvsktt", "title": "Đại Việt sử ký toàn thư · Ngoại kỷ · Triều họ Hồng Bàng · Hùng Vương (Ngô Sĩ Liên 1479, bản Chính hiệu 1697; bản dịch Viện KH XH VN)", "used_for": "đoạn Phù Đổng nguyên văn: 'hơn ba tuổi... không biết nói cười'; xin gươm ngựa roi sắt; 'giặc tự quay giáo đánh lẫn nhau'; 'nhảy ngựa lên không mà đi'; 'lập đền thờ phụng'; núi Vũ Ninh", "reliability": "primary"},
+    {"id": "hoi_phu_dong", "title": "Hội Gióng đền Phù Đổng (scov.gov.vn, dsvh.gov.vn, chinhphu.vn, baotanglichsu.vn)", "used_for": "7–9/4 AL chính hội 9/4, hội trận, rước nước/rước cờ/khám đường/duyệt tướng, bãi Soi Bia, ca dao mồng Chín tháng Tư", "reliability": "secondary"},
+    {"id": "hoi_soc", "title": "Hội Gióng đền Sóc (hanoimoi.vn, nguoihanoi.vn, dsvh.gov.vn — đa nguồn khớp)", "used_for": "6–8 tháng Giêng, Mộc Dục đêm mùng 5, 8 lễ vật (trầu cau, cầu húc, ngà voi, cỏ voi, ngựa sắt thần mã, voi chiến, kiệu nữ tướng trẻ, giò hoa tre làng Vệ Linh), trò võ", "reliability": "secondary"},
+    {"id": "unesco", "title": "UNESCO 16/11/2010, Nairobi — 'Hội Gióng đền Phù Đổng và đền Sóc' Di sản VH phi vật thể đại diện nhân loại (chinhphu.vn, scov.gov.vn, baotanglichsu.vn)", "used_for": "mốc UNESCO Hồi 3", "reliability": "secondary"}
+  ],
+
+  "tts_pronunciation_risk_terms": ["Phù Đổng", "Võ Giàng", "Võ Ninh", "Kiến Sơ", "Vệ Linh", "Đằng Ngà", "Ninh Sóc", "Soi Bia", "Mộc Dục", "cầu húc", "Tiên Du", "Gia Bình", "thiên tướng", "hai trượng"],
+  "bgm_plan": "REUSE track đã QC S2E01 (dispatch cho phép): 'Mesmerize' — Kevin MacLeod (incompetech.com), Piano, 424s, CC BY 4.0 (media-library/bgm/explainer/Mesmerize.mp3, sha256 trong catalog.json). License CC BY 4.0 cho phép dùng lại + credit. Loop bed acrossfade ~3 đoạn, loudnorm I=-24 TP=-2, fade-out 4s. Credit vào youtube.json + metadata. KHÔNG kế thừa track chưa kiểm tra (bài học Ep.03 d-008)."
+}

@@ -1,0 +1,316 @@
+[
+ {
+  "scene": "sc001",
+  "group": "a",
+  "window": [
+   0.0,
+   13.4
+  ],
+  "fail_calls": [
+   [
+    "Thánh Gióng",
+    1,
+    0.9925
+   ]
+  ],
+  "ok_calls": [
+   "Một roi sắt"
+  ],
+  "spec_anchors": [
+   "Một roi sắt",
+   "Thánh Gióng"
+  ],
+  "narration_in_window": "cứu nước nổi tiếng nhất của người Việt, theo truyện kể, là một đứa trẻ 3 tuổi, chưa từng nói một lời. Và khi cất tiếng nói đầu tiên, điều nó xin không phải cơm áo, cũng không phải mẹ. Mà là vũ khí. Một thanh gươm. Một co"
+ },
+ {
+  "scene": "sc005",
+  "group": "e",
+  "window": [
+   52.067,
+   72.1
+  ],
+  "fail_calls": [
+   [
+    "mâm cỗ",
+    1,
+    -0.03
+   ]
+  ],
+  "ok_calls": [
+   "hạt gạo",
+   "ngôi đền",
+   "về lại làng"
+  ],
+  "spec_anchors": [
+   "hạt gạo",
+   "về lại làng"
+  ],
+  "narration_in_window": "có hạt gạo, trong khói đền có tiếng trống, giữa làng có ngôi đền đỏ son thờ một đứa trẻ. Chẳng ai phải giải thích gì thêm. Câu chuyện này không nằm trong sách. Nó ra khỏi sách, về lại làng. Còn nó chép ra từ bao giờ, ta "
+ },
+ {
+  "scene": "sc010",
+  "group": "d",
+  "window": [
+   136.967,
+   155.1
+  ],
+  "fail_calls": [
+   [
+    "kho vua chúa thần thánh",
+    1,
+    -0.364
+   ]
+  ],
+  "ok_calls": [
+   "một đứa trẻ 3 tuổi",
+   "một đứa trẻ 3 tuổi",
+   "một đứa trẻ 3 tuổi",
+   "cha mẹ đã ngoài 60",
+   "cha mẹ đã ngoài 60",
+   "cha mẹ đã ngoài 60"
+  ],
+  "spec_anchors": [
+   "một đứa trẻ 3 tuổi",
+   "cha mẹ đã ngoài 60"
+  ],
+  "narration_in_window": "là một đứa trẻ 3 tuổi, chưa nói được một lời, con nhà giàu mà cha mẹ đã ngoài 60. Vì sao? Ai đã viết chuyện này? Họ viết bằng ý gì? Và điều gì khiến nó sống đến hôm nay, khi trên bãi đất cạnh làng, trẻ con vẫn cầm cờ múa"
+ },
+ {
+  "scene": "sc016",
+  "group": "d",
+  "window": [
+   231.867,
+   250.433
+  ],
+  "fail_calls": [
+   [
+    "chân núi Vũ Ninh",
+    1,
+    -0.3303
+   ]
+  ],
+  "ok_calls": [
+   "Giặc tự quay giáo đánh lẫn nhau",
+   "nhảy ngựa lên không"
+  ],
+  "spec_anchors": [
+   "Giặc tự quay giáo đánh lẫn nhau",
+   "nhảy ngựa lên không"
+  ],
+  "narration_in_window": "'Giặc tự quay giáo đánh lẫn nhau.' rồi 'Đứa trẻ nhảy ngựa lên không mà đi.' rồi mất tích. Nhà vua sai sửa sang nơi vườn nhà nó ở, lập đền thờ phụng. Hết. Vài dòng. Một đứa trẻ im lặng, một lời xin vũ khí, một trận đánh m"
+ },
+ {
+  "scene": "sc034",
+  "group": "d",
+  "window": [
+   492.233,
+   498.033
+  ],
+  "fail_calls": [
+   [
+    "Đằng Ngà",
+    1,
+    1.0805
+   ]
+  ],
+  "ok_calls": [
+   "Roi sắt quất đến gãy",
+   "vồ luôn bụi tre"
+  ],
+  "spec_anchors": [
+   "Roi sắt quất đến gãy",
+   "vồ luôn bụi tre"
+  ],
+  "narration_in_window": "Roi sắt quất đến gãy. Cậu vồ luôn bụi tre bên đường quất tiếp. Tre ngả vàng theo vết roi, sau này"
+ },
+ {
+  "scene": "sc040",
+  "group": "d",
+  "window": [
+   566.4,
+   582.933
+  ],
+  "fail_calls": [
+   [
+    "Ngựa sắt",
+    1,
+    -0.1532
+   ]
+  ],
+  "ok_calls": [
+   "cao 18 thước",
+   "cao 18 thước",
+   "dài 7 thước",
+   "dài 7 thước",
+   "quen thuộc nhất",
+   "thuộc về thời được kể"
+  ],
+  "spec_anchors": [
+   "Roi sắt",
+   "quen thuộc nhất"
+  ],
+  "narration_in_window": "Roi sắt. Kiếm dài 7 thước, ngựa cao 18 thước. Truyện kể về một thời vua Hùng rất xa, nhưng những người chép chuyện này, từ thời Trần đến năm 1492, sống giữa thế giới mà roi sắt và kỵ binh là công nghệ quen thuộc nhất. Vậ"
+ },
+ {
+  "scene": "sc041",
+  "group": "e",
+  "window": [
+   582.933,
+   599.233
+  ],
+  "fail_calls": [
+   [
+    "thời được kể",
+    1,
+    -0.0736
+   ],
+   [
+    "câu hỏi",
+    1,
+    -1.2638
+   ]
+  ],
+  "ok_calls": [
+   "trí nhớ của người chép",
+   "Gạo đến từ xóm làng"
+  ],
+  "spec_anchors": [
+   "trí nhớ của người chép",
+   "Gạo đến từ xóm làng"
+  ],
+  "narration_in_window": "về trí nhớ của người chép? Đây là câu hỏi, không phải kết luận. Ta không lấy vũ khí để đoán tuổi của truyện, theo bất kỳ chiều nào. Ta chỉ ghi nhận một điều dịu dàng hơn: dù sắt thuộc về ai, thì gạo trong truyện này khôn"
+ },
+ {
+  "scene": "sc052",
+  "group": "d",
+  "window": [
+   735.0,
+   743.867
+  ],
+  "fail_calls": [
+   [
+    "Hội lớn",
+    1,
+    -0.8571
+   ],
+   [
+    "bao đời nay",
+    1,
+    -0.2744
+   ]
+  ],
+  "ok_calls": [
+   "điều họ chọn ghi nhớ",
+   "không chứng minh trận đánh",
+   "chỉ nói về người thờ"
+  ],
+  "spec_anchors": [
+   "không chứng minh trận đánh",
+   "chỉ nói về người thờ"
+  ],
+  "narration_in_window": "không chứng minh trận đánh năm xưa có thật. Bằng chứng tín ngưỡng chỉ nói về người thờ, và điều họ chọn ghi nhớ. Chọn ghi nhớ một đứa trẻ im lặng. Chọn ghi nhớ lời xin vũ"
+ },
+ {
+  "scene": "sc053",
+  "group": "e",
+  "window": [
+   743.867,
+   757.9
+  ],
+  "fail_calls": [
+   [
+    "đứa trẻ im lặng",
+    1,
+    -0.1758
+   ],
+   [
+    "lời xin vũ khí đầu đời",
+    1,
+    -0.0594
+   ]
+  ],
+  "ok_calls": [
+   "Chọn ghi nhớ gạo của cả làng",
+   "đọc chậm"
+  ],
+  "spec_anchors": [
+   "Chọn ghi nhớ gạo của cả làng",
+   "đọc chậm"
+  ],
+  "narration_in_window": "Chọn ghi nhớ gạo của cả làng. Vậy là câu hỏi mở đầu quay lại: vì sao trong cả kho thần tướng vua chúa, người xưa chọn một đứa trẻ 3 tuổi chưa từng nói? Để trả lời, ta quay về ba chi tiết nhỏ nhất của truyện, và đọc chậm."
+ },
+ {
+  "scene": "sc063",
+  "group": "c",
+  "window": [
+   862.867,
+   866.367
+  ],
+  "fail_calls": [
+   [
+    "hư mất đời",
+    1,
+    0.8095
+   ]
+  ],
+  "ok_calls": [
+   "Ai ơi mồng Chín tháng Tư"
+  ],
+  "spec_anchors": [
+   "Ai ơi mồng Chín tháng Tư",
+   "hư mất đời"
+  ],
+  "narration_in_window": "'Ai ơi mồng Chín tháng Tư. Không đi hội Gióng cũng hư mất"
+ },
+ {
+  "scene": "sc064",
+  "group": "d",
+  "window": [
+   866.367,
+   878.6
+  ],
+  "fail_calls": [
+   [
+    "mồng Chín tháng Tư",
+    1,
+    -0.2262
+   ]
+  ],
+  "ok_calls": [
+   "Trẻ con làng Phù Đổng",
+   "Cùng một hạt gạo"
+  ],
+  "spec_anchors": [
+   "Trẻ con làng Phù Đổng",
+   "Cùng một hạt gạo"
+  ],
+  "narration_in_window": "Trẻ con làng Phù Đổng cầm cờ múa qua bãi Soi Bia, theo lễ truyền thống bao đời. Trống vẫn dồn. Và trên mâm cỗ ngoài sân, vẫn có hạt gạo. Cùng một hạt gạo đã từng nuôi cậu bé năm nào. Trong tín ngưỡng dân gian, Thánh"
+ },
+ {
+  "scene": "sc065",
+  "group": "e",
+  "window": [
+   878.6,
+   885.767
+  ],
+  "fail_calls": [
+   [
+    "Phù Đổng đứng thứ hai",
+    1,
+    0.8372
+   ]
+  ],
+  "ok_calls": [
+   "Tứ bất tử",
+   "Tản Viên Sơn Thánh",
+   "Phù Đổng Thiên Vương",
+   "Chử Đồng Tử",
+   "Liễu Hạnh"
+  ],
+  "spec_anchors": [
+   "Tứ bất tử",
+   "Phù Đổng đứng thứ hai"
+  ],
+  "narration_in_window": "Tứ bất tử, bốn vị thánh bất tử của người Việt đồng bằng: Tản Viên Sơn Thánh, Phù Đổng Thiên Vương, Chử Đồng Tử, và Liễu Hạnh. Phù Đổng đứng"
+ }
+]
