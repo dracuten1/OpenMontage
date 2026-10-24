@@ -1,0 +1,13 @@
+infographic chart-pie-donut-compact-card
+data
+  title BÓC TÁCH DÒNG TIỀN 50 TRIỆU / THÁNG
+  desc Cơ cấu chi tiêu thực tế khi mua nhà trả góp 20 năm
+  values
+    - label Trả nợ ngân hàng (28 triệu)
+      value 56
+    - label Sinh hoạt tối thiểu (15 triệu)
+      value 30
+    - label Quỹ dự phòng rủi ro (7 triệu)
+      value 14
+theme dark
+  palette #FF5E5B #FFB703 #00F5D4

@@ -1,0 +1,13 @@
+infographic chart-bar-plain-text
+data
+  title TỶ LỆ GIÁ NHÀ / THU NHẬP (NUMBEO 2026)
+  desc Số năm tích lũy toàn bộ thu nhập để sở hữu nhà
+  values
+    - label Chuẩn LHQ
+      value 5.0
+    - label TP.HCM
+      value 33.6
+    - label Hà Nội (Top Á)
+      value 38.9
+theme dark
+  palette #10B981 #FFB703 #FF5E5B

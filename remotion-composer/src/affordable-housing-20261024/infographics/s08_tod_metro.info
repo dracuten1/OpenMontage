@@ -1,0 +1,16 @@
+infographic sequence-steps-badge-card
+data
+  title LỜI GIẢI VĨ MÔ & QUY HOẠCH ĐÔ THỊ
+  desc Lộ trình phát triển TOD & đường sắt đô thị giãn dân
+  sequences
+    - label 1. Nghịch lý nội đô
+      desc Giá 107 tr/m² vượt xa sức mua đại chúng
+      icon alert triangle
+    - label 2. Mô hình Đô thị TOD
+      desc Mở rộng tuyến Metro giãn dân ra ngoại vi
+      icon train
+    - label 3. An cư vệ tinh
+      desc Căn hộ 20 – 30 tr/m² trong tầm tay
+      icon check circle
+theme dark
+  palette #FF5E5B #00F5D4 #10B981

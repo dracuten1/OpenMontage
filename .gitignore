@@ -19,11 +19,16 @@ htmlcov/
 .trae/
 .idea/
 .vscode/
+*.bak
+*.bak.*
+
 
 # Pipeline outputs (regenerable — never commit large media)
 output/
 pipeline/
 tests/qa/output/
+out/
+
 
 # Project workspaces (generated assets, renders — all regenerable)
 projects/
@@ -89,6 +94,7 @@ remotion-composer/projects/
 remotion-composer/public/*
 # But keep demo props (shipped with the project for zero-key demos)
 !remotion-composer/public/demo-props/
+
 # Ignore test/scratch compositions in demo-props (keep only curated demos)
 remotion-composer/public/demo-props/test-*
 remotion-composer/public/demo-props/talking-head-*
