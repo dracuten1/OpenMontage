@@ -46,9 +46,9 @@ This is a first-class workflow in OpenMontage.
 
 If a model misses this distinction, it will often fall back to plain search + guesswork. That is incorrect for OpenMontage.
 
-## Mandatory delivery bundle
+## Mandatory delivery bundle (Thumbnail-as-Scene-1 Contract)
 
-**REQUIRED owner delivery contract:** Read `/Users/tuyennguyen/.hermes/skills/media/video-producer/SKILL.md`, section **Mandatory thumbnail delivery contract (SSOT)**. Automatically generate and separately deliver a designed thumbnail PNG/JPG + video + copyable description for EVERY draft/final output, per clip/locale/target. Concepts, player posters, contact sheets and random frames do not count. Record thumbnail absolute paths, measured dimensions, QC and send status in the production report/handoff; failure = INCOMPLETE BUNDLE. Preserve approval gates and manual upload, no auto-post. This overrides any concept-only packaging guidance below.
+**REQUIRED owner delivery contract (Updated 2026-10-30):** Read `/Users/tuyennguyen/.hermes/skills/media/video-producer/SKILL.md`, section **Thumbnail-as-Scene-1 Contract (SSOT)**. Thumbnail **KHÔNG** cần gửi file riêng nữa. Thay vào đó, thumbnail được thiết kế trực tiếp làm **Scene 1 (Thumbnail Card + Hook)** của video (frame đầu t=0 làm cover poster tự nhiên khi đăng TikTok/Shorts/Reels, kèm lời đọc hook mở đầu), sau đó mới chuyển sang các phân cảnh nội dung chi tiết. Gói bàn giao chỉ gồm: **Video** (draft HUD / final master) + **Copyable description** (tiêu đề, caption, timestamps từ scene_timing, hashtags). Không gửi file ảnh thumbnail riêng lẻ.
 
 Read the SSOT before production dispatch and before any output delivery, including compose-stage previews, documentary-montage (which has no publish stage), and alternate renderers. Put its required Video / Thumbnail(s) / Copyable description / Bundle status slots into TASK specs and production reports. Generate the thumbnail before delivering the first draft, not only at publish. Use existing `ExportBundle.thumbnail_path` with a real QC-approved file; a concept-only export is partial. Never mark a bundle complete on successful video packaging alone. Keep native artifact schemas and approval semantics unchanged.
 
