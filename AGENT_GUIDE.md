@@ -52,6 +52,15 @@ If a model misses this distinction, it will often fall back to plain search + gu
 
 Read the SSOT before production dispatch and before any output delivery, including compose-stage previews, documentary-montage (which has no publish stage), and alternate renderers. Put its required Video / Thumbnail(s) / Copyable description / Bundle status slots into TASK specs and production reports. Generate the thumbnail before delivering the first draft, not only at publish. Use existing `ExportBundle.thumbnail_path` with a real QC-approved file; a concept-only export is partial. Never mark a bundle complete on successful video packaging alone. Keep native artifact schemas and approval semantics unchanged.
 
+## Visual Presentation & Safe Zone Contract (SSOT — User Mandate 2026-10-30)
+
+Read `/Users/tuyennguyen/.hermes/skills/media/video-producer/SKILL.md`, section **Yêu cầu về Visual & Hình ảnh (Visual Presentation Contract)**:
+1. **Tuyệt đối cấm video text thuần (Never plain text only):** Video không được chỉ toàn các slide chữ hay bullet points. Mọi phân cảnh đều phải có visual hỗ trợ trực quan sinh động (ảnh thực tế, AI visuals, biểu đồ, infographic AntV).
+2. **Ưu tiên hình ảnh thực tế (prefer + ghi nguồn):** Luôn ưu tiên dùng hình ảnh/footage thực tế (ĐBQH tại nghị trường, hiện trường, cơ quan, sự kiện...). BẮT BUỘC gắn badge/overlay ghi rõ nguồn trích dẫn trên hình (`Ảnh: TTXVN`, `Ảnh: Lao Động`...).
+3. **Tận dụng linh hoạt i2i hoặc t2i:** Với các khái niệm trừu tượng, tương lai, ý niệm (dòng vốn, kho vàng, đường sắt cao tốc, mô hình chứng chỉ vàng số...) hoặc khi thiếu ảnh thực tế phù hợp, BẮT BUỘC tạo hình ảnh minh họa bằng t2i hoặc i2i qua 9router (`ag/gemini-3.1-flash-image`, `cx/gpt-image-2.5-sunburst`, `cx/gpt-5.6-luna-image`). Gắn nhãn minh bạch `Hình minh họa: AI / <Concept>`.
+4. **Vị trí Subscription & Subtitles (Phụ đề):** Đưa Subtitles (phụ đề dynamic) và Subscription box / CTA kênh xuống dải đáy Safe Zone (y: 1540–1750 px trên 1080p); tuyệt đối KHÔNG đè lên các thẻ card nội dung, biểu đồ hay text chính ở trung tâm màn hình (chừa gap an toàn ≥ 40–60px).
+5. **Chống tràn chữ tiêu đề Scene 1 (Scene 1 Title Safe Zone):** Tiêu đề Scene 1 (Cover / Thumbnail Card) không bao giờ được tràn viền hay rớt chữ mất kiểm soát (ví dụ lỗi "500 tấn vàng trong dân"). Giới hạn max-width tiêu đề ≤ 850px trên 1080p (margin lề ≥ 115px), tự động ngắt dòng cân đối (2 dòng) và áp dụng dynamic font size (tiêu đề dài giảm xuống 56–66px, ngắn 72–80px), đảm bảo trọn vẹn trong Safe Zone.
+
 ## Rule Zero — All Production Goes Through a Pipeline
 
 **Every video production request MUST go through the pipeline system. No exceptions.**
