@@ -358,7 +358,7 @@ const Scene1: React.FC = () => {
           <h1
             style={{
               margin: 0,
-              fontSize: 74,
+              fontSize: 64,
               fontWeight: 900,
               color: '#FFFFFF',
               lineHeight: 1.18,
