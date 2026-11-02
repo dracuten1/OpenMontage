@@ -8,7 +8,7 @@
 
 ```
 ASPECT RATIO:     9:16 vertical (1080x1920)
-SAFE ZONE:        900x1400px centered (universal cross-platform)
+SAFE ZONE:        900x1400px centered (universal; TikTok feed override: x 60-940, y 240-1350)
 DURATION:         15s (highest completion) | 30s (best engagement) | 60s (most flexible)
 HOOK:             First 1-2 seconds — visual or text pattern interrupt
 CAPTIONS:         Mandatory (85% watch muted on mobile)
@@ -27,7 +27,9 @@ MUSIC:            120-140 BPM for energetic, 90-110 for explainers
 | YouTube Shorts | 984x1500 | 120px | 300px | 96px |
 | Facebook Reels | 1080x1520 | 100px | 300px | 60px |
 
-**Universal safe zone: 900x1400px centered** — works across all platforms.
+**Universal safe zone: 900x1400px centered** — generic baseline; TikTok feed native UI reaches higher, apply the override below.
+
+**TikTok feed override (research 2026-11-03):** dead zones = top y<240 (tabs/search), right rail x>940 (~140px: avatar/like/comment/share), native caption/username/music y>=1440 (grows upward with long captions). Effective safe box = **x 60–940 × y 240–1350**. Burned captions anchor **y 1215–1345** (center, ≤2 lines, maxWidth ≤880); CTA/subscribe pill **y 1165–1205** above captions, or outro card in content band **y 360–1140**. Never lower-thirds, never bottom-right CTA.
 
 **Bottom dead zones are critical** — platform UI (comments, share buttons, captions) covers the bottom 300-320px. Never put important content there.
 
@@ -129,7 +131,7 @@ MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 | Font weight | Bold |
 | Font family | Sans-serif (Inter, Montserrat, Poppins) |
 | Background | Semi-transparent black (75% opacity) or text stroke (3px) |
-| Position | Center or lower-center, within safe zone |
+| Position | Center, in the y 1215–1345 band (1080p) — never lower-third (blocked by native caption) |
 | Max chars/line | 30 |
 | Max lines | 2 |
 | Word-by-word highlight | Recommended for engagement |
@@ -195,7 +197,7 @@ MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 When building short-form content:
 
 1. **Set output resolution to 1080x1920** (9:16) in the compose stage
-2. **Keep all text within 900x1400px safe zone** — centered in frame
+2. **Keep all text within 900x1400px safe zone** — centered in frame (TikTok feed: x 60–940 × y 240–1350; burned captions y 1215–1345)
 3. **Captions are mandatory** — use `subtitle_gen` with word-by-word timing
 4. **Hook in frame 1** — text overlay + voice starts immediately, no intro
 5. **Visual change every 1-3 seconds** — use quick cuts, zooms, text pops

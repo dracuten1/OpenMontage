@@ -85,7 +85,7 @@ At 3840x2160: Title Safe = inner **3072x1728px**
 | **Facebook Reels** | 1080x1520 | 100px | 300px | 60px |
 | **Instagram Stories** | 1080x1620 | 100px | 200px | — |
 
-**Universal cross-platform safe zone: 900x1400px centered** — works on all platforms.
+**Universal cross-platform safe zone: 900x1400px centered** — generic baseline; TikTok feed override (2026-11-03): safe box **x 60–940 × y 240–1350** (native caption dead zone y≥1440, right rail 140px), burned captions **y 1215–1345** (center, ≤2 lines).
 
 ## Text Animation Timing
 
@@ -218,7 +218,7 @@ When generating text for video in the compose/asset stages:
 
 1. **Font selection** — use the recommended video fonts above; prefer Inter or Open Sans for body, Montserrat Bold for titles
 2. **Size check** — never go below 40px at 1080p for any text element
-3. **Safe zones** — all text within 80% title-safe area; for vertical/short-form, use the 900x1400px universal safe zone
+3. **Safe zones** — all text within 80% title-safe area; for vertical/short-form, use the 900x1400px universal safe zone (TikTok feed: x 60–940 × y 240–1350)
 4. **Subtitle styling** — 42px+, max 2 lines, max 42 chars/line, semi-transparent background at 75% opacity
 5. **Animation** — use easeOutCubic for entrances, hold text for at least 1 second per 13 characters after animation
 6. **Contrast** — verify 4.5:1 minimum on a representative graded frame; prefer white-on-dark-background (21:1)
