@@ -29,7 +29,7 @@ MUSIC:            120-140 BPM for energetic, 90-110 for explainers
 
 **Universal safe zone: 900x1400px centered** — generic baseline; TikTok feed native UI reaches higher, apply the override below.
 
-**TikTok feed override (research 2026-11-03):** dead zones = top y<240 (tabs/search), right rail x>940 (~140px: avatar/like/comment/share), native caption/username/music y>=1440 (grows upward with long captions). Effective safe box = **x 60–940 × y 240–1350**. Burned captions anchor **y 1215–1345** (center, ≤2 lines, maxWidth ≤880); CTA/subscribe pill **y 1165–1205** above captions, or outro card in content band **y 360–1140**. Never lower-thirds, never bottom-right CTA.
+**TikTok feed override (research 2026-11-03):** dead zones = top y<240 (tabs/search), right rail x>940 (~140px: avatar/like/comment/share), native caption/username/music y>=1440 (grows upward with long captions). Effective safe box = **x 60–940 × y 240–1350**. Burned captions anchor **y 1215–1345** (42–46px bold, center, ≤2 lines, chunk ≤64 chars, maxWidth ≤880); CTA/subscribe pill **y 1110–1160** above captions (28px+ text; content ends ≤1050), or outro card in content band **y 360–1140**. Never lower-thirds, never bottom-right CTA.
 
 **Bottom dead zones are critical** — platform UI (comments, share buttons, captions) covers the bottom 300-320px. Never put important content there.
 
@@ -125,9 +125,11 @@ MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 
 **80% of short-form viewers watch without sound** (mid-2025 data). Videos with accurate captions average **12% higher retention**. Captions are not optional.
 
+**TikTok caption/hashtag rules (2026-11-03):** only the first ~80–100 chars of the description are visible in feed — front-load keyword + hook there. 3–5 relevant hashtags only (hard max 5; no #fyp/#foryou vanity tags). Include a comment-driving CTA. Hook text 72–96px heavy sans; one keyword highlighted (#F7C204 or neon accent).
+
 | Parameter | Value |
 |-----------|-------|
-| Font size | 42px+ at 1080p |
+| Font size | 42–46px at 1080p (min 40; badges/labels ≥24) |
 | Font weight | Bold |
 | Font family | Sans-serif (Inter, Montserrat, Poppins) |
 | Background | Semi-transparent black (75% opacity) or text stroke (3px) |

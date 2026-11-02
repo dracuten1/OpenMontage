@@ -264,7 +264,7 @@ const SubscribeBanner: React.FC = () => {
     <div
       style={{
         position: 'absolute',
-        bottom: 715,
+        bottom: 762,
         left: 70,
         right: 140,
         display: 'flex',
@@ -278,12 +278,12 @@ const SubscribeBanner: React.FC = () => {
           background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.35), rgba(234, 88, 12, 0.3))',
           border: '1.5px solid rgba(248, 113, 113, 0.7)',
           borderRadius: 14,
-          padding: '8px 22px',
+          padding: '10px 26px',
           transform: `scale(${pulse})`,
           boxShadow: '0 6px 24px rgba(220, 38, 38, 0.35)',
         }}
       >
-        <span style={{ fontSize: 20, fontWeight: 900, color: '#FECACA', letterSpacing: 0.5 }}>
+        <span style={{ fontSize: 28, fontWeight: 900, color: '#FECACA', letterSpacing: 0.5 }}>
           🔔 THEO DÕI KÝ CHỦ ĐIỂM TIN
         </span>
       </div>
@@ -358,7 +358,7 @@ const Scene1: React.FC = () => {
           <h1
             style={{
               margin: 0,
-              fontSize: 60,
+              fontSize: 74,
               fontWeight: 900,
               color: '#FFFFFF',
               lineHeight: 1.18,
@@ -1427,14 +1427,14 @@ const SceneWrapper: React.FC<{
               background: 'rgba(5, 10, 24, 0.95)',
               border: '2px solid rgba(248, 113, 113, 0.85)',
               borderRadius: 20,
-              padding: '13px 30px',
+              padding: '10px 26px',
               color: '#FFFFFF',
-              fontSize: 30,
+              fontSize: cue.chunk_text.length > 44 ? 42 : 46,
               fontWeight: 800,
-              lineHeight: 1.4,
+              lineHeight: 1.35,
               textAlign: 'center',
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.85)',
-              maxWidth: 900,
+              maxWidth: 880,
             }}
           >
             {cue.chunk_text}

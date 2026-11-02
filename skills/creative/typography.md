@@ -85,7 +85,7 @@ At 3840x2160: Title Safe = inner **3072x1728px**
 | **Facebook Reels** | 1080x1520 | 100px | 300px | 60px |
 | **Instagram Stories** | 1080x1620 | 100px | 200px | — |
 
-**Universal cross-platform safe zone: 900x1400px centered** — generic baseline; TikTok feed override (2026-11-03): safe box **x 60–940 × y 240–1350** (native caption dead zone y≥1440, right rail 140px), burned captions **y 1215–1345** (center, ≤2 lines).
+**Universal cross-platform safe zone: 900x1400px centered** — generic baseline; TikTok feed override (2026-11-03): safe box **x 60–940 × y 240–1350** (native caption dead zone y≥1440, right rail 140px), burned captions **y 1215–1345** (42–46px bold, center, ≤2 lines); hook/cover titles **72–96px** heavy sans with ONE keyword highlighted (#F7C204 yellow or neon accent), 2–5 punchy words max.
 
 ## Text Animation Timing
 
@@ -217,9 +217,9 @@ At 3840x2160: Title Safe = inner **3072x1728px**
 When generating text for video in the compose/asset stages:
 
 1. **Font selection** — use the recommended video fonts above; prefer Inter or Open Sans for body, Montserrat Bold for titles
-2. **Size check** — never go below 40px at 1080p for any text element
+2. **Size check (TikTok v3.1)** — readable text ≥40px at 1080p; badges/source/axis labels ≥24px; never <24px on-screen (debug HUD exempt)
 3. **Safe zones** — all text within 80% title-safe area; for vertical/short-form, use the 900x1400px universal safe zone (TikTok feed: x 60–940 × y 240–1350)
-4. **Subtitle styling** — 42px+, max 2 lines, max 42 chars/line, semi-transparent background at 75% opacity
+4. **Subtitle styling (TikTok v3.1)** — 42–46px bold (dynamic: >44 chars → 42, else 46), max 2 lines, chunk ≤64 chars (re-split longer cues at nearest space to midpoint, interpolate times), background box ~95% opacity
 5. **Animation** — use easeOutCubic for entrances, hold text for at least 1 second per 13 characters after animation
 6. **Contrast** — verify 4.5:1 minimum on a representative graded frame; prefer white-on-dark-background (21:1)
 7. **Platform targeting** — check the platform safe zone table above and adjust text placement accordingly
