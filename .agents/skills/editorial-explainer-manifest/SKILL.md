@@ -26,12 +26,12 @@ Avoid cartoon or childish aesthetics. Anchor all visual and motion decisions in 
 
 Emit this structured JSON manifest before generating assets or executing Remotion renders:
 
-> **CANVAS WARNING — production default is 9:16 vertical** (「Ký Chủ Điểm Tin」: 1080×1920 master / 720×1280 draft HUD). The example below uses 1920×1080 coordinates for readability only — do NOT copy 16:9. All core content (cutouts, charts, headlines) must stay inside the TikTok content band **y 360–1140 @1080p (240–760 @720p)**, right rail reserved (x ≥ 940 @1080p / ≥ 625 @720p), subtitles low (y 1540–1750 @1080p), nothing critical at y ≥ 1440.
+> **CANVAS: production default is 9:16 vertical** (「Ký Chủ Điểm Tin」: 1080×1920 master / 720×1280 draft HUD) — the example below already uses vertical coordinates. All core content (cutouts, charts, headlines) must stay inside the TikTok content band **y 360–1440 @1080p (240–960 @720p)**, right rail reserved (x ≥ 940 @1080p / ≥ 625 @720p), subtitles low (y 1540–1750 @1080p), nothing critical at y ≥ 1440.
 
 ```json
 {
   "project_id": "investigative_explainer_01",
-  "canvas": { "width": 1920, "height": 1080, "fps": 30, "posterize_fps": 15 },
+  "canvas": { "width": 1080, "height": 1920, "fps": 30, "posterize_fps": 15 },
   "style_anchor": "Editorial documentary collage, high-contrast monochrome halftone print with selective crimson accent #D90429, archival newsprint grain, sharp cutout edges, serious journalistic aesthetic",
   "negative_prompt": "cartoon, childish, anime, cute, 3D Pixar render, glossy plastic, comic bubble, vibrant neon, blurry text, watermark",
   "global_overlays": [
@@ -50,8 +50,8 @@ Emit this structured JSON manifest before generating assets or executing Remotio
       "duration_frames": 180,
       "camera": {
         "action": "pan_and_push",
-        "from": { "x": 960, "y": 540, "scale": 1.0 },
-        "to": { "x": 880, "y": 510, "scale": 1.12 },
+        "from": { "x": 540, "y": 960, "scale": 1.0 },
+        "to": { "x": 520, "y": 900, "scale": 1.1 },
         "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
       },
       "layers": [
@@ -63,7 +63,7 @@ Emit this structured JSON manifest before generating assets or executing Remotio
             "method": "t2i",
             "prompt": "dark charcoal architectural blueprint grid background #12161F, subtle coordinate ticks, flat studio vignette, documentary style"
           },
-          "transform": { "x": 960, "y": 540, "w": 1920, "h": 1080, "anchor": "center" },
+          "transform": { "x": 540, "y": 960, "w": 1080, "h": 1920, "anchor": "center" },
           "motion": { "enter": { "type": "fade_in", "start_frame": 0, "duration_frames": 12 } }
         },
         {
@@ -78,7 +78,7 @@ Emit this structured JSON manifest before generating assets or executing Remotio
             "remove_bg": true,
             "drop_shadow": { "dx": 12, "dy": 14, "blur": 18, "color": "rgba(0,0,0,0.65)" }
           },
-          "transform": { "x": 520, "y": 540, "scale": 0.95, "rotation": -2.5, "anchor": "center" },
+          "transform": { "x": 540, "y": 840, "scale": 0.8, "rotation": -2.5, "anchor": "center" },
           "motion": {
             "enter": {
               "type": "slide_and_settle",
@@ -94,7 +94,7 @@ Emit this structured JSON manifest before generating assets or executing Remotio
           "role": "evidence_annotation",
           "pipeline": { "method": "remotion_native", "component": "HighlighterStroke" },
           "style": { "color": "#FFBE0B", "opacity": 0.85, "blend_mode": "multiply" },
-          "transform": { "x": 520, "y": 640, "w": 420, "h": 48, "anchor": "left-center" },
+          "transform": { "x": 130, "y": 1120, "w": 560, "h": 56, "anchor": "left-center" },
           "motion": {
             "enter": {
               "type": "wipe_left_to_right",
@@ -114,7 +114,7 @@ Emit this structured JSON manifest before generating assets or executing Remotio
             "unit": "%",
             "accent_color": "#D90429"
           },
-          "transform": { "x": 1360, "y": 580, "w": 720, "h": 460, "anchor": "center" },
+          "transform": { "x": 540, "y": 1250, "w": 860, "h": 420, "anchor": "center" },
           "motion": {
             "anchor_phrase": "310%",
             "enter": {
@@ -137,7 +137,7 @@ Emit this structured JSON manifest before generating assets or executing Remotio
             "color": "#F8F9FA",
             "tag_bg": "#D90429"
           },
-          "transform": { "x": 1360, "y": 240, "w": 720, "h": 140, "anchor": "center" },
+          "transform": { "x": 540, "y": 500, "w": 900, "h": 150, "anchor": "center" },
           "motion": {
             "enter": {
               "type": "typewriter_reveal",
