@@ -26,12 +26,12 @@ Avoid cartoon or childish aesthetics. Anchor all visual and motion decisions in 
 
 Emit this structured JSON manifest before generating assets or executing Remotion renders:
 
-> **CANVAS: production default is 9:16 vertical** (「Ký Chủ Điểm Tin」: 1080×1920 master / 720×1280 draft HUD) — the example below already uses vertical coordinates. All core content (cutouts, charts, headlines) must stay inside the TikTok content band **y 360–1440 @1080p (240–960 @720p)**, right rail reserved (x ≥ 940 @1080p / ≥ 625 @720p), subtitles low (y 1540–1750 @1080p), nothing critical at y ≥ 1440.
+> **CANVAS: two supported variants — 9:16 vertical (default) and 16:9 landscape.** 「Ký Chủ Điểm Tin」 default: 1080×1920 master / 720×1280 draft HUD (the example below uses vertical coordinates). For YouTube/YouTube Shorts-embed/DESKTOP explainer use, emit a separate 16:9 variant (see §5). 9:16 safe zones: content band **y 360–1440 @1080p (240–960 @720p)**, right rail reserved (x ≥ 940 @1080p / ≥ 625 @720p), subtitles low (y 1540–1750 @1080p), nothing critical at y ≥ 1440.
 
 ```json
 {
   "project_id": "investigative_explainer_01",
-  "canvas": { "width": 1080, "height": 1920, "fps": 30, "posterize_fps": 15 },
+  "canvas": { "width": 1080, "height": 1920, "fps": 30, "posterize_fps": 15, "aspect_variants": ["9x16", "16x9"] },
   "style_anchor": "Editorial documentary collage, high-contrast monochrome halftone print with selective crimson accent #D90429, archival newsprint grain, sharp cutout edges, serious journalistic aesthetic",
   "negative_prompt": "cartoon, childish, anime, cute, 3D Pixar render, glossy plastic, comic bubble, vibrant neon, blurry text, watermark",
   "global_overlays": [
@@ -212,6 +212,19 @@ This skill is a DESIGN layer on top of the OM pipeline — it never replaces the
 4. **Pipeline stage hook.** The manifest is the `scene_plan` stage artifact: save as `projects/<id>/scene_manifest.json`, register it in `checkpoint_scene_plan.json` (with `pipeline_type`, e.g. `animated-explainer`) so the Backlot board reflects the episode. No production outside the board; renders land in `projects/<id>/renders/` (Backlot scans that folder flat — no nested revision dirs).
 5. **SFX sourcing.** Prefer the repo library first: `music_library/sfx/` and `remotion-composer/public/sfx/` (11 curated cinematic files). Only fetch new SFX via `tools/sfx-source/` (CC0/Freesound) with license + source recorded in the manifest. Keep cues at −6 to −14 dB.
 6. **CC worker discovery.** The skill lives in `.agents/skills/editorial-explainer-manifest` with a symlink at `.claude/skills/editorial-explainer-manifest` — if either moves, re-create the symlink or Claude Code workers won't discover it.
+
+## 5. Aspect Variants: 9:16 + 16:9 (owner 11-07 — "để 2 version riêng, tùy thời sử dụng")
+
+Both aspect ratios are first-class outputs, rendered SEPARATELY per episode — owner picks which to publish where (TikTok 9:16, YouTube 16:9). NEVER crop/scale one from the other — layouts are re-composed.
+
+**Convention:**
+- One manifest file per variant, sharing narration/cues/data: `scene_manifest.9x16.json` + `scene_manifest.16x9.json`. Only `canvas`, per-layer `transform`, and safe-zone constraints differ. Speech-lock anchors are IDENTICAL (same WAVs, same words.json) — do not re-align per variant.
+- Renders: `renders/<slug>-9x16-<version>.mp4` and `renders/<slug>-16x9-<version>.mp4`; both land in `projects/<id>/renders/`.
+- 16:9 canvas: 1920×1080 (draft 1280×720 HUD). Title-safe margins ≥5% each edge (x ≥ 96, y ≥ 54); no right-rail reservation; subtitles bottom (y ≥ 940) centered max-width 1600.
+- Layout mapping for the same scene (example scene):
+  - 9:16 stack (vertical): header y500 → cutout y840 → highlighter y1120 → chart y1250.
+  - 16:9 split (horizontal): headline top-left (x 520, y 240, w 720), cutout left (x 520, y 560), highlighter under cutout (x 520, y 760, w 420), chart right (x 1360, y 580, w 720, h 460).
+- Which variants to produce: default BOTH when budget allows; 9:16-only when the brief targets TikTok only. State the chosen variants in the manifest (`"aspect_variants": ["9x16", "16x9"]`) and in checkpoint_scene_plan.
 
 ## Gotchas
 
