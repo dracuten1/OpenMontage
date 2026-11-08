@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "fps": 30,
+  "sample_rate": 48000,
+  "scenes": [{"scene_id":"scene-1","start_frame":0,"end_frame":90,"words":[{"start_ms":100,"end_ms":250},{"start_ms":400,"end_ms":550},{"start_ms":600,"end_ms":750}]}],
+  "sfx_manifest": ["tap.wav"],
+  "events": [{"scene_id":"scene-1","event_id":"tap-1","word_span":[1,2],"visual_onset_frame":12,"contact_peak_ms":400,"sfx_asset":"tap.wav","audible_attack_ms":400,"gain":2,"duration_tail_frames":10}]
+}
