@@ -153,3 +153,25 @@ Kịch bản owner: gen ảnh bình thường, marker ẩn đánh dấu object +
 - 2026-10-06: +§1 Probe gates (A/B/C), +§2 Hermes orchestrator rule (fix_request pattern), +§3 phoneme_dict caveat + chính sách 3 đường thuật ngữ, lỗi v2→v5 aivn-20261006 ghi nhận.
 - 2026-10-07: +§4 Focal visual (gen image base + TSX overlay + hexpix region encoding, test thực 3 prompt luna-image) + script `scripts/hexpix_decode.py`. +§4b hexpix v2 sprite động + path (thuyền chạy theo sông, verified end-to-end) + script `scripts/hexpix_extract.py`; bài học: inpaint thủ công FAIL 9/9, xoá object bằng gen-edit model. +§4c hexpix v3 2-pass (nền ink thuần → edit marker colored-ink → edit remove): 3 gen calls, hue-unit gotcha OpenCV 0–179.
 - 2026-10-10: +§0b native Agent Teams thành chế độ team CHÍNH (owner quyết định); N×`claude -p` song song xuống fallback. Đã restore doctrine từ commit de4c3b3 (file từng mất khỏi working tree ở branch `latest`). Guardrails: teammate hardcode `claude-opus-4-6` (map 9router combo `glmagenticfb`), permission teammate hiện pane lead, send-keys Enter đôi, verify qua subagent jsonl (model ≠ `<synthetic>` + tool_use thật).
+
+## §7. Scene-isolated production team (P1.3, 2026-11-08)
+
+- Director mỏng (thin director) là writer duy nhất của scene packet canonical; director điều phối/planning/assets nhưng không tự viết nội dung scene.
+- Mỗi scene dùng một fresh writer instance riêng; song song giữa các scene, mặc định tối đa 2–3 writer. Worker chỉ sở hữu file scene-local; thay đổi shared code/timing/TTS phải yêu cầu director.
+- Mỗi scene có fresh reviewer độc lập, không phải writer của scene đó. Reviewer chỉ đọc artifact sau khi hash được freeze; không nhận reasoning của writer làm bằng chứng. Verdict gắn với hash đã review.
+- Packet lifecycle: freeze inputs → writer tạo scene → freeze output hashes → reviewer ký verdict → integration gate. Sửa sau review làm stale packet; phải review lại.
+- Prompt scope không phải OS sandbox. `allowed_io` là hợp đồng kiểm tra máy móc, không bảo đảm cách ly filesystem nếu môi trường thực thi không sandbox.
+- ENS mapping: leader = director; developer/worker = writer; reviewer agent = reviewer. `.claude/agents/` role files là legacy reference only; Claude Code đã dừng, không phải cơ chế thực thi ENS.
+- Enforce bằng `python tools/qc/scene_packet.py <packet.json>` và `python tools/qc/episode_gate.py <episode_dir>` trước integration/compose.
+
+### §7 Changelog
+- 2026-11-08: +§7 scene-isolated production team, packet ownership/freeze/reviewer independence và CLI enforcement P1.3.
+
+### §7 Enforcement boundaries and deferred work (P1.3 follow-up)
+- CLI `scene_packet.py` kiểm cấu trúc; token trên CLI chỉ là giá trị tiện ích không phải trust boundary. Production director phải truyền writer/reviewer token out-of-band vào API integration; integration gate luôn bắt buộc và kiểm tra token, hashes, frozen membership và reviewer independence.
+- Episode gate gọi timing, production-validation và mix-validator; thiếu mix stems/profile báo not_measured và fail-closed.
+- Episode visual continuity checker chưa triển khai; continuity checks defer.
+- Scheduler chưa có code: scheduling hiện prose-only, implementation defer tới P1.4+.
+- Native Agent Teams smoke test/session-independence verification chưa chạy; defer tới controlled production smoke.
+- `.claude/agents/` chỉ legacy reference; không phải runtime implementation.
+- Token chỉ là cơ chế consistency check chứ không phải authentication: kênh CLI mang tính self-attestation, còn kênh API tự bind credentials của caller theo giả định trusted orchestrator.
