@@ -5,7 +5,10 @@
   "scripts": {
     "start": "npx remotion studio",
     "build": "npx remotion render src/index.tsx Explainer out/video.mp4",
-    "upgrade": "npx remotion upgrade"
+    "upgrade": "npx remotion upgrade",
+    "test": "vitest run",
+    "validate:layout": "node src/components/layoutGuard.cli.mjs",
+    "validate:events": "node --experimental-strip-types src/components/semanticEvents.cli.mjs"
   },
   "dependencies": {
     "@antv/infographic": "^0.2.20",

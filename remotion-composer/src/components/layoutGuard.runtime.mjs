@@ -1,0 +1,13 @@
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const ts = require('typescript');
+const here = dirname(fileURLToPath(import.meta.url));
+const source = readFileSync(join(here, 'layoutGuard.ts'), 'utf8');
+const js = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2020, module: ts.ModuleKind.CommonJS } }).outputText;
+const mod = { exports: {} };
+new Function('exports', 'require', 'module', '__filename', '__dirname', js)(mod.exports, require, mod, join(here, 'layoutGuard.ts'), here);
+export const validateSceneLayout = mod.exports.validateSceneLayout;
