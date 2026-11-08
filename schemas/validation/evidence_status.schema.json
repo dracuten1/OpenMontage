@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "openmontage/validation/evidence_status",
+  "title": "Evidence Status and Production Validation Contract",
+  "description": "Unified status and evidence validation contract for pre-render and post-render verification in OpenMontage.",
+  "type": "object",
+  "required": ["version", "project_id", "pipeline_type", "mode", "status", "records"],
+  "properties": {
+    "version": { "type": "string", "const": "1.0" },
+    "project_id": { "type": "string" },
+    "pipeline_type": { "type": "string" },
+    "mode": { "type": "string", "enum": ["strict", "legacy"] },
+    "status": {
+      "type": "string",
+      "enum": ["pass", "revise", "blocked", "not_measured"]
+    },
+    "blocking_reasons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["gate_name", "scope", "status", "severity", "evidence_paths"],
+        "properties": {
+          "gate_name": { "type": "string" },
+          "scope": {
+            "type": "string",
+            "enum": ["pre_render", "compose", "post_render", "final", "export"]
+          },
+          "status": {
+            "type": "string",
+            "enum": ["pass", "revise", "blocked", "not_measured"]
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "important", "warning", "info"]
+          },
+          "evidence_paths": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "scene_coverage": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "expected_scenes": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "fingerprint": { "type": "string" },
+          "issues": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "metadata": { "type": "object" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "metadata": { "type": "object" }
+  },
+  "additionalProperties": true
+}

@@ -191,7 +191,9 @@ def _validate_edit_decisions_audio_sync(
     from lib.timing_validator import validate_edit_timing_against_audio
 
     project_dir = pipeline_dir / project_id
-    res = validate_edit_timing_against_audio(edit_decisions, project_dir)
+    validation_mode = (checkpoint.get("metadata") or {}).get("validation_mode", "legacy") if checkpoint else "legacy"
+    res = validate_edit_timing_against_audio(edit_decisions, project_dir, mode=validation_mode)
+
 
     if res.warnings:
         logger = logging.getLogger(__name__)
@@ -278,6 +280,19 @@ def _validate_artifacts_for_stage(
             _validate_edit_decisions_audio_sync(
                 artifacts["edit_decisions"], pipeline_dir, project_id, checkpoint=checkpoint,
             )
+
+        if stage in {"compose", "publish"} and checkpoint is not None:
+            from lib.production_validation import (
+                ProductionValidationError,
+                validate_checkpoint_production_gate,
+            )
+            try:
+                validate_checkpoint_production_gate(
+                    checkpoint, pipeline_dir, project_id,
+                )
+            except ProductionValidationError as exc:
+                raise CheckpointValidationError(str(exc)) from exc
+
 
 
 def validate_checkpoint(

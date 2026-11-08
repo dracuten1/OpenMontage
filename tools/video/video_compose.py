@@ -930,6 +930,180 @@ class VideoCompose(BaseTool):
         visit(value)
         return len(staged_by_source)
 
+    def _resolve_compose_validation_mode(
+        self,
+        inputs: dict[str, Any],
+        edit_decisions: dict[str, Any] | None = None,
+        output_path: Path | None = None,
+    ) -> str:
+        """Resolve validation mode ('strict' vs 'legacy') for compose operations.
+
+        Precedence:
+        1. inputs['validation_mode']
+        2. edit_decisions['metadata']['validation_mode']
+        3. resolve_validation_mode on project directory (project.json or projects/ tree)
+        4. Fallback to 'strict' for safety
+        """
+        val_mode = inputs.get("validation_mode")
+        if val_mode:
+            return str(val_mode)
+
+        if edit_decisions and isinstance(edit_decisions.get("metadata"), dict):
+            ed_mode = edit_decisions["metadata"].get("validation_mode")
+            if ed_mode:
+                return str(ed_mode)
+
+        if output_path:
+            try:
+                from lib.production_validation import resolve_validation_mode
+                p_out = Path(output_path).resolve()
+                proj_dir = p_out.parent.parent
+                return resolve_validation_mode(pipeline_dir=proj_dir.parent, project_id=proj_dir.name)
+            except Exception:
+                pass
+
+        return "strict"
+
+    def _enforce_render_completion(
+        self,
+        *,
+        render_result: ToolResult,
+        final_review: dict[str, Any],
+        output_path: Path,
+        mode: str,
+        renderer_name: str,
+    ) -> ToolResult:
+        """Enforce post-render validation and review status on render callers.
+
+        Blocks invalid renders across Atelier, Remotion, FFmpeg, and HyperFrames:
+        - In all modes: 'fail', 'blocked', missing status, or empty status returns success=False.
+        - In strict mode: 'revise', 'not_measured', or any non-'pass' status returns success=False.
+        - In legacy mode: deliberate legacy mode allows 'revise' or 'not_measured' (not_measured fails strict only).
+          with warnings preserved in data.
+        - Attached final_review and production_validation_report are preserved in data.
+        """
+        data = render_result.data if isinstance(render_result.data, dict) else {}
+        render_result.data = data
+        data["final_review"] = final_review
+
+        raw_status = final_review.get("status")
+        status = str(raw_status).strip().lower() if raw_status is not None else ""
+        data["final_review_status"] = status or "not_measured"
+
+        # Ensure production_validation_report is attached
+        if "production_validation_report" not in final_review and output_path.exists():
+            try:
+                from lib.production_validation import validate_post_render
+                proj_dir = Path(output_path).resolve().parent.parent
+                post_val = validate_post_render(
+                    project_dir=proj_dir,
+                    output_path=Path(output_path),
+                    final_review=final_review,
+                    mode=mode,
+                )
+                final_review["production_validation_report"] = post_val.to_dict()
+            except Exception as e:
+                logging.getLogger("video_compose").warning(
+                    "Could not attach post-render validation report: %s", e
+                )
+
+        if "production_validation_report" in final_review:
+            data["production_validation_report"] = final_review["production_validation_report"]
+
+        artifacts = [str(output_path)] if output_path.exists() else []
+        issues = list(final_review.get("issues_found", final_review.get("issues", [])))
+        pv_report = data.get("production_validation_report")
+        if not isinstance(pv_report, dict):
+            message = "Production validation report missing or invalid."
+            if mode == "strict":
+                issues.append(message)
+                return ToolResult(
+                    success=False,
+                    error=f"Post-render production validation failed ({renderer_name}).\n  • {message}",
+                    data=data,
+                    artifacts=artifacts,
+                )
+            logging.getLogger("video_compose").warning(message)
+        else:
+            for br in pv_report.get("blocking_reasons") or []:
+                if br not in issues:
+                    issues.append(br)
+
+        # Unknown review states are invalid in both modes. Legacy compatibility only
+        # permits the documented non-blocking statuses below.
+        known_statuses = {"pass", "fail", "revise", "not_measured", "blocked"}
+        if status not in known_statuses:
+            issue_str = "\n".join(f"  • {i}" for i in issues) if issues else "  • Review status is unknown."
+            return ToolResult(
+                success=False,
+                error=f"Post-render self-review has unknown status {status!r} ({renderer_name}).\n{issue_str}",
+                data=data,
+                artifacts=artifacts,
+            )
+
+        # 1. Fail or blocked: always fails across both strict and legacy
+        if status in {"fail", "blocked"}:
+            issue_str = "\n".join(f"  • {i}" for i in issues) if issues else f"  • Status: {status}"
+            return ToolResult(
+                success=False,
+                error=(
+                    f"Post-render self-review {status.upper()} ({renderer_name}). The output is not presentable.\n"
+                    f"{issue_str}"
+                ),
+                data=data,
+                artifacts=artifacts,
+            )
+
+        # 2. Revise: fails in strict mode; allowed in deliberate legacy mode
+        if status == "revise":
+            if mode == "strict":
+                issue_str = "\n".join(f"  • {i}" for i in issues) if issues else "  • Revision required."
+                return ToolResult(
+                    success=False,
+                    error=(
+                        f"Post-render self-review requires revision (status='revise', renderer={renderer_name}). "
+                        f"The output is not presentable:\n"
+                        f"{issue_str}"
+                    ),
+                    data=data,
+                    artifacts=artifacts,
+                )
+
+        # 3. Not measured or missing status: fails in strict mode
+        if status in {"not_measured", ""}:
+            if mode == "strict":
+                disp = status or "missing"
+                issue_str = "\n".join(f"  • {i}" for i in issues) if issues else "  • Review status was not measured."
+                return ToolResult(
+                    success=False,
+                    error=(
+                        f"Post-render self-review status is not measured or missing (status={disp!r}, renderer={renderer_name}). "
+                        f"Strict mode requires explicit 'pass'. The output is not presentable:\n"
+                        f"{issue_str}"
+                    ),
+                    data=data,
+                    artifacts=artifacts,
+                )
+
+        # Strict mode requires an explicit passing production report when attached.
+        if status == "pass" and mode == "strict" and isinstance(pv_report, dict):
+            rep_status = pv_report.get("status")
+            if not rep_status or rep_status != "pass":
+                reasons = pv_report.get("blocking_reasons") or issues
+                issue_str = "\n".join(f"  • {r}" for r in reasons) if reasons else f"  • Status: {rep_status!r}"
+                return ToolResult(
+                    success=False,
+                    error=(
+                        f"Post-render production validation gate failed with status {rep_status!r} ({renderer_name}). "
+                        f"The output is not presentable:\n"
+                        f"{issue_str}"
+                    ),
+                    data=data,
+                    artifacts=artifacts,
+                )
+
+        return render_result
+
     def _render_via_atelier(
         self,
         inputs: dict[str, Any],
@@ -1069,12 +1243,14 @@ class VideoCompose(BaseTool):
         # art-direction declaration must exist. The distinctness review
         # ("could this be any other product's video?") stays human; what we
         # automate here is the *doctrine bypass*, not the taste call.
+        mode = self._resolve_compose_validation_mode(inputs, edit_decisions, output_path)
         final_review = self._run_final_review(
             output_path=output_path,
             edit_decisions=edit_decisions,
             proposal_packet=inputs.get("proposal_packet"),
             narration_transcript_path=inputs.get("narration_transcript_path"),
             script_text=inputs.get("script_text"),
+            validation_mode=mode,
         )
 
         atelier_checks = self._run_atelier_checks(entry_path, bespoke)
@@ -1098,18 +1274,14 @@ class VideoCompose(BaseTool):
             "final_review_status": final_review.get("status"),
         }
 
-        if final_review.get("status") == "fail":
-            return ToolResult(
-                success=False,
-                error=(
-                    "Atelier render produced an invalid output:\n"
-                    + "\n".join(f"  • {i}" for i in final_review.get("issues_found", []))
-                ),
-                data=data,
-                artifacts=[str(output_path)],
-            )
-
-        return ToolResult(success=True, data=data, artifacts=[str(output_path)])
+        render_res = ToolResult(success=True, data=data, artifacts=[str(output_path)])
+        return self._enforce_render_completion(
+            render_result=render_res,
+            final_review=final_review,
+            output_path=output_path,
+            mode=mode,
+            renderer_name="Atelier",
+        )
 
     # Source-file extensions that get staged into the composer tree at render time.
     # Anything not in this set lives only under the real project dir (assets, renders,
@@ -1566,6 +1738,32 @@ class VideoCompose(BaseTool):
                 ),
             )
 
+        # --- Unified Production Pre-Render Validation Gate ---
+        output_path_candidate = Path(inputs.get("output_path", "renders/output.mp4")).resolve()
+        project_dir_candidate = output_path_candidate.parent.parent
+        validation_mode = self._resolve_compose_validation_mode(inputs, edit_decisions, output_path_candidate)
+
+        if validation_mode == "strict":
+            from lib.production_validation import validate_pre_render
+            pipeline_type_cand = inputs.get("pipeline_type") or (edit_decisions.get("metadata") or {}).get("pipeline_type", "animated-explainer")
+            pre_val = validate_pre_render(
+                project_dir=project_dir_candidate,
+                edit_decisions=edit_decisions,
+                mode=validation_mode,
+                pipeline_type=pipeline_type_cand,
+                asset_manifest=asset_manifest,
+            )
+            if not pre_val.can_render():
+                return ToolResult(
+                    success=False,
+                    error=(
+                        "Pre-render production validation gate failed:\n"
+                        + "\n".join(f"  • {r}" for r in pre_val.blocking_reasons)
+                    ),
+                    data={"production_validation": pre_val.to_dict()},
+                )
+
+
         # --- Atelier (bespoke) mode -------------------------------------
         # Hand-authored, project-local Remotion composition. Deliberately
         # bypasses the cut-schema, the stock scene-type registry, and the
@@ -1718,7 +1916,14 @@ class VideoCompose(BaseTool):
             render_result = self._compose(compose_inputs)
 
         # --- Post-render: mandatory final self-review ---
-        if render_result.success and output_path.exists():
+        if render_result.success:
+            if not output_path.exists():
+                return ToolResult(
+                    success=False,
+                    error=f"Render completed but output file missing: {output_path}",
+                    data=render_result.data,
+                )
+            mode = self._resolve_compose_validation_mode(inputs, edit_decisions, output_path)
             final_review = self._run_final_review(
                 output_path,
                 edit_decisions,
@@ -1727,25 +1932,16 @@ class VideoCompose(BaseTool):
                 script_text=inputs.get("script_text") or self._read_text_file(
                     inputs.get("script_path")
                 ),
+                validation_mode=mode,
             )
-
-            # Attach final_review to the ToolResult data so the compose-director
-            # skill can include it in the checkpoint alongside the render_report.
-            if render_result.data is None:
-                render_result.data = {}
-            render_result.data["final_review"] = final_review
-            render_result.data["final_review_status"] = final_review["status"]
-
-            # If the self-review says fail, downgrade the ToolResult
-            if final_review["status"] == "fail":
-                return ToolResult(
-                    success=False,
-                    error=(
-                        "Post-render self-review FAILED. The output is not presentable.\n"
-                        + "\n".join(f"  • {i}" for i in final_review.get("issues_found", []))
-                    ),
-                    data=render_result.data,
-                )
+            renderer_name = "Remotion" if self._needs_remotion(resolved_cuts) else "FFmpeg"
+            return self._enforce_render_completion(
+                render_result=render_result,
+                final_review=final_review,
+                output_path=output_path,
+                mode=mode,
+                renderer_name=renderer_name,
+            )
 
         return render_result
 
@@ -1855,7 +2051,14 @@ class VideoCompose(BaseTool):
             )
 
         # Post-render: mandatory final self-review (identical contract to the Remotion path).
-        if output_path.exists():
+        if render_result.success:
+            if not output_path.exists():
+                return ToolResult(
+                    success=False,
+                    error=f"HyperFrames render succeeded but output file does not exist: {output_path}",
+                    data=render_result.data,
+                )
+            mode = self._resolve_compose_validation_mode(inputs, edit_decisions, output_path)
             final_review = self._run_final_review(
                 output_path,
                 edit_decisions,
@@ -1864,20 +2067,15 @@ class VideoCompose(BaseTool):
                 script_text=inputs.get("script_text") or self._read_text_file(
                     inputs.get("script_path")
                 ),
+                validation_mode=mode,
             )
-            if render_result.data is None:
-                render_result.data = {}
-            render_result.data["final_review"] = final_review
-            render_result.data["final_review_status"] = final_review["status"]
-            if final_review["status"] == "fail":
-                return ToolResult(
-                    success=False,
-                    error=(
-                        "Post-render self-review FAILED (HyperFrames). The output is not presentable.\n"
-                        + "\n".join(f"  • {i}" for i in final_review.get("issues_found", []))
-                    ),
-                    data=render_result.data,
-                )
+            return self._enforce_render_completion(
+                render_result=render_result,
+                final_review=final_review,
+                output_path=output_path,
+                mode=mode,
+                renderer_name="HyperFrames",
+            )
 
         return render_result
 
@@ -1913,7 +2111,14 @@ class VideoCompose(BaseTool):
         if profile:
             compose_inputs["profile"] = profile
 
+        mode = self._resolve_compose_validation_mode(inputs, edit_decisions, output_path)
         render_result = self._compose(compose_inputs)
+        if render_result.success and not output_path.exists():
+            return ToolResult(
+                success=False,
+                error=f"Render completed but output file missing: {output_path}",
+                data=render_result.data,
+            )
 
         if render_result.success and output_path.exists():
             final_review = self._run_final_review(
@@ -1924,20 +2129,15 @@ class VideoCompose(BaseTool):
                 script_text=inputs.get("script_text") or self._read_text_file(
                     inputs.get("script_path")
                 ),
+                validation_mode=mode,
             )
-            if render_result.data is None:
-                render_result.data = {}
-            render_result.data["final_review"] = final_review
-            render_result.data["final_review_status"] = final_review["status"]
-            if final_review["status"] == "fail":
-                return ToolResult(
-                    success=False,
-                    error=(
-                        "Post-render self-review FAILED (FFmpeg). The output is not presentable.\n"
-                        + "\n".join(f"  • {i}" for i in final_review.get("issues_found", []))
-                    ),
-                    data=render_result.data,
-                )
+            return self._enforce_render_completion(
+                render_result=render_result,
+                final_review=final_review,
+                output_path=output_path,
+                mode=mode,
+                renderer_name="FFmpeg",
+            )
 
         return render_result
 
@@ -2688,12 +2888,25 @@ class VideoCompose(BaseTool):
             "recommended_action": recommended_action,
         }
 
+        try:
+            from lib.production_validation import validate_post_render
+            proj_dir = Path(output_path).resolve().parent.parent
+            post_val = validate_post_render(
+                project_dir=proj_dir,
+                output_path=Path(output_path),
+                final_review=final_review,
+            )
+            final_review["production_validation_report"] = post_val.to_dict()
+        except Exception as e:
+            log.warning("Could not attach post-render validation report: %s", e)
+
         log.info(
             "Final review: status=%s, issues=%d, action=%s",
             status, len(issues), recommended_action,
         )
 
         return final_review
+
 
     @staticmethod
     def _parse_probe_fps(fps_str: str) -> float:

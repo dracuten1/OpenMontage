@@ -13,6 +13,7 @@ from lib.timing_validator import (
     CUT_BOUNDARY_TOLERANCE_SECONDS,
     WORD_ALIGNMENT_TOLERANCE_SECONDS,
     FULL_AUDIO_TOLERANCE_SECONDS,
+    _match_asset_for_cut,
     validate_edit_timing_against_audio,
 )
 from tools.audio.refresh_manifest import probe_audio_duration, refresh_asset_manifest
@@ -233,6 +234,56 @@ class TestTimingValidator:
         assert any("first spoken word timestamp" in e for e in res_bad.errors)
         assert any("word alignment narration_words.json" in e for e in res_bad.errors)
 
+    def test_no_narration_absent_alignment_strict_blocks_legacy_skips(self, tmp_path: Path):
+        project = tmp_path / "silent-no-alignment"
+        cut = {"id": "cut-s01", "scene_id": "s01", "type": "no_narration",
+               "in_seconds": 0.0, "out_seconds": 5.0}
+        strict = validate_edit_timing_against_audio({"cuts": [cut]}, project, mode="strict")
+        assert not strict.valid
+        assert any("requires narration_words.json" in error for error in strict.errors)
+        legacy = validate_edit_timing_against_audio({"cuts": [cut]}, project, mode="legacy")
+        assert legacy.valid
+
+    @pytest.mark.parametrize("payload", [
+        {"intro": {"words": [{"word": "spoken", "start": 1.0}]}},
+        {"intro_title": {"words": [{"word": "spoken", "start": 1.0}]}},
+        {"intro": {"words": []}, "intro_title": {"words": [{"word": "spoken", "start": 1.0}]}},
+    ])
+    def test_no_narration_attribution_requires_unambiguous_zero_words(self, tmp_path: Path, payload):
+        project = tmp_path / "silent-attribution"
+        art = project / "artifacts"
+        art.mkdir(parents=True)
+        (art / "narration_words.json").write_text(json.dumps(payload), encoding="utf-8")
+        cut = {"id": "cut-intro", "scene_id": "intro", "type": "no_narration",
+               "in_seconds": 0.0, "out_seconds": 5.0}
+        result = validate_edit_timing_against_audio({"cuts": [cut]}, project, mode="strict")
+        assert not result.valid
+        assert any("ambiguous" in e or "attributable words" in e for e in result.errors)
+
+    def test_no_narration_flat_words_inside_timeline_rejects(self, tmp_path: Path):
+        project = tmp_path / "silent-flat-words"
+        art = project / "artifacts"
+        art.mkdir(parents=True)
+        (art / "narration_words.json").write_text(json.dumps({"words": [
+            {"word": "spoken", "scene_id": "s01", "global_start": 1.0},
+        ]}), encoding="utf-8")
+        cut = {"id": "cut-s01", "scene_id": "s01", "type": "no_narration",
+               "in_seconds": 0.0, "out_seconds": 5.0}
+        result = validate_edit_timing_against_audio({"cuts": [cut]}, project, mode="strict")
+        assert not result.valid
+        assert any("recognized, scene-attributed alignment" in error for error in result.errors)
+
+        project = tmp_path / "silent-zero-words"
+        art = project / "artifacts"
+        art.mkdir(parents=True)
+        (art / "narration_words.json").write_text(json.dumps({"s01": {"words": []}}), encoding="utf-8")
+        (art / "asset_manifest.json").write_text(json.dumps({"assets": []}), encoding="utf-8")
+        cut = {"id": "cut-s01", "scene_id": "s01", "type": "no_narration",
+               "in_seconds": 0.0, "out_seconds": 5.0}
+        result = validate_edit_timing_against_audio({"cuts": [cut]}, project, mode="strict", asset_manifest={"assets": []})
+        assert result.valid is True
+        assert not result.errors
+
     def test_cut_narration_count_mismatch_warning(self, tmp_path: Path):
         """Count mismatch between cuts and narration assets emits warning and does not hard fail."""
         # 3 cuts vs 2 narration assets
@@ -242,7 +293,7 @@ class TestTimingValidator:
             cut_durations=[4.0, 4.0, 4.0],
             audio_durations=[6.0, 6.0],
         )
-        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest)
+        res = validate_edit_timing_against_audio(edit_decisions, proj_dir, asset_manifest=manifest, mode="legacy")
         # Validation does NOT raise and valid is True (no hard errors when total audio matches or no narration_full.wav)
         assert res.valid is True
         assert len(res.errors) == 0
@@ -646,6 +697,218 @@ class TestCheckpointGateIntegration:
         assert any("exceeds soft cap" in w for w in attached)
 
 
+
+class TestStrictActualAudioTiming:
+    """Tests for P0.2 strict actual-audio timing validation."""
+
+    def test_tokenless_cut_strict_rejects_without_positional_fallback(self, tmp_path: Path):
+        proj_dir = tmp_path / "tokenless-strict"
+        cut_id = "scene-unmapped-unique"
+        cuts = [{"id": cut_id, "in_seconds": 0.0, "out_seconds": 5.0}]
+        assets = [{"id": "narr-s01", "type": "narration", "scene_id": "s01", "duration_seconds": 5.0}]
+        _, status = _match_asset_for_cut(cuts[0], assets, 1, mode="strict")
+        assert cut_id in status
+
+        audio_dir = proj_dir / "assets" / "audio"
+        audio_dir.mkdir(parents=True)
+        audio_path = audio_dir / "s01.wav"
+        _write_real_wav_file(audio_path, 5.0)
+        manifest = {"assets": [dict(assets[0], path="assets/audio/s01.wav")]}
+        result = validate_edit_timing_against_audio(
+            {"cuts": cuts}, proj_dir, asset_manifest=manifest, mode="strict",
+        )
+        assert result.valid is False
+        assert any(cut_id in error for error in result.errors)
+
+    def test_tokenless_cut_legacy_keeps_positional_fallback(self):
+        cut = {"id": "scene-untagged"}
+        assets = [{"id": "narr-s01"}]
+        match, status = _match_asset_for_cut(cut, assets, 1, mode="legacy")
+        assert match is assets[0]
+        assert status == "positional"
+
+    def test_no_narration_cut_passes_strict_word_alignment(self, tmp_path: Path):
+        proj_dir = tmp_path / "no-narration-strict"
+        art_dir = proj_dir / "artifacts"
+        audio_dir = proj_dir / "assets" / "audio"
+        art_dir.mkdir(parents=True)
+        audio_dir.mkdir(parents=True)
+        _write_real_wav_file(audio_dir / "s1.wav", 5.0)
+        manifest = {"assets": [{"id": "narr-s01", "type": "narration", "scene_id": "s01",
+                                 "path": "assets/audio/s1.wav", "duration_seconds": 5.0}]}
+        cut = {"id": "cut-s01", "scene_id": "s01", "type": "no_narration",
+               "in_seconds": 0.0, "out_seconds": 5.0}
+        (art_dir / "narration_words.json").write_text(json.dumps({"s01": {"words": []}}), encoding="utf-8")
+        (art_dir / "asset_manifest.json").write_text(json.dumps({"assets": []}), encoding="utf-8")
+        result = validate_edit_timing_against_audio(
+            {"cuts": [cut]}, proj_dir, asset_manifest=manifest, mode="strict",
+        )
+        assert result.valid is True
+        assert not any("word-alignment mapping failed" in error for error in result.errors)
+
+    def test_shuffled_scenes_match_by_scene_id(self, tmp_path: Path):
+        """Cuts shuffled in list match assets by scene_id, not positional zip."""
+        proj_dir = tmp_path / "shuffled-proj"
+        art_dir = proj_dir / "artifacts"
+        audio_dir = proj_dir / "assets" / "audio"
+        art_dir.mkdir(parents=True)
+        audio_dir.mkdir(parents=True)
+
+        _write_real_wav_file(audio_dir / "voice_s01.wav", 5.0)
+        _write_real_wav_file(audio_dir / "voice_s02.wav", 10.0)
+
+        manifest = {
+            "version": "1.0",
+            "assets": [
+                {"id": "narr-s01", "type": "narration", "scene_id": "s01",
+                 "path": "assets/audio/voice_s01.wav", "duration_seconds": 5.0},
+                {"id": "narr-s02", "type": "narration", "scene_id": "s02",
+                 "path": "assets/audio/voice_s02.wav", "duration_seconds": 10.0},
+            ],
+        }
+        (art_dir / "asset_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+
+        (art_dir / "narration_words.json").write_text(json.dumps([
+            {"word":"one", "scene_id":"s02", "global_start":0.0},
+            {"word":"two", "scene_id":"s01", "global_start":10.0},
+        ]), encoding="utf-8")
+        edit_decisions = {
+            "version": "1.0",
+            "render_runtime": "remotion",
+            "cuts": [
+                {"id": "cut-s02", "scene_id": "s02", "source": "assets/audio/voice_s02.wav",
+                 "in_seconds": 0.0, "out_seconds": 10.0},
+                {"id": "cut-s01", "scene_id": "s01", "source": "assets/audio/voice_s01.wav",
+                 "in_seconds": 10.0, "out_seconds": 15.0},
+            ],
+        }
+        res = validate_edit_timing_against_audio(
+            edit_decisions, proj_dir, asset_manifest=manifest, mode="strict",
+        )
+        res = validate_edit_timing_against_audio(
+            edit_decisions, proj_dir, asset_manifest=manifest, mode="strict",
+        )
+        assert res.valid is True
+        assert len(res.errors) == 0
+
+    def test_missing_audio_in_strict_mode_errors(self, tmp_path: Path):
+        """Missing or unprobeable audio in strict mode must produce hard errors."""
+        proj_dir = tmp_path / "missing-audio-proj"
+        art_dir = proj_dir / "artifacts"
+        art_dir.mkdir(parents=True)
+
+        manifest = {
+            "version": "1.0",
+            "assets": [
+                {"id": "narr-s01", "type": "narration", "scene_id": "s01",
+                 "path": "assets/audio/nonexistent.wav", "duration_seconds": 5.0},
+            ],
+        }
+        (art_dir / "asset_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+
+        edit_decisions = {
+            "version": "1.0",
+            "render_runtime": "remotion",
+            "cuts": [
+                {"id": "cut-s01", "scene_id": "s01", "source": "assets/audio/nonexistent.wav",
+                 "in_seconds": 0.0, "out_seconds": 5.0},
+            ],
+        }
+        res = validate_edit_timing_against_audio(
+            edit_decisions, proj_dir, asset_manifest=manifest, mode="strict",
+        )
+        assert res.valid is False
+        assert any("nonexistent.wav" in e for e in res.errors)
+
+    def test_multiword_scenes_with_repeated_phrases(self, tmp_path: Path):
+        """Flat words with repeated text correctly resolve by explicit scene_id grouping."""
+        proj_dir = tmp_path / "multiword-proj"
+        art_dir = proj_dir / "artifacts"
+        audio_dir = proj_dir / "assets" / "audio"
+        art_dir.mkdir(parents=True)
+        audio_dir.mkdir(parents=True)
+
+        _write_real_wav_file(audio_dir / "s1.wav", 4.0)
+        _write_real_wav_file(audio_dir / "s2.wav", 4.0)
+
+        manifest = {
+            "version": "1.0",
+            "assets": [
+                {"id": "narr-1", "type": "narration", "scene_id": "s01",
+                 "path": "assets/audio/s1.wav", "duration_seconds": 4.0},
+                {"id": "narr-2", "type": "narration", "scene_id": "s02",
+                 "path": "assets/audio/s2.wav", "duration_seconds": 4.0},
+            ],
+        }
+        (art_dir / "asset_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+
+        # "vàng" repeated in both s01 and s02
+        words = [
+            {"word": "Giá", "scene_id": "s01", "global_start": 0.0, "global_end": 0.5},
+            {"word": "vàng", "scene_id": "s01", "global_start": 0.5, "global_end": 1.0},
+            {"word": "Thị", "scene_id": "s02", "global_start": 4.0, "global_end": 4.5},
+            {"word": "trường", "scene_id": "s02", "global_start": 4.5, "global_end": 5.0},
+            {"word": "vàng", "scene_id": "s02", "global_start": 5.0, "global_end": 5.5},
+        ]
+        (art_dir / "narration_words.json").write_text(json.dumps(words), encoding="utf-8")
+
+        edit_decisions = {
+            "version": "1.0",
+            "render_runtime": "remotion",
+            "cuts": [
+                {"id": "cut-s01", "scene_id": "s01", "source": "assets/audio/s1.wav",
+                 "in_seconds": 0.0, "out_seconds": 4.0},
+                {"id": "cut-s02", "scene_id": "s02", "source": "assets/audio/s2.wav",
+                 "in_seconds": 4.0, "out_seconds": 8.0},
+            ],
+        }
+        res = validate_edit_timing_against_audio(
+            edit_decisions, proj_dir, asset_manifest=manifest, mode="strict",
+        )
+        assert res.valid is True
+        assert len(res.errors) == 0
+
+    def test_empty_bespoke_cuts_require_scene_timeline_contract(self, tmp_path: Path):
+        """In strict mode, empty cuts without bespoke scene contract is rejected."""
+        proj_dir = tmp_path / "bespoke-empty"
+        proj_dir.mkdir()
+        edit_decisions = {
+            "version": "1.0",
+            "render_runtime": "remotion",
+            "composition_mode": "atelier",
+            "cuts": [],
+        }
+        res = validate_edit_timing_against_audio(
+            edit_decisions, proj_dir, mode="strict",
+        )
+        assert res.valid is False
+        assert any("no scene timeline contract" in e.lower() for e in res.errors)
+
+    def test_valid_no_narration_scene_explicitly_declared(self, tmp_path: Path):
+        """Explicit no-narration scene passes without requiring audio asset or words."""
+        proj_dir = tmp_path / "no-narr-proj"
+        art_dir = proj_dir / "artifacts"
+        art_dir.mkdir(parents=True)
+
+        manifest = {"version": "1.0", "assets": []}
+        (art_dir / "asset_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+        (art_dir / "narration_words.json").write_text(json.dumps({"s01": {"words": []}}), encoding="utf-8")
+
+        edit_decisions = {
+            "version": "1.0",
+            "render_runtime": "remotion",
+            "cuts": [
+                {"id": "cut-intro", "scene_id": "s01", "has_narration": False,
+                 "in_seconds": 0.0, "out_seconds": 3.0},
+            ],
+        }
+        res = validate_edit_timing_against_audio(
+            edit_decisions, proj_dir, asset_manifest=manifest, mode="strict",
+        )
+        assert res.valid is True
+        assert len(res.errors) == 0
+
+
 class TestRefreshManifestHelper:
     """Tests for tools/audio/refresh_manifest.py."""
 
@@ -829,3 +1092,169 @@ class TestRefreshManifestHelper:
         attached = record["metadata"]["timing_validation_warnings"]
         assert isinstance(attached, list) and attached
         assert any("asset_manifest.json does not exist yet" in w for w in attached)
+
+
+class TestTimingRelockGuardTool:
+    """Tests for tools/qc/timing_relock_guard.py."""
+
+    def test_guard_validates_project_strict(self, tmp_path: Path):
+        from tools.qc.timing_relock_guard import check_project_timing
+        proj_dir = tmp_path / "guard-valid"
+        art_dir = proj_dir / "artifacts"
+        audio_dir = proj_dir / "assets" / "audio"
+        art_dir.mkdir(parents=True)
+        audio_dir.mkdir(parents=True)
+
+        _write_real_wav_file(audio_dir / "s1.wav", 5.0)
+
+        manifest = {
+            "version": "1.0",
+            "assets": [
+                {"id": "narr-1", "type": "narration", "scene_id": "s01",
+                 "path": "assets/audio/s1.wav", "duration_seconds": 5.0},
+            ],
+        }
+        (art_dir / "asset_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+
+        words = [{"word": "Test", "scene_id": "s01", "global_start": 0.0, "global_end": 0.5}]
+        (art_dir / "narration_words.json").write_text(json.dumps(words), encoding="utf-8")
+
+        edit_decisions = {
+            "version": "1.0",
+            "render_runtime": "remotion",
+            "cuts": [
+                {"id": "cut-s01", "scene_id": "s01", "source": "assets/audio/s1.wav",
+                 "in_seconds": 0.0, "out_seconds": 5.0},
+            ],
+        }
+        (art_dir / "edit_decisions.json").write_text(json.dumps(edit_decisions), encoding="utf-8")
+
+        res = check_project_timing(proj_dir, mode="strict")
+        assert res.valid is True
+        assert len(res.errors) == 0
+
+    def test_guard_fails_on_desync(self, tmp_path: Path):
+        from tools.qc.timing_relock_guard import check_project_timing
+        proj_dir = tmp_path / "guard-invalid"
+        art_dir = proj_dir / "artifacts"
+        audio_dir = proj_dir / "assets" / "audio"
+        art_dir.mkdir(parents=True)
+        audio_dir.mkdir(parents=True)
+
+        _write_real_wav_file(audio_dir / "s1.wav", 5.0)
+
+        manifest = {
+            "version": "1.0",
+            "assets": [
+                {"id": "narr-1", "type": "narration", "scene_id": "s01",
+                 "path": "assets/audio/s1.wav", "duration_seconds": 5.0},
+            ],
+        }
+        (art_dir / "asset_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+
+        edit_decisions = {
+            "version": "1.0",
+            "render_runtime": "remotion",
+            "cuts": [
+                # Cut is 10.0s but audio is 5.0s -> desync
+                {"id": "cut-s01", "scene_id": "s01", "source": "assets/audio/s1.wav",
+                 "in_seconds": 0.0, "out_seconds": 10.0},
+            ],
+        }
+        (art_dir / "edit_decisions.json").write_text(json.dumps(edit_decisions), encoding="utf-8")
+
+        res = check_project_timing(proj_dir, mode="strict")
+        assert res.valid is False
+        assert any("exceeds measured audio" in e for e in res.errors)
+
+
+    def test_unmatched_cut_strict_reports_mapping_failure(self, tmp_path: Path):
+        proj_dir = tmp_path / "unmatched-strict"
+        art_dir = proj_dir / "artifacts"
+        audio_dir = proj_dir / "assets" / "audio"
+        art_dir.mkdir(parents=True)
+        audio_dir.mkdir(parents=True)
+        _write_real_wav_file(audio_dir / "s01.wav", 5.0)
+        manifest = {"assets": [{"id": "narr-s01", "type": "narration", "scene_id": "s01",
+                                "path": "assets/audio/s01.wav", "duration_seconds": 5.0}]}
+        (art_dir / "narration_words.json").write_text(json.dumps([
+            {"word": "spoken", "scene_id": "s01", "global_start": 0.0},
+        ]), encoding="utf-8")
+        cut = {"id": "cut-s99", "scene_id": "s99", "in_seconds": 0.0, "out_seconds": 5.0}
+        result = validate_edit_timing_against_audio({"cuts": [cut]}, proj_dir,
+                                                    asset_manifest=manifest, mode="strict")
+        assert not result.valid
+        assert any("unmatched scene 's99'" in error for error in result.errors)
+
+    def test_matcher_success_status_propagates_into_validator_info(self, tmp_path: Path):
+        proj_dir = tmp_path / "matcher-success-status"
+        art_dir = proj_dir / "artifacts"
+        art_dir.mkdir(parents=True)
+        (art_dir / "narration_words.json").write_text(json.dumps([
+            {"word": "spoken", "scene_id": "s01", "global_start": 0.0},
+        ]), encoding="utf-8")
+        audio_dir = proj_dir / "assets" / "audio"
+        audio_dir.mkdir(parents=True)
+        _write_real_wav_file(audio_dir / "s01.wav", 5.0)
+        cut = {"id": "cut-s01", "scene_id": "s01", "in_seconds": 0.0, "out_seconds": 5.0}
+        asset = {"id": "narr-s01", "type": "narration", "scene_id": "s01",
+                 "path": "assets/audio/s01.wav", "duration_seconds": 5.0}
+        matched_asset, match_status = _match_asset_for_cut(cut, [asset], 1, mode="strict")
+        assert matched_asset is asset
+        assert match_status == "matched"
+        result = validate_edit_timing_against_audio({"cuts": [cut]}, proj_dir,
+                                                    asset_manifest={"assets": [asset]}, mode="strict")
+        assert result.valid
+        # Successful per-cut matching is reflected in the validator's diagnostic info.
+        assert any("matched" in line.lower() and "s01" in line for line in result.info)
+
+class TestCycle2StrictAlignment:
+    def _project(self, tmp_path, words_marker=True):
+        proj = tmp_path / "cycle2"
+        art = proj / "artifacts"
+        audio = proj / "assets" / "audio"
+        art.mkdir(parents=True)
+        audio.mkdir(parents=True)
+        _write_real_wav_file(audio / "s01.wav", 5.0)
+        manifest = {"assets": [{"id":"narr-s01", "type":"narration", "scene_id":"s01", "path":"assets/audio/s01.wav", "duration_seconds":5.0}]}
+        cut = {"id":"cut-s01", "scene_id":"s01", "in_seconds":0.0, "out_seconds":5.0}
+        return proj, art, manifest, cut
+
+    @pytest.mark.parametrize("payload", [None, {"nonsense": 1}, {"words": [{"word":"x", "start":0.1}]}])
+    def test_strict_blocks_absent_unrecognized_and_attributionless(self, tmp_path, payload):
+        proj, art, manifest, cut = self._project(tmp_path)
+        if payload is not None:
+            (art / "narration_words.json").write_text(json.dumps(payload))
+        result = validate_edit_timing_against_audio({"cuts":[cut]}, proj, asset_manifest=manifest, mode="strict")
+        assert not result.valid
+        assert result.errors
+
+    def test_legacy_alignment_degradation_nonblocking(self, tmp_path):
+        proj, art, manifest, cut = self._project(tmp_path)
+        result = validate_edit_timing_against_audio({"cuts":[cut]}, proj, asset_manifest=manifest)
+        assert result.valid
+        (art / "narration_words.json").write_text(json.dumps({"unknown": 1}))
+        result = validate_edit_timing_against_audio({"cuts":[cut]}, proj, asset_manifest=manifest)
+        assert result.valid and result.warnings
+
+    @pytest.mark.parametrize("declaration", [{"type":"no_narration"}, {"has_narration":False}])
+    def test_no_narration_declaration_valid_and_contradiction_rejected(self, tmp_path, declaration):
+        proj, art, manifest, cut = self._project(tmp_path)
+        (art / "narration_words.json").write_text(json.dumps([{"word":"spoken", "scene_id":"s01", "global_start":1.0}]))
+        silent = dict(cut, **declaration)
+        result = validate_edit_timing_against_audio({"cuts":[silent]}, proj, asset_manifest=manifest, mode="strict")
+        assert not result.valid
+        (art / "narration_words.json").write_text(json.dumps({"s99": {"words": []}}))
+        result = validate_edit_timing_against_audio({"cuts":[silent]}, proj, asset_manifest=manifest, mode="strict")
+        assert result.valid
+
+    def test_checkpoint_write_strict_invalid_blocks_end_to_end(self, tmp_path):
+        init_project("strict-gate", title="Strict Gate", pipeline_type="animated-explainer", pipeline_dir=tmp_path)
+        proj, art, manifest, cut = self._project(tmp_path)
+        # Use checkpoint's actual edit-stage transition; satisfy prerequisite artifacts.
+        from tests.contracts.test_phase0_contracts import sample_artifact
+        for st, name in [("research","research_brief"),("proposal","proposal_packet"),("script","script"),("scene_plan","scene_plan"),("assets","asset_manifest")]:
+            (proj / f"checkpoint_{st}.json").write_text(json.dumps({"version":"1.0","project_id":"strict-gate","pipeline_type":"animated-explainer","stage":st,"status":"completed","timestamp":"2026-10-08T00:00:00Z","human_approval_required":True,"human_approved":True,"artifacts":{name:sample_artifact(name)}}))
+        (art / "asset_manifest.json").write_text(json.dumps(manifest))
+        with pytest.raises(CheckpointValidationError):
+            write_checkpoint(tmp_path, "strict-gate", "edit", "completed", {"edit_decisions":{"version":"1.0","render_runtime":"remotion","cuts":[cut]}}, pipeline_type="animated-explainer", human_approved=True, metadata={"validation_mode":"strict"})
