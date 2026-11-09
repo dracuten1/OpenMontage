@@ -29,7 +29,9 @@ If a user calls an animation ugly/bad, stop rebuilding immediately. First:
 - add/refine generic skills only after sanitization;
 - only then rebuild the animation.
 
-## Hard gates
+## Gates (prompt-level)
+
+These are prompt-level gates: enforced only by this skill's workflow (run `scripts/animation_contact_sheet.py` for the contact sheet); no repo orchestrator or code path mechanically enforces them.
 
 - No final animation without a contact sheet.
 - No GLB claim for texture swaps implemented only with Blender Python handlers.

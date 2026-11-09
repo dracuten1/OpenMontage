@@ -146,7 +146,7 @@ Design the **focal point centered enough** that it survives all crops, then let 
 
 ## Deliverable — a composition plan
 
-A good composition plan is handed to an implementation skill (`gsap-web`, `remotion-video`, `after-effects`) and contains:
+A good composition plan is handed to an implementation skill (`gsap`, `remotion-video`, `after-effects`) and contains:
 
 - **Frame spec**: aspect(s), resolution, fps, grid (cols / margin / gutter), baseline unit.
 - **Focal point**: coordinates (px or %) on a thirds power point + the hierarchy ranking of every element.

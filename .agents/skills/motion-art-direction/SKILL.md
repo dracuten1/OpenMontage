@@ -44,7 +44,7 @@ Pick one cell and commit. Mixing cells within a piece is the most common cause o
 
 ## Motion personality (named presets)
 
-The tone matrix tells you *where* the piece sits; a **motion personality** is the named, numeric preset you hand to whoever animates. Pick ONE per project and apply it everywhere. This is shared vocabulary — other skills (e.g. `gsap-web`, `micro-interaction`, the video packs) can just say "use the Premium personality."
+The tone matrix tells you *where* the piece sits; a **motion personality** is the named, numeric preset you hand to whoever animates. Pick ONE per project and apply it everywhere. This is shared vocabulary — other skills (e.g. `gsap`, `framer-motion`, the video packs) can just say "use the Premium personality."
 
 | Personality | Duration | Signature easing | Overshoot | Reads as |
 |---|---|---|---|---|
@@ -94,7 +94,7 @@ The senior move. For each element ask: *does the motion carry meaning?* If not, 
 
 ## Pacing & rhythm
 
-Pacing is the edit's heartbeat. Vary it on purpose: tension (faster, tighter) → release (a hold). Map energy across the timeline before timing individual moves — most pieces want a low-energy open, a build, a peak, and a settled end card. Cut and land key moments on the audio (see launch-video for beat-syncing); silence and stillness are pacing tools, not gaps to fill.
+Pacing is the edit's heartbeat. Vary it on purpose: tension (faster, tighter) → release (a hold). Map energy across the timeline before timing individual moves — most pieces want a low-energy open, a build, a peak, and a settled end card. Cut and land key moments on the audio (see `beat-sync-editing` for beat-syncing); silence and stillness are pacing tools, not gaps to fill.
 
 ## Consistency check
 
