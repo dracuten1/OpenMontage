@@ -218,9 +218,19 @@ Kịch bản owner: gen ảnh bình thường, marker ẩn đánh dấu object +
   - Mix: `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>`
 - **Consolidation Proposal**: Vẫn là PLAN-ONLY — không có tuyên bố vận hành operational.
 
+### §7.1 Ngưỡng tách scene-file theo CC (quyết định owner 2026-11-09)
+
+- **Episode > 5 scenes (tức 6 scenes trở lên) BẮT BUỘC tách source thành per-scene files**: `src/<slug>/scenes/S#.tsx` (mỗi scene một file).
+- Mỗi scene file do một **CC writer riêng** viết và một **CC reviewer riêng** verify — theo đúng scene-isolated pattern của §7: `allowed_io` scope per scene, reviewer sandbox read-only, verdict-to-hash binding.
+- **Điều kiện tiên quyết trước khi spawn bất kỳ writer nào**: `theme.ts` + `lib/SceneShell.tsx` (design system, safe-zone helpers, subs) phải **FROZEN TRƯỚC**; props interface + packet schema lock từ đầu; giữ nguyên demo-first gate (1 scene được duyệt trước, rồi mới batch).
+- Khi tách per-scene: `Episode.tsx` chỉ còn vai trò **assemble-only** (Sequence wiring + Audio + timing).
+- **Episode ≤ 5 scenes**: giữ single-file `Episode.tsx` theo convention hiện tại.
+- **Các lane đang chạy theo kiểu cũ KHÔNG retrofit giữa chừng** — rule chỉ áp dụng cho lane mới.
+
 ### §7 Changelog
 - 2026-11-08: +§7 scene-isolated production team, packet ownership/freeze/reviewer independence và CLI enforcement P1.3.
 - 2026-11-09: Cập nhật P1.4 operational scene orchestrator CLI, phân định rõ ràng mechanical vs prompt-level ownership, runner status honesty (subprocess verified, daemon partially proven), episode gate codes, compose strict evidence requirements.
+- 2026-11-09: +§7.1 ngưỡng tách scene-file theo CC (quyết định owner 2026-11-09): episode >5 scenes bắt buộc per-scene files `src/<slug>/scenes/S#.tsx` với writer/reviewer CC riêng per scene (allowed_io scope per scene, reviewer sandbox read-only, verdict-to-hash binding); freeze `theme.ts` + `lib/SceneShell.tsx` + lock props interface/packet schema trước khi spawn writer; demo-first gate giữ nguyên; `Episode.tsx` assemble-only; ≤5 scenes giữ single-file `Episode.tsx`; không retrofit lane đang chạy.
 
 ### §7 Enforcement boundaries and operational reality
 - Scheduler đã có code và hoạt động thực tế qua `tools/qc/scene_orchestrator.py` (không còn là prose-only).
