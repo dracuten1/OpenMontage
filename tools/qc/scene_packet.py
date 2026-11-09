@@ -6,7 +6,7 @@ integrate_scene_packet. The integration gate always requires and verifies both
 tokens, frozen inputs, writer outputs, and reviewer findings.
 """
 from __future__ import annotations
-import argparse, json, sys
+import argparse, json, os, re, sys
 from pathlib import Path
 REPO_ROOT=Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path: sys.path.insert(0,str(REPO_ROOT))
@@ -99,9 +99,39 @@ def integrate_scene_packet(packet, *, packet_path=None, writer_token=None, revie
         resolved=_contained_path(item,root)
         if resolved is None: reasons.append({'code':'allowed_io_path_escape','message':f'allowed_io path outside episode root: {item}'})
         else: allowed.append(resolved)
+    sid=str(packet.get('scene_id') or '')
+    other_sids=set()
+    for other in episode_packets or []:
+        if isinstance(other, dict):
+            other_id = other.get('scene_id')
+            if other_id and str(other_id) != sid:
+                other_sids.add(str(other_id))
+        elif isinstance(other, str) and other and other != sid:
+            other_sids.add(other)
+
     for op in io_operations or []:
         target=_contained_path(op.get('path',''),root)
-        if target is None or not any(target==a or a in target.parents for a in allowed): reasons.append({'code':'io_outside_allowlist','message':f"IO outside allowed_io: {op.get('path')}"})
+        is_target_allowed=False
+        if target is not None and any(target==a or a in target.parents for a in allowed):
+            is_target_allowed=True
+            rel_t=None
+            try: rel_t=target.relative_to(root.resolve()).as_posix()
+            except ValueError: pass
+            if rel_t and sid:
+                base_t=os.path.basename(rel_t)
+                if base_t.startswith("packet_") and base_t != f"packet_{sid}.json":
+                    is_target_allowed=False
+                elif base_t.endswith("_findings.json") and base_t != f"{sid}_findings.json":
+                    is_target_allowed=False
+                elif rel_t.startswith('scene/') and not (rel_t.startswith(f'scene/{sid}/') or rel_t == f'scene/{sid}' or rel_t.count('/') == 1):
+                    is_target_allowed=False
+                elif other_sids:
+                    for other_sid in other_sids:
+                        if re.search(rf"(?:^|[_\-.#/]){re.escape(other_sid)}(?:[_\-.#/]|$)", rel_t):
+                            is_target_allowed=False
+                            break
+        if not is_target_allowed:
+            reasons.append({'code':'io_outside_allowlist','message':f"IO outside allowed_io: {op.get('path')}"})
     for other in episode_packets or []:
         if other is not packet and other.get('scene_id') == packet.get('scene_id'):
             reasons.append({'code':'scene_id_collision','message':f"duplicate scene_id: {packet.get('scene_id')}"}); break

@@ -61,6 +61,7 @@ import copy
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -272,8 +273,30 @@ def verify_writer_scope(
             except ValueError:
                 pass
 
+    try:
+        authoritative_scenes = set(discover_authoritative_scenes(root))
+    except Exception:
+        authoritative_scenes = set()
+    other_scenes = authoritative_scenes - {scene_id}
+
     violations: list[str] = []
     for rel_path in mutated:
+        is_own_file = (
+            rel_path in (
+                f"packet_{scene_id}.json",
+                f"packets/packet_{scene_id}.json",
+                f"packets/{scene_id}_findings.json",
+            )
+            or rel_path.startswith(f"scene/{scene_id}/")
+            or rel_path == f"scene/{scene_id}"
+        )
+
+        # Fail-closed when scene discovery fails or returns empty:
+        # writer may only touch scene_id's own explicit files/directory
+        if not authoritative_scenes and not is_own_file:
+            violations.append(rel_path)
+            continue
+
         is_allowed = False
         rel_p = Path(rel_path)
         for allowed in normalized_allowed:
@@ -286,13 +309,34 @@ def verify_writer_scope(
                 is_allowed = True
                 break
 
-        if not is_allowed:
-            # Explicitly allow packet or finding files for this scene
-            if rel_path in (
+        # Structural cross-scene denial: cannot write another scene's packet, findings, or directory
+        if is_allowed:
+            base_name = os.path.basename(rel_path)
+            if (base_name.startswith("packet_") and base_name != f"packet_{scene_id}.json") or (
+                base_name.endswith("_findings.json") and base_name != f"{scene_id}_findings.json"
+            ):
+                is_allowed = False
+            elif (rel_path.startswith("packet_") or rel_path.startswith("packets/packet_")) and rel_path not in (
                 f"packet_{scene_id}.json",
                 f"packets/packet_{scene_id}.json",
-                f"packets/{scene_id}_findings.json",
-            ) or rel_path.startswith(f"scene/{scene_id}/") or rel_path == f"scene/{scene_id}":
+            ):
+                is_allowed = False
+            elif rel_path.startswith("packets/") and rel_path.endswith("_findings.json") and rel_path != f"packets/{scene_id}_findings.json":
+                is_allowed = False
+            elif rel_path.startswith("scene/") and not (
+                rel_path.startswith(f"scene/{scene_id}/") or rel_path == f"scene/{scene_id}" or rel_path.count("/") == 1
+            ):
+                is_allowed = False
+            elif other_scenes:
+                # Check if file references another authoritative scene ID as a token
+                for other_sid in other_scenes:
+                    if re.search(rf"(?:^|[_\-.#/]){re.escape(other_sid)}(?:[_\-.#/]|$)", rel_path):
+                        is_allowed = False
+                        break
+
+        if not is_allowed:
+            # Explicitly allow packet or finding files for this scene
+            if is_own_file:
                 is_allowed = True
 
         if not is_allowed:
@@ -1161,6 +1205,7 @@ def execute_scene_with_retries(
                 packet_path=target_packet_path,
                 writer_token=writer_token,
                 reviewer_token=reviewer_token,
+                io_operations=assembled_packet.get("io_operations") if isinstance(assembled_packet, dict) else None,
             )
             attempt.packet_valid = integration_result["valid"]
             attempt.packet_reasons = integration_result.get("reasons", [])

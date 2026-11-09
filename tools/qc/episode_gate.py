@@ -30,7 +30,14 @@ def validate_episode(episode_dir):
     if not packets: reasons.append({'code': 'scene_packets_missing', 'message': 'no scene packets found'})
     seen = set()
     for path, p in packets:
-        result = integrate_scene_packet(p, packet_path=path, writer_token=p.get('writer_token'), reviewer_token=p.get('reviewer_token'), episode_packets=[x[1] for x in packets])
+        result = integrate_scene_packet(
+            p,
+            packet_path=path,
+            writer_token=p.get('writer_token'),
+            reviewer_token=p.get('reviewer_token'),
+            episode_packets=[x[1] for x in packets],
+            io_operations=p.get("io_operations") if isinstance(p, dict) else None,
+        )
         for r in result['reasons']: reasons.append({'code': r['code'], 'message': f"{path.name}: {r['message']}"})
         if p.get('scene_id') in seen: reasons.append({'code': 'scene_id_collision', 'message': f"duplicate scene_id: {p.get('scene_id')}"})
         seen.add(p.get('scene_id'))

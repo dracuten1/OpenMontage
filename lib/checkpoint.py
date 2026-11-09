@@ -676,6 +676,7 @@ def _enforce_stage_prerequisites(
 
     incomplete: list[str] = []
     unapproved: list[str] = []
+    failure_causes: list[str] = []
     for predecessor in stages[: stages.index(stage)]:
         path = _checkpoint_path(pipeline_dir, project_id, predecessor)
         if not path.exists():
@@ -687,8 +688,13 @@ def _enforce_stage_prerequisites(
             validate_checkpoint(
                 checkpoint, pipeline_dir=pipeline_dir, project_id=project_id,
             )
-        except (OSError, json.JSONDecodeError, CheckpointValidationError):
+        except (OSError, json.JSONDecodeError, CheckpointValidationError) as exc:
             incomplete.append(predecessor)
+            # Preserve the inner cause for diagnosis: "incomplete" alone
+            # cannot distinguish a missing predecessor from one that exists
+            # but fails validation. Gate outcome is unchanged (the stage is
+            # still blocked); only the error message gains the reason.
+            failure_causes.append(f"{predecessor}: {type(exc).__name__}: {exc}")
             continue
         if (
             checkpoint.get("project_id") != project_id
@@ -709,6 +715,11 @@ def _enforce_stage_prerequisites(
         details = []
         if incomplete:
             details.append(f"incomplete or missing: {incomplete}")
+        if failure_causes:
+            details.append(
+                "predecessor read/validation failure causes: "
+                + "; ".join(failure_causes)
+            )
         if unapproved:
             details.append(f"completed without required approval: {unapproved}")
         raise CheckpointValidationError(
