@@ -1,3 +1,6 @@
+# Production contract: docs/ORCHESTRATION_DOCTRINE.md is the canonical authority (S7-S8; contract v2.0; ENS primary; this yaml is a synced mirror).
+# Stages below map the doctrine 7 required phases; human gates (human_approval_default) are enforced by lib/checkpoint.py.
+# Mechanical gates/detectors: tools/qc/* (timing re-lock, episode gate, mix validator) — strict success semantics apply (S8.2).
 name: avatar-spokesperson
 version: "2.0"
 description: >

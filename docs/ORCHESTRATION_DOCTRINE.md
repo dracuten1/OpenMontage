@@ -1,11 +1,28 @@
 # OpenMontage Orchestration Doctrine
 
+<!-- Machine-readable contract metadata (compact pointer; human prose below is authoritative) -->
+```json
+{
+  "contract": "openmontage-orchestration-doctrine",
+  "contract_version": "2.0",
+  "last_sync": "2026-11-09",
+  "source_of_truth": "docs/ORCHESTRATION_DOCTRINE.md (this file)",
+  "sync_order": {
+    "primary": "ENS repo contract (this file)",
+    "synced_mirrors": [".claude/agents/*", ".claude/prompts/om_team_leader_prompt.md", "skills/pipelines/*/*.md", "pipeline_defs/*.yaml"],
+    "legacy_secondary": "Claude-Code standalone usage"
+  },
+  "required_phases": ["brief_script_facts", "actual_audio_alignment", "sealed_scene_packets", "scene_author_review", "integration", "final_render_mix_review", "delivery"],
+  "success_semantics": "strict",
+  "publication_policy": "delivery_separate_from_render_acceptance"
+}
+```
+
 Owner: Tuyên (dracuten1). Viết bởi Hermes từ bằng chứng aivn-20261005/06 (2026-10-05/06).
 Ngôn ngữ: Việt — kỹ thuật giữ nguyên thuật ngữ Anh.
 
-Đây là hợp đồng orchestration cho mọi production OpenMontage chạy qua Claude Code.
-Nguồn sự thật song song: `~/.hermes/skills/openmontage-video/references/claude-code-orchestration.md` (bản Hermes-side).
-Sai doctrine = lỗi lặp lại; sửa doctrine = sửa tại đây rồi sync 2 chiều.
+Đây là hợp đồng orchestration cho mọi production OpenMontage. ENS orchestration là **authority chính**; bản Hermes-side (`~/.hermes/skills/openmontage-video/references/claude-code-orchestration.md`) là mirror subordinate sync TỪ file này, không phải nguồn sự thật song song.
+Sai doctrine = lỗi lặp lại; sửa doctrine = sửa tại đây rồi sync một chiều ENS → mirrors.
 
 ---
 
@@ -149,6 +166,7 @@ Kịch bản owner: gen ảnh bình thường, marker ẩn đánh dấu object +
 - **Probe-still trước render full** đã tiết kiệm 30' render discovery — giữ làm Gate B.
 
 ## §6. Changelog
+- 2026-11-09: +§8 production contract (7 required phases, strict success semantics, dependency freeze policy, legacy compat policy, publication/delivery separation) + machine-readable metadata block đầu file. +§8.5 sync order: ENS primary; `.claude/*`, director skills, pipeline yamls = synced mirrors; Claude-Code standalone = legacy/secondary. Cập nhật §7 mapping bullet theo sync order.
 - 2026-10-05: doctrine đầu tiên (3-session split, Read whitelist, Agent Teams verdict, resume discipline) — từ turn-level autopsy aivn-20261005.
 - 2026-10-06: +§1 Probe gates (A/B/C), +§2 Hermes orchestrator rule (fix_request pattern), +§3 phoneme_dict caveat + chính sách 3 đường thuật ngữ, lỗi v2→v5 aivn-20261006 ghi nhận.
 - 2026-10-07: +§4 Focal visual (gen image base + TSX overlay + hexpix region encoding, test thực 3 prompt luna-image) + script `scripts/hexpix_decode.py`. +§4b hexpix v2 sprite động + path (thuyền chạy theo sông, verified end-to-end) + script `scripts/hexpix_extract.py`; bài học: inpaint thủ công FAIL 9/9, xoá object bằng gen-edit model. +§4c hexpix v3 2-pass (nền ink thuần → edit marker colored-ink → edit remove): 3 gen calls, hue-unit gotcha OpenCV 0–179.
@@ -162,7 +180,7 @@ Kịch bản owner: gen ảnh bình thường, marker ẩn đánh dấu object +
   - **Mechanical (Enforced)**:
     - *Reviewer Read-Only Isolation*: Sandbox-copy pattern — reviewer chạy trong thư mục copy độc lập ngoài canonical tree. Bất kỳ thay đổi nào lên canonical tree đều kích hoạt `reviewer_canonical_mutation` reject.
     - *Reviewer Output Collection*: Findings JSON chỉ được thu thập từ sandbox dir; canonical tree không cho phép reviewer ghi đè.
-    - *Writer Scope Containment*: Pre/post SHA-256 hash diff toàn bộ episode tree. Chỉ file thuộc declared `allowed_io` / scene-scoped paths (`packet.json` và thư mục `scene/`) được phép sửa; substring match đã bị gỡ bỏ; out-of-scope edit kích hoạt `writer_scope_violation`.
+    - *Writer Scope Containment*: Pre/post SHA-256 hash diff toàn bộ episode tree. Chỉ file thuộc declared `allowed_io` / scene-scoped paths (`packet.json` và thư mục `scene/`) được phép sửa; substring match đã bị gỡ bỏ; fail-closed khi scene discovery rỗng/thất bại; `io_operations` được nối trực tiếp vào `episode_gate.py` và `scene_orchestrator.py`; out-of-scope edit kích hoạt `writer_scope_violation` hoặc `io_outside_allowlist`.
     - *Symlink Security*: Symlink được hash rõ ràng dạng `symlink:<target>`, không đi qua target tự do.
     - *Frozen Inputs Immutability*: Director ghi SHA-256 input artifacts vào `frozen_inputs`; integration gate phát hiện mismatch là fail.
     - *Verdict-to-Hash Binding*: Reviewer findings bắt buộc ghi explicit `reviewed_hashes` map output refs với SHA-256 disk hash — không backfill tự động; thiếu hoặc mismatch kích hoạt `verdict_binding_missing`/`verdict_binding_incomplete`/`verdict_binding_mismatch`.
@@ -207,6 +225,39 @@ Kịch bản owner: gen ảnh bình thường, marker ẩn đánh dấu object +
 ### §7 Enforcement boundaries and operational reality
 - Scheduler đã có code và hoạt động thực tế qua `tools/qc/scene_orchestrator.py` (không còn là prose-only).
 - Reviewer sandbox-copy ngăn tuyệt đối reviewer sửa canonical tree (`reviewer_canonical_mutation`).
-- Writer scope diff ngăn tuyệt đối writer sửa ngoài scene packet / scene dir (`writer_scope_violation`).
+- Writer scope diff ngăn tuyệt đối writer sửa ngoài scene packet / scene dir (`writer_scope_violation`), fail-closed khi scene discovery rỗng, và `io_operations` được nối vào `episode_gate.py` và `scene_orchestrator.py`.
 - Episode visual continuity checker chưa triển khai; continuity checks defer.
-- ENS mapping: leader/director mỏng; worker = scene writer; reviewer = independent reviewer. `.claude/agents/` chỉ là legacy reference.
+- ENS mapping: leader/director mỏng; worker = scene writer; reviewer = independent reviewer. `.claude/agents/` là synced mirror của contract này — không phải legacy reference tự trị; sync order đầy đủ xem §8.5 (ENS primary → mirrors; Claude-Code standalone = legacy/secondary).
+
+## §8. Production contract — phases, strict success, freeze, legacy compat, publication (2026-11-09)
+
+### §8.1 Bảy phase bắt buộc của mọi production
+Mọi production, mọi pipeline, đi qua đủ 7 phase sau. Stage list của từng pipeline (`pipeline_defs/*.yaml`) là mapping của các phase này — stage có thể gộp hoặc thêm phase domain-riêng (rig, localization, research, real_capture, …), nhưng không phase nào dưới đây được bỏ qua:
+
+1. **Brief/Script/Facts** — brief/script + facts được chốt và freeze (research_brief, script, scene_plan; facts có nguồn, không bịa).
+2. **Actual audio + alignment** — narration/audio THẬT đã sinh + alignment (word timestamps) đo từ audio thật; planned duration không bao giờ được dùng thay measured duration.
+3. **Sealed scene packets** — khi production dùng scene-packet workflow: packet được seal kèm frozen inputs (SHA-256) trước khi writer/reviewer chạy.
+4. **Scene author/review** — fresh writer + separate fresh reviewer độc lập (§7); verdict bind `reviewed_hashes`.
+5. **Integration** — chỉ tích hợp output đã accepted; packet coverage diff đối chiếu `scene_manifest.scenes` + `edit_decisions.cuts` fail-closed (`scene_packet_missing` / `scene_packet_extra` / `stale_packet`).
+6. **Final render/mix review** — compose strict + 5 evidence gates (layout, timing-audio, semantic-events, sfx-mix, provenance-freshness) + mix validation; số liệu bổ sung review bằng mắt/tai, không thay thế.
+7. **Delivery** — publish/delivery là phase riêng với authorization riêng (§8.4), không phải hệ quả tự động của phase 6.
+
+### §8.2 Strict success semantics
+Completion chỉ hợp lệ khi đồng thời có đủ: applicable gate identities, exact scene/cut set, stage scope, evidence files TỒN TẠI trên disk, bound revisions, và detector measurements thật. `revise`, `blocked`, thiếu evidence, hoặc measurement bắt buộc ở trạng thái `not_measured` **KHÔNG BAO GIỜ** được ghi nhận/upgrade thành completion.
+- Schema-valid ≠ đã đo (§1): report schema-valid không phải bằng chứng detector đã chạy hay ảnh/audio đã được inspect.
+- Not-applicable phải được KHAI BÁO tường minh (ví dụ `no_sfx: true`, `sfx_mode: "none"`, `declared_not_measured` được xử lý trung thực bởi mix_validator); thiếu measurement bắt buộc không được ngụy trang thành not-applicable.
+- Prompt-level loop caps (max revisions/send-backs của director skills) KHÔNG được dùng để override mechanical gate fail: gate fail-closed là `blocked`, không phải "PASS WITH WARNINGS".
+
+### §8.3 Dependency freeze policy
+Freeze mọi dependency liên quan đến verdict/render: facts/script, toàn bộ narration/music/SFX, renderer-staged copies (`remotion-composer/public/…`), alignment/config, scene/composition/shared code, layout contracts, events, assets, renderer parameters.
+Mọi mutation sau freeze → mọi verdict/render phụ thuộc trở nên STALE: bắt buộc re-review/re-render, cấm reuse verdict/hash cũ. Cơ chế hiện có: `stale_packet` (episode_gate so hash narration hiện tại vs packet), provenance-freshness + `artifact_hashes`/`input_hashes` đối chiếu disk (production_validation — tamper/stale → BLOCKED), timing re-lock per-cut + manifest-vs-file + total-duration (lib/timing_validator). Re-TTS → chạy `tools/audio/refresh_manifest.py` rồi re-lock cuts trước khi advance.
+
+### §8.4 Legacy compat + publication separation
+- **Legacy compat policy:** artifact/checkpoint lịch sử vẫn đọc được qua compat path — `validation_mode="legacy"` phải được KHAI BÁO tường minh trong checkpoint metadata hoặc project marker (`project.json`); resolve_validation_mode mặc định `strict` cho production mới. Chế độ legacy/historical **không tự động authorize production mới** — legacy chỉ hợp lệ cho đọc/fixture/điều tra lịch sử.
+- **Publication/delivery separation:** render acceptance (QC PASS ở compose/publish checkpoint) **KHÔNG** phải publish authorization. Publish/upload/registration là quyết định riêng, explicit, của owner; không có cơ chế tự động publish nào dựa trên QC PASS. Delivery bundle theo AGENT_GUIDE.md vẫn là ràng buộc riêng của delivery, không đổi.
+
+### §8.5 Sync order (single authority)
+- **ENS repo = authority chính**: hợp đồng production/team nằm tại file này.
+- `.claude/agents/*`, `.claude/prompts/om_team_leader_prompt.md`, `skills/pipelines/*/*.md`, `pipeline_defs/*.yaml` = **synced mirrors** — sửa contract TẠI ĐÂY rồi sync sang mirror; mirror không tự đặt ra authority đối lập, và khi mâu thuẫn thì doctrine thắng.
+- **Claude-Code standalone** (§0/§0b) = legacy/secondary path: giữ cho chạy độc lập khi ENS không khả dụng; không phải default. Quy tắc đồng bộ: sửa doctrine → sync mirrors (một chiều ENS → mirrors) → mirror-side Hermes sync từ doctrine, không edit ngược trực tiếp.
+- **Ngoại lệ điều chỉnh mirror-side-first (reconciliation exception)**: sửa đổi phía mirror trước chỉ được phép khi phía canonical sau cùng kết thúc byte-identical với mirror; BẮT BUỘC ghi nhận cả hai sha256 trong inventory `duplicate_audit.reconciled`; mọi lần điều chỉnh/đồng bộ tương lai bắt buộc đi qua canonical file.
