@@ -55,6 +55,38 @@ describe('semantic event contract', () => {
     x.events.push({ ...x.events[0], event_id: 'tap-2', word_span: [3, 4], contact_peak_ms: 700, audible_attack_ms: 700, visual_onset_frame: 22, duration_tail_frames: 10 });
     expect(validateEventSpec(x)).toBe(true);
   });
+  it('rejects SFX tail extending beyond scene end anchored to resolved contact frame (reviewer repro)', () => {
+    // Reviewer repro: 30fps scene, frames [0,300), visual onset frame 0, contact 9000ms (= frame 270), tail 60 frames
+    // visual_onset(0) + tail(60) = 60 <= 300, BUT resolvedFrame(270) + tail(60) = 330 > 300.
+    const reproSpec = {
+      schema_version: 1,
+      fps: 30,
+      sample_rate: 48000,
+      scenes: [
+        {
+          scene_id: 'scene-repro',
+          start_frame: 0,
+          end_frame: 300,
+          words: [{ start_ms: 0, end_ms: 10000 }],
+        },
+      ],
+      sfx_manifest: ['tap.wav'],
+      events: [
+        {
+          scene_id: 'scene-repro',
+          event_id: 'repro-tail-overflow',
+          word_span: [0, 1] as [number, number],
+          visual_onset_frame: 0,
+          contact_peak_ms: 9000,
+          audible_attack_ms: 9000,
+          sfx_asset: 'tap.wav',
+          gain: 0.8,
+          duration_tail_frames: 60,
+        },
+      ],
+    };
+    expect(() => validateEventSpec(reproSpec)).toThrow(/tail beyond scene end for repro-tail-overflow/);
+  });
   const invalidCases: [string, (x: any) => void, string][] = [
     ['missing onset', x => delete x.events[0].audible_attack_ms, 'audible_attack_ms required'],
     ['onset outside scene span', x => { x.events[0].visual_onset_frame = 300; }, 'visual onset outside scene span'],

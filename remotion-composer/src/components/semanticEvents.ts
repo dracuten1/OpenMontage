@@ -1,6 +1,3 @@
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-
 export type AlignmentWord = { start_ms: number; end_ms: number };
 export type EventScene = {
   scene_id: string;
@@ -69,7 +66,9 @@ export function validateEventSpec(value: unknown): value is EventSpec {
     assert(resolvedFrame >= scene.start_frame && resolvedFrame < scene.end_frame, `resolved SFX frame outside scene span for ${event.event_id}`);
     assert(typeof event.sfx_asset === 'string' && spec.sfx_manifest.includes(event.sfx_asset), `SFX asset missing from manifest for ${event.event_id}`);
     assert(Number.isFinite(event.gain) && event.gain >= 0 && event.gain <= 1, `gain out of range for ${event.event_id}`);
-    assert(Number.isInteger(event.duration_tail_frames) && event.duration_tail_frames >= 0 && event.visual_onset_frame + event.duration_tail_frames <= scene.end_frame, `tail beyond scene end for ${event.event_id}`);
+    // Tail duration check anchors to resolved SFX frame (derived from declared contact_peak_ms,
+    // which is validated to lie within CONTACT_ATTACK_TOLERANCE_MS of measured audible_attack_ms).
+    assert(Number.isInteger(event.duration_tail_frames) && event.duration_tail_frames >= 0 && resolvedFrame + event.duration_tail_frames <= scene.end_frame, `tail beyond scene end for ${event.event_id}`);
   }
   // TS owns SFX onset and window validation because resolver derives frame from contact_peak_ms.
   const windowsByScene = new Map<string, { eventId: string; start: number; end: number }[]>();
@@ -94,6 +93,9 @@ export function resolveSemanticEvent(event: SemanticEvent, fps: number, sampleRa
   return { visualCueFrame: event.visual_onset_frame, sfxCue: { asset: event.sfx_asset, frame, sample: Math.round(event.contact_peak_ms * sampleRate / 1000), gain: event.gain, durationTailFrames: event.duration_tail_frames } };
 }
 export function loadEventSpec(path: string): EventSpec {
-  const value: unknown = JSON.parse(readFileSync(resolve(path), 'utf8'));
+  const fs = (process as any).getBuiltinModule ? (process as any).getBuiltinModule('node:fs') : null;
+  const nodePath = (process as any).getBuiltinModule ? (process as any).getBuiltinModule('node:path') : null;
+  if (!fs || !nodePath) throw new Error('loadEventSpec is only supported in Node.js runtime');
+  const value: unknown = JSON.parse(fs.readFileSync(nodePath.resolve(path), 'utf8'));
   validateEventSpec(value); return value as EventSpec;
 }
