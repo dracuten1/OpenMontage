@@ -154,24 +154,59 @@ Kịch bản owner: gen ảnh bình thường, marker ẩn đánh dấu object +
 - 2026-10-07: +§4 Focal visual (gen image base + TSX overlay + hexpix region encoding, test thực 3 prompt luna-image) + script `scripts/hexpix_decode.py`. +§4b hexpix v2 sprite động + path (thuyền chạy theo sông, verified end-to-end) + script `scripts/hexpix_extract.py`; bài học: inpaint thủ công FAIL 9/9, xoá object bằng gen-edit model. +§4c hexpix v3 2-pass (nền ink thuần → edit marker colored-ink → edit remove): 3 gen calls, hue-unit gotcha OpenCV 0–179.
 - 2026-10-10: +§0b native Agent Teams thành chế độ team CHÍNH (owner quyết định); N×`claude -p` song song xuống fallback. Đã restore doctrine từ commit de4c3b3 (file từng mất khỏi working tree ở branch `latest`). Guardrails: teammate hardcode `claude-opus-4-6` (map 9router combo `glmagenticfb`), permission teammate hiện pane lead, send-keys Enter đôi, verify qua subagent jsonl (model ≠ `<synthetic>` + tool_use thật).
 
-## §7. Scene-isolated production team (P1.3, 2026-11-08)
+## §7. Scene-isolated production team (P1.3–P1.4, 2026-11-09)
 
-- Director mỏng (thin director) là writer duy nhất của scene packet canonical; director điều phối/planning/assets nhưng không tự viết nội dung scene.
-- Mỗi scene dùng một fresh writer instance riêng; song song giữa các scene, mặc định tối đa 2–3 writer. Worker chỉ sở hữu file scene-local; thay đổi shared code/timing/TTS phải yêu cầu director.
-- Mỗi scene có fresh reviewer độc lập, không phải writer của scene đó. Reviewer chỉ đọc artifact sau khi hash được freeze; không nhận reasoning của writer làm bằng chứng. Verdict gắn với hash đã review.
-- Packet lifecycle: freeze inputs → writer tạo scene → freeze output hashes → reviewer ký verdict → integration gate. Sửa sau review làm stale packet; phải review lại.
-- Prompt scope không phải OS sandbox. `allowed_io` là hợp đồng kiểm tra máy móc, không bảo đảm cách ly filesystem nếu môi trường thực thi không sandbox.
-- ENS mapping: leader = director; developer/worker = writer; reviewer agent = reviewer. `.claude/agents/` role files là legacy reference only; Claude Code đã dừng, không phải cơ chế thực thi ENS.
-- Enforce bằng `python tools/qc/scene_packet.py <packet.json>` và `python tools/qc/episode_gate.py <episode_dir>` trước integration/compose.
+- **Thin Director**: Director mỏng là writer duy nhất của scene packet canonical; director điều phối/planning/assets nhưng không tự viết nội dung scene. Khởi đầu bằng cryptographic freeze inputs (SHA-256).
+- **Fresh Writer & Fresh Reviewer per Scene**: Mỗi scene dispatch một FRESH writer instance riêng (worker) và một SEPARATE FRESH independent reviewer. Concurrency bounded qua worker pool (mặc định `--max-concurrency 2`), retries bounded (`--max-retries 1`).
+- **Mechanical vs Prompt-Level Ownership Enforcement (Ranh giới cơ học vs prompt)**:
+  - **Mechanical (Enforced)**:
+    - *Reviewer Read-Only Isolation*: Sandbox-copy pattern — reviewer chạy trong thư mục copy độc lập ngoài canonical tree. Bất kỳ thay đổi nào lên canonical tree đều kích hoạt `reviewer_canonical_mutation` reject.
+    - *Reviewer Output Collection*: Findings JSON chỉ được thu thập từ sandbox dir; canonical tree không cho phép reviewer ghi đè.
+    - *Writer Scope Containment*: Pre/post SHA-256 hash diff toàn bộ episode tree. Chỉ file thuộc declared `allowed_io` / scene-scoped paths (`packet.json` và thư mục `scene/`) được phép sửa; substring match đã bị gỡ bỏ; out-of-scope edit kích hoạt `writer_scope_violation`.
+    - *Symlink Security*: Symlink được hash rõ ràng dạng `symlink:<target>`, không đi qua target tự do.
+    - *Frozen Inputs Immutability*: Director ghi SHA-256 input artifacts vào `frozen_inputs`; integration gate phát hiện mismatch là fail.
+    - *Verdict-to-Hash Binding*: Reviewer findings bắt buộc ghi explicit `reviewed_hashes` map output refs với SHA-256 disk hash — không backfill tự động; thiếu hoặc mismatch kích hoạt `verdict_binding_missing`/`verdict_binding_incomplete`/`verdict_binding_mismatch`.
+  - **Prompt-Level Only**:
+    - *LLM Reasoning Independence*: Tách biệt system prompt, context cô lập, turn hội thoại độc lập. Ngăn context bleed ở tầng prompt nhưng không bảo đảm cơ học tuyệt đối ở tầng OS cho quá trình suy luận nội tại của LLM.
+- **Orchestrator Executable (Operational)**:
+  - Command:
+    ```bash
+    .venv/bin/python tools/qc/scene_orchestrator.py <episode_dir> --runner {auto|subprocess|daemon} --max-concurrency 2 --max-retries 1 --daemon-timeout 600 --scenes id1,id2 --evidence-file artifacts/scene_workflow_evidence.json
+    ```
+  - Runner Status (Honesty):
+    - `subprocess`: Deterministic, verified end-to-end (two-scene smoke PASS).
+    - `daemon`: Writer turn đã kiểm chứng trên ENS instance thật (~258s, scope-clean); reviewer findings-file generation CHƯA kiểm chứng (LLM trả text thay vì ghi file JSON trong sandbox, gate fail-closed) — daemon runner hiện là experimental đối với reviewer turns; tài liệu KHÔNG được tuyên bố daemon hoàn toàn tự động.
+- **Episode Gate (`tools/qc/episode_gate.py`)**:
+  - Command:
+    ```bash
+    .venv/bin/python tools/qc/episode_gate.py <episode_root>
+    ```
+  - Rejection codes: `scene_packets_missing`, `scene_packet_missing`, `scene_packet_extra`, `stale_packet`, `verdict_binding_missing`, `verdict_binding_incomplete`, `verdict_binding_mismatch`, `mix_measurement_incomplete`, `timing_relock_failed`, `production_validation_inputs_missing`, `production_validation_failed`, `mix_validation_not_measured`, `mix_validation_failed`.
+  - Unconditional packet coverage diff đối chiếu với `scene_manifest.scenes` và `edit_decisions.cuts` (fail-closed nếu thiếu/thừa).
+- **Compose Strict (Public Path)**:
+  - `VideoCompose.execute()` chạy với `validation_mode="strict"`.
+  - Production workspaces bắt buộc strict (legacy mode bị reject).
+  - Evidence nạp từ `inputs["evidence_records"]` hoặc canonical `artifacts/production_evidence.json`.
+  - `EvidenceRecord` gates: layout, timing-audio, semantic-events, sfx-mix, provenance-freshness (per-scene set + episode provenance-freshness).
+  - `artifact_hashes` và `input_hashes` được đối chiếu trực tiếp với disk (tamper/stale → BLOCKED).
+  - Checkpoint gate fail-closed (`lib/checkpoint.py` strict default on ambiguous, stamps consumed).
+- **Mix Validation**:
+  - `tools/qc/mix_validator.py` fail-closed: missing stem chưa khai báo → invalid.
+  - Khai báo `no_sfx`, `sfx_expected: false`, `sfx_mode: "none"` hoặc `declared_not_measured` được xử lý trung thực; `music_masking` giữ nguyên báo `not_measured`.
+- **Verified Validator Commands**:
+  - Layout: `npm run validate:layout -- <spec>`
+  - Semantic events: `npm run validate:events -- <spec>`
+  - Timing: `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<dir>', mode='strict')"`
+  - Mix: `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>`
+- **Consolidation Proposal**: Vẫn là PLAN-ONLY — không có tuyên bố vận hành operational.
 
 ### §7 Changelog
 - 2026-11-08: +§7 scene-isolated production team, packet ownership/freeze/reviewer independence và CLI enforcement P1.3.
+- 2026-11-09: Cập nhật P1.4 operational scene orchestrator CLI, phân định rõ ràng mechanical vs prompt-level ownership, runner status honesty (subprocess verified, daemon partially proven), episode gate codes, compose strict evidence requirements.
 
-### §7 Enforcement boundaries and deferred work (P1.3 follow-up)
-- CLI `scene_packet.py` kiểm cấu trúc; token trên CLI chỉ là giá trị tiện ích không phải trust boundary. Production director phải truyền writer/reviewer token out-of-band vào API integration; integration gate luôn bắt buộc và kiểm tra token, hashes, frozen membership và reviewer independence.
-- Episode gate gọi timing, production-validation và mix-validator; thiếu mix stems/profile báo not_measured và fail-closed.
+### §7 Enforcement boundaries and operational reality
+- Scheduler đã có code và hoạt động thực tế qua `tools/qc/scene_orchestrator.py` (không còn là prose-only).
+- Reviewer sandbox-copy ngăn tuyệt đối reviewer sửa canonical tree (`reviewer_canonical_mutation`).
+- Writer scope diff ngăn tuyệt đối writer sửa ngoài scene packet / scene dir (`writer_scope_violation`).
 - Episode visual continuity checker chưa triển khai; continuity checks defer.
-- Scheduler chưa có code: scheduling hiện prose-only, implementation defer tới P1.4+.
-- Native Agent Teams smoke test/session-independence verification chưa chạy; defer tới controlled production smoke.
-- `.claude/agents/` chỉ legacy reference; không phải runtime implementation.
-- Token chỉ là cơ chế consistency check chứ không phải authentication: kênh CLI mang tính self-attestation, còn kênh API tự bind credentials của caller theo giả định trusted orchestrator.
+- ENS mapping: leader/director mỏng; worker = scene writer; reviewer = independent reviewer. `.claude/agents/` chỉ là legacy reference.

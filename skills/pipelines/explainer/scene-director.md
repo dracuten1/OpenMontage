@@ -236,11 +236,27 @@ Score (1-5):
 
 If any dimension scores below 3, revise.
 
-### Step 8: Submit
+### Step 8: Submit & Scene Workflow Orchestration
 
 Validate `scene_plan_json` against the canonical scene-plan schema, persist it
 through the checkpoint protocol, and attach the stage review. There is no
 separate explainer submit function.
+
+#### Scene Packet Orchestrator Integration (Verified Operational)
+
+In the scene-isolated production workflow:
+- The thin director freezes inputs (`frozen_inputs` SHA-256 hashes).
+- Scenes defined in `scene_plan.json` / `scene_manifest.json` are executed via `tools/qc/scene_orchestrator.py`:
+  ```bash
+  .venv/bin/python tools/qc/scene_orchestrator.py <episode_dir> --runner {auto|subprocess|daemon} --max-concurrency 2 --max-retries 1 --daemon-timeout 600 --scenes id1,id2 --evidence-file artifacts/scene_workflow_evidence.json
+  ```
+- Per scene: spawns a fresh scene-local writer and a separate fresh independent reviewer in an enforced sandbox copy.
+- Output hashes must match disk digests; reviewer findings require explicit `reviewed_hashes`.
+- Final integration verified by episode gate:
+  ```bash
+  .venv/bin/python tools/qc/episode_gate.py <episode_root>
+  ```
+- Packet coverage is checked unconditionally against `scene_manifest.scenes` and `edit_decisions.cuts` (missing or extra packets trigger `scene_packet_missing` / `scene_packet_extra`).
 
 ## Common Pitfalls
 

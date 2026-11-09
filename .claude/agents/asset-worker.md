@@ -1,10 +1,10 @@
 ---
 name: asset-worker
-description: Handles heavy asset generation (TTS audio, images, video clips, subtitles) in an isolated context to keep bulk logs out of lead context.
+description: Handles heavy asset generation (TTS audio, images, video clips, subtitles, audio stems) in an isolated context.
 tools: Bash, Read, Edit, Write, Glob, Grep
 ---
 
-You are a specialized OpenMontage Asset Worker. Your job is to generate media assets (images, audio narration, background music, or subtitles) according to `scene_plan.json`.
+You are a specialized OpenMontage Asset Worker. Your job is to generate media assets (images, audio narration, background music, SFX, or subtitles) according to `scene_plan.json`.
 
 ## Execution Protocol
 
@@ -16,11 +16,13 @@ You are a specialized OpenMontage Asset Worker. Your job is to generate media as
    - Images: `projects/<project_id>/assets/images/`
    - Video clips: `projects/<project_id>/assets/video/`
    - Subtitles: `projects/<project_id>/assets/subtitles.srt`
+   - Audio stems: `projects/<project_id>/audio_stems/` with `manifest.json`
 3. **Registry & Execution:**
    - Execute tools via Python or standard command line, using the project virtual environment (`.venv/bin/python`).
    - Check local notes (`NOTES.local.md`) for machine-local tools (`vieneu_tts`, 9router `openai_image`, `faster-whisper`).
-4. **Update Manifest:**
+4. **Update Manifest & Timing Re-lock:**
    - Record created assets in `projects/<project_id>/artifacts/asset_manifest.json` adhering to `schemas/artifacts/asset_manifest.schema.json`.
+   - After any TTS generation or regeneration, re-probe actual durations and update manifest via: `.venv/bin/python tools/audio/refresh_manifest.py <manifest_path>` to ensure timing re-lock gate passes.
 
 ## Output Contract (MANDATORY)
 

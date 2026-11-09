@@ -258,14 +258,39 @@ CHECK: Timeline completeness
   - Verify all asset references point to existing files
   - Verify audio ducking is configured for all narration segments
 
-CHECK: A/V sync pre-validation
+CHECK: A/V sync pre-validation & Timing Re-lock
   - For each cut: narration_start aligns with visual_start (±0.5s)
   - For each scene: narration_duration ≤ visual_duration
+  - Timing re-lock check: .venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<dir>', mode='strict')"
+```
+
+### SCENE ORCHESTRATION & EPISODE GATE (Operational Gate prior to COMPOSE):
+```
+EXECUTE: Scene Workflow Orchestrator
+  - Command:
+    .venv/bin/python tools/qc/scene_orchestrator.py <episode_dir> --runner {auto|subprocess|daemon} --max-concurrency 2 --max-retries 1 --daemon-timeout 600 --scenes id1,id2 --evidence-file artifacts/scene_workflow_evidence.json
+  - Mechanism:
+    * Thin director freezes inputs into frozen_inputs (SHA-256)
+    * Spawns fresh scene writer + separate fresh reviewer per scene
+    * Ownership enforced: reviewer sandbox copy (reviewer_canonical_mutation check), writer scope hash diff (writer_scope_violation check)
+    * Runner status: subprocess is verified deterministic; daemon is experimental for reviewer turns
+    * Reviewer verdict must explicitly bind to disk hashes in reviewed_hashes
+
+EXECUTE: Episode Gate Validation
+  - Command:
+    .venv/bin/python tools/qc/episode_gate.py <episode_root>
+  - Checked:
+    * Unconditional packet coverage diff vs scene_manifest.scenes + edit_decisions.cuts (scene_packet_missing / scene_packet_extra)
+    * Stale packet detection vs current cut audio sources (stale_packet)
+    * Verdict-to-hash binding (verdict_binding_missing / incomplete / mismatch)
+    * Mix measurement completeness (mix_measurement_incomplete; undeclared missing stems fail closed)
+    * Production evidence records for all 5 gates (layout, timing-audio, semantic-events, sfx-mix, provenance-freshness)
 ```
 
 ### After COMPOSE stage:
 ```
-CHECK: Output validation
+CHECK: Output validation & Compose Strict Mode
+  - VideoCompose.execute() must run with validation_mode="strict" using artifacts/production_evidence.json
   - ffprobe the output: duration, resolution, codec, audio channels
   - If duration drift > 5%: investigate which stage caused it
   - If audio missing: check audio_mixer configuration
@@ -322,8 +347,9 @@ Actual: {what was produced}
 | G3 | script | Word count vs duration, narrative arc, research integration | Revise script |
 | G4 | scene_plan | Coverage, variety, feasibility against production plan | Revise scene_plan |
 | G5 | assets | File existence, narration duration, budget, style | Revise assets OR send-back to script |
-| G6 | edit | Timeline completeness, A/V pre-sync | Revise edit |
-| G7 | compose | Output probe, duration, audio quality | Revise compose OR send-back to edit/assets |
+| G6 | edit | Timeline completeness, A/V pre-sync, timing re-lock | Revise edit |
+| G6b | episode_gate | Scene packets, timing re-lock, 5 evidence gates, mix completeness | Run scene_orchestrator / episode_gate |
+| G7 | compose | Output probe, duration, audio quality, compose strict mode | Revise compose OR send-back to edit/assets |
 | G8 | publish | Metadata, packaging | Revise publish |
 | FINAL | all | Holistic video review | Send-back to specific stage |
 

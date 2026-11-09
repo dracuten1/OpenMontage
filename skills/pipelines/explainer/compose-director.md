@@ -18,6 +18,23 @@ Read `edit_decisions.render_runtime` before anything else. It was locked at prop
 
 **Pass `proposal_packet` to `video_compose.execute()`** so in-tool swap detection can actually fire. Without it the `runtime_swap_check` is reported as `skipped` and you have to rely on the reviewer skill's cross-artifact comparison instead.
 
+## Production Evidence & Strict Compose Gate (MANDATORY)
+
+For production workspaces, `VideoCompose.execute()` enforces strict evidence validation (`validation_mode="strict"`; legacy validation is rejected). Before rendering:
+
+1. **Verified Evidence Records:**
+   - Supply evidence via `inputs['evidence_records']` or ensure `artifacts/production_evidence.json` exists on disk.
+   - Every scene requires 5 verified EvidenceRecord gates: `layout`, `timing-audio`, `semantic-events`, `sfx-mix`, and `provenance-freshness` (plus episode-level provenance-freshness).
+   - On-disk SHA-256 hashes of input artifacts and outputs are verified against declared hashes (`artifact_hashes` and `input_hashes`); any mismatch, stale file, or tampering triggers an immediate BLOCK.
+2. **Pre-Compose Validator Suite:**
+   - Layout: `npm run validate:layout -- <spec>`
+   - Semantic events: `npm run validate:events -- <spec>`
+   - Timing re-lock: `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<dir>', mode='strict')"`
+   - Mix validator: `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>` (fail-closed on undeclared missing stems or unmeasured checks)
+   - Episode gate: `.venv/bin/python tools/qc/episode_gate.py <episode_root>`
+3. **Fail-Closed Checkpoint Gate:**
+   - `lib/checkpoint.py` enforces strict default behavior on ambiguity, consuming valid checkpoint stamps. Failures prevent progression to render.
+
 ## Prerequisites
 
 | Layer | Resource | Purpose |
