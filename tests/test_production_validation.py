@@ -11,6 +11,13 @@ from lib.production_validation import (
     validate_checkpoint_production_gate,
     resolve_validation_mode,
     ProductionValidationError,
+    create_evidence_record,
+    GATE_LAYOUT,
+    GATE_TIMING_AUDIO,
+    GATE_SEMANTIC_EVENTS,
+    GATE_SFX_MIX,
+    GATE_PROVENANCE_FRESHNESS,
+    VALID_PRE_RENDER_GATES,
 )
 
 
@@ -794,3 +801,450 @@ def _modern_checkpoint(tmp_path, scene_ids, *, verdict=True, audio=b"audio-origi
     if verdict is not None:
         ckpt["metadata"]["stage_fingerprint"] = FreshnessResult(verdict).to_dict()
     return ckpt
+
+
+def test_f2_unrelated_forged_pass_record_rejected(tmp_path):
+    proj = tmp_path / "forged-proj"
+    proj.mkdir()
+    (proj / "artifacts").mkdir()
+
+    forged_rec = EvidenceRecord(
+        gate_name="unrelated_forgery",
+        scope="pre_render",
+        status=ValidationStatus.PASS,
+        scene_coverage=["s01"],
+        expected_scenes=["s01"],
+        evidence_paths=[],
+    )
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions={"cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}]},
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=[forged_rec],
+    )
+    assert report.status == ValidationStatus.BLOCKED
+    assert not report.can_render()
+    assert any("unrelated_forgery" in r or "layout" in r for r in report.blocking_reasons)
+
+
+def test_f2_tampered_evidence_artifact_hash_mismatch_rejected(tmp_path):
+    proj = tmp_path / "tampered-proj"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+    ev_file = art / "layout.json"
+    ev_file.write_text(json.dumps({"verified": True}), encoding="utf-8")
+
+    rec = create_evidence_record(
+        gate_name=GATE_LAYOUT,
+        scene_coverage=["s01"],
+        evidence_paths=[str(ev_file)],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s01"],
+        artifact_hashes={str(ev_file): "0000000000000000000000000000000000000000000000000000000000000000"},
+    )
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions={"cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}]},
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=[rec],
+        required_gates=[GATE_LAYOUT],
+    )
+    assert report.status == ValidationStatus.BLOCKED
+    assert any("tampered" in r.lower() or "hash mismatch" in r.lower() for r in report.blocking_reasons)
+
+
+def test_f2_stale_input_hash_mismatch_rejected(tmp_path):
+    proj = tmp_path / "stale-input-proj"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+    ev_file = art / "layout.json"
+    ev_file.write_text(json.dumps({"verified": True}), encoding="utf-8")
+    input_file = art / "script.json"
+    input_file.write_text(json.dumps({"sections": []}), encoding="utf-8")
+
+    rec = create_evidence_record(
+        gate_name=GATE_LAYOUT,
+        scene_coverage=["s01"],
+        evidence_paths=[str(ev_file)],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s01"],
+        fingerprint="fp123",
+        metadata={"input_hashes": {str(input_file): "stale_hash_that_does_not_match"}},
+    )
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions={"cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}]},
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=[rec],
+        required_gates=[GATE_LAYOUT],
+    )
+    assert report.status == ValidationStatus.BLOCKED
+    assert any("stale evidence" in r.lower() or "changed since validation" in r.lower() for r in report.blocking_reasons)
+
+
+def test_f2_partial_required_gate_missing_blocked(tmp_path):
+    proj = tmp_path / "partial-proj"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+    ev1 = art / "layout.json"
+    ev1.write_text(json.dumps({"verified": True}), encoding="utf-8")
+    ev2 = art / "timing.json"
+    ev2.write_text(json.dumps({"verified": True}), encoding="utf-8")
+
+    # Only layout and timing-audio provided; semantic-events and sfx-mix are missing
+    rec_layout = create_evidence_record(
+        gate_name=GATE_LAYOUT,
+        scene_coverage=["s01"],
+        evidence_paths=[str(ev1)],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s01"],
+    )
+    rec_timing = create_evidence_record(
+        gate_name=GATE_TIMING_AUDIO,
+        scene_coverage=["s01"],
+        evidence_paths=[str(ev2)],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s01"],
+    )
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions={"cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}]},
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=[rec_layout, rec_timing],
+    )
+    assert report.status == ValidationStatus.BLOCKED
+    assert not report.can_render()
+    reasons_str = " ".join(report.blocking_reasons)
+    assert "semantic-events" in reasons_str
+    assert "sfx-mix" in reasons_str
+
+
+def test_f2_full_required_gates_pass(tmp_path):
+    import hashlib
+    proj = tmp_path / "full-pass-proj"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+    (art / "script.json").write_text(json.dumps({"sections": [{"id": "s01", "text": "hello"}]}))
+    (art / "scene_timing.json").write_text(json.dumps({}))
+    (art / "asset_manifest.json").write_text(json.dumps({"assets": []}))
+
+    recs = []
+    for g in (GATE_LAYOUT, GATE_TIMING_AUDIO, GATE_SEMANTIC_EVENTS, GATE_SFX_MIX):
+        p = art / f"{g}.json"
+        content = json.dumps({"gate": g, "ok": True}).encode("utf-8")
+        p.write_bytes(content)
+        recs.append(
+            create_evidence_record(
+                gate_name=g,
+                scene_coverage=["s01"],
+                evidence_paths=[str(p)],
+                status=ValidationStatus.PASS,
+                expected_scenes=["s01"],
+                artifact_hashes={str(p): hashlib.sha256(content).hexdigest()},
+            )
+        )
+
+    # Episode-level provenance-freshness
+    p_prov = art / "provenance.json"
+    prov_content = json.dumps({"gate": "provenance", "ok": True}).encode("utf-8")
+    p_prov.write_bytes(prov_content)
+    recs.append(
+        create_evidence_record(
+            gate_name=GATE_PROVENANCE_FRESHNESS,
+            scene_coverage=["s01"],
+            evidence_paths=[str(p_prov)],
+            status=ValidationStatus.PASS,
+            expected_scenes=["s01"],
+            artifact_hashes={str(p_prov): hashlib.sha256(prov_content).hexdigest()},
+        )
+    )
+
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions={"cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}]},
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=recs,
+    )
+    assert report.status == ValidationStatus.PASS
+    assert report.can_render()
+
+
+def test_f2_evidence_record_api_and_validation():
+    rec = create_evidence_record(
+        gate_name="layout",
+        scene_coverage=["s1"],
+        evidence_paths=["artifacts/layout.json"],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s1"],
+        fingerprint="fp-test",
+        artifact_hashes={"artifacts/layout.json": "hash123"},
+    )
+    assert rec.gate_name == "layout"
+    assert rec.canonical_gate_name == "layout"
+    assert rec.is_valid_gate()
+    d = rec.to_dict()
+    assert d["artifact_hashes"] == {"artifacts/layout.json": "hash123"}
+    restored = EvidenceRecord.from_dict(d)
+    assert restored.artifact_hashes == {"artifacts/layout.json": "hash123"}
+    assert restored.canonical_gate_name == "layout"
+
+
+# ==============================================================================
+# A-1 / A-2 Review Hardening Tests (F2 Forgery Class Reopened)
+# ==============================================================================
+
+def test_a1_strict_mode_edit_decisions_cannot_shrink_required_gates(tmp_path):
+    """A-1 RED: edit_decisions declaring required_gates=['layout'] must not bypass missing gates in strict mode."""
+    import hashlib
+    proj = tmp_path / "a1-shrink-attempt"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+
+    # Only layout evidence provided; semantic-events, timing-audio, sfx-mix, provenance missing
+    layout_file = art / "layout.json"
+    layout_content = json.dumps({"verified": True}).encode("utf-8")
+    layout_file.write_bytes(layout_content)
+
+    rec_layout = create_evidence_record(
+        gate_name=GATE_LAYOUT,
+        scene_coverage=["s01"],
+        evidence_paths=[str(layout_file)],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s01"],
+        artifact_hashes={str(layout_file): hashlib.sha256(layout_content).hexdigest()},
+    )
+
+    # Edit decisions maliciously attempts to declare a reduced gate set (layout only)
+    edit_decisions = {
+        "required_gates": ["layout"],
+        "cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}],
+    }
+
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions=edit_decisions,
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=[rec_layout],
+    )
+    # Must still BLOCK on missing required gates (semantic-events, timing-audio, sfx-mix, provenance-freshness)
+    assert report.status == ValidationStatus.BLOCKED
+    assert not report.can_render()
+    reasons_str = " ".join(report.blocking_reasons)
+    assert "semantic-events" in reasons_str
+    assert "timing-audio" in reasons_str
+    assert "sfx-mix" in reasons_str
+    assert "provenance-freshness" in reasons_str
+
+
+def test_a1_explicit_caller_kwarg_can_narrow_required_gates(tmp_path):
+    """A-1: explicit caller kwarg validate_pre_render(required_gates=...) is honored."""
+    import hashlib
+    proj = tmp_path / "a1-explicit-kwarg"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+
+    layout_file = art / "layout.json"
+    layout_content = json.dumps({"verified": True}).encode("utf-8")
+    layout_file.write_bytes(layout_content)
+
+    rec_layout = create_evidence_record(
+        gate_name=GATE_LAYOUT,
+        scene_coverage=["s01"],
+        evidence_paths=[str(layout_file)],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s01"],
+        artifact_hashes={str(layout_file): hashlib.sha256(layout_content).hexdigest()},
+    )
+
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions={"cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}]},
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=[rec_layout],
+        required_gates=[GATE_LAYOUT],
+    )
+    assert report.status == ValidationStatus.PASS
+    assert report.can_render()
+
+
+def test_a1_metadata_declared_can_widen_required_gates(tmp_path):
+    """A-1: metadata/edit_decisions may widen enforcement (union), never shrink it."""
+    import hashlib
+    proj = tmp_path / "a1-widen"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+
+    recs = []
+    for g in (GATE_LAYOUT, GATE_TIMING_AUDIO, GATE_SEMANTIC_EVENTS, GATE_SFX_MIX):
+        p = art / f"{g}.json"
+        content = json.dumps({"gate": g}).encode("utf-8")
+        p.write_bytes(content)
+        recs.append(
+            create_evidence_record(
+                gate_name=g,
+                scene_coverage=["s01"],
+                evidence_paths=[str(p)],
+                status=ValidationStatus.PASS,
+                expected_scenes=["s01"],
+                artifact_hashes={str(p): hashlib.sha256(content).hexdigest()},
+            )
+        )
+    p_prov = art / "provenance.json"
+    prov_content = json.dumps({"gate": "provenance"}).encode("utf-8")
+    p_prov.write_bytes(prov_content)
+    recs.append(
+        create_evidence_record(
+            gate_name=GATE_PROVENANCE_FRESHNESS,
+            scene_coverage=["s01"],
+            evidence_paths=[str(p_prov)],
+            status=ValidationStatus.PASS,
+            expected_scenes=["s01"],
+            artifact_hashes={str(p_prov): hashlib.sha256(prov_content).hexdigest()},
+        )
+    )
+
+    # Edit decisions declares the full set using ALIASES; the union must still
+    # enforce the canonical gates (alias normalization) and must not shrink them.
+    edit_decisions = {
+        "required_gates": ["layout_verification", "timing", "events", "mix", "provenance"],
+        "cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}],
+    }
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions=edit_decisions,
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=recs,
+    )
+    assert report.status == ValidationStatus.PASS
+
+    # Same alias metadata, but one canonical gate's evidence is missing:
+    # the alias declaration must NOT let the missing canonical gate slip through.
+    recs_wo_mix = [r for r in recs if r.canonical_gate_name != GATE_SFX_MIX]
+    report_missing = validate_pre_render(
+        project_dir=proj,
+        edit_decisions=edit_decisions,
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=recs_wo_mix,
+    )
+    assert report_missing.status == ValidationStatus.BLOCKED
+    assert "sfx-mix" in " ".join(report_missing.blocking_reasons)
+
+
+def test_a2_pass_record_without_artifact_hashes_rejected_in_strict(tmp_path):
+    """A-2 RED: strict PASS record with evidence_paths but NO artifact_hashes must be REJECTED."""
+    proj = tmp_path / "a2-unhashed"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+    ev_file = art / "layout.json"
+    ev_file.write_text(json.dumps({"verified": True}), encoding="utf-8")
+
+    # Valid path on disk, non-empty, but artifact_hashes dict is empty
+    rec = create_evidence_record(
+        gate_name=GATE_LAYOUT,
+        scene_coverage=["s01"],
+        evidence_paths=[str(ev_file)],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s01"],
+        artifact_hashes={},  # No hash provided!
+    )
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions={"cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}]},
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=[rec],
+        required_gates=[GATE_LAYOUT],
+    )
+    # Must be BLOCKED with named issue
+    assert report.status == ValidationStatus.BLOCKED
+    assert not report.can_render()
+    reasons_str = " ".join(report.blocking_reasons).lower()
+    assert "artifact hash" in reasons_str or "unverified" in reasons_str
+
+
+def test_a2_hash_in_metadata_artifact_hashes_is_accepted(tmp_path):
+    """A-2: a hash supplied via metadata['artifact_hashes'] satisfies the per-path hash requirement."""
+    import hashlib
+    proj = tmp_path / "a2-metadata-hash"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+    ev_file = art / "layout.json"
+    content = json.dumps({"verified": True}).encode("utf-8")
+    ev_file.write_bytes(content)
+
+    rec = create_evidence_record(
+        gate_name=GATE_LAYOUT,
+        scene_coverage=["s01"],
+        evidence_paths=[str(ev_file)],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s01"],
+        artifact_hashes={},
+        metadata={"artifact_hashes": {str(ev_file): hashlib.sha256(content).hexdigest()}},
+    )
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions={"cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}]},
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=[rec],
+        required_gates=[GATE_LAYOUT],
+    )
+    assert report.status == ValidationStatus.PASS
+
+
+def test_a2_partial_hash_coverage_blocked(tmp_path):
+    """A-2: every evidence path needs its own hash — one hashed + one unhashed must BLOCK."""
+    import hashlib
+    proj = tmp_path / "a2-partial"
+    art = proj / "artifacts"
+    art.mkdir(parents=True)
+    hashed_file = art / "hashed.json"
+    hashed_content = json.dumps({"a": 1}).encode("utf-8")
+    hashed_file.write_bytes(hashed_content)
+    unhashed_file = art / "unhashed.json"
+    unhashed_file.write_text(json.dumps({"b": 2}), encoding="utf-8")
+
+    rec = create_evidence_record(
+        gate_name=GATE_LAYOUT,
+        scene_coverage=["s01"],
+        evidence_paths=[str(hashed_file), str(unhashed_file)],
+        status=ValidationStatus.PASS,
+        expected_scenes=["s01"],
+        artifact_hashes={str(hashed_file): hashlib.sha256(hashed_content).hexdigest()},
+    )
+    report = validate_pre_render(
+        project_dir=proj,
+        edit_decisions={"cuts": [{"id": "s01", "in_seconds": 0, "out_seconds": 5}]},
+        mode="strict",
+        expected_scenes=["s01"],
+        pipeline_type="animated-explainer",
+        evidence_records=[rec],
+        required_gates=[GATE_LAYOUT],
+    )
+    assert report.status == ValidationStatus.BLOCKED
+    reasons_str = " ".join(report.blocking_reasons)
+    assert "unhashed.json" in reasons_str
+    assert "lacks artifact hash" in reasons_str
+
+
+

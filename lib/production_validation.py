@@ -8,10 +8,61 @@ from __future__ import annotations
 
 import enum
 import json
-from lib.production_provenance import compute_scene_fingerprint, compute_stage_fingerprint, verify_provenance_freshness, FreshnessResult, StageFingerprint, SceneFingerprint
+from lib.production_provenance import (
+    compute_scene_fingerprint,
+    compute_stage_fingerprint,
+    verify_provenance_freshness,
+    FreshnessResult,
+    StageFingerprint,
+    SceneFingerprint,
+    hash_bytes,
+    hash_file,
+    hash_json_data,
+)
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
+
+GATE_LAYOUT = "layout"
+GATE_TIMING_AUDIO = "timing-audio"
+GATE_SEMANTIC_EVENTS = "semantic-events"
+GATE_SFX_MIX = "sfx-mix"
+GATE_PROVENANCE_FRESHNESS = "provenance-freshness"
+
+VALID_PRE_RENDER_GATES = {
+    GATE_LAYOUT,
+    GATE_TIMING_AUDIO,
+    GATE_SEMANTIC_EVENTS,
+    GATE_SFX_MIX,
+    GATE_PROVENANCE_FRESHNESS,
+}
+
+REQUIRED_PRE_RENDER_SCENE_GATES = {
+    GATE_LAYOUT,
+    GATE_TIMING_AUDIO,
+    GATE_SEMANTIC_EVENTS,
+    GATE_SFX_MIX,
+}
+
+REQUIRED_PRE_RENDER_EPISODE_GATES = {
+    GATE_PROVENANCE_FRESHNESS,
+}
+
+REQUIRED_PRE_RENDER_GATES = REQUIRED_PRE_RENDER_SCENE_GATES | REQUIRED_PRE_RENDER_EPISODE_GATES
+
+GATE_ALIASES = {
+    "pre_render_layout": GATE_LAYOUT,
+    "layout_verification": GATE_LAYOUT,
+    "pre_render_timing": GATE_TIMING_AUDIO,
+    "audio": GATE_TIMING_AUDIO,
+    "timing": GATE_TIMING_AUDIO,
+    "semantic": GATE_SEMANTIC_EVENTS,
+    "events": GATE_SEMANTIC_EVENTS,
+    "sfx": GATE_SFX_MIX,
+    "mix": GATE_SFX_MIX,
+    "provenance": GATE_PROVENANCE_FRESHNESS,
+    "provenance_freshness": GATE_PROVENANCE_FRESHNESS,
+}
 
 
 class ValidationStatus(str, enum.Enum):
@@ -38,6 +89,17 @@ class EvidenceRecord:
     fingerprint: str = ""
     issues: list[str] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
+    artifact_hashes: dict[str, str] = field(default_factory=dict)
+
+    VALID_GATES = VALID_PRE_RENDER_GATES
+    REQUIRED_GATES = REQUIRED_PRE_RENDER_GATES
+
+    @property
+    def canonical_gate_name(self) -> str:
+        return GATE_ALIASES.get(self.gate_name, self.gate_name)
+
+    def is_valid_gate(self) -> bool:
+        return self.canonical_gate_name in VALID_PRE_RENDER_GATES
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -51,6 +113,7 @@ class EvidenceRecord:
             "fingerprint": self.fingerprint,
             "issues": self.issues,
             "metadata": self.metadata,
+            "artifact_hashes": self.artifact_hashes,
         }
 
     @classmethod
@@ -66,7 +129,40 @@ class EvidenceRecord:
             fingerprint=str(data.get("fingerprint", "")),
             issues=list(data.get("issues", [])),
             metadata=dict(data.get("metadata", {})),
+            artifact_hashes=dict(
+                data.get("artifact_hashes", data.get("metadata", {}).get("artifact_hashes", {}))
+            ),
         )
+
+
+def create_evidence_record(
+    gate_name: str,
+    scene_coverage: list[str],
+    evidence_paths: list[str],
+    status: ValidationStatus = ValidationStatus.PASS,
+    scope: str = "pre_render",
+    expected_scenes: list[str] | None = None,
+    fingerprint: str = "",
+    artifact_hashes: dict[str, str] | None = None,
+    issues: list[str] | None = None,
+    metadata: dict[str, Any] | None = None,
+    severity: str = "info",
+) -> EvidenceRecord:
+    """Canonical helper for constructing validated EvidenceRecord instances."""
+    canonical = GATE_ALIASES.get(gate_name, gate_name)
+    return EvidenceRecord(
+        gate_name=canonical,
+        scope=scope,
+        status=status,
+        severity=severity,
+        evidence_paths=list(evidence_paths),
+        scene_coverage=list(scene_coverage),
+        expected_scenes=list(expected_scenes or scene_coverage),
+        fingerprint=str(fingerprint),
+        issues=list(issues or []),
+        metadata=dict(metadata or {}),
+        artifact_hashes=dict(artifact_hashes or {}),
+    )
 
 
 @dataclass
@@ -292,6 +388,32 @@ def resolve_validation_mode(
     return "legacy"
 
 
+def _lookup_artifact_hash(ev: EvidenceRecord, raw_path: str, resolved_path: Path) -> str | None:
+    """Resolve the declared artifact hash for an evidence path.
+
+    Looks in ``ev.artifact_hashes`` first, then in ``ev.metadata['artifact_hashes']``.
+    Accepts the raw declared path, its absolute resolved form, and the path as
+    declared relative to the project directory.
+    """
+    candidates = [raw_path, str(resolved_path)]
+    try:
+        candidates.append(str(Path(raw_path)))
+    except (TypeError, ValueError):
+        pass
+    sources = [ev.artifact_hashes]
+    meta_hashes = ev.metadata.get("artifact_hashes")
+    if isinstance(meta_hashes, dict):
+        sources.append(meta_hashes)
+    for source in sources:
+        if not isinstance(source, dict):
+            continue
+        for cand in candidates:
+            found = source.get(cand)
+            if found:
+                return str(found)
+    return None
+
+
 def validate_pre_render(
     project_dir: Path,
     edit_decisions: dict[str, Any],
@@ -301,6 +423,7 @@ def validate_pre_render(
     asset_manifest: dict[str, Any] | None = None,
     evidence_records: list[EvidenceRecord] | None = None,
     defs_dir: Path | None = None,
+    required_gates: list[str] | set[str] | None = None,
 ) -> ProductionValidationReport:
     """Pre-render validation gate. Must pass before any render branch runs."""
     records: list[EvidenceRecord] = []
@@ -390,41 +513,160 @@ def validate_pre_render(
                 records=[rec],
             )
 
-        # Check evidence paths existence and non-emptiness on disk
+        # Validate each supplied record
         for ev in supplied_records:
-            missing_paths = []
-            for ep in ev.evidence_paths:
-                p = Path(ep)
-                if not p.is_absolute():
-                    p = project_dir / p
-                if not p.exists() or p.stat().st_size == 0:
-                    missing_paths.append(str(p))
-            if missing_paths:
+            canonical_gate = GATE_ALIASES.get(ev.gate_name, ev.gate_name)
+            if canonical_gate not in VALID_PRE_RENDER_GATES:
                 ev.status = ValidationStatus.BLOCKED
                 ev.severity = "critical"
-                ev.issues.extend([f"Evidence file missing or empty: {mp}" for mp in missing_paths])
+                ev.issues.append(
+                    f"Unrecognized/forged gate identity {ev.gate_name!r}; "
+                    f"required one of {sorted(VALID_PRE_RENDER_GATES)}"
+                )
+
+            if ev.scope != "pre_render":
+                ev.status = ValidationStatus.BLOCKED
+                ev.severity = "critical"
+                ev.issues.append(
+                    f"Invalid scope {ev.scope!r} for pre-render gate {ev.gate_name!r}; expected 'pre_render'"
+                )
+
+            # Scene coverage validation for scene-scoped gates
+            if canonical_gate in REQUIRED_PRE_RENDER_SCENE_GATES:
+                if not ev.scene_coverage:
+                    ev.status = ValidationStatus.BLOCKED
+                    ev.severity = "critical"
+                    ev.issues.append(f"Gate {ev.gate_name!r} has empty scene_coverage")
+                extra_scenes = set(ev.scene_coverage) - set(target_scenes)
+                if extra_scenes:
+                    ev.status = ValidationStatus.BLOCKED
+                    ev.severity = "critical"
+                    ev.issues.append(
+                        f"Gate {ev.gate_name!r} declared scene_coverage {sorted(list(extra_scenes))} not in target scenes"
+                    )
+
+            # Evidence paths and artifact disk verification
+            unhashed_paths: list[str] = []
+            if not ev.evidence_paths and ev.status == ValidationStatus.PASS:
+                ev.status = ValidationStatus.BLOCKED
+                ev.severity = "critical"
+                ev.issues.append(f"Gate {ev.gate_name!r} has no evidence paths declared on disk")
+            else:
+                missing_paths = []
+                hash_mismatches = []
+                for ep in ev.evidence_paths:
+                    p = Path(ep)
+                    if not p.is_absolute():
+                        p = project_dir / p
+                    expected_hash = _lookup_artifact_hash(ev, ep, p)
+                    if ev.status == ValidationStatus.PASS and not expected_hash:
+                        # A-2: existence-only evidence is a forgery surface. Strict mode
+                        # requires a content hash for EVERY declared evidence path.
+                        unhashed_paths.append(ep)
+                    if not p.exists() or p.stat().st_size == 0:
+                        missing_paths.append(str(p))
+                    elif expected_hash:
+                        actual_hash = hash_file(p)
+                        if actual_hash != expected_hash:
+                            hash_mismatches.append(f"{ep} (expected {expected_hash}, got {actual_hash})")
+
+                if missing_paths:
+                    ev.status = ValidationStatus.BLOCKED
+                    ev.severity = "critical"
+                    ev.issues.extend([f"Evidence file missing or empty: {mp}" for mp in missing_paths])
+                if hash_mismatches:
+                    ev.status = ValidationStatus.BLOCKED
+                    ev.severity = "critical"
+                    ev.issues.extend([f"Evidence artifact hash mismatch / tampered: {hm}" for hm in hash_mismatches])
+
+            # Input fingerprint verification against current inputs
+            if ev.status == ValidationStatus.PASS and ev.fingerprint:
+                input_hashes = ev.metadata.get("input_hashes", {})
+                for in_path, expected_in_hash in input_hashes.items():
+                    ip = Path(in_path)
+                    if not ip.is_absolute():
+                        ip = project_dir / ip
+                    if not ip.exists():
+                        ev.status = ValidationStatus.BLOCKED
+                        ev.severity = "critical"
+                        ev.issues.append(f"Referenced input file missing: {ip}")
+                    elif hash_file(ip) != expected_in_hash:
+                        ev.status = ValidationStatus.BLOCKED
+                        ev.severity = "critical"
+                        ev.issues.append(f"Referenced input file {ip} changed since validation (stale evidence)")
+
+            # A-2: existence-only evidence is a forgery surface — strict mode requires
+            # a content hash for EVERY declared evidence path.
+            if unhashed_paths and ev.status == ValidationStatus.PASS:
+                ev.status = ValidationStatus.BLOCKED
+                ev.severity = "critical"
+                ev.issues.extend(
+                    [
+                        f"Evidence path lacks artifact hash — content unverified: {up}"
+                        for up in unhashed_paths
+                    ]
+                )
+
             records.append(ev)
 
-        # Compare expected scenes vs covered scenes
-        covered_scenes: set[str] = set()
-        for r in records:
-            if r.status == ValidationStatus.PASS:
-                covered_scenes.update(r.scene_coverage)
-        missing_scenes = set(target_scenes) - covered_scenes
-        if missing_scenes:
-            records.append(
-                EvidenceRecord(
-                    gate_name="scene_coverage",
-                    scope="pre_render",
-                    status=ValidationStatus.BLOCKED,
-                    severity="critical",
-                    scene_coverage=sorted(list(covered_scenes)),
-                    expected_scenes=target_scenes,
-                    issues=[
-                        f"Missing scene coverage in verified evidence: {sorted(list(missing_scenes))} not covered."
-                    ],
+        # Enforce REQUIRED Gate Set per scene / episode.
+        #
+        # A-1: strict mode enforces a SUPERSET of the canonical required gate sets.
+        # Narrowing is permitted ONLY via the explicit caller kwarg ``required_gates``.
+        # Validated-side metadata (edit_decisions / packets / project files) may only
+        # WIDEN enforcement (union) — never shrink it.
+        if required_gates is not None:
+            active_req = {GATE_ALIASES.get(g, g) for g in required_gates}
+            req_scene_gates = active_req & REQUIRED_PRE_RENDER_SCENE_GATES
+            req_episode_gates = active_req & REQUIRED_PRE_RENDER_EPISODE_GATES
+        else:
+            req_scene_gates = set(REQUIRED_PRE_RENDER_SCENE_GATES)
+            req_episode_gates = set(REQUIRED_PRE_RENDER_EPISODE_GATES)
+            # Metadata may only widen (union) the enforced gate set.
+            meta_req = edit_decisions.get("required_gates")
+            if meta_req is not None:
+                meta_canon = {GATE_ALIASES.get(g, g) for g in meta_req}
+                req_scene_gates |= meta_canon & REQUIRED_PRE_RENDER_SCENE_GATES
+                req_episode_gates |= meta_canon & REQUIRED_PRE_RENDER_EPISODE_GATES
+
+        for g in sorted(req_scene_gates):
+            passing_scenes: set[str] = set()
+            for r in records:
+                if r.status == ValidationStatus.PASS and GATE_ALIASES.get(r.gate_name, r.gate_name) == g:
+                    passing_scenes.update(r.scene_coverage)
+            missing = set(target_scenes) - passing_scenes
+            if missing:
+                records.append(
+                    EvidenceRecord(
+                        gate_name=g,
+                        scope="pre_render",
+                        status=ValidationStatus.BLOCKED,
+                        severity="critical",
+                        scene_coverage=sorted(list(passing_scenes)),
+                        expected_scenes=target_scenes,
+                        issues=[
+                            f"Required gate {g!r} missing verified PASS coverage for scene(s): {sorted(list(missing))}"
+                        ],
+                    )
                 )
+
+        for eg in sorted(req_episode_gates):
+            has_passing_episode = any(
+                r.status == ValidationStatus.PASS and GATE_ALIASES.get(r.gate_name, r.gate_name) == eg
+                for r in records
             )
+            if not has_passing_episode:
+                records.append(
+                    EvidenceRecord(
+                        gate_name=eg,
+                        scope="pre_render",
+                        status=ValidationStatus.BLOCKED,
+                        severity="critical",
+                        issues=[
+                            f"Required episode gate {eg!r} missing verified PASS evidence"
+                        ],
+                    )
+                )
     else:
         # Legacy mode: create basic record
         records.append(
@@ -550,30 +792,140 @@ def recompute_checkpoint_fingerprint(checkpoint: dict[str, Any], pipeline_dir: P
     if not ids: raise ProductionValidationError("strict provenance recomputation failed: checkpoint has no authoritative scene IDs")
     optional = {}
     for name in ("words.json", "scene_elements.json", "edit_decisions.json", "captions.json", "scene_plan.json"):
-        path=artifacts_dir/name
+        path = artifacts_dir / name
         if path.is_file():
-            try: optional[name]=json.loads(path.read_text(encoding="utf-8"))
-            except (OSError, ValueError): optional[name]=None
-    scenes={}
-    assets=manifest.get("assets", [])
+            try: optional[name] = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError): optional[name] = None
+
+    # TSX and component composition dependencies
+    tsx_deps: dict[str, str] = {}
+    for ext in ("*.tsx", "*.ts"):
+        for p in project_dir.glob(ext):
+            if p.is_file():
+                tsx_deps[p.name] = hash_file(p)
+    for sub in ("components", "remotion", "src", "source"):
+        sdir = project_dir / sub
+        if sdir.is_dir():
+            for ext in ("**/*.tsx", "**/*.ts"):
+                for p in sdir.glob(ext):
+                    if p.is_file():
+                        tsx_deps[str(p.relative_to(project_dir))] = hash_file(p)
+
+    repo_root = Path(__file__).resolve().parent.parent
+    remotion_composer = repo_root / "remotion-composer"
+    if remotion_composer.is_dir():
+        proj_name = str(project_id)
+        candidates = [remotion_composer / "src" / proj_name]
+        if project_dir.name != proj_name:
+            candidates.append(remotion_composer / "src" / project_dir.name)
+        for cdir in candidates:
+            if cdir.is_dir():
+                for p in cdir.glob("**/*.tsx"):
+                    if p.is_file():
+                        tsx_deps[str(p.relative_to(remotion_composer))] = hash_file(p)
+                for p in cdir.glob("**/*.ts"):
+                    if p.is_file():
+                        tsx_deps[str(p.relative_to(remotion_composer))] = hash_file(p)
+
+    # Config dependencies
+    config_deps: dict[str, str] = {}
+    for cname in ("project.json", "mix_profile.json", "scene_layout_spec.json", "event_spec.json", "mix_manifest.json", "scene_manifest.json"):
+        cp = project_dir / cname
+        if cp.is_file():
+            config_deps[cname] = hash_file(cp)
+
+    # Staged audio dependencies (audio_stems)
+    staged_audio: dict[str, str] = {}
+    stems_dir = project_dir / "audio_stems"
+    if stems_dir.is_dir():
+        for sp in sorted(stems_dir.iterdir()):
+            if sp.is_file() and not sp.name.startswith("."):
+                staged_audio[sp.name] = hash_file(sp)
+
+    scenes = {}
+    assets = manifest.get("assets", [])
     for sid in sorted(ids):
-        audio=None; visuals=[]
-        for asset in assets if isinstance(assets,list) else []:
-            if not isinstance(asset,dict) or str(asset.get("scene_id")) != sid: continue
-            rel=asset.get("path")
-            if not isinstance(rel,str): continue
-            path=project_dir/rel
-            if asset.get("type") in {"audio","narration","music","sfx"}:
-                try: data=path.read_bytes()
-                except OSError as exc: raise ProductionValidationError(f"strict provenance recomputation failed: declared audio missing/unreadable: {path}: {exc}") from exc
-                if not data: raise ProductionValidationError(f"strict provenance recomputation failed: declared audio empty: {path}")
-                audio=path
-            elif asset.get("type") in {"image","video","diagram","animation","3d_asset"} and path.is_file(): visuals.append(path)
+        audio_by_type: dict[str, list[dict[str, Any]]] = {
+            "narration": [],
+            "music": [],
+            "sfx": [],
+            "audio": [],
+        }
+        visuals = []
+        for asset in assets if isinstance(assets, list) else []:
+            if not isinstance(asset, dict) or str(asset.get("scene_id")) != sid:
+                continue
+            rel = asset.get("path")
+            if not isinstance(rel, str):
+                continue
+            path = project_dir / rel
+            atype = asset.get("type")
+            if atype in {"audio", "narration", "music", "sfx"}:
+                try:
+                    data = path.read_bytes()
+                except OSError as exc:
+                    raise ProductionValidationError(
+                        f"strict provenance recomputation failed: declared audio missing/unreadable: {path}: {exc}"
+                    ) from exc
+                if not data:
+                    raise ProductionValidationError(f"strict provenance recomputation failed: declared audio empty: {path}")
+                audio_by_type[atype].append({
+                    "id": asset.get("id", ""),
+                    "path": rel,
+                    "sha256": hash_bytes(data),
+                })
+            elif atype in {"image", "video", "diagram", "animation", "3d_asset"} and path.is_file():
+                visuals.append(path)
+
+        # Select primary audio per type hierarchy: narration -> audio -> music -> sfx
+        if audio_by_type["narration"]:
+            if len(audio_by_type["narration"]) == 1:
+                primary_audio = project_dir / audio_by_type["narration"][0]["path"]
+            else:
+                primary_audio = b"".join(
+                    project_dir.joinpath(a["path"]).read_bytes() for a in audio_by_type["narration"]
+                )
+        elif audio_by_type["audio"]:
+            if len(audio_by_type["audio"]) == 1:
+                primary_audio = project_dir / audio_by_type["audio"][0]["path"]
+            else:
+                primary_audio = b"".join(
+                    project_dir.joinpath(a["path"]).read_bytes() for a in audio_by_type["audio"]
+                )
+        elif audio_by_type["music"]:
+            primary_audio = project_dir / audio_by_type["music"][0]["path"]
+        elif audio_by_type["sfx"]:
+            primary_audio = project_dir / audio_by_type["sfx"][0]["path"]
+        else:
+            primary_audio = None
+
         def per_scene(data):
-            if isinstance(data,dict): return data.get(sid,data)
-            if isinstance(data,list): return [x for x in data if isinstance(x,dict) and str(x.get("scene_id",x.get("id","")))==sid]
+            if isinstance(data, dict): return data.get(sid, data)
+            if isinstance(data, list): return [x for x in data if isinstance(x, dict) and str(x.get("scene_id", x.get("id", ""))) == sid]
             return data
-        scenes[sid]=compute_scene_fingerprint(sid,text=sections.get(sid,{}).get("text"),audio_path_or_bytes=audio,words_data=per_scene(optional.get("words.json")),timing_data=per_scene(timing),visual_asset_paths_or_hashes=visuals,scene_config=manifest,events_data=per_scene(optional.get("scene_elements.json")),composition_deps={k:per_scene(v) for k,v in optional.items()})
+
+        scene_comp_deps = {k: per_scene(v) for k, v in optional.items()}
+        audio_assets_present = {k: v for k, v in audio_by_type.items() if v}
+        if audio_assets_present:
+            scene_comp_deps["audio_assets"] = audio_assets_present
+        if tsx_deps:
+            scene_comp_deps["tsx"] = tsx_deps
+        if config_deps:
+            scene_comp_deps["config"] = config_deps
+        if staged_audio:
+            scene_comp_deps["staged_audio"] = staged_audio
+
+        scenes[sid] = compute_scene_fingerprint(
+            sid,
+            text=sections.get(sid, {}).get("text"),
+            audio_path_or_bytes=primary_audio,
+            words_data=per_scene(optional.get("words.json")),
+            timing_data=per_scene(timing),
+            visual_asset_paths_or_hashes=visuals,
+            scene_config=manifest,
+            events_data=per_scene(optional.get("scene_elements.json")),
+            composition_deps=scene_comp_deps,
+        )
     return compute_stage_fingerprint(str(checkpoint.get("stage", "")), scenes)
 
 

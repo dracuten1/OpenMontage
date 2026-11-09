@@ -1,8 +1,9 @@
+import json
 import pytest
 from lib.production_provenance import (compute_scene_fingerprint, compute_stage_fingerprint, hash_bytes, hash_json_data,
     verify_provenance_freshness, detect_stale_dependencies)
 from lib.production_validation import (EvidenceRecord, ProductionValidationReport, ValidationStatus,
-    validate_checkpoint_production_gate, ProductionValidationError)
+    validate_checkpoint_production_gate, ProductionValidationError, recompute_checkpoint_fingerprint)
 
 
 def test_canonical_hashing():
@@ -215,3 +216,144 @@ def test_pair_current_forgery_rejected_against_recomputed_artifacts(tmp_path):
             EvidenceRecord("gate", "compose", ValidationStatus.PASS, scene_coverage=["s1"], expected_scenes=["s1"]).to_dict()]}})
     with pytest.raises(ProductionValidationError, match="provided current contradicts recomputed current"):
         validate_checkpoint_production_gate(checkpoint, pipeline_dir=tmp_path)
+
+
+def test_f5_narration_swap_with_later_sfx_fails_freshness(tmp_path):
+    project = tmp_path / "proj"
+    artifacts = project / "artifacts"
+    assets = project / "assets"
+    artifacts.mkdir(parents=True)
+    assets.mkdir(parents=True)
+
+    voice = assets / "voice.wav"
+    voice.write_bytes(b"original-narration-bytes-version-1")
+    sfx = assets / "hit.wav"
+    sfx.write_bytes(b"sfx-hit-bytes-constant")
+
+    (artifacts / "script.json").write_text(json.dumps({"sections": [{"id": "s1", "text": "hello"}]}))
+    (artifacts / "scene_timing.json").write_text(json.dumps({"s1": {"start": 0, "end": 2}}))
+    (artifacts / "asset_manifest.json").write_text(json.dumps({
+        "assets": [
+            {"id": "a1", "type": "narration", "path": "assets/voice.wav", "scene_id": "s1", "duration_seconds": 2.0},
+            {"id": "a2", "type": "sfx", "path": "assets/hit.wav", "scene_id": "s1", "duration_seconds": 0.5},
+        ]
+    }))
+
+    ckpt = {"stage": "compose", "status": "completed", "project_id": "proj", "metadata": {"edit_decisions": {"cuts": [{"id": "s1"}]}}}
+    baseline = recompute_checkpoint_fingerprint(ckpt, tmp_path, "proj")
+
+    # Same-duration narration replacement
+    voice.write_bytes(b"replaced-narration-bytes-version-2")
+    current = recompute_checkpoint_fingerprint(ckpt, tmp_path, "proj")
+
+    freshness = verify_provenance_freshness(current, baseline)
+    assert not freshness.is_fresh
+    assert any("audio" in r or "narration" in r for r in freshness.stale_reasons)
+
+
+def test_f5_tsx_and_config_mutation_detected(tmp_path):
+    project = tmp_path / "proj"
+    artifacts = project / "artifacts"
+    assets = project / "assets"
+    artifacts.mkdir(parents=True)
+    assets.mkdir(parents=True)
+
+    voice = assets / "voice.wav"
+    voice.write_bytes(b"voice-bytes")
+    tsx_file = project / "Episode.tsx"
+    tsx_file.write_text("export const Episode = () => <div>v1</div>;")
+    config_file = project / "mix_profile.json"
+    config_file.write_text(json.dumps({"version": 1, "target_lufs": -16}))
+
+    (artifacts / "script.json").write_text(json.dumps({"sections": [{"id": "s1", "text": "hello"}]}))
+    (artifacts / "scene_timing.json").write_text(json.dumps({"s1": {"start": 0, "end": 2}}))
+    (artifacts / "asset_manifest.json").write_text(json.dumps({
+        "assets": [
+            {"id": "a1", "type": "narration", "path": "assets/voice.wav", "scene_id": "s1", "duration_seconds": 2.0},
+        ]
+    }))
+
+    ckpt = {"stage": "compose", "status": "completed", "project_id": "proj", "metadata": {"edit_decisions": {"cuts": [{"id": "s1"}]}}}
+    baseline = recompute_checkpoint_fingerprint(ckpt, tmp_path, "proj")
+
+    # Mutate TSX
+    tsx_file.write_text("export const Episode = () => <div>v2-mutated</div>;")
+    current_tsx_mutated = recompute_checkpoint_fingerprint(ckpt, tmp_path, "proj")
+    freshness_tsx = verify_provenance_freshness(current_tsx_mutated, baseline)
+    assert not freshness_tsx.is_fresh
+    assert any("composition_deps" in r for r in freshness_tsx.stale_reasons)
+
+    # Restore TSX, mutate config
+    tsx_file.write_text("export const Episode = () => <div>v1</div>;")
+    config_file.write_text(json.dumps({"version": 2, "target_lufs": -14}))
+    current_config_mutated = recompute_checkpoint_fingerprint(ckpt, tmp_path, "proj")
+    freshness_config = verify_provenance_freshness(current_config_mutated, baseline)
+    assert not freshness_config.is_fresh
+    assert any("composition_deps" in r for r in freshness_config.stale_reasons)
+
+
+def test_f5_staged_audio_mutation_detected(tmp_path):
+    project = tmp_path / "stems-proj"
+    artifacts = project / "artifacts"
+    assets = project / "assets"
+    stems = project / "audio_stems"
+    artifacts.mkdir(parents=True)
+    assets.mkdir(parents=True)
+    stems.mkdir(parents=True)
+
+    voice = assets / "voice.wav"
+    voice.write_bytes(b"voice-bytes")
+    stem_mix = stems / "mix.wav"
+    stem_mix.write_bytes(b"mix-wav-bytes-v1")
+
+    (artifacts / "script.json").write_text(json.dumps({"sections": [{"id": "s1", "text": "hello"}]}))
+    (artifacts / "scene_timing.json").write_text(json.dumps({"s1": {"start": 0, "end": 2}}))
+    (artifacts / "asset_manifest.json").write_text(json.dumps({
+        "assets": [
+            {"id": "a1", "type": "narration", "path": "assets/voice.wav", "scene_id": "s1", "duration_seconds": 2.0},
+        ]
+    }))
+
+    ckpt = {"stage": "compose", "status": "completed", "project_id": "stems-proj", "metadata": {"edit_decisions": {"cuts": [{"id": "s1"}]}}}
+    baseline = recompute_checkpoint_fingerprint(ckpt, tmp_path, "stems-proj")
+
+    # Mutate staged audio stem
+    stem_mix.write_bytes(b"mix-wav-bytes-v2-mutated")
+    current = recompute_checkpoint_fingerprint(ckpt, tmp_path, "stems-proj")
+    freshness = verify_provenance_freshness(current, baseline)
+    assert not freshness.is_fresh
+    assert any("composition_deps" in r for r in freshness.stale_reasons)
+
+
+def test_f5_upstream_mutation_keeps_history_and_fails_current(tmp_path):
+    checkpoint, baseline = build_provenance_artifacts(tmp_path, ["s1"])
+    # Record baseline as historical approval in checkpoint metadata
+    checkpoint["metadata"].update({
+        "validation_mode": "strict",
+        "recorded_fingerprints": baseline.to_dict(),
+        "stage_fingerprint": {"current": baseline.to_dict(), "recorded": baseline.to_dict()},
+        "production_validation_report": {
+            "status": "pass",
+            "project_id": "p",
+            "pipeline_type": "pipeline",
+            "mode": "strict",
+            "records": [
+                EvidenceRecord("layout", "compose", ValidationStatus.PASS, scene_coverage=["s1"], expected_scenes=["s1"]).to_dict()
+            ],
+        },
+    })
+    # Verify baseline passes initially
+    validate_checkpoint_production_gate(checkpoint, pipeline_dir=tmp_path)
+
+    # Mutate script text upstream (same audio, but script changed)
+    script_path = tmp_path / "p" / "artifacts" / "script.json"
+    script_path.write_text(json.dumps({"sections": [{"id": "s1", "text": "mutated-text"}]}))
+
+    # Current recomputed will mismatch historical recorded_fingerprints
+    with pytest.raises(ProductionValidationError, match="recomputed stale provenance|provided current contradicts recomputed current"):
+        validate_checkpoint_production_gate(checkpoint, pipeline_dir=tmp_path)
+
+    # Historical recorded approval remains recorded and unmutated in metadata
+    assert checkpoint["metadata"]["recorded_fingerprints"] == baseline.to_dict()
+
+

@@ -930,6 +930,32 @@ class VideoCompose(BaseTool):
         visit(value)
         return len(staged_by_source)
 
+    @staticmethod
+    def _resolve_project_dir_candidate(
+        output_path: Path,
+        inputs: dict[str, Any],
+        edit_decisions: dict[str, Any] | None = None,
+    ) -> Path:
+        if inputs.get("project_dir"):
+            return Path(inputs["project_dir"]).resolve()
+
+        p_out = Path(output_path).resolve()
+        for cand in (p_out.parent.parent, p_out.parent):
+            if (cand / "artifacts").is_dir() or (cand / "project.json").is_file():
+                return cand
+
+        proj_id = inputs.get("project_id") or ((edit_decisions or {}).get("metadata") or {}).get("project_id")
+        if proj_id:
+            try:
+                from lib.paths import PROJECTS_DIR
+                cand = (PROJECTS_DIR / str(proj_id)).resolve()
+                if cand.is_dir():
+                    return cand
+            except Exception:
+                pass
+
+        return p_out.parent.parent
+
     def _resolve_compose_validation_mode(
         self,
         inputs: dict[str, Any],
@@ -938,26 +964,68 @@ class VideoCompose(BaseTool):
     ) -> str:
         """Resolve validation mode ('strict' vs 'legacy') for compose operations.
 
-        Precedence:
-        1. inputs['validation_mode']
-        2. edit_decisions['metadata']['validation_mode']
-        3. resolve_validation_mode on project directory (project.json or projects/ tree)
-        4. Fallback to 'strict' for safety
+        STRICT is the only accepted mode for production workspaces.
+        Legacy mode is accepted ONLY as an explicit, loudly-recorded non-production opt-out
+        for offline test fixtures; it can NEVER satisfy production acceptance.
         """
+        proj_dir: Path | None = None
+        if output_path:
+            proj_dir = self._resolve_project_dir_candidate(output_path, inputs, edit_decisions)
+        elif inputs.get("project_dir"):
+            proj_dir = Path(inputs["project_dir"]).resolve()
+
+        is_production_workspace = False
+        if proj_dir is not None:
+            marker_path = proj_dir / "project.json"
+            if marker_path.is_file():
+                try:
+                    with open(marker_path, encoding="utf-8") as f:
+                        marker_data = json.load(f)
+                    if isinstance(marker_data, dict):
+                        if not (marker_data.get("legacy") or marker_data.get("contract") == "legacy" or marker_data.get("validation_mode") == "legacy"):
+                            is_production_workspace = True
+                except Exception:
+                    is_production_workspace = True
+            try:
+                from lib.paths import PROJECTS_DIR
+                p_res = proj_dir.resolve()
+                if p_res == PROJECTS_DIR.resolve() or PROJECTS_DIR.resolve() in p_res.parents:
+                    is_production_workspace = True
+            except Exception:
+                pass
+
+        requested_mode = None
         val_mode = inputs.get("validation_mode")
         if val_mode:
-            return str(val_mode)
-
-        if edit_decisions and isinstance(edit_decisions.get("metadata"), dict):
+            requested_mode = str(val_mode)
+        elif edit_decisions and isinstance(edit_decisions.get("metadata"), dict):
             ed_mode = edit_decisions["metadata"].get("validation_mode")
             if ed_mode:
-                return str(ed_mode)
+                requested_mode = str(ed_mode)
 
-        if output_path:
+        if is_production_workspace:
+            if requested_mode and requested_mode != "strict":
+                logging.getLogger("video_compose").warning(
+                    "Production workspace %s enforces strict validation; requested %r rejected.",
+                    proj_dir,
+                    requested_mode,
+                )
+            return "strict"
+
+        if requested_mode:
+            if requested_mode == "legacy":
+                logging.getLogger("video_compose").warning(
+                    "\n" + "=" * 80 + "\n"
+                    "CRITICAL WARNING: Non-production 'legacy' validation mode requested.\n"
+                    "This mode bypasses strict pre-render evidence verification and CAN NEVER\n"
+                    "satisfy production acceptance or checkpoint completion.\n"
+                    + "=" * 80
+                )
+            return requested_mode
+
+        if proj_dir:
             try:
                 from lib.production_validation import resolve_validation_mode
-                p_out = Path(output_path).resolve()
-                proj_dir = p_out.parent.parent
                 return resolve_validation_mode(pipeline_dir=proj_dir.parent, project_id=proj_dir.name)
             except Exception:
                 pass
@@ -985,6 +1053,13 @@ class VideoCompose(BaseTool):
         data = render_result.data if isinstance(render_result.data, dict) else {}
         render_result.data = data
         data["final_review"] = final_review
+
+        if mode == "legacy":
+            data["production_acceptable"] = False
+            data["non_production_bypass"] = True
+            data["non_production_marker"] = "LEGACY_MODE_UNVALIDATED"
+            final_review["production_acceptable"] = False
+            final_review["non_production_bypass"] = True
 
         raw_status = final_review.get("status")
         status = str(raw_status).strip().lower() if raw_status is not None else ""
@@ -1740,8 +1815,50 @@ class VideoCompose(BaseTool):
 
         # --- Unified Production Pre-Render Validation Gate ---
         output_path_candidate = Path(inputs.get("output_path", "renders/output.mp4")).resolve()
-        project_dir_candidate = output_path_candidate.parent.parent
+        project_dir_candidate = self._resolve_project_dir_candidate(output_path_candidate, inputs, edit_decisions)
         validation_mode = self._resolve_compose_validation_mode(inputs, edit_decisions, output_path_candidate)
+
+        evidence_records = None
+        if "evidence_records" in inputs and isinstance(inputs["evidence_records"], list):
+            from lib.production_validation import EvidenceRecord
+            evidence_records = [
+                EvidenceRecord.from_dict(r) if isinstance(r, dict) else r
+                for r in inputs["evidence_records"]
+            ]
+        else:
+            evidence_path = project_dir_candidate / "artifacts" / "production_evidence.json"
+            if evidence_path.is_file():
+                try:
+                    from lib.production_validation import EvidenceRecord
+                    raw = json.loads(evidence_path.read_text(encoding="utf-8"))
+                    if isinstance(raw, list):
+                        evidence_records = [EvidenceRecord.from_dict(item) for item in raw]
+                    elif isinstance(raw, dict) and "records" in raw and isinstance(raw["records"], list):
+                        evidence_records = [EvidenceRecord.from_dict(item) for item in raw["records"]]
+                    else:
+                        from lib.production_validation import EvidenceRecord, ValidationStatus
+                        evidence_records = [
+                            EvidenceRecord(
+                                gate_name="scene_evidence",
+                                scope="pre_render",
+                                status=ValidationStatus.BLOCKED,
+                                severity="critical",
+                                issues=[f"production_evidence.json at {evidence_path} must contain an array of records"],
+                            )
+                        ]
+                except Exception as e:
+                    from lib.production_validation import EvidenceRecord, ValidationStatus
+                    evidence_records = [
+                        EvidenceRecord(
+                            gate_name="scene_evidence",
+                            scope="pre_render",
+                            status=ValidationStatus.BLOCKED,
+                            severity="critical",
+                            issues=[f"Failed to read production_evidence.json: {e}"],
+                        )
+                    ]
+            else:
+                evidence_records = []
 
         if validation_mode == "strict":
             from lib.production_validation import validate_pre_render
@@ -1752,6 +1869,7 @@ class VideoCompose(BaseTool):
                 mode=validation_mode,
                 pipeline_type=pipeline_type_cand,
                 asset_manifest=asset_manifest,
+                evidence_records=evidence_records,
             )
             if not pre_val.can_render():
                 return ToolResult(

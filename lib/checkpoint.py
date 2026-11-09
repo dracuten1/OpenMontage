@@ -216,6 +216,101 @@ def _validate_edit_decisions_audio_sync(
         )
 
 
+def _is_production_workspace(pipeline_dir: Path | str | None, project_id: str | None) -> bool:
+    """Determine whether the target workspace is a production workspace.
+
+    Mirrors tools/video/video_compose.py:974-1000 semantics:
+    - Path under PROJECTS_DIR -> production
+    - project.json present without legacy flag -> production
+    - project.json present but unreadable/invalid JSON -> production (fail-closed)
+    """
+    proj_dir: Path | None = None
+    if pipeline_dir is not None and project_id is not None:
+        p_path = Path(pipeline_dir)
+        candidate = p_path / str(project_id)
+        if not candidate.is_dir() and (p_path / PROJECT_MARKER_FILENAME).is_file() and p_path.name == str(project_id):
+            proj_dir = p_path
+        else:
+            proj_dir = candidate
+    elif pipeline_dir is not None:
+        proj_dir = Path(pipeline_dir)
+
+    is_prod = False
+    if proj_dir is not None:
+        marker_path = proj_dir / PROJECT_MARKER_FILENAME
+        if marker_path.is_file():
+            try:
+                with open(marker_path, encoding="utf-8") as f:
+                    marker_data = json.load(f)
+                if isinstance(marker_data, dict):
+                    if not (
+                        marker_data.get("legacy")
+                        or marker_data.get("contract") == "legacy"
+                        or marker_data.get("validation_mode") == "legacy"
+                    ):
+                        is_prod = True
+                else:
+                    is_prod = True
+            except Exception:
+                is_prod = True
+        try:
+            p_res = proj_dir.resolve()
+            if p_res == PROJECTS_DIR.resolve() or PROJECTS_DIR.resolve() in p_res.parents:
+                is_prod = True
+        except Exception:
+            pass
+
+    if pipeline_dir is not None:
+        try:
+            p_dir = Path(pipeline_dir).resolve()
+            if p_dir == PROJECTS_DIR.resolve() or PROJECTS_DIR.resolve() in p_dir.parents:
+                is_prod = True
+        except Exception:
+            pass
+
+    return is_prod
+
+
+def _has_non_production_bypass_stamp(artifacts: dict[str, Any], metadata: dict[str, Any]) -> tuple[bool, str]:
+    """Check if artifacts (render_report, etc.) or metadata contain non-production bypass stamps.
+
+    tools/video/video_compose.py:1057-1064 stamps:
+      production_acceptable=False
+      non_production_bypass=True
+    Returns (has_stamp, reason).
+    """
+    candidates: list[tuple[str, dict[str, Any]]] = []
+    if isinstance(artifacts, dict):
+        rr = artifacts.get("render_report")
+        if isinstance(rr, dict):
+            candidates.append(("artifacts.render_report", rr))
+            if isinstance(rr.get("metadata"), dict):
+                candidates.append(("artifacts.render_report.metadata", rr["metadata"]))
+            if isinstance(rr.get("final_review"), dict):
+                candidates.append(("artifacts.render_report.final_review", rr["final_review"]))
+        pl = artifacts.get("publish_log")
+        if isinstance(pl, dict):
+            candidates.append(("artifacts.publish_log", pl))
+            if isinstance(pl.get("metadata"), dict):
+                candidates.append(("artifacts.publish_log.metadata", pl["metadata"]))
+        fr = artifacts.get("final_review")
+        if isinstance(fr, dict):
+            candidates.append(("artifacts.final_review", fr))
+
+    if isinstance(metadata, dict):
+        candidates.append(("metadata", metadata))
+        if isinstance(metadata.get("final_review"), dict):
+            candidates.append(("metadata.final_review", metadata["final_review"]))
+
+    for label, target in candidates:
+        if target.get("production_acceptable") is False:
+            return True, f"{label}.production_acceptable is False"
+        if target.get("non_production_bypass") is True:
+            return True, f"{label}.non_production_bypass is True"
+
+    return False, ""
+
+
 def _validate_artifacts_for_stage(
     stage: str,
     status: str,
@@ -262,36 +357,153 @@ def _validate_artifacts_for_stage(
                 f"Artifact {artifact_name!r} failed schema validation: {exc}"
             ) from exc
 
-    # Cross-artifact stage gate validations. Only run when pipeline_dir and
-    # project_id are provided (i.e. at write_checkpoint time, where the record
-    # about to be persisted is in scope): non-fatal warnings from both gates are
-    # logged and attached to the record as metadata.timing_validation_warnings.
-    if status in {"completed", "awaiting_human"} and pipeline_dir is not None and project_id is not None:
-        if stage == "script" and "script" in artifacts and isinstance(artifacts["script"], dict):
-            script_warnings = _check_script_section_durations(artifacts["script"])
-            if script_warnings and checkpoint is not None:
-                # Mirror the edit gate: soft-cap warnings must be inspectable on
-                # the persisted record, not only in logs.
-                meta = checkpoint.setdefault("metadata", {})
-                if isinstance(meta, dict):
-                    meta["timing_validation_warnings"] = list(script_warnings)
+    # Cross-artifact stage gate validations.
+    # In strict / production mode, gate verification is mandatory:
+    # omitting optional args cannot silently bypass validation.
+    resolved_pipeline_dir = pipeline_dir
+    resolved_project_id = project_id or (checkpoint.get("project_id") if checkpoint else None)
+    if resolved_pipeline_dir is None and resolved_project_id:
+        try:
+            if (PROJECTS_DIR / str(resolved_project_id)).is_dir():
+                resolved_pipeline_dir = PROJECTS_DIR
+        except Exception:
+            pass
 
-        if stage == "edit" and "edit_decisions" in artifacts and isinstance(artifacts["edit_decisions"], dict):
-            _validate_edit_decisions_audio_sync(
-                artifacts["edit_decisions"], pipeline_dir, project_id, checkpoint=checkpoint,
+    meta = checkpoint.get("metadata", {}) if (checkpoint and isinstance(checkpoint.get("metadata"), dict)) else {}
+    requested_mode = meta.get("validation_mode")
+    is_prod_workspace = _is_production_workspace(resolved_pipeline_dir, resolved_project_id)
+
+    # Issue 1b: Consume dead stamps on production workspace
+    if is_prod_workspace and stage in {"compose", "publish"} and status in {"completed", "awaiting_human"}:
+        has_stamp, stamp_reason = _has_non_production_bypass_stamp(artifacts, meta)
+        if has_stamp:
+            raise CheckpointValidationError(
+                f"Production validation gate failed for stage {stage!r}: "
+                f"legacy-rendered artifact cannot satisfy production checkpoint acceptance ({stamp_reason})"
             )
 
-        if stage in {"compose", "publish"} and checkpoint is not None:
-            from lib.production_validation import (
-                ProductionValidationError,
-                validate_checkpoint_production_gate,
+    # Issue 1a: production workspace enforces strict validation; reject metadata.validation_mode='legacy'
+    if is_prod_workspace and requested_mode == "legacy" and status in {"completed", "awaiting_human"}:
+        raise CheckpointValidationError(
+            f"Production validation gate failed for stage {stage!r}: "
+            f"production workspace enforces strict validation; requested metadata.validation_mode='legacy' rejected"
+        )
+
+    # Issue 2: for lifecycle stages compose/publish, default mode to 'strict' when ambiguous;
+    # legacy honored ONLY with explicit legacy marker AND verified non-production workspace.
+    if stage in {"compose", "publish"}:
+        if is_prod_workspace:
+            mode = "strict"
+        else:
+            is_verified_non_prod = (
+                resolved_pipeline_dir is not None
+                and resolved_project_id is not None
+                and not is_prod_workspace
             )
-            try:
-                validate_checkpoint_production_gate(
-                    checkpoint, pipeline_dir, project_id,
+            has_explicit_legacy = (requested_mode == "legacy")
+            if is_verified_non_prod and not has_explicit_legacy:
+                p_path = Path(resolved_pipeline_dir)
+                candidate = p_path / str(resolved_project_id)
+                proj_dir = candidate if candidate.is_dir() else p_path
+                mpath = proj_dir / PROJECT_MARKER_FILENAME
+                if mpath.is_file():
+                    try:
+                        with open(mpath, encoding="utf-8") as f:
+                            mdata = json.load(f)
+                        if isinstance(mdata, dict) and (
+                            mdata.get("legacy")
+                            or mdata.get("contract") == "legacy"
+                            or mdata.get("validation_mode") == "legacy"
+                        ):
+                            has_explicit_legacy = True
+                    except Exception:
+                        pass
+
+            if is_verified_non_prod and has_explicit_legacy:
+                mode = "legacy"
+            else:
+                mode = "strict"
+    else:
+        if is_prod_workspace:
+            mode = "strict"
+        else:
+            from lib.production_validation import resolve_validation_mode
+            mode = resolve_validation_mode(checkpoint, resolved_pipeline_dir, resolved_project_id)
+
+    is_production = (mode == "strict")
+
+    if status in {"completed", "awaiting_human"}:
+        if is_production:
+            if stage in {"compose", "publish"}:
+                if resolved_pipeline_dir is None or resolved_project_id is None:
+                    raise CheckpointValidationError(
+                        f"Production validation gate failed for stage {stage!r}: "
+                        f"strict mode requires resolvable pipeline_dir and project_id"
+                    )
+                if checkpoint is None:
+                    raise CheckpointValidationError(
+                        f"Production validation gate failed for stage {stage!r}: checkpoint record required"
+                    )
+                has_stamp, stamp_reason = _has_non_production_bypass_stamp(artifacts, meta)
+                if has_stamp:
+                    raise CheckpointValidationError(
+                        f"Production validation gate failed for stage {stage!r}: "
+                        f"legacy-rendered artifact cannot satisfy production checkpoint acceptance ({stamp_reason})"
+                    )
+                from lib.production_validation import (
+                    ProductionValidationError,
+                    validate_checkpoint_production_gate,
                 )
-            except ProductionValidationError as exc:
-                raise CheckpointValidationError(str(exc)) from exc
+                try:
+                    validate_checkpoint_production_gate(
+                        checkpoint, resolved_pipeline_dir, resolved_project_id,
+                    )
+                except ProductionValidationError as exc:
+                    raise CheckpointValidationError(str(exc)) from exc
+
+            if stage == "edit":
+                if resolved_pipeline_dir is None or resolved_project_id is None:
+                    raise CheckpointValidationError(
+                        f"TIMING RE-LOCK VALIDATION FAILED for stage 'edit': "
+                        f"strict mode requires pipeline_dir and project_id to verify audio sync"
+                    )
+                if "edit_decisions" in artifacts and isinstance(artifacts["edit_decisions"], dict):
+                    _validate_edit_decisions_audio_sync(
+                        artifacts["edit_decisions"], resolved_pipeline_dir, resolved_project_id, checkpoint=checkpoint,
+                    )
+
+            if stage == "script" and resolved_pipeline_dir is not None and resolved_project_id is not None:
+                if "script" in artifacts and isinstance(artifacts["script"], dict):
+                    script_warnings = _check_script_section_durations(artifacts["script"])
+                    if script_warnings and checkpoint is not None:
+                        meta = checkpoint.setdefault("metadata", {})
+                        if isinstance(meta, dict):
+                            meta["timing_validation_warnings"] = list(script_warnings)
+        else:
+            if resolved_pipeline_dir is not None and resolved_project_id is not None:
+                if stage == "script" and "script" in artifacts and isinstance(artifacts["script"], dict):
+                    script_warnings = _check_script_section_durations(artifacts["script"])
+                    if script_warnings and checkpoint is not None:
+                        meta = checkpoint.setdefault("metadata", {})
+                        if isinstance(meta, dict):
+                            meta["timing_validation_warnings"] = list(script_warnings)
+
+                if stage == "edit" and "edit_decisions" in artifacts and isinstance(artifacts["edit_decisions"], dict):
+                    _validate_edit_decisions_audio_sync(
+                        artifacts["edit_decisions"], resolved_pipeline_dir, resolved_project_id, checkpoint=checkpoint,
+                    )
+
+                if stage in {"compose", "publish"} and checkpoint is not None:
+                    from lib.production_validation import (
+                        ProductionValidationError,
+                        validate_checkpoint_production_gate,
+                    )
+                    try:
+                        validate_checkpoint_production_gate(
+                            checkpoint, resolved_pipeline_dir, resolved_project_id,
+                        )
+                    except ProductionValidationError as exc:
+                        raise CheckpointValidationError(str(exc)) from exc
 
 
 
@@ -308,8 +520,14 @@ def validate_checkpoint(
     Providing ``pipeline_dir`` (with ``project_id`` resolved from the arg or the
     record itself) activates the cross-artifact stage gates (script soft cap,
     edit audio re-lock); their non-fatal warnings attach to the record as
-    ``metadata.timing_validation_warnings``. Omit them for read/predicate calls —
-    gates run only where the record about to be persisted is in scope.
+    ``metadata.timing_validation_warnings``.
+
+    Callers that hold workspace context (write_checkpoint and the read-side
+    helpers read_checkpoint / get_latest_checkpoint / _enforce_stage_prerequisites)
+    MUST pass it: without it, compose/publish lifecycle stages resolve to the
+    strict-on-ambiguous default and fail with "strict mode requires resolvable
+    pipeline_dir and project_id" — even for legitimate legacy workspaces whose
+    mode can only be classified with the workspace in scope.
     """
     stage = checkpoint.get("stage")
     status = checkpoint.get("status")
@@ -466,7 +684,9 @@ def _enforce_stage_prerequisites(
         try:
             with open(path, encoding="utf-8") as handle:
                 checkpoint = json.load(handle)
-            validate_checkpoint(checkpoint)
+            validate_checkpoint(
+                checkpoint, pipeline_dir=pipeline_dir, project_id=project_id,
+            )
         except (OSError, json.JSONDecodeError, CheckpointValidationError):
             incomplete.append(predecessor)
             continue
@@ -725,7 +945,9 @@ def read_checkpoint(
         return None
     with open(path, encoding="utf-8") as f:
         checkpoint = json.load(f)
-    validate_checkpoint(checkpoint)
+    validate_checkpoint(
+        checkpoint, pipeline_dir=pipeline_dir, project_id=project_id,
+    )
     return checkpoint
 
 
@@ -747,7 +969,9 @@ def get_latest_checkpoint(
 
     with open(checkpoints[0], encoding="utf-8") as f:
         checkpoint = json.load(f)
-    validate_checkpoint(checkpoint)
+    validate_checkpoint(
+        checkpoint, pipeline_dir=pipeline_dir, project_id=project_id,
+    )
     return checkpoint
 
 

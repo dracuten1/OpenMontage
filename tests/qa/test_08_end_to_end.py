@@ -43,8 +43,31 @@ if ASSETS_DIR.exists():
     shutil.rmtree(ASSETS_DIR)
 ASSETS_DIR.mkdir(parents=True, exist_ok=True)
 
+# Fixture workspace is intentionally a NON-PRODUCTION workspace: it lives outside
+# PROJECTS_DIR and is marked legacy here. This is the sanctioned non-production
+# marker route (project.json with legacy flag in a verified non-projects dir) so
+# the strict production gate (wave 1) correctly does NOT apply to this fixture.
+# Do NOT add production_validation_report / provenance evidence to these
+# checkpoints — this fixture deliberately stays on the legacy route.
+PIPELINE_DIR.mkdir(parents=True, exist_ok=True)
+(PIPELINE_DIR / PROJECT_ID).mkdir(parents=True, exist_ok=True)
+(PIPELINE_DIR / PROJECT_ID / "project.json").write_text(
+    json.dumps({
+        "project_id": PROJECT_ID,
+        "title": "QA E2E Test Fixture (non-production)",
+        "legacy": True,
+        "contract": "legacy",
+        "validation_mode": "legacy",
+    }, indent=2)
+)
+
 PASS = 0
 FAIL = 0
+
+# Fixture is a non-production workspace (outside PROJECTS_DIR, legacy marker above).
+# Every checkpoint explicitly carries validation_mode="legacy" so the strict
+# production gate correctly does not apply to this fixture.
+FIXTURE_METADATA = {"validation_mode": "legacy"}
 
 def check(name, condition, detail=""):
     global PASS, FAIL
@@ -152,6 +175,7 @@ cp_path = write_checkpoint(
     artifacts={"research_brief": research_brief},
     pipeline_type="animated-explainer",
     style_playbook="clean-professional",
+    metadata=dict(FIXTURE_METADATA),
 )
 check("Research checkpoint written", cp_path.exists())
 
@@ -238,6 +262,7 @@ cp_path = write_checkpoint(
     artifacts={"proposal_packet": proposal_packet},
     pipeline_type="animated-explainer",
     style_playbook="clean-professional",
+    metadata=dict(FIXTURE_METADATA),
 )
 check("Proposal checkpoint written", cp_path.exists())
 check("Next stage after proposal", get_next_stage(PIPELINE_DIR, PROJECT_ID, "animated-explainer") == "script")
@@ -286,6 +311,7 @@ write_checkpoint(
     PIPELINE_DIR, PROJECT_ID, "script", "completed", human_approved=True,
     artifacts={"script": script},
     pipeline_type="animated-explainer",
+    metadata=dict(FIXTURE_METADATA),
 )
 check("Completed stages", get_completed_stages(PIPELINE_DIR, PROJECT_ID) == ["research", "proposal", "script"])  # research, proposal and script in pipeline order
 
@@ -325,6 +351,7 @@ write_checkpoint(
     PIPELINE_DIR, PROJECT_ID, "scene_plan", "completed", human_approved=True,
     artifacts={"scene_plan": scene_plan},
     pipeline_type="animated-explainer",
+    metadata=dict(FIXTURE_METADATA),
 )
 
 # ===================================================================
@@ -405,6 +432,7 @@ write_checkpoint(
     artifacts={"asset_manifest": asset_manifest},
     pipeline_type="animated-explainer",
     cost_snapshot=tracker.cost_snapshot(),
+    metadata=dict(FIXTURE_METADATA),
 )
 
 # ===================================================================
@@ -458,6 +486,7 @@ write_checkpoint(
     PIPELINE_DIR, PROJECT_ID, "edit", "completed",
     artifacts={"edit_decisions": edit_decisions},
     pipeline_type="animated-explainer",
+    metadata=dict(FIXTURE_METADATA),
 )
 
 # ===================================================================
@@ -577,6 +606,7 @@ write_checkpoint(
     artifacts={"render_report": render_report},
     pipeline_type="animated-explainer",
     cost_snapshot=tracker.cost_snapshot(),
+    metadata=dict(FIXTURE_METADATA),
 )
 
 # ===================================================================
@@ -618,6 +648,7 @@ write_checkpoint(
     PIPELINE_DIR, PROJECT_ID, "publish", "completed", human_approved=True,
     artifacts={"publish_log": publish_log},
     pipeline_type="animated-explainer",
+    metadata=dict(FIXTURE_METADATA),
 )
 
 # ===================================================================

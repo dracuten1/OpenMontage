@@ -244,6 +244,7 @@ def test_leading_sfx_gate_uses_sfx_stem_only(tmp_path, sfx_energy, mix_energy, e
         assert any('silent on SFX stem' in e for e in verdict['errors'])
 
 def test_leading_sfx_absent_is_not_measured(tmp_path):
+    # F8 tightened contract: undeclared missing SFX stem fails closed with valid: False.
     profile = setup(tmp_path)
     doc = json.loads(profile.read_text())
     doc['leading_sfx'] = {'sfx_onset_seconds': 0.2, 'first_word_seconds': 0.8}
@@ -253,9 +254,18 @@ def test_leading_sfx_absent_is_not_measured(tmp_path):
     manifest = json.loads((tmp_path / 'manifest.json').read_text())
     del manifest['sfx']
     (tmp_path / 'manifest.json').write_text(json.dumps(manifest))
+    verdict_undeclared = validate(tmp_path, profile, fake_lufs)
+    entry_undeclared = next(x for x in verdict_undeclared['not_measured'] if x['check'] == 'leading_sfx')
+    assert entry_undeclared['reason']
+    assert verdict_undeclared['valid'] is False
+    assert any('missing' in e.lower() and 'sfx' in e.lower() for e in verdict_undeclared['errors'])
+
+    # Declared no-sfx in profile allows missing SFX stem to pass with valid: True.
+    doc['no_sfx'] = True
+    profile.write_text(json.dumps(doc))
     verdict = validate(tmp_path, profile, fake_lufs)
     entry = next(x for x in verdict['not_measured'] if x['check'] == 'leading_sfx')
-    assert entry['reason']
+    assert 'declared no-sfx' in entry['reason'].lower()
     assert verdict['valid'] is True, verdict['errors']
 
 def test_declared_tail_is_anchored_to_actual_stem_end(tmp_path):

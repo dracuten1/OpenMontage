@@ -54,6 +54,10 @@ def validate(source, profile_path, measure=integrated_lufs, *, raise_errors=Fals
             if not isinstance(windows, dict): raise ProfileError('invalid windows section')
             if not all(math.isfinite(x) for x in numeric): raise ProfileError('non-finite numeric profile field')
             if not -70 <= target <= 0 or tol < 0: raise ProfileError('invalid LUFS target/tolerance')
+            no_sfx = bool(profile.get('no_sfx', False) or profile.get('sfx_expected') is False or profile.get('sfx_mode') == 'none')
+            declared_not_measured = profile.get('declared_not_measured', [])
+            if not isinstance(declared_not_measured, list) or not all(isinstance(x, str) for x in declared_not_measured):
+                raise ProfileError('invalid declared_not_measured list')
         except ProfileError: raise
         except (KeyError, TypeError, ValueError) as e:
             raise ProfileError(f'invalid numeric profile field: {e}') from e
@@ -69,9 +73,18 @@ def validate(source, profile_path, measure=integrated_lufs, *, raise_errors=Fals
         for key in ('narration', 'bgm', 'mix'):
             if key not in paths or not paths[key].is_file():
                 raise InputError(f'missing/unreadable {key} stem or mix: {paths.get(key, key)}')
-        # SFX may be absent only for the leading-SFX optional measurement path.
-        if 'leading_sfx' not in profile and ('sfx' not in paths or not paths['sfx'].is_file()):
-            raise InputError(f'missing/unreadable sfx stem or mix: {paths.get("sfx", "sfx")}')
+        # Optional v1 extensions: leading_sfx={sfx_onset_seconds, first_word_seconds}; declared_tails=[{stem, tail_seconds}].
+        leading_sfx = profile.get('leading_sfx')
+        if leading_sfx is not None and ('sfx' not in paths or not paths['sfx'].is_file()):
+            reason = 'declared no-sfx intent in profile; leading_sfx unmeasured' if no_sfx else 'SFX stem absent from manifest or stems; mix fallback is not authoritative'
+            if not any(item['check'] == 'leading_sfx' and item['reason'] == reason for item in not_measured):
+                not_measured.append({'check': 'leading_sfx', 'reason': reason})
+        # SFX is required unless explicit no-sfx intent is declared.
+        if not no_sfx and ('sfx' not in paths or not paths['sfx'].is_file()):
+            if raise_errors:
+                raise InputError(f'missing/unreadable sfx stem or mix: {paths.get("sfx", "sfx")}')
+            errors.append(f'missing/unreadable sfx stem or mix: {paths.get("sfx", "sfx")}')
+            valid = False
         audio = {}
         for key in ('narration', 'bgm', 'mix', 'sfx'):
             if key not in paths or not paths[key].is_file():
@@ -100,7 +113,7 @@ def validate(source, profile_path, measure=integrated_lufs, *, raise_errors=Fals
             if not math.isfinite(sfx_onset) or not math.isfinite(first_word) or not 0 <= sfx_onset < first_word <= duration:
                 raise ProfileError('leading_sfx window outside audio bounds or reversed')
             if 'sfx' not in audio:
-                reason = 'SFX stem absent from manifest or stems; mix fallback is not authoritative'
+                reason = 'declared no-sfx intent in profile; leading_sfx unmeasured' if no_sfx else 'SFX stem absent from manifest or stems; mix fallback is not authoritative'
                 if not any(item['check'] == 'leading_sfx' and item['reason'] == reason for item in not_measured):
                     not_measured.append({'check': 'leading_sfx', 'reason': reason})
         declared_tails = profile.get('declared_tails', [])  # Optional v1 extension: [{stem, tail_seconds}].
@@ -124,7 +137,7 @@ def validate(source, profile_path, measure=integrated_lufs, *, raise_errors=Fals
             validate_windows(name, windows.get(name, []))
         for stem, bounds in stem_windows.items():
             if stem not in audio:
-                if stem == 'sfx' and leading_sfx is not None: continue
+                if stem == 'sfx' and (leading_sfx is not None or no_sfx): continue
                 raise ProfileError(f'unknown stem window: {stem}')
             validate_windows(f'stem_windows.{stem}', [bounds])
 
@@ -147,7 +160,7 @@ def validate(source, profile_path, measure=integrated_lufs, *, raise_errors=Fals
             start, end = sfx_onset, first_word
             sfx_entry = audio.get('sfx')
             if sfx_entry is None:
-                reason = 'SFX stem absent from manifest or stems; mix fallback is not authoritative'
+                reason = 'declared no-sfx intent in profile; leading_sfx unmeasured' if no_sfx else 'SFX stem absent from manifest or stems; mix fallback is not authoritative'
                 if not any(item['check'] == 'leading_sfx' and item['reason'] == reason for item in not_measured):
                     not_measured.append({'check': 'leading_sfx', 'reason': reason})
             else:
@@ -197,7 +210,7 @@ def validate(source, profile_path, measure=integrated_lufs, *, raise_errors=Fals
     except Exception as e:
         if raise_errors: raise InputError(str(e)) from e
         errors.append(str(e)); valid = False
-    return {'valid': valid and not errors, 'errors': errors, 'loudness': loudness, 'not_measured': not_measured, 'evidence': ({'leading_sfx': {'rms': leading_sfx_energy, 'source': leading_sfx_source}} if leading_sfx is not None else {})}
+    return {'valid': valid and not errors, 'errors': errors, 'loudness': loudness, 'not_measured': not_measured, 'evidence': ({'leading_sfx': {'rms': leading_sfx_energy, 'source': leading_sfx_source, **({'declared_no_sfx': True} if no_sfx else {})}} if leading_sfx is not None else {})}
 
 
 def main(argv=None):

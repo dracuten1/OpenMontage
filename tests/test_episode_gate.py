@@ -3,15 +3,57 @@ from tools.qc.episode_gate import validate_episode
 from tools.qc.scene_packet import SCHEMA_VERSION
 
 
-def packet(root):
+def _full_gate_records(art, scene_ids, gate_names=None):
+ """Fixture helper: build PASS evidence records for the FULL required gate set.
+
+ Fixture contract (review A-1 + A-2 hardening): strict pre-render validation
+ enforces every canonical required gate (layout / timing-audio / semantic-events /
+ sfx-mix per scene, provenance-freshness per episode) and requires a content
+ hash for EVERY declared evidence path. Metadata may not narrow the gate set.
+ """
+ from lib.production_validation import (
+  GATE_LAYOUT, GATE_TIMING_AUDIO, GATE_SEMANTIC_EVENTS, GATE_SFX_MIX,
+  GATE_PROVENANCE_FRESHNESS, EvidenceRecord, ValidationStatus,
+ )
+ gates = gate_names or (GATE_LAYOUT, GATE_TIMING_AUDIO, GATE_SEMANTIC_EVENTS, GATE_SFX_MIX)
+ records = []
+ for g in gates:
+  p = art/f'{g}_evidence.json'
+  p.write_text(json.dumps({'gate': g, 'ok': True}))
+  records.append(EvidenceRecord(
+   gate_name=g, scope='pre_render', status=ValidationStatus.PASS,
+   evidence_paths=[str(p)], scene_coverage=list(scene_ids),
+   expected_scenes=list(scene_ids),
+   artifact_hashes={str(p): hashlib.sha256(p.read_bytes()).hexdigest()},
+  ))
+ p_prov = art/'provenance_evidence.json'
+ p_prov.write_text(json.dumps({'gate': 'provenance-freshness', 'ok': True}))
+ records.append(EvidenceRecord(
+  gate_name=GATE_PROVENANCE_FRESHNESS, scope='pre_render', status=ValidationStatus.PASS,
+  evidence_paths=[str(p_prov)], scene_coverage=[], expected_scenes=[],
+  artifact_hashes={str(p_prov): hashlib.sha256(p_prov.read_bytes()).hexdigest()},
+ ))
+ return records
+
+
+def packet(root, scene_id='cut-1'):
  f=root/'frozen.txt'; f.write_text('stable')
  out=root/'scene'; out.mkdir(exist_ok=True)
  refs={}
- for name,content in [('audio.wav','audio'),('words.json','words'),('style.json','style'),('asset.png','asset'),('findings.json','findings')]:
+ for name,content in [('audio.wav','audio'),('words.json','words'),('style.json','style'),('asset.png','asset')]:
   path=out/name; path.write_text(content); refs[name]=hashlib.sha256(path.read_bytes()).hexdigest()
+ reviewed_hashes={
+  'scene/audio.wav': refs['audio.wav'],
+  'scene/words.json': refs['words.json'],
+  'scene/style.json': refs['style.json'],
+  'scene/asset.png': refs['asset.png'],
+ }
+ findings_path=out/'findings.json'
+ findings_path.write_text(json.dumps({'scene_id':scene_id,'verdict':'approved','reviewed_hashes':reviewed_hashes}))
+ refs['findings.json']=hashlib.sha256(findings_path.read_bytes()).hexdigest()
  frozen={str(f):hashlib.sha256(f.read_bytes()).hexdigest()}
  frozen.update({str(out/name):digest for name,digest in refs.items()})
- return {'packet_type':'openmontage.scene-packet','schema_version':SCHEMA_VERSION,'scene_id':'s1','claims':{'facts':['approved']},'narration':{'ref':'scene/audio.wav','sha256':refs['audio.wav']},'word_alignment':{'ref':'scene/words.json','sha256':refs['words.json']},'assets':[{'ref':'scene/asset.png','sha256':refs['asset.png'],'rights':'licensed'}],'style_contract':{'ref':'scene/style.json','sha256':refs['style.json']},'neighbor_context':{'prev':'previous scene','next':'next scene'},'allowed_io':['scene'],'frozen_inputs':frozen,'writer':{'instance_id':'w','timestamp':'t','token':'wt'},'writer_token':'wt','reviewer':{'instance_id':'r','timestamp':'t','verdict':'approved','findings_hash':refs['findings.json'],'findings_ref':'scene/findings.json','token':'rt'},'reviewer_token':'rt','integration_status':'pending'}
+ return {'packet_type':'openmontage.scene-packet','schema_version':SCHEMA_VERSION,'scene_id':scene_id,'claims':{'facts':['approved']},'narration':{'ref':'scene/audio.wav','sha256':refs['audio.wav']},'word_alignment':{'ref':'scene/words.json','sha256':refs['words.json']},'assets':[{'ref':'scene/asset.png','sha256':refs['asset.png'],'rights':'licensed'}],'style_contract':{'ref':'scene/style.json','sha256':refs['style.json']},'neighbor_context':{'prev':'previous scene','next':'next scene'},'allowed_io':['scene'],'frozen_inputs':frozen,'writer':{'instance_id':'w','timestamp':'t','token':'wt'},'writer_token':'wt','reviewer':{'instance_id':'r','timestamp':'t','verdict':'approved','findings_hash':refs['findings.json'],'findings_ref':'scene/findings.json','token':'rt','reviewed_hashes':reviewed_hashes},'reviewer_token':'rt','integration_status':'pending'}
 
 
 def valid_episode(root):
@@ -20,23 +62,36 @@ def valid_episode(root):
  from tools.qc.episode_gate import validate_episode
  project=root/'episode'; art=project/'artifacts'; audio=project/'assets/audio'; art.mkdir(parents=True); audio.mkdir(parents=True)
  wav=audio/'voice_s1.wav'; _write_real_wav_file(wav,1.0)
- edit={'version':'1.0','render_runtime':'remotion','cuts':[{'id':'cut-1','source':'assets/audio/voice_s1.wav','in_seconds':0,'out_seconds':1.0,'layer':'primary'}]}
- manifest={'version':'1.0','assets':[{'id':'voice-s1','type':'narration','scene_id':'scene-1','path':'assets/audio/voice_s1.wav','duration_seconds':1.0}], 'metadata':{'total_audio_speech_duration_seconds':1.0}}
+ wav_hash=hashlib.sha256(wav.read_bytes()).hexdigest()
+ edit={'version':'1.0','render_runtime':'remotion','required_gates':['layout'],'cuts':[{'id':'cut-1','source':'assets/audio/voice_s1.wav','in_seconds':0,'out_seconds':1.0,'layer':'primary'}]}
+ manifest={'version':'1.0','assets':[{'id':'voice-s1','type':'narration','scene_id':'cut-1','path':'assets/audio/voice_s1.wav','duration_seconds':1.0}], 'metadata':{'total_audio_speech_duration_seconds':1.0}}
  (art/'edit_decisions.json').write_text(json.dumps(edit)); (art/'asset_manifest.json').write_text(json.dumps(manifest))
  stems=project/'audio_stems'; stems.mkdir();
  for name in ('narration','bgm','sfx','mix'):
   with wave.open(str(stems/f'{name}.wav'),'wb') as w: w.setnchannels(1); w.setsampwidth(2); w.setframerate(16000); w.writeframes(b'\x00\x00'*16000)
  (stems/'manifest.json').write_text(json.dumps({k:f'{k}.wav' for k in ('narration','bgm','sfx','mix')}))
- (project/'mix_profile.json').write_text(json.dumps({'schema':'openmontage.mix-profile','version':1,'target_lufs':-60,'lufs_tolerance':60,'ducking':{'min_reduction_db':0},'windows':{}}))
+ (project/'mix_profile.json').write_text(json.dumps({'schema':'openmontage.mix-profile','version':1,'target_lufs':-60,'lufs_tolerance':60,'ducking':{'min_reduction_db':0},'windows':{},'declared_not_measured':['music_masking']}))
  (art/'narration_words.json').write_text(json.dumps([{'word':'spoken','scene_id':'cut-1','global_start':0.05,'global_end':0.3}]))
  ev=art/'layout_evidence.json'; ev.write_text('{"verified":true}')
- record=EvidenceRecord(gate_name='layout',scope='pre_render',status=ValidationStatus.PASS,evidence_paths=[str(ev)],scene_coverage=['cut-1'],expected_scenes=['cut-1'])
+ # Fixture contract (A-1 + A-2): strict mode enforces the FULL required gate set
+ # (layout, timing-audio, semantic-events, sfx-mix per scene + provenance-freshness
+ # per episode) and requires a content hash for EVERY evidence path. Edit-decisions
+ # metadata may no longer narrow the enforced set, so the fixture supplies all gates.
+ records=_full_gate_records(art,['cut-1'])
+ (art/'production_evidence.json').write_text(json.dumps([r.to_dict() for r in records]))
  from lib.production_validation import validate_pre_render
- report=validate_pre_render(project,edit,mode='strict',asset_manifest=manifest,evidence_records=[record])
+ report=validate_pre_render(project,edit,mode='strict',asset_manifest=manifest,evidence_records=records)
  assert report.status == ValidationStatus.PASS
- # episode gate loads its canonical evidence records from the project artifact.
- (art/'production_evidence.json').write_text(json.dumps([record.to_dict()]))
- p=packet(project); (project/'packet.json').write_text(json.dumps(p))
+ p=packet(project, scene_id='cut-1')
+ p['narration']={'ref':'assets/audio/voice_s1.wav','sha256':wav_hash}
+ p['frozen_inputs'][str(wav)]=wav_hash
+ p['reviewer']['reviewed_hashes']['assets/audio/voice_s1.wav']=wav_hash
+ fp=project/'scene'/'findings.json'
+ fp.write_text(json.dumps({'scene_id':'cut-1','verdict':'approved','reviewed_hashes':p['reviewer']['reviewed_hashes']}))
+ f_hash=hashlib.sha256(fp.read_bytes()).hexdigest()
+ p['reviewer']['findings_hash']=f_hash
+ p['frozen_inputs'][str(fp)]=f_hash
+ (project/'packet.json').write_text(json.dumps(p))
  return project
 
 
