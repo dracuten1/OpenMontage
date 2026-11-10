@@ -32,6 +32,7 @@ For production workspaces, `VideoCompose.execute()` enforces strict evidence val
    - Timing re-lock: `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<dir>', mode='strict')"`
    - Mix validator: `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>` (fail-closed on undeclared missing stems or unmeasured checks)
    - Episode gate: `.venv/bin/python tools/qc/episode_gate.py <episode_root>`
+   - Editorial-language gate (editorial lane only): auto-applies when `style_playbook == 'editorial-explainer-manifest'` or `lane == 'news-editorial-motion'`; otherwise invoke explicitly with `--force-editorial`. Command: `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — exit 0 = all findings pass, exit 1 = ≥1 blocked finding, exit 2 = invocation error (advisories land in the qc report `warnings[]` and never affect exit). Evidence: `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`. BLOCKED ⇒ compose MUST NOT proceed — never "PASS WITH WARNINGS" (doctrine §8.2).
 3. **Fail-Closed Checkpoint Gate:**
    - `lib/checkpoint.py` enforces strict default behavior on ambiguity, consuming valid checkpoint stamps. Failures prevent progression to render.
 
@@ -310,6 +311,12 @@ Common catches:
 
 **Do not skip this step.** If validation fails, fix the issue and re-validate before rendering.
 
+**Editorial-language gate (editorial lane render-time path):** when `style_playbook == 'editorial-explainer-manifest'` or `lane == 'news-editorial-motion'`, also run `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — auto-applied for editorial projects, otherwise invoke with `--force-editorial`. Exit 0 = all findings pass / 1 = ≥1 blocked finding / 2 = invocation error (advisories land in `warnings[]`, never affecting exit); evidence `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`. BLOCKED ⇒ the render is void — compose MUST NOT proceed, regardless of visual quality, and there is no "PASS WITH WARNINGS" (doctrine §8.2).
+
+Canonical reference implementation (technique reference only — NOT a story-shape template): `remotion-composer/src/xang-dau-demo-20261107/Episode.tsx`. Study the individual techniques in isolation — cutout treatment, chart count-up axis math, highlighter wipe, typewriter reveal, pop-in spring, parallax `camScale` drift, CtaPill — then re-compose those techniques for THIS story's own beats. Never reuse its scene order, narrative structure, or scene count.
+
+**Gate-skip caveat (verified on disk):** `projects/xang-dau-demo-20261107` declares NO editorial key — its `scene_manifest.json` declares neither `style_playbook` nor `lane`, and its `project.json` says `style_playbook: "flat-motion-graphics"` — so the editorial-language gate SKIPs it by default (CLI exit 0, `SKIP — … not an editorial project`, zero findings, zero evidence; compose does not enforce it either). A SKIP is NOT a pass. Audit the reference explicitly with `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/xang-dau-demo-20261107 --force-editorial`.
+
 ### Step 6: Post-Render Self-Review (Mandatory — ALL steps required)
 
 After rendering, the agent **must review its own output** before presenting to the user. This catches issues the validator can't see (visual quality, audio sync, subtitle readability).
@@ -460,6 +467,7 @@ Validate the render_report against the schema and persist via checkpoint.
 - **Subtitle encoding**: Burn subtitles into the video (hardcoded) for maximum compatibility. Don't rely on soft subtitles for social media.
 - **Single-pass encode**: Two-pass encoding produces better quality at the same file size. Worth the extra render time.
 - **Ignoring media profile**: YouTube and TikTok have very different requirements. Always check the target profile.
+- **Skipping the editorial-language gate on editorial renders**: an editorial lane (`style_playbook == 'editorial-explainer-manifest'` or `lane == 'news-editorial-motion'`) render without a passing gate is BLOCKED ⇒ render void regardless of visual quality. No "PASS WITH WARNINGS".
 
 ## Production Contract Binding (docs/ORCHESTRATION_DOCTRINE.md)
 

@@ -1,0 +1,155 @@
+{
+ "blocking_reasons": [],
+ "fingerprint": "",
+ "metadata": {
+  "stage_fingerprints": {
+   "compose": {
+    "scene_fingerprints": {
+     "s1": {
+      "alignment_config_sha256": "",
+      "audio_bytes_sha256": "",
+      "composite_sha256": "68a9890e1931fe4ba224ede9029a7b82bd3116f048c51d76448d206f4bbeee34",
+      "composition_deps_sha256": "273fa29d51f8dbf23ac1c84c9fcec9c68a74b47263ec188be61cd75b3f579b20",
+      "events_sha256": "",
+      "scene_config_sha256": "d62f7ea12b7f450961db8970f08bf8c82f27f0ac1a810f14cd191ed5216b5b69",
+      "text_sha256": "246b44303795d93986d0dcd8e390b989a523b80cf45e80bb343a6bdd4b4cf217",
+      "timing_sha256": "20d65068183d76323de3693e904b5c1e47d0fef3685f94069bff48bbfc65f153",
+      "visual_assets_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "words_sha256": ""
+     },
+     "s2": {
+      "alignment_config_sha256": "",
+      "audio_bytes_sha256": "",
+      "composite_sha256": "9e3d4a40223937967fa81a3e5ecfec66ff10e850afdd682fc2b41a1df80513b6",
+      "composition_deps_sha256": "273fa29d51f8dbf23ac1c84c9fcec9c68a74b47263ec188be61cd75b3f579b20",
+      "events_sha256": "",
+      "scene_config_sha256": "d62f7ea12b7f450961db8970f08bf8c82f27f0ac1a810f14cd191ed5216b5b69",
+      "text_sha256": "2c62fe6c575b043d8a988a88139bba4821941d139f2db9d7fab9824ee788f489",
+      "timing_sha256": "dfe5fe0081c991f13441b6782c3e3626b69de279e6bb570b7a98e0f09836ee5d",
+      "visual_assets_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "words_sha256": ""
+     }
+    },
+    "shared_contracts_sha256": "",
+    "stage": "compose",
+    "stage_composite_sha256": "5a1dfb461b5f563d4697fab644db52598acc76645668b3074fd1270a6cdb1f5f"
+   }
+  }
+ },
+ "mode": "strict",
+ "pipeline_type": "animation",
+ "project_id": "case00-non-editorial-golden",
+ "records": [
+  {
+   "artifact_hashes": {
+    "artifacts/layout_evidence.json": "7b2e9063ac954dd6d7d6fe388a10b12199fb6f64ad1164c0c2a37663921d7a18"
+   },
+   "evidence_paths": [
+    "artifacts/layout_evidence.json"
+   ],
+   "expected_scenes": [
+    "s1",
+    "s2"
+   ],
+   "fingerprint": "",
+   "gate_name": "layout",
+   "issues": [],
+   "metadata": {},
+   "scene_coverage": [
+    "s1",
+    "s2"
+   ],
+   "scope": "pre_render",
+   "severity": "info",
+   "status": "pass"
+  },
+  {
+   "artifact_hashes": {
+    "artifacts/timing_evidence.json": "61c423885faa0f04eac6ceb8d6f81e6bba90ce6377f0233808b2c49671219c44"
+   },
+   "evidence_paths": [
+    "artifacts/timing_evidence.json"
+   ],
+   "expected_scenes": [
+    "s1",
+    "s2"
+   ],
+   "fingerprint": "",
+   "gate_name": "timing-audio",
+   "issues": [],
+   "metadata": {},
+   "scene_coverage": [
+    "s1",
+    "s2"
+   ],
+   "scope": "pre_render",
+   "severity": "info",
+   "status": "pass"
+  },
+  {
+   "artifact_hashes": {
+    "artifacts/semantic_evidence.json": "871ee2323485dd43129c4fbdc7ea135773748437811a009fa5297c045d1886cf"
+   },
+   "evidence_paths": [
+    "artifacts/semantic_evidence.json"
+   ],
+   "expected_scenes": [
+    "s1",
+    "s2"
+   ],
+   "fingerprint": "",
+   "gate_name": "semantic-events",
+   "issues": [],
+   "metadata": {},
+   "scene_coverage": [
+    "s1",
+    "s2"
+   ],
+   "scope": "pre_render",
+   "severity": "info",
+   "status": "pass"
+  },
+  {
+   "artifact_hashes": {
+    "artifacts/sfx_evidence.json": "f2b2565cc28f2d5283d5aba4ed0f085710092cc4fe6e786bc95374c77d83022d"
+   },
+   "evidence_paths": [
+    "artifacts/sfx_evidence.json"
+   ],
+   "expected_scenes": [
+    "s1",
+    "s2"
+   ],
+   "fingerprint": "",
+   "gate_name": "sfx-mix",
+   "issues": [],
+   "metadata": {},
+   "scene_coverage": [
+    "s1",
+    "s2"
+   ],
+   "scope": "pre_render",
+   "severity": "info",
+   "status": "pass"
+  },
+  {
+   "artifact_hashes": {
+    "artifacts/provenance_evidence.json": "1d6687c04314e5457b9087d65b044533c18f3cffa745c9c0798b84b481b92267"
+   },
+   "evidence_paths": [
+    "artifacts/provenance_evidence.json"
+   ],
+   "expected_scenes": [],
+   "fingerprint": "",
+   "gate_name": "provenance-freshness",
+   "issues": [],
+   "metadata": {},
+   "scene_coverage": [],
+   "scope": "pre_render",
+   "severity": "info",
+   "status": "pass"
+  }
+ ],
+ "status": "pass",
+ "version": "1.0"
+}

@@ -28,6 +28,7 @@ GATE_TIMING_AUDIO = "timing-audio"
 GATE_SEMANTIC_EVENTS = "semantic-events"
 GATE_SFX_MIX = "sfx-mix"
 GATE_PROVENANCE_FRESHNESS = "provenance-freshness"
+GATE_EDITORIAL_LANGUAGE = "editorial-language"
 
 VALID_PRE_RENDER_GATES = {
     GATE_LAYOUT,
@@ -35,6 +36,7 @@ VALID_PRE_RENDER_GATES = {
     GATE_SEMANTIC_EVENTS,
     GATE_SFX_MIX,
     GATE_PROVENANCE_FRESHNESS,
+    GATE_EDITORIAL_LANGUAGE,
 }
 
 REQUIRED_PRE_RENDER_SCENE_GATES = {
@@ -50,6 +52,12 @@ REQUIRED_PRE_RENDER_EPISODE_GATES = {
 
 REQUIRED_PRE_RENDER_GATES = REQUIRED_PRE_RENDER_SCENE_GATES | REQUIRED_PRE_RENDER_EPISODE_GATES
 
+# Lane-conditional scene gates: reachable ONLY via the explicit caller kwarg
+# ``required_gates`` (C1-widened intersection at the kwarg branch). Never added
+# to the canonical required sets — kids/animation/character lanes never emit
+# this evidence and must stay byte-identical.
+LANE_CONDITIONAL_PRE_RENDER_SCENE_GATES = {GATE_EDITORIAL_LANGUAGE}
+
 GATE_ALIASES = {
     "pre_render_layout": GATE_LAYOUT,
     "layout_verification": GATE_LAYOUT,
@@ -62,6 +70,7 @@ GATE_ALIASES = {
     "mix": GATE_SFX_MIX,
     "provenance": GATE_PROVENANCE_FRESHNESS,
     "provenance_freshness": GATE_PROVENANCE_FRESHNESS,
+    "editorial_language": GATE_EDITORIAL_LANGUAGE,
 }
 
 
@@ -532,7 +541,8 @@ def validate_pre_render(
                 )
 
             # Scene coverage validation for scene-scoped gates
-            if canonical_gate in REQUIRED_PRE_RENDER_SCENE_GATES:
+            if (canonical_gate in REQUIRED_PRE_RENDER_SCENE_GATES
+                    or canonical_gate in LANE_CONDITIONAL_PRE_RENDER_SCENE_GATES):
                 if not ev.scene_coverage:
                     ev.status = ValidationStatus.BLOCKED
                     ev.severity = "critical"
@@ -617,7 +627,9 @@ def validate_pre_render(
         # WIDEN enforcement (union) — never shrink it.
         if required_gates is not None:
             active_req = {GATE_ALIASES.get(g, g) for g in required_gates}
-            req_scene_gates = active_req & REQUIRED_PRE_RENDER_SCENE_GATES
+            req_scene_gates = active_req & (
+                REQUIRED_PRE_RENDER_SCENE_GATES | LANE_CONDITIONAL_PRE_RENDER_SCENE_GATES
+            )
             req_episode_gates = active_req & REQUIRED_PRE_RENDER_EPISODE_GATES
         else:
             req_scene_gates = set(REQUIRED_PRE_RENDER_SCENE_GATES)

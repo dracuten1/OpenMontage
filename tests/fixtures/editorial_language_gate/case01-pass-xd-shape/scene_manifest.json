@@ -1,0 +1,258 @@
+{
+  "project_id": "elg-case01-xd-shape",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style_anchor": "Editorial documentary collage",
+  "negative_prompt": "cartoon",
+  "speech_lock_contract": "MỌI trigger_frame trong manifest là placeholder thiết kế; giá trị THẬT lấy từ scene_elements.json (frames.*) suy từ words.json ASR per-word ±0.3s.",
+  "camera_rig": {
+    "action": "continuous slow drift",
+    "scale": "1.0 -> 1.10",
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "parallax": {
+      "bg_z0_multiplier": 1.0,
+      "cutout_z20_multiplier": 1.04,
+      "data_z40_multiplier": 1.08
+    }
+  },
+  "physics": {
+    "spring_damping": "18-22",
+    "stiffness": "130-150",
+    "rule": "KHÔNG spring nảy"
+  },
+  "global_overlays": [
+    {
+      "type": "grain",
+      "source": "remotion_native (SVG feTurbulence noise, deterministic)",
+      "opacity": 0.1,
+      "z_index": 90
+    },
+    {
+      "type": "vignette",
+      "source": "remotion_native (radial gradient)",
+      "opacity": 0.35,
+      "z_index": 89
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "scene_s1",
+      "narrative_beat": "hook",
+      "duration_frames": 200,
+      "start_frame_global": 0,
+      "layers": [
+        {
+          "layer_id": "bg_backplate",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "backplate.png",
+            "prompt_digest": "dark charcoal archival paper + blueprint grid"
+          }
+        },
+        {
+          "layer_id": "doc_cutout",
+          "z_index": 20,
+          "role": "document_cutout",
+          "pipeline": {
+            "method": "t2i_chroma_key",
+            "file": "cutout.png"
+          },
+          "motion": {
+            "enter": {
+              "type": "slide_and_settle"
+            }
+          },
+          "transform": {
+            "anchor": "center-left",
+            "w": 560,
+            "rotation": -2.5
+          }
+        },
+        {
+          "layer_id": "headline",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "EditorialHeadline/typewriter"
+          },
+          "text_content": "GIÁ GIẢM"
+        }
+      ],
+      "sfx_cues": [
+        {
+          "sfx_id": "sfx1",
+          "file": "whoosh.mp3",
+          "trigger_frame_local": 8,
+          "volume_db": -8.0
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_s2",
+      "narrative_beat": "chart",
+      "duration_frames": 240,
+      "start_frame_global": 200,
+      "layers": [
+        {
+          "layer_id": "bg_backplate",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "backplate.png",
+            "prompt_digest": "dark charcoal archival paper + blueprint grid"
+          }
+        },
+        {
+          "layer_id": "chart",
+          "z_index": 40,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "React pure flex (QUY TAC VANG — KHONG AntV SVG)"
+          },
+          "data": {
+            "bars": [
+              {
+                "label": "KỲ TRƯỚC",
+                "value": 23.231
+              },
+              {
+                "label": "KỲ MỚI",
+                "value": 21.156
+              }
+            ],
+            "axis_from": 0,
+            "axis_to": 24000
+          }
+        },
+        {
+          "layer_id": "delta_chip",
+          "z_index": 45,
+          "role": "evidence_annotation",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "HighlighterStroke + chip"
+          },
+          "text_content": "−2.075 Đ"
+        },
+        {
+          "layer_id": "mixed_chart",
+          "z_index": 46,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "MixedChart"
+          }
+        },
+        {
+          "layer_id": "mixed_card",
+          "z_index": 47,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "MixedCard"
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_s3",
+      "narrative_beat": "countup",
+      "duration_frames": 220,
+      "start_frame_global": 440,
+      "layers": [
+        {
+          "layer_id": "bg_backplate",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "backplate.png",
+            "prompt_digest": "dark charcoal archival paper + blueprint grid"
+          }
+        },
+        {
+          "layer_id": "doc_cutout",
+          "z_index": 20,
+          "role": "document_cutout",
+          "pipeline": {
+            "method": "t2i_chroma_key",
+            "file": "cutout.png"
+          },
+          "motion": {
+            "enter": {
+              "type": "slide_and_settle"
+            }
+          },
+          "transform": {
+            "anchor": "center-left",
+            "w": 520,
+            "rotation": -2.5
+          }
+        },
+        {
+          "layer_id": "countup",
+          "z_index": 40,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "CountUp + DigitRoll"
+          },
+          "text_content": "≈104.000 Đ"
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_s4",
+      "narrative_beat": "cta outro",
+      "duration_frames": 200,
+      "start_frame_global": 660,
+      "layers": [
+        {
+          "layer_id": "bg_backplate",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "backplate.png",
+            "prompt_digest": "dark charcoal archival paper + blueprint grid"
+          }
+        },
+        {
+          "layer_id": "disclaimer",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "text_content": "GIÁ TRẦN LIÊN BỘ"
+        },
+        {
+          "layer_id": "cta",
+          "z_index": 45,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "text_content": "KÝ CHỦ ĐIỂM TIN"
+        },
+        {
+          "layer_id": "src",
+          "z_index": 50,
+          "role": "attribution",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "text_content": "NGUỒN: LIÊN BỘ CT-TC"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "project_id": "elg-case09-hero-only",
+  "lane": "news-editorial-motion",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "speech_lock_contract": "contract",
+  "camera_rig": {
+    "action": "drift"
+  },
+  "physics": {
+    "rule": "no bounce"
+  },
+  "global_overlays": [
+    {
+      "type": "grain"
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "scene-1",
+      "layers": [
+        {
+          "layer_id": "hero_s1",
+          "z_index": 0,
+          "role": "hero",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero1.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -34,6 +34,14 @@ Emit this structured JSON manifest before generating assets or executing Remotio
   "canvas": { "width": 1080, "height": 1920, "fps": 30, "posterize_fps": 15, "aspect_variants": ["9x16", "16x9"] },
   "style_anchor": "Editorial documentary collage, high-contrast monochrome halftone print with selective crimson accent #D90429, archival newsprint grain, sharp cutout edges, serious journalistic aesthetic",
   "negative_prompt": "cartoon, childish, anime, cute, 3D Pixar render, glossy plastic, comic bubble, vibrant neon, blurry text, watermark",
+  "speech_lock_contract": "Every trigger_frame/start_frame in this manifest is a DESIGN PLACEHOLDER; real values are re-derived from scene_elements.json frames.* (from words.json per-word ASR, spoken word ±0.3s). Anchor NUMBER blocks (bars/tiles carrying the number) by the number word; anchor ITEM/label blocks by the item's NAME word. Exclusive highlight states: active (opacity 1.0 + glow) / settled (0.50-0.55, no glow) / ghost (0.15, no border, no glow); after the last anchor + 12f every element settles to full opacity.",
+  "camera_rig": {
+    "action": "continuous slow drift",
+    "scale": "1.0 -> 1.10 across each scene",
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "parallax": { "bg_z0_multiplier": 1.0, "cutout_z20_multiplier": 1.04, "data_z40_multiplier": 1.08 }
+  },
+  "physics": { "spring_damping": "18-22", "stiffness": "130-150", "rule": "No bouncy springs (damping < 16 forbidden); pop-in translateY goes +N -> 0" },
   "global_overlays": [
     {
       "type": "texture_loop",
@@ -41,6 +49,12 @@ Emit this structured JSON manifest before generating assets or executing Remotio
       "blend_mode": "screen",
       "opacity": 0.12,
       "z_index": 90
+    },
+    {
+      "type": "vignette",
+      "source": "remotion_native (radial gradient)",
+      "opacity": 0.35,
+      "z_index": 89
     }
   ],
   "scenes": [
@@ -175,6 +189,25 @@ Emit this structured JSON manifest before generating assets or executing Remotio
 }
 ```
 
+## 2b. Required Layer Language (gate-enforced)
+
+The news-editorial-motion lane enforces a mandatory layer grammar via the editorial-language pre-render gate (`tools/qc/editorial_language_gate.py`). BLOCKED ⇒ cannot compose.
+
+**Activation (mirrors `detect_editorial_lane()` in `tools/qc/editorial_language_gate.py` — the same detection helper compose imports):** the gate auto-applies when ANY of these holds — (1) the scene manifest declares `style_playbook == "editorial-explainer-manifest"`; (2) the scene manifest declares `lane == "news-editorial-motion"`; (3) `project.json` declares `style_playbook == "editorial-explainer-manifest"` AND `pipeline_type == "animated-explainer"`. A manifest declaring an editorial key while `project.json` `pipeline_type` is anything other than `animated-explainer` is a blocked `EL-LANE-MISMATCH` finding. Projects declaring NO editorial key are audited explicitly with `--force-editorial` — an auto-SKIP (exit 0, no findings, no evidence) is NOT a pass.
+
+**Compose-side residue (documented; verified in `tools/video/video_compose.py`):** this is a LANGUAGE check that requires the project to DECLARE itself. A project with NO readable editorial metadata is NEVER gated into a pass at compose: on a strict compose, if BOTH `scene_manifest.json` and `project.json` are unavailable — ABSENT or present-but-unreadable (unparseable) — compose emits a LOUD WARNING that states each file's state and does NOT enforce the gate on that compose; audit via `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug> --force-editorial`. Unavailable metadata is a WARNING plus non-enforcement, never a pass.
+
+**Enforcement mode and declaration/manifest split:** the editorial-language gate runs ONLY in strict validation mode; legacy mode does not enforce it and CAN NEVER satisfy production acceptance or checkpoint completion (the compose tool emits a CRITICAL WARNING). A readable `project.json` declaration (`style_playbook == "editorial-explainer-manifest"` AND `pipeline_type == "animated-explainer"`) activates the gate even if the resolved `scene_manifest.json` is missing — that case is BLOCKED `EL-MANIFEST-MISSING`; if the manifest exists but is unparseable, strict compose blocks via the producer-crash path (`EL-MANIFEST-UNPARSEABLE`). A readable manifest declaration (`style_playbook == "editorial-explainer-manifest"` or `lane == "news-editorial-motion"`) also activates the gate. An unparseable manifest cannot itself declare its contents for auto-detection.
+
+- **Every non-closing (content) scene requires ≥1 GENUINE graphic-native layer:**
+  - `document_cutout` — via `t2i_chroma_key` or `web_plus_i2i` + `remove_bg: true`;
+  - `data_viz` — via `remotion_native` chart components;
+  - `evidence_annotation` — via `remotion_native` highlighter/chip.
+- **Photo-frame dominance is role-independent (gate R3):** ANY `hero`-role layer is a blocked finding whatever its pipeline method (photo-as-hero is the anti-pattern by definition — intentional over-block); and any photo layer — `method: "t2i"` or a photoreal-lexicon prompt/prompt_digest hit (`photo`/`dslr`/`render`/`realistic`/`cinematic`) — whose `transform` w×h covers ≥ 0.85 of the canvas is a blocked finding whatever its declared role (the role `background` texture-backplate exemption applies only BELOW the threshold; dim/opacity does not rescue). Photos below 0.85 remain permitted as backplate texture and as cutout subjects.
+- **Closing/CTA scene budget:** at most ONE scene is exempt: the LAST scene in the manifest array, whose non-empty collected layer-role set is a subset of `{background, background_texture, editorial_typography, attribution}` and contains at least one `editorial_typography` role. Any other scene — including a last scene with only a background photo — remains a content scene subject to graphic-native and photo-dominance rules. The reference project's closing scene has both `background` and typography, so it remains exempt.
+- **Zero unresolved `anchor:` placeholders:** every frame-valued leaf in the manifest must resolve to a real frame number (speech-locked) before compose.
+- Soft advisories (e.g. a content scene with a cutout but no chart) are recorded in the qc report `warnings[]` — they never affect the verdict; only `blocked` findings do.
+
 ## 3. Execution Pipeline Steps
 
 ### Step 1: Evidence & Script Decomposition (LLM)
@@ -184,6 +217,7 @@ Emit this structured JSON manifest before generating assets or executing Remotio
    - `t2i` (**Atmosphere & Backplates**): Dark tactical maps, blueprint grids, corkboards, microfiche frames, or subtle textured gradients.
    - `web_plus_i2i` (**Archival Cutouts & Real-World Evidence**): Fetch public-domain photos, historical portraits, hardware photos, or geographic SVGs from Wikimedia Commons, Unsplash, or SVGRepo. Pass them through `i2i` (`denoise: 0.35 - 0.50`) using the `style_anchor` to unify diverse web photos into a cohesive editorial print look (e.g., halftone monochrome or duotone).
    - `remotion_native` (**Data, Maps, & Typography**): All bar/line charts, percentage counters, source citations, redaction bars, and highlighter strokes. Never use T2I to render numbers, charts, or article text.
+   - **Canonical implementation surface (news-editorial-motion lane):** study and reuse the shared components `remotion-composer/src/components/CutoutLayer.tsx` (cutout treatment with torn edge + spring pop-in), `remotion-composer/src/components/HighlighterTitle.tsx` (highlighter wipe + editorial title), `remotion-composer/src/components/ParallaxCamera.tsx` (`camScale` drift, layered multipliers), and `remotion-composer/src/components/charts/EditorialBarChart.tsx` (native editorial bar chart with count-up — a fresh component, explicitly NOT an extension of `BarChart.tsx`), exported via `remotion-composer/src/components/charts/index.ts`.
 
 ### Step 2: Documentary Motion & Camera Rigging
 
@@ -219,6 +253,8 @@ This skill is a DESIGN layer on top of the OM pipeline — it never replaces the
    - Semantic events: `npm run validate:events -- <spec>`
    - Timing re-lock: `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<dir>', mode='strict')"`
    - Mix: `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>`
+   - Editorial-language gate (news-editorial-motion lane): `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — auto-applies when the manifest declares `style_playbook == "editorial-explainer-manifest"` or `lane == "news-editorial-motion"`, or when `project.json` declares `style_playbook == "editorial-explainer-manifest"` AND `pipeline_type == "animated-explainer"` (manifest editorial key + non-`animated-explainer` pipeline_type ⇒ blocked `EL-LANE-MISMATCH`); a project declaring no editorial key is SKIPped (exit 0, no findings, no evidence — NOT a pass): audit it explicitly with `--force-editorial`; exit 0 = pass / 1 = blocked / 2 = invocation error (advisories land in `warnings[]`, never affecting exit); evidence `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`; BLOCKED ⇒ cannot compose.
+   - `--manifest <path>` on `tools/qc/editorial_language_gate.py` is AUDIT-ONLY: selects an alternate `scene_manifest.json` for offline audit/test runs, relaxes no rule, and is never passed by production or compose code — manifests always resolve via the shared root-then-artifacts resolver.
    - Compose execution requires strict mode (`validation_mode='strict'`) and verified evidence records in `artifacts/production_evidence.json` across all 5 gates (`layout`, `timing-audio`, `semantic-events`, `sfx-mix`, `provenance-freshness`).
 7. **CC worker discovery.** The skill lives in `.agents/skills/editorial-explainer-manifest` with a symlink at `.claude/skills/editorial-explainer-manifest` — if either moves, re-create the symlink or Claude Code workers won't discover it. Consolidation proposal remains PLAN-ONLY.
 

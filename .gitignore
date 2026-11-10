@@ -37,6 +37,10 @@ projects/*/*
 !projects/*/artifacts
 !projects/*/*.json
 !projects/*/*.md
+# M-A: the editorial-language gate's hashed evidence artifact is machine-
+# generated per compose/audit run — never committable (validate_pre_render
+# re-derives and re-hashes it; a stale committed copy would hash-mismatch).
+projects/*/artifacts/editorial_language_evidence.json
 # CC session task specs are working junk, not sources — never track
 projects/**/TASK_*.md
 # media & runtime junk never tracked, even inside whitelisted dirs

@@ -1,0 +1,34 @@
+{
+  "project_id": "golden-non-editorial-20261110",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "scenes": [
+    {
+      "scene_id": "s1",
+      "layers": [
+        {
+          "layer_id": "bg",
+          "role": "background",
+          "pipeline": {
+            "method": "t2i"
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "s2",
+      "layers": [
+        {
+          "layer_id": "bg",
+          "role": "background",
+          "pipeline": {
+            "method": "t2i"
+          }
+        }
+      ]
+    }
+  ]
+}

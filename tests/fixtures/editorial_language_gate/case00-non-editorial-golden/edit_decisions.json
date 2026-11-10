@@ -1,0 +1,14 @@
+{
+  "cuts": [
+    {
+      "id": "s1"
+    },
+    {
+      "id": "s2"
+    }
+  ],
+  "metadata": {
+    "pipeline_type": "animation",
+    "project_id": "golden-non-editorial-20261110"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "project_id": "elg-case11-background-only-last-scene",
+  "lane": "news-editorial-motion",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "speech_lock_contract": "contract",
+  "camera_rig": {
+    "action": "drift"
+  },
+  "physics": {
+    "rule": "no bounce"
+  },
+  "global_overlays": [
+    {
+      "type": "grain"
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "s1",
+      "narrative_beat": "content",
+      "duration_frames": 90,
+      "start_frame_global": 0,
+      "layers": [
+        {
+          "layer_id": "p",
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "bg.png"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "sections": [
+    {
+      "id": "s1",
+      "text": "intro beat"
+    },
+    {
+      "id": "s2",
+      "text": "outro beat"
+    }
+  ]
+}

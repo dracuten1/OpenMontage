@@ -435,18 +435,127 @@ class VideoCompose(BaseTool):
             artifacts=[str(video_path)],
         )
 
+    def _editorial_compose_preflight(
+        self,
+        inputs: dict[str, Any],
+        edit_decisions: dict[str, Any],
+        output_path: Path,
+    ) -> ToolResult | None:
+        """M-B: editorial-language gate at the EARLIEST compose point.
+
+        Called from _compose BEFORE output_path.parent.mkdir — i.e. before any
+        compose output exists (no intermediate artifacts, no renders/ dir, no
+        render stub). Returns a failure ToolResult when the compose MUST NOT
+        proceed (editorial lane active + gate BLOCKED or producer crashed),
+        None when compose may continue (non-editorial lane, legacy mode, or
+        gate PASS — the render entry re-evaluates the gate idempotently).
+
+        Imports stay INSIDE the strict branch: non-editorial projects execute
+        no new imports and observe identical behavior (M2 byte-identity).
+        Production/compose NEVER passes --manifest or a composition override
+        here (m2 audit-only flag). Producer crash keeps M7 semantics: a BLOCKED
+        EvidenceRecord is synthesized and validate_pre_render still runs.
+        """
+        validation_mode = self._resolve_compose_validation_mode(inputs, edit_decisions, output_path)
+        if validation_mode != "strict":
+            return None
+        from tools.qc.editorial_language_gate import (
+            detect_editorial_lane,
+            read_json_if_valid,
+            resolve_manifest_path,
+        )
+        project_dir = self._resolve_project_dir_candidate(output_path, inputs, edit_decisions)
+        _sm_raw = read_json_if_valid(resolve_manifest_path(project_dir))
+        _pj_raw = read_json_if_valid(project_dir / "project.json")
+        _editorial = detect_editorial_lane(_sm_raw, _pj_raw)
+        if inputs.get("force_editorial"):
+            _editorial = True
+        if not _editorial:
+            return None
+        try:
+            from tools.qc.editorial_language_gate import run_editorial_language_gate
+            _el_qc, _el_record = run_editorial_language_gate(
+                project_dir,
+                force=bool(inputs.get("force_editorial")),
+            )
+        except Exception as el_exc:
+            # M7: producer crash => BLOCKED record + validation still runs.
+            from lib.production_validation import (
+                GATE_EDITORIAL_LANGUAGE,
+                REQUIRED_PRE_RENDER_GATES,
+                EvidenceRecord,
+                ValidationStatus,
+                validate_pre_render,
+            )
+            blocked_record = EvidenceRecord(
+                gate_name=GATE_EDITORIAL_LANGUAGE,
+                scope="pre_render",
+                status=ValidationStatus.BLOCKED,
+                severity="critical",
+                issues=[f"EL-PRODUCER-CRASHED: {el_exc}"],
+            )
+            pre_val = validate_pre_render(
+                project_dir=project_dir,
+                edit_decisions=edit_decisions,
+                mode="strict",
+                pipeline_type=inputs.get("pipeline_type")
+                or (edit_decisions.get("metadata") or {}).get("pipeline_type", "animated-explainer"),
+                evidence_records=[blocked_record],
+                required_gates=sorted(REQUIRED_PRE_RENDER_GATES | {GATE_EDITORIAL_LANGUAGE}),
+            )
+            return ToolResult(
+                success=False,
+                error=(
+                    "Pre-render production validation gate failed:\n"
+                    + "\n".join(f"  • {r}" for r in pre_val.blocking_reasons)
+                ),
+                data={"production_validation": pre_val.to_dict()},
+            )
+        if _el_record is None:
+            return None  # defensive: lane active implies a record
+        blocked = [f for f in _el_qc.get("findings", []) if f.get("status") == "blocked"]
+        if blocked:
+            reasons = [f"[editorial-language] EL-PRODUCER-BLOCKED (compose must not proceed):"]
+            reasons += [f"{f.get('scene_id') or 'episode'}: {f.get('code')}: {f.get('message')}"
+                        for f in blocked]
+            return ToolResult(
+                success=False,
+                error=(
+                    "Pre-render production validation gate failed:\n"
+                    + "\n".join(f"  • {r}" for r in reasons)
+                ),
+                data={
+                    "editorial_language_gate": {
+                        "project": _el_qc.get("project"),
+                        "lane": _el_qc.get("lane"),
+                        "blocked": len(blocked),
+                        "revise": len([f for f in _el_qc.get("findings", [])
+                                       if f.get("status") == "revise"]),
+                    }
+                },
+            )
+        return None
+
     def _compose(self, inputs: dict[str, Any]) -> ToolResult:
         """FFmpeg composition: concat video cuts, add audio, burn subtitles.
 
         Handles video sources only. Still images and animated scene types
         are routed to Remotion via the render operation — call compose
         directly only for pure video pipelines (e.g. talking-head).
+
+        M-B: the editorial-language gate is enforced at the very top of this
+        method (before output_path.parent.mkdir) via
+        _editorial_compose_preflight — a BLOCKED editorial compose produces
+        NO output.
         """
         edit_decisions = inputs.get("edit_decisions")
         if not edit_decisions:
             return ToolResult(success=False, error="edit_decisions required for compose")
 
         output_path = Path(inputs.get("output_path", "composed_output.mp4"))
+        editorial_block = self._editorial_compose_preflight(inputs, edit_decisions, output_path)
+        if editorial_block is not None:
+            return editorial_block
         output_path.parent.mkdir(parents=True, exist_ok=True)
         audio_path = inputs.get("audio_path")
         subtitle_path = inputs.get("subtitle_path")
@@ -1818,6 +1927,34 @@ class VideoCompose(BaseTool):
         project_dir_candidate = self._resolve_project_dir_candidate(output_path_candidate, inputs, edit_decisions)
         validation_mode = self._resolve_compose_validation_mode(inputs, edit_decisions, output_path_candidate)
 
+        # --- Editorial-language lane detection (design E.2; single source of truth
+        # in tools/qc/editorial_language_gate.py). Imports stay INSIDE the strict
+        # branch: non-editorial and legacy projects execute no new module-level
+        # imports; the producer itself is invoked only when the lane is active.
+        editorial_required = None
+        if validation_mode == "strict":
+            from tools.qc.editorial_language_gate import (
+                detect_editorial_lane,
+                read_json_if_valid,
+                resolve_manifest_path,
+            )
+            _sm_path = resolve_manifest_path(project_dir_candidate)
+            _pj_path = project_dir_candidate / "project.json"
+            _sm_raw = read_json_if_valid(_sm_path)
+            _pj_raw = read_json_if_valid(_pj_path)
+            _editorial = detect_editorial_lane(_sm_raw, _pj_raw)
+            if not _editorial and inputs.get("force_editorial"):
+                _editorial = True
+            if _editorial and _sm_raw is None:
+                from lib.production_validation import EvidenceRecord, ValidationStatus
+                from tools.qc.editorial_language_gate import EditorialGateInvocationError
+                _code = "EL-MANIFEST-UNPARSEABLE" if _sm_path.is_file() else "EL-MANIFEST-MISSING"
+                raise EditorialGateInvocationError(f"{_code}: { _sm_path }")
+            # Undeclared metadata absence is a quiet skip, not a warning.
+            if _editorial:
+                from lib.production_validation import GATE_EDITORIAL_LANGUAGE, REQUIRED_PRE_RENDER_GATES
+                editorial_required = sorted(REQUIRED_PRE_RENDER_GATES | {GATE_EDITORIAL_LANGUAGE})
+
         evidence_records = None
         if "evidence_records" in inputs and isinstance(inputs["evidence_records"], list):
             from lib.production_validation import EvidenceRecord
@@ -1863,6 +2000,34 @@ class VideoCompose(BaseTool):
         if validation_mode == "strict":
             from lib.production_validation import validate_pre_render
             pipeline_type_cand = inputs.get("pipeline_type") or (edit_decisions.get("metadata") or {}).get("pipeline_type", "animated-explainer")
+            # Editorial-language producer (E.3, M7): invoked only when the lane is
+            # active; on ANY producer exception emit a BLOCKED evidence record AND
+            # still run validate_pre_render — validation is never skipped because
+            # the producer crashed.
+            if editorial_required is not None:
+                try:
+                    from tools.qc.editorial_language_gate import run_editorial_language_gate
+                    _el_qc, _el_record = run_editorial_language_gate(
+                        project_dir_candidate,
+                        force=bool(inputs.get("force_editorial")),
+                    )
+                    if _el_record is not None:
+                        evidence_records = list(evidence_records or []) + [_el_record]
+                except Exception as el_exc:
+                    from lib.production_validation import EvidenceRecord, ValidationStatus
+                    logging.getLogger("video_compose").warning(
+                        "[editorial-language] producer crashed (%s); emitting BLOCKED record "
+                        "and still enforcing validation", el_exc,
+                    )
+                    evidence_records = list(evidence_records or []) + [
+                        EvidenceRecord(
+                            gate_name="editorial-language",
+                            scope="pre_render",
+                            status=ValidationStatus.BLOCKED,
+                            severity="critical",
+                            issues=[f"EL-PRODUCER-CRASHED: {el_exc}"],
+                        )
+                    ]
             pre_val = validate_pre_render(
                 project_dir=project_dir_candidate,
                 edit_decisions=edit_decisions,
@@ -1870,6 +2035,7 @@ class VideoCompose(BaseTool):
                 pipeline_type=pipeline_type_cand,
                 asset_manifest=asset_manifest,
                 evidence_records=evidence_records,
+                required_gates=editorial_required,
             )
             if not pre_val.can_render():
                 return ToolResult(

@@ -1,0 +1,104 @@
+{
+  "gate": "editorial-language",
+  "project": "case03-missing-contract",
+  "lane": "unknown",
+  "manifest": "scene_manifest.json",
+  "composition_root": null,
+  "scene_ids": [
+    "scene_s1",
+    "scene_s2",
+    "scene_s3",
+    "scene_s4"
+  ],
+  "content_scenes": 3,
+  "closing_scenes": 1,
+  "findings": [
+    {
+      "rule": "contract-sections",
+      "scene_id": null,
+      "status": "pass",
+      "code": "EL-CONTRACT-SECTION-MISSING",
+      "message": "contract section 'speech_lock_contract' present"
+    },
+    {
+      "rule": "contract-sections",
+      "scene_id": null,
+      "status": "pass",
+      "code": "EL-CONTRACT-SECTION-MISSING",
+      "message": "contract section 'camera_rig' present"
+    },
+    {
+      "rule": "contract-sections",
+      "scene_id": null,
+      "status": "pass",
+      "code": "EL-CONTRACT-SECTION-MISSING",
+      "message": "contract section 'physics' present"
+    },
+    {
+      "rule": "contract-sections",
+      "scene_id": null,
+      "status": "pass",
+      "code": "EL-CONTRACT-SECTION-MISSING",
+      "message": "contract section 'global_overlays' present"
+    },
+    {
+      "rule": "graphic-native-required",
+      "scene_id": null,
+      "status": "blocked",
+      "code": "EL-SOURCE-ROOT-MISSING",
+      "message": "composition source root missing: /Users/tuyennguyen/project/OpenMontage/remotion-composer/src/elg-case01-xd-shape"
+    },
+    {
+      "rule": "photo-frame-dominance",
+      "scene_id": "scene_s1",
+      "status": "blocked",
+      "code": "EL-PHOTO-FRAME-DOMINANCE",
+      "message": "unmeasurable raster photo layer(s) bg_backplate in non-closing scene (no usable w/h, no genuine graphic-native credit in the scene); treated as dominating (fail-closed)"
+    },
+    {
+      "rule": "photo-frame-dominance",
+      "scene_id": "scene_s2",
+      "status": "blocked",
+      "code": "EL-PHOTO-FRAME-DOMINANCE",
+      "message": "unmeasurable raster photo layer(s) bg_backplate in non-closing scene (no usable w/h, no genuine graphic-native credit in the scene); treated as dominating (fail-closed)"
+    },
+    {
+      "rule": "photo-frame-dominance",
+      "scene_id": "scene_s3",
+      "status": "blocked",
+      "code": "EL-PHOTO-FRAME-DOMINANCE",
+      "message": "unmeasurable raster photo layer(s) bg_backplate in non-closing scene (no usable w/h, no genuine graphic-native credit in the scene); treated as dominating (fail-closed)"
+    },
+    {
+      "rule": "photo-frame-dominance",
+      "scene_id": "scene_s4",
+      "status": "pass",
+      "code": "EL-PHOTO-FRAME-DOMINANCE",
+      "message": "no dominant raster photo surface"
+    },
+    {
+      "rule": "unresolved-anchor",
+      "scene_id": null,
+      "status": "pass",
+      "code": "EL-UNRESOLVED-ANCHOR",
+      "message": "no unresolved anchor: tokens"
+    }
+  ],
+  "warnings": [],
+  "stats": {
+    "scenes": 4,
+    "content_scenes": 3,
+    "closing_scenes": 1,
+    "composition_files": 0,
+    "heroes": 0,
+    "anchor_leaves": 0,
+    "blocked_anchor_leaves": 0,
+    "advisory_anchor_leaves": 0,
+    "blocked_findings": 4,
+    "passed_findings": 6,
+    "revise_findings": 0
+  },
+  "input_files": {
+    "../../../../../../../../private/tmp/editorial-bypass-acceptance/case01-pass-xd-shape/scene_manifest.json": "2abd266760665e5de6a0f7af94341ea33661a8b5bfa3451ba789d2775633e21f"
+  }
+}

@@ -247,10 +247,12 @@ stages:
       - Audio is clear with proper narration/music balance
       - "render_runtime in edit_decisions matches proposal_packet — silent swap to another runtime is a CRITICAL governance violation"
       - "If render_runtime='hyperframes': `hyperframes lint` and `hyperframes validate` must pass before render"
+      - "Editorial-language gate (editorial lane): `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — exit 0 required; evidence `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`; BLOCKED ⇒ cannot compose"
     success_criteria:
       - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
       - Schema-valid render_report with output paths
       - Output file exists and passes ffprobe validation
+      - "Editorial-language gate PASS with per-scene verdicts recorded whenever the lane condition matches (style_playbook=='editorial-explainer-manifest' or lane=='news-editorial-motion'); explicit `--force-editorial` invocation otherwise"
 
   - name: publish
     skill: pipelines/explainer/publish-director

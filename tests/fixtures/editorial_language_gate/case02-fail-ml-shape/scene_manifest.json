@@ -1,0 +1,553 @@
+{
+  "version": "1.0",
+  "project_id": "elg-case02-ml-shape",
+  "lane": "news-editorial-motion",
+  "style_playbook": "editorial-explainer-manifest",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style_anchor": "news editorial",
+  "negative_prompt": "none",
+  "safe_zone": {
+    "note": "none"
+  },
+  "notes": "synthetic regression fixture (mua-lu failure shape); anchor: leaf count pinned at 3",
+  "scenes": [
+    {
+      "scene_id": "scene-1",
+      "layers": [
+        {
+          "layer_id": "hero_s1",
+          "z_index": 0,
+          "role": "hero",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero1.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "KickerPill"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "HeroTitle"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "StatChipRow"
+          }
+        }
+      ],
+      "sfx_cues": [
+        {
+          "sfx_id": "sfx1_0",
+          "file": "pop.mp3",
+          "trigger_frame": "anchor:từ khóa 1-0",
+          "volume_db": -9.0
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-2",
+      "layers": [
+        {
+          "layer_id": "hero_s2",
+          "z_index": 0,
+          "role": "hero",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero2.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneTitle"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "MechRowStack"
+          }
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "StatChip"
+          }
+        }
+      ],
+      "sfx_cues": [
+        {
+          "sfx_id": "s",
+          "file": "pop.mp3",
+          "trigger_frame": 12,
+          "volume_db": -9
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-3",
+      "layers": [
+        {
+          "layer_id": "hero_s3",
+          "z_index": 0,
+          "role": "background_texture",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero3.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center",
+            "dim": 0.55
+          }
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneTitle"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "BarChartCountUp"
+          }
+        }
+      ],
+      "sfx_cues": [
+        {
+          "sfx_id": "s",
+          "file": "pop.mp3",
+          "trigger_frame": 30,
+          "volume_db": -9
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-4",
+      "layers": [
+        {
+          "layer_id": "hero_s4",
+          "z_index": 0,
+          "role": "hero",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero4.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center",
+            "dim": 0.3
+          }
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneTitle"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "FloodRowStack"
+          }
+        }
+      ],
+      "sfx_cues": [
+        {
+          "sfx_id": "s",
+          "file": "pop.mp3",
+          "trigger_frame": 44,
+          "volume_db": -9
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-5",
+      "layers": [
+        {
+          "layer_id": "hero_s5",
+          "z_index": 0,
+          "role": "hero",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero5.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center",
+            "dim": 0.25
+          },
+          "motion": {
+            "enter": {
+              "start_frame": "anchor:Ba giờ"
+            }
+          }
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "TimeChip"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneTitle"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "DetailRowStack"
+          }
+        }
+      ],
+      "sfx_cues": [
+        {
+          "sfx_id": "sfx5_0",
+          "file": "pop.mp3",
+          "trigger_frame": 55,
+          "volume_db": -9.0
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-6",
+      "layers": [
+        {
+          "layer_id": "hero_s6",
+          "z_index": 0,
+          "role": "hero",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero6.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center",
+            "dim": 0.25
+          }
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "TimeChip"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneTitle"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "DetailRowStack"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-7",
+      "layers": [
+        {
+          "layer_id": "hero_s7",
+          "z_index": 0,
+          "role": "hero",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero7.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center",
+            "dim": 0.28
+          }
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneTitle"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "DetailRowStack"
+          }
+        }
+      ],
+      "sfx_cues": [
+        {
+          "sfx_id": "s",
+          "file": "pop.mp3",
+          "trigger_frame": 8,
+          "volume_db": -9
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-8",
+      "layers": [
+        {
+          "layer_id": "hero_s8",
+          "z_index": 0,
+          "role": "background_texture",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero8.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center",
+            "dim": 0.55
+          }
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneTitle"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "HBarChartExclusive"
+          }
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "StatChip"
+          }
+        }
+      ],
+      "sfx_cues": [
+        {
+          "sfx_id": "s",
+          "file": "pop.mp3",
+          "trigger_frame": 16,
+          "volume_db": -9
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-9",
+      "layers": [
+        {
+          "layer_id": "hero_s9",
+          "z_index": 0,
+          "role": "hero",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero9.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center",
+            "dim": 0.45
+          }
+        },
+        {
+          "layer_id": "t",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "BadgeRibbon"
+          },
+          "text_content": "text"
+        },
+        {
+          "layer_id": "viz",
+          "z_index": 50,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "VerdictCardStack"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-10",
+      "layers": [
+        {
+          "layer_id": "hero_s10",
+          "z_index": 0,
+          "role": "background_texture",
+          "pipeline": {
+            "method": "t2i",
+            "file": "hero10.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center",
+            "dim": 0.2
+          }
+        },
+        {
+          "layer_id": "cta",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "CtaCard"
+          }
+        },
+        {
+          "layer_id": "follow",
+          "z_index": 45,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native"
+          }
+        },
+        {
+          "layer_id": "attr",
+          "z_index": 50,
+          "role": "attribution",
+          "pipeline": {
+            "method": "remotion_native"
+          }
+        }
+      ],
+      "sfx_cues": [
+        {
+          "sfx_id": "sfx10_0",
+          "file": "pop.mp3",
+          "trigger_frame": 77,
+          "volume_db": -7.0
+        }
+      ]
+    }
+  ],
+  "production_notes": "anchor:đối chiếu chuẩn"
+}

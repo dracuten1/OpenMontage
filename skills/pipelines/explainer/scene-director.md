@@ -143,6 +143,19 @@ Show code with syntax highlighting. Highlight specific lines as the narrator exp
 - Tools: `code_snippet` tool + Remotion
 - Example: "Python code: `results = collection.query(embedding, n_results=5)`. Highlight `embedding` parameter when narrator says 'vector'."
 
+### Step 4a-bis: Editorial Layer Language (news-editorial-motion lane)
+
+Applies when the episode manifest declares `style_playbook == "editorial-explainer-manifest"` or `lane == "news-editorial-motion"` (enforced by the editorial-language gate — BLOCKED ⇒ cannot compose):
+
+- **Every content (non-closing) scene must declare ≥1 GENUINE graphic-native layer**: `document_cutout` (via `t2i_chroma_key` or `web_plus_i2i` + `remove_bg`), `data_viz` (via remotion_native chart components), or `evidence_annotation` (via remotion_native highlighter/chip). Photo-frame dominance is role-independent: ANY `hero` layer is blocked whatever its method, and any photo layer (`t2i` method or photoreal-lexicon prompt/prompt_digest hit) covering ≥ 0.85 of the canvas is blocked whatever its declared role — a `background` texture backplate is permitted only BELOW that threshold.
+- **Speech-locked EXCLUSIVE highlight:** exactly ONE highlight per scene, locked to the speech-contract anchor windows (active/settled/ghost opacities keyed to cue windows).
+- **Closing-scene budget:** at most ONE scene is exempt: the LAST scene in the manifest array, whose non-empty layer-role set is a subset of `{background, background_texture, editorial_typography, attribution}` and contains at least one `editorial_typography` layer. Any other scene — including a last scene with only a background photo — remains a content scene subject to graphic-native and photo-dominance rules. The reference project's closing scene has both background and typography, so it remains exempt.
+- **Zero unresolved `anchor:` placeholders** anywhere in the manifest — every frame-valued leaf must be speech-locked to a real frame.
+
+**Canonical reference implementation (technique reference only — NOT a story-shape template):** `remotion-composer/src/xang-dau-demo-20261107/Episode.tsx`. Study the individual techniques in isolation — cutout treatment (L441-466, L793-816), chart count-up axis math (L51-66, L608-747), highlighter wipe (L740-750), typewriter reveal (L470-514), pop-in spring (L213-223), parallax `camScale` drift (L231-237), CtaPill (L291) — then re-compose those techniques for THIS story's own beats. Never reuse its scene order, narrative structure, or scene count; your story shape comes exclusively from your own script decomposition (Step 3).
+
+> **Gate-skip caveat (verified on disk):** the reference project `projects/xang-dau-demo-20261107` declares NO editorial key — its `scene_manifest.json` declares neither `style_playbook` nor `lane`, and its `project.json` says `style_playbook: "flat-motion-graphics"` — so the editorial-language gate SKIPs it by default (CLI exit 0, `SKIP — … not an editorial project`, zero findings, zero evidence; compose does not enforce it either). A SKIP is NOT a pass. Audit the reference explicitly with `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/xang-dau-demo-20261107 --force-editorial`.
+
 ### Step 4b: Write Narration with Duration Budget
 
 If the video includes narration, the script **must** be written to fit the video duration.
@@ -179,6 +192,8 @@ If the video includes narration, the script **must** be written to fit the video
 > 5. **Camera** — playback speed → lens distortion → height → angle → focus/DoF → steadiness → movement. Mark N/A for native-Remotion scenes; specify fully for `generated`/`broll`/`image_animation` scenes.
 >
 > See `skills/creative/video-gen-prompting.md` for the primitive vocabulary.
+
+> **Editorial lane addendum (news-editorial-motion):** every content scene declares ≥1 genuine graphic-native layer; highlight count == 1 per scene (speech-locked); no `anchor:` placeholders left unresolved (see Step 4a-bis).
 
 > **Overlays callout.** Overlays (titles, subtitles, HUD, watermarks, framing graphics, lower-thirds, section_title bars, stat_reveal chips, hero_title overlays, provider chips) are NOT part of the scene's foreground/midground/background depth axis. List them separately in scene metadata (`overlays: [...]`) with content and placement. Never describe an overlay as "in the foreground" — that confuses both downstream tools and any video-understanding model that re-analyzes the output.
 
@@ -268,6 +283,7 @@ In the scene-isolated production workflow:
 - **Preset thinking**: A scene plan that says "make it flat-motion-graphics" is not enough. The planner must specify what makes THIS video's motion graphics feel distinct.
 - **Static scenes for dynamic concepts**: If the narrator describes a process or transformation, the visual should move. Use animation or progressive reveal, not a static image.
 - **Using `generated` type for CTA/closing screens with exact text**: AI image models hallucinate text — wrong business names, misspelled words, wrong phone numbers. Any scene with verbatim text (CTA, business info, contact details, legal) MUST be `type: "text_card"` so Remotion renders the text exactly. Never plan a `generated` image for a scene where text accuracy matters.
+- **Treating the xang-dau episode as a template**: its techniques are the reference, its story shape is not. Study the cutout / chart / highlighter / typewriter / parallax techniques in isolation (see Step 4a-bis) and re-compose them for your own beats — never reuse its scene order, narrative structure, or scene count. Note: the reference project `projects/xang-dau-demo-20261107` declares no editorial key (`scene_manifest.json` has no `style_playbook`/`lane`; `project.json` says `style_playbook: "flat-motion-graphics"`), so the editorial-language gate SKIPs it by default — exit 0 with no findings and no evidence is NOT a pass; audit it explicitly with `--force-editorial`.
 
 ---
 

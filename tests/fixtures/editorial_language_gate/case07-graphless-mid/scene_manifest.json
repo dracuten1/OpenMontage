@@ -1,0 +1,183 @@
+{
+  "project_id": "elg-case07-graphless-mid",
+  "lane": "news-editorial-motion",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "speech_lock_contract": "contract",
+  "camera_rig": {
+    "action": "drift"
+  },
+  "physics": {
+    "rule": "no bounce"
+  },
+  "global_overlays": [
+    {
+      "type": "grain"
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "scene-1",
+      "layers": [
+        {
+          "layer_id": "bg_backplate",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "backplate.png",
+            "prompt_digest": "dark charcoal archival paper + blueprint grid"
+          }
+        },
+        {
+          "layer_id": "doc_cutout",
+          "z_index": 20,
+          "role": "document_cutout",
+          "pipeline": {
+            "method": "t2i_chroma_key",
+            "file": "cutout.png"
+          },
+          "motion": {
+            "enter": {
+              "type": "slide_and_settle"
+            }
+          },
+          "transform": {
+            "anchor": "center-left",
+            "w": 400,
+            "rotation": -2.5
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-2",
+      "layers": [
+        {
+          "layer_id": "bg_backplate",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "backplate.png",
+            "prompt_digest": "dark charcoal archival paper + blueprint grid"
+          }
+        },
+        {
+          "layer_id": "doc_cutout",
+          "z_index": 20,
+          "role": "document_cutout",
+          "pipeline": {
+            "method": "t2i_chroma_key",
+            "file": "cutout.png"
+          },
+          "motion": {
+            "enter": {
+              "type": "slide_and_settle"
+            }
+          },
+          "transform": {
+            "anchor": "center-left",
+            "w": 400,
+            "rotation": -2.5
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-3",
+      "layers": [
+        {
+          "layer_id": "bg_backplate",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "backplate.png",
+            "prompt_digest": "dark charcoal archival paper + blueprint grid"
+          }
+        },
+        {
+          "layer_id": "t1",
+          "z_index": 40,
+          "role": "editorial_typography",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "text_content": "mid stat callout"
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-4",
+      "layers": [
+        {
+          "layer_id": "bg_backplate",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "backplate.png",
+            "prompt_digest": "dark charcoal archival paper + blueprint grid"
+          }
+        },
+        {
+          "layer_id": "doc_cutout",
+          "z_index": 20,
+          "role": "document_cutout",
+          "pipeline": {
+            "method": "t2i_chroma_key",
+            "file": "cutout.png"
+          },
+          "motion": {
+            "enter": {
+              "type": "slide_and_settle"
+            }
+          },
+          "transform": {
+            "anchor": "center-left",
+            "w": 400,
+            "rotation": -2.5
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "scene-5",
+      "layers": [
+        {
+          "layer_id": "bg_backplate",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "t2i",
+            "file": "backplate.png",
+            "prompt_digest": "dark charcoal archival paper + blueprint grid"
+          }
+        },
+        {
+          "layer_id": "doc_cutout",
+          "z_index": 20,
+          "role": "document_cutout",
+          "pipeline": {
+            "method": "t2i_chroma_key",
+            "file": "cutout.png"
+          },
+          "motion": {
+            "enter": {
+              "type": "slide_and_settle"
+            }
+          },
+          "transform": {
+            "anchor": "center-left",
+            "w": 400,
+            "rotation": -2.5
+          }
+        }
+      ]
+    }
+  ]
+}
