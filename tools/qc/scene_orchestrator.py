@@ -489,10 +489,13 @@ class SubprocessAgentRunner(AgentRunner):
         writer_cmd: list[str] | None = None,
         reviewer_cmd: list[str] | None = None,
         python_executable: str = sys.executable,
+        timeout_seconds: float = 900.0,
     ):
         self.writer_cmd = writer_cmd
         self.reviewer_cmd = reviewer_cmd
         self.python_executable = python_executable
+        # 2026-11-11: 120s killed real CC runs (observed 176–495s per scene)
+        self.timeout_seconds = timeout_seconds
 
     def run_writer(self, context: WriterContext) -> AgentRunResult:
         t0 = time.time()
@@ -530,7 +533,7 @@ class SubprocessAgentRunner(AgentRunner):
                 env=env,
                 capture_output=True,
                 text=True,
-                timeout=120,
+                timeout=self.timeout_seconds,
             )
             t1 = time.time()
             iso_end = datetime.now(timezone.utc).isoformat()
@@ -599,7 +602,7 @@ class SubprocessAgentRunner(AgentRunner):
                 env=env,
                 capture_output=True,
                 text=True,
-                timeout=120,
+                timeout=self.timeout_seconds,
             )
             t1 = time.time()
             iso_end = datetime.now(timezone.utc).isoformat()
@@ -973,6 +976,19 @@ def freeze_episode_inputs(episode_dir: Path, base_packet: dict[str, Any]) -> dic
 # Scene Orchestration & Scheduler
 # ==============================================================================
 
+def _transport_glitch(res) -> bool:
+    """CC/CLI died mid-stream but exited 0: empty output, or the Anthropic
+    streaming-desync error observed 5x on 2026-11-10/11 ('No tool call found
+    for function call output with call_id …'). Treat as retryable failure —
+    previously these counted as success and burned downstream attempts."""
+    if res.exit_code != 0:
+        return False
+    combined = f"{res.stdout or ''}\n{res.stderr or ''}"
+    if not (res.stdout or "").strip():
+        return True
+    return "No tool call found for function call output" in combined
+
+
 def execute_scene_with_retries(
     scene_id: str,
     episode_dir: Path,
@@ -1013,6 +1029,10 @@ def execute_scene_with_retries(
             # Execute Writer
             writer_res = runner.run_writer(writer_ctx)
             attempt.writer_result = writer_res
+            if _transport_glitch(writer_res):
+                attempt.error = "Writer transport failure (empty/corrupt output — CC streaming glitch); retrying with a fresh instance"
+                record.attempts.append(attempt)
+                continue
             if writer_res.exit_code != 0:
                 attempt.error = f"Writer failed: {writer_res.stderr or writer_res.error}"
                 record.attempts.append(attempt)
@@ -1088,6 +1108,10 @@ def execute_scene_with_retries(
             # Execute Reviewer in Sandbox
             reviewer_res = runner.run_reviewer(reviewer_ctx)
             attempt.reviewer_result = reviewer_res
+            if _transport_glitch(reviewer_res):
+                attempt.error = "Reviewer transport failure (empty/corrupt output — CC streaming glitch); retrying with a fresh instance"
+                record.attempts.append(attempt)
+                continue
 
             # Snapshot canonical directory after reviewer
             snap_post_reviewer = snapshot_directory_hashes(root)
@@ -1237,7 +1261,7 @@ def execute_scene_with_retries(
 
 def orchestrate_episode(
     episode_dir: Path | str,
-    max_concurrency: int = 2,
+    max_concurrency: int = 6,
     max_retries: int = 1,
     runner: AgentRunner | None = None,
     evidence_file: Path | str | None = None,
@@ -1468,7 +1492,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     # Standard CLI arguments
     parser.add_argument("episode_dir", nargs="?", default=".", help="Path to episode workspace")
-    parser.add_argument("--max-concurrency", "-c", type=int, default=2, help="Max concurrent scenes (default: 2)")
+    parser.add_argument("--max-concurrency", "-c", type=int, default=6, help="Max concurrent scenes (default: 6)")
     parser.add_argument("--max-retries", "-r", type=int, default=1, help="Max retries per scene (default: 1)")
     parser.add_argument(
         "--runner",

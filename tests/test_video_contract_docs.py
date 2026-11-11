@@ -689,6 +689,8 @@ def _reference_resolves(token: str, referencing_file: Path) -> bool:
         return True  # glob patterns and placeholders are not single files
     if Path(cleaned).suffix.lower() not in _LINK_EXTENSIONS:
         return True  # not a file reference (prose topic, module name, dir)
+    if "<" in cleaned and ">" in cleaned:
+        return True  # templated path placeholder (e.g. src/<slug>/lib/SceneShell.tsx) — per-episode scaffold, not a concrete repo file
     if (REPO_ROOT / cleaned).exists():
         return True
     # Relative references inside a skill directory resolve against that

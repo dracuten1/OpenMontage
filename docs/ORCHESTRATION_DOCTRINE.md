@@ -223,7 +223,7 @@ Kịch bản owner: gen ảnh bình thường, marker ẩn đánh dấu object +
 
 - **Episode > 5 scenes (tức 6 scenes trở lên) BẮT BUỘC tách source thành per-scene files**: `src/<slug>/scenes/S#.tsx` (mỗi scene một file).
 - Mỗi scene file do một **CC writer riêng** viết và một **CC reviewer riêng** verify — theo đúng scene-isolated pattern của §7: `allowed_io` scope per scene, reviewer sandbox read-only, verdict-to-hash binding.
-- **Điều kiện tiên quyết trước khi spawn bất kỳ writer nào**: `theme.ts` + `lib/SceneShell.tsx` (design system, safe-zone helpers, subs) phải **FROZEN TRƯỚC**; props interface + packet schema lock từ đầu; giữ nguyên demo-first gate (1 scene được duyệt trước, rồi mới batch).
+- **Điều kiện tiên quyết trước khi spawn bất kỳ writer nào**: `theme.ts` + `src/<slug>/lib/SceneShell.tsx` (design system, safe-zone helpers, subs) phải **FROZEN TRƯỚC**; props interface + packet schema lock từ đầu; giữ nguyên demo-first gate (1 scene được duyệt trước, rồi mới batch).
 - Khi tách per-scene: `Episode.tsx` chỉ còn vai trò **assemble-only** (Sequence wiring + Audio + timing).
 - **Episode ≤ 5 scenes**: giữ single-file `Episode.tsx` theo convention hiện tại.
 - **Các lane đang chạy theo kiểu cũ KHÔNG retrofit giữa chừng** — rule chỉ áp dụng cho lane mới.
@@ -231,7 +231,7 @@ Kịch bản owner: gen ảnh bình thường, marker ẩn đánh dấu object +
 ### §7 Changelog
 - 2026-11-08: +§7 scene-isolated production team, packet ownership/freeze/reviewer independence và CLI enforcement P1.3.
 - 2026-11-09: Cập nhật P1.4 operational scene orchestrator CLI, phân định rõ ràng mechanical vs prompt-level ownership, runner status honesty (subprocess verified, daemon partially proven), episode gate codes, compose strict evidence requirements.
-- 2026-11-09: +§7.1 ngưỡng tách scene-file theo CC (quyết định owner 2026-11-09): episode >5 scenes bắt buộc per-scene files `src/<slug>/scenes/S#.tsx` với writer/reviewer CC riêng per scene (allowed_io scope per scene, reviewer sandbox read-only, verdict-to-hash binding); freeze `theme.ts` + `lib/SceneShell.tsx` + lock props interface/packet schema trước khi spawn writer; demo-first gate giữ nguyên; `Episode.tsx` assemble-only; ≤5 scenes giữ single-file `Episode.tsx`; không retrofit lane đang chạy.
+- 2026-11-09: +§7.1 ngưỡng tách scene-file theo CC (quyết định owner 2026-11-09): episode >5 scenes bắt buộc per-scene files `src/<slug>/scenes/S#.tsx` với writer/reviewer CC riêng per scene (allowed_io scope per scene, reviewer sandbox read-only, verdict-to-hash binding); freeze `theme.ts` + `src/<slug>/lib/SceneShell.tsx` + lock props interface/packet schema trước khi spawn writer; demo-first gate giữ nguyên; `Episode.tsx` assemble-only; ≤5 scenes giữ single-file `Episode.tsx`; không retrofit lane đang chạy.
 - 2026-11-10: +editorial-language pre-render gate (lane-conditional pool LANE_CONDITIONAL_PRE_RENDER_SCENE_GATES; R1-R4; producer tools/qc/editorial_language_gate.py; fail-closed; hashed evidence)
 
 ### §7 Enforcement boundaries and operational reality
@@ -240,6 +240,11 @@ Kịch bản owner: gen ảnh bình thường, marker ẩn đánh dấu object +
 - Writer scope diff ngăn tuyệt đối writer sửa ngoài scene packet / scene dir (`writer_scope_violation`), fail-closed khi scene discovery rỗng, và `io_operations` được nối vào `episode_gate.py` và `scene_orchestrator.py`.
 - Episode visual continuity checker chưa triển khai; continuity checks defer.
 - ENS mapping: leader/director mỏng; worker = scene writer; reviewer = independent reviewer. `.claude/agents/` là synced mirror của contract này — không phải legacy reference tự trị; sync order đầy đủ xem §8.5 (ENS primary → mirrors; Claude-Code standalone = legacy/secondary).
+
+### §7.2 Scene-file provenance enforcement + transport-glitch retry (postmortem 2026-11-11, tin-nong-3tin-20261110)
+- `episode_gate.py` giờ bind trực tiếp MỖI file `scene/*.tsx` (scene-isolated lane) với reviewer verdict: thiếu packet → `scene_provenance_missing`; verdict ≠ approved → `scene_provenance_not_approved`; verdict không bind file → `scene_provenance_unbound`; file đổi sau review (hash lệch `reviewed_hashes`) → `scene_provenance_stale`. Lane single-file (không có `scene/`) không bị ảnh hưởng.
+- `scene_orchestrator.py`: CC chết âm thầm (exit 0 nhưng stdout rỗng, hoặc lỗi streaming 'No tool call found for function call output') giờ là attempt FAIL có retry với instance mới — trước đây được tính thành công và đốt attempt downstream. Timeout subprocess 120s → 900s (CC thật chạy 176–495s/scene).
+- Dispatch CC thủ công: dùng `tools/cc_dispatch.sh` (retry 1 lần khi glitch, exit ≠ 0 khi CC vẫn hỏng hoặc max-turns).
 
 ## §8. Production contract — phases, strict success, freeze, legacy compat, publication (2026-11-09)
 
@@ -273,3 +278,10 @@ Mọi mutation sau freeze → mọi verdict/render phụ thuộc trở nên STAL
 - `.claude/agents/*`, `.claude/prompts/om_team_leader_prompt.md`, `skills/pipelines/*/*.md`, `pipeline_defs/*.yaml` = **synced mirrors** — sửa contract TẠI ĐÂY rồi sync sang mirror; mirror không tự đặt ra authority đối lập, và khi mâu thuẫn thì doctrine thắng.
 - **Claude-Code standalone** (§0/§0b) = legacy/secondary path: giữ cho chạy độc lập khi ENS không khả dụng; không phải default. Quy tắc đồng bộ: sửa doctrine → sync mirrors (một chiều ENS → mirrors) → mirror-side Hermes sync từ doctrine, không edit ngược trực tiếp.
 - **Ngoại lệ điều chỉnh mirror-side-first (reconciliation exception)**: sửa đổi phía mirror trước chỉ được phép khi phía canonical sau cùng kết thúc byte-identical với mirror; BẮT BUỘC ghi nhận cả hai sha256 trong inventory `duplicate_audit.reconciled`; mọi lần điều chỉnh/đồng bộ tương lai bắt buộc đi qua canonical file.
+
+### §8.6 Render path + delivery smoke (postmortem 2026-11-11, tin-nong-3tin-20261110)
+- **Render đường duy nhất: `tools/qc/render_episode.py`** — chạy `episode_gate` TRƯỚC khi render (FAIL ⇒ refuse; override từng code qua `--override-codes` được ghi log, không tắt lặng), bỏ qua render khi input hash không đổi và output tồn tại (chống render lặp), ffprobe smoke SAU render (bắt lỗi mastering kiểu `-vn` mất video track).
+- **Gọi thẳng `npx remotion render` = bypass gate, cấm.** Đây là lỗ hổng thực tế của lane 2026-11-10: gate FAIL nhưng render tay vẫn chạy 5 lần.
+- **Canvas một episode = một kích thước**: mọi composition của cùng episode (kể cả DRAFT HUD) phải cùng width×height — `composition_dims_mismatch` chặn đúng lỗi DRAFT 720×1280 render layout thiết kế 1080×1920 (tràn phải toàn scene, sống sót qua 5 render + QC tới khi owner nhìn thấy). DRAFT HUD render tại canvas FINAL (1080×1920).
+- **Pre-DM smoke bắt buộc**: `tools/qc/render_episode.py --check-file <mp4>` (video stream + audio + duration) exit 0 MỚI được gửi owner/upload. Bắt trường hợp msg-650: master `-vn` chỉ còn tiếng vẫn bị DM.
+

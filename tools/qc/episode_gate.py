@@ -1,10 +1,100 @@
 from __future__ import annotations
-import argparse, json, sys
+import argparse, json, re, sys
 from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path: sys.path.insert(0, str(REPO_ROOT))
 from tools.qc.scene_packet import load_packet, integrate_scene_packet
 from lib.production_provenance import hash_file
+
+# --- Scene-file provenance + composition canvas checks (2026-11-11, tin-nong-3tin postmortem) ---
+
+def _check_scene_tsx_provenance(root: Path):
+    """Scene-isolated lane: every scene/*.tsx must be bound to an APPROVED reviewer
+    verdict whose reviewed_hashes entry matches the CURRENT on-disk sha256.
+
+    Blocks the exact tin-nong-3tin-20261110 failure mode: scenes hand-repaired or
+    self-written after/beside the orchestrator flow reach render with no valid
+    provenance. Legacy single-file episodes (no scene/ dir) are unaffected.
+    """
+    reasons = []
+    scene_dir = root / 'scene'
+    if not scene_dir.is_dir():
+        return reasons
+    tsx_files = sorted(scene_dir.glob('*.tsx'))
+    if not tsx_files:
+        return reasons
+    for tsx in tsx_files:
+        rel = f'scene/{tsx.name}'
+        sid = tsx.stem
+        pkt_path = root / f'packet_{sid}.json'
+        if not pkt_path.is_file():
+            reasons.append({'code': 'scene_provenance_missing',
+                'message': f'{rel}: no integrated packet packet_{sid}.json — scene file has no writer/reviewer provenance (produce it via tools/qc/scene_orchestrator.py)'})
+            continue
+        try:
+            pkt = json.loads(pkt_path.read_text(encoding='utf-8'))
+        except Exception as e:
+            reasons.append({'code': 'scene_provenance_corrupt',
+                'message': f'{rel}: cannot parse packet_{sid}.json: {e}'})
+            continue
+        reviewer = pkt.get('reviewer') if isinstance(pkt, dict) else None
+        reviewer = reviewer if isinstance(reviewer, dict) else {}
+        if reviewer.get('verdict') != 'approved':
+            reasons.append({'code': 'scene_provenance_not_approved',
+                'message': f'{rel}: reviewer verdict={reviewer.get("verdict")!r} — scene file never approved'})
+            continue
+        rh = reviewer.get('reviewed_hashes')
+        rh = rh if isinstance(rh, dict) else {}
+        exp = rh.get(rel) or rh.get(tsx.name)
+        if not exp:
+            reasons.append({'code': 'scene_provenance_unbound',
+                'message': f'{rel}: approved verdict not bound to this scene file (no reviewed_hashes entry)'})
+            continue
+        cur = hash_file(tsx)
+        if cur and cur != exp:
+            reasons.append({'code': 'scene_provenance_stale',
+                'message': f'{rel}: file changed after review (on-disk {cur[:12]}… != reviewed {exp[:12]}…) — re-run writer/reviewer for this scene'})
+    return reasons
+
+def _episode_compositions(root: Path):
+    """Parse sibling Root.tsx registrations: [(id, width, height)]."""
+    root_tsx = root.parent / 'Root.tsx'
+    if not root_tsx.is_file():
+        return []
+    try:
+        text = root_tsx.read_text(encoding='utf-8', errors='replace')
+    except OSError:
+        return []
+    comps = []
+    for m in re.finditer(r'<Composition\b(.*?)/>', text, re.S):
+        attrs = m.group(1)
+        idm = re.search(r'id="([^"]+)"', attrs)
+        wm = re.search(r'width=\{(\d+)\}', attrs)
+        hm = re.search(r'height=\{(\d+)\}', attrs)
+        if idm and wm and hm:
+            comps.append((idm.group(1), int(wm.group(1)), int(hm.group(1))))
+    return comps
+
+def _check_composition_dims(root: Path):
+    """All compositions of one episode MUST share one canvas size.
+
+    Blocks the tin-nong-3tin-20261110 r1 failure: DRAFT comp 720x1280 while scene
+    layout used 1080x1920 design coords — every scene overflowed the right edge and
+    it survived 5 renders + QC until the owner saw it. Draft HUD now renders at the
+    FINAL canvas (1080x1920) per doctrine §8.6.
+    """
+    reasons = []
+    slug = root.name
+    mine = [c for c in _episode_compositions(root) if c[0] == slug or c[0].startswith(slug + '-')]
+    if not mine:
+        return reasons  # not registered yet — pre-assemble gate run, nothing to compare
+    sizes = {(w, h) for _, w, h in mine}
+    if len(sizes) > 1:
+        detail = ', '.join(f'{i}={w}x{h}' for i, w, h in mine)
+        reasons.append({'code': 'composition_dims_mismatch',
+            'message': f'episode compositions differ in canvas: {detail} — every comp of an episode (DRAFT HUD included) must render at the design canvas'})
+    return reasons
+
 
 def _contained_path(raw, root):
     p = Path(raw)
@@ -170,6 +260,10 @@ def validate_episode(episode_dir):
                     'code': 'verdict_binding_mismatch',
                     'message': f"{path.name}: reviewer verdict was for {ref} hash {r_hash}, but output hash is {exp_hash}"
                 })
+
+    # Postmortem 2026-11-11 (tin-nong-3tin-20261110): scene-file provenance + canvas
+    reasons.extend(_check_scene_tsx_provenance(root))
+    reasons.extend(_check_composition_dims(root))
 
     from tools.qc.timing_relock_guard import check_project_timing
     timing = check_project_timing(root, mode='strict')
