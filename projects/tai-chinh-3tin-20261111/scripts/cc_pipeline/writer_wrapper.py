@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 """CC writer wrapper — sandboxed output + atomic promotion (video-slowfix phase1, task 1.3).
 
+Phase 2 task 2.2: the writer session runs under jittered exponential backoff
+(``tools/qc/writer_runner.execute_writer_with_backoff``) — transient API
+errors (429 / 5xx / overloaded) retry up to 4 attempts with the shared
+``ConcurrencyGovernor`` throttling live concurrency on a 429 burst.
+
 Env: OM_SCENE_ID, OM_EPISODE_DIR, OM_ATTEMPT_INDEX (optional, default "0").
 Kill-switch: OM_LEGACY_QUARANTINE=1 restores the legacy pre-phase1 behavior
 exactly (Claude writes the canonical scene file directly; own-output pre-clean,
@@ -20,15 +25,15 @@ from __future__ import annotations
 import os, shutil, subprocess, sys, threading, time
 from pathlib import Path
 
-REPO_ROOT = next(
-    (p for p in Path(__file__).resolve().parents
-     if (p / "tools" / "qc" / "scene_orchestrator.py").is_file()),
-    None,
-)
-if REPO_ROOT and str(REPO_ROOT) not in sys.path:
+# Task 2.4: single source of truth — static repo-root resolution
+# (projects/<proj>/scripts/cc_pipeline/<file>.py -> parents[4] = repo root).
+REPO_ROOT = Path(__file__).resolve().parents[4]
+if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
+from tools.qc.concurrency_governor import ConcurrencyGovernor, resolve_max_concurrency  # noqa: E402
 from tools.qc.scene_orchestrator import get_scenes_dir, resolve_scene_filename  # noqa: E402
+from tools.qc.writer_runner import execute_writer_with_backoff  # noqa: E402
 
 WATCHDOG_S = int(os.environ.get("OM_CC_WATCHDOG", "420"))
 MAX_TURNS = os.environ.get("OM_CC_MAX_TURNS", "60")
@@ -143,21 +148,38 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
            "--allowedTools", "Read,Edit,Write,Bash,Glob,Grep",
            "--max-turns", MAX_TURNS]
 
-    t0 = time.time()
-    proc = _spawn_claude(cmd, episode, env, log_path)
-    if proc is None:
-        return 1
+    # Task 2.2: jittered exponential backoff around the writer session. On a
+    # 429 burst the governor reserves permits (throttles 6 -> 4) before the
+    # backoff sleep; each retry starts from a fresh sandbox (task 1.3), and
+    # every attempt carries the phase1 watchdog kill timer (task 1.4).
+    governor = ConcurrencyGovernor(max_concurrency=resolve_max_concurrency()[0])
 
-    def _kill():
-        time.sleep(WATCHDOG_S)
-        if proc.poll() is None:
-            proc.kill()
-    threading.Thread(target=_kill, daemon=True).start()
-    proc.communicate(task)
+    def _reset_sandbox():
+        shutil.rmtree(sandbox, ignore_errors=True)
+        sandbox.mkdir(parents=True, exist_ok=True)
+
+    # Review fix 3: phase 1 streamed the writer session live into the history
+    # log. Pass an open handle so every attempt is delimited and streamed as
+    # it is produced — SIGKILL/OOM and retry storms no longer lose output.
+    log_fp = None
+    try:
+        log_fp = open(log_path, "w", encoding="utf-8")
+    except OSError as e:
+        print(f"writer {scene_id}: history log open failed (buffered only): {e}")
+
+    t0 = time.time()
+    returncode, _ = execute_writer_with_backoff(
+        cmd, episode, env, task, governor,
+        watchdog_seconds=WATCHDOG_S,
+        on_retry=_reset_sandbox,
+        log_handle=log_fp,
+    )
+    if log_fp is not None:
+        log_fp.close()
     dur = time.time() - t0
 
     if not (sandbox_file.is_file() and sandbox_file.stat().st_size > 200):
-        print(f"writer {scene_id}: exit={proc.returncode} dur={dur:.0f}s file=MISSING (sandbox)")
+        print(f"writer {scene_id}: exit={returncode} dur={dur:.0f}s file=MISSING (sandbox)")
         return 1
 
     # Stage for validation, then promote atomically. No un-scoped deletion of
@@ -174,7 +196,7 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
         os.replace(tmp_target, canonical_target)
 
     ok = canonical_target.is_file() and canonical_target.stat().st_size > 200
-    print(f"writer {scene_id}: exit={proc.returncode} dur={dur:.0f}s file={'OK' if ok else 'MISSING'} (promoted)")
+    print(f"writer {scene_id}: exit={returncode} dur={dur:.0f}s file={'OK' if ok else 'MISSING'} (promoted)")
     return 0 if ok else 1
 
 

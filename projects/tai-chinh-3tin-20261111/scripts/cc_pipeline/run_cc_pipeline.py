@@ -10,17 +10,32 @@ from __future__ import annotations
 import os, sys
 from pathlib import Path
 
-REPO = Path("/Users/tuyennguyen/project/OpenMontage")
+# Task 2.4 shim pattern (phase2 review fix 4 companion): resolve the repo root
+# statically instead of the previous hard-coded absolute path, so the launcher
+# dispatches through THIS checkout's tools.qc (worktrees included) and the
+# phase2 governor/probe code is actually the code that runs.
+REPO = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(REPO))
 from tools.qc.scene_orchestrator import (  # noqa: E402
     SubprocessAgentRunner, WriterContext, ReviewerContext, AgentRunResult,
     orchestrate_episode,
 )
+from tools.qc.concurrency_governor import parse_env_max_concurrency  # noqa: E402
 from datetime import datetime, timezone  # noqa: E402
 import subprocess, time  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 ENV_TIMEOUT = int(os.environ.get("OM_AGENT_TIMEOUT", "900"))
+
+
+def resolve_launcher_concurrency(env=None):
+    """Launcher ceiling (phase2 review fix 4): OM_MAX_CONCURRENCY set -> int;
+    unset/malformed/<1 -> None so orchestrate_episode resolves via the
+    credential tier probe (Anthropic Tier 4+ -> 6, OAuth/unknown -> 4). Plan
+    2.1 step 1. Phase2 tidy fix 1: parse is the governor's shared guarded
+    helper (parse_env_max_concurrency) — a malformed rollback value warns and
+    falls back to the probe/default ceiling instead of crashing the launcher."""
+    return parse_env_max_concurrency(env)
 
 
 class CCRunner(SubprocessAgentRunner):
@@ -84,7 +99,7 @@ def main() -> int:
     evidence = REPO / "projects/tai-chinh-3tin-20261111/artifacts/scene_workflow_evidence.json"
     session = orchestrate_episode(
         episode_dir=ep,
-        max_concurrency=int(os.environ.get("OM_MAX_CONCURRENCY", "2")),
+        max_concurrency=resolve_launcher_concurrency(),
         max_retries=int(os.environ.get("OM_MAX_RETRIES", "1")),
         runner=CCRunner(),
         evidence_file=evidence,
