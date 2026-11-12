@@ -774,6 +774,70 @@ def test_launcher_concurrency_default_is_probe_auto(monkeypatch):
 
 
 # ==============================================================================
+# Phase2 tidy fix 1 — guarded OM_MAX_CONCURRENCY parse (launcher never crashes)
+# ==============================================================================
+
+def test_parse_env_max_concurrency_guarded_parse_never_raises():
+    """Shared governor helper: malformed/invalid values warn and return None
+    (never raise); valid ints pass through; blank/unset -> None."""
+    assert cg.parse_env_max_concurrency(env={}) is None
+    assert cg.parse_env_max_concurrency(env={"OM_MAX_CONCURRENCY": ""}) is None
+    assert cg.parse_env_max_concurrency(env={"OM_MAX_CONCURRENCY": "   "}) is None
+    assert cg.parse_env_max_concurrency(env={"OM_MAX_CONCURRENCY": "abc"}) is None
+    assert cg.parse_env_max_concurrency(env={"OM_MAX_CONCURRENCY": "6.5"}) is None
+    assert cg.parse_env_max_concurrency(env={"OM_MAX_CONCURRENCY": "0"}) is None
+    assert cg.parse_env_max_concurrency(env={"OM_MAX_CONCURRENCY": "-3"}) is None
+    assert cg.parse_env_max_concurrency(env={"OM_MAX_CONCURRENCY": "2"}) == 2
+    assert cg.parse_env_max_concurrency(env={"OM_MAX_CONCURRENCY": " 6 "}) == 6
+
+
+def test_launcher_concurrency_malformed_env_falls_back_not_raises(monkeypatch, caplog):
+    """Phase2 tidy fix 1 acceptance: a malformed OM_MAX_CONCURRENCY must never
+    crash the launcher (rollback path) — guarded parse warns and falls back to
+    None so orchestrate_episode probes the default ceiling; a valid int still
+    wins end-to-end."""
+    import logging
+    from types import SimpleNamespace
+
+    mod = _load_launcher()
+    with caplog.at_level(logging.WARNING, logger="tools.qc.concurrency_governor"):
+        assert mod.resolve_launcher_concurrency(env={"OM_MAX_CONCURRENCY": "abc"}) is None
+        assert mod.resolve_launcher_concurrency(env={"OM_MAX_CONCURRENCY": "0"}) is None
+        assert any("not an integer" in r.getMessage() for r in caplog.records)
+
+    fake_session = SimpleNamespace(
+        session_id="s", overall_status="fail", scenes={}, episode_gate_result={"valid": False},
+    )
+    captured: dict = {}
+
+    def _fake_orchestrate(**kwargs):
+        captured.update(kwargs)
+        return fake_session
+
+    monkeypatch.setattr(mod, "orchestrate_episode", _fake_orchestrate)
+
+    monkeypatch.setenv("OM_MAX_CONCURRENCY", "abc")
+    mod.main()
+    assert captured["max_concurrency"] is None  # -> orchestrator probe/default path
+
+    monkeypatch.setenv("OM_MAX_CONCURRENCY", "2")  # valid int still wins
+    mod.main()
+    assert captured["max_concurrency"] == 2
+
+
+# ==============================================================================
+# Phase2 tidy fix 2 — burst throttle constants pin previous literals
+# ==============================================================================
+
+def test_governor_burst_constants_pin_semantics():
+    """TIER4_MAX_CONCURRENCY / BURST_RESERVE_PERMITS pin the exact previous
+    inline literals — guard compares the same value, default ceiling 6."""
+    assert cg.TIER4_MAX_CONCURRENCY == 6
+    assert cg.BURST_RESERVE_PERMITS == 2
+    assert ConcurrencyGovernor().max_concurrency == 6  # default ceiling unchanged
+
+
+# ==============================================================================
 # Review iteration 1 — FIX 5: probe cache + true concurrency source
 # ==============================================================================
 

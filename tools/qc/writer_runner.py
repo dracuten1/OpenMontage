@@ -17,6 +17,11 @@ import random
 import subprocess
 import threading
 import time
+from collections.abc import Callable, Mapping
+from pathlib import Path
+from typing import TextIO
+
+from tools.qc.concurrency_governor import ConcurrencyGovernor
 
 # Task 2.2: rate-limit and capacity errors worth retrying with backoff.
 TRANSIENT_API_ERROR_MARKERS = [
@@ -59,8 +64,17 @@ def _stream_attempt_output(proc, task, log_handle) -> str:
     return "".join(parts)
 
 
-def execute_writer_with_backoff(cmd, cwd, env, task, governor, max_attempts=4,
-                                watchdog_seconds=None, on_retry=None, log_handle=None):
+def execute_writer_with_backoff(
+    cmd: list[str],
+    cwd: str | Path,
+    env: Mapping[str, str] | None,
+    task: str,
+    governor: ConcurrencyGovernor,
+    max_attempts: int = 4,
+    watchdog_seconds: float | None = None,
+    on_retry: Callable[[], None] | None = None,
+    log_handle: TextIO | None = None,
+) -> tuple[int, str]:
     """Run the writer CLI with jittered exponential backoff on transient errors.
 
     Returns ``(returncode, stdout)`` of the last attempt; on exhausted retries

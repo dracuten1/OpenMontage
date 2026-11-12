@@ -29,6 +29,11 @@ from collections.abc import Mapping
 # Task 2.1 step 1: credential-driven base concurrency.
 TIER4_MAX_CONCURRENCY = 6   # Anthropic API key Tier 4+ (TPM limit 150k-300k)
 DEFAULT_MAX_CONCURRENCY = 4  # OAuth subscription / unknown / unprobeable
+# Phase2 tidy fix 2: burst throttle reserves this many permits on a 429
+# (ceiling 6 -> 4). Constants pin the previous inline literals — no behavior
+# change; the >= TIER4_MAX_CONCURRENCY guard compares the same value as the
+# old hardcoded ``6``.
+BURST_RESERVE_PERMITS = 2
 
 # Best-effort probe: never let a slow endpoint stall startup.
 ANTHROPIC_TIER_PROBE_TIMEOUT_S = 3.0
@@ -48,7 +53,8 @@ _TIER_CACHE: str | None = None
 class ConcurrencyGovernor:
     """BoundedSemaphore with safe permit reservation on rate-limit bursts."""
 
-    def __init__(self, max_concurrency: int = 6, cooldown_seconds: float = 300.0):
+    def __init__(self, max_concurrency: int = TIER4_MAX_CONCURRENCY,
+                 cooldown_seconds: float = 300.0):
         self.max_concurrency = max_concurrency
         self.sem = threading.BoundedSemaphore(max_concurrency)
         self.cooldown_seconds = cooldown_seconds
@@ -78,14 +84,17 @@ class ConcurrencyGovernor:
     def handle_rate_limit_burst(self):
         with self.lock:
             now = time.time()
-            if not self.throttled and self.max_concurrency >= 6:
-                # Non-blocking acquisition to reserve up to 2 permits safely
-                acquired = sum(1 for _ in range(2) if self.sem.acquire(blocking=False))
+            if not self.throttled and self.max_concurrency >= TIER4_MAX_CONCURRENCY:
+                # Non-blocking acquisition to reserve permits safely
+                acquired = sum(1 for _ in range(BURST_RESERVE_PERMITS)
+                               if self.sem.acquire(blocking=False))
                 self.permits_reserved = acquired
                 self.throttled = True
                 self.last_throttled_at = now
                 logging.warning(
-                    f"Burst 429 detected: throttled concurrency from 6 to {6 - acquired} "
+                    f"Burst 429 detected: throttled concurrency from "
+                    f"{TIER4_MAX_CONCURRENCY} to "
+                    f"{TIER4_MAX_CONCURRENCY - acquired} "
                     f"(reserved {acquired} permits) for {self.cooldown_seconds}s"
                 )
 
@@ -129,6 +138,30 @@ def probe_anthropic_tier(
     return "tier4" if int(header) >= TIER4_MIN_REQUESTS_PER_MIN else "api-key"
 
 
+def parse_env_max_concurrency(env: Mapping[str, str] | None = None) -> int | None:
+    """Guarded parse of ``OM_MAX_CONCURRENCY`` — never raises (phase2 tidy 1).
+
+    Returns the integer when the variable is set to an integer >= 1; ``None``
+    (after a warning) when it is unset, blank, non-integer, or < 1. Shared by
+    ``resolve_max_concurrency`` (env override step) and the project launchers:
+    the launcher's rollback path must never crash on a malformed value — it
+    falls back to the probe/default ceiling instead.
+    """
+    env = os.environ if env is None else env
+    raw = (env.get(ENV_MAX_CONCURRENCY) or "").strip()
+    if not raw:
+        return None
+    try:
+        value = int(raw)
+    except ValueError:
+        logging.warning("%s=%r is not an integer; ignoring", ENV_MAX_CONCURRENCY, raw)
+        return None
+    if value >= 1:
+        return value
+    logging.warning("%s=%s must be >= 1; ignoring", ENV_MAX_CONCURRENCY, raw)
+    return None
+
+
 def resolve_max_concurrency(
     env: Mapping[str, str] | None = None,
     probe=None,
@@ -142,15 +175,9 @@ def resolve_max_concurrency(
     """
     global _TIER_CACHE
     env = os.environ if env is None else env
-    raw = (env.get(ENV_MAX_CONCURRENCY) or "").strip()
-    if raw:
-        try:
-            value = int(raw)
-            if value >= 1:
-                return value, f"env:{ENV_MAX_CONCURRENCY}"
-            logging.warning("%s=%s must be >= 1; ignoring", ENV_MAX_CONCURRENCY, raw)
-        except ValueError:
-            logging.warning("%s=%r is not an integer; ignoring", ENV_MAX_CONCURRENCY, raw)
+    value = parse_env_max_concurrency(env)
+    if value is not None:
+        return value, f"env:{ENV_MAX_CONCURRENCY}"
     if probe is not None:
         tier = probe()
     else:

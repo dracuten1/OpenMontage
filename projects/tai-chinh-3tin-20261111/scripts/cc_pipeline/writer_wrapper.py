@@ -168,7 +168,7 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
         print(f"writer {scene_id}: history log open failed (buffered only): {e}")
 
     t0 = time.time()
-    returncode, stdout = execute_writer_with_backoff(
+    returncode, _ = execute_writer_with_backoff(
         cmd, episode, env, task, governor,
         watchdog_seconds=WATCHDOG_S,
         on_retry=_reset_sandbox,

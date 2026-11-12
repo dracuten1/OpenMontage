@@ -20,6 +20,7 @@ from tools.qc.scene_orchestrator import (  # noqa: E402
     SubprocessAgentRunner, WriterContext, ReviewerContext, AgentRunResult,
     orchestrate_episode,
 )
+from tools.qc.concurrency_governor import parse_env_max_concurrency  # noqa: E402
 from datetime import datetime, timezone  # noqa: E402
 import subprocess, time  # noqa: E402
 
@@ -29,11 +30,12 @@ ENV_TIMEOUT = int(os.environ.get("OM_AGENT_TIMEOUT", "900"))
 
 def resolve_launcher_concurrency(env=None):
     """Launcher ceiling (phase2 review fix 4): OM_MAX_CONCURRENCY set -> int;
-    unset -> None so orchestrate_episode resolves via the credential tier
-    probe (Anthropic Tier 4+ -> 6, OAuth/unknown -> 4). Plan 2.1 step 1."""
-    env = os.environ if env is None else env
-    raw = env.get("OM_MAX_CONCURRENCY")
-    return int(raw) if raw else None
+    unset/malformed/<1 -> None so orchestrate_episode resolves via the
+    credential tier probe (Anthropic Tier 4+ -> 6, OAuth/unknown -> 4). Plan
+    2.1 step 1. Phase2 tidy fix 1: parse is the governor's shared guarded
+    helper (parse_env_max_concurrency) — a malformed rollback value warns and
+    falls back to the probe/default ceiling instead of crashing the launcher."""
+    return parse_env_max_concurrency(env)
 
 
 class CCRunner(SubprocessAgentRunner):
