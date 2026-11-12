@@ -81,6 +81,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from lib.production_provenance import hash_file
+from tools.qc.concurrency_governor import ConcurrencyGovernor, resolve_max_concurrency
 from tools.qc.episode_gate import validate_episode
 from tools.qc.scene_packet import (
     SCHEMA_VERSION,
@@ -1373,7 +1374,7 @@ def execute_scene_with_retries(
 
 def orchestrate_episode(
     episode_dir: Path | str,
-    max_concurrency: int = 6,
+    max_concurrency: int | None = None,
     max_retries: int = 1,
     runner: AgentRunner | None = None,
     evidence_file: Path | str | None = None,
@@ -1381,7 +1382,14 @@ def orchestrate_episode(
     strict: bool = True,
     daemon_timeout: float = 600.0,
 ) -> OrchestrationSession:
-    """Run full episode orchestration with bounded concurrency, retries, and gate verification."""
+    """Run full episode orchestration with bounded concurrency, retries, and gate verification.
+
+    Task 2.1: when ``max_concurrency`` is None it is resolved from credentials
+    (``OM_MAX_CONCURRENCY`` env override, else Anthropic tier probe — Tier 4+ -> 6,
+    OAuth/unknown -> 4). All scene workers acquire/release the shared
+    ``ConcurrencyGovernor`` with try/finally release discipline, so a 429 burst
+    throttles live concurrency (6 -> 4) and restores safely after cooldown.
+    """
     root = Path(episode_dir).resolve()
     if not root.is_dir():
         raise FileNotFoundError(f"Episode directory missing: {root}")
@@ -1390,6 +1398,14 @@ def orchestrate_episode(
     iso_start = datetime.now(timezone.utc).isoformat()
     session_id = f"session-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}-{uuid.uuid4().hex[:8]}"
     director_token = f"dir_{uuid.uuid4().hex[:12]}"
+
+    # Task 2.1 step 1: credential-driven concurrency ceiling (logged once at startup).
+    if max_concurrency is None:
+        max_concurrency, concurrency_source = resolve_max_concurrency()
+    else:
+        concurrency_source = "arg"
+    logger.info("Concurrency ceiling: %d (source: %s)", max_concurrency, concurrency_source)
+    governor = ConcurrencyGovernor(max_concurrency=max_concurrency)
 
     if runner is None:
         # Auto-detect runner: check if daemon is alive; else default to SubprocessAgentRunner
@@ -1405,6 +1421,7 @@ def orchestrate_episode(
 
     config = {
         "max_concurrency": max_concurrency,
+        "concurrency_source": concurrency_source,
         "max_retries": max_retries,
         "runner": runner.__class__.__name__,
         "strict": strict,
@@ -1434,17 +1451,21 @@ def orchestrate_episode(
         _persist_session_evidence(session, root, evidence_file)
         return session
 
-    # Concurrency-bounded dispatch
+    # Concurrency-bounded dispatch. Task 2.1: every scene worker holds one
+    # governor permit for its whole lifecycle, acquired/released with
+    # try/finally discipline so an exception mid-scene can never leak a permit
+    # (BoundedSemaphore would then wedge the whole pool).
+    def _governed_scene(sid: str):
+        governor.acquire()
+        try:
+            return execute_scene_with_retries(sid, root, runner, max_retries)
+        finally:
+            governor.release()
+
     max_workers = max(1, min(max_concurrency, len(target_scenes)))
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_to_scene = {
-            executor.submit(
-                execute_scene_with_retries,
-                sid,
-                root,
-                runner,
-                max_retries,
-            ): sid
+            executor.submit(_governed_scene, sid): sid
             for sid in target_scenes
         }
         for future in concurrent.futures.as_completed(future_to_scene):
@@ -1604,7 +1625,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     # Standard CLI arguments
     parser.add_argument("episode_dir", nargs="?", default=".", help="Path to episode workspace")
-    parser.add_argument("--max-concurrency", "-c", type=int, default=6, help="Max concurrent scenes (default: 6)")
+    parser.add_argument(
+        "--max-concurrency", "-c", type=int, default=None,
+        help="Max concurrent scenes (default: auto — credential tier probe; "
+             "OM_MAX_CONCURRENCY overrides, e.g. rollback OM_MAX_CONCURRENCY=2)",
+    )
     parser.add_argument("--max-retries", "-r", type=int, default=1, help="Max retries per scene (default: 1)")
     parser.add_argument(
         "--runner",
@@ -1654,6 +1679,10 @@ def main(argv: list[str] | None = None) -> int:
             runner = SubprocessAgentRunner()
 
     scene_subset = [s.strip() for s in args.scenes.split(",")] if args.scenes else None
+
+    # Task 2.1: resolve the ceiling before the banner so the run log states it.
+    if args.max_concurrency is None:
+        args.max_concurrency = resolve_max_concurrency()[0]
 
     print(f"=== OpenMontage Scene Orchestrator ===")
     print(f"Episode:        {episode_path}")
