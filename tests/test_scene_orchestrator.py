@@ -215,7 +215,7 @@ def test_ownership_reviewer_sandbox_isolation_and_tamper_red_case(tmp_path):
     before = snapshot_directory_hashes(episode)
     # simulate reviewer running in sandbox (zero canonical changes)
     after_clean = snapshot_directory_hashes(episode)
-    valid, mutated, err = verify_reviewer_ownership(before, after_clean)
+    valid, mutated, err = verify_reviewer_ownership(before, after_clean, "s1", episode)
     assert valid is True
     assert mutated == []
     assert err is None
@@ -225,10 +225,12 @@ def test_ownership_reviewer_sandbox_isolation_and_tamper_red_case(tmp_path):
     rogue_file.write_text("rogue write to canonical directory", encoding="utf-8")
     after_tampered = snapshot_directory_hashes(episode)
 
-    valid, mutated, err = verify_reviewer_ownership(before, after_tampered)
+    valid, mutated, err = verify_reviewer_ownership(before, after_tampered, "s1", episode)
     assert valid is False
-    assert "reviewer_canonical_mutation" in err
-    assert "canonical_tamper.txt" in mutated
+    # phase1 task 1.2: scoped check reports violation descriptions, not the
+    # legacy reviewer_canonical_mutation blanket message
+    assert "Reviewer modified canonical files" in err
+    assert any("canonical_tamper.txt" in m for m in mutated)
 
 
 def test_orchestrator_reviewer_tamper_rejection_in_attempt(tmp_path):
@@ -268,7 +270,7 @@ def test_orchestrator_reviewer_tamper_rejection_in_attempt(tmp_path):
     attempt = scene_rec.attempts[0]
     assert attempt.ownership is not None
     assert attempt.ownership.reviewer_canonical_mutation is True
-    assert "reviewer_canonical_mutation" in attempt.error
+    assert "Reviewer modified canonical files" in attempt.error
 
 
 def test_bounded_concurrency(tmp_path):

@@ -23,6 +23,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 GATE_LAYOUT = "layout"
 GATE_TIMING_AUDIO = "timing-audio"
 GATE_SEMANTIC_EVENTS = "semantic-events"
@@ -74,6 +76,33 @@ GATE_ALIASES = {
 }
 
 
+def normalize_gate_name(name: str) -> str:
+    """Task 1.6: normalize a gate name to canonical kebab-case form."""
+    return name.strip().lower().replace("_", "-")
+
+
+def canonical_gate(name: str) -> str:
+    """Task 1.6: normalize then resolve any known alias to its canonical gate name."""
+    normalized = normalize_gate_name(name)
+    return GATE_ALIASES.get(normalized, normalized)
+
+
+def resolve_evidence_path(path: str | Path, project_dir: Path) -> Path:
+    """Task 1.6: evidence path resolution.
+
+    Absolute paths resolve as-is; relative paths resolve against the episode
+    project dir first and fall back to the repo root, so repo-level evidence
+    artifacts map automatically.
+    """
+    p = Path(path)
+    if p.is_absolute():
+        return p.resolve()
+    project_candidate = project_dir / p
+    if project_candidate.exists():
+        return project_candidate.resolve()
+    return (REPO_ROOT / p).resolve()
+
+
 class ValidationStatus(str, enum.Enum):
     PASS = "pass"
     REVISE = "revise"
@@ -105,7 +134,7 @@ class EvidenceRecord:
 
     @property
     def canonical_gate_name(self) -> str:
-        return GATE_ALIASES.get(self.gate_name, self.gate_name)
+        return canonical_gate(self.gate_name)
 
     def is_valid_gate(self) -> bool:
         return self.canonical_gate_name in VALID_PRE_RENDER_GATES
@@ -158,7 +187,7 @@ def create_evidence_record(
     severity: str = "info",
 ) -> EvidenceRecord:
     """Canonical helper for constructing validated EvidenceRecord instances."""
-    canonical = GATE_ALIASES.get(gate_name, gate_name)
+    canonical = canonical_gate(gate_name)
     return EvidenceRecord(
         gate_name=canonical,
         scope=scope,
@@ -524,8 +553,8 @@ def validate_pre_render(
 
         # Validate each supplied record
         for ev in supplied_records:
-            canonical_gate = GATE_ALIASES.get(ev.gate_name, ev.gate_name)
-            if canonical_gate not in VALID_PRE_RENDER_GATES:
+            canonical = canonical_gate(ev.gate_name)
+            if canonical not in VALID_PRE_RENDER_GATES:
                 ev.status = ValidationStatus.BLOCKED
                 ev.severity = "critical"
                 ev.issues.append(
@@ -541,8 +570,8 @@ def validate_pre_render(
                 )
 
             # Scene coverage validation for scene-scoped gates
-            if (canonical_gate in REQUIRED_PRE_RENDER_SCENE_GATES
-                    or canonical_gate in LANE_CONDITIONAL_PRE_RENDER_SCENE_GATES):
+            if (canonical in REQUIRED_PRE_RENDER_SCENE_GATES
+                    or canonical in LANE_CONDITIONAL_PRE_RENDER_SCENE_GATES):
                 if not ev.scene_coverage:
                     ev.status = ValidationStatus.BLOCKED
                     ev.severity = "critical"
@@ -565,9 +594,7 @@ def validate_pre_render(
                 missing_paths = []
                 hash_mismatches = []
                 for ep in ev.evidence_paths:
-                    p = Path(ep)
-                    if not p.is_absolute():
-                        p = project_dir / p
+                    p = resolve_evidence_path(ep, project_dir)
                     expected_hash = _lookup_artifact_hash(ev, ep, p)
                     if ev.status == ValidationStatus.PASS and not expected_hash:
                         # A-2: existence-only evidence is a forgery surface. Strict mode
@@ -593,9 +620,7 @@ def validate_pre_render(
             if ev.status == ValidationStatus.PASS and ev.fingerprint:
                 input_hashes = ev.metadata.get("input_hashes", {})
                 for in_path, expected_in_hash in input_hashes.items():
-                    ip = Path(in_path)
-                    if not ip.is_absolute():
-                        ip = project_dir / ip
+                    ip = resolve_evidence_path(in_path, project_dir)
                     if not ip.exists():
                         ev.status = ValidationStatus.BLOCKED
                         ev.severity = "critical"
@@ -626,7 +651,7 @@ def validate_pre_render(
         # Validated-side metadata (edit_decisions / packets / project files) may only
         # WIDEN enforcement (union) — never shrink it.
         if required_gates is not None:
-            active_req = {GATE_ALIASES.get(g, g) for g in required_gates}
+            active_req = {canonical_gate(g) for g in required_gates}
             req_scene_gates = active_req & (
                 REQUIRED_PRE_RENDER_SCENE_GATES | LANE_CONDITIONAL_PRE_RENDER_SCENE_GATES
             )
@@ -637,14 +662,14 @@ def validate_pre_render(
             # Metadata may only widen (union) the enforced gate set.
             meta_req = edit_decisions.get("required_gates")
             if meta_req is not None:
-                meta_canon = {GATE_ALIASES.get(g, g) for g in meta_req}
+                meta_canon = {canonical_gate(g) for g in meta_req}
                 req_scene_gates |= meta_canon & REQUIRED_PRE_RENDER_SCENE_GATES
                 req_episode_gates |= meta_canon & REQUIRED_PRE_RENDER_EPISODE_GATES
 
         for g in sorted(req_scene_gates):
             passing_scenes: set[str] = set()
             for r in records:
-                if r.status == ValidationStatus.PASS and GATE_ALIASES.get(r.gate_name, r.gate_name) == g:
+                if r.status == ValidationStatus.PASS and canonical_gate(r.gate_name) == g:
                     passing_scenes.update(r.scene_coverage)
             missing = set(target_scenes) - passing_scenes
             if missing:
@@ -664,7 +689,7 @@ def validate_pre_render(
 
         for eg in sorted(req_episode_gates):
             has_passing_episode = any(
-                r.status == ValidationStatus.PASS and GATE_ALIASES.get(r.gate_name, r.gate_name) == eg
+                r.status == ValidationStatus.PASS and canonical_gate(r.gate_name) == eg
                 for r in records
             )
             if not has_passing_episode:

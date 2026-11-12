@@ -338,12 +338,17 @@
   "claude_skills_entries": 97,
   "claude_agents": 6,
   "pipeline_defs": 13,
-  "root_tsx_compositions": 65,
-  "episode_source_dirs": 63,
+  "root_tsx_compositions": 71,
+  "episode_source_dirs": 66,
   "episode_source_dirs_derivation": {
    "rule": "Count immediate subdirectories matching glob remotion-composer/src/*/ and subtract the 4 shared framework dirs: components, lib, cinematic, rigs.",
    "glob": "remotion-composer/src/*/",
-   "exclude": ["components", "lib", "cinematic", "rigs"],
+   "exclude": [
+    "components",
+    "lib",
+    "cinematic",
+    "rigs"
+   ],
    "formula": "len([d for d in ls(remotion-composer/src) if isdir(d) and d not in {components, lib, cinematic, rigs}])",
    "recomputed_2026-11-09": 63,
    "note": "Original scalar 63 reproduced exactly by this rule on fresh disk walk (67 subdirs - 4 framework = 63); rule is the only candidate matching the recorded value. No Episode.tsx presence requirement: 50 of the 63 carry Episode.tsx, 4 carry legacy index.tsx entries, the rest are draft/stock dirs; components/lib/cinematic/rigs are shared framework, not episode sources."

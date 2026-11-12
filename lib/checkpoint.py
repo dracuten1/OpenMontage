@@ -27,6 +27,10 @@ ALL_KNOWN_STAGES = frozenset([
 STAGES = ["research", "proposal", "idea", "script", "scene_plan",
           "assets", "edit", "compose", "publish"]
 
+# Sections already duration-warned this process (dedupe across repeated
+# validations so agent-facing output stays small).
+_DURATION_WARN_LOGGED: set = set()
+
 CANONICAL_STAGE_ARTIFACTS = {
     "research": "research_brief",
     "proposal": "proposal_packet",
@@ -138,6 +142,10 @@ def _check_script_section_durations(script: dict[str, Any]) -> list[str]:
     """
     import logging
 
+    # Warn once per section per process: validation runs repeatedly (every
+    # checkpoint write / agent retry) and re-logging identical warnings each
+    # time bloats the tool output an agent has to re-read.
+
     warnings: list[str] = []
     cap = SCRIPT_SECTION_DURATION_SOFT_CAP_SECONDS
     sections = script.get("sections", [])
@@ -161,7 +169,9 @@ def _check_script_section_durations(script: dict[str, Any]) -> list[str]:
             f"Consider splitting at natural narrative boundaries."
         )
         warnings.append(msg)
-        logging.getLogger(__name__).warning("SCRIPT SECTION DURATION WARNING: %s", msg)
+        if sid not in _DURATION_WARN_LOGGED:
+            _DURATION_WARN_LOGGED.add(sid)
+            logging.getLogger(__name__).warning("SCRIPT SECTION DURATION WARNING: %s", msg)
     return warnings
 
 
@@ -353,9 +363,12 @@ def _validate_artifacts_for_stage(
         try:
             validate_artifact(artifact_name, artifact_data)
         except Exception as exc:
+            # validate_artifact already emits a terse, all-errors message;
+            # suppress the chain so the traceback stays a few lines instead
+            # of dragging jsonschema internals into agent context.
             raise CheckpointValidationError(
                 f"Artifact {artifact_name!r} failed schema validation: {exc}"
-            ) from exc
+            ) from None
 
     # Cross-artifact stage gate validations.
     # In strict / production mode, gate verification is mandatory:

@@ -60,6 +60,7 @@ import concurrent.futures
 import copy
 import hashlib
 import json
+import logging
 import os
 import re
 import shutil
@@ -88,6 +89,8 @@ from tools.qc.scene_packet import (
     validate_packet,
 )
 
+logger = logging.getLogger(__name__)
+
 
 # ==============================================================================
 # Data Structures
@@ -106,6 +109,9 @@ class WriterContext:
     neighbor_context: dict[str, str] = field(default_factory=dict)
     style_contract_ref: str = "packets/style_contract.json"
     extra_env: dict[str, str] = field(default_factory=dict)
+    # Task 1.3: attempt ordinal, surfaced to the writer wrapper as
+    # OM_ATTEMPT_INDEX so per-attempt sandbox dirs never collide.
+    attempt_number: int = 0
 
 
 @dataclass
@@ -247,6 +253,44 @@ def diff_snapshots(before: dict[str, str], after: dict[str, str]) -> dict[str, l
     return {"added": added, "removed": removed, "modified": modified}
 
 
+# Task 1.2: dynamic scene directory + filename resolvers. Episodes use either
+# ``scenes/`` (flat S01.tsx) or ``scene/``; scene_ids ("scene-1") map to
+# on-disk filenames ("S01.tsx") via deterministic candidate probing.
+def get_scenes_dir(episode_dir: Path) -> Path:
+    return episode_dir / "scenes" if (episode_dir / "scenes").is_dir() else episode_dir / "scene"
+
+
+def resolve_scene_filename(scenes_dir: Path, scene_id: str) -> str:
+    if (scenes_dir / f"{scene_id}.tsx").is_file():
+        return f"{scene_id}.tsx"
+    m = re.match(r"(?:scene[-_]?)?(\d+)", scene_id, re.IGNORECASE)
+    if m:
+        num = int(m.group(1))
+        for c in [f"S{num:02d}.tsx", f"S{num}.tsx", f"scene-{num}.tsx", f"scene_{num}.tsx"]:
+            if (scenes_dir / c).is_file():
+                return c
+    return f"{scene_id}.tsx"
+
+
+def _scene_file_variants(scenes_dir: Path, scene_id: str) -> set[str]:
+    """All plausible episode-relative paths for scene_id's scene file.
+
+    Covers both scene-dir spellings (``scene/`` and ``scenes/``) and every
+    canonical filename candidate, so target identification stays correct even
+    when the episode dir layout differs from the probed one (task 1.2).
+    """
+    candidates = [f"{scene_id}.tsx"]
+    m = re.match(r"(?:scene[-_]?)?(\d+)", scene_id, re.IGNORECASE)
+    if m:
+        num = int(m.group(1))
+        candidates += [f"S{num:02d}.tsx", f"S{num}.tsx", f"scene-{num}.tsx", f"scene_{num}.tsx"]
+    variants: set[str] = set()
+    for d in {scenes_dir.name, "scene", "scenes"}:
+        for c in candidates:
+            variants.add(f"{d}/{c}")
+    return variants
+
+
 def verify_writer_scope(
     before: dict[str, str],
     after: dict[str, str],
@@ -279,8 +323,25 @@ def verify_writer_scope(
         authoritative_scenes = set()
     other_scenes = authoritative_scenes - {scene_id}
 
+    # Task 1.3: writer's own scene path (resolved via the scene-dir/filename
+    # resolvers) is explicitly allowed; sibling scene files written by
+    # concurrent writers and ephemeral/history paths are ignored entirely.
+    scenes_dir = get_scenes_dir(root)
+    own_variants = _scene_file_variants(scenes_dir, scene_id)
+
     violations: list[str] = []
     for rel_path in mutated:
+        # Task 1.3: scoped hash diffing — writer sandbox dirs and history logs
+        # are infrastructure-owned, never writer-scope violations.
+        if rel_path.startswith(".tmp_sandboxes/") or rel_path.startswith("history/"):
+            continue
+        # Task 1.3: sibling scene files (scene/S*.tsx or scenes/S*.tsx) belong
+        # to concurrent writers for other scenes — exclude them here.
+        if re.match(r"^(?:scenes?)/S\d+\.tsx$", rel_path) and rel_path not in own_variants:
+            continue
+        if rel_path in own_variants:
+            continue  # writer's own scene path is explicitly allowed
+
         is_own_file = (
             rel_path in (
                 f"packet_{scene_id}.json",
@@ -351,14 +412,43 @@ def verify_writer_scope(
 def verify_reviewer_ownership(
     before: dict[str, str],
     after: dict[str, str],
+    scene_id: str,
+    episode_dir: Path,
 ) -> tuple[bool, list[str], str | None]:
-    """Verify reviewer did NOT mutate any file in the canonical episode directory."""
+    """Task 1.2: scoped reviewer mutation check.
+
+    The reviewer must not mutate the target scene file; sibling scene files
+    (concurrent writers), packets, logs, temp dirs, and concurrent evidence /
+    audio outputs are ignored. Returns ``(valid, violations, err_msg)``.
+    """
     diff = diff_snapshots(before, after)
     mutated = sorted(diff["added"] + diff["modified"] + diff["removed"])
-    if mutated:
-        msg = f"reviewer_canonical_mutation: reviewer mutated canonical files: {', '.join(mutated)}"
-        return False, mutated, msg
-    return True, [], None
+    scenes_dir = get_scenes_dir(episode_dir)
+    target_filename = resolve_scene_filename(scenes_dir, scene_id)
+    target_rel = f"{scenes_dir.name}/{target_filename}"
+    target_variants = _scene_file_variants(scenes_dir, scene_id)
+
+    illegal = []
+    for p in mutated:
+        # Exclude temp files, packets, logs, and concurrent evidence/audio outputs
+        if p.startswith(".tmp_") or p.startswith("history/") or p.startswith("packets/"):
+            continue
+        if p.startswith("artifacts/") or p.startswith("audio_stems/"):
+            continue
+        # Sibling scene files written by concurrent writers are ignored. Match
+        # both scene-dir spellings (but never the target's own variants).
+        if re.match(r"^(?:scenes?)/S\d+\.tsx$", p) and p not in target_variants:
+            continue
+        if p.startswith(f"{scenes_dir.name}/") and p != target_rel:
+            continue
+        if p in target_variants:
+            illegal.append(f"Target scene file {target_rel} was mutated during review")
+        else:
+            illegal.append(f"Unexpected file mutated: {p}")
+
+    valid = len(illegal) == 0
+    err_msg = None if valid else f"Reviewer modified canonical files: {illegal}"
+    return valid, illegal, err_msg
 
 
 def create_reviewer_sandbox(episode_dir: Path, scene_id: str) -> Path:
@@ -489,10 +579,13 @@ class SubprocessAgentRunner(AgentRunner):
         writer_cmd: list[str] | None = None,
         reviewer_cmd: list[str] | None = None,
         python_executable: str = sys.executable,
+        timeout_seconds: float = 900.0,
     ):
         self.writer_cmd = writer_cmd
         self.reviewer_cmd = reviewer_cmd
         self.python_executable = python_executable
+        # 2026-11-11: 120s killed real CC runs (observed 176–495s per scene)
+        self.timeout_seconds = timeout_seconds
 
     def run_writer(self, context: WriterContext) -> AgentRunResult:
         t0 = time.time()
@@ -530,7 +623,7 @@ class SubprocessAgentRunner(AgentRunner):
                 env=env,
                 capture_output=True,
                 text=True,
-                timeout=120,
+                timeout=self.timeout_seconds,
             )
             t1 = time.time()
             iso_end = datetime.now(timezone.utc).isoformat()
@@ -599,7 +692,7 @@ class SubprocessAgentRunner(AgentRunner):
                 env=env,
                 capture_output=True,
                 text=True,
-                timeout=120,
+                timeout=self.timeout_seconds,
             )
             t1 = time.time()
             iso_end = datetime.now(timezone.utc).isoformat()
@@ -973,6 +1066,19 @@ def freeze_episode_inputs(episode_dir: Path, base_packet: dict[str, Any]) -> dic
 # Scene Orchestration & Scheduler
 # ==============================================================================
 
+def _transport_glitch(res) -> bool:
+    """CC/CLI died mid-stream but exited 0: empty output, or the Anthropic
+    streaming-desync error observed 5x on 2026-11-10/11 ('No tool call found
+    for function call output with call_id …'). Treat as retryable failure —
+    previously these counted as success and burned downstream attempts."""
+    if res.exit_code != 0:
+        return False
+    combined = f"{res.stdout or ''}\n{res.stderr or ''}"
+    if not (res.stdout or "").strip():
+        return True
+    return "No tool call found for function call output" in combined
+
+
 def execute_scene_with_retries(
     scene_id: str,
     episode_dir: Path,
@@ -1005,6 +1111,7 @@ def execute_scene_with_retries(
                 frozen_inputs=frozen_inputs,
                 claims=base_template.get("claims", {"facts": [f"{scene_id} claims"]}),
                 neighbor_context=base_template.get("neighbor_context", {}),
+                attempt_number=attempt_idx,
             )
 
             # Snapshot canonical directory before writer
@@ -1013,6 +1120,10 @@ def execute_scene_with_retries(
             # Execute Writer
             writer_res = runner.run_writer(writer_ctx)
             attempt.writer_result = writer_res
+            if _transport_glitch(writer_res):
+                attempt.error = "Writer transport failure (empty/corrupt output — CC streaming glitch); retrying with a fresh instance"
+                record.attempts.append(attempt)
+                continue
             if writer_res.exit_code != 0:
                 attempt.error = f"Writer failed: {writer_res.stderr or writer_res.error}"
                 record.attempts.append(attempt)
@@ -1085,17 +1196,35 @@ def execute_scene_with_retries(
             # Snapshot canonical directory before reviewer
             snap_pre_reviewer = snapshot_directory_hashes(root)
 
-            # Execute Reviewer in Sandbox
-            reviewer_res = runner.run_reviewer(reviewer_ctx)
+            # Task 1.2: per-file write lock — the target scene file is set
+            # read-only for the duration of the review and restored after.
+            scenes_dir = get_scenes_dir(root)
+            target_filename = resolve_scene_filename(scenes_dir, scene_id)
+            scene_file = scenes_dir / target_filename
+            original_mode = scene_file.stat().st_mode if scene_file.is_file() else None
+            if original_mode:
+                os.chmod(scene_file, 0o444)  # Read-only
+            try:
+                # Execute Reviewer in Sandbox
+                reviewer_res = runner.run_reviewer(reviewer_ctx)
+            finally:
+                if original_mode and scene_file.is_file():
+                    os.chmod(scene_file, 0o644)  # Restore read-write
             attempt.reviewer_result = reviewer_res
+            if _transport_glitch(reviewer_res):
+                attempt.error = "Reviewer transport failure (empty/corrupt output — CC streaming glitch); retrying with a fresh instance"
+                record.attempts.append(attempt)
+                continue
 
             # Snapshot canonical directory after reviewer
             snap_post_reviewer = snapshot_directory_hashes(root)
 
-            # Verify Reviewer Ownership (Canonical Preserved with 0 mutations)
+            # Verify Reviewer Ownership (Task 1.2: scoped 3-tuple check)
             r_valid, r_mutated, r_err = verify_reviewer_ownership(
                 snap_pre_reviewer,
                 snap_post_reviewer,
+                scene_id,
+                root,
             )
             attempt.ownership = OwnershipVerification(
                 writer_scope_valid=True,
@@ -1133,6 +1262,13 @@ def execute_scene_with_retries(
                 continue
 
             findings_data = json.loads(findings_source.read_text(encoding="utf-8"))
+            # Task 1.4: watchdog expiry is an infrastructure failure, not a
+            # content rejection — retry this scene on a fresh attempt.
+            if findings_data.get("verdict") == "timeout_error":
+                logger.warning(f"Reviewer timed out on {scene_id}; infrastructure retry triggered")
+                attempt.error = f"Reviewer timeout_error on {scene_id}; infrastructure retry triggered"
+                record.attempts.append(attempt)
+                continue
             if findings_data.get("verdict") != "approved":
                 attempt.error = f"Reviewer rejected scene: verdict={findings_data.get('verdict')}"
                 record.attempts.append(attempt)
@@ -1237,7 +1373,7 @@ def execute_scene_with_retries(
 
 def orchestrate_episode(
     episode_dir: Path | str,
-    max_concurrency: int = 2,
+    max_concurrency: int = 6,
     max_retries: int = 1,
     runner: AgentRunner | None = None,
     evidence_file: Path | str | None = None,
@@ -1468,7 +1604,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     # Standard CLI arguments
     parser.add_argument("episode_dir", nargs="?", default=".", help="Path to episode workspace")
-    parser.add_argument("--max-concurrency", "-c", type=int, default=2, help="Max concurrent scenes (default: 2)")
+    parser.add_argument("--max-concurrency", "-c", type=int, default=6, help="Max concurrent scenes (default: 6)")
     parser.add_argument("--max-retries", "-r", type=int, default=1, help="Max retries per scene (default: 1)")
     parser.add_argument(
         "--runner",
