@@ -97,13 +97,27 @@ def _check_composition_dims(root: Path):
 
 
 def _contained_path(raw, root):
+    """Task 1.6: containment-checked path resolution.
+
+    Relative paths resolve against the episode root first; when the result
+    escapes the episode (e.g. repo-level shared evidence), fall back to a
+    REPO_ROOT-anchored resolution. Returns the resolved path only when it
+    stays contained, else None.
+    """
     p = Path(raw)
     resolved = (root / p).resolve() if not p.is_absolute() else p.resolve()
     try:
         resolved.relative_to(root.resolve())
         return resolved
     except ValueError:
-        return None
+        if not p.is_absolute():
+            repo_resolved = (REPO_ROOT / p).resolve()
+            try:
+                repo_resolved.relative_to(REPO_ROOT.resolve())
+                return repo_resolved
+            except ValueError:
+                return None
+    return None
 
 def validate_episode(episode_dir):
     root = Path(episode_dir).resolve(); reasons = []; packets = []
