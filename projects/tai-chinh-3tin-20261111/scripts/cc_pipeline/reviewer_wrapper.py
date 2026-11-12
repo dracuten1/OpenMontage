@@ -18,12 +18,10 @@ from __future__ import annotations
 import hashlib, json, os, subprocess, sys, threading, time
 from pathlib import Path
 
-# Import enabler (phase1 minimal; full formalization is Phase 2 Task 2.4):
-REPO_ROOT = next(
-    (p for p in Path(__file__).resolve().parents if (p / "tools" / "qc" / "reviewer_runner.py").is_file()),
-    None,
-)
-if REPO_ROOT and str(REPO_ROOT) not in sys.path:
+# Task 2.4: single source of truth — static repo-root resolution
+# (projects/<proj>/scripts/cc_pipeline/<file>.py -> parents[4] = repo root).
+REPO_ROOT = Path(__file__).resolve().parents[4]
+if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from tools.qc.reviewer_runner import (  # noqa: E402
