@@ -15,6 +15,7 @@ Covers:
 from __future__ import annotations
 
 import importlib.util
+import io
 import subprocess
 import sys
 import threading
@@ -32,6 +33,7 @@ from tools.qc.concurrency_governor import (
     probe_anthropic_tier,
     resolve_max_concurrency,
 )
+from tools.qc.scene_orchestrator import AgentRunResult, WriterContext
 from tools.qc.scene_orchestrator import (
     CallableAgentRunner,
     orchestrate_episode,
@@ -512,3 +514,380 @@ def test_shim_never_imports_openmontage_package_path(wrapper_name):
     source = (CC_PIPELINE / wrapper_name).read_text(encoding="utf-8")
     assert "from OpenMontage" not in source
     assert "import OpenMontage" not in source
+
+
+# ==============================================================================
+# Review iteration 1 — FIX 1: shared-governor burst signal from writer results
+# ==============================================================================
+
+def test_writer_429_burst_throttles_shared_governor_pool(tmp_path, monkeypatch):
+    """Review fix 1 acceptance: a transient-API writer failure seen by the
+    orchestrator must throttle the SHARED pool governor (not just the wrapper
+    subprocess's private governor): throttled True, pool value drops, second
+    burst is a no-op, cooldown restore returns the pool to full."""
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1"])
+    created: list[ConcurrencyGovernor] = []
+
+    class _FrozenCooldownGovernor(ConcurrencyGovernor):
+        def __init__(self, *args, **kwargs):
+            kwargs["cooldown_seconds"] = 9999.0  # keep the latch observable
+            super().__init__(*args, **kwargs)
+            created.append(self)
+
+    def transient_writer(ctx: WriterContext) -> AgentRunResult:
+        return AgentRunResult(
+            instance_id=ctx.instance_id, token=ctx.token, role="writer",
+            exit_code=1, started_at="2026-11-12T00:00:00Z",
+            finished_at="2026-11-12T00:00:01Z", duration_seconds=1.0,
+            stdout="API error: rate_limit_error", stderr="",
+        )
+
+    monkeypatch.setattr(scene_orchestrator_module, "ConcurrencyGovernor", _FrozenCooldownGovernor)
+    session = orchestrate_episode(
+        episode, max_concurrency=6, max_retries=0,
+        runner=CallableAgentRunner(writer_fn=transient_writer),
+    )
+
+    assert session.scenes["cut-1"].status == "failed"
+    gov = created[0]
+    # Worker held 1 permit (6->5); burst reserved 2 -> pool value 3; release -> 4
+    assert gov.throttled is True
+    assert gov.permits_reserved == 2
+    assert gov.sem._value == 4
+
+    # Second burst is a no-op (latch)
+    gov.handle_rate_limit_burst()
+    assert gov.permits_reserved == 2
+    assert gov.sem._value == 4
+
+    # Cooldown elapses -> next acquire restores exactly the reserved permits
+    gov.last_throttled_at -= 10000.0
+    gov.acquire()
+    assert gov.permits_reserved == 0
+    assert gov.throttled is False
+    gov.release()
+    assert gov.sem._value == 6  # pool back to full, no ValueError
+
+
+# ==============================================================================
+# Review iteration 1 — FIX 2: structured spawn failure (phase 1 parity)
+# ==============================================================================
+
+def test_backoff_spawn_failure_returns_structured_no_retry(monkeypatch):
+    """Review fix 2: Popen FileNotFoundError/OSError must NOT escape as a
+    traceback — structured (1, "Writer spawn failed: ..."), single attempt,
+    no backoff sleep, no burst signal (phase 1 _spawn_claude parity)."""
+    spawned: list[int] = []
+
+    def _boom(*a, **k):
+        spawned.append(1)
+        raise FileNotFoundError("[Errno 2] claude binary missing")
+
+    monkeypatch.setattr(writer_runner_module.subprocess, "Popen", _boom)
+    sleeps: list[float] = []
+    monkeypatch.setattr(writer_runner_module.time, "sleep", lambda s: sleeps.append(s))
+    gov = _SpyGovernor()
+
+    rc, stdout = execute_writer_with_backoff(["claude"], cwd=".", env={}, task="t", governor=gov)
+
+    assert rc == 1
+    assert stdout == "Writer spawn failed: [Errno 2] claude binary missing"
+    assert len(spawned) == 1       # no pointless retry storm
+    assert sleeps == []
+    assert gov.bursts == 0
+
+
+def test_backoff_spawn_failure_logged_to_history(monkeypatch, tmp_path):
+    log_path = tmp_path / "cc_writer_x.log"
+    with open(log_path, "w", encoding="utf-8") as fp:
+        monkeypatch.setattr(writer_runner_module.subprocess, "Popen",
+                            lambda *a, **k: (_ for _ in ()).throw(OSError("spawn boom")))
+        rc, _ = execute_writer_with_backoff(["claude"], cwd=".", env={}, task="t",
+                                            governor=_SpyGovernor(), log_handle=fp)
+    assert rc == 1
+    content = log_path.read_text(encoding="utf-8")
+    assert "WRITER SPAWN FAIL: spawn boom" in content
+
+
+# ==============================================================================
+# Review iteration 1 — FIX 3: history log preserves every attempt (streamed)
+# ==============================================================================
+
+class _StreamingProc:
+    """Fake CLI proc with real-pipe semantics: stdin sink + line-iterable stdout."""
+
+    def __init__(self, returncode: int, stdout_lines: list[str]):
+        self.returncode = None
+        self._rc = returncode
+        self._lines = stdout_lines
+        self.stdin = _StdinSink()
+        self.stdout = io.StringIO("".join(stdout_lines))
+        self._closed = threading.Event()
+
+    def poll(self):
+        return self._rc if self._closed.is_set() else None
+
+    def kill(self):
+        self._closed.set()
+
+    def wait(self, timeout=None):
+        self._closed.set()
+        self.returncode = self._rc
+        return self.returncode
+
+
+class _StdinSink:
+    def write(self, data):
+        return len(data)
+
+    def close(self):
+        pass
+
+
+def test_backoff_history_log_preserves_all_attempts(monkeypatch, tmp_path):
+    """Review fix 3: with log_handle, every attempt is delimited in the history
+    log and earlier attempts' output survives (the buffered variant kept only
+    the last attempt's output)."""
+    monkeypatch.setattr(writer_runner_module.time, "sleep", lambda s: None)
+    procs = iter([
+        _StreamingProc(1, ["rate_limit_error: slow down\n", "please retry\n"]),
+        _StreamingProc(0, ["writer done\n"]),
+    ])
+    monkeypatch.setattr(writer_runner_module.subprocess, "Popen", lambda *a, **k: next(procs))
+    gov = _SpyGovernor()
+    log_path = tmp_path / "cc_writer_s1.log"
+
+    with open(log_path, "w", encoding="utf-8") as fp:
+        rc, stdout = execute_writer_with_backoff(["claude"], cwd=".", env={}, task="t",
+                                                 governor=gov, log_handle=fp)
+
+    assert rc == 0
+    assert stdout == "writer done\n"
+    content = log_path.read_text(encoding="utf-8")
+    assert "===== attempt 1/4 =====" in content
+    assert "===== attempt 2/4 =====" in content
+    assert "rate_limit_error: slow down" in content  # attempt 1 output preserved
+    assert "writer done" in content
+
+
+def test_writer_wrapper_history_log_preserves_attempts(tmp_path, monkeypatch):
+    """Wrapper-level: the history log is written live with attempt delimiters
+    while the sandbox promotion path keeps its phase 1 behavior intact."""
+    from tests.test_video_slowfix_phase1 import _make_writer_episode
+
+    ep = _make_writer_episode(tmp_path)
+    spec = importlib.util.spec_from_file_location(
+        "om_writer_wrapper_fix3", CC_PIPELINE / "writer_wrapper.py"
+    )
+    mod = importlib.util.module_from_spec(spec)
+    monkeypatch.setenv("OM_SCENE_ID", "scene-1")
+    monkeypatch.setenv("OM_EPISODE_DIR", str(ep))
+    monkeypatch.setenv("OM_ATTEMPT_INDEX", "1")
+    monkeypatch.delenv("OM_LEGACY_QUARANTINE", raising=False)
+    monkeypatch.setattr(cg, "_TIER_CACHE", "oauth")  # no network probe in test
+    spec.loader.exec_module(mod)
+
+    sandbox_file = ep / ".tmp_sandboxes" / "scene-1_1" / "scene-1.tsx"
+
+    class _SceneWritingProc(_StreamingProc):
+        """Fake claude session: streams output AND writes the sandbox scene
+        (phase 1 promotion path needs the artifact, like the phase1 fake)."""
+
+        def __init__(self):
+            super().__init__(0, ["writer session output line\n"])
+            self._sandbox_file = sandbox_file
+
+        def wait(self, timeout=None):
+            rc = super().wait(timeout)
+            self._sandbox_file.parent.mkdir(parents=True, exist_ok=True)
+            self._sandbox_file.write_text(
+                "export default () => <div>sandboxed scene</div>;" + "// " + "x" * 220,
+                encoding="utf-8",
+            )
+            return rc
+
+    fake = _SceneWritingProc()
+    monkeypatch.setattr("subprocess.Popen", lambda *a, **k: fake)
+    monkeypatch.setattr(mod, "_tsc_own_scene_fail", lambda episode, scene_id: (False, ""))
+
+    rc = mod.main()
+    assert rc == 0
+    history = mod.PROJ_ROOT / "history" / "cc_writer_scene-1.log"
+    content = history.read_text(encoding="utf-8")
+    assert "===== attempt 1/4 =====" in content
+    assert "writer session output line" in content
+    # phase 1 promotion behavior intact
+    assert "sandboxed scene" in (ep / "scenes" / "S01.tsx").read_text(encoding="utf-8")
+    assert sandbox_file.is_file()
+
+
+# ==============================================================================
+# Review iteration 1 — FIX 4: launcher default = credential probe (auto)
+# ==============================================================================
+
+def _load_launcher():
+    # tools.qc.scene_orchestrator is already imported at this module's top, so
+    # the launcher's sys.path.insert of another checkout resolves to the cached
+    # worktree modules.
+    spec = importlib.util.spec_from_file_location(
+        "om_run_cc_pipeline_fix4",
+        CC_PIPELINE / "run_cc_pipeline.py",
+    )
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_launcher_repo_root_is_not_hardcoded():
+    mod = _load_launcher()
+    assert mod.REPO == REPO_ROOT  # static parents[4], no absolute checkout pin
+
+
+def test_launcher_concurrency_default_is_probe_auto(monkeypatch):
+    """Review fix 4 acceptance: launcher with OM_MAX_CONCURRENCY unset must
+    pass None (orchestrator probes: tier4->6, oauth/unknown->4); env set wins."""
+    from types import SimpleNamespace
+
+    mod = _load_launcher()
+    assert mod.resolve_launcher_concurrency(env={}) is None
+    assert mod.resolve_launcher_concurrency(env={"OM_MAX_CONCURRENCY": "2"}) == 2
+    assert mod.resolve_launcher_concurrency(env={"OM_MAX_CONCURRENCY": "6"}) == 6
+
+    fake_session = SimpleNamespace(
+        session_id="s", overall_status="fail", scenes={}, episode_gate_result={"valid": False},
+    )
+    captured: dict = {}
+
+    def _fake_orchestrate(**kwargs):
+        captured.update(kwargs)
+        return fake_session
+
+    monkeypatch.setattr(mod, "orchestrate_episode", _fake_orchestrate)
+
+    monkeypatch.delenv("OM_MAX_CONCURRENCY", raising=False)
+    mod.main()
+    assert captured["max_concurrency"] is None  # -> orchestrator tier probe
+
+    monkeypatch.setenv("OM_MAX_CONCURRENCY", "2")  # explicit override still wins
+    mod.main()
+    assert captured["max_concurrency"] == 2
+
+
+# ==============================================================================
+# Review iteration 1 — FIX 5: probe cache + true concurrency source
+# ==============================================================================
+
+def test_probe_tier_cached_per_process(monkeypatch):
+    """Review fix 5: default-path resolve runs the network probe at most once
+    per process; the env check stays live so OM_MAX_CONCURRENCY keeps winning
+    dynamically. Explicit probe args bypass the cache."""
+    monkeypatch.setattr(cg, "_TIER_CACHE", None)
+    calls = {"n": 0}
+
+    def _counting_probe():
+        calls["n"] += 1
+        return "tier4"
+
+    monkeypatch.setattr(cg, "probe_anthropic_tier", _counting_probe)
+
+    assert resolve_max_concurrency() == (6, "probe:tier4")   # first: real probe call
+    assert calls["n"] == 1
+    assert resolve_max_concurrency() == (6, "probe:tier4")   # cached
+    assert resolve_max_concurrency() == (6, "probe:tier4")
+    assert calls["n"] == 1
+
+    monkeypatch.setenv("OM_MAX_CONCURRENCY", "3")  # env stays live, no probe
+    assert resolve_max_concurrency() == (3, "env:OM_MAX_CONCURRENCY")
+    assert calls["n"] == 1
+
+    monkeypatch.delenv("OM_MAX_CONCURRENCY")                    # back to probe path
+    assert resolve_max_concurrency(env={}, probe=lambda: "oauth") == (4, "probe:oauth")  # bypass cache
+    assert calls["n"] == 1                                      # cached probe untouched
+
+
+def test_orchestrator_concurrency_source_is_threaded_not_mislabeled(tmp_path):
+    """Review fix 5: a caller that resolved the ceiling itself passes the true
+    source; config must not say 'arg' for an env/probe-resolved ceiling."""
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1"])
+    runner = CallableAgentRunner()
+
+    session = orchestrate_episode(episode, max_concurrency=4, runner=runner)
+    assert session.config["concurrency_source"] == "arg"  # bare int: honest label
+
+    session = orchestrate_episode(episode, max_concurrency=4,
+                                  concurrency_source="probe:tier4", runner=runner)
+    assert session.config["concurrency_source"] == "probe:tier4"
+
+
+# ==============================================================================
+# Review iteration 1 — FIX 6: partial reservation + burst/release stress
+# ==============================================================================
+
+def test_partial_reservation_releases_only_acquired_permits():
+    """Review fix 6: saturated pool (1 permit left) -> burst reserves exactly 1
+    (acquired==1 path); restore releases only that permit — the historical
+    over-release ValueError must stay impossible."""
+    gov = ConcurrencyGovernor(max_concurrency=6, cooldown_seconds=0.0)
+    held = [gov.sem.acquire(blocking=False) for _ in range(5)]
+    assert all(held)
+    assert gov.sem._value == 1
+
+    gov.handle_rate_limit_burst()
+    assert gov.permits_reserved == 1  # only 1 was actually available
+    assert gov.sem._value == 0
+
+    time.sleep(0.05)
+    gov.release()  # release worker permit + restore the 1 reserved -> no ValueError
+    assert gov.permits_reserved == 0
+    assert gov.throttled is False
+
+    for _ in range(4):
+        gov.sem.release()
+    assert gov.sem._value == 6  # exact accounting: full pool, nothing invented
+
+
+def test_stress_burst_and_concurrent_release_no_corruption():
+    """Review fix 6: mixed burst + concurrent acquire/release storm — the
+    BoundedSemaphore must end balanced (value == max, reserved drained,
+    throttled cleared) with zero ValueError anywhere."""
+    gov = ConcurrencyGovernor(max_concurrency=6, cooldown_seconds=0.05)
+    stop = threading.Event()
+    errors: list[BaseException] = []
+
+    def worker():
+        try:
+            while not stop.is_set():
+                gov.acquire()
+                try:
+                    time.sleep(0.001)
+                finally:
+                    gov.release()
+        except BaseException as e:  # ValueError here = corruption caught
+            errors.append(e)
+
+    def burster():
+        try:
+            for _ in range(3):
+                gov.handle_rate_limit_burst()
+                time.sleep(0.01)
+        except BaseException as e:
+            errors.append(e)
+
+    threads = [threading.Thread(target=worker) for _ in range(12)]
+    burst_thread = threading.Thread(target=burster)
+    for t in threads:
+        t.start()
+    burst_thread.start()
+    time.sleep(0.3)
+    stop.set()
+    for t in threads:
+        t.join(timeout=10)
+    burst_thread.join(timeout=5)
+
+    assert errors == []
+    time.sleep(0.06)  # elapse cooldown
+    gov.acquire()      # triggers check_restore -> drains reserved permits
+    gov.release()
+    assert gov.sem._value == 6
+    assert gov.permits_reserved == 0
+    assert gov.throttled is False

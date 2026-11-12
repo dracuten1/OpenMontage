@@ -31,8 +31,36 @@ def is_transient_api_error(output_str: str) -> bool:
     return any(m.lower() in (output_str or "").lower() for m in TRANSIENT_API_ERROR_MARKERS)
 
 
+def _stream_attempt_output(proc, task, log_handle) -> str:
+    """Run one attempt with live streaming into the history log.
+
+    Phase 1 parity (``_spawn_claude``): output lands in the log as it is
+    produced, so a SIGKILL/OOM mid-attempt still preserves the partial output.
+    The same bytes are buffered and returned as the attempt's stdout.
+    """
+    try:
+        proc.stdin.write(task)
+        proc.stdin.close()
+    except Exception:
+        pass  # stdin plumbing is best-effort; output capture must not die on it
+    parts: list[str] = []
+    for line in iter(proc.stdout.readline, ""):
+        parts.append(line)
+        try:
+            log_handle.write(line)
+            log_handle.flush()
+        except Exception:
+            pass  # a failed log write must not kill the writer session
+    try:
+        proc.stdout.close()
+    except Exception:
+        pass
+    proc.wait()
+    return "".join(parts)
+
+
 def execute_writer_with_backoff(cmd, cwd, env, task, governor, max_attempts=4,
-                                watchdog_seconds=None, on_retry=None):
+                                watchdog_seconds=None, on_retry=None, log_handle=None):
     """Run the writer CLI with jittered exponential backoff on transient errors.
 
     Returns ``(returncode, stdout)`` of the last attempt; on exhausted retries
@@ -46,17 +74,44 @@ def execute_writer_with_backoff(cmd, cwd, env, task, governor, max_attempts=4,
     - ``on_retry``: zero-arg callback invoked before each re-attempt; the
       wrapper uses it to reset the per-attempt sandbox so retries start fresh
       (phase 1 task 1.3: "retries start fresh").
+    - ``log_handle``: open text file for the history log. When given, every
+      attempt is delimited (``===== attempt i/N =====``) and its output is
+      streamed live — all attempts are preserved, including output produced
+      before a kill (phase 1 review fix 3; the buffered single-write variant
+      kept only the last attempt).
     """
     for attempt in range(1, max_attempts + 1):
-        proc = subprocess.Popen(cmd, cwd=cwd, env=env, stdin=subprocess.PIPE,
-                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        if log_handle is not None:
+            try:
+                log_handle.write(f"\n===== attempt {attempt}/{max_attempts} =====\n")
+                log_handle.flush()
+            except Exception:
+                pass
+        try:
+            proc = subprocess.Popen(cmd, cwd=cwd, env=env, stdin=subprocess.PIPE,
+                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        except OSError as e:
+            # Phase 1 parity (_spawn_claude): spawn failure is a structured
+            # failure — rc 1 with a clear message, no traceback escape. The
+            # binary will not appear mid-retry, so no backoff, no burst signal.
+            logging.warning(f"Writer spawn failed: {e}")
+            if log_handle is not None:
+                try:
+                    log_handle.write(f"WRITER SPAWN FAIL: {e}\n")
+                    log_handle.flush()
+                except Exception:
+                    pass
+            return 1, f"Writer spawn failed: {e}"
         if watchdog_seconds is not None:
             def _kill(proc=proc):
                 time.sleep(watchdog_seconds)
                 if proc.poll() is None:
                     proc.kill()
             threading.Thread(target=_kill, daemon=True).start()
-        stdout, _ = proc.communicate(task)
+        if log_handle is not None and getattr(proc, "stdout", None) is not None:
+            stdout = _stream_attempt_output(proc, task, log_handle)
+        else:
+            stdout, _ = proc.communicate(task)
         if proc.returncode != 0 and is_transient_api_error(stdout):
             governor.handle_rate_limit_burst()
             sleep_s = (2 ** attempt) * 2.0 + random.uniform(0.5, 2.5)

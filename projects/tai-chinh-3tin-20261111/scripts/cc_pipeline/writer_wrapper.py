@@ -158,17 +158,24 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
         shutil.rmtree(sandbox, ignore_errors=True)
         sandbox.mkdir(parents=True, exist_ok=True)
 
+    # Review fix 3: phase 1 streamed the writer session live into the history
+    # log. Pass an open handle so every attempt is delimited and streamed as
+    # it is produced — SIGKILL/OOM and retry storms no longer lose output.
+    log_fp = None
+    try:
+        log_fp = open(log_path, "w", encoding="utf-8")
+    except OSError as e:
+        print(f"writer {scene_id}: history log open failed (buffered only): {e}")
+
     t0 = time.time()
     returncode, stdout = execute_writer_with_backoff(
         cmd, episode, env, task, governor,
         watchdog_seconds=WATCHDOG_S,
         on_retry=_reset_sandbox,
+        log_handle=log_fp,
     )
-    # Tee the captured session output (stdout+stderr merged) to the history log.
-    try:
-        log_path.write_text(stdout or "", encoding="utf-8")
-    except OSError as e:
-        print(f"writer {scene_id}: history log write failed (non-fatal): {e}")
+    if log_fp is not None:
+        log_fp.close()
     dur = time.time() - t0
 
     if not (sandbox_file.is_file() and sandbox_file.stat().st_size > 200):

@@ -83,6 +83,7 @@ if str(REPO_ROOT) not in sys.path:
 from lib.production_provenance import hash_file
 from tools.qc.concurrency_governor import ConcurrencyGovernor, resolve_max_concurrency
 from tools.qc.episode_gate import validate_episode
+from tools.qc.writer_runner import is_transient_api_error
 from tools.qc.scene_packet import (
     SCHEMA_VERSION,
     integrate_scene_packet,
@@ -1085,6 +1086,7 @@ def execute_scene_with_retries(
     episode_dir: Path,
     runner: AgentRunner,
     max_retries: int = 1,
+    governor: ConcurrencyGovernor | None = None,
 ) -> SceneExecutionRecord:
     """Execute a single scene with bounded retries and OS-level ownership checks."""
     root = episode_dir.resolve()
@@ -1121,6 +1123,17 @@ def execute_scene_with_retries(
             # Execute Writer
             writer_res = runner.run_writer(writer_ctx)
             attempt.writer_result = writer_res
+            # Task 2.1 (phase2 review fix 1): the wrapper-process governors
+            # throttle only their own retries; the shared pool governor must
+            # see the 429 storm through the writer result itself — otherwise
+            # live concurrency never drops during a burst. Single source of
+            # truth for the marker list: tools.qc.writer_runner.
+            if (
+                governor is not None
+                and writer_res.exit_code != 0
+                and is_transient_api_error(f"{writer_res.stdout or ''}\n{writer_res.stderr or ''}")
+            ):
+                governor.handle_rate_limit_burst()
             if _transport_glitch(writer_res):
                 attempt.error = "Writer transport failure (empty/corrupt output — CC streaming glitch); retrying with a fresh instance"
                 record.attempts.append(attempt)
@@ -1381,12 +1394,15 @@ def orchestrate_episode(
     scene_ids: list[str] | None = None,
     strict: bool = True,
     daemon_timeout: float = 600.0,
+    concurrency_source: str | None = None,
 ) -> OrchestrationSession:
     """Run full episode orchestration with bounded concurrency, retries, and gate verification.
 
     Task 2.1: when ``max_concurrency`` is None it is resolved from credentials
     (``OM_MAX_CONCURRENCY`` env override, else Anthropic tier probe — Tier 4+ -> 6,
-    OAuth/unknown -> 4). All scene workers acquire/release the shared
+    OAuth/unknown -> 4). Callers that already resolved the ceiling (CLI main)
+    pass its true source via ``concurrency_source``; programmatic callers that
+    pass a bare int get ``"arg"``. All scene workers acquire/release the shared
     ``ConcurrencyGovernor`` with try/finally release discipline, so a 429 burst
     throttles live concurrency (6 -> 4) and restores safely after cooldown.
     """
@@ -1402,7 +1418,7 @@ def orchestrate_episode(
     # Task 2.1 step 1: credential-driven concurrency ceiling (logged once at startup).
     if max_concurrency is None:
         max_concurrency, concurrency_source = resolve_max_concurrency()
-    else:
+    elif concurrency_source is None:
         concurrency_source = "arg"
     logger.info("Concurrency ceiling: %d (source: %s)", max_concurrency, concurrency_source)
     governor = ConcurrencyGovernor(max_concurrency=max_concurrency)
@@ -1458,7 +1474,7 @@ def orchestrate_episode(
     def _governed_scene(sid: str):
         governor.acquire()
         try:
-            return execute_scene_with_retries(sid, root, runner, max_retries)
+            return execute_scene_with_retries(sid, root, runner, max_retries, governor=governor)
         finally:
             governor.release()
 
@@ -1680,9 +1696,13 @@ def main(argv: list[str] | None = None) -> int:
 
     scene_subset = [s.strip() for s in args.scenes.split(",")] if args.scenes else None
 
-    # Task 2.1: resolve the ceiling before the banner so the run log states it.
+    # Task 2.1: resolve the ceiling before the banner so the run log states it,
+    # and thread the true source into the session config (review fix 5 — no
+    # more "arg" mislabel when the ceiling actually came from env/probe).
     if args.max_concurrency is None:
-        args.max_concurrency = resolve_max_concurrency()[0]
+        args.max_concurrency, concurrency_source = resolve_max_concurrency()
+    else:
+        concurrency_source = "arg"
 
     print(f"=== OpenMontage Scene Orchestrator ===")
     print(f"Episode:        {episode_path}")
@@ -1696,6 +1716,7 @@ def main(argv: list[str] | None = None) -> int:
         session = orchestrate_episode(
             episode_dir=episode_path,
             max_concurrency=args.max_concurrency,
+            concurrency_source=concurrency_source,
             max_retries=args.max_retries,
             runner=runner,
             evidence_file=args.evidence_file,

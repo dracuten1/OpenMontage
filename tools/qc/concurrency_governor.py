@@ -37,6 +37,13 @@ TIER4_MIN_REQUESTS_PER_MIN = 4000
 
 ENV_MAX_CONCURRENCY = "OM_MAX_CONCURRENCY"
 
+# Task 2.1 (review fix 5): per-process memo of the *probe tier* so repeat
+# resolve calls (orchestrator banner, governor construction, wrapper governor
+# init) never re-run the ~3s network probe. The env check itself stays live on
+# every call — OM_MAX_CONCURRENCY must keep winning dynamically. Explicit
+# ``probe`` args bypass the cache so tests stay deterministic.
+_TIER_CACHE: str | None = None
+
 
 class ConcurrencyGovernor:
     """BoundedSemaphore with safe permit reservation on rate-limit bursts."""
@@ -128,9 +135,12 @@ def resolve_max_concurrency(
 ) -> tuple[int, str]:
     """Resolve the orchestrator's concurrency ceiling. Returns ``(value, source)``.
 
-    Precedence: ``OM_MAX_CONCURRENCY`` env override (rollback value: 2) wins;
-    otherwise the credential probe decides (Tier 4+ -> 6, anything else -> 4).
+    Precedence: ``OM_MAX_CONCURRENCY`` env override (rollback value: 2) wins on
+    every call; otherwise the credential probe decides (Tier 4+ -> 6, anything
+    else -> 4). The probe tier is memoized per process — at most one network
+    probe per process; explicit ``probe`` args bypass the cache.
     """
+    global _TIER_CACHE
     env = os.environ if env is None else env
     raw = (env.get(ENV_MAX_CONCURRENCY) or "").strip()
     if raw:
@@ -141,7 +151,12 @@ def resolve_max_concurrency(
             logging.warning("%s=%s must be >= 1; ignoring", ENV_MAX_CONCURRENCY, raw)
         except ValueError:
             logging.warning("%s=%r is not an integer; ignoring", ENV_MAX_CONCURRENCY, raw)
-    tier = (probe or probe_anthropic_tier)()
+    if probe is not None:
+        tier = probe()
+    else:
+        if _TIER_CACHE is None:
+            _TIER_CACHE = probe_anthropic_tier()
+        tier = _TIER_CACHE
     if tier == "tier4":
         return TIER4_MAX_CONCURRENCY, "probe:tier4"
     return DEFAULT_MAX_CONCURRENCY, f"probe:{tier}"
