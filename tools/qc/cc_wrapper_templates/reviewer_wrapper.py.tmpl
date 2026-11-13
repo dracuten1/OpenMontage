@@ -18,6 +18,10 @@ Env: OM_SCENE_ID, OM_SANDBOX_DIR, OM_CANONICAL_DIR (optional; history log dir).
 Watchdog expiry writes verdict "timeout_error" instead of a content rejection
 (task 1.4); the orchestrator treats that as an infrastructure retry — the
 activation target of phase 4A.2 (wrappers never emitted it before).
+R5 (perf/cc-pipeline R1-R5): the CLI turn cap is raised 30 -> 45
+(reviewer_runner.DEFAULT_REVIEW_MAX_TURNS) and a stream with NO verdict block
+(turn cap exhausted / truncation) also emits "timeout_error" so the
+orchestrator (R3) infra-retries in place instead of burning a content attempt.
 Exit 0 always when findings file written (verdict may be 'rejected').
 """
 from __future__ import annotations
@@ -31,7 +35,10 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from tools.qc.reviewer_runner import (  # noqa: E402
+    DEFAULT_REVIEW_MAX_TURNS,
     DEFAULT_REVIEW_WATCHDOG_S,
+    REVIEW_TIMEOUT_VERDICT,
+    VERDICT_DELIMITER_RE,
     build_reviewer_cmd,
     extract_verdict,
     get_scenes_dir,
@@ -112,7 +119,8 @@ Then end. Max 12 turns, reads <=4, no file writes.
 """
     env = os.environ.copy()
     env["MAX_THINKING_TOKENS"] = "1024"
-    cmd = build_reviewer_cmd()
+    max_turns = os.environ.get("OM_CC_REVIEW_MAX_TURNS", DEFAULT_REVIEW_MAX_TURNS)
+    cmd = build_reviewer_cmd(max_turns)
     try:
         proc = subprocess.Popen(cmd, cwd=str(sandbox), env=env, stdin=subprocess.PIPE,
                                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
@@ -136,11 +144,26 @@ Then end. Max 12 turns, reads <=4, no file writes.
     (log_dir / f"cc_reviewer_{scene_id}.log").write_text(stdout_text or "", encoding="utf-8")
 
     if timed_out:
-        verdict = "timeout_error"
+        verdict = REVIEW_TIMEOUT_VERDICT
         issues = [f"Reviewer watchdog expired after {WATCHDOG_S}s"]
         data: dict = {}
     else:
         verdict, issues, data = extract_verdict(stdout_text)
+        # R5 (perf/cc-pipeline R1-R5): turn-cap headroom + explicit infra
+        # classification. When the reviewer stream carries NO verdict
+        # delimiter, it never delivered a verdict at all (--max-turns cap
+        # exhausted mid-review, or the stream was truncated) — that is an
+        # infrastructure failure, not a content judgment. Emit the orchestrator
+        # contract string ``timeout_error`` (tools.qc.reviewer_runner.
+        # REVIEW_TIMEOUT_VERDICT) so scene_orchestrator infra-retries the scene
+        # in place instead of burning a content attempt / full rewrite (R3).
+        if not VERDICT_DELIMITER_RE.search(stdout_text or ""):
+            verdict = REVIEW_TIMEOUT_VERDICT
+            issues = [
+                f"Reviewer delivered no verdict block (turn cap {max_turns} "
+                "exhausted or stream truncated) — infra timeout, not a content rejection"
+            ]
+            data = {}
 
     # Task 1.1 item 5: wrapper writes both packet files on Claude's behalf.
     verdict_path.write_text(json.dumps({

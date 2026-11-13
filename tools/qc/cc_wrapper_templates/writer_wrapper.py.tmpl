@@ -15,6 +15,11 @@ Carries the landed Phase-1/2 semantics plus Phase-4A additions:
   Default permission mode + explicit ``--allowedTools`` scoping only.
 - 4A.1: prior reviewer findings appended to the writer task, gated on
   ``OM_FINDINGS_INJECT`` (default ON; ``=0`` disables both sides).
+- R2 (perf/cc-pipeline R1-R5): the static reviewer-style brief
+  (``scene_orchestrator.REVIEWER_STYLE_BRIEF``) is appended to the writer task
+  from ATTEMPT 1 — generic auto-reject rules (CountUp frame match, currency
+  whitelist, coordinates, no placeholders, SAFE.* props, no invented vars, no
+  raw image leakage) are taught up front, not learned from rejections.
 - 4A.3 (phase-3 task 3.2 pull-forward, REV-2): per-episode SceneShell/theme
   layout detected on disk -> pre-seed header uses the REAL specifiers
   (``./lib/SceneShell`` style; ``remotion-composer/src/common/`` does not
@@ -39,7 +44,11 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from tools.qc.concurrency_governor import ConcurrencyGovernor, resolve_max_concurrency  # noqa: E402
-from tools.qc.scene_orchestrator import get_scenes_dir, resolve_scene_filename  # noqa: E402
+from tools.qc.scene_orchestrator import (  # noqa: E402
+    REVIEWER_STYLE_BRIEF,
+    get_scenes_dir,
+    resolve_scene_filename,
+)
 from tools.qc.writer_runner import execute_writer_with_backoff  # noqa: E402
 
 WATCHDOG_S = int(os.environ.get("OM_CC_WATCHDOG", "420"))
@@ -309,6 +318,13 @@ def _legacy_main(scene_id: str, episode: Path, task_file: Path, log_dir: Path) -
     scene_file = episode / f"scenes/S{nn}.tsx"
 
     task = task_file.read_text(encoding="utf-8")
+    # R2 (perf/cc-pipeline R1-R5): the static reviewer-style brief applies from
+    # ATTEMPT 1 — the generic auto-reject rules (CountUp frame match, currency
+    # whitelist, coordinate placement, no placeholders, SAFE.* props only, no
+    # invented vars, no raw image leakage) are taught up front instead of being
+    # learned from a round-1 rejection. Single source of truth:
+    # tools.qc.scene_orchestrator.REVIEWER_STYLE_BRIEF.
+    task = task + REVIEWER_STYLE_BRIEF
     block = _prior_findings_block(scene_id, os.environ.get("OM_ATTEMPT_INDEX", "0"))
     if block:
         task = task + block
@@ -381,6 +397,11 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
         f"`{scenes_dir.name}/` directly — the wrapper promotes your sandbox output "
         "atomically after validation.\n\n"
     ) + task_file.read_text(encoding="utf-8")
+    # R2 (perf/cc-pipeline R1-R5): static reviewer-style brief from ATTEMPT 1 —
+    # generic auto-reject rules taught up front (single source of truth:
+    # tools.qc.scene_orchestrator.REVIEWER_STYLE_BRIEF). Appended BEFORE the
+    # 4A.1 prior-findings block so attempt-specific findings stay last.
+    task = task + REVIEWER_STYLE_BRIEF
     # 4A.1: prior reviewer findings appended, gated on OM_FINDINGS_INJECT.
     block = _prior_findings_block(scene_id, attempt_idx)
     if block:

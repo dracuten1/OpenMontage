@@ -21,7 +21,21 @@ from pathlib import Path
 # execute. The wrapper writes verdict/findings files on Claude's behalf.
 REVIEW_PERMISSION_MODE = "planOnly"
 REVIEW_ALLOWED_TOOLS = "Read,Glob,Grep"
-DEFAULT_REVIEW_MAX_TURNS = "30"
+# R5 (perf/cc-pipeline R1-R5): turn-cap headroom 30 -> 45. Complex scenes
+# (dense word anchors + long windows) burned all 30 turns before delivering
+# the verdict block; 45 absorbs the spike while "Max 12 turns" in the wrapper
+# task stays the soft discipline target.
+DEFAULT_REVIEW_MAX_TURNS = "45"
+
+# --- R3/R5 infra-retry contract ---------------------------------------------
+# The verdict string a reviewer emits when it could not deliver a verdict at
+# all (watchdog expiry OR --max-turns cap exhaustion). The orchestrator treats
+# it as an INFRASTRUCTURE failure — it must never be counted as a content
+# rejection nor trigger a full rewrite. Single source of truth: the minted
+# reviewer wrapper (tools/qc/cc_wrapper_templates/reviewer_wrapper.py.tmpl)
+# imports THIS constant, and scene_orchestrator classifies against it — keep
+# both sides in sync through this name.
+REVIEW_TIMEOUT_VERDICT = "timeout_error"
 
 # --- Task 1.4: watchdog default hardening -----------------------------------
 DEFAULT_REVIEW_WATCHDOG_S = 360

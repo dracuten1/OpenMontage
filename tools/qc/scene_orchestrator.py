@@ -83,6 +83,7 @@ if str(REPO_ROOT) not in sys.path:
 from lib.production_provenance import hash_file
 from tools.qc.concurrency_governor import ConcurrencyGovernor, resolve_max_concurrency
 from tools.qc.episode_gate import validate_episode
+from tools.qc.reviewer_runner import REVIEW_TIMEOUT_VERDICT
 from tools.qc.writer_runner import is_transient_api_error
 from tools.qc.scene_packet import (
     SCHEMA_VERSION,
@@ -177,6 +178,11 @@ class SceneRunAttempt:
     packet_hash: str | None = None
     success: bool = False
     error: str | None = None
+    # R3 (perf/cc-pipeline R1-R5): True when this attempt record was consumed
+    # by an infrastructure failure (transport glitch / reviewer turn-cap or
+    # watchdog ``timeout_error``) and retried IN PLACE — the content attempt
+    # ordinal was NOT incremented for it.
+    infra: bool = False
 
 
 @dataclass
@@ -232,6 +238,40 @@ FINDINGS_DIR_REL = "history/cc_findings"
 FINDINGS_FILENAME_FMT = "{scene_id}_latest.md"
 # Hard cap on injected text (plan 4A.1: protect the writer context).
 FINDINGS_MAX_CHARS = 4000
+
+# ==============================================================================
+# R2 (perf/cc-pipeline R1-R5) — static reviewer-style brief, injected into the
+# writer prompt from ATTEMPT 1
+# ==============================================================================
+# The generic rules that produced the tin-nong rejection round-trips. Phase
+# 4A.1 taught the writer on retries (prior findings, attempt >= 2); R2 teaches
+# the same class of rules UP FRONT so attempt 1 stops failing on them. Single
+# source of truth: THIS constant. The minted writer wrapper
+# (cc_wrapper_templates/writer_wrapper.py.tmpl) imports it and appends it to
+# the writer task on every attempt — do NOT duplicate the text in the template
+# or scatter per-rule strings elsewhere.
+REVIEWER_STYLE_BRIEF = """\
+## REVIEWER STYLE BRIEF (R2 — applies from attempt 1; these are auto-rejects)
+- CountUp frame match: every CountUp/animated-number's frame span (``at``/``frames``) \
+must land inside the scene window and match its spoken word anchors; never let a \
+number finish after its cue tail.
+- Currency whitelist: every on-screen currency amount/value must come from the \
+scene spec JSON whitelist exactly — never round, recompute or invent a figure.
+- Coordinate placement: flex-column stacking only; content distributed across \
+y330-1440 with the last block ending y1300-1440; right edge x<=940; container \
+heights >= children stack + 30px; no sibling absolute blocks with tops <20px apart.
+- No placeholder components: no TODO/dummy/placeholder blocks, lorem text or \
+stub sub-components — every rendered element is real content from the spec.
+- SAFE.* props only: safe-area and spacing values come from the theme's \
+``SAFE.*`` constants (and COLORS/FONTS likewise) — never raw magic pixel values.
+- No invented vars: every import/identifier must exist in the episode's shared \
+modules (./lib/SceneShell, ./theme, ./timing) or the React/remotion surface; \
+do not reference variables that were never defined.
+- No raw image leakage: no ``staticFile(`` for generated media, no ``<Img>`` \
+of generated/raw assets, no base64 or external image URLs — visuals are built \
+from theme components only.
+"""
+
 
 
 def findings_inject_enabled() -> bool:
@@ -1200,6 +1240,72 @@ def _transport_glitch(res) -> bool:
     return "No tool call found for function call output" in combined
 
 
+# ==============================================================================
+# R3 (perf/cc-pipeline R1-R5) — infra failures vs content rejections
+# ==============================================================================
+# Transport errors (CC streaming glitch, reviewer CLI crash) and reviewer
+# turn-cap/watchdog exhaustion (verdict ``timeout_error``) are INFRASTRUCTURE
+# failures: they say nothing about the scene content, so they must not consume
+# a content attempt nor trigger a full rewrite. They retry IN PLACE — the
+# attempt ordinal stays — with exponential backoff, bounded by
+# OM_INFRA_RETRY_CAP; when the budget is exhausted the failure escalates to
+# consuming a content attempt (loud, bounded, legacy behavior).
+INFRA_RETRY_CAP_ENV = "OM_INFRA_RETRY_CAP"
+INFRA_RETRY_DELAY_ENV = "OM_INFRA_RETRY_DELAY_S"
+INFRA_RETRY_MAX_DELAY_S = 30.0
+
+
+def _infra_retry_cap() -> int:
+    """Infra-retry budget per scene (env-tunable; default 3)."""
+    try:
+        return int(os.environ.get(INFRA_RETRY_CAP_ENV, "3"))
+    except ValueError:
+        return 3
+
+
+def _infra_retry_base_delay() -> float:
+    """Base backoff seconds before the first in-place infra retry (env-tunable)."""
+    try:
+        return float(os.environ.get(INFRA_RETRY_DELAY_ENV, "2.0"))
+    except ValueError:
+        return 2.0
+
+
+def infra_backoff_delay(infra_retries: int) -> float:
+    """Exponential backoff before an in-place infra retry (1st retry: base,
+    then doubling, capped at INFRA_RETRY_MAX_DELAY_S)."""
+    return min(_infra_retry_base_delay() * (2 ** max(0, infra_retries - 1)),
+               INFRA_RETRY_MAX_DELAY_S)
+
+
+def next_attempt_after_infra(
+    attempt_idx: int, infra_retries: int, scene_id: str
+) -> int:
+    """R3 retry policy: infra failures retry the SAME content attempt in place
+    (attempt numbering increments for CONTENT rejections only).
+
+    Returns the attempt ordinal the next loop pass must use: the same
+    ``attempt_idx`` while the infra-retry budget lasts (sleeping the backoff
+    first), or ``attempt_idx + 1`` once OM_INFRA_RETRY_CAP consecutive infra
+    failures have burned the budget (escalation consumes a content attempt so
+    the loop stays bounded).
+    """
+    if infra_retries < _infra_retry_cap():
+        delay = infra_backoff_delay(infra_retries + 1)
+        logger.warning(
+            "Infra failure on %s: in-place retry %d/%d (attempt %d unchanged, sleep %.1fs)",
+            scene_id, infra_retries + 1, _infra_retry_cap(), attempt_idx, delay,
+        )
+        if delay > 0:
+            time.sleep(delay)
+        return attempt_idx
+    logger.warning(
+        "Infra retry budget exhausted on %s after %d failure(s); escalating to a full content attempt",
+        scene_id, infra_retries,
+    )
+    return attempt_idx + 1
+
+
 def execute_scene_with_retries(
     scene_id: str,
     episode_dir: Path,
@@ -1207,7 +1313,16 @@ def execute_scene_with_retries(
     max_retries: int = 1,
     governor: ConcurrencyGovernor | None = None,
 ) -> SceneExecutionRecord:
-    """Execute a single scene with bounded retries and OS-level ownership checks."""
+    """Execute a single scene with bounded retries and OS-level ownership checks.
+
+    R3 (perf/cc-pipeline R1-R5): attempt ordinals count CONTENT attempts only.
+    Infrastructure failures — writer/reviewer transport glitches, reviewer CLI
+    crashes, and reviewer turn-cap/watchdog exhaustion (the wrapper's
+    ``timeout_error`` verdict) — retry IN PLACE with exponential backoff
+    (``next_attempt_after_infra``) and never consume a content attempt nor
+    trigger a full rewrite of the scene, until the OM_INFRA_RETRY_CAP budget
+    is exhausted (then the failure escalates to a bounded content attempt).
+    """
     root = episode_dir.resolve()
     record = SceneExecutionRecord(scene_id=scene_id, status="failed")
 
@@ -1218,7 +1333,14 @@ def execute_scene_with_retries(
     base_template = load_existing_packet_or_template(root, scene_id)
     allowed_io = base_template.get("allowed_io") or ["artifacts", "assets", "packets", "scene"]
 
-    for attempt_idx in range(1, max_retries + 2):
+    # R3: ``attempt_idx`` is the CONTENT attempt ordinal — it increments on
+    # content failures (reviewer rejection, integration rejection, writer
+    # scope/tsc failures) only. Infra failures (transport glitches, reviewer
+    # turn-cap/watchdog ``timeout_error``) retry IN PLACE via
+    # next_attempt_after_infra, bounded by OM_INFRA_RETRY_CAP.
+    attempt_idx = 1
+    infra_retries = 0
+    while attempt_idx <= max_retries + 1:
         attempt = SceneRunAttempt(attempt_number=attempt_idx)
         sandbox_dir: Path | None = None
         try:
@@ -1266,12 +1388,18 @@ def execute_scene_with_retries(
             ):
                 governor.handle_rate_limit_burst()
             if _transport_glitch(writer_res):
-                attempt.error = "Writer transport failure (empty/corrupt output — CC streaming glitch); retrying with a fresh instance"
+                # R3: transport glitch = INFRA failure — retry in place, the
+                # content attempt ordinal is NOT consumed.
+                attempt.error = "Writer transport failure (empty/corrupt output — CC streaming glitch); infra retry in place"
+                attempt.infra = True
                 record.attempts.append(attempt)
+                attempt_idx = next_attempt_after_infra(attempt_idx, infra_retries, scene_id)
+                infra_retries += 1
                 continue
             if writer_res.exit_code != 0:
                 attempt.error = f"Writer failed: {writer_res.stderr or writer_res.error}"
                 record.attempts.append(attempt)
+                attempt_idx += 1  # R3: content failure consumes the attempt
                 continue
 
             # Snapshot canonical directory after writer
@@ -1295,6 +1423,7 @@ def execute_scene_with_retries(
                 )
                 attempt.error = w_err
                 record.attempts.append(attempt)
+                attempt_idx += 1  # R3: content failure consumes the attempt
                 continue
 
             # Identify Writer outputs to freeze
@@ -1357,8 +1486,12 @@ def execute_scene_with_retries(
                     os.chmod(scene_file, 0o644)  # Restore read-write
             attempt.reviewer_result = reviewer_res
             if _transport_glitch(reviewer_res):
-                attempt.error = "Reviewer transport failure (empty/corrupt output — CC streaming glitch); retrying with a fresh instance"
+                # R3: reviewer transport glitch = INFRA failure — in-place retry.
+                attempt.error = "Reviewer transport failure (empty/corrupt output — CC streaming glitch); infra retry in place"
+                attempt.infra = True
                 record.attempts.append(attempt)
+                attempt_idx = next_attempt_after_infra(attempt_idx, infra_retries, scene_id)
+                infra_retries += 1
                 continue
 
             # Snapshot canonical directory after reviewer
@@ -1382,11 +1515,18 @@ def execute_scene_with_retries(
             if not r_valid:
                 attempt.error = r_err
                 record.attempts.append(attempt)
+                attempt_idx += 1  # R3: content failure consumes the attempt
                 continue
 
             if reviewer_res.exit_code != 0:
-                attempt.error = f"Reviewer failed: {reviewer_res.stderr or reviewer_res.error}"
+                # R3: the reviewer wrapper exits 0 whenever it wrote a findings
+                # file — non-zero means the reviewer process itself broke
+                # (spawn/CLI failure) = INFRA, in-place retry.
+                attempt.error = f"Reviewer failed (infra): {reviewer_res.stderr or reviewer_res.error}"
+                attempt.infra = True
                 record.attempts.append(attempt)
+                attempt_idx = next_attempt_after_infra(attempt_idx, infra_retries, scene_id)
+                infra_retries += 1
                 continue
 
             # Ingest reviewer findings from sandbox
@@ -1404,15 +1544,22 @@ def execute_scene_with_retries(
             if not findings_source:
                 attempt.error = f"Reviewer did not produce findings file in sandbox for scene {scene_id}"
                 record.attempts.append(attempt)
+                attempt_idx += 1  # R3: content failure consumes the attempt
                 continue
 
             findings_data = json.loads(findings_source.read_text(encoding="utf-8"))
-            # Task 1.4: watchdog expiry is an infrastructure failure, not a
-            # content rejection — retry this scene on a fresh attempt.
-            if findings_data.get("verdict") == "timeout_error":
+            # Task 1.4 + R3/R5: watchdog expiry AND reviewer turn-cap
+            # exhaustion (the wrapper emits the REVIEW_TIMEOUT_VERDICT contract
+            # string for both) are INFRASTRUCTURE failures, not content
+            # rejections — retry this scene in place without consuming a
+            # content attempt or triggering a full rewrite.
+            if findings_data.get("verdict") == REVIEW_TIMEOUT_VERDICT:
                 logger.warning(f"Reviewer timed out on {scene_id}; infrastructure retry triggered")
-                attempt.error = f"Reviewer timeout_error on {scene_id}; infrastructure retry triggered"
+                attempt.error = f"Reviewer {REVIEW_TIMEOUT_VERDICT} on {scene_id}; infra retry in place"
+                attempt.infra = True
                 record.attempts.append(attempt)
+                attempt_idx = next_attempt_after_infra(attempt_idx, infra_retries, scene_id)
+                infra_retries += 1
                 continue
             if findings_data.get("verdict") != "approved":
                 attempt.error = f"Reviewer rejected scene: verdict={findings_data.get('verdict')}"
@@ -1427,6 +1574,7 @@ def execute_scene_with_retries(
                         f"(canonical path is projects/<slug>/history/cc_findings/, not the episode dir)"
                     )
                 record.attempts.append(attempt)
+                attempt_idx += 1  # R3: content failure consumes the attempt
                 continue
 
             # Verify explicit reviewed_hashes mapping (no synthesis/backfill)
@@ -1434,6 +1582,7 @@ def execute_scene_with_retries(
             if not rev_hashes or not isinstance(rev_hashes, dict):
                 attempt.error = f"Reviewer did not provide reviewed_hashes mapping for scene {scene_id}"
                 record.attempts.append(attempt)
+                attempt_idx += 1  # R3: content failure consumes the attempt
                 continue
 
             findings_reviewed_hashes = dict(rev_hashes)
@@ -1506,6 +1655,7 @@ def execute_scene_with_retries(
             if not integration_result["valid"]:
                 attempt.error = f"Scene integration rejected: {integration_result.get('reasons')}"
                 record.attempts.append(attempt)
+                attempt_idx += 1  # R3: content failure consumes the attempt
                 continue
 
             # Successful attempt!
@@ -1523,10 +1673,105 @@ def execute_scene_with_retries(
         except Exception as e:
             attempt.error = str(e)
             record.attempts.append(attempt)
+            # R3: an unexpected exception is treated as a content-attempt
+            # consumer (never an infra in-place retry) so the while-loop below
+            # stays bounded.
+            attempt_idx += 1
         finally:
             cleanup_sandbox(sandbox_dir)
 
     return record
+
+
+# ==============================================================================
+# R4 (perf/cc-pipeline R1-R5) — pre-validate render inputs BEFORE the gate
+# ==============================================================================
+# The tin-nong r1 failure pattern: the episode gate ran and failed 11 times on
+# missing/trivial inputs that a 2-cent file check would have caught before the
+# render spend. prevalidate_render_inputs is that cheap check: it runs BEFORE
+# validate_episode (and therefore before any DRAFT render built on a passing
+# gate) and fails fast with precise per-input reason codes.
+MIN_RENDER_INPUT_SCENE_BYTES = 200  # parity with the writer wrapper promotion threshold
+
+
+def prevalidate_render_inputs(
+    root: Path, scene_ids: list[str] | None = None
+) -> list[dict[str, str]]:
+    """Cheap pre-gate check that the DRAFT render inputs exist and are non-trivial.
+
+    Per scene: the integrated packet must exist and parse, the scene TSX file
+    must exist at >= MIN_RENDER_INPUT_SCENE_BYTES, and the packet's narration +
+    word-alignment refs must point at present, non-empty files. Returns a list
+    of ``{code, message}`` reasons (empty = inputs are render-ready); codes are
+    prefixed ``pre_render_`` so they never collide with episode_gate codes.
+
+    The scene-file checks apply only to scene-file-based episodes (a scenes dir
+    holding at least one ``.tsx`` — the real CC/Remotion layout). In-process
+    synthetic episodes (packet-hash-only fixtures with an empty ``scene/`` dir)
+    have no scene files by design; inventing a missing-file failure for them
+    would break the packet-hash contract they exercise.
+    """
+    root = Path(root).resolve()
+    reasons: list[dict[str, str]] = []
+    if scene_ids is None:
+        scene_ids = discover_authoritative_scenes(root)
+    scenes_dir = get_scenes_dir(root)
+    scene_based_layout = scenes_dir.is_dir() and any(scenes_dir.glob("*.tsx"))
+    for sid in scene_ids:
+        # 1. Integrated packet present + parses.
+        packet_path = root / f"packet_{sid}.json"
+        if not packet_path.is_file():
+            reasons.append({
+                "code": "pre_render_packet_missing",
+                "message": f"{sid}: integrated packet packet_{sid}.json missing — scene never integrated; render inputs incomplete",
+            })
+            continue
+        try:
+            packet = json.loads(packet_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as e:
+            reasons.append({
+                "code": "pre_render_packet_corrupt",
+                "message": f"{sid}: packet_{sid}.json does not parse: {e}",
+            })
+            continue
+        if not isinstance(packet, dict):
+            reasons.append({
+                "code": "pre_render_packet_corrupt",
+                "message": f"{sid}: packet_{sid}.json is not an object",
+            })
+            continue
+
+        # 2. Scene TSX file present + non-trivial (scene-file layouts only).
+        if scene_based_layout:
+            scene_file = scenes_dir / resolve_scene_filename(scenes_dir, sid)
+            if not scene_file.is_file():
+                reasons.append({
+                    "code": "pre_render_scene_file_missing",
+                    "message": f"{sid}: scene file {scene_file.name} missing under {scenes_dir.name}/ — nothing to render",
+                })
+            elif scene_file.stat().st_size < MIN_RENDER_INPUT_SCENE_BYTES:
+                reasons.append({
+                    "code": "pre_render_scene_file_trivial",
+                    "message": f"{sid}: scene file {scene_file.name} is trivial ({scene_file.stat().st_size}B < {MIN_RENDER_INPUT_SCENE_BYTES}B) — likely a placeholder",
+                })
+
+        # 3. Packet-referenced render inputs present + non-empty (narration,
+        #    word alignment). Missing refs fail loudly here instead of inside
+        #    the gate thrash loop.
+        for key, code in (
+            ("narration", "pre_render_narration_missing"),
+            ("word_alignment", "pre_render_words_missing"),
+        ):
+            ref = packet.get(key, {}).get("ref") if isinstance(packet.get(key), dict) else None
+            if not ref:
+                continue  # packets without the section are the gate's business
+            p = root / ref
+            if not p.is_file() or p.stat().st_size == 0:
+                reasons.append({
+                    "code": code,
+                    "message": f"{sid}: packet {key} ref {ref} missing or empty",
+                })
+    return reasons
 
 
 def orchestrate_episode(
@@ -1673,15 +1918,27 @@ def orchestrate_episode(
 
     all_scenes_passed = all(r.status == "success" for r in scene_records.values())
 
-    # Episode Integration Gate
+    # Episode Integration Gate. R4: pre-validate the DRAFT render inputs
+    # FIRST — a missing/trivial packet, scene file, narration or word-alignment
+    # ref fails fast here with a precise ``pre_render_*`` code instead of
+    # thrashing the full episode gate (the 11-failed-gate pattern). The full
+    # gate only runs when the inputs are render-ready.
     gate_reasons: list[dict[str, str]] = []
-    if all_scenes_passed:
+    pre_render_reasons = prevalidate_render_inputs(root, target_scenes) if all_scenes_passed else []
+    if not all_scenes_passed:
+        gate_valid = False
+        gate_reasons = [{"code": "scene_execution_failed", "message": "one or more scenes failed during dispatch"}]
+    elif pre_render_reasons:
+        gate_valid = False
+        gate_reasons = pre_render_reasons
+        logger.warning(
+            "R4 pre-render input validation failed with %d reason(s); skipping the episode gate: %s",
+            len(pre_render_reasons), [r["code"] for r in pre_render_reasons],
+        )
+    else:
         raw_reasons = validate_episode(root)
         gate_reasons = [{"code": r.get("code", "error"), "message": r.get("message", "")} for r in raw_reasons]
         gate_valid = len(gate_reasons) == 0
-    else:
-        gate_valid = False
-        gate_reasons = [{"code": "scene_execution_failed", "message": "one or more scenes failed during dispatch"}]
 
     overall_status = "pass" if (all_scenes_passed and gate_valid) else "fail"
 
