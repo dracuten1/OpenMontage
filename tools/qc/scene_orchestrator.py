@@ -114,6 +114,12 @@ class WriterContext:
     # Task 1.3: attempt ordinal, surfaced to the writer wrapper as
     # OM_ATTEMPT_INDEX so per-attempt sandbox dirs never collide.
     attempt_number: int = 0
+    # Phase 4A.1: reviewer findings carried from prior rejected attempts so
+    # non-CC runners can consume them too (the CC writer wrapper template
+    # reads the canonical findings file itself, gated on OM_FINDINGS_INJECT).
+    # Populated at the retry-loop construction site in
+    # execute_scene_with_retries for attempts >= 2 only.
+    prior_findings: list[str] | None = None
 
 
 @dataclass
@@ -208,6 +214,119 @@ class OrchestrationSession:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+# ==============================================================================
+# Phase 4A.1 — findings-to-retry injection (canonical findings files)
+# ==============================================================================
+
+# Kill-switch (single if-gate on BOTH sides): default ON (env absent = inject);
+# OM_FINDINGS_INJECT=0 disables the orchestrator-side canonical findings write,
+# the prior_findings population, AND the template reader-side task append.
+FINDINGS_INJECT_ENV = "OM_FINDINGS_INJECT"
+# Canonical findings base dir — RELATIVE TO THE PROJECT ROOT
+# (projects/<slug>/), NOT the episode dir (remotion-composer/src/<slug>/).
+# Writing under the episode dir silently no-ops the whole feature (the
+# minted writer wrapper reader resolves PROJ_ROOT = projects/<slug>/).
+FINDINGS_DIR_REL = "history/cc_findings"
+FINDINGS_FILENAME_FMT = "{scene_id}_latest.md"
+# Hard cap on injected text (plan 4A.1: protect the writer context).
+FINDINGS_MAX_CHARS = 4000
+
+
+def findings_inject_enabled() -> bool:
+    """OM_FINDINGS_INJECT gate — default ON (env absent = inject); =0 disables."""
+    return os.environ.get(FINDINGS_INJECT_ENV, "1") != "0"
+
+
+def resolve_project_root_from_episode(episode_dir: Path) -> Path | None:
+    """Resolve the canonical project root (``projects/<slug>/``) from an
+    episode dir path.
+
+    Real layout: episode ``<repo>/remotion-composer/src/<slug>`` with project
+    ``<repo>/projects/<slug>``. Walk the episode dir's ancestors looking for a
+    ``projects/<slug>`` sibling. Returns ``None`` when no project root exists
+    (callers must skip the findings write — writing under the episode dir is
+    forbidden, it silently no-ops the wrapper reader).
+    """
+    slug = episode_dir.name
+    for ancestor in (episode_dir, *episode_dir.parents):
+        candidate = ancestor / "projects" / slug
+        if candidate.is_dir():
+            return candidate
+    return None
+
+
+def scene_findings_path(project_root: Path, scene_id: str) -> Path:
+    """Canonical findings markdown path: ``<project_root>/history/cc_findings/{scene_id}_latest.md``."""
+    return project_root / FINDINGS_DIR_REL / FINDINGS_FILENAME_FMT.format(scene_id=scene_id)
+
+
+def write_scene_findings_md(
+    project_root: Path | None,
+    scene_id: str,
+    findings_data: dict[str, Any],
+    attempt_number: int,
+) -> Path | None:
+    """Persist a rejection's canonical findings markdown (phase 4A.1 step 1).
+
+    Content: verdict + issues list + attempt number, hard-capped at
+    FINDINGS_MAX_CHARS. Written atomically (temp file + ``os.replace()``).
+    Returns the written path, or ``None`` when there is no resolvable project
+    root (kill-switch off / synthetic test episode without a projects/ layout).
+    """
+    if project_root is None:
+        return None
+    issues = findings_data.get("issues") or []
+    lines = [
+        f"# Reviewer findings — {scene_id} (attempt {attempt_number})",
+        "",
+        f"verdict: {findings_data.get('verdict', 'rejected')}",
+        "",
+        "## issues",
+    ]
+    lines.extend(f"- {issue}" for issue in issues)
+    text = "\n".join(lines)[:FINDINGS_MAX_CHARS]
+    target = scene_findings_path(project_root, scene_id)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = target.with_name(f".{target.name}.tmp")
+    tmp_path.write_text(text, encoding="utf-8")
+    os.replace(tmp_path, target)
+    return target
+
+
+def load_prior_findings(project_root: Path | None, scene_id: str) -> list[str] | None:
+    """Read the canonical findings file for injection into the next attempt.
+
+    Returns ``[findings_text]`` (capped) or ``None`` when absent/disabled.
+    """
+    if project_root is None:
+        return None
+    path = scene_findings_path(project_root, scene_id)
+    if not path.is_file():
+        return None
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError as e:
+        logger.warning(f"Could not read findings file for {scene_id}: {e}")
+        return None
+    return [text[:FINDINGS_MAX_CHARS]] or None
+
+
+def reset_scene_findings(project_root: Path | None, scene_id: str) -> bool:
+    """Delete the scene's canonical findings file (plan 4A.1 step 5: reset on
+    ``approved`` so stale findings never leak into later re-mints)."""
+    if project_root is None:
+        return False
+    path = scene_findings_path(project_root, scene_id)
+    try:
+        if path.is_file():
+            path.unlink()
+            logger.info(f"Reset findings file for approved scene {scene_id}: {path}")
+            return True
+    except OSError as e:
+        logger.warning(f"Could not reset findings file for {scene_id}: {e}")
+    return False
 
 
 # ==============================================================================
@@ -1092,6 +1211,10 @@ def execute_scene_with_retries(
     root = episode_dir.resolve()
     record = SceneExecutionRecord(scene_id=scene_id, status="failed")
 
+    # Phase 4A.1: canonical findings base (projects/<slug>/), resolved once.
+    # Single OM_FINDINGS_INJECT gate — switch off -> no write, no injection.
+    project_root = resolve_project_root_from_episode(root) if findings_inject_enabled() else None
+
     base_template = load_existing_packet_or_template(root, scene_id)
     allowed_io = base_template.get("allowed_io") or ["artifacts", "assets", "packets", "scene"]
 
@@ -1105,6 +1228,13 @@ def execute_scene_with_retries(
             # 2. Fresh Writer Context
             writer_id = f"writer_{scene_id}_{uuid.uuid4().hex[:8]}"
             writer_token = f"wt_{scene_id}_{uuid.uuid4().hex[:12]}"
+            # Phase 4A.1: retry attempts (>= 2) learn from the prior round's
+            # reviewer findings (canonical findings file written on rejection).
+            prior_findings = (
+                load_prior_findings(project_root, scene_id)
+                if (project_root is not None and attempt_idx >= 2)
+                else None
+            )
             writer_ctx = WriterContext(
                 scene_id=scene_id,
                 instance_id=writer_id,
@@ -1115,6 +1245,7 @@ def execute_scene_with_retries(
                 claims=base_template.get("claims", {"facts": [f"{scene_id} claims"]}),
                 neighbor_context=base_template.get("neighbor_context", {}),
                 attempt_number=attempt_idx,
+                prior_findings=prior_findings,
             )
 
             # Snapshot canonical directory before writer
@@ -1285,6 +1416,16 @@ def execute_scene_with_retries(
                 continue
             if findings_data.get("verdict") != "approved":
                 attempt.error = f"Reviewer rejected scene: verdict={findings_data.get('verdict')}"
+                # Phase 4A.1 step 1: persist canonical findings BEFORE the
+                # continue, so the next attempt's writer learns the issues.
+                findings_file = write_scene_findings_md(
+                    project_root, scene_id, findings_data, attempt_idx
+                )
+                if findings_file is None:
+                    logger.warning(
+                        f"No project root resolved for {scene_id}; findings file skipped "
+                        f"(canonical path is projects/<slug>/history/cc_findings/, not the episode dir)"
+                    )
                 record.attempts.append(attempt)
                 continue
 
@@ -1369,6 +1510,9 @@ def execute_scene_with_retries(
 
             # Successful attempt!
             attempt.success = True
+            # Phase 4A.1 step 5: reset the scene's findings file on approval so
+            # stale findings never leak into later attempts / re-mints.
+            reset_scene_findings(project_root, scene_id)
             record.attempts.append(attempt)
             record.status = "success"
             record.final_packet_path = str(target_packet_path)
