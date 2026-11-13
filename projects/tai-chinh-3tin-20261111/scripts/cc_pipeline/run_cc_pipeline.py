@@ -1,40 +1,63 @@
 #!/usr/bin/env python
-"""Launcher: orchestrate tai-chinh-3tin-20261111 with real CC writer/reviewer dispatch.
+"""Launcher: orchestrate tai-chinh-3tin-20261111 with real CC writer/reviewer dispatch —
+MINTED from tools/qc/cc_wrapper_templates (phase 4A.2).
 
+Do not hand-edit: re-mint via ``python -m tools.qc.mint_project_pipeline``.
 Subclasses SubprocessAgentRunner to (a) call the CC wrappers instead of the
 built-in stub, (b) lift the hard-coded 120s subprocess timeout via
 OM_AGENT_TIMEOUT (env, default 900). No repo modification.
 Run from OM repo root: .venv/bin/python <this file>
+
+Phase 4A.2 contract:
+- startup asserts the phase-2 ConcurrencyGovernor is importable — a stale OM
+  checkout fails LOUD instead of silently degrading to unconcurrency.
+- max_concurrency passes through as None when OM_MAX_CONCURRENCY is unset
+  (orchestrate_episode resolves via the credential tier probe). NO hardcoded
+  ceiling anywhere in this file.
+- OM_EPISODE_DIR_OVERRIDE (optional): run against a different episode dir
+  (canary / synthetic-episode verification); default is this project's
+  remotion-composer episode.
+Re-scope note (4C.1, review round 2): per-scene task/packet generation stays
+in per-project mint_director_inputs.py GENERATED artifacts — no shared 4th
+template in 4C scope; this carrier ships wrappers + scene-id selection only.
 """
 from __future__ import annotations
 import os, sys
 from pathlib import Path
 
-# Task 2.4 shim pattern (phase2 review fix 4 companion): resolve the repo root
-# statically instead of the previous hard-coded absolute path, so the launcher
-# dispatches through THIS checkout's tools.qc (worktrees included) and the
-# phase2 governor/probe code is actually the code that runs.
+# Task 2.4 shim pattern: resolve the repo root statically so the launcher
+# dispatches through THIS checkout's tools.qc (worktrees included).
 REPO = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(REPO))
+
+# Phase 4A.2: fail-loud governor import assert — never run against a stale OM
+# checkout where the phase-2 concurrency governor is missing.
+try:
+    from tools.qc.concurrency_governor import ConcurrencyGovernor, parse_env_max_concurrency  # noqa: E402,F401
+except Exception as _governor_import_error:  # pragma: no cover - stale checkout
+    raise ImportError(
+        "FATAL: cannot import tools.qc.concurrency_governor from this OM checkout "
+        f"({_governor_import_error}). The phase-2 ConcurrencyGovernor is REQUIRED "
+        "by this pipeline; re-mint from a current OM checkout instead of running stale."
+    ) from _governor_import_error
+
 from tools.qc.scene_orchestrator import (  # noqa: E402
     SubprocessAgentRunner, WriterContext, ReviewerContext, AgentRunResult,
     orchestrate_episode,
 )
-from tools.qc.concurrency_governor import parse_env_max_concurrency  # noqa: E402
 from datetime import datetime, timezone  # noqa: E402
 import subprocess, time  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
+PROJECT_SLUG = "tai-chinh-3tin-20261111"
 ENV_TIMEOUT = int(os.environ.get("OM_AGENT_TIMEOUT", "900"))
 
 
 def resolve_launcher_concurrency(env=None):
-    """Launcher ceiling (phase2 review fix 4): OM_MAX_CONCURRENCY set -> int;
-    unset/malformed/<1 -> None so orchestrate_episode resolves via the
-    credential tier probe (Anthropic Tier 4+ -> 6, OAuth/unknown -> 4). Plan
-    2.1 step 1. Phase2 tidy fix 1: parse is the governor's shared guarded
-    helper (parse_env_max_concurrency) — a malformed rollback value warns and
-    falls back to the probe/default ceiling instead of crashing the launcher."""
+    """Launcher ceiling (phase2 review fix 4 + phase 4A.2): OM_MAX_CONCURRENCY
+    set -> int; unset/malformed/<1 -> None so orchestrate_episode resolves via
+    the credential tier probe (Anthropic Tier 4+ -> 6, OAuth/unknown -> 4).
+    NO hardcoded default ceiling — the None pass-through is the contract."""
     return parse_env_max_concurrency(env)
 
 
@@ -94,8 +117,39 @@ class CCRunner(SubprocessAgentRunner):
         )
 
 
+def resolve_scene_ids(ep: Path) -> list[str]:
+    """OM_SCENE_LIST set -> dispatch verbatim (operator explicitly targeted
+    those scenes). Unset -> the default full-episode list MINUS scenes whose
+    seals are intact (4C.1 re-round preserve: approved + reviewed_hashes match
+    on disk; OM_REMINT_PRESERVE=0 restores dispatch-everything). Detection is
+    PINNED to this episode dir (episode_dir=ep, mirroring the orchestrator's
+    call) so sibling/other-root packets can never over-subtract. Detection
+    failures degrade LOUD to the full list — never silently dispatch nothing."""
+    raw = os.environ.get("OM_SCENE_LIST", "")
+    if raw.strip():
+        return [s.strip() for s in raw.split(",") if s.strip()]
+    ids = [f"scene-{i}" for i in range(1, 15 + 1)]
+    try:
+        from tools.qc.restore_seals import get_preserved_scenes, preserve_enabled
+        if preserve_enabled():
+            preserved = get_preserved_scenes(REPO / "projects/tai-chinh-3tin-20261111", episode_dir=ep)
+            remaining = [s for s in ids if s not in preserved]
+            if preserved and remaining:
+                print(f"[launcher] re-round preserve: skipping {len(preserved)} "
+                      f"preserved scene(s): {', '.join(sorted(preserved))}")
+                ids = remaining
+            elif preserved:
+                print(f"[launcher] re-round preserve: all {len(ids)} scene(s) already "
+                      "preserved; dispatching the full list anyway")
+    except Exception as _preserve_err:
+        print(f"[launcher] re-round preserve detection unavailable "
+              f"({_preserve_err}); dispatching full default list")
+    return ids
+
+
 def main() -> int:
-    ep = REPO / "remotion-composer/src/tai-chinh-3tin-20261111"
+    ep = Path(os.environ.get("OM_EPISODE_DIR_OVERRIDE")
+              or (REPO / "remotion-composer/src/tai-chinh-3tin-20261111"))
     evidence = REPO / "projects/tai-chinh-3tin-20261111/artifacts/scene_workflow_evidence.json"
     session = orchestrate_episode(
         episode_dir=ep,
@@ -103,8 +157,7 @@ def main() -> int:
         max_retries=int(os.environ.get("OM_MAX_RETRIES", "1")),
         runner=CCRunner(),
         evidence_file=evidence,
-        scene_ids=[s.strip() for s in os.environ.get("OM_SCENE_LIST", "").split(",") if s.strip()]
-                  or [f"scene-{i}" for i in range(1, 15)],
+        scene_ids=resolve_scene_ids(ep),
         strict=False,
     )
     print(f"\nSession {session.session_id} overall={session.overall_status}")
