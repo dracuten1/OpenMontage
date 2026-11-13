@@ -466,6 +466,47 @@ def test_r4_gate_runs_full_gate_when_inputs_render_ready(tmp_path, monkeypatch):
     assert all(not c.startswith("pre_render_") for c in codes)  # no pre-render short-circuit
 
 
+def test_r4_prevalidate_variant_aware_scene_presence(tmp_path):
+    """Legacy 'cut-N'-style ids resolve to canonical S{NN}.tsx files via
+    _scene_file_variants (parity with the OM_LEGACY_QUARANTINE mapping
+    cut-1 -> scenes/S01.tsx): prevalidate must NOT false-positive
+    pre_render_scene_file_missing on a variant-covered id — it falls through
+    to the full gate. An id with NO variant on disk still fails loudly."""
+    ep = make_test_episode(tmp_path, scene_ids=["cut-1", "cut-2"])
+    scenes = ep / "scenes"
+    scenes.mkdir()
+    (scenes / "S01.tsx").write_text("// real scene for cut-1\n" + "x" * 300, encoding="utf-8")
+
+    reasons = prevalidate_render_inputs(ep, ["cut-1", "cut-2"])
+    codes = [r["code"] for r in reasons]
+    assert codes == ["pre_render_scene_file_missing"]  # cut-1 covered via S01.tsx variant
+    assert "cut-2" in reasons[0]["message"]            # only the variant-less id flagged
+
+    (scenes / "S02.tsx").write_text("// real scene for cut-2\n" + "x" * 300, encoding="utf-8")
+    assert prevalidate_render_inputs(ep, ["cut-1", "cut-2"]) == []
+
+
+def test_r4_prevalidate_200b_boundary_parity_with_promotion(tmp_path):
+    """Boundary parity: prevalidate fails at exactly 200B (<=) — the same
+    side as the writer wrapper promotion gate, which requires > 200 — so a
+    200B file can no longer pass one check and fail the other. 201B passes."""
+    ep = make_test_episode(tmp_path, scene_ids=["cut-1"])
+    scenes = ep / "scenes"
+    scenes.mkdir()
+    (scenes / "S01.tsx").write_bytes(b"x" * 200)
+    reasons = prevalidate_render_inputs(ep, ["cut-1"])
+    assert [r["code"] for r in reasons] == ["pre_render_scene_file_trivial"]
+    assert "(200B <= 200B)" in reasons[0]["message"]
+
+    (scenes / "S01.tsx").write_bytes(b"x" * 201)
+    assert prevalidate_render_inputs(ep, ["cut-1"]) == []
+
+    # promotion side of the parity contract: > 200, never >=
+    tmpl = (TEMPLATE_DIR / "writer_wrapper.py.tmpl").read_text(encoding="utf-8")
+    assert "scene_file.stat().st_size > 200" in tmpl
+    assert "scene_file.stat().st_size >= 200" not in tmpl
+
+
 # ==============================================================================
 # R5 — reviewer turn cap + timeout_error contract
 # ==============================================================================

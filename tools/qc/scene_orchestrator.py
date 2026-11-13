@@ -1285,10 +1285,14 @@ def next_attempt_after_infra(
     (attempt numbering increments for CONTENT rejections only).
 
     Returns the attempt ordinal the next loop pass must use: the same
-    ``attempt_idx`` while the infra-retry budget lasts (sleeping the backoff
-    first), or ``attempt_idx + 1`` once OM_INFRA_RETRY_CAP consecutive infra
-    failures have burned the budget (escalation consumes a content attempt so
-    the loop stays bounded).
+    ``attempt_idx`` while the per-scene infra-retry budget lasts (sleeping
+    the backoff first), or ``attempt_idx + 1`` once the OM_INFRA_RETRY_CAP
+    infra failures have burned that budget (escalation consumes a content
+    attempt so the loop stays bounded).
+
+    NOTE: ``infra_retries`` is a CUMULATIVE per-scene budget — it is never
+    reset on a content success, so infra failures across the scene's whole
+    retry lifetime share one cap (test-pinned behavior).
     """
     if infra_retries < _infra_retry_cap():
         delay = infra_backoff_delay(infra_retries + 1)
@@ -1693,6 +1697,26 @@ def execute_scene_with_retries(
 # gate) and fails fast with precise per-input reason codes.
 MIN_RENDER_INPUT_SCENE_BYTES = 200  # parity with the writer wrapper promotion threshold
 
+def _legacy_scene_file_variants(scenes_dir: Path, scene_id: str) -> set[str]:
+    """Episode-relative variants for the OM_LEGACY_QUARANTINE id spelling.
+
+    The legacy escape hatch maps ANY '<prefix>-<N>' id to ``S{NN}.tsx``
+    (``int(scene_id.split('-')[-1]):02d`` — writer_wrapper.py.tmpl
+    ``_legacy_main``), so ``cut-1`` lands on ``scenes/S01.tsx`` even though
+    the shared resolvers' ``(?:scene[-_]?)?`` regex does not cover it. Used
+    ONLY to widen the prevalidate presence check — resolver suffix-split
+    alignment itself is reviewer-deferred, so ``resolve_scene_filename`` /
+    ``_scene_file_variants`` stay untouched.
+    """
+    tail = scene_id.rsplit("-", 1)[-1]
+    if not tail.isdigit():
+        return set()
+    num = int(tail)
+    variants: set[str] = set()
+    for d in {scenes_dir.name, "scene", "scenes"}:
+        variants.add(f"{d}/S{num:02d}.tsx")
+    return variants
+
 
 def prevalidate_render_inputs(
     root: Path, scene_ids: list[str] | None = None
@@ -1700,7 +1724,8 @@ def prevalidate_render_inputs(
     """Cheap pre-gate check that the DRAFT render inputs exist and are non-trivial.
 
     Per scene: the integrated packet must exist and parse, the scene TSX file
-    must exist at >= MIN_RENDER_INPUT_SCENE_BYTES, and the packet's narration +
+    must exist at > MIN_RENDER_INPUT_SCENE_BYTES (parity with the writer
+    wrapper promotion threshold), and the packet's narration +
     word-alignment refs must point at present, non-empty files. Returns a list
     of ``{code, message}`` reasons (empty = inputs are render-ready); codes are
     prefixed ``pre_render_`` so they never collide with episode_gate codes.
@@ -1742,18 +1767,36 @@ def prevalidate_render_inputs(
             continue
 
         # 2. Scene TSX file present + non-trivial (scene-file layouts only).
+        #    Presence is VARIANT-AWARE (_scene_file_variants + the legacy
+        #    OM_LEGACY_QUARANTINE spelling): ids like "cut-1" land on
+        #    "S01.tsx" on disk, so pre_render_scene_file_missing fires only
+        #    when NO variant exists — a variant-covered id falls through to
+        #    the full gate. The trivial-size check is variant-driven too and
+        #    flags only when EVERY present variant is trivial, so a real-size
+        #    variant elsewhere never false-positives.
         if scene_based_layout:
-            scene_file = scenes_dir / resolve_scene_filename(scenes_dir, sid)
-            if not scene_file.is_file():
+            presence_variants = (
+                _scene_file_variants(scenes_dir, sid)
+                | _legacy_scene_file_variants(scenes_dir, sid)
+            )
+            present = [v for v in sorted(presence_variants) if (root / v).is_file()]
+            if not present:
+                scene_file = scenes_dir / resolve_scene_filename(scenes_dir, sid)
                 reasons.append({
                     "code": "pre_render_scene_file_missing",
                     "message": f"{sid}: scene file {scene_file.name} missing under {scenes_dir.name}/ — nothing to render",
                 })
-            elif scene_file.stat().st_size < MIN_RENDER_INPUT_SCENE_BYTES:
-                reasons.append({
-                    "code": "pre_render_scene_file_trivial",
-                    "message": f"{sid}: scene file {scene_file.name} is trivial ({scene_file.stat().st_size}B < {MIN_RENDER_INPUT_SCENE_BYTES}B) — likely a placeholder",
-                })
+            else:
+                # <= parity with the writer wrapper promotion gate (> 200B):
+                # an exactly-{MIN}B file must fail here, not pass prevalidate
+                # and then block at promotion.
+                trivial = [v for v in present if (root / v).stat().st_size <= MIN_RENDER_INPUT_SCENE_BYTES]
+                if len(trivial) == len(present):
+                    first = root / trivial[0]
+                    reasons.append({
+                        "code": "pre_render_scene_file_trivial",
+                        "message": f"{sid}: scene file {first.name} is trivial ({first.stat().st_size}B <= {MIN_RENDER_INPUT_SCENE_BYTES}B) — likely a placeholder",
+                    })
 
         # 3. Packet-referenced render inputs present + non-empty (narration,
         #    word alignment). Missing refs fail loudly here instead of inside
