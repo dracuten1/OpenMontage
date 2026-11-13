@@ -1575,9 +1575,40 @@ def orchestrate_episode(
         else:
             runner = SubprocessAgentRunner()
 
-    # Discover target scenes
+    # Discover target scenes. Phase 4C.1 (re-round preserve): when the caller
+    # did not explicitly target scenes (scene_ids=None, the full-episode
+    # default), scenes whose seals are intact (approved + reviewed_hashes
+    # match on disk) are skipped instead of needlessly re-dispatched —
+    # OM_REMINT_PRESERVE=0 restores legacy dispatch-everything. An explicit
+    # scene_ids list always dispatches verbatim (the operator asked for those
+    # scenes). The subtraction never empties the target set: when every scene
+    # is preserved we warn and dispatch the full list (loud over silent no-op).
     authoritative_scenes = discover_authoritative_scenes(root)
-    target_scenes = [s for s in authoritative_scenes if (scene_ids is None or s in scene_ids)]
+    if scene_ids is None:
+        target_scenes = list(authoritative_scenes)
+        try:
+            from tools.qc.restore_seals import get_preserved_scenes, preserve_enabled
+            if preserve_enabled() and authoritative_scenes:
+                project_root = resolve_project_root_from_episode(root)
+                # episode_dir=root pins discovery to THIS episode's packets —
+                # sibling episodes' packets must never feed the preserve set.
+                preserved = get_preserved_scenes(project_root or root, episode_dir=root)
+                remaining = [s for s in target_scenes if s not in preserved]
+                if preserved and remaining:
+                    target_scenes = remaining
+                    logger.info(
+                        "Re-round preserve: skipping %d preserved scene(s) (approved + hashes match): %s",
+                        len(preserved), ", ".join(sorted(preserved)),
+                    )
+                elif preserved:
+                    logger.warning(
+                        "Re-round preserve: all %d scene(s) are already preserved; "
+                        "dispatching the full list anyway", len(target_scenes),
+                    )
+        except Exception as e:  # never let preserve-detection break dispatch
+            logger.warning("Re-round preserve detection unavailable (%s); dispatching all scenes", e)
+    else:
+        target_scenes = [s for s in authoritative_scenes if s in scene_ids]
 
     config = {
         "max_concurrency": max_concurrency,
@@ -1674,12 +1705,94 @@ def orchestrate_episode(
     return session
 
 
+# Phase 4C.1 — per-round evidence retention
+# ==============================================================================
+
+# Kill-switch: default ON (env absent = per-round stamped evidence + "latest"
+# symlink); OM_EVIDENCE_PER_ROUND=0 restores the legacy single-file overwrite.
+EVIDENCE_PER_ROUND_ENV = "OM_EVIDENCE_PER_ROUND"
+EVIDENCE_BASENAME = "scene_workflow_evidence.json"
+
+
+def evidence_per_round_enabled() -> bool:
+    """OM_EVIDENCE_PER_ROUND gate — default ON; =0 = legacy overwrite."""
+    return os.environ.get(EVIDENCE_PER_ROUND_ENV, "1") != "0"
+
+
+def _prior_evidence_scenes(out_p: Path) -> dict[str, Any]:
+    """Scene execution records from the evidence file currently at ``out_p``
+    (following a ``latest`` symlink if one is in place). Prior rounds' records
+    must survive a re-run: scenes completed in earlier rounds that this round
+    did not target stay recorded instead of being silently dropped."""
+    try:
+        src = out_p
+        if out_p.is_symlink():
+            target = Path(os.readlink(out_p))
+            src = target if target.is_absolute() else (out_p.parent / target)
+        if not src.is_file():
+            return {}
+        prior = json.loads(src.read_text(encoding="utf-8"))
+        scenes = prior.get("scenes") if isinstance(prior, dict) else None
+        return dict(scenes) if isinstance(scenes, dict) else {}
+    except Exception:
+        return {}
+
+
+def _point_latest_symlink_at(latest_p: Path, stamped_p: Path) -> None:
+    """Atomically point ``latest_p`` (relative symlink) at ``stamped_p``.
+    Falls back to a plain copy (via tmp + os.replace) when symlinks fail."""
+    rel_target = os.path.relpath(stamped_p, latest_p.parent)
+    tmp_link = latest_p.parent / f".{latest_p.name}.tmp_link"
+    tmp_copy: str | None = None
+    try:
+        if tmp_link.is_symlink() or tmp_link.exists():
+            tmp_link.unlink()
+        os.symlink(rel_target, tmp_link)
+        os.replace(tmp_link, latest_p)
+    except OSError:
+        # Symlink creation failed (unsupported FS, etc.): copy via a temp file
+        # + atomic replace. NEVER copyfile straight onto ``latest_p`` — when
+        # it is an existing symlink, copyfile writes THROUGH the link and
+        # clobbers the prior round's stamped payload (execution-proven D-1).
+        try:
+            if tmp_link.is_symlink() or tmp_link.exists():
+                tmp_link.unlink()
+        except OSError:
+            pass
+        try:
+            fd, tmp_copy = tempfile.mkstemp(
+                dir=str(latest_p.parent), prefix=f".{latest_p.name}.", suffix=".tmp")
+            with os.fdopen(fd, "wb") as dst, open(stamped_p, "rb") as src:
+                dst.write(src.read())
+            os.replace(tmp_copy, latest_p)
+        except Exception:
+            try:
+                if tmp_copy and (Path(tmp_copy).is_symlink() or Path(tmp_copy).exists()):
+                    os.unlink(tmp_copy)
+            except Exception:
+                pass
+            raise
+
+
 def _persist_session_evidence(
     session: OrchestrationSession,
     episode_dir: Path,
     evidence_file: Path | str | None = None,
 ):
-    """Persist session evidence to artifacts directory."""
+    """Persist session evidence to artifacts directory.
+
+    Phase 4C.1 (evidence retention): each round writes a session-stamped
+    evidence file ``scene_workflow_evidence_<session_id>.json`` so a later
+    round can never overwrite (and lose) a previous round's records; the
+    unsuffixed ``scene_workflow_evidence.json`` stays as the latest pointer
+    for existing consumers (relative symlink, atomically replaced; plain copy
+    when symlinks fail). ``OM_EVIDENCE_PER_ROUND=0`` restores the legacy
+    direct overwrite of the unsuffixed file.
+
+    Either way, scene records already present in the existing evidence file
+    for scenes this round did not target are carried forward into the written
+    payload (prior-round completions are never silently dropped).
+    """
     if evidence_file:
         out_p = Path(evidence_file)
         if not out_p.is_absolute():
@@ -1687,10 +1800,24 @@ def _persist_session_evidence(
     else:
         artifacts_dir = episode_dir / "artifacts"
         artifacts_dir.mkdir(parents=True, exist_ok=True)
-        out_p = artifacts_dir / "scene_workflow_evidence.json"
+        out_p = artifacts_dir / EVIDENCE_BASENAME
 
     out_p.parent.mkdir(parents=True, exist_ok=True)
-    out_p.write_text(json.dumps(session.to_dict(), indent=2), encoding="utf-8")
+
+    payload = session.to_dict()
+    prior_scenes = _prior_evidence_scenes(out_p)
+    for sid, rec in prior_scenes.items():
+        if sid not in payload["scenes"]:
+            payload["scenes"][sid] = rec
+
+    if evidence_per_round_enabled():
+        stamped_p = out_p.with_name(f"{out_p.stem}_{session.session_id}{out_p.suffix}")
+        stamped_p.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        _point_latest_symlink_at(out_p, stamped_p)
+    else:
+        if out_p.is_symlink():
+            out_p.unlink()  # break the latest link; write a fresh regular file
+        out_p.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
 # ==============================================================================

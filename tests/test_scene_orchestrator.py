@@ -16,6 +16,7 @@ Covers:
 import copy
 import hashlib
 import json
+import os
 import threading
 import time
 from pathlib import Path
@@ -594,3 +595,104 @@ def test_reviewer_missing_reviewed_hashes_rejected(tmp_path):
     assert rec.status == "failed"
     assert any("Reviewer did not provide reviewed_hashes mapping" in (att.error or "") for att in rec.attempts)
 
+
+
+# ==============================================================================
+# Phase 4C.1 — session-evidence retention shape (stamped + latest symlink)
+# ==============================================================================
+
+def _run_orchestration_round(episode, scene_ids=None):
+    return orchestrate_episode(
+        episode, max_concurrency=1, max_retries=0,
+        runner=CallableAgentRunner(), scene_ids=scene_ids,
+    )
+
+
+def _evidence_paths(episode):
+    art = episode / "artifacts"
+    latest = art / "scene_workflow_evidence.json"
+    return art, latest, sorted(art.glob("scene_workflow_evidence_session-*.json"))
+
+
+def test_evidence_stamped_file_created_and_latest_is_relative_symlink(tmp_path, monkeypatch):
+    """4C.1: each round persists to scene_workflow_evidence_<session_id>.json;
+    the unsuffixed name is a RELATIVE symlink resolving to the stamped file."""
+    monkeypatch.delenv("OM_EVIDENCE_PER_ROUND", raising=False)
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1"])
+    session = _run_orchestration_round(episode)
+    art, latest, stamped = _evidence_paths(episode)
+    assert len(stamped) == 1
+    assert stamped[0].name == f"scene_workflow_evidence_{session.session_id}.json"
+    assert latest.is_symlink()
+    target = os.readlink(latest)
+    assert not os.path.isabs(target)  # relative, not absolute
+    resolved = (latest.parent / target).resolve()
+    assert resolved == stamped[0].resolve()
+    data = json.loads(latest.read_text(encoding="utf-8"))
+    assert data["session_id"] == session.session_id
+
+
+def test_evidence_next_round_does_not_clobber_prior_stamped_payload(tmp_path, monkeypatch):
+    """D-1/W5 regression: round N+1 (symlink path AND copy-fallback path) must
+    leave round N's stamped payload byte-identical."""
+    monkeypatch.delenv("OM_EVIDENCE_PER_ROUND", raising=False)
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1", "cut-2"])
+    r1 = _run_orchestration_round(episode)
+    art, latest, stamped = _evidence_paths(episode)
+    f1 = art / f"scene_workflow_evidence_{r1.session_id}.json"
+    payload1 = f1.read_bytes()
+
+    r2 = _run_orchestration_round(episode, scene_ids=["cut-2"])
+    assert f1.read_bytes() == payload1  # prior round's stamped payload intact
+    assert os.readlink(latest) == f"scene_workflow_evidence_{r2.session_id}.json"
+
+    # copy-fallback path (os.symlink unavailable): same invariant holds
+    real_symlink = os.symlink
+
+    def no_symlinks(src, dst, *a, **k):
+        raise OSError("symlinks unavailable (forced)")
+
+    monkeypatch.setattr(os, "symlink", no_symlinks)
+    r3 = _run_orchestration_round(episode, scene_ids=["cut-1"])
+    monkeypatch.undo()
+    f3 = art / f"scene_workflow_evidence_{r3.session_id}.json"
+    assert f1.read_bytes() == payload1  # copy fallback must not write through the link
+    assert latest.is_file() and not latest.is_symlink()
+    assert json.loads(latest.read_text(encoding="utf-8"))["session_id"] == r3.session_id
+    assert set(json.loads(f3.read_text(encoding="utf-8"))["scenes"]) == {"cut-1", "cut-2"}
+
+
+def test_evidence_per_round_zero_legacy_path(tmp_path, monkeypatch):
+    """OM_EVIDENCE_PER_ROUND=0: legacy single-file overwrite — regular file,
+    no stamped siblings, symlink from a prior round broken not written-through."""
+    monkeypatch.setenv("OM_EVIDENCE_PER_ROUND", "0")
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1"])
+    session = _run_orchestration_round(episode)
+    art, latest, stamped = _evidence_paths(episode)
+    assert stamped == []
+    assert latest.is_file() and not latest.is_symlink()
+    assert json.loads(latest.read_text(encoding="utf-8"))["session_id"] == session.session_id
+
+
+def test_re_round_preserve_skips_intact_scenes(tmp_path, monkeypatch):
+    """4C.1 re-round preserve (W2): with scene_ids=None, scenes whose packets
+    are approved + hash-matched are NOT re-dispatched; OM_REMINT_PRESERVE=0
+    restores dispatch-everything."""
+    monkeypatch.delenv("OM_REMINT_PRESERVE", raising=False)
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1", "cut-2"])
+    project = tmp_path / "projects" / episode.name
+    project.mkdir(parents=True)  # sibling layout the project-root resolver walks
+
+    # scene-1's seal stays intact; scene-2's verdict is wiped (needs a round)
+    pkt2 = json.loads((episode / "packet_cut-2.json").read_text(encoding="utf-8"))
+    pkt2["reviewer"]["verdict"] = "pending"
+    pkt2["reviewer"]["reviewed_hashes"] = {}
+    (episode / "packet_cut-2.json").write_text(json.dumps(pkt2, indent=2), encoding="utf-8")
+
+    session = _run_orchestration_round(episode)  # scene_ids=None -> preserve applies
+    assert list(session.scenes) == ["cut-2"]
+    assert session.config["targeted_scenes"] == ["cut-2"]
+
+    monkeypatch.setenv("OM_REMINT_PRESERVE", "0")
+    session = _run_orchestration_round(episode)
+    assert list(session.scenes) == ["cut-1", "cut-2"]

@@ -17,6 +17,9 @@ Phase 4A.2 contract:
 - OM_EPISODE_DIR_OVERRIDE (optional): run against a different episode dir
   (canary / synthetic-episode verification); default is this project's
   remotion-composer episode.
+Re-scope note (4C.1, review round 2): per-scene task/packet generation stays
+in per-project mint_director_inputs.py GENERATED artifacts — no shared 4th
+template in 4C scope; this carrier ships wrappers + scene-id selection only.
 """
 from __future__ import annotations
 import os, sys
@@ -114,6 +117,36 @@ class CCRunner(SubprocessAgentRunner):
         )
 
 
+def resolve_scene_ids(ep: Path) -> list[str]:
+    """OM_SCENE_LIST set -> dispatch verbatim (operator explicitly targeted
+    those scenes). Unset -> the default full-episode list MINUS scenes whose
+    seals are intact (4C.1 re-round preserve: approved + reviewed_hashes match
+    on disk; OM_REMINT_PRESERVE=0 restores dispatch-everything). Detection is
+    PINNED to this episode dir (episode_dir=ep, mirroring the orchestrator's
+    call) so sibling/other-root packets can never over-subtract. Detection
+    failures degrade LOUD to the full list — never silently dispatch nothing."""
+    raw = os.environ.get("OM_SCENE_LIST", "")
+    if raw.strip():
+        return [s.strip() for s in raw.split(",") if s.strip()]
+    ids = [f"scene-{i}" for i in range(1, {{DEFAULT_SCENE_COUNT}} + 1)]
+    try:
+        from tools.qc.restore_seals import get_preserved_scenes, preserve_enabled
+        if preserve_enabled():
+            preserved = get_preserved_scenes(REPO / "projects/{{PROJECT_SLUG}}", episode_dir=ep)
+            remaining = [s for s in ids if s not in preserved]
+            if preserved and remaining:
+                print(f"[launcher] re-round preserve: skipping {len(preserved)} "
+                      f"preserved scene(s): {', '.join(sorted(preserved))}")
+                ids = remaining
+            elif preserved:
+                print(f"[launcher] re-round preserve: all {len(ids)} scene(s) already "
+                      "preserved; dispatching the full list anyway")
+    except Exception as _preserve_err:
+        print(f"[launcher] re-round preserve detection unavailable "
+              f"({_preserve_err}); dispatching full default list")
+    return ids
+
+
 def main() -> int:
     ep = Path(os.environ.get("OM_EPISODE_DIR_OVERRIDE")
               or (REPO / "remotion-composer/src/{{PROJECT_SLUG}}"))
@@ -124,8 +157,7 @@ def main() -> int:
         max_retries=int(os.environ.get("OM_MAX_RETRIES", "1")),
         runner=CCRunner(),
         evidence_file=evidence,
-        scene_ids=[s.strip() for s in os.environ.get("OM_SCENE_LIST", "").split(",") if s.strip()]
-                  or [f"scene-{i}" for i in range(1, {{DEFAULT_SCENE_COUNT}} + 1)],
+        scene_ids=resolve_scene_ids(ep),
         strict=False,
     )
     print(f"\nSession {session.session_id} overall={session.overall_status}")

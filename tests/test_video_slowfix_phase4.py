@@ -387,12 +387,16 @@ def test_mint_renders_wrappers_and_manifest(tmp_path, capsys):
 
 
 def test_mint_purges_cc_findings(tmp_path):
+    """Legacy purge path (4C.1): --force restores the 4A.1 purge-everything
+    behavior — stale findings go even for scenes whose packets are preserved.
+    The default (preserve-mode) behavior is covered by
+    tests/test_restore_seals.py::test_mint_preserve_mode_keeps_preserved_findings."""
     ep, project = build_project_layout(tmp_path)
     stale = project / "history" / "cc_findings" / "scene-1_latest.md"
     stale.parent.mkdir(parents=True, exist_ok=True)
     stale.write_text("STALE FINDINGS FROM A PRIOR ROUND", encoding="utf-8")
     from tools.qc.mint_project_pipeline import main as mint_main
-    assert mint_main(["--project-dir", str(project), "--scenes", "3"]) == 0
+    assert mint_main(["--project-dir", str(project), "--scenes", "3", "--force"]) == 0
     assert not stale.exists()
     assert (project / "history" / "cc_findings").is_dir()
 
