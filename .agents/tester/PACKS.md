@@ -147,3 +147,18 @@ Gate CLI: `.venv/bin/python tools/qc/editorial_language_gate.py --project projec
 | ts_typecheck_pack | regression | `cd remotion-composer && npx tsc --noEmit` | 2026-11-10 | PASS — exit 0, 0 type errors |
 | ts_vitest_pack | regression | `cd remotion-composer && npx vitest run` | 2026-11-10 | PASS — exit 0, 6 files / 47 tests |
 | fence_media_artifact_acceptance | acceptance | fence stability (status count + md5 at pass start vs end; only gitignored qc writes + this RESULTS doc may differ), no media path added/modified/deleted, no new render artifacts, lane isolation (animation / kids / character-animation untouched, no non-editorial importer of the new components) | 2026-11-10 | RUNNING |
+
+## 2026-11-13 — perf R1-R5 CC video pipeline verification (branch perf/cc-pipeline-r1-r5 @ b5e29b1, base fafd481)
+
+Ad-hoc inline packs (definitions + full evidence in RESULTS/2026-11-13-perf-r1-r5-cc-pipeline-verification.md).
+Wrapper: perl-alarm 300 (no timeout/gtimeout on host). Interpreter: main-repo .venv python (worktree has no .venv).
+
+| Pack | Type | Scope | Last Run | Status |
+|------|------|-------|----------|--------|
+| perf_r1_r5_new_suites | verification | test_perf_r1_r5.py (22) + test_perf_r1_governor.py (13): R1 ceilings 4/6 + env rollback, R2 brief-at-attempt-1, R3 infra/content classification + bounded backoff, R4 variant-aware presence + 200B/201B parity, R5 turn cap 45 + timeout_error | 2026-11-13 | PASS 35/35, 1.31s |
+| scene_orchestrator_regression | regression | test_scene_orchestrator.py (21) — in-range orchestrator changes | 2026-11-13 | PASS 21/21, 2.56s |
+| phase4c_intactness | contract | test_video_slowfix_phase4.py (25) + test_restore_seals.py (33) — MUST-PASS behavior contract (evidence retention + preserved-set subtraction) | 2026-11-13 | PASS 58/58, 5.21s — intact YES |
+| gate_packet_prevalidation | regression | test_episode_gate.py (12) + test_episode_gate_provenance.py (9) + test_scene_packet.py (15) — R4 prevalidation false-positive check | 2026-11-13 | PASS 36/36, 1.38s |
+| wrapper_spot_check | static | canary-phase4 + tai-chinh-3tin cc_pipeline: import binding (REVIEWER_STYLE_BRIEF writer-side by design), timeout_error verdict wiring via REVIEW_TIMEOUT_VERDICT, template parity (byte-identical renders + manifest hash reproduction 932bc7ed…), cross-project identity; no wrapper-local tests exist | 2026-11-13 | PASS 5/5 — correctly re-minted |
+| full_suite_regression | regression | pytest tests/ (2398 collected) | 2026-11-13 | FAIL 2371P/8F/17S/3XF, 109.83s — 7/8 attributed outside diff (3 pre-existing-at-base compose 'source' KeyError; 1 env-ffmpeg vs fake fixture; 2 env-worktree untracked main-repo files; 1 documented pre-existing); 1 IN-RANGE TEST-GAP: test_video_slowfix_phase1.py::test_orchestrator_timeout_error_exhausts_retries pins pre-R3 semantics vs deliberate R3 contract (see LESSONS/2026-11-13-r3-infra-retry-contract-vs-stale-phase1-test.md). Verdict NOT-READY pending stale-test reconciliation. |
+| phase1_retry_contract_recheck | verification | pytest tests/test_video_slowfix_phase1.py -q at a7c4480 (reconciled test-only commit +15/−2, verified via git show --stat) | 2026-11-13 | PASS 25/25, 3.87s — reconciled test green, zero new failures. **Final merge verdict: READY** (addendum in RESULTS report) |

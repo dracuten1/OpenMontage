@@ -1,9 +1,12 @@
 # Tester — OpenMontage
-Current engagement (2026-11-13): Phase 4C restore-seals verification of uncommitted diff on
-`latest` (restore_seals.py CLI + _persist_session_evidence shape + claim counts + failure
-attribution) — see RESULTS/2026-11-13-phase4c-restore-seals-verification.md (verdict PASS w/
-1 ambiguous count claim + 1 NEW-IN-DIFF edge-case defect; read-only; prior engagements:
-2026-11-08 Phase F / P1.4, 2026-10-08 timing-relock-hardening).
+Current engagement (2026-11-13): perf R1-R5 CC video pipeline verification on worktree
+`OpenMontage-wt-perf-r1-r5` (branch perf/cc-pipeline-r1-r5, fafd481..a7c4480 after reconciliation)
+— see RESULTS/2026-11-13-perf-r1-r5-cc-pipeline-verification.md (FINAL verdict READY: sole in-range
+red (stale phase1 retry-contract test) reconciled by a7c4480, recheck 25/25; 7 other failures
+attributed pre-existing/environmental; Phase 4C intactness held;
+LESSONS/2026-11-13-r3-infra-retry-contract-vs-stale-phase1-test.md).
+Prior engagements: 2026-11-13 Phase 4C restore-seals, 2026-11-10 editorial-language-gate,
+2026-11-08 Phase F / P1.4 / P1.3, 2026-10-08 timing-relock-hardening.
 
 ## Project
 OpenMontage: Remotion-based animated explainer production pipeline.
