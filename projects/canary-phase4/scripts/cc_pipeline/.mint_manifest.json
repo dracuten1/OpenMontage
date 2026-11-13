@@ -1,0 +1,18 @@
+{
+  "minted_at": "2026-11-13T06:01:19.073441+00:00",
+  "om_commit": "b97348ad5b934c4a9edeea39ea139791b34619b7",
+  "template_content_hash": "ba842aa37e84cdee537dd025d4e4dfc9137b772f1a956305a3dfcfe5784f84a8",
+  "templates": {
+    "reviewer_wrapper.py.tmpl": "579d95649234126a66b44816d87bb33d7bbeab221e78d33c4fa2e4df6cf36a8a",
+    "run_cc_pipeline.py.tmpl": "44ac98d6ada36b53d34f53377f22a74bd0b8112b0b566cf41376b23ca084a710",
+    "writer_wrapper.py.tmpl": "947e2d1ae431c821a0aca8e4768ebcd0f457d40338e92bb8c52bacca28465b27"
+  },
+  "rendered": {
+    "writer_wrapper.py": "947e2d1ae431c821a0aca8e4768ebcd0f457d40338e92bb8c52bacca28465b27",
+    "reviewer_wrapper.py": "579d95649234126a66b44816d87bb33d7bbeab221e78d33c4fa2e4df6cf36a8a",
+    "run_cc_pipeline.py": "a451014be20815157c78f81a0e008215c45fc3038dfcc8ca6e0151552220b62f"
+  },
+  "project": "canary-phase4",
+  "scene_count": 3,
+  "strict": true
+}

@@ -680,12 +680,21 @@ def test_writer_wrapper_history_log_preserves_attempts(tmp_path, monkeypatch):
         "om_writer_wrapper_fix3", CC_PIPELINE / "writer_wrapper.py"
     )
     mod = importlib.util.module_from_spec(spec)
+    # Hermetic PROJ_ROOT (see phase1 promotion test): task-file + history-log
+    # lookups must not depend on untracked tai-chinh runtime state.
+    proj = tmp_path / "proj"
+    (proj / "history" / "scene_tasks").mkdir(parents=True)
+    (proj / "history" / "scene_tasks" / "scene-1.task.md").write_text(
+        "# TASK writer scene-1\n", encoding="utf-8"
+    )
     monkeypatch.setenv("OM_SCENE_ID", "scene-1")
     monkeypatch.setenv("OM_EPISODE_DIR", str(ep))
     monkeypatch.setenv("OM_ATTEMPT_INDEX", "1")
     monkeypatch.delenv("OM_LEGACY_QUARANTINE", raising=False)
     monkeypatch.setattr(cg, "_TIER_CACHE", "oauth")  # no network probe in test
     spec.loader.exec_module(mod)
+    # patch AFTER exec_module: the module-level PROJ_ROOT assignment runs during load
+    monkeypatch.setattr(mod, "PROJ_ROOT", proj)
 
     sandbox_file = ep / ".tmp_sandboxes" / "scene-1_1" / "scene-1.tsx"
 
