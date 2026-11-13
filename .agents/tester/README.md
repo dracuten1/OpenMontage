@@ -1,7 +1,9 @@
 # Tester — OpenMontage
-Current engagement (2026-10-08): timing-relock-hardening branch acceptance — see
-RESULTS/2026-10-08-timing-relock-hardening.md (report-only; mission gate verified against
-real project artifacts on /tmp copies).
+Current engagement (2026-11-13): Phase 4C restore-seals verification of uncommitted diff on
+`latest` (restore_seals.py CLI + _persist_session_evidence shape + claim counts + failure
+attribution) — see RESULTS/2026-11-13-phase4c-restore-seals-verification.md (verdict PASS w/
+1 ambiguous count claim + 1 NEW-IN-DIFF edge-case defect; read-only; prior engagements:
+2026-11-08 Phase F / P1.4, 2026-10-08 timing-relock-hardening).
 
 ## Project
 OpenMontage: Remotion-based animated explainer production pipeline.
