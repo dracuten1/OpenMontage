@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import shutil
@@ -54,51 +55,123 @@ def probe_duration(path, ffprobe=None):
         raise InputError(f"ffprobe timed out for {path}") from e
     out = (p.stdout or "").strip()
     try:
-        return float(out.splitlines()[-1])
+        seconds = float(out.splitlines()[-1])
     except (IndexError, ValueError):
         raise InputError(f"ffprobe duration unavailable for {path}: {p.stderr[-300:]}")
+    # Mirror of the timing-side CRITICAL: nan/inf defeat every comparison
+    # (bgm_seconds < duration is False for nan) and 0/negative BGM would
+    # silently PASS — fail-closed instead.
+    if not math.isfinite(seconds) or seconds <= 0:
+        raise InputError(f"ffprobe duration non-finite or non-positive for "
+                         f"{path}: {seconds}")
+    return seconds
 
 
 def episode_duration(timing):
     """Episode duration in seconds from parsed scene_timing.json."""
     if not isinstance(timing, dict):
         raise InputError("invalid scene_timing.json: expected JSON object")
+
+    def _checked(value, label):
+        # Fail-closed: JSON NaN/Infinity parse through parse_constant into
+        # float('nan')/inf, and NaN defeats every comparison (nan <= 0 is
+        # False), which would silently PASS the gate. Reject explicitly.
+        try:
+            f = float(value)
+        except (TypeError, ValueError) as e:
+            raise InputError(f"invalid {label}: {e}") from e
+        if not math.isfinite(f):
+            raise InputError(f"invalid {label}: non-finite value {value!r}")
+        return f
+
     total = timing.get("total_seconds")
     if total is not None:
-        try:
-            return float(total)
-        except (TypeError, ValueError) as e:
-            raise InputError(f"invalid total_seconds: {e}") from e
-    frames = timing.get("total_frames", timing.get("video_total_frames"))
-    fps = timing.get("fps", 30)
-    try:
-        frames, fps = float(frames), float(fps)
-    except (TypeError, ValueError) as e:
-        raise InputError("scene_timing.json has neither usable total_seconds "
-                         f"nor total_frames/fps: {e}") from e
+        duration = _checked(total, "total_seconds")
+        if duration <= 0:
+            raise InputError(
+                f"invalid total_seconds: must be positive, got {duration}")
+        return duration
+    frames = _checked(timing.get("total_frames",
+                                 timing.get("video_total_frames")),
+                      "total_frames")
+    fps = _checked(timing.get("fps", 30), "fps")
     if fps <= 0:
         raise InputError(f"invalid fps: {fps}")
-    return round(frames / fps, 3)
+    duration = round(frames / fps, 3)
+    if not math.isfinite(duration) or duration <= 0:
+        raise InputError(f"invalid episode duration: frames={frames} fps={fps}")
+    return duration
 
 
 _AUDIO_RE = re.compile(r"<Audio\b(.*?)/>", re.DOTALL)
 
 
-_LOOP_FALSE_RE = re.compile(r"loop\s*=\s*\{\s*false\s*\}", re.IGNORECASE)
+# Truthy-loop falsy forms: explicit loop={false} / loop={0} / null / undefined
+# is a fail-closed NOT-looped, never a false PASS (F4 + review major #2).
+_LOOP_FALSE_RE = re.compile(
+    r"loop\s*=\s*\{\s*(?:false|0|null|undefined)\s*\}", re.IGNORECASE)
+
+
+_SRC_ATTR_RE = re.compile(r"(?<![\w.$-])src\s*=\s*")
+
+# Standalone `loop` token only: no path segments (…/loop/…), no stems
+# (theme-loop.mp3), no `data-loop-*` / `loopCount` identifiers.
+_LOOP_PROP_RE = re.compile(r"(?<![\w.$-])loop(?![\w.$-])")
+
+_QUOTED_RE = re.compile(r"\"(?:[^\"\\]|\\.)*\"|'(?:[^'\\]|\\.)*'")
+
+
+def _split_src(block):
+    """Split an <Audio> block into (props_text, src_text), removing the src
+    attribute value from props_text.
+
+    The JSX `loop` prop must never be scanned for inside src content —
+    src={staticFile(`${BASE}/loop/bgm.mp3`)} or src="theme-loop.mp3" flipped
+    loop_declared to True without any loop prop (review major #2). `{...}`
+    values are consumed with brace counting so nested `${BASE}` template
+    braces don't cut the value short.
+    """
+    m = _SRC_ATTR_RE.search(block)
+    if not m:
+        return block, ""
+    i = m.end()
+    opener = block[i] if i < len(block) else ""
+    if opener in "\"'":
+        end = block.find(opener, i + 1)
+        end = len(block) if end == -1 else end + 1
+        return block[:m.start()] + " " + block[end:], block[i:end]
+    if opener == "{":
+        depth = 0
+        for j in range(i, len(block)):
+            if block[j] == "{":
+                depth += 1
+            elif block[j] == "}":
+                depth -= 1
+                if depth == 0:
+                    return block[:m.start()] + " " + block[j + 1:], block[i:j + 1]
+        return block[:m.start()] + " " + block[i:], block[i:]
+    return block[:m.start()] + " " + block[i:], ""
 
 
 def loop_declared(comp_text, bgm_hint):
-    """True if any <Audio .../> element referencing bgm_hint carries the `loop` prop.
+    """True if any <Audio .../> element referencing bgm_hint carries a truthy
+    `loop` prop.
 
-    Explicit `loop={false}` counts as NOT looped (fail-closed direction).
+    Explicit `loop={false}` / `loop={0}` counts as NOT looped (fail-closed
+    direction). The src attribute value is stripped before prop scanning, so a
+    path like /loop/bgm.mp3 is never mistaken for the loop prop.
     """
     for m in _AUDIO_RE.finditer(comp_text):
         block = m.group(1)
         if bgm_hint not in block:
             continue
-        if _LOOP_FALSE_RE.search(block):
+        props_text, _src = _split_src(block)
+        # Remaining quoted literals (other string props) can't hide a loop
+        # token either; comments/strings stay out of the prop scan.
+        props_text = _QUOTED_RE.sub(" ", props_text)
+        if _LOOP_FALSE_RE.search(props_text):
             continue
-        if re.search(r"\bloop\b", block):
+        if _LOOP_PROP_RE.search(props_text):
             return True
     return False
 
@@ -113,13 +186,13 @@ def gate(timing_path, bgm_path, comp_path, *, probe=None):
     try:
         timing = json.loads(Path(timing_path).read_text(encoding="utf-8"),
                             parse_constant=lambda x: float(x))
-    except (OSError, json.JSONDecodeError) as e:
+    except (OSError, json.JSONDecodeError, UnicodeDecodeError) as e:
         raise InputError(f"unreadable scene_timing.json: {e}") from e
     duration = episode_duration(timing)
     bgm_seconds = (probe or probe_duration)(bgm_path)
     try:
         comp_text = Path(comp_path).read_text(encoding="utf-8")
-    except OSError as e:
+    except (OSError, UnicodeDecodeError) as e:
         raise InputError(f"unreadable composition: {e}") from e
     hint = Path(bgm_path).name
     looped = loop_declared(comp_text, hint)

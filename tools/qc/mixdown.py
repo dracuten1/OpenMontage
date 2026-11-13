@@ -12,8 +12,10 @@ mix_base.wav / bgm_loop.wav / mix_bgm.wav are deleted from the work dir; mix
 master (mix_master.wav) is kept by default because the QC validator's manifest
 'mix' key points at it (--no-keep-master removes it too). Cleanup failure is a
 warning, never an abort of a successful render. Trap-guarded via try/finally
-so failed runs clean up too.
-Kill-switch: OM_AUDIO_CLEANUP=0 disables all deletion.
+so failed runs clean up too; SIGTERM/SIGHUP are converted to SystemExit so
+even a killed process unwinds through the teardown.
+Kill-switch: OM_AUDIO_CLEANUP=0 disables all deletion — including a
+--sweep --delete run, which is downgraded to a dry-run.
 
 Sweep (one-time stray cleanup): --sweep scans projects' renders dirs for
 stray intermediates and REPORTS bytes reclaimed without deleting anything
@@ -28,6 +30,7 @@ import json
 import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 from pathlib import Path
@@ -57,6 +60,26 @@ class MixdownError(RuntimeError):
 
 class InputError(MixdownError):
     pass
+
+
+def install_signal_teardown_handlers():
+    """Convert SIGTERM/SIGHUP into SystemExit so the try/finally teardown runs
+    (review major #4). Python's default disposition for these signals kills
+    the process without unwinding, leaking the ~intermediates in _master_work
+    (the ~96 MiB/run leak class). Only the main thread may install handlers;
+    library/embedded callers skip silently.
+    """
+    def _raise_system_exit(signum, _frame):
+        raise SystemExit(128 + signum)
+
+    for name in ("SIGTERM", "SIGHUP"):
+        sig = getattr(signal, name, None)
+        if sig is None:
+            continue
+        try:
+            signal.signal(sig, _raise_system_exit)
+        except (ValueError, OSError):
+            pass  # not the main thread, or signal unsupported — skip quietly
 
 
 def run_ffmpeg(args, timeout=600):
@@ -142,7 +165,11 @@ def retain_qc_stems(work, qc_dir):
     qc_dir = Path(qc_dir)
     qc_dir.mkdir(parents=True, exist_ok=True)
     for src_name, dst_name in QC_STEM_COPIES:
-        shutil.copy2(work / src_name, qc_dir / dst_name)
+        try:
+            shutil.copy2(work / src_name, qc_dir / dst_name)
+        except OSError as e:
+            raise MixdownError(f"QC stem copy failed for {src_name} -> "
+                               f"{qc_dir / dst_name}: {e}") from e
     return [dst for _, dst in QC_STEM_COPIES]
 
 
@@ -175,16 +202,40 @@ def sweep(projects_root, *, delete=False, include_master=False):
     performs the removal (fail-open: per-file errors are reported, never fatal).
     KEEP_FOR_QC masters (mix_master.wav) are excluded unless include_master=True
     — retained QC inputs must not be swept by default (F2).
+
+    Honors the OM_AUDIO_CLEANUP=0 kill-switch (review major #6): the switch
+    disables ALL deletion, so a --delete request is downgraded to a dry-run and
+    reported in `problems` + the `cleanup_killswitch` report key.
+
+    Symlink containment (review major #5): every match is resolved and checked
+    to stay inside the projects root before it is reported or deleted —
+    rglob can traverse directory symlinks, and a resolved match outside the
+    root is skipped (a symlinked file pointing outside must never be unlinked).
     """
     root = Path(projects_root)
     if not root.is_dir():
         raise InputError(f"projects root not found: {root}")
+    blocked_by_killswitch = delete and \
+        str(os.environ.get(CLEANUP_ENV, "1")).strip() == "0"
+    if blocked_by_killswitch:
+        delete = False
+    root_resolved = root.resolve()
     names = INTERMEDIATES if include_master else \
         tuple(n for n in INTERMEDIATES if n not in KEEP_FOR_QC)
     files, problems = [], []
+    if blocked_by_killswitch:
+        problems.append(f"delete blocked: {CLEANUP_ENV}=0 disables all "
+                        "deletion — sweep downgraded to dry-run")
     for renders in sorted(root.glob("*/renders")):
         for name in names:
             for path in sorted(renders.rglob(name)):
+                try:
+                    resolved = path.resolve()
+                    resolved.relative_to(root_resolved)
+                except (OSError, ValueError) as e:
+                    problems.append(f"skipped (outside projects root): "
+                                    f"{path}: {e}")
+                    continue
                 try:
                     size = path.stat().st_size
                 except OSError as e:
@@ -205,7 +256,7 @@ def sweep(projects_root, *, delete=False, include_master=False):
         deleted_bytes = sum(e["bytes"] for e in files if e.get("deleted"))
     else:
         deleted_bytes = 0
-    return {
+    report = {
         "mode": "delete" if delete else "dry-run",
         "include_master": include_master,
         "strays": len(files),
@@ -214,6 +265,9 @@ def sweep(projects_root, *, delete=False, include_master=False):
         "files": files,
         "problems": problems,
     }
+    if blocked_by_killswitch:
+        report["cleanup_killswitch"] = True
+    return report
 
 
 # --- orchestration -----------------------------------------------------------
@@ -238,7 +292,7 @@ def mixdown(project, draft, final, out, *, bgm=None, work_dir=None,
     try:
         timing = json.loads(timing_path.read_text(encoding="utf-8"),
                             parse_constant=lambda x: float(x))
-    except (OSError, json.JSONDecodeError) as e:
+    except (OSError, json.JSONDecodeError, UnicodeDecodeError) as e:
         raise InputError(f"unreadable scene_timing.json ({timing_path}): {e}") from e
     duration = episode_duration(timing)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -296,6 +350,17 @@ def main(argv=None):
     ap.add_argument("--include-master", action="store_true",
                     help="with --sweep: also report/delete retained QC masters (mix_master.wav) — off by default")
     args = ap.parse_args(argv)
+
+    # Review major #4: SIGTERM/SIGHUP must unwind through the try/finally
+    # teardown (converted to SystemExit), not kill the process mid-mixdown.
+    install_signal_teardown_handlers()
+
+    if args.no_keep_master:
+        # Review minor #7: the QC validator manifest 'mix' key points at
+        # mix_master.wav (KEEP_FOR_QC) — deleting it breaks QC on this render.
+        print("WARNING: --no-keep-master deletes mix_master.wav; the QC "
+              "manifest 'mix' key requires it (mix_validator.py) — QC of "
+              "this render will not find its master audio.", file=sys.stderr)
 
     if args.sweep:
         report = sweep(args.projects_root, delete=args.delete,
