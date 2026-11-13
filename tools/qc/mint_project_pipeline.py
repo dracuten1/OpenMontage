@@ -30,6 +30,7 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -81,8 +82,29 @@ def strict_mode_enabled() -> bool:
     return os.environ.get(STRICT_ENV, "1") != "0"
 
 
+def _assert_purge_safe(project_dir: Path) -> None:
+    """Reviewer guard (phase-4A fix): mint's purge DELETES files, so refuse to
+    run it against a target outside this checkout. The OS temp dir is allowed
+    because the hermetic pytest pack legitimately mints into ``tmp_path``
+    scratch trees (throwaway by definition). Anything else outside the repo
+    root (e.g. ``--project-dir ~/some-episode``) is refused BEFORE any
+    deletion — a mistyped path can never purge a user's ``history/cc_findings``.
+    """
+    resolved = project_dir.resolve()
+    if resolved.is_relative_to(REPO_ROOT.resolve()):
+        return
+    if resolved.is_relative_to(Path(tempfile.gettempdir()).resolve()):
+        return
+    raise RuntimeError(
+        f"REFUSING findings purge: {resolved} is outside repo root "
+        f"{REPO_ROOT.resolve()} and outside the OS temp dir — mint only "
+        "purges history/cc_findings inside its own checkout"
+    )
+
+
 def purge_findings(project_dir: Path) -> int:
     """4A.1 step 2: mint owns the findings purge (deterministic chokepoint)."""
+    _assert_purge_safe(project_dir)
     findings_dir = project_dir / FINDINGS_PURGE_DIR
     count = 0
     if findings_dir.is_dir():

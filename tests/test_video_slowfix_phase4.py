@@ -397,6 +397,24 @@ def test_mint_purges_cc_findings(tmp_path):
     assert (project / "history" / "cc_findings").is_dir()
 
 
+def test_mint_purge_refuses_outside_repo_root_and_temp(tmp_path):
+    """Reviewer guard: the findings purge DELETES files — a target outside the
+    repo root AND outside the OS temp dir must be refused BEFORE any deletion
+    (a mistyped --project-dir can never purge a user's history/cc_findings).
+    tmp_path (hermetic pytest pack) stays allowed via the temp-dir carve-out —
+    test_mint_purges_cc_findings above proves that path keeps working."""
+    from tools.qc.mint_project_pipeline import purge_findings
+    outside = Path.home() / ".cache" / "om-mint-purge-guard-must-not-exist"
+    assert not outside.exists()  # guard must raise before touching the fs
+    with pytest.raises(RuntimeError, match="REFUSING findings purge"):
+        purge_findings(outside)
+    assert not outside.exists()  # nothing created, nothing deleted
+    # repo-internal targets pass the guard (no exception)
+    inside = REPO_ROOT / "projects"
+    purge_findings(inside / "_guard_nonexistent_project")  # guard ok; purge no-ops + mkdir
+    shutil.rmtree(inside / "_guard_nonexistent_project", ignore_errors=True)
+
+
 def test_mint_strict_fails_on_hand_written(tmp_path):
     ep, project = build_project_layout(tmp_path)
     wrapper = project / "scripts" / "cc_pipeline" / "writer_wrapper.py"
@@ -459,49 +477,166 @@ def _load_module(path: Path):
 
 
 # ==============================================================================
-# 4A.3 — pre-flight (phase-3 task 3.2 pull-forward)
+# 4A.3 — pre-flight (phase-3 task 3.2 pull-forward, REV-2: OM-real layout)
 # ==============================================================================
 
 VALID_SCENE = (
     'import React from "react";\n'
-    'import { SceneShell } from "remotion-composer/src/common/SceneShell";\n'
+    'import { SceneShell } from "./lib/SceneShell";\n'
     'import { Sequence } from "remotion";\n'
+    'import { COLORS, FONTS } from "./theme";\n'
     'export default () => <SceneShell />;\n'
 )
 INVALID_SCENE = 'import { BadShell } from "wrong/path";\nexport default () => <div />;\n'
 
 
-def test_validate_imports_and_theme_verbatim_semantics(tmp_path):
+def test_validate_imports_and_theme_flexible_real_layouts(tmp_path):
+    """4A.3 rev-2: the pre-flight accepts every REAL per-episode specifier
+    (./lib/SceneShell, ../lib/SceneShell, ./common[/SceneShell], ./SceneShell,
+    @alias/SceneShell) plus the bare-remotion fallback; the phantom
+    ``remotion-composer/src/common`` specifier no longer exists as a
+    requirement; theme import/usage is reported WARN-only, never fatal."""
     ep, project = build_project_layout(tmp_path)
     from tools.qc.mint_project_pipeline import main as mint_main
     assert mint_main(["--project-dir", str(project)]) == 0
     mod = _load_module(project / "scripts" / "cc_pipeline" / "writer_wrapper.py")
+
+    # real per-episode specifiers all pass
+    for spec in ("./lib/SceneShell", "../lib/SceneShell", "./common/SceneShell",
+                 "./common", "./SceneShell", "@episode/lib/SceneShell"):
+        src = f'import {{ SceneShell }} from "{spec}";\n'
+        ok, msg = mod.validate_imports_and_theme(src)
+        assert ok is True, spec
+        assert msg.startswith("OK"), (spec, msg)
+
+    # bare remotion fallback passes (scene built on raw remotion primitives)
+    ok, msg = mod.validate_imports_and_theme(
+        "import { AbsoluteFill, Sequence } from 'remotion';\n"
+        "export default () => <AbsoluteFill />;\n")
+    assert ok is True and msg.startswith("OK")
+
+    # theme import OR usage -> exact OK; absence -> OK but warn-only marker
     ok, msg = mod.validate_imports_and_theme(VALID_SCENE)
     assert ok is True and msg == "OK"
+    ok, msg = mod.validate_imports_and_theme(
+        'import { SceneShell } from "./lib/SceneShell";\nexport default () => <SceneShell />;\n')
+    assert ok is True and "warn-only" in msg
+    ok, msg = mod.validate_imports_and_theme(
+        'import { SceneShell } from "./lib/SceneShell";\nconst c = COLORS.primary;\n')
+    assert ok is True and msg == "OK"  # usage counts as theme usage
+
+    # missing everything still hard-fails, with the rev-2 message
     ok, msg = mod.validate_imports_and_theme(INVALID_SCENE)
     assert ok is False
-    assert msg == "Missing mandatory import: remotion-composer/src/common/SceneShell"
+    assert msg == "Missing mandatory import: SceneShell ('./lib/SceneShell' style) or 'remotion'"
+
+    # the phantom specifier alone is NOT a pass (unresolvable in OM)
+    ok, _ = mod.validate_imports_and_theme(
+        'import { SceneShell } from "remotion-composer/src/common/SceneShell";\n')
+    assert ok is False
 
 
 def test_writer_template_preseeds_scene_shell_header():
+    """4A.3 rev-2 template contract: default pre-seed header uses the dominant
+    REAL episode pattern, and the phantom ``remotion-composer/src/common``
+    specifier appears NOWHERE in the writer template."""
     tmpl = (TEMPLATE_DIR / "writer_wrapper.py.tmpl").read_text(encoding="utf-8")
-    # phase3-plan task 3.2 header carried verbatim
-    assert "import { SceneShell } from 'remotion-composer/src/common/SceneShell';" in tmpl
-    assert "import { THEME_KEYS } from 'remotion-composer/src/common/theme';" in tmpl
-    assert 'import { AbsoluteFill, Sequence, useCurrentFrame } from \'remotion\';' in tmpl
+    assert "import { SceneShell } from './lib/SceneShell';" in tmpl
+    assert "import { COLORS, FONTS } from './theme';" in tmpl
+    assert "import { AbsoluteFill, Sequence, useCurrentFrame } from 'remotion';" in tmpl
+    # the phantom specifier must never appear in CODE (an import or a required-
+    # import constant); docstring explanations of the rev-2 audit are fine.
+    assert "from 'remotion-composer/src/common" not in tmpl
+    assert 'from "remotion-composer/src/common' not in tmpl
+    assert "remotion-composer/src/common/SceneShell\"" not in tmpl
+    assert "REQUIRED_SCENE_IMPORTS" not in tmpl
+    # rev-2 machinery present
+    assert "_detect_episode_shell_layout" in tmpl
+    assert "_scene_shell_header" in tmpl
+    assert "_preflight_gate" in tmpl
+    assert "_tsc_lines_for_scene" in tmpl
 
 
-def test_writer_wrapper_preflight_rejects_before_tsc(tmp_path, stub_claude, monkeypatch):
-    """Sandbox output missing a mandatory import -> wrapper exits 1, nothing
-    promoted, and the 240s npx tsc spend is never reached (composer lookup
-    impossible in this layout would also skip tsc — so additionally assert the
-    PRE-FLIGHT FAIL marker on stdout, which only the pre-flight prints)."""
-    ep, project = build_project_layout(tmp_path, scene_ids=["scene-1"])
+def test_detect_episode_shell_layout_real_variants(tmp_path):
+    """_detect_episode_shell_layout mirrors the REAL OM episode layouts:
+    scenes/lib (tai-chinh style), episode lib (tin-nong style), episode-root
+    SceneShell.tsx (chinh-phu legacy), and None when no module exists."""
+    ep, project = build_project_layout(tmp_path)
+    from tools.qc.mint_project_pipeline import main as mint_main
+    assert mint_main(["--project-dir", str(project)]) == 0
+    mod = _load_module(project / "scripts" / "cc_pipeline" / "writer_wrapper.py")
+
+    # layout A: scenes/lib/SceneShell.tsx + scenes/theme.ts -> ./lib + ./theme
+    epA = tmp_path / "epA"
+    (epA / "scenes/lib").mkdir(parents=True)
+    (epA / "scenes/lib/SceneShell.tsx").write_text("export const SceneShell = 1;\n")
+    (epA / "scenes/theme.ts").write_text("export const COLORS = {};\n")
+    assert mod._detect_episode_shell_layout(epA) == ("./lib/SceneShell", "./theme")
+
+    # layout B: episode lib/ + theme.ts with a scenes/ dir -> ../lib + ../theme
+    epB = tmp_path / "epB"
+    (epB / "lib").mkdir(parents=True)
+    (epB / "lib/SceneShell.tsx").write_text("export const SceneShell = 1;\n")
+    (epB / "theme.ts").write_text("export const COLORS = {};\n")
+    (epB / "scenes").mkdir()
+    assert mod._detect_episode_shell_layout(epB) == ("../lib/SceneShell", "../theme")
+
+    # layout C: SceneShell.tsx at episode root, no theme module anywhere
+    epC = tmp_path / "epC"
+    epC.mkdir()
+    (epC / "scenes").mkdir()
+    (epC / "SceneShell.tsx").write_text("export const SceneShell = 1;\n")
+    assert mod._detect_episode_shell_layout(epC) == ("../SceneShell", None)
+
+    # layout D (default OM synthetic/test episodes): no module -> None,
+    # and the pre-seed header falls back to the default real-pattern header.
+    assert mod._detect_episode_shell_layout(tmp_path / "epD-missing") is None
+    header = mod._scene_shell_header(tmp_path / "epD-missing")
+    assert header == mod.SCENE_SHELL_IMPORT_HEADER
+    assert "'./lib/SceneShell'" in header and "'./theme'" in header
+
+    # detected layout drives the header specifiers
+    assert "'./lib/SceneShell'" in mod._scene_shell_header(epA)
+    assert "'../lib/SceneShell'" in mod._scene_shell_header(epB)
+    assert "'../SceneShell'" in mod._scene_shell_header(epC)
+    assert "theme" not in mod._scene_shell_header(epC).split("remotion';")[1]
+
+
+def test_tsc_own_scene_lines_match_resolved_filename(tmp_path):
+    """Reviewer fix: own-scene tsc lines match the RESOLVED scene filename
+    (``S01.tsx`` for ``scene-1``) — not the raw scene_id substring — and
+    never cross-attribute siblings (``scene-11.tsx``, ``S12.tsx``) or plain
+    summary text."""
+    ep, project = build_project_layout(tmp_path)
+    from tools.qc.mint_project_pipeline import main as mint_main
+    assert mint_main(["--project-dir", str(project)]) == 0
+    mod = _load_module(project / "scripts" / "cc_pipeline" / "writer_wrapper.py")
+    lines = [
+        "src/scenes/S01.tsx(12,5): error TS2322: Type 'x' is not assignable.",
+        "src/scenes/S12.tsx(3,1): error TS2304: Cannot find name 'y'.",
+        "src/scenes/scene-11.tsx(1,1): error TS2304: z.",
+        "Found 3 errors in 3 files.",
+    ]
+    own = mod._tsc_lines_for_scene(lines, ["S01.tsx", "scene-1.tsx"])
+    assert own == [lines[0]]
+    own11 = mod._tsc_lines_for_scene(lines, ["S11.tsx", "scene-11.tsx"])
+    assert own11 == [lines[2]]
+    # literal scene_id spelling still matched (scene-1.tsx emitted directly)
+    own_lit = mod._tsc_lines_for_scene(
+        ["scenes/scene-1.tsx(2,1): error TS2304"], ["S01.tsx", "scene-1.tsx"])
+    assert len(own_lit) == 1
+    # windows-style path separators normalize
+    assert mod._tsc_lines_for_scene(
+        ["src\\scenes\\S01.tsx(9,2): error"], ["S01.tsx", "scene-1.tsx"])
+
+
+def _run_writer_wrapper(tmp_path, ep, project, monkeypatch, stub_claude, mode):
+    """Mint + run the minted writer wrapper directly against the stub claude."""
     from tools.qc.mint_project_pipeline import main as mint_main
     monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
     assert mint_main(["--project-dir", str(project)]) == 0
     monkeypatch.setenv("OM_STUB_PROJECT_ROOT", str(project))
-    monkeypatch.setenv("OM_STUB_MODE", "noimports")
+    monkeypatch.setenv("OM_STUB_MODE", mode)
     monkeypatch.setenv("OM_SCENE_ID", "scene-1")
     monkeypatch.setenv("OM_EPISODE_DIR", str(ep))
     monkeypatch.setenv("OM_ATTEMPT_INDEX", "1")
@@ -510,16 +645,43 @@ def test_writer_wrapper_preflight_rejects_before_tsc(tmp_path, stub_claude, monk
     env["PATH"] = f"{stub_claude}:{env.get('PATH', '')}"
     env["PYTHONPATH"] = str(REPO_ROOT)  # tmp-minted wrapper resolves this checkout's tools.qc
     wrapper = project / "scripts" / "cc_pipeline" / "writer_wrapper.py"
-    proc = subprocess.run([sys.executable, str(wrapper)], capture_output=True,
+    return subprocess.run([sys.executable, str(wrapper)], capture_output=True,
                           text=True, env=env, cwd=REPO_ROOT, timeout=60)
+
+
+def test_writer_wrapper_preflight_rejects_before_tsc(tmp_path, stub_claude, monkeypatch):
+    """Sandbox output missing a mandatory import -> wrapper exits 1, nothing
+    promoted, and the 240s npx tsc spend is never reached — WHEN the episode
+    carries a real SceneShell module so the pre-flight can anchor (rev-2:
+    unknown layout warn-and-allows instead; see the next test)."""
+    ep, project = build_project_layout(tmp_path, scene_ids=["scene-1"])
+    # anchor the pre-flight: give the episode the real scenes/lib layout
+    (ep / "scenes/lib").mkdir(parents=True, exist_ok=True)
+    (ep / "scenes/lib/SceneShell.tsx").write_text("export const SceneShell = 1;\n", encoding="utf-8")
+    proc = _run_writer_wrapper(tmp_path, ep, project, monkeypatch, stub_claude, "noimports")
     assert proc.returncode == 1
     assert "PRE-FLIGHT FAIL" in proc.stdout
     assert "Missing mandatory import" in proc.stdout
-    assert not (ep / "scenes" / "scene-1.tsx").exists()  # nothing promoted
-    assert not (ep / "scenes" / "S01.tsx").exists() or (
-        ep / "scenes" / "S01.tsx").read_text(encoding="utf-8").startswith("// placeholder"
-    )  # placeholder untouched (nothing staged/promoted)
     assert not (ep / "scenes" / ".tmp_scene-1.tsx").exists()  # nothing staged
+    assert (ep / "scenes" / "S01.tsx").read_text(encoding="utf-8").startswith(
+        "// placeholder")  # placeholder untouched (nothing promoted)
+
+
+def test_writer_wrapper_preflight_warn_allows_unknown_layout(tmp_path, stub_claude, monkeypatch):
+    """4A.3 rev-2 warn-and-allow: episode carries NO SceneShell module on disk
+    (unknown layout) -> the pre-flight NEVER hard-fails; output is promoted
+    and the 240s tsc spend stays the real gate. Same 'noimports' output that
+    the anchored test above rejects."""
+    ep, project = build_project_layout(tmp_path, scene_ids=["scene-1"])
+    proc = _run_writer_wrapper(tmp_path, ep, project, monkeypatch, stub_claude, "noimports")
+    assert proc.returncode == 0
+    assert "PRE-FLIGHT WARN" in proc.stdout
+    assert "layout unknown" in proc.stdout
+    assert "PRE-FLIGHT FAIL" not in proc.stdout
+    promoted = ep / "scenes" / "S01.tsx"
+    assert promoted.is_file()
+    assert "no shell here" in promoted.read_text(encoding="utf-8")
+    assert not (ep / "scenes" / ".tmp_scene-1.tsx").exists()  # promoted, not left staged
 
 
 # ==============================================================================

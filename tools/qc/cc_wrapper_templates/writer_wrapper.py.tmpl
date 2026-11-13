@@ -15,10 +15,13 @@ Carries the landed Phase-1/2 semantics plus Phase-4A additions:
   Default permission mode + explicit ``--allowedTools`` scoping only.
 - 4A.1: prior reviewer findings appended to the writer task, gated on
   ``OM_FINDINGS_INJECT`` (default ON; ``=0`` disables both sides).
-- 4A.3 (phase-3 task 3.2 pull-forward): SceneShell pre-seed header prepended
-  to the task + ``validate_imports_and_theme`` fast pre-check on the sandbox
-  output BEFORE the 240s ``npx tsc --noEmit`` spend — a missing mandatory
-  import rejects the output immediately.
+- 4A.3 (phase-3 task 3.2 pull-forward, REV-2): per-episode SceneShell/theme
+  layout detected on disk -> pre-seed header uses the REAL specifiers
+  (``./lib/SceneShell`` style; ``remotion-composer/src/common/`` does not
+  exist in OM) + ``_preflight_gate`` fast pre-check on the sandbox output
+  BEFORE the 240s ``npx tsc --noEmit`` spend. Warn-and-allow when no
+  SceneShell module exists under the episode (unknown layout never
+  hard-fails the pre-flight; tsc remains the real gate).
 
 Env: OM_SCENE_ID, OM_EPISODE_DIR, OM_ATTEMPT_INDEX (optional, default "0").
 Kill-switch: OM_LEGACY_QUARANTINE=1 restores the legacy pre-phase1 behavior
@@ -26,7 +29,7 @@ Kill-switch: OM_LEGACY_QUARANTINE=1 restores the legacy pre-phase1 behavior
 sandbox, no promotion) — with the same scoped, accept-edits-free CLI.
 """
 from __future__ import annotations
-import os, shutil, subprocess, sys, threading, time
+import os, re, shutil, subprocess, sys, threading, time
 from pathlib import Path
 
 # Task 2.4: single source of truth — static repo-root resolution
@@ -87,31 +90,137 @@ def _prior_findings_block(scene_id: str, attempt_idx: str) -> str | None:
 
 
 # --- Phase 4A.3: SceneShell pre-seed header + import pre-flight --------------
-# Ported verbatim from phase3-plan task 3.2 (single owner: this template's
-# pre-flight; prompts/scene_generation_prompt.py does not exist in OM).
+# Ported from phase3-plan task 3.2, then REV-2 (2026-11-13 OM audit): episodes
+# carry a PER-EPISODE SceneShell/theme — ``scenes/lib/SceneShell.tsx`` (imported
+# from scenes as ``./lib/SceneShell``) or ``<episode>/lib/SceneShell.tsx``
+# (imported as ``../lib/SceneShell``) plus a sibling ``theme.ts``
+# (COLORS/FONTS/SAFE). ``remotion-composer/src/common/`` does NOT exist
+# anywhere in OM, so the original phase-3 specifiers were unresolvable and the
+# literal-substring pre-flight false-failed valid real-episode scenes while
+# false-passing output that merely pasted the phantom header. Rev-2 rules:
+#   - the pre-seed header uses the specifier DETECTED on disk for this episode
+#     (default: the dominant ``./lib/SceneShell`` + ``./theme`` pattern);
+#   - the pre-flight passes on a ``SceneShell``-symbol import from any real
+#     per-episode specifier (``./lib/SceneShell``, ``../lib/SceneShell``,
+#     ``./common[/SceneShell]``, ``./SceneShell``, ``@alias/SceneShell``) OR a
+#     bare ``remotion`` import;
+#   - when no SceneShell module exists under the episode on disk, the layout
+#     cannot be anchored -> WARN + ALLOW (the 240s ``npx tsc --noEmit``
+#     self-check remains the real gate), never a hard pre-flight exit;
+#   - theme import/usage is WARN-only (S01-style scenes legitimately skip it).
 SCENE_SHELL_IMPORT_HEADER = """import React from 'react';
 import { AbsoluteFill, Sequence, useCurrentFrame } from 'remotion';
-import { SceneShell } from 'remotion-composer/src/common/SceneShell';
-import { THEME_KEYS } from 'remotion-composer/src/common/theme';
+import { SceneShell } from './lib/SceneShell';
+import { COLORS, FONTS } from './theme';
 """
 
-REQUIRED_SCENE_IMPORTS = [
-    "remotion-composer/src/common/SceneShell",
-    "remotion",
-]
+# Accepted SceneShell import specifiers (real per-episode layouts).
+_SCENE_SHELL_IMPORT_RE = re.compile(
+    r"import\s[^;]*?\bSceneShell\b[^;]*?from\s*['\"]"
+    r"(?:\.{1,2}/(?:lib|common)(?:/SceneShell)?|\.{0,2}/SceneShell|@[^'\"]+/SceneShell)"
+    r"['\"]"
+)
+
+# Bare remotion fallback: a scene built on raw remotion primitives
+# (AbsoluteFill/Sequence/...) without the episode shell is still valid output.
+_BARE_REMOTION_IMPORT_RE = re.compile(r"from\s*['\"]remotion['\"]")
+
+# Theme: module import (./theme, ../theme, @alias/theme) or canonical usage.
+_THEME_IMPORT_RE = re.compile(r"from\s*['\"](?:\.{1,2}/theme|@[^'\"]+/theme)['\"]")
+_THEME_USAGE_RE = re.compile(r"\b(?:COLORS|FONTS|SAFE|THEME_KEYS|useTheme)\b")
+
+
+def _detect_episode_shell_layout(episode: Path) -> tuple[str, str | None] | None:
+    """Probe the episode tree for the SceneShell/theme modules ACTUALLY on disk.
+
+    Returns ``(shell_specifier, theme_specifier)`` as import specifiers
+    relative to the scenes dir (``get_scenes_dir`` semantics: ``scenes/`` or
+    ``scene/`` — the dir the writer's output lands in), or ``None`` when no
+    SceneShell module exists under the episode (layout unknown -> pre-flight
+    must warn-and-allow).
+    """
+    scenes_dir = get_scenes_dir(episode)
+    for base in (scenes_dir / "lib", episode / "lib",
+                 scenes_dir / "common", episode / "common",
+                 scenes_dir, episode):
+        if not (base / "SceneShell.tsx").is_file():
+            continue
+        rel = os.path.relpath(base, scenes_dir).replace(os.sep, "/")
+        shell_spec = "./SceneShell" if rel == "." else f"{rel}/SceneShell"
+        if not shell_spec.startswith("."):
+            shell_spec = f"./{shell_spec}"
+        theme_base = base
+        if not (theme_base / "theme.ts").is_file():
+            theme_base = base.parent
+        theme_spec = None
+        if (theme_base / "theme.ts").is_file():
+            rel_t = os.path.relpath(theme_base, scenes_dir).replace(os.sep, "/")
+            theme_spec = "./theme" if rel_t == "." else f"{rel_t}/theme"
+            if not theme_spec.startswith("."):
+                theme_spec = f"./{theme_spec}"
+        return shell_spec, theme_spec
+    return None
+
+
+def _scene_shell_header(episode: Path) -> str:
+    """Pre-seed header using the episode's DETECTED on-disk specifiers
+    (falls back to the default ``./lib/SceneShell`` + ``./theme`` header when
+    the episode carries no SceneShell module — warn-and-allow parity)."""
+    layout = _detect_episode_shell_layout(episode)
+    if layout is None:
+        return SCENE_SHELL_IMPORT_HEADER
+    shell_spec, theme_spec = layout
+    lines = [
+        "import React from 'react';",
+        "import { AbsoluteFill, Sequence, useCurrentFrame } from 'remotion';",
+        f"import {{ SceneShell }} from '{shell_spec}';",
+    ]
+    if theme_spec:
+        lines.append(f"import {{ COLORS, FONTS }} from '{theme_spec}';")
+    return "\n".join(lines) + "\n"
 
 
 def validate_imports_and_theme(scene_tsx_content: str) -> tuple[bool, str]:
-    """Fast AST/regex pre-check (phase-3 task 3.2, verbatim logic).
+    """Fast import pre-check (4A.3 rev-2: OM-real-layout aware).
 
-    Returns ``(ok, message)`` — ``(False, "Missing mandatory import: ...")``
-    when a required import substring is absent from the scene source.
+    Passes when the scene imports the ``SceneShell`` symbol from a real
+    per-episode specifier OR carries a bare ``remotion`` import. Theme
+    import/usage is reported but WARN-only (never fails the pre-flight).
+    Returns ``(ok, message)``.
     """
-    required_imports = list(REQUIRED_SCENE_IMPORTS)
-    for req in required_imports:
-        if req not in scene_tsx_content:
-            return False, f"Missing mandatory import: {req}"
-    return True, "OK"
+    shell_ok = bool(_SCENE_SHELL_IMPORT_RE.search(scene_tsx_content))
+    remotion_ok = bool(_BARE_REMOTION_IMPORT_RE.search(scene_tsx_content))
+    if not (shell_ok or remotion_ok):
+        return False, (
+            "Missing mandatory import: SceneShell ('./lib/SceneShell' style) or 'remotion'"
+        )
+    if _THEME_IMPORT_RE.search(scene_tsx_content) or _THEME_USAGE_RE.search(scene_tsx_content):
+        return True, "OK"
+    return True, "OK (theme import/usage absent — warn-only)"
+
+
+def _preflight_gate(episode: Path, scene_src: str, scene_id: str) -> bool:
+    """4A.3 rev-2 pre-flight dispatch (warn-and-allow on unknown layout).
+
+    - No SceneShell module on disk under the episode: layout cannot be
+      anchored -> WARN + ALLOW (True). The 240s tsc self-check remains the
+      real gate; a phantom-specifier hard exit here only false-fails valid
+      real-episode scenes.
+    - Layout detected: hard-fail ONLY on a missing SceneShell/remotion
+      import; theme absence is WARN-only.
+    """
+    layout = _detect_episode_shell_layout(episode)
+    ok, msg = validate_imports_and_theme(scene_src)
+    if layout is None:
+        print(f"writer {scene_id}: PRE-FLIGHT WARN: no SceneShell module under episode "
+              f"(layout unknown) — check skipped, allowing: {msg}")
+        return True
+    if not ok:
+        print(f"writer {scene_id}: PRE-FLIGHT FAIL: {msg}")
+        return False
+    if msg != "OK":
+        print(f"writer {scene_id}: PRE-FLIGHT WARN: {msg}")
+    return True
 
 
 # --- R6: scoped writer CLI — never the accept-edits permission mode ---------
@@ -136,16 +245,44 @@ def _spawn_claude(cmd: list[str], cwd: Path, env: dict, log_path: Path):
         return None
 
 
+def _tsc_lines_for_scene(lines: list[str], markers: list[str]) -> list[str]:
+    """tsc diagnostic lines whose file BASENAME is one of this scene's files.
+
+    Matching is scoped to the basename of the ``path(line,col)`` head (tsc
+    emits ``S01.tsx(12,5): error ...``), so error TEXT mentioning another
+    scene id, or a sibling like ``scene-11.tsx`` under scene ``scene-1``'s
+    substring, cannot cross-attribute a failure.
+    """
+    own = []
+    for line in lines:
+        head = line.split("(", 1)[0].strip().replace("\\", "/")
+        base = Path(head).name if head else ""
+        if base and base in markers:
+            own.append(line)
+    return own
+
+
 def _tsc_own_scene_fail(episode: Path, scene_id: str) -> tuple[bool, str]:
-    """Run the composer-wide tsc self-check; return (own_scene_failed, output)."""
+    """Run the composer-wide tsc self-check; return (own_scene_failed, output).
+
+    Own-scene lines match the RESOLVED scene filename (``resolve_scene_filename``
+    maps ``scene-1`` -> ``S01.tsx`` where that placeholder exists) plus the
+    literal ``<scene_id>.tsx`` spelling — tsc emits ``S01.tsx(12,5): error``
+    and a raw ``scene-1`` substring alone would miss it (4A rev-2 reviewer fix).
+    """
     composer = next((p for p in [episode, *episode.parents]
                      if (p / "tsconfig.json").is_file() and (p / "package.json").is_file()), None)
     if not composer:
         return False, ""
     try:
+        fname = resolve_scene_filename(get_scenes_dir(episode), scene_id)
+    except Exception:
+        fname = f"{scene_id}.tsx"
+    markers = sorted({fname, f"{scene_id}.tsx"})
+    try:
         tsc = subprocess.run(["npx", "tsc", "--noEmit"], cwd=str(composer),
                              capture_output=True, text=True, timeout=240)
-        own = [l for l in (tsc.stdout + tsc.stderr).splitlines() if scene_id in l]
+        own = _tsc_lines_for_scene((tsc.stdout + tsc.stderr).splitlines(), markers)
         if tsc.returncode != 0 and own:
             return True, "\n".join(own)[:2000]
     except subprocess.TimeoutExpired:
@@ -207,9 +344,7 @@ def _legacy_main(scene_id: str, episode: Path, task_file: Path, log_dir: Path) -
     if ok:
         # 4A.3 pre-flight (fast check BEFORE the 240s tsc spend).
         scene_src = scene_file.read_text(encoding="utf-8", errors="replace")
-        pre_ok, pre_msg = validate_imports_and_theme(scene_src)
-        if not pre_ok:
-            print(f"writer {scene_id}: PRE-FLIGHT FAIL: {pre_msg}")
+        if not _preflight_gate(episode, scene_src, scene_id):
             return 1
         failed, out = _tsc_own_scene_fail(episode, scene_id)
         if failed:
@@ -234,11 +369,12 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
     sandbox_file = sandbox / f"{scene_id}.tsx"
 
     log_path = log_dir / f"cc_writer_{scene_id}.log"
-    # 4A.3: SceneShell pre-seed header goes FIRST (before the sandbox-mode
-    # preamble) so the writer sees the canonical import block up front.
+    # 4A.3 rev-2: SceneShell pre-seed header goes FIRST (before the sandbox-mode
+    # preamble) using the episode's DETECTED on-disk specifiers, so the writer
+    # sees an import block that actually resolves in THIS episode.
     task = (
         "## CANONICAL IMPORT HEADER (phase-3 task 3.2 pre-seed — use these)\n"
-        "```tsx\n" + SCENE_SHELL_IMPORT_HEADER + "```\n\n"
+        "```tsx\n" + _scene_shell_header(episode) + "```\n\n"
         "## SANDBOX OUTPUT MODE (phase1 task 1.3)\n"
         f"Write your final scene component EXCLUSIVELY to `{sandbox.relative_to(episode)}/{scene_id}.tsx` "
         "(create parent dirs as needed). Do NOT write or edit any file under "
@@ -292,10 +428,10 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
     # 4A.3 pre-flight: fast import check BEFORE the 240s npx tsc spend — a
     # missing mandatory import rejects the output immediately (orchestrator
     # re-prompts with a fresh attempt; no TSC time burned on a broken file).
+    # Rev-2: warn-and-allow when the episode carries no SceneShell module
+    # (unknown layout) — see _preflight_gate.
     scene_src = sandbox_file.read_text(encoding="utf-8", errors="replace")
-    pre_ok, pre_msg = validate_imports_and_theme(scene_src)
-    if not pre_ok:
-        print(f"writer {scene_id}: PRE-FLIGHT FAIL: {pre_msg}")
+    if not _preflight_gate(episode, scene_src, scene_id):
         return 1
 
     # Stage for validation, then promote atomically. No un-scoped deletion of
