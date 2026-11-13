@@ -106,6 +106,28 @@ def test_loop_false_counts_not_declared(tmp_path, monkeypatch):
     assert verdict["loop_declared"] is False
 
 
+def test_jsx_comment_not_treated_as_loop_prop(tmp_path, monkeypatch):
+    # A JSX comment {/* loop */} is commentary, not a prop: it must not flip
+    # loop_declared to True (a false PASS defeats the fail-closed gate).
+    monkeypatch.delenv(bgm_gate.KILL_SWITCH_ENV, raising=False)
+    text = ("<Audio src={staticFile(`${BASE}/bgm.mp3`)} {/* loop */} "
+            "volume={0.12} />")
+    assert loop_declared(text, "bgm.mp3") is False
+    p = tmp_path / "Episode.tsx"
+    p.write_text(text)
+    verdict = gate(_timing(tmp_path), tmp_path / "bgm.mp3", p, probe=_probe(27.097))
+    assert verdict["verdict"] == "fail"
+    assert verdict["loop_declared"] is False
+    # Multi-line JSX comment is stripped too.
+    assert loop_declared(
+        "<Audio src={staticFile(`${BASE}/bgm.mp3`)} {/* BGM loop\n"
+        "       comment */} volume={0.12} />", "bgm.mp3") is False
+    # A real loop prop beside a comment is still detected.
+    assert loop_declared(
+        "<Audio src={staticFile(`${BASE}/bgm.mp3`)} {/* loop */} loop />",
+        "bgm.mp3") is True
+
+
 def test_input_error_exit2(tmp_path):
     # Fail-closed: unusable inputs are a non-zero exit with the JSON envelope.
     missing = tmp_path / "nope.json"

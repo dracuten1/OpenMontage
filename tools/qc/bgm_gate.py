@@ -120,6 +120,11 @@ _LOOP_PROP_RE = re.compile(r"(?<![\w.$-])loop(?![\w.$-])")
 
 _QUOTED_RE = re.compile(r"\"(?:[^\"\\]|\\.)*\"|'(?:[^'\\]|\\.)*'")
 
+# JSX comments ({/* ... */}) are not props: a `{/* loop */}` comment must
+# never flip loop_declared to True. Stripped in _split_src before the prop
+# scan (DOTALL so multi-line comments go too).
+_JSX_COMMENT_RE = re.compile(r"\{/\*.*?\*/\}", re.DOTALL)
+
 
 def _split_src(block):
     """Split an <Audio> block into (props_text, src_text), removing the src
@@ -129,8 +134,11 @@ def _split_src(block):
     src={staticFile(`${BASE}/loop/bgm.mp3`)} or src="theme-loop.mp3" flipped
     loop_declared to True without any loop prop (review major #2). `{...}`
     values are consumed with brace counting so nested `${BASE}` template
-    braces don't cut the value short.
+    braces don't cut the value short. JSX comments (`{/* loop */}`) are
+    stripped first: they are commentary, not props, and their text must not
+    leak into the loop scan.
     """
+    block = _JSX_COMMENT_RE.sub(" ", block)
     m = _SRC_ATTR_RE.search(block)
     if not m:
         return block, ""

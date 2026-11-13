@@ -39,7 +39,7 @@ REPO = Path(__file__).resolve().parents[2]
 if __package__ in (None, ""):
     sys.path.insert(0, str(REPO))
 
-from tools.qc.bgm_gate import episode_duration  # single shared timing helper (F7)
+from tools.qc.bgm_gate import GateError, episode_duration  # shared timing helper (F7)
 
 INTERMEDIATES = ("mix_base.wav", "bgm_loop.wav", "mix_bgm.wav", "mix_master.wav")
 KEEP_FOR_QC = ("mix_master.wav",)  # mix_validator manifest 'mix' key points here
@@ -160,10 +160,13 @@ def retain_qc_stems(work, qc_dir):
 
     renders/audio_stems/narration.wav ← mix_base.wav, bgm.wav ← bgm_loop.wav;
     the manifest 'mix' key points at the retained mix_master.wav (KEEP_FOR_QC).
-    Raises on copy failure — this is deliverable output, not cleanup.
+    Raises on mkdir/copy failure — this is deliverable output, not cleanup.
     """
     qc_dir = Path(qc_dir)
-    qc_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        qc_dir.mkdir(parents=True, exist_ok=True)
+    except OSError as e:
+        raise MixdownError(f"failed to create QC dir: {e}") from e
     for src_name, dst_name in QC_STEM_COPIES:
         try:
             shutil.copy2(work / src_name, qc_dir / dst_name)
@@ -243,12 +246,10 @@ def sweep(projects_root, *, delete=False, include_master=False):
                     continue
                 files.append({"path": str(path), "bytes": size})
     if delete:
-        deleted_bytes = 0
         for entry in files:
             try:
                 Path(entry["path"]).unlink()
                 entry["deleted"] = True
-                deleted_bytes += entry["bytes"]
             except OSError as e:
                 entry["deleted"] = False
                 entry["error"] = str(e)
@@ -294,9 +295,14 @@ def mixdown(project, draft, final, out, *, bgm=None, work_dir=None,
                             parse_constant=lambda x: float(x))
     except (OSError, json.JSONDecodeError, UnicodeDecodeError) as e:
         raise InputError(f"unreadable scene_timing.json ({timing_path}): {e}") from e
-    duration = episode_duration(timing)
+    try:
+        # GateError (bgm_gate) is NOT a mixdown InputError — convert at the
+        # boundary so malformed timing values keep the exit-2 envelope.
+        duration = episode_duration(timing)
+    except GateError as e:
+        raise InputError(f"invalid scene_timing ({timing_path}): {e}") from e
     out.parent.mkdir(parents=True, exist_ok=True)
-    warnings: list = []
+    warnings: list[str] = []
     try:
         work.mkdir(parents=True, exist_ok=True)
         print(f"video duration target: {duration}s", file=sys.stderr)
@@ -311,7 +317,6 @@ def mixdown(project, draft, final, out, *, bgm=None, work_dir=None,
         qc_dir = project / "renders" / "audio_stems"
         retained = retain_qc_stems(work, qc_dir)
         print(f"qc stems retained: {qc_dir}/{', '.join(retained)}", file=sys.stderr)
-        success = True
     finally:
         keep = KEEP_FOR_QC if keep_master else ()
         removed, problems = cleanup_intermediates(work, keep=keep)
