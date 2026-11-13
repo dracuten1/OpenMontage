@@ -496,7 +496,15 @@ def test_orchestrator_timeout_error_triggers_infrastructure_retry(tmp_path, capl
     assert "timeout_error" in (rec.attempts[0].error or "")
 
 
-def test_orchestrator_timeout_error_exhausts_retries(tmp_path):
+def test_orchestrator_timeout_error_exhausts_retries(tmp_path, monkeypatch):
+    """R3: reviewer timeout_error is an INFRA failure — retries IN PLACE within
+    the OM_INFRA_RETRY_CAP budget (default 3) without consuming content
+    attempts, then escalates. At max_retries=0 the escalation finds no content
+    budget left, so the scene fails with 4 same-ordinal infra attempts.
+    (Contract of record: test_r3_reviewer_timeout_verdict_is_infra_retry.)"""
+    # Zero the in-place infra backoff (env is read at call time) — same
+    # approach as the _fast_infra_backoff autouse fixture in test_perf_r1_r5.py.
+    monkeypatch.setenv("OM_INFRA_RETRY_DELAY_S", "0")
     episode = make_test_episode(tmp_path, scene_ids=["s1"])
 
     def reviewer_fn(ctx: ReviewerContext) -> AgentRunResult:
@@ -514,8 +522,13 @@ def test_orchestrator_timeout_error_exhausts_retries(tmp_path):
     rec = execute_scene_with_retries(
         "s1", episode, runner=CallableAgentRunner(reviewer_fn=reviewer_fn), max_retries=0
     )
+    # Escalation after infra budget exhaustion leaves no content attempts
+    # (max_retries=0) -> scene still fails, but WITHOUT a full rewrite:
+    # 4 infra rounds, all pinned to content ordinal 1.
     assert rec.status == "failed"
-    assert len(rec.attempts) == 1
+    assert [a.attempt_number for a in rec.attempts] == [1, 1, 1, 1]
+    assert all(a.infra is True for a in rec.attempts)
+    assert all("timeout_error" in (a.error or "") for a in rec.attempts)
 
 
 # ==============================================================================
