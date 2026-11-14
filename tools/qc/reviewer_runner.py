@@ -16,11 +16,23 @@ import os
 import re
 from pathlib import Path
 
-# --- Task 1.1: read-only lockdown -------------------------------------------
-# planOnly + Read/Glob/Grep only: the reviewer session cannot write, edit or
-# execute. The wrapper writes verdict/findings files on Claude's behalf.
-REVIEW_PERMISSION_MODE = "planOnly"
+# --- Reviewer-timeout hotfix: acceptEdits ------------------------------------
+# acceptEdits + Read/Glob/Grep tool scoping: the reviewer still cannot write
+# (tool list excludes Write/Edit; the wrapper writes verdict/findings on
+# Claude's behalf), but no longer runs in plan mode. Probe 2026-11-14: plan/
+# default modes return EMPTY stdout with --dangerously-skip-permissions, so
+# the verdict engine stamped timeout_error on 4/4 reviewer runs (cc_exit=0,
+# timed_out=False, no verdict block); acceptEdits restores output.
+REVIEW_PERMISSION_MODE = "acceptEdits"
 REVIEW_ALLOWED_TOOLS = "Read,Glob,Grep"
+# Security containment (review 2026-11-14): --dangerously-skip-permissions
+# voids --allowedTools scoping — a CLI probe confirmed the reviewer session
+# could still execute Write/Edit/Bash under the skip flag (allow-list is
+# advisory there). The deny-list below is the enforcement: explicit
+# --disallowedTools wins over --dangerously-skip-permissions, so the session
+# is hard read-only (write tools + network/shell egress blocked) even in the
+# skip-permissions mode acceptEdits requires for stdout output.
+REVIEW_DISALLOWED_TOOLS = "Write,Edit,MultiEdit,NotebookEdit,Bash,WebFetch,WebSearch"
 # R5 (perf/cc-pipeline R1-R5): turn-cap headroom 30 -> 45. Complex scenes
 # (dense word anchors + long windows) burned all 30 turns before delivering
 # the verdict block; 45 absorbs the spike while "Max 12 turns" in the wrapper
@@ -70,11 +82,19 @@ def resolve_scene_filename(scenes_dir: Path, scene_id: str) -> str:
 
 
 def build_reviewer_cmd(max_turns: str | None = None) -> list[str]:
-    """Read-only reviewer CLI invocation (task 1.1)."""
+    """Read-only reviewer CLI invocation (task 1.1).
+
+    Containment contract: ``--allowedTools Read,Glob,Grep`` states intent, but
+    ``--dangerously-skip-permissions`` voids allow-list scoping (a probe
+    confirmed Write/Edit/Bash still execute). ``--disallowedTools`` is the
+    actual enforcement — the explicit deny-list overrides the skip flag, so
+    the reviewer session cannot write files or reach shell/network tools.
+    """
     return [
         "claude", "--print", "--dangerously-skip-permissions",
         "--permission-mode", REVIEW_PERMISSION_MODE,
         "--allowedTools", REVIEW_ALLOWED_TOOLS,
+        "--disallowedTools", REVIEW_DISALLOWED_TOOLS,
         "--max-turns", max_turns or os.environ.get(
             "OM_CC_REVIEW_MAX_TURNS", DEFAULT_REVIEW_MAX_TURNS
         ),

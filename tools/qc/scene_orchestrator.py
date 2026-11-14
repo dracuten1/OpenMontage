@@ -496,6 +496,13 @@ def verify_writer_scope(
         # are infrastructure-owned, never writer-scope violations.
         if rel_path.startswith(".tmp_sandboxes/") or rel_path.startswith("history/"):
             continue
+        # Reviewer-timeout hotfix: any other path carrying a dot-prefixed
+        # component (hidden dir/file) is a scope violation — never silently
+        # contained. snapshot_directory_hashes filters dot-dirs upstream; this
+        # guard keeps containment fail-closed if that filter ever widens.
+        if any(part.startswith(".") for part in Path(rel_path).parts):
+            violations.append(rel_path)
+            continue
         # Task 1.3: sibling scene files (scene/S*.tsx or scenes/S*.tsx) belong
         # to concurrent writers for other scenes — exclude them here.
         if re.match(r"^(?:scenes?)/S\d+\.tsx$", rel_path) and rel_path not in own_variants:

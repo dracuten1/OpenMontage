@@ -343,15 +343,19 @@ def test_orchestrator_no_project_root_skips_findings_no_crash(tmp_path, monkeypa
 
 def test_template_contract_greps():
     """R6 + 4A.2 contract on the TEMPLATES (generated artifacts inherit it):
-    zero acceptEdits; zero hardcoded max-concurrency default; reviewer emits
-    timeout_error; launcher asserts the governor import; writer carries the
-    pre-flight + findings injection."""
+    reviewer carries permission-mode acceptEdits (reviewer-timeout hotfix —
+    plan/default modes return EMPTY stdout with --dangerously-skip-permissions)
+    while writer/launcher stay acceptEdits-free; zero hardcoded max-concurrency
+    default; reviewer emits timeout_error; launcher asserts the governor
+    import; writer carries the pre-flight + findings injection."""
     for tmpl in TEMPLATE_DIR.glob("*.tmpl"):
         content = tmpl.read_text(encoding="utf-8")
-        assert "acceptEdits" not in content, f"acceptEdits must never appear: {tmpl.name}"
+        if tmpl.name != "reviewer_wrapper.py.tmpl":
+            assert "acceptEdits" not in content, f"acceptEdits must stay reviewer-only: {tmpl.name}"
         assert 'OM_MAX_CONCURRENCY", "2"' not in content, tmpl.name
         assert "max_concurrency=2" not in content, tmpl.name
     reviewer = (TEMPLATE_DIR / "reviewer_wrapper.py.tmpl").read_text(encoding="utf-8")
+    assert "acceptEdits" in reviewer
     assert "timeout_error" in reviewer
     assert 'build_reviewer_cmd' in reviewer and "VERDICT_START" in reviewer
     writer = (TEMPLATE_DIR / "writer_wrapper.py.tmpl").read_text(encoding="utf-8")
@@ -463,8 +467,10 @@ def test_generated_wrappers_contract(tmp_path):
     assert mint_main(["--project-dir", str(project), "--scenes", "3"]) == 0
     cc = project / "scripts" / "cc_pipeline"
     for py in cc.glob("*.py"):
-        assert "acceptEdits" not in py.read_text(encoding="utf-8"), py.name
+        if py.name != "reviewer_wrapper.py":
+            assert "acceptEdits" not in py.read_text(encoding="utf-8"), py.name
         assert 'OM_MAX_CONCURRENCY", "2"' not in py.read_text(encoding="utf-8"), py.name
+    assert "acceptEdits" in (cc / "reviewer_wrapper.py").read_text(encoding="utf-8")
     launcher = (cc / "run_cc_pipeline.py").read_text(encoding="utf-8")
     assert "from tools.qc.concurrency_governor import ConcurrencyGovernor" in launcher
     assert "raise ImportError" in launcher
