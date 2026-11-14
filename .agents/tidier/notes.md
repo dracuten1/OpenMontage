@@ -16,3 +16,10 @@
 - Exclusions honored: 4 accepted nits + Phase1 regions untouched (0 findings contact them beyond informational).
 - Deferred to Reviewer: governor burst `throttled=True, permits_reserved=0` under full load (governor.py:78-90); launcher uncaught ValueError on non-int env (run_cc_pipeline.py:36); `log_fp` closed without try/finally (writer_wrapper.py:170-179); parents[4] shim no sanity probe (writer_wrapper.py:28-32, reviewer_wrapper.py:21-24); watchdog thread sleeps full duration + thread-per-retry (writer_runner.py:105-110); hermes switches read at different lifecycle points; OM tests cross-import other test modules.
 - Tidier committed nothing (read-only mandate) — fixes for Developer, `phase2(tidy):` conventional commits suggested.
+
+
+## Review: fix/reviewer-only-timeout-hotfix (b3507076..c6b4ad6)
+- **Iteration 001** (2026-11-14): 2 workers (tidier-readable-code + tidier-static-hygiene), both reported.
+- Verdict: **Pass** — 0 High, 4 Medium (comment narrative drift, prose copy-paste, pre-existing module size), 7 Low.
+- Cleanliness: Zero stray debug code (no print/pdb/TODO). Imports clean and consumed. Public functions typed.
+- Deferred to Reviewer: runtime env whitelist completeness (missing proxy/locale vars vs broad provider keys); dot-sandbox exclusion ordering in scene_orchestrator.

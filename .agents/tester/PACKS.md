@@ -162,3 +162,13 @@ Wrapper: perl-alarm 300 (no timeout/gtimeout on host). Interpreter: main-repo .v
 | wrapper_spot_check | static | canary-phase4 + tai-chinh-3tin cc_pipeline: import binding (REVIEWER_STYLE_BRIEF writer-side by design), timeout_error verdict wiring via REVIEW_TIMEOUT_VERDICT, template parity (byte-identical renders + manifest hash reproduction 932bc7ed…), cross-project identity; no wrapper-local tests exist | 2026-11-13 | PASS 5/5 — correctly re-minted |
 | full_suite_regression | regression | pytest tests/ (2398 collected) | 2026-11-13 | FAIL 2371P/8F/17S/3XF, 109.83s — 7/8 attributed outside diff (3 pre-existing-at-base compose 'source' KeyError; 1 env-ffmpeg vs fake fixture; 2 env-worktree untracked main-repo files; 1 documented pre-existing); 1 IN-RANGE TEST-GAP: test_video_slowfix_phase1.py::test_orchestrator_timeout_error_exhausts_retries pins pre-R3 semantics vs deliberate R3 contract (see LESSONS/2026-11-13-r3-infra-retry-contract-vs-stale-phase1-test.md). Verdict NOT-READY pending stale-test reconciliation. |
 | phase1_retry_contract_recheck | verification | pytest tests/test_video_slowfix_phase1.py -q at a7c4480 (reconciled test-only commit +15/−2, verified via git show --stat) | 2026-11-13 | PASS 25/25, 3.87s — reconciled test green, zero new failures. **Final merge verdict: READY** (addendum in RESULTS report) |
+
+## 2026-11-14 — reviewer-only-timeout-hotfix verification (branch fix/reviewer-only-timeout-hotfix @ c6b4ad6, base b3507076)
+
+Ad-hoc inline packs (full evidence in RESULTS/2026-11-14-reviewer-timeout-hotfix-verification.md).
+Wrapper: perl-alarm 300 (no timeout/gtimeout on host). Interpreter: /Users/tuyennguyen/project/OpenMontage/.venv/bin/python.
+
+| Pack | Type | Scope | Last Run | Status |
+|------|------|-------|----------|--------|
+| reviewer_hotfix_targeted_pack | verification | tests/test_scene_orchestrator_denials.py, test_video_slowfix_phase1.py, test_video_slowfix_phase4.py, test_scene_orchestrator.py, test_perf_r1_governor.py, test_perf_r1_r5.py, test_restore_seals.py, test_video_slowfix_phase2.py, test_video_contract_docs.py (226 tests) | 2026-11-14 | PASS (223/226; 3 pre-existing docs drift in test_video_contract_docs.py) |
+| wrapper_syntax_contract_pack | contract | py_compile (6 wrappers), --disallowedTools argv check, env whitelist filtering, dot-dir sandbox rejection | 2026-11-14 | PASS (4/4 checks) |
