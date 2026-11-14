@@ -614,6 +614,12 @@ def _evidence_paths(episode):
     return art, latest, sorted(art.glob("scene_workflow_evidence_session-*.json"))
 
 
+def assert_no_dot_tmp_leftovers(art):
+    """Atomic-write convention (fix 3): a completed write leaves no dot-tmp
+    (or dot-tmp-link) artifacts behind in artifacts/."""
+    assert [p.name for p in art.iterdir() if p.name.startswith(".")] == []
+
+
 def test_evidence_stamped_file_created_and_latest_is_relative_symlink(tmp_path, monkeypatch):
     """4C.1: each round persists to scene_workflow_evidence_<session_id>.json;
     the unsuffixed name is a RELATIVE symlink resolving to the stamped file."""
@@ -672,6 +678,142 @@ def test_evidence_per_round_zero_legacy_path(tmp_path, monkeypatch):
     assert stamped == []
     assert latest.is_file() and not latest.is_symlink()
     assert json.loads(latest.read_text(encoding="utf-8"))["session_id"] == session.session_id
+
+
+# ==============================================================================
+# Fix 3 (crash-proofing faa-ground-stop-20261114) — incremental evidence mint
+# ==============================================================================
+
+def test_evidence_incremental_mint_survives_mid_loop_crash(tmp_path, monkeypatch):
+    """A BaseException (KeyboardInterrupt) escapes the dispatch loop's
+    except-Exception net and propagates out of orchestrate_episode — but the
+    completed scene's record (with attempts) must already be on disk in the
+    session-stamped file, ``latest`` must resolve to it, and the payload must
+    carry the in-flight/partial marker. With max_concurrency=1 the order is
+    deterministic: cut-1 completes + is minted, then cut-2's writer crashes."""
+    monkeypatch.delenv("OM_EVIDENCE_PER_ROUND", raising=False)
+
+    def crashing_writer(ctx):
+        if ctx.scene_id == "cut-2":
+            raise KeyboardInterrupt("simulated mid-loop crash")
+        return CallableAgentRunner._default_writer(ctx)
+
+    runner = CallableAgentRunner(writer_fn=crashing_writer)
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1", "cut-2"])
+    with pytest.raises(KeyboardInterrupt):
+        orchestrate_episode(episode, max_concurrency=1, max_retries=0, runner=runner)
+
+    art, latest, stamped = _evidence_paths(episode)
+    assert len(stamped) == 1  # incremental mint reuses the session-stamped path
+    assert latest.is_symlink()
+    resolved = (latest.parent / os.readlink(latest)).resolve()
+    assert resolved == stamped[0].resolve()
+
+    data = json.loads(stamped[0].read_text(encoding="utf-8"))
+    assert "cut-1" in data["scenes"]
+    assert data["scenes"]["cut-1"]["status"] == "success"
+    assert len(data["scenes"]["cut-1"]["attempts"]) >= 1
+    assert "cut-2" not in data["scenes"]  # never landed: no success record
+    # in-flight markers (final mint carries neither)
+    assert data["overall_status"] == "partial"
+    assert data["episode_gate_result"]["partial"] is True
+    assert data["finished_at"] == ""
+    # crash-safe convention: no dot-tmp leftovers from any completed write
+    assert_no_dot_tmp_leftovers(art)
+
+
+def test_evidence_crash_after_last_persist_before_final_mint(tmp_path, monkeypatch):
+    """Crash between the LAST in-loop persist and the final mint (gate crash):
+    all scenes completed and minted incrementally, then ``validate_episode``
+    throws before the authoritative final write. The stamped partial file
+    must survive with partial markers, ``latest`` must resolve to it, and it
+    must carry every completed scene record with its attempts."""
+    monkeypatch.delenv("OM_EVIDENCE_PER_ROUND", raising=False)
+
+    def exploding_gate(_root):
+        raise RuntimeError("simulated gate crash after dispatch")
+
+    monkeypatch.setattr("tools.qc.scene_orchestrator.validate_episode", exploding_gate)
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1", "cut-2"])
+    with pytest.raises(RuntimeError, match="simulated gate crash"):
+        orchestrate_episode(episode, max_concurrency=1, max_retries=0, runner=CallableAgentRunner())
+
+    art, latest, stamped = _evidence_paths(episode)
+    assert len(stamped) == 1  # incremental mints reuse ONE session-stamped path
+    assert latest.is_symlink()
+    resolved = (latest.parent / os.readlink(latest)).resolve()
+    assert resolved == stamped[0].resolve()
+
+    data = json.loads(stamped[0].read_text(encoding="utf-8"))
+    assert data["overall_status"] == "partial"
+    assert data["episode_gate_result"]["partial"] is True
+    assert data["finished_at"] == ""
+    for sid in ("cut-1", "cut-2"):
+        assert data["scenes"][sid]["status"] == "success"
+        assert len(data["scenes"][sid]["attempts"]) >= 1
+
+
+def test_evidence_crash_on_first_scene_leaves_latest_stale_but_valid(tmp_path, monkeypatch):
+    """Writer crashes on cut-1, the FIRST scene: zero scenes completed means
+    zero mints fired for the crashing session — no session-stamped file is
+    created, and ``latest`` still resolves to the PRIOR round's evidence
+    (stale-but-valid), which stays byte-identical."""
+    monkeypatch.delenv("OM_EVIDENCE_PER_ROUND", raising=False)
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1", "cut-2"])
+
+    prior = _run_orchestration_round(episode)
+    art, latest, stamped = _evidence_paths(episode)
+    prior_path = art / f"scene_workflow_evidence_{prior.session_id}.json"
+    prior_bytes = prior_path.read_bytes()
+    assert os.readlink(latest) == prior_path.name
+
+    def crashing_writer(ctx):
+        raise KeyboardInterrupt("simulated first-scene crash")
+
+    runner = CallableAgentRunner(writer_fn=crashing_writer)
+    with pytest.raises(KeyboardInterrupt):
+        orchestrate_episode(episode, max_concurrency=1, max_retries=0, runner=runner)
+
+    _, latest, stamped = _evidence_paths(episode)
+    assert len(stamped) == 1  # no stamped file for the crashed session
+    assert stamped[0].name == f"scene_workflow_evidence_{prior.session_id}.json"
+    assert os.readlink(latest) == prior_path.name
+    assert prior_path.read_bytes() == prior_bytes  # stale-but-valid, untouched
+    data = json.loads(latest.read_text(encoding="utf-8"))  # still readable
+    assert data["session_id"] == prior.session_id
+
+
+def test_evidence_final_mint_single_stamped_file_no_partial(tmp_path, monkeypatch):
+    """A normal full run mints incrementally then refreshes the SAME stamped
+    file once at the end: exactly one stamped file per session, real
+    overall_status + finished_at, and no leftover partial marker."""
+    monkeypatch.delenv("OM_EVIDENCE_PER_ROUND", raising=False)
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1", "cut-2"])
+    session = _run_orchestration_round(episode)
+    art, latest, stamped = _evidence_paths(episode)
+    assert len(stamped) == 1
+    assert stamped[0].name == f"scene_workflow_evidence_{session.session_id}.json"
+    data = json.loads(stamped[0].read_text(encoding="utf-8"))
+    assert data["session_id"] == session.session_id
+    assert data["overall_status"] == "pass"
+    assert data["finished_at"]
+    assert isinstance(data["duration_seconds"], (int, float))
+    assert "partial" not in data["episode_gate_result"]
+    assert set(data["scenes"]) == {"cut-1", "cut-2"}
+    assert_no_dot_tmp_leftovers(art)
+
+
+def test_evidence_no_dot_tmp_leftovers_legacy_path(tmp_path, monkeypatch):
+    """Atomic-write convention leaves no dot-tmp artifacts behind on the
+    OM_EVIDENCE_PER_ROUND=0 path either (crash-safety fix 3)."""
+    monkeypatch.setenv("OM_EVIDENCE_PER_ROUND", "0")
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1"])
+    _run_orchestration_round(episode)
+    art = episode / "artifacts"
+    assert_no_dot_tmp_leftovers(art)
+    data = json.loads((art / "scene_workflow_evidence.json").read_text(encoding="utf-8"))
+    assert "partial" not in data["episode_gate_result"]
+    assert data["finished_at"]
 
 
 def test_re_round_preserve_skips_intact_scenes(tmp_path, monkeypatch):
