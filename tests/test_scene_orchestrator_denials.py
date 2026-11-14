@@ -204,6 +204,45 @@ def test_cross_scene_directory_write_denied(tmp_path: Path):
     assert "scene/cut-2/audio.wav" in err
 
 
+def test_dotdir_path_rejected_not_silently_contained(tmp_path: Path):
+    """Reviewer-timeout hotfix: a path carrying a dot-prefixed component is a
+    scope violation — never silently contained. Only the infrastructure-owned
+    ``.tmp_sandboxes/`` and ``history/`` prefixes stay excluded."""
+    episode = make_test_episode(tmp_path, scene_ids=["cut-1", "cut-2"])
+    before = snapshot_directory_hashes(episode)
+
+    # snapshot_directory_hashes filters dot-dirs upstream, so inject the
+    # hidden-dir mutation directly into the after-snapshot: the scope guard
+    # must stay fail-closed if that upstream filter ever widens.
+    after = dict(before)
+    after[".hidden_evil/scene/cut-1/payload.tsx"] = "deadbeef"
+
+    valid, mutated, err = verify_writer_scope(
+        before,
+        after,
+        scene_id="cut-1",
+        allowed_io=["artifacts", "assets", "packets", "scene"],
+        episode_dir=episode,
+    )
+    assert valid is False
+    assert err is not None
+    assert "writer_scope_violation" in err
+    assert ".hidden_evil/scene/cut-1/payload.tsx" in err
+
+    # Infrastructure-owned sandbox paths remain excluded (no violation).
+    after2 = dict(before)
+    after2[".tmp_sandboxes/sandbox_cut-1_abc/packets/packet_cut-1.json"] = "cafebabe"
+    valid2, _, err2 = verify_writer_scope(
+        before,
+        after2,
+        scene_id="cut-1",
+        allowed_io=["artifacts"],
+        episode_dir=episode,
+    )
+    assert valid2 is True
+    assert err2 is None
+
+
 def test_cross_scene_audio_asset_write_denied(tmp_path: Path):
     """Writer for cut-1 modifying assets/audio/voice_cut-2.wav must be denied."""
     episode = make_test_episode(tmp_path, scene_ids=["cut-1", "cut-2"])

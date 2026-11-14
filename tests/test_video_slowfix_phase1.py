@@ -1,7 +1,8 @@
 """Tests for hermes-video-run-slowfix Phase 1 (OpenMontage side).
 
 Covers tasks 1.1-1.4 + 1.6:
-- 1.1 reviewer read-only lockdown: planOnly CLI, delimited verdict extraction,
+- 1.1 reviewer read-only lockdown: acceptEdits mode + Read/Glob/Grep CLI scoping,
+  delimited verdict extraction,
   code-fence stripping, missing-delimiter / decode-failure fallbacks
 - 1.2 scene dir/filename resolvers, scoped reviewer ownership 3-tuple
   (sibling/artifact/packet/history exclusions + plan acceptance example),
@@ -61,7 +62,10 @@ def test_build_reviewer_cmd_is_read_only():
     cmd = build_reviewer_cmd("30")
     assert cmd[0] == "claude"
     assert "--permission-mode" in cmd
-    assert cmd[cmd.index("--permission-mode") + 1] == "planOnly"
+    # Reviewer-timeout hotfix: acceptEdits (plan/default modes return EMPTY
+    # stdout with --dangerously-skip-permissions); write-containment comes
+    # from --allowedTools Read,Glob,Grep scoping, not the mode.
+    assert cmd[cmd.index("--permission-mode") + 1] == "acceptEdits"
     assert cmd[cmd.index("--allowedTools") + 1] == "Read,Glob,Grep"
     assert cmd[cmd.index("--max-turns") + 1] == "30"
 
