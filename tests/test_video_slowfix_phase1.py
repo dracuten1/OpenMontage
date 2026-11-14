@@ -17,6 +17,10 @@ Covers tasks 1.1-1.4 + 1.6:
 from __future__ import annotations
 
 import json
+import os
+import subprocess
+import sys
+import textwrap
 import threading
 from pathlib import Path
 
@@ -52,6 +56,7 @@ from tools.qc.episode_gate import _contained_path
 from tests.test_scene_orchestrator import make_test_episode
 
 REVIEWER_WRAPPER_DIR = Path(__file__).resolve().parents[1] / "projects" / "tai-chinh-3tin-20261111" / "scripts" / "cc_pipeline"
+TEMPLATE_DIR = REPO_ROOT / "tools" / "qc" / "cc_wrapper_templates"
 
 
 # ==============================================================================
@@ -63,11 +68,89 @@ def test_build_reviewer_cmd_is_read_only():
     assert cmd[0] == "claude"
     assert "--permission-mode" in cmd
     # Reviewer-timeout hotfix: acceptEdits (plan/default modes return EMPTY
-    # stdout with --dangerously-skip-permissions); write-containment comes
-    # from --allowedTools Read,Glob,Grep scoping, not the mode.
+    # stdout with --dangerously-skip-permissions); the mode is NOT containment.
     assert cmd[cmd.index("--permission-mode") + 1] == "acceptEdits"
     assert cmd[cmd.index("--allowedTools") + 1] == "Read,Glob,Grep"
+    # Security containment: --dangerously-skip-permissions voids --allowedTools
+    # scoping (CLI probe: Write/Edit/Bash still executed), so the explicit
+    # --disallowedTools deny-list is the enforcement. Assert both flag and
+    # exact tool list.
+    assert "--disallowedTools" in cmd
+    assert cmd[cmd.index("--disallowedTools") + 1] == (
+        "Write,Edit,MultiEdit,NotebookEdit,Bash,WebFetch,WebSearch"
+    )
     assert cmd[cmd.index("--max-turns") + 1] == "30"
+
+
+def test_reviewer_wrapper_env_whitelist(tmp_path, monkeypatch):
+    """Rendered reviewer wrapper passes a whitelisted env to the claude
+    subprocess: system essentials + OM_* + provider API keys only. The full
+    parent environment (credentials) must NOT leak into the child."""
+    from tools.qc.mint_project_pipeline import main as mint_main
+
+    # Contract on the template itself: no full-env copy remains.
+    tmpl = (TEMPLATE_DIR / "reviewer_wrapper.py.tmpl").read_text(encoding="utf-8")
+    assert "os.environ.copy()" not in tmpl
+    for key in ("PATH", "HOME", "OM_", "ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY"):
+        assert key in tmpl
+
+    bindir = tmp_path / "stubbin"
+    bindir.mkdir()
+    envdump = bindir / "envdump.json"
+    stub = bindir / "claude"
+    stub.write_text(textwrap.dedent(f"""\
+        #!/usr/bin/env python3
+        import json, os, sys
+        env = {{k: v for k, v in os.environ.items() if k not in ("PWD",)}}
+        Path = __import__("pathlib").Path
+        Path("{envdump}").write_text(json.dumps(env), encoding="utf-8")
+        sys.stdout.write(
+            "<!-- VERDICT_START -->\\n```json\\n"
+            '{{"scene_id": "scene-1", "verdict": "approved", "issues": [],'
+            ' "metrics": {{"complexity": "low"}}}}\\n```\\n'
+            "<!-- VERDICT_END -->\\n")
+        sys.exit(0)
+    """), encoding="utf-8")
+    stub.chmod(0o755)
+
+    ep = make_test_episode(tmp_path / "build", scene_ids=["scene-1"])
+    (ep / "scenes").mkdir(exist_ok=True)
+    project = tmp_path / "projects" / ep.name
+    project.mkdir(parents=True)
+    monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
+    assert mint_main(["--project-dir", str(project)]) == 0
+
+    sandbox = ep / "sandbox-env"
+    (sandbox / "scenes").mkdir(parents=True)
+    (sandbox / "scenes" / "scene-1.tsx").write_text("y" * 300, encoding="utf-8")
+    env = os.environ.copy()
+    env.update({
+        "PATH": f"{bindir}:{env.get('PATH', '')}",
+        "OM_SCENE_ID": "scene-1",
+        "OM_SANDBOX_DIR": str(sandbox),
+        "OM_CANONICAL_DIR": str(ep),
+        "PYTHONPATH": str(REPO_ROOT),
+        # pollutant credentials that must NOT reach the child
+        "AWS_SECRET_ACCESS_KEY": "leak-me",
+        "GITHUB_TOKEN": "leak-me",
+        "SLACK_BOT_TOKEN": "leak-me",
+        "DATABASE_URL": "postgres://leak-me",
+        "ANTHROPIC_API_KEY": "allowed-provider-key",
+    })
+    wrapper = project / "scripts" / "cc_pipeline" / "reviewer_wrapper.py"
+    proc = subprocess.run([sys.executable, str(wrapper)], capture_output=True,
+                          text=True, env=env, cwd=REPO_ROOT, timeout=60)
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+
+    child_env = json.loads(envdump.read_text(encoding="utf-8"))
+    assert child_env.get("PATH", "").startswith(str(bindir))
+    assert child_env.get("HOME") == os.environ.get("HOME")
+    assert child_env.get("OM_SCENE_ID") == "scene-1"
+    assert child_env.get("MAX_THINKING_TOKENS") == "1024"
+    assert child_env.get("ANTHROPIC_API_KEY") == "allowed-provider-key"
+    for pollutant in ("AWS_SECRET_ACCESS_KEY", "GITHUB_TOKEN",
+                      "SLACK_BOT_TOKEN", "DATABASE_URL"):
+        assert pollutant not in child_env
 
 
 def test_extract_verdict_clean_json():
