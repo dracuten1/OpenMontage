@@ -208,7 +208,7 @@ class OrchestrationSession:
     config: dict[str, Any]
     scenes: dict[str, SceneExecutionRecord]
     episode_gate_result: dict[str, Any]
-    overall_status: str  # "pass" | "fail"
+    overall_status: str  # "pass" | "fail" | "partial" (in-flight mint)
     ownership_model: dict[str, str] = field(default_factory=lambda: {
         "reviewer_isolation": "sandbox-copy workspace + pre/post canonical SHA-256 diff",
         "writer_containment": "pre/post canonical SHA-256 diff against declared allowed_io",
@@ -1918,6 +1918,26 @@ def orchestrate_episode(
 
     scene_records: dict[str, SceneExecutionRecord] = {}
 
+    # Fix 3 (crash-proofing): build the partial, in-flight payload minted after
+    # each scene record lands. Same identity fields as the final mint; explicit
+    # ``partial`` markers so consumers can tell an interrupted round from a
+    # finished one (the final mint carries neither marker).
+    def _in_flight_session(
+        scenes: dict[str, SceneExecutionRecord],
+    ) -> OrchestrationSession:
+        return OrchestrationSession(
+            session_id=session_id,
+            director_token=director_token,
+            started_at=iso_start,
+            finished_at="",
+            duration_seconds=time.time() - t0,
+            episode_dir=str(root),
+            config=config,
+            scenes=scenes,
+            episode_gate_result={"valid": False, "reasons": [], "partial": True},
+            overall_status="partial",
+        )
+
     if not target_scenes:
         # No scenes discovered
         t1 = time.time()
@@ -1964,6 +1984,23 @@ def orchestrate_episode(
                     scene_id=sid,
                     status="failed",
                     error=str(e),
+                )
+            # Fix 3 (crash-proofing faa-ground-stop-20261114): mint evidence
+            # IMMEDIATELY after each scene record lands, so a crash mid-loop
+            # (e.g. KeyboardInterrupt escaping the except-Exception net) leaves
+            # every completed scene's record + attempts on disk instead of
+            # losing the whole session. Same stamped path, same carry-forward;
+            # best-effort — never breaks dispatch (final mint is authoritative).
+            # Mints fire only after a scene verdict lands; a crash before the first verdict leaves no session-stamped file and ``latest`` stays stale-but-valid from the prior round.
+            try:
+                _persist_session_evidence(
+                    _in_flight_session(dict(scene_records)), root, evidence_file
+                )
+            except Exception as persist_err:
+                logger.warning(
+                    "Incremental evidence persist failed after scene %s (%s); "
+                    "final mint remains authoritative",
+                    sid, persist_err,
                 )
 
     all_scenes_passed = all(r.status == "success" for r in scene_records.values())
@@ -2081,6 +2118,15 @@ def _point_latest_symlink_at(latest_p: Path, stamped_p: Path) -> None:
             raise
 
 
+def _atomic_write_text(target: Path, text: str) -> None:
+    """Atomic text write (repo convention, cf. write_scene_findings_md):
+    dot-prefixed tmp file in the same directory + ``os.replace``, so a kill
+    mid-write can never leave the target truncated or half-written."""
+    tmp_path = target.with_name(f".{target.name}.tmp")
+    tmp_path.write_text(text, encoding="utf-8")
+    os.replace(tmp_path, target)
+
+
 def _persist_session_evidence(
     session: OrchestrationSession,
     episode_dir: Path,
@@ -2095,6 +2141,16 @@ def _persist_session_evidence(
     for existing consumers (relative symlink, atomically replaced; plain copy
     when symlinks fail). ``OM_EVIDENCE_PER_ROUND=0`` restores the legacy
     direct overwrite of the unsuffixed file.
+
+    Fix 3 (crash-proofing): both file writes are atomic (dot-tmp +
+    ``os.replace``). The legacy path keeps breaking any ``latest`` symlink
+    first, then replaces in a fresh regular file — ``os.replace`` of the tmp
+    over the symlink swaps the link for a regular file atomically, so the
+    ``latest.is_file() and not latest.is_symlink()`` expectation holds either
+    way. This function is also called after each scene record lands (in-flight
+    ``partial`` payload) as well as once at the end (authoritative final mint);
+    it always writes the SAME stamped path, so there is exactly one stamped
+    file per session.
 
     Either way, scene records already present in the existing evidence file
     for scenes this round did not target are carried forward into the written
@@ -2117,14 +2173,15 @@ def _persist_session_evidence(
         if sid not in payload["scenes"]:
             payload["scenes"][sid] = rec
 
+    text = json.dumps(payload, indent=2)
     if evidence_per_round_enabled():
         stamped_p = out_p.with_name(f"{out_p.stem}_{session.session_id}{out_p.suffix}")
-        stamped_p.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        _atomic_write_text(stamped_p, text)
         _point_latest_symlink_at(out_p, stamped_p)
     else:
         if out_p.is_symlink():
             out_p.unlink()  # break the latest link; write a fresh regular file
-        out_p.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        _atomic_write_text(out_p, text)
 
 
 # ==============================================================================
