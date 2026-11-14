@@ -5,10 +5,18 @@ Do not hand-edit: re-mint via ``python -m tools.qc.mint_project_pipeline``.
 Strictly read-only toward scene files (video-slowfix phase1, tasks 1.1/1.2/1.4):
 
 Env: OM_SCENE_ID, OM_SANDBOX_DIR, OM_CANONICAL_DIR (optional; history log dir).
-1. Runs `claude` with permission-mode acceptEdits + Read,Glob,Grep (reviewer cannot write — task 1.1;
-   --allowedTools scoping keeps the session read-only; plan/default modes return EMPTY stdout
-   with --dangerously-skip-permissions (probe 2026-11-14), so acceptEdits is required for output;
+1. Runs `claude` with permission-mode acceptEdits + Read,Glob,Grep allow-list
+   and an explicit --disallowedTools deny-list
+   (Write,Edit,MultiEdit,NotebookEdit,Bash,WebFetch,WebSearch — reviewer cannot
+   write and has no shell/network egress; task 1.1). Containment contract:
+   --dangerously-skip-permissions VOIDS --allowedTools scoping (CLI probe
+   2026-11-14 confirmed Write/Edit/Bash still execute under the skip flag), so
+   the --disallowedTools deny-list is the actual enforcement — it overrides
+   the skip flag. acceptEdits stays required because plan/default modes return
+   EMPTY stdout with --dangerously-skip-permissions (probe 2026-11-14);
    reviewer-timeout hotfix: planOnly left 4/4 verdicts as stamped timeout_error).
+   The child env is whitelisted (system essentials + OM_* + provider API keys)
+   — the full parent environment (credentials included) never reaches claude.
 2. Captures stdout, tees raw output to <episode>/history/cc_reviewer_{scene_id}.log.
 3. Extracts the delimited JSON verdict from stdout via tools/qc/reviewer_runner
    (code-fence stripped) — no verdict file is expected from Claude anymore.
@@ -119,7 +127,19 @@ You do not have write access. Analyze the scene and output your final verdict in
 <!-- VERDICT_END -->
 Then end. Max 12 turns, reads <=4, no file writes.
 """
-    env = os.environ.copy()
+    # Security containment (review 2026-11-14): whitelist the child
+    # environment — the full parent process env carries credentials that a
+    # reviewer session must never see. Pass only system essentials, the OM_*
+    # pipeline contract vars, and the provider API keys the claude CLI needs.
+    _ENV_ALLOW_KEYS = ("PATH", "HOME", "USER", "SHELL", "TMPDIR")
+    _ENV_ALLOW_PREFIXES = ("OM_",)
+    _ENV_ALLOW_PROVIDER_KEYS = ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY")
+    env = {
+        k: v for k, v in os.environ.items()
+        if k in _ENV_ALLOW_KEYS
+        or k.startswith(_ENV_ALLOW_PREFIXES)
+        or k in _ENV_ALLOW_PROVIDER_KEYS
+    }
     env["MAX_THINKING_TOKENS"] = "1024"
     max_turns = os.environ.get("OM_CC_REVIEW_MAX_TURNS", DEFAULT_REVIEW_MAX_TURNS)
     cmd = build_reviewer_cmd(max_turns)
