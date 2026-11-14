@@ -16,10 +16,14 @@ import os
 import re
 from pathlib import Path
 
-# --- Task 1.1: read-only lockdown -------------------------------------------
-# planOnly + Read/Glob/Grep only: the reviewer session cannot write, edit or
-# execute. The wrapper writes verdict/findings files on Claude's behalf.
-REVIEW_PERMISSION_MODE = "planOnly"
+# --- Reviewer-timeout hotfix: acceptEdits ------------------------------------
+# acceptEdits + Read/Glob/Grep tool scoping: the reviewer still cannot write
+# (tool list excludes Write/Edit; the wrapper writes verdict/findings on
+# Claude's behalf), but no longer runs in plan mode. Probe 2026-11-14: plan/
+# default modes return EMPTY stdout with --dangerously-skip-permissions, so
+# the verdict engine stamped timeout_error on 4/4 reviewer runs (cc_exit=0,
+# timed_out=False, no verdict block); acceptEdits restores output.
+REVIEW_PERMISSION_MODE = "acceptEdits"
 REVIEW_ALLOWED_TOOLS = "Read,Glob,Grep"
 # R5 (perf/cc-pipeline R1-R5): turn-cap headroom 30 -> 45. Complex scenes
 # (dense word anchors + long windows) burned all 30 turns before delivering

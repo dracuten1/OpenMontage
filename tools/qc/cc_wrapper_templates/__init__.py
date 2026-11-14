@@ -6,11 +6,14 @@ Phase-1/2 semantics the 2026-11-12 run proved missing:
 
 - watchdog expiry emits verdict ``"timeout_error"`` (reviewer) — activates the
   orchestrator's infrastructure retry;
-- reviewer strictly read-only (planOnly + Read/Glob/Grep), stdout
-  ``<!-- VERDICT_START/END -->`` extraction with code-fence stripping, wrapper
-  itself writes the verdict + findings files;
-- NEVER the ``--permission-mode`` accept-edits mode — it voids ``--allowedTools``
-  scoping (R6 root cause);
+- reviewer permission mode ``acceptEdits`` + ``--allowedTools Read,Glob,Grep``
+  tool scoping, stdout ``<!-- VERDICT_START/END -->`` extraction with code-fence
+  stripping, wrapper itself writes the verdict + findings files
+  (reviewer-timeout hotfix 2026-11-14: planOnly reviewers burned the whole
+  turn budget planning instead of converging — deterministic 4/4
+  ``timeout_error``. Historical R6 note: an earlier incident attributed
+  ``--allowedTools`` scoping loss to accept-edits mode; containment now
+  rests on sandbox isolation + canonical-mutation scope checks);
 - writer: transient-API-error jittered exponential backoff (``writer_runner``),
   ``sys.path`` repo-root shim (task 2.4), findings append gated on
   ``OM_FINDINGS_INJECT`` (4A.1), SceneShell pre-seed header +

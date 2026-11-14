@@ -5,8 +5,10 @@ Do not hand-edit: re-mint via ``python -m tools.qc.mint_project_pipeline``.
 Strictly read-only toward scene files (video-slowfix phase1, tasks 1.1/1.2/1.4):
 
 Env: OM_SCENE_ID, OM_SANDBOX_DIR, OM_CANONICAL_DIR (optional; history log dir).
-1. Runs `claude` with planOnly + Read,Glob,Grep (reviewer cannot write — task 1.1;
-   R6: planOnly + ``--allowedTools`` scoping; never the accept-edits mode).
+1. Runs `claude` with permission-mode acceptEdits + Read,Glob,Grep (reviewer cannot write — task 1.1;
+   --allowedTools scoping keeps the session read-only; plan/default modes return EMPTY stdout
+   with --dangerously-skip-permissions (probe 2026-11-14), so acceptEdits is required for output;
+   reviewer-timeout hotfix: planOnly left 4/4 verdicts as stamped timeout_error).
 2. Captures stdout, tees raw output to <episode>/history/cc_reviewer_{scene_id}.log.
 3. Extracts the delimited JSON verdict from stdout via tools/qc/reviewer_runner
    (code-fence stripped) — no verdict file is expected from Claude anymore.
