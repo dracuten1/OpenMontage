@@ -661,7 +661,8 @@ def _run_writer_wrapper(tmp_path, ep, project, monkeypatch, stub_claude, mode):
 
 def test_writer_wrapper_preflight_rejects_before_tsc(tmp_path, stub_claude, monkeypatch):
     """Sandbox output missing a mandatory import -> wrapper exits 1, nothing
-    promoted, and the 240s npx tsc spend is never reached — WHEN the episode
+    promoted, and the bounded npx tsc self-check spend (OM_TSC_TIMEOUT,
+    default = the watchdog budget 420s) is never reached — WHEN the episode
     carries a real SceneShell module so the pre-flight can anchor (rev-2:
     unknown layout warn-and-allows instead; see the next test)."""
     ep, project = build_project_layout(tmp_path, scene_ids=["scene-1"])
@@ -680,7 +681,8 @@ def test_writer_wrapper_preflight_rejects_before_tsc(tmp_path, stub_claude, monk
 def test_writer_wrapper_preflight_warn_allows_unknown_layout(tmp_path, stub_claude, monkeypatch):
     """4A.3 rev-2 warn-and-allow: episode carries NO SceneShell module on disk
     (unknown layout) -> the pre-flight NEVER hard-fails; output is promoted
-    and the 240s tsc spend stays the real gate. Same 'noimports' output that
+    and the bounded tsc self-check spend (OM_TSC_TIMEOUT, default = the
+    watchdog budget 420s) stays the real gate. Same 'noimports' output that
     the anchored test above rejects."""
     ep, project = build_project_layout(tmp_path, scene_ids=["scene-1"])
     proc = _run_writer_wrapper(tmp_path, ep, project, monkeypatch, stub_claude, "noimports")
