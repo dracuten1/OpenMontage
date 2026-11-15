@@ -24,10 +24,19 @@ from typing import TextIO
 from tools.qc.concurrency_governor import ConcurrencyGovernor
 
 # Task 2.2: rate-limit and capacity errors worth retrying with backoff.
+# Failure-fixes 4 (2026-11-15): provider deadline exhaustion
+# ('context deadline exceeded') joins the transient family — it is a
+# provider-availability failure (the provider gave up on the request before
+# completion), the same class the loop already retries (429/529/overload),
+# and it says nothing about the scene content. The bounded backoff loop below
+# (max 4 attempts, jittered exponential sleep) is the confirmed transient
+# classification path; each deadline retry reports a burst to the shared
+# governor so concurrency throttles during provider saturation.
 TRANSIENT_API_ERROR_MARKERS = [
     "rate_limit_error", "429 Too Many Requests",
     "overloaded_error", "529 Site Overloaded",
     "ServiceUnavailable", "capacity exceeded",
+    "context deadline exceeded",
 ]
 
 

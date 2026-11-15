@@ -416,12 +416,25 @@ def diff_snapshots(before: dict[str, str], after: dict[str, str]) -> dict[str, l
 
 # Task 1.2: dynamic scene directory + filename resolvers. Episodes use either
 # ``scenes/`` (flat S01.tsx) or ``scene/``; scene_ids ("scene-1") map to
-# on-disk filenames ("S01.tsx") via deterministic candidate probing.
+# on-disk filenames via deterministic candidate probing.
+# Failure-fixes 1 (2026-11-15): the unified OpenMontage scene filename
+# convention is ``S{NN}.tsx`` (scenes/S01.tsx, scenes/S02.tsx, ...). Existing
+# on-disk files keep precedence (legacy ``scene-N.tsx`` episodes keep working),
+# but the no-match fallback now resolves to the canonical ``S{NN}.tsx`` name
+# instead of the raw ``{scene_id}.tsx`` spelling — fresh episodes promote to
+# ``S01.tsx`` and never mint a divergent ``scene-1.tsx`` file.
 def get_scenes_dir(episode_dir: Path) -> Path:
     return episode_dir / "scenes" if (episode_dir / "scenes").is_dir() else episode_dir / "scene"
 
 
 def resolve_scene_filename(scenes_dir: Path, scene_id: str) -> str:
+    """Map a scene_id (e.g. ``scene-1``) to its on-disk TSX filename.
+
+    Failure-fixes 1: on-disk files win (any candidate spelling), so legacy
+    ``scene-N.tsx`` episodes keep resolving; with no on-disk match the
+    canonical ``S{NN}.tsx`` convention wins over the raw ``{scene_id}.tsx``
+    fallback. Non-numeric ids (``intro``) fall back to ``{scene_id}.tsx``.
+    """
     if (scenes_dir / f"{scene_id}.tsx").is_file():
         return f"{scene_id}.tsx"
     m = re.match(r"(?:scene[-_]?)?(\d+)", scene_id, re.IGNORECASE)
@@ -430,6 +443,8 @@ def resolve_scene_filename(scenes_dir: Path, scene_id: str) -> str:
         for c in [f"S{num:02d}.tsx", f"S{num}.tsx", f"scene-{num}.tsx", f"scene_{num}.tsx"]:
             if (scenes_dir / c).is_file():
                 return c
+        # Failure-fixes 1: fresh scene -> canonical S{NN}.tsx (never scene-N.tsx)
+        return f"S{num:02d}.tsx"
     return f"{scene_id}.tsx"
 
 
@@ -452,14 +467,89 @@ def _scene_file_variants(scenes_dir: Path, scene_id: str) -> set[str]:
     return variants
 
 
+# Failure-fixes 2 (2026-11-15): attempt-owned / manifest-based writer scope.
+#
+# Problem: verify_writer_scope diffed whole-tree snapshots around the writer
+# window. Concurrent lead/collaborator lanes (mix_profile.json, Episode.tsx,
+# shared audio/asset manifests, sibling writers) mutate the same canonical
+# tree, and the diff cannot attribute a mutation to a writer — so collaborator
+# edits were falsely stamped writer_scope_violation.
+#
+# Fix: the writer wrapper records an ATTEMPT MANIFEST
+# (``.tmp_sandboxes/{scene_id}_{attempt}/attempt_manifest.json``) listing the
+# episode-relative paths its own process wrote (sandbox output, staging file,
+# promoted canonical target). With a manifest present, ONLY manifest-owned
+# paths can be writer-scope violations; every other tree mutation is
+# collaborator-owned by construction and reported as a diagnostic, never as a
+# writer violation. Without a manifest (in-process runners, legacy quarantine
+# mode) the tree-diff check stays, with a named shared-file carve-out below.
+# Residual (documented, accepted): a writer bypassing the sandbox discipline
+# to edit a shared file directly is outside the manifest and therefore
+# collaborator-class in the manifest tier — enforcement for that case is the
+# wrapper's sandbox task text + CLI tool scoping, not the hash diff.
+WRITER_ATTEMPT_MANIFEST_SCHEMA = "writer-attempt-manifest/1"
+WRITER_ATTEMPT_MANIFEST_NAME = "attempt_manifest.json"
+
+# Shared files owned by the lead/collaborator lane — never scene-scoped. The
+# basenames mirror the episode_gate shared-artifact set
+# (tools/qc/episode_gate.py) plus the episode wiring files. A tree mutation
+# carrying one of these basenames (and no sibling-scene token) is
+# collaborator-owned: never blamed on the writer attempt.
+COLLABORATOR_SHARED_BASENAMES = frozenset({
+    # episode_gate shared-artifact set
+    "production_evidence.json", "edit_decisions.json", "asset_manifest.json",
+    "narration_words.json", "mix_manifest.json", "layout_evidence.json",
+    "mix_profile.json", "scene_manifest.json",
+    # lead/collaborator wiring + shared inputs
+    "style_contract.json", "audio_manifest.json",
+    "Episode.tsx", "Root.tsx", "index.ts", "index.tsx",
+})
+
+
+def load_writer_attempt_manifest(
+    episode_dir: Path, scene_id: str, attempt_index: int | str
+) -> dict | None:
+    """Load the writer attempt manifest for one attempt, if the wrapper wrote one.
+
+    Returns the parsed dict only when the schema matches
+    ``WRITER_ATTEMPT_MANIFEST_SCHEMA``; any missing/corrupt/mismatched file
+    returns ``None`` (callers then fall back to the tree-diff scope check).
+    ``episode_dir`` is resolved so symlinked episode paths (/var vs
+    /private/var on macOS) still find the wrapper's sandbox dir.
+    """
+    path = (
+        episode_dir.resolve() / ".tmp_sandboxes" / f"{scene_id}_{attempt_index}"
+        / WRITER_ATTEMPT_MANIFEST_NAME
+    )
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    if isinstance(data, dict) and data.get("schema") == WRITER_ATTEMPT_MANIFEST_SCHEMA:
+        return data
+    return None
+
+
 def verify_writer_scope(
     before: dict[str, str],
     after: dict[str, str],
     scene_id: str,
     allowed_io: list[str],
     episode_dir: Path,
+    attempt_manifest: dict | None = None,
 ) -> tuple[bool, list[str], str | None]:
-    """Verify that writer only modified or added files within allowed_io or scene-scoped paths."""
+    """Verify that writer only modified or added files within allowed_io or scene-scoped paths.
+
+    Failure-fixes 2: attempt-owned mode. When ``attempt_manifest`` (from
+    ``load_writer_attempt_manifest``) is present, scope violations are
+    evaluated ONLY against the manifest's ``writer_owned`` paths — files the
+    writer wrapper's own process wrote. All other tree mutations in the
+    ``before``/``after`` diff are collaborator-owned (concurrent lanes) and
+    are logged as diagnostics, never stamped as writer violations
+    (dot-prefixed paths stay fail-closed even un-manifested). Without a
+    manifest the legacy whole-tree check runs, with collaborator-shared files
+    (``COLLABORATOR_SHARED_BASENAMES``) carved out as non-writer mutations.
+    """
     diff = diff_snapshots(before, after)
     mutated = sorted(diff["added"] + diff["modified"] + diff["removed"])
     if not mutated:
@@ -490,25 +580,31 @@ def verify_writer_scope(
     scenes_dir = get_scenes_dir(root)
     own_variants = _scene_file_variants(scenes_dir, scene_id)
 
-    violations: list[str] = []
-    for rel_path in mutated:
+    def _path_allowed(rel_path: str) -> bool:
+        """Per-path scope predicate (single source for both check tiers)."""
         # Task 1.3: scoped hash diffing — writer sandbox dirs and history logs
         # are infrastructure-owned, never writer-scope violations.
         if rel_path.startswith(".tmp_sandboxes/") or rel_path.startswith("history/"):
-            continue
+            return True
         # Reviewer-timeout hotfix: any other path carrying a dot-prefixed
         # component (hidden dir/file) is a scope violation — never silently
         # contained. snapshot_directory_hashes filters dot-dirs upstream; this
         # guard keeps containment fail-closed if that filter ever widens.
         if any(part.startswith(".") for part in Path(rel_path).parts):
-            violations.append(rel_path)
-            continue
+            return False
+        # Failure-fixes 2: collaborator-owned shared files — concurrent
+        # lead/collaborator lanes, never the writer attempt. Carved out
+        # before scene-token matching so a lead edit of mix_profile.json /
+        # Episode.tsx / shared manifests mid-flight is never stamped
+        # writer_scope_violation.
+        if Path(rel_path).name in COLLABORATOR_SHARED_BASENAMES:
+            return True
         # Task 1.3: sibling scene files (scene/S*.tsx or scenes/S*.tsx) belong
         # to concurrent writers for other scenes — exclude them here.
         if re.match(r"^(?:scenes?)/S\d+\.tsx$", rel_path) and rel_path not in own_variants:
-            continue
+            return True
         if rel_path in own_variants:
-            continue  # writer's own scene path is explicitly allowed
+            return True  # writer's own scene path is explicitly allowed
 
         is_own_file = (
             rel_path in (
@@ -523,8 +619,7 @@ def verify_writer_scope(
         # Fail-closed when scene discovery fails or returns empty:
         # writer may only touch scene_id's own explicit files/directory
         if not authoritative_scenes and not is_own_file:
-            violations.append(rel_path)
-            continue
+            return False
 
         is_allowed = False
         rel_p = Path(rel_path)
@@ -568,8 +663,38 @@ def verify_writer_scope(
             if is_own_file:
                 is_allowed = True
 
-        if not is_allowed:
-            violations.append(rel_path)
+        return is_allowed
+
+    # Failure-fixes 2, attempt-owned tier: with a trusted wrapper manifest,
+    # only manifest-owned writes can violate the writer's scope; every other
+    # mutation is collaborator-owned by construction.
+    if attempt_manifest is not None:
+        owned = [str(p) for p in (attempt_manifest.get("writer_owned") or [])]
+        owned_set = set(owned)
+        violations = [p for p in owned if not _path_allowed(p)]
+        collaborator = [p for p in mutated if p not in owned_set]
+        # Fail-closed defense in depth: an un-manifested dot-prefixed path is
+        # suspicious even in attempt-owned mode (hidden dirs are excluded from
+        # the sandbox contract entirely).
+        violations += [p for p in collaborator if any(part.startswith(".") for part in Path(p).parts)]
+        if collaborator:
+            logger.info(
+                "writer %s: %d non-manifest mutation(s) attributed to concurrent "
+                "collaborators (not writer-scoped): %s",
+                scene_id, len(collaborator), ", ".join(collaborator[:10]),
+            )
+        if violations:
+            msg = (
+                "writer_scope_violation: writer attempt manifest lists writes "
+                f"outside allowed scope: {', '.join(sorted(set(violations)))}"
+            )
+            return False, mutated, msg
+        return True, mutated, None
+
+    # Legacy tree-diff tier (no manifest): whole-window mutations are checked,
+    # minus infra paths, dot-dirs, sibling scenes, own paths, and now (fix 2)
+    # collaborator-owned shared files.
+    violations = [rel_path for rel_path in mutated if not _path_allowed(rel_path)]
 
     if violations:
         msg = f"writer_scope_violation: writer modified files outside allowed scope: {', '.join(violations)}"
@@ -1238,7 +1363,16 @@ def _transport_glitch(res) -> bool:
     """CC/CLI died mid-stream but exited 0: empty output, or the Anthropic
     streaming-desync error observed 5x on 2026-11-10/11 ('No tool call found
     for function call output with call_id …'). Treat as retryable failure —
-    previously these counted as success and burned downstream attempts."""
+    previously these counted as success and burned downstream attempts.
+
+    Failure-fixes 4 (2026-11-15): UNRESOLVED root cause — the 'No tool call
+    found for function call output' desync is a Hermes tool-call correlation
+    failure on the provider side. There is NO confirmed repro or root cause
+    in this repo, so no correlating fix is attempted here; the symptom stays
+    classified as a retryable transport glitch (in-place infra retry via
+    next_attempt_after_infra). OpenMontage-side only; Hermes-agent itself is
+    out of scope for this fix.
+    """
     if res.exit_code != 0:
         return False
     combined = f"{res.stdout or ''}\n{res.stderr or ''}"
@@ -1417,12 +1551,18 @@ def execute_scene_with_retries(
             snap_post_writer = snapshot_directory_hashes(root)
 
             # Verify Writer Ownership / Scope
+            # Failure-fixes 2: prefer the wrapper's attempt manifest —
+            # attempt-owned checking so concurrent collaborator edits of
+            # shared files are never blamed on this writer. None (in-process
+            # runners / legacy mode) falls back to the tree-diff check.
+            attempt_manifest = load_writer_attempt_manifest(root, scene_id, attempt_idx)
             w_valid, w_mutated, w_err = verify_writer_scope(
                 snap_pre_writer,
                 snap_post_writer,
                 scene_id,
                 allowed_io,
                 root,
+                attempt_manifest=attempt_manifest,
             )
             if not w_valid:
                 attempt.ownership = OwnershipVerification(

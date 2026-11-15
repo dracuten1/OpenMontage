@@ -207,8 +207,10 @@ def test_resolve_scene_filename_mappings(tmp_path):
     assert resolve_scene_filename(d, "scene-2") == "S2.tsx"
     (d / "scene-3.tsx").write_text("x")
     assert resolve_scene_filename(d, "scene-3") == "scene-3.tsx"
-    # no candidates -> deterministic fallback
-    assert resolve_scene_filename(d, "scene-99") == "scene-99.tsx"
+    # no candidates -> canonical S{NN}.tsx fallback (failure-fixes 1: unified
+    # OpenMontage convention; a fresh scene never mints a scene-N.tsx file)
+    assert resolve_scene_filename(d, "scene-99") == "S99.tsx"
+    assert rr_resolve_scene_filename(d, "scene-99") == "S99.tsx"
 
 
 def test_reviewer_ownership_plan_acceptance_example():

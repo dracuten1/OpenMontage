@@ -1,20 +1,20 @@
 {
-  "minted_at": "2026-11-14T05:54:50.826016+00:00",
-  "om_commit": "e5bcf11852f4b3cab63e9241331d7252d0606068",
-  "template_content_hash": "6598abbecc611404972945b84674382ec3db14e2c5cc190b719b73a20b2df02e",
+  "minted_at": "2026-11-15T04:27:56.655565+00:00",
+  "om_commit": "945637625d62e157230161b6d1ae117c9df9d323",
+  "template_content_hash": "3b7cfc5be90863eb8430b163a0f5fc45e49294deecf8c735a166f7c39302187d",
   "templates": {
     "reviewer_wrapper.py.tmpl": "b1624954438d20b5ad61c62019cdcc33839a06a5c249007b3a1bb205039a7fb3",
     "run_cc_pipeline.py.tmpl": "c944292901710b62483cbbb128eb8b1da0a883401b7c86e1caf0dd436b3f705b",
-    "writer_wrapper.py.tmpl": "0b8e80e077284ef3b53d8038dacd3292adf83ae53d904923b85770ce5adedfbc"
+    "writer_wrapper.py.tmpl": "def0dbb57b9ee9efadc2aaec7814b04c596408617539616acd4c907feab6e0a4"
   },
   "rendered": {
-    "writer_wrapper.py": "0b8e80e077284ef3b53d8038dacd3292adf83ae53d904923b85770ce5adedfbc",
+    "writer_wrapper.py": "def0dbb57b9ee9efadc2aaec7814b04c596408617539616acd4c907feab6e0a4",
     "reviewer_wrapper.py": "b1624954438d20b5ad61c62019cdcc33839a06a5c249007b3a1bb205039a7fb3",
     "run_cc_pipeline.py": "e1410e9bfc84331fa1c7204c641e2a9592a7563153811a30975e9189e1c42b7b"
   },
   "project": "canary-phase4",
   "scene_count": 15,
   "strict": true,
-  "force": false,
+  "force": true,
   "preserved_scenes": []
 }

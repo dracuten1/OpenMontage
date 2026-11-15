@@ -27,6 +27,20 @@ Carries the landed Phase-1/2 semantics plus Phase-4A additions:
   BEFORE the 240s ``npx tsc --noEmit`` spend. Warn-and-allow when no
   SceneShell module exists under the episode (unknown layout never
   hard-fails the pre-flight; tsc remains the real gate).
+- Failure-fixes 1 (2026-11-15): the sandbox preamble states the unified
+  ``S{NN}.tsx`` scene filename convention and the resolved canonical target,
+  so writer output/promotion/references never diverge to ``{scene_id}.tsx``.
+- Failure-fixes 2 (2026-11-15): this wrapper writes an ATTEMPT MANIFEST
+  (``.tmp_sandboxes/{scene_id}_{attempt}/attempt_manifest.json``) listing
+  every episode-relative path its own process wrote; the orchestrator's
+  ``verify_writer_scope`` is attempt-owned/manifest-based, so concurrent
+  lead/collaborator edits (mix_profile.json, Episode.tsx, shared manifests)
+  are never falsely blamed on the writer.
+- Failure-fixes 3 (2026-11-15): the composer-wide ``tsc`` self-check is
+  DEFERRED while the episode is partially generated — own-scene errors that
+  are exclusively missing-module/baseline (TS2307 against files absent on
+  disk) are downgraded to a printed TSC BASELINE WARN instead of failing the
+  writer; once all expected scenes exist the strict own-scene gate returns.
 
 Env: OM_SCENE_ID, OM_EPISODE_DIR, OM_ATTEMPT_INDEX (optional, default "0").
 Kill-switch: OM_LEGACY_QUARANTINE=1 restores the legacy pre-phase1 behavior
@@ -34,7 +48,7 @@ Kill-switch: OM_LEGACY_QUARANTINE=1 restores the legacy pre-phase1 behavior
 sandbox, no promotion) — with the same scoped, accept-edits-free CLI.
 """
 from __future__ import annotations
-import os, re, shutil, subprocess, sys, threading, time
+import json, os, re, shutil, subprocess, sys, threading, time
 from pathlib import Path
 
 # Task 2.4: single source of truth — static repo-root resolution
@@ -46,10 +60,16 @@ if str(REPO_ROOT) not in sys.path:
 from tools.qc.concurrency_governor import ConcurrencyGovernor, resolve_max_concurrency  # noqa: E402
 from tools.qc.scene_orchestrator import (  # noqa: E402
     REVIEWER_STYLE_BRIEF,
+    discover_authoritative_scenes,
     get_scenes_dir,
     resolve_scene_filename,
 )
 from tools.qc.writer_runner import execute_writer_with_backoff  # noqa: E402
+
+# Failure-fixes 2: attempt-manifest contract — must mirror
+# tools.qc.scene_orchestrator.WRITER_ATTEMPT_MANIFEST_SCHEMA / _NAME.
+WRITER_ATTEMPT_MANIFEST_SCHEMA = "writer-attempt-manifest/1"
+WRITER_ATTEMPT_MANIFEST_NAME = "attempt_manifest.json"
 
 WATCHDOG_S = int(os.environ.get("OM_CC_WATCHDOG", "420"))
 MAX_TURNS = os.environ.get("OM_CC_MAX_TURNS", "60")
@@ -278,6 +298,14 @@ def _tsc_own_scene_fail(episode: Path, scene_id: str) -> tuple[bool, str]:
     maps ``scene-1`` -> ``S01.tsx`` where that placeholder exists) plus the
     literal ``<scene_id>.tsx`` spelling — tsc emits ``S01.tsx(12,5): error``
     and a raw ``scene-1`` substring alone would miss it (4A rev-2 reviewer fix).
+
+    Failure-fixes 3 (2026-11-15): the project-wide tsc is DEFERRED while the
+    episode is partially generated. When expected sibling scenes are still
+    missing AND every own-scene error line is a missing-module/baseline error
+    (TS2307 against a file absent on disk), the check prints a TSC BASELINE
+    WARN and passes — shared/baseline failures during early scenes must not
+    fail the writer (the reviewer + episode gates still see the full picture).
+    With all expected scenes on disk, own-scene errors fail strictly again.
     """
     composer = next((p for p in [episode, *episode.parents]
                      if (p / "tsconfig.json").is_file() and (p / "package.json").is_file()), None)
@@ -293,10 +321,84 @@ def _tsc_own_scene_fail(episode: Path, scene_id: str) -> tuple[bool, str]:
                              capture_output=True, text=True, timeout=240)
         own = _tsc_lines_for_scene((tsc.stdout + tsc.stderr).splitlines(), markers)
         if tsc.returncode != 0 and own:
+            missing = _expected_scene_missing(episode)
+            if missing and _own_tsc_errors_are_baseline(own, episode):
+                print(
+                    f"writer {scene_id}: TSC BASELINE WARN (project-wide tsc DEFERRED — "
+                    f"{len(missing)} expected scene(s) not yet generated: "
+                    f"{', '.join(missing[:8])}); own-scene errors are "
+                    f"missing-module/baseline only:\n" + "\n".join(own)[:2000]
+                )
+                return False, ""
             return True, "\n".join(own)[:2000]
     except subprocess.TimeoutExpired:
         print(f"writer {scene_id}: tsc self-check timed out (non-fatal)")
     return False, ""
+
+
+# --- Failure-fixes 3: deferred project-wide tsc during partial generation ----
+_TS2307_MODULE_RE = re.compile(r"error\s+TS2307:.*?['\"]([^'\"]+)['\"]")
+
+
+def _expected_scene_missing(episode: Path) -> list[str] | None:
+    """Expected authoritative scene ids whose scene file is NOT on disk yet.
+
+    Returns ``None`` when the expected set cannot be determined (discovery
+    unavailable) — callers must then keep the strict gate (fail-closed).
+    An empty list means every expected scene exists (generation complete).
+    """
+    try:
+        expected = discover_authoritative_scenes(episode)
+    except Exception:
+        return None
+    if not expected:
+        return []
+    scenes_dir = get_scenes_dir(episode)
+    missing: list[str] = []
+    for sid in expected:
+        try:
+            fname = resolve_scene_filename(scenes_dir, sid)
+        except Exception:
+            fname = f"{sid}.tsx"
+        if not (scenes_dir / fname).is_file():
+            missing.append(sid)
+    return missing
+
+
+def _module_target_exists(episode: Path, specifier: str) -> bool:
+    """Resolve a TS2307 module specifier against the episode tree.
+
+    Only RELATIVE specifiers (``./x``, ``../x``) can be resolved from the
+    scene dir / episode root; bare specifiers (npm packages, tsconfig path
+    aliases like ``@episode/...``) are unresolvable here and count as
+    EXISTING (fail-closed: their absence is a real own-scene error, not a
+    missing-sibling baseline). tsc emits specifiers without extensions, so
+    ``.tsx``/``.ts``/``index`` suffix variants are probed.
+    """
+    if not specifier.startswith("."):
+        return True
+    suffixes = ("", ".tsx", ".ts", ".d.ts", "/index.tsx", "/index.ts")
+    for base in (get_scenes_dir(episode), episode):
+        for suffix in suffixes:
+            candidate = (base / (specifier + suffix)).resolve()
+            if candidate.exists():
+                return True
+    return False
+
+
+def _own_tsc_errors_are_baseline(own_lines: list[str], episode: Path) -> bool:
+    """True when EVERY own-scene error line is a TS2307 against a file absent
+    on disk — i.e. the project-wide failures are missing-sibling/baseline
+    noise from partial generation, not defects in this scene's output."""
+    if not own_lines:
+        return False
+    for line in own_lines:
+        m = _TS2307_MODULE_RE.search(line)
+        if not m:
+            return False  # a non-module error is a real own-scene defect
+        if _module_target_exists(episode, m.group(1)):
+            return False  # the imported file exists: real resolution defect
+    return True
 
 
 def _log_prior_findings(log_path: Path, block: str) -> None:
@@ -309,6 +411,40 @@ def _log_prior_findings(log_path: Path, block: str) -> None:
             fp.write("===== end PRIOR REVIEWER ISSUES =====\n")
     except OSError:
         pass  # a failed log write must not kill the writer session
+
+
+def _write_attempt_manifest(episode: Path, scene_id: str, attempt_idx: str,
+                            sandbox: Path, canonical_target: Path | None) -> None:
+    """Failure-fixes 2: record what THIS wrapper process wrote.
+
+    The manifest (``.tmp_sandboxes/{scene_id}_{attempt}/attempt_manifest.json``)
+    lists the episode-relative ``writer_owned`` paths — sandbox output, the
+    scenes-dir staging file, and the promoted canonical target. The
+    orchestrator's ``verify_writer_scope`` is manifest-based in this mode:
+    only listed paths can be writer-scope violations, so concurrent
+    lead/collaborator edits of shared files are never blamed on the writer.
+    Best-effort: a manifest write failure falls back to the tree-diff check.
+    """
+    try:
+        owned: set[str] = set()
+        for p in sandbox.rglob("*"):
+            if p.is_file() and p.name != WRITER_ATTEMPT_MANIFEST_NAME:
+                owned.add(p.relative_to(episode).as_posix())
+        staged = get_scenes_dir(episode) / f".tmp_{scene_id}.tsx"
+        if staged.is_file():
+            owned.add(staged.relative_to(episode).as_posix())
+        if canonical_target is not None and canonical_target.is_file():
+            owned.add(canonical_target.relative_to(episode).as_posix())
+        payload = {
+            "schema": WRITER_ATTEMPT_MANIFEST_SCHEMA,
+            "scene_id": scene_id,
+            "attempt_index": str(attempt_idx),
+            "writer_owned": sorted(owned),
+        }
+        (sandbox / WRITER_ATTEMPT_MANIFEST_NAME).write_text(
+            json.dumps(payload, indent=1), encoding="utf-8")
+    except Exception as e:
+        print(f"writer {scene_id}: attempt manifest write failed (tree-diff fallback): {e}")
 
 
 def _legacy_main(scene_id: str, episode: Path, task_file: Path, log_dir: Path) -> int:
@@ -388,9 +524,17 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
     # 4A.3 rev-2: SceneShell pre-seed header goes FIRST (before the sandbox-mode
     # preamble) using the episode's DETECTED on-disk specifiers, so the writer
     # sees an import block that actually resolves in THIS episode.
+    # Failure-fixes 1: the preamble also states the unified S{NN}.tsx
+    # convention and the RESOLVED canonical target so writer-side references,
+    # generated imports and the promotion target never diverge.
     task = (
         "## CANONICAL IMPORT HEADER (phase-3 task 3.2 pre-seed — use these)\n"
         "```tsx\n" + _scene_shell_header(episode) + "```\n\n"
+        "## CANONICAL TARGET (OpenMontage scene filename convention)\n"
+        f"Your scene promotes to `{scenes_dir.name}/{target_filename}`. The unified "
+        "OpenMontage convention is `S{NN}.tsx` (scenes/S01.tsx, scenes/S02.tsx, ...); "
+        f"reference sibling scenes and packets with the same convention — never "
+        "invent `{scene_id}.tsx`-style scene filenames.\n\n"
         "## SANDBOX OUTPUT MODE (phase1 task 1.3)\n"
         f"Write your final scene component EXCLUSIVELY to `{sandbox.relative_to(episode)}/{scene_id}.tsx` "
         "(create parent dirs as needed). Do NOT write or edit any file under "
@@ -443,6 +587,7 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
     dur = time.time() - t0
 
     if not (sandbox_file.is_file() and sandbox_file.stat().st_size > 200):
+        _write_attempt_manifest(episode, scene_id, attempt_idx, sandbox, None)
         print(f"writer {scene_id}: exit={returncode} dur={dur:.0f}s file=MISSING (sandbox)")
         return 1
 
@@ -453,6 +598,7 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
     # (unknown layout) — see _preflight_gate.
     scene_src = sandbox_file.read_text(encoding="utf-8", errors="replace")
     if not _preflight_gate(episode, scene_src, scene_id):
+        _write_attempt_manifest(episode, scene_id, attempt_idx, sandbox, None)
         return 1
 
     # Stage for validation, then promote atomically. No un-scoped deletion of
@@ -462,12 +608,14 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
     failed, out = _tsc_own_scene_fail(episode, scene_id)
     if failed:
         tmp_target.unlink(missing_ok=True)
+        _write_attempt_manifest(episode, scene_id, attempt_idx, sandbox, None)
         print(f"writer {scene_id}: TSC FAIL (own scene):\n{out}")
         return 1
 
     with promo_mutex:
         os.replace(tmp_target, canonical_target)
 
+    _write_attempt_manifest(episode, scene_id, attempt_idx, sandbox, canonical_target)
     ok = canonical_target.is_file() and canonical_target.stat().st_size > 200
     print(f"writer {scene_id}: exit={returncode} dur={dur:.0f}s file={'OK' if ok else 'MISSING'} (promoted)")
     return 0 if ok else 1

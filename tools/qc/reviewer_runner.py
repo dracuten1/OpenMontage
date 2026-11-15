@@ -69,7 +69,13 @@ def get_scenes_dir(episode_dir: Path) -> Path:
 
 
 def resolve_scene_filename(scenes_dir: Path, scene_id: str) -> str:
-    """Map a scene_id (e.g. ``scene-1``) to the on-disk TSX filename (e.g. ``S01.tsx``)."""
+    """Map a scene_id (e.g. ``scene-1``) to the on-disk TSX filename (e.g. ``S01.tsx``).
+
+    Failure-fixes 1: unified ``S{NN}.tsx`` convention — on-disk files keep
+    precedence (legacy ``scene-N.tsx`` episodes keep working); with no
+    on-disk match the fallback is the canonical ``S{NN}.tsx`` name, mirroring
+    tools.qc.scene_orchestrator.resolve_scene_filename.
+    """
     if (scenes_dir / f"{scene_id}.tsx").is_file():
         return f"{scene_id}.tsx"
     m = re.match(r"(?:scene[-_]?)?(\d+)", scene_id, re.IGNORECASE)
@@ -78,6 +84,8 @@ def resolve_scene_filename(scenes_dir: Path, scene_id: str) -> str:
         for c in [f"S{num:02d}.tsx", f"S{num}.tsx", f"scene-{num}.tsx", f"scene_{num}.tsx"]:
             if (scenes_dir / c).is_file():
                 return c
+        # Failure-fixes 1: fresh scene -> canonical S{NN}.tsx (never scene-N.tsx)
+        return f"S{num:02d}.tsx"
     return f"{scene_id}.tsx"
 
 
