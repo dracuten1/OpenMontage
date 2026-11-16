@@ -199,9 +199,72 @@ def test_truthful_proc_print_survives_mint_render(tmp_path):
 
 
 def test_launcher_module_defaults_are_conservative():
-    """Defaults without env: cap 2 total attempts, base backoff 30s (pinned
-    on the template literals — the conservative supervision contract)."""
+    """Defaults without env: cap 2 total attempts, base backoff 30s — pinned
+    on the template literals (the conservative supervision contract). The
+    parse now goes through guarded helpers (security review finding 3,
+    2026-11-16): non-integer env warns + defaults instead of crashing."""
     src = LAUNCHER_TMPL.read_text(encoding="utf-8")
-    assert 'os.environ.get("OM_RELAUNCH_MAX_ATTEMPTS", "2")' in src
-    assert 'os.environ.get("OM_RELAUNCH_BACKOFF_S", "30")' in src
-    assert "max(1, int(" in src and "max(0.0, float(" in src
+    assert 'os.environ.get("OM_RELAUNCH_MAX_ATTEMPTS")' in src
+    assert 'os.environ.get("OM_RELAUNCH_BACKOFF_S")' in src
+    assert "_parse_relaunch_max_attempts(os.environ.get(\"OM_RELAUNCH_MAX_ATTEMPTS\"))" in src
+    assert "_parse_relaunch_backoff_base_s(os.environ.get(\"OM_RELAUNCH_BACKOFF_S\"))" in src
+    # guarded parses: no bare int()/float() on the relaunch env anymore
+    assert 'int(os.environ.get("OM_RELAUNCH_MAX_ATTEMPTS"' not in src
+    assert 'float(os.environ.get("OM_RELAUNCH_BACKOFF_S"' not in src
+
+
+# ------------------------------------------------------------------------------
+# Finding 3 (security review 2026-11-16): env override cannot exceed hard cap
+# ------------------------------------------------------------------------------
+
+def test_relaunch_hard_cap_constant():
+    src = launcher_defaults_src()
+    assert src.count("\nRELAUNCH_HARD_CAP = 3") == 1   # the definition line
+    assert "RELAUNCH_HARD_CAP" in src.split("# --- Wave1 P0-4")[1]
+
+
+def launcher_defaults_src() -> str:
+    return LAUNCHER_TMPL.read_text(encoding="utf-8")
+
+
+def test_parse_relaunch_max_attempts_clamped(launcher_mod):
+    parse = launcher_mod._parse_relaunch_max_attempts
+    assert parse(None) == 2                       # unset -> default 2
+    assert parse("2") == 2                        # normal value honored
+    assert parse("1") == 1
+    assert parse("3") == 3                        # the cap itself is allowed
+    assert parse("10") == launcher_mod.RELAUNCH_HARD_CAP   # cannot exceed cap
+    assert parse("999") == launcher_mod.RELAUNCH_HARD_CAP
+    assert parse("0") == 1                        # lower clamp intact
+    assert parse("-4") == 1
+
+
+def test_parse_relaunch_max_attempts_non_integer_warns_and_defaults(
+        launcher_mod, capsys):
+    parse = launcher_mod._parse_relaunch_max_attempts
+    assert parse("abc") == 2                      # default, no ValueError
+    assert parse("2.5") == 2                      # int() rejects float strings
+    assert parse("") == 2
+    out = capsys.readouterr().out
+    assert out.count("invalid OM_RELAUNCH_MAX_ATTEMPTS") == 3
+    assert "WARN" in out
+
+
+def test_parse_relaunch_backoff_base_s_guards_and_clamps(launcher_mod, capsys):
+    parse = launcher_mod._parse_relaunch_backoff_base_s
+    assert parse(None) == 30.0                    # unset -> default 30
+    assert parse("45") == 45.0
+    assert parse("-5") == 0.0                     # lower clamp intact
+    assert parse("junk") == 30.0                  # non-float -> warn + default
+    assert parse("") == 30.0
+    out = capsys.readouterr().out
+    assert out.count("invalid OM_RELAUNCH_BACKOFF_S") == 2
+
+
+def test_module_level_parse_runs_clean_at_import(launcher_mod):
+    """The launcher module imported fine (fixture) — i.e. the module-level
+    parse of whatever env the test runner carries did not raise, proving the
+    no-ValueError-at-import contract for the normal path."""
+    assert launcher_mod.RELAUNCH_MAX_ATTEMPTS >= 1
+    assert launcher_mod.RELAUNCH_MAX_ATTEMPTS <= launcher_mod.RELAUNCH_HARD_CAP
+    assert launcher_mod.RELAUNCH_BACKOFF_BASE_S >= 0.0

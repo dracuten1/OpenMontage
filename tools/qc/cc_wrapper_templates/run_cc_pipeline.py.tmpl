@@ -171,14 +171,43 @@ def main() -> int:
 # gating comes LATER and is deliberately NOT built here): when a full
 # pipeline pass exits non-zero, the launcher relaunches the whole pass,
 # capped at OM_RELAUNCH_MAX_ATTEMPTS TOTAL attempts (default 2 = the initial
-# pass + at most ONE relaunch; there is never a third attempt), sleeping
+# pass + at most ONE relaunch; hard-clamped to RELAUNCH_HARD_CAP = 3 so an
+# env override can NEVER exceed three total attempts; non-integer env values
+# warn + fall back to the default instead of crashing at import), sleeping
 # OM_RELAUNCH_BACKOFF_S * 2**(k-1) seconds before relaunch k (doubling
 # backoff). Once the cap is spent, the notification hook fires on the
 # job-event lane (STUB/EMIT ONLY — see tools/qc/job_events.py; the platform
 # lane wires real channels later) for BOTH fail_exit and
 # owner_approval_request, and the launcher exits non-zero.
-RELAUNCH_MAX_ATTEMPTS = max(1, int(os.environ.get("OM_RELAUNCH_MAX_ATTEMPTS", "2")))
-RELAUNCH_BACKOFF_BASE_S = max(0.0, float(os.environ.get("OM_RELAUNCH_BACKOFF_S", "30")))
+RELAUNCH_HARD_CAP = 3
+
+
+def _parse_relaunch_max_attempts(raw: str | None) -> int:
+    default = 2
+    if raw is None:
+        return default
+    try:
+        val = int(raw)
+    except (TypeError, ValueError):
+        print(f"[supervision] WARN: invalid OM_RELAUNCH_MAX_ATTEMPTS={raw!r}; using default {default}")
+        return default
+    return min(RELAUNCH_HARD_CAP, max(1, val))
+
+
+def _parse_relaunch_backoff_base_s(raw: str | None) -> float:
+    default = 30.0
+    if raw is None:
+        return default
+    try:
+        val = float(raw)
+    except (TypeError, ValueError):
+        print(f"[supervision] WARN: invalid OM_RELAUNCH_BACKOFF_S={raw!r}; using default {default}")
+        return default
+    return max(0.0, val)
+
+
+RELAUNCH_MAX_ATTEMPTS = _parse_relaunch_max_attempts(os.environ.get("OM_RELAUNCH_MAX_ATTEMPTS"))
+RELAUNCH_BACKOFF_BASE_S = _parse_relaunch_backoff_base_s(os.environ.get("OM_RELAUNCH_BACKOFF_S"))
 
 
 def relaunch_backoff_s(base_s: float, relaunch_index: int) -> float:

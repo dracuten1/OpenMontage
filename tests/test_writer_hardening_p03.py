@@ -56,9 +56,12 @@ def test_writer_cmd_reviewer_shape_accept_edits_plus_deny_list(writer_module):
     # packets/ denied (the R6 mutation surface)
     for tool in ("Edit", "Write", "MultiEdit"):
         assert f"{tool}(packets/**)" in deny, deny
-    # infra dot-directories denied
+    # infra dot-directories denied — MultiEdit parity included (security
+    # review finding 2, 2026-11-16): all three edit-class tools on both dirs
     assert "Edit(.git/**)" in deny and "Write(.git/**)" in deny
+    assert "MultiEdit(.git/**)" in deny
     assert "Edit(.claude/**)" in deny and "Write(.claude/**)" in deny
+    assert "MultiEdit(.claude/**)" in deny
 
 
 def test_writer_cmd_has_no_allowed_tools_flag(writer_module):
@@ -87,8 +90,30 @@ def test_writer_cmd_legacy_variant_drops_scenes_deny_only(writer_module):
     assert not any("(scenes/**)" in rule for rule in deny)
     assert "Write(packets/**)" in deny and "Edit(packets/**)" in deny
     assert "Write(.git/**)" in deny and "Write(.claude/**)" in deny
+    assert "MultiEdit(.git/**)" in deny and "MultiEdit(.claude/**)" in deny
     # shape parity with the sandboxed variant: same acceptEdits contract
     assert cmd[cmd.index("--permission-mode") + 1] == "acceptEdits"
+
+
+def test_writer_bash_remains_enabled_with_documented_residual_risk(writer_module):
+    """Finding 1 disposition (security review 2026-11-16, EVIDENCE branch):
+    writer tasks DO require Bash — the per-scene task text (wrapper preamble
+    sibling task files minted by mint_director_inputs) instructs
+    ``npx tsc --noEmit``. So Bash is NOT denied (denying it would break the
+    instructed self-check), and the residual risk — shell writes bypass
+    tool-level denies — is documented in the template header with the
+    compensating controls named. Path-matching on Bash command strings is
+    unreliable and is deliberately NOT pretended."""
+    deny = writer_module._writer_cmd()[writer_module._writer_cmd().index("--disallowedTools") + 1].split(",")
+    assert not any(rule.startswith("Bash(") for rule in deny), deny
+    src = render_writer_template()
+    # the evidence reason is on record in the template
+    assert "npx tsc --noEmit" in src
+    assert "RESIDUAL RISK" in src
+    for control in ("pre-flight", "tsc", "reviewer", "episode gate", "symlink-safety"):
+        assert control in src, control
+    # and no unreliable Bash path-matching deny is faked anywhere
+    assert "Bash(scenes" not in src and "Bash(packets" not in src
 
 
 def test_writer_mains_use_their_own_cmd_variants():
@@ -184,3 +209,19 @@ def test_writer_cmd_is_used_by_spawn_paths(writer_module):
     src = inspect.getsource(writer_module._sandboxed_main)
     assert "execute_writer_with_backoff(\n        cmd, episode, env, task, governor," in src
     assert "_writer_cmd()" in src
+
+
+# ------------------------------------------------------------------------------
+# Finding 6 (security review 2026-11-16): tsc self-check env whitelist
+# ------------------------------------------------------------------------------
+
+def test_tsc_self_check_runs_with_whitelisted_child_env(writer_module):
+    """The ``npx tsc --noEmit`` self-check subprocess must NOT inherit the
+    full parent env (node_modules binaries/scripts would see every parent
+    credential). It receives the same whitelisted construction as the claude
+    child (_writer_child_env) — no new env surface invented."""
+    import inspect
+    src = inspect.getsource(writer_module._tsc_own_scene_fail)
+    assert "env=_writer_child_env()" in src
+    # and the bare no-env form is gone
+    assert 'subprocess.run(["npx", "tsc", "--noEmit"], cwd=str(composer),\n                             capture_output' not in src

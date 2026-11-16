@@ -126,6 +126,76 @@ def test_once_exit_codes(tmp_path, capsys):
     assert "HEALTHY:" in out and "STALL:" in out
 
 
+# ------------------------------------------------------------------------------
+# Security review finding 4: planted-symlink read-out containment
+# ------------------------------------------------------------------------------
+
+def test_symlink_target_outside_artifacts_is_refused(tmp_path):
+    """A planted pointer aiming OUTSIDE the artifacts dir must never be
+    stat/read by the watcher: resolve_evidence_target refuses (None) and
+    evidence_status reports a loud no_evidence, not a healthy/stalled read."""
+    project, evidence = _project(tmp_path)
+    outside = tmp_path / "elsewhere" / "secret_evidence.json"
+    outside.parent.mkdir(parents=True, exist_ok=True)
+    outside.write_text('{"overall_status": "partial"}', encoding="utf-8")
+    evidence.parent.mkdir(parents=True, exist_ok=True)
+    evidence.symlink_to(outside)  # absolute escape
+    assert sw.resolve_evidence_target(evidence) is None
+    detail = sw.evidence_status(evidence, STALL_S, now=time.time())
+    assert detail["status"] == sw.STATUS_NO_EVIDENCE
+    assert detail["target"] is None
+    assert "REFUSED" in detail["summary"]
+
+
+def test_symlink_relative_escape_is_refused(tmp_path):
+    """The ../../ relative-spelling escape gets the same refusal."""
+    project, evidence = _project(tmp_path)
+    evidence.parent.mkdir(parents=True, exist_ok=True)
+    evidence.symlink_to("../../planted.json")
+    assert sw.resolve_evidence_target(evidence) is None
+    detail = sw.evidence_status(evidence, STALL_S, now=time.time())
+    assert detail["status"] == sw.STATUS_NO_EVIDENCE
+    assert "REFUSED" in detail["summary"]
+
+
+def test_symlink_sibling_inside_artifacts_still_allowed(tmp_path):
+    """Containment must not break the per-round contract: a stamped sibling
+    INSIDE artifacts/ resolves and mtime logic works as before."""
+    project, evidence = _project(tmp_path)
+    evidence.parent.mkdir(parents=True, exist_ok=True)
+    stamped = evidence.parent / "scene_workflow_evidence_sess-9.json"
+    stamped.write_text('{"overall_status": "partial"}', encoding="utf-8")
+    evidence.symlink_to(stamped.name)
+    resolved = sw.resolve_evidence_target(evidence)
+    assert resolved is not None and resolved.name == stamped.name
+    status, _ = sw.check_once(evidence, STALL_S, sink=None, now=time.time() + 5)
+    assert status == sw.STATUS_HEALTHY
+
+
+# ------------------------------------------------------------------------------
+# Security review finding 5: emit is best-effort — watcher never dies on sink
+# ------------------------------------------------------------------------------
+
+def test_stall_emit_failure_does_not_kill_watcher(tmp_path, monkeypatch, capsys):
+    """A broken job-event sink (OSError etc.) must not crash check_once: the
+    STALL print still fires and the STALLED status still returns."""
+    project, evidence = _project(tmp_path)
+    _write_evidence(evidence, overall="running")
+    _backdate(evidence, STALL_S + 300)
+
+    def boom(event_type, payload, sink=None):
+        raise OSError("sink unwritable")
+
+    monkeypatch.setattr(sw, "emit_job_event", boom)
+    status, detail = sw.check_once(evidence, STALL_S, sink=tmp_path / "nope" / "lane.jsonl",
+                                   now=time.time() + 10)
+    assert status == sw.STATUS_STALLED
+    assert detail["seconds_quiet"] > STALL_S
+    out = capsys.readouterr().out
+    assert "STALL:" in out                      # the signal survives the sink
+    assert "emit FAILED" in out                 # the failure is loud, not silent
+
+
 def test_default_stall_seconds_env_conservative():
     """Default quiet threshold reads OM_CC_STALL_SECONDS, default 1800s —
     pinned conservative (a stall is declared only after 30 quiet minutes)."""

@@ -61,11 +61,22 @@ STATUS_NO_EVIDENCE = "no_evidence"
 
 def resolve_evidence_target(evidence_path: Path) -> Path | None:
     """The file the latest pointer actually names (symlinks followed by
-    ``os.stat``/``read_text`` semantics; explicit readlink for clarity)."""
+    ``os.stat``/``read_text`` semantics; explicit readlink for clarity).
+
+    Containment (security review 2026-11-16): a symlinked pointer MUST
+    resolve INSIDE the pointer's own directory (the project ``artifacts/``
+    dir). A planted pointer aiming outside (``../../.git/config`` style) is
+    refused with ``None`` so the watcher can never be lured into stat-ing /
+    reading arbitrary files. ``None`` is distinct from "pointer missing" —
+    ``evidence_status`` reports it loudly."""
     if evidence_path.is_symlink():
         target = Path(os.readlink(evidence_path))
         if not target.is_absolute():
             target = evidence_path.parent / target
+        base = evidence_path.parent.resolve()
+        resolved = target.resolve()
+        if base != resolved and base not in resolved.parents:
+            return None
         return target
     return evidence_path
 
@@ -88,6 +99,12 @@ def evidence_status(evidence_path: Path, stall_seconds: float,
                 "target": None, "summary": "no evidence pointer on disk yet",
                 "overall_status": None}
     target = resolve_evidence_target(evidence_path)
+    if target is None:
+        return {"status": STATUS_NO_EVIDENCE, "seconds_quiet": None,
+                "target": None,
+                "summary": ("evidence pointer symlink escapes artifacts/ — "
+                            "REFUSED (planted-pointer containment)"),
+                "overall_status": None}
     try:
         mtime = target.stat().st_mtime
     except OSError as e:
@@ -121,14 +138,20 @@ def check_once(evidence_path: Path, stall_seconds: float, sink: Path | None = No
     else 2 stalled."""
     detail = evidence_status(evidence_path, stall_seconds, now=now)
     if detail["status"] == STATUS_STALLED:
-        emit_job_event("stall_detected", {
-            "evidence_pointer": str(evidence_path),
-            "evidence_target": detail["target"],
-            "seconds_quiet": detail["seconds_quiet"],
-            "stall_threshold_s": stall_seconds,
-            "overall_status": detail["overall_status"],
-            "summary": detail["summary"],
-        }, sink=sink)
+        # Best-effort contract: a broken job-event sink (OSError etc.) must
+        # never kill the watcher — the STALL print below still fires and the
+        # loop keeps polling.
+        try:
+            emit_job_event("stall_detected", {
+                "evidence_pointer": str(evidence_path),
+                "evidence_target": detail["target"],
+                "seconds_quiet": detail["seconds_quiet"],
+                "stall_threshold_s": stall_seconds,
+                "overall_status": detail["overall_status"],
+                "summary": detail["summary"],
+            }, sink=sink)
+        except Exception as emit_err:
+            print(f"WATCHER: stall_detected emit FAILED (watcher continues): {emit_err}")
         print(f"STALL: {detail['summary']} — evidence={detail['target']}")
     elif detail["status"] == STATUS_NO_EVIDENCE:
         print(f"NO EVIDENCE: {detail['summary']} — pointer={evidence_path}")
