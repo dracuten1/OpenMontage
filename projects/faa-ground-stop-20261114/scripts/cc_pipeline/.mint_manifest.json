@@ -1,17 +1,17 @@
 {
-  "minted_at": "2026-11-16T10:28:04.556146+00:00",
-  "om_commit": "a01fb71f315890e8dddb2856933bb14f0edc07a4",
-  "template_content_hash": "b018f2b01fa53194740f2355e5d7500602d2bec6f7292bb9976b3275badab207",
+  "minted_at": "2026-11-16T14:02:46.561311+00:00",
+  "om_commit": "cb58491d2b41846741889561433a56b6b1ec3a00",
+  "template_content_hash": "365cfb81c417ecee3c6d63d784f67d1a5e4f6a50d9f33a96f024f1e0dbbd0ca3",
   "templates": {
     "reviewer_pass.py.tmpl": "243413a70a5bb970f6663d9a267bf125486e44b33869111d001ba11be7158f2b",
     "reviewer_wrapper.py.tmpl": "1dcbc50750d837bddcd6adb0035b0557d066a2c789e6e8f946977904f3cdbc6b",
-    "run_cc_pipeline.py.tmpl": "f753499ddae515e54e103ae716d38c6552f0e02579fc9b152810f0cb6a438050",
+    "run_cc_pipeline.py.tmpl": "4d70b6c91d7aa3a667fc1b4eb5fb2c5cacfc54fc3a33f337fa4ba5610e854a9c",
     "writer_wrapper.py.tmpl": "ec948f5707dd5b71145a8c377a0c6a1b59b4a09241a26af2f96581130a536aac"
   },
   "rendered": {
     "writer_wrapper.py": "ec948f5707dd5b71145a8c377a0c6a1b59b4a09241a26af2f96581130a536aac",
     "reviewer_wrapper.py": "1dcbc50750d837bddcd6adb0035b0557d066a2c789e6e8f946977904f3cdbc6b",
-    "run_cc_pipeline.py": "d02e90e6de844a9c6c3c7ecdd8d1e2592f8e8371b4d502049e811731dad616bb"
+    "run_cc_pipeline.py": "9ad66cde1b610d6a8874dfb65255d3f4321e8e5eead6e24ca64d76c74d80ed47"
   },
   "project": "faa-ground-stop-20261114",
   "scene_count": 15,

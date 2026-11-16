@@ -33,6 +33,7 @@ template in 4C scope; this carrier ships wrappers + scene-id selection only.
 """
 from __future__ import annotations
 import math, os, sys
+import json
 from pathlib import Path
 
 # Task 2.4 shim pattern: resolve the repo root statically so the launcher
@@ -277,29 +278,64 @@ def emit_pipeline_event(event_type: str, detail: dict) -> None:
         print(f"[job-event] emit FAILED for {event_type} (supervision continues): {_emit_err}")
 
 
+def _evidence_scene_context(evidence: Path) -> str:
+    """Wave1 W2 (security fix cycle): best-effort one-line scene-status
+    context from the latest evidence file, for the run_pipeline_once
+    exception summary. Never raises — missing/corrupt/unrecognized evidence
+    yields an empty string (diagnostic context must never mask the failure)."""
+    try:
+        data = json.loads(evidence.read_text(encoding="utf-8"))
+        scenes = data.get("scenes") if isinstance(data, dict) else None
+        if not isinstance(scenes, dict) or not scenes:
+            return ""
+        parts = []
+        for sid, rec in sorted(scenes.items()):
+            status = rec.get("status", "?") if isinstance(rec, dict) else "?"
+            parts.append(f"{sid}:{status}")
+        return "scenes=" + ",".join(parts)
+    except Exception:
+        return ""
+
+
 def run_pipeline_once() -> tuple[int, str]:
     """One full orchestrate_episode pass + its report block.
-    Returns ``(exit_code, one-line summary)``."""
+    Returns ``(exit_code, one-line summary)``.
+
+    Wave1 W2 (security fix cycle): the body is exception-wrapped — a raise
+    inside orchestrate_episode (or the report block) is converted to a
+    failed pass ``(1, summary)`` with a printed failure summary (exception
+    type + message + best-effort scene context) instead of crashing the
+    launcher with NO fail_exit/owner_approval_request emit. The supervision
+    loop's bounded-relaunch semantics (default 2 attempts, RELAUNCH_HARD_CAP
+    clamp, doubling backoff) and the post-loop emit path are unchanged: an
+    exception pass is just a failed pass."""
     ep = Path(os.environ.get("OM_EPISODE_DIR_OVERRIDE")
               or (REPO / "remotion-composer/src/tin-nong-5tin-20261115"))
     evidence = REPO / "projects/tin-nong-5tin-20261115/artifacts/scene_workflow_evidence.json"
-    session = orchestrate_episode(
-        episode_dir=ep,
-        max_concurrency=resolve_launcher_concurrency(),
-        max_retries=int(os.environ.get("OM_MAX_RETRIES", "1")),
-        runner=CCRunner(),
-        evidence_file=evidence,
-        scene_ids=resolve_scene_ids(ep),
-        strict=False,
-    )
-    print(f"\nSession {session.session_id} overall={session.overall_status}")
-    for sid, rec in session.scenes.items():
-        print(f"- {sid}: {rec.status}"
-              + (f" ({rec.error})" if rec.error else ""))
-    gate = session.episode_gate_result
-    print("gate:", gate.get("valid"), [r.get("code") for r in gate.get("reasons", [])][:8])
-    return (0 if session.overall_status == "pass" else 1), \
-        f"Session {session.session_id} overall={session.overall_status}"
+    try:
+        session = orchestrate_episode(
+            episode_dir=ep,
+            max_concurrency=resolve_launcher_concurrency(),
+            max_retries=int(os.environ.get("OM_MAX_RETRIES", "1")),
+            runner=CCRunner(),
+            evidence_file=evidence,
+            scene_ids=resolve_scene_ids(ep),
+            strict=False,
+        )
+        print(f"\nSession {session.session_id} overall={session.overall_status}")
+        for sid, rec in session.scenes.items():
+            print(f"- {sid}: {rec.status}"
+                  + (f" ({rec.error})" if rec.error else ""))
+        gate = session.episode_gate_result
+        print("gate:", gate.get("valid"), [r.get("code") for r in gate.get("reasons", [])][:8])
+        return (0 if session.overall_status == "pass" else 1), \
+            f"Session {session.session_id} overall={session.overall_status}"
+    except Exception as exc:
+        summary = f"run_pipeline_once raised {type(exc).__name__}: {exc}"
+        scene_ctx = _evidence_scene_context(evidence)
+        print(f"[launcher] run_pipeline_once FAILED (exception): {summary}; "
+              f"episode_dir={ep}" + (f"; {scene_ctx}" if scene_ctx else ""))
+        return 1, summary
 
 
 def run_pipeline_supervised() -> int:
