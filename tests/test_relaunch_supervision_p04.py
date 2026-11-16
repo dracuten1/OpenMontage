@@ -292,3 +292,75 @@ def test_launcher_template_uses_math_isfinite_gate():
     src = launcher_defaults_src()
     assert "import math" in src
     assert "math.isfinite(val)" in src
+
+
+# ------------------------------------------------------------------------------
+# Wave1 W2 (security fix cycle 2026-11-16): an exception inside
+# orchestrate_episode must NOT crash the launcher silently — it converts to a
+# failed pass so the post-loop emit path still fires fail_exit +
+# owner_approval_request (the supervision guarantees must not go silent
+# exactly when things break).
+# ------------------------------------------------------------------------------
+
+def test_orchestrate_episode_raise_converts_to_failed_pass_and_emits(
+        launcher_mod, monkeypatch, sleep_log, tmp_path):
+    """W2: orchestrate_episode RAISING on every pass is a failed pass, not a
+    crash: launcher exit code 1, bounded-relaunch semantics unchanged
+    (2 attempts, one doubling backoff wait), and BOTH fail_exit and
+    owner_approval_request records emitted to the job-event lane with the
+    exception type + message in the fail_exit payload summary."""
+    launcher_mod.RELAUNCH_MAX_ATTEMPTS = 2
+    launcher_mod.RELAUNCH_BACKOFF_BASE_S = 30.0
+    calls = {"n": 0}
+
+    def raise_once(**_kwargs):
+        calls["n"] += 1
+        raise RuntimeError("orchestrator boom")
+
+    monkeypatch.setattr(launcher_mod, "orchestrate_episode", raise_once)
+    rc = launcher_mod.run_pipeline_supervised()
+    assert rc == 1
+    assert calls["n"] == 2          # exception pass counts like any failed pass
+    assert sleep_log == [30.0]      # relaunch backoff semantics unchanged
+    sink = tmp_path / "projects" / SLUG / "artifacts" / "job_events.jsonl"
+    records = read_job_events(sink)
+    types = [r["event_type"] for r in records]
+    assert "fail_exit" in types and "owner_approval_request" in types
+    fail = next(r for r in records if r["event_type"] == "fail_exit")
+    assert fail["payload"]["exit_code"] == 1
+    assert "RuntimeError" in fail["payload"]["summary"]
+    assert "orchestrator boom" in fail["payload"]["summary"]
+    approval = next(r for r in records if r["event_type"] == "owner_approval_request")
+    assert approval["payload"]["requires_owner"] is True
+
+
+def test_orchestrate_episode_raise_then_recover_passes_without_emits(
+        launcher_mod, monkeypatch, sleep_log, tmp_path):
+    """W2 complement: an exception on pass 1 followed by a clean pass 2 is
+    still a successful relaunch (exit 0, no fail-exit notification stubs) —
+    the wrap must not turn a transient crash into a permanent fail-exit."""
+    launcher_mod.RELAUNCH_MAX_ATTEMPTS = 2
+    launcher_mod.RELAUNCH_BACKOFF_BASE_S = 30.0
+    calls = {"n": 0}
+
+    def flaky(**_kwargs):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise ValueError("transient orchestrator crash")
+        class _Rec:
+            status = "pass"
+            error = None
+        class _Session:
+            session_id = "sess-recovered"
+            overall_status = "pass"
+            scenes = {"scene-1": _Rec()}
+            episode_gate_result = {"valid": True, "reasons": []}
+        return _Session()
+
+    monkeypatch.setattr(launcher_mod, "orchestrate_episode", flaky)
+    rc = launcher_mod.run_pipeline_supervised()
+    assert rc == 0
+    assert calls["n"] == 2
+    assert sleep_log == [30.0]
+    sink = tmp_path / "projects" / SLUG / "artifacts" / "job_events.jsonl"
+    assert read_job_events(sink) == []   # success path: no notifications
