@@ -89,6 +89,8 @@ def seeded_ambient_env(monkeypatch):
     monkeypatch.setenv("OM_TEST_SECRET_DO_NOT_SET", "sk-leak-1")
     monkeypatch.setenv("GENERIC_SECRET", "leak-2")
     monkeypatch.setenv("OM_TSC_TIMEOUT", "120")
+    monkeypatch.setenv("OM_CC_MAX_TURNS", "45")
+    monkeypatch.setenv("OM_AGENT_TIMEOUT", "600")
     monkeypatch.setenv("OM_CC_REVIEW_MAX_TURNS", "12")
     monkeypatch.setenv("SOME_RANDOM_AMBIENT_VAR", "noise")
     return monkeypatch
@@ -124,6 +126,10 @@ def test_writer_child_env_whitelisted(monkeypatch, tmp_path):
 
     # Allowed ambient OM key survives; deliberate runner injections present
     assert env.get("OM_TSC_TIMEOUT") == "120"
+    # Wrapper-child env-only knobs (writer_wrapper.py.tmpl:106 MAX_TURNS,
+    # :126/:131 _agent_budget_cap) pass through the whitelist
+    assert env.get("OM_CC_MAX_TURNS") == "45"
+    assert env.get("OM_AGENT_TIMEOUT") == "600"
     assert env["OM_ROLE"] == "writer"
     assert env["OM_SCENE_ID"] == "cut-1"
 

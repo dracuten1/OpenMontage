@@ -866,13 +866,16 @@ class CallableAgentRunner(AgentRunner):
 # writer/reviewer child processes. Mirror the minted-wrapper allowlists from
 # cc_wrapper_templates so the wrapper child itself is scoped the same way its
 # inner claude child already was. Superset-consistent: each list contains the
-# template's keys plus the runner's own deliberate injections (OM_ROLE,
-# OM_INSTANCE_ID, OM_TOKEN — provenance IDs the internal entrypoint expects).
+# template's keys plus OM_ROLE and the writer-side wrapper-child knobs the
+# template reads from its own env (OM_CC_MAX_TURNS writer_wrapper.py.tmpl:106,
+# OM_AGENT_TIMEOUT :126/:131). OM_INSTANCE_ID and OM_TOKEN are NOT allowlisted
+# — they are provenance IDs that arrive via the runner's injected merge.
 _ORCH_CHILD_ENV_ALLOW_KEYS = ("PATH", "HOME", "USER", "SHELL", "TMPDIR")
 _ORCH_WRITER_ENV_ALLOW_OM_KEYS = (
     "OM_ROLE", "OM_SCENE_ID", "OM_EPISODE_DIR", "OM_ATTEMPT_INDEX",
-    "OM_CC_WATCHDOG", "OM_TSC_TIMEOUT", "OM_FINDINGS_INJECT",
-    "OM_LEGACY_QUARANTINE", "OM_MAX_CONCURRENCY", "OM_WRAPPER_TEMPLATE_STRICT",
+    "OM_CC_WATCHDOG", "OM_CC_MAX_TURNS", "OM_AGENT_TIMEOUT",
+    "OM_TSC_TIMEOUT", "OM_FINDINGS_INJECT", "OM_LEGACY_QUARANTINE",
+    "OM_MAX_CONCURRENCY", "OM_WRAPPER_TEMPLATE_STRICT",
 )
 _ORCH_REVIEWER_ENV_ALLOW_OM_KEYS = (
     "OM_ROLE", "OM_SCENE_ID", "OM_SANDBOX_DIR", "OM_CANONICAL_DIR",
