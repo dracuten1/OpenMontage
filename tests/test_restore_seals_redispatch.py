@@ -40,6 +40,103 @@ def test_redispatch_drifted_scenes_calls_orchestrator_with_explicit_ids(monkeypa
     assert restore_seals.redispatch_succeeded(session) is True
 
 
+# ------------------------------------------------------------------------------
+# W1 (wave1-sec) — provenance re-dispatch lane never silently uses daemon runner
+# ------------------------------------------------------------------------------
+
+def test_redispatch_lane_binds_explicit_subprocess_runner(monkeypatch, tmp_path):
+    """runner=None at the redispatch lane must arrive at orchestrate_episode
+    as an explicit SubprocessAgentRunner — never None (which would trigger the
+    daemon-first auto-detect) and never a DaemonAgentRunner."""
+    from tools.qc.scene_orchestrator import DaemonAgentRunner, SubprocessAgentRunner
+
+    captured = {}
+
+    def fake_orchestrate(episode_dir, scene_ids=None, runner=None, max_retries=1, **kw):
+        captured["runner"] = runner
+
+        class _Rec:
+            success = True
+
+        class _Session:
+            scenes = {"scene-1": _Rec()}
+
+        return _Session()
+
+    monkeypatch.setattr(
+        "tools.qc.scene_orchestrator.orchestrate_episode", fake_orchestrate)
+    session = restore_seals.redispatch_drifted_scenes(["scene-1"], tmp_path / "ep")
+
+    assert isinstance(captured["runner"], SubprocessAgentRunner)
+    assert not isinstance(captured["runner"], DaemonAgentRunner)
+    assert restore_seals.redispatch_succeeded(session) is True
+
+
+def test_redispatch_lane_never_falls_back_to_daemon_auto_detect(monkeypatch, tmp_path):
+    """Strongest shape: the daemon-runner symbol is poisoned so ANY daemon
+    construction raises, and the stubbed orchestrate_episode reproduces the
+    real auto-detect (runner=None -> DaemonAgentRunner). The lane completes
+    only because an explicit SubprocessAgentRunner arrives — proving no
+    silent daemon fallback anywhere on the re-dispatch path."""
+    from tools.qc.scene_orchestrator import SubprocessAgentRunner
+
+    class _PoisonedDaemonRunner:
+        def __init__(self, *args, **kwargs):
+            raise AssertionError(
+                "provenance redispatch lane attempted daemon runner construction")
+
+    def fake_orchestrate(episode_dir, scene_ids=None, runner=None, max_retries=1, **kw):
+        # Mirror orchestrate_episode's runner=None auto-detect
+        # (scene_orchestrator.py:2062-2068): daemon preferred when None.
+        if runner is None:
+            from tools.qc.scene_orchestrator import DaemonAgentRunner
+            runner = DaemonAgentRunner(timeout_seconds=600.0)
+
+        class _Rec:
+            success = True
+
+        class _Session:
+            scenes = {"scene-1": _Rec()}
+            runner_class = runner.__class__.__name__
+
+        return _Session()
+
+    monkeypatch.setattr(
+        "tools.qc.scene_orchestrator.DaemonAgentRunner", _PoisonedDaemonRunner)
+    monkeypatch.setattr(
+        "tools.qc.scene_orchestrator.orchestrate_episode", fake_orchestrate)
+
+    session = restore_seals.redispatch_drifted_scenes(["scene-1"], tmp_path / "ep")
+    # Completed without tripping the poisoned daemon constructor.
+    assert restore_seals.redispatch_succeeded(session) is True
+    assert session.runner_class == SubprocessAgentRunner.__name__
+
+
+def test_redispatch_lane_honors_explicit_runner_passthrough(monkeypatch, tmp_path):
+    """A caller-pinned runner is still honored verbatim (explicit, not
+    silent) — the bind only fires for the runner=None default."""
+    captured = {}
+
+    def fake_orchestrate(episode_dir, scene_ids=None, runner=None, max_retries=1, **kw):
+        captured["runner"] = runner
+
+        class _Rec:
+            success = True
+
+        class _Session:
+            scenes = {"scene-1": _Rec()}
+
+        return _Session()
+
+    monkeypatch.setattr(
+        "tools.qc.scene_orchestrator.orchestrate_episode", fake_orchestrate)
+
+    sentinel = object()
+    restore_seals.redispatch_drifted_scenes(
+        ["scene-1"], tmp_path / "ep", runner=sentinel)
+    assert captured["runner"] is sentinel
+
+
 def test_redispatch_succeeded_false_on_failed_record(monkeypatch):
     class _Rec:
         success = False

@@ -560,7 +560,17 @@ def redispatch_drifted_scenes(
     """
     # Local import keeps the module import graph identical for consumers that
     # only need the seal utilities (orchestrate_episode pulls the runner zoo).
-    from tools.qc.scene_orchestrator import orchestrate_episode
+    from tools.qc.scene_orchestrator import SubprocessAgentRunner, orchestrate_episode
+
+    # W1 (wave1-sec): the provenance re-dispatch lane must NEVER silently
+    # select the daemon runner. orchestrate_episode's runner=None auto-detect
+    # prefers DaemonAgentRunner when the daemon is alive, which would bypass
+    # the P0-3 containment stack (env whitelist, sandbox) on the very lane
+    # that re-mints writer+reviewer provenance. Bind an explicit
+    # SubprocessAgentRunner whenever the caller did not pin one; an
+    # explicitly caller-passed runner is still honored verbatim.
+    if runner is None:
+        runner = SubprocessAgentRunner()
 
     valid = [s for s in scene_ids if is_valid_scene_id(s)]
     skipped = [s for s in scene_ids if not is_valid_scene_id(s)]
