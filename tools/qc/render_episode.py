@@ -30,7 +30,7 @@ accepted override is logged to render_overrides.log together with its issuer
 (--override-issued-by or OM_RENDER_OVERRIDE_ISSUED_BY — required).
 """
 from __future__ import annotations
-import argparse, hashlib, json, os, subprocess, sys, time
+import argparse, hashlib, json, os, socket, subprocess, sys, time
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -89,6 +89,68 @@ def resolve_override_issuer(explicit: str, environ: dict | None = None) -> str:
     env = os.environ if environ is None else environ
     issuer = (explicit or "").strip() or (env.get(OVERRIDE_ISSUER_ENV, "") or "").strip()
     return issuer
+
+# Wave1-Sec W5 — override events are JSONL job-events with a rolling sha256
+# chain (tamper-evident), the acting uid and the hostname. Same file
+# (render_overrides.log), new line format: one JSON object per line.
+OVERRIDE_CHAIN_GENESIS_HASH = "0" * 64
+OVERRIDE_EVENT_TYPE = "render_override"
+
+def _canonical_json(obj) -> str:
+    """Canonical form used by the override chain hash (W5):
+    sort_keys, no ascii escaping, compact separators."""
+    return json.dumps(obj, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+
+def log_override_event(log_path: Path, *, comp_id: str, issuer: str,
+                       overridden: list[dict]) -> dict:
+    """Append one accepted-override record as a JSONL job-event (W5).
+
+    Reuses tools.qc.job_events.emit_job_event — envelope (event_id,
+    timestamp, event_type) is owned by that module; this function only
+    builds the payload. Sink stays render_overrides.log (same path as the
+    legacy free-text log) so the doctrine §8.6 contract "every override is
+    logged with its issuer to render_overrides.log" keeps holding.
+
+    CHAIN SPEC: with CANON(p) = _canonical_json(p),
+        entry_hash = sha256( (prev_hash + CANON(payload_without_entry_hash))
+                             .encode("utf-8") ).hexdigest()
+    - payload_without_entry_hash = payload with the "entry_hash" key removed.
+    - prev_hash = OVERRIDE_CHAIN_GENESIS_HASH ("0"*64) for the first entry
+      in a log file; every later entry chains from the previous entry's
+      "entry_hash". The previous hash is read from the last parseable JSONL
+      line (torn/garbage tail lines are skipped).
+    Verifier: read all lines, json.loads each, recompute entry_hash over
+    (prev_hash + CANON(payload minus entry_hash)) and check both the
+    linkage (rec[i].payload.prev_hash == rec[i-1].payload.entry_hash) and
+    each hash value.
+    """
+    from tools.qc.job_events import emit_job_event
+    prev_hash = OVERRIDE_CHAIN_GENESIS_HASH
+    if log_path.is_file():
+        for line in reversed(log_path.read_text(encoding="utf-8").splitlines()):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                rec = json.loads(line)
+            except Exception:
+                continue  # torn/garbage line — keep walking back
+            payload_prev = rec.get("payload", {}).get("entry_hash") if isinstance(rec, dict) else None
+            if payload_prev:
+                prev_hash = str(payload_prev)
+                break
+    payload = {
+        "comp_id": comp_id,
+        "issuer": issuer,
+        "codes": sorted({r["code"] for r in overridden}),
+        "reasons": [{"code": r["code"], "message": r["message"]} for r in overridden],
+        "uid": os.getuid() if hasattr(os, "getuid") else None,
+        "hostname": socket.gethostname(),
+        "prev_hash": prev_hash,
+    }
+    canon = _canonical_json(payload)
+    payload["entry_hash"] = hashlib.sha256((prev_hash + canon).encode("utf-8")).hexdigest()
+    return emit_job_event(OVERRIDE_EVENT_TYPE, payload, sink=log_path)
 
 
 
@@ -220,10 +282,9 @@ def main(argv=None) -> int:
         return 1
     if overridden:
         log = out_path.parent / "render_overrides.log"
-        with log.open("a", encoding="utf-8") as f:
-            f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} {args.comp_id} issuer={issuer} overrides: " +
-                    "; ".join(f"{r['code']}: {r['message']}" for r in overridden) + "\n")
-        print(f"WARNING — rendering with {len(overridden)} overridden gate code(s), issuer={issuer}, logged to {log}")
+        rec = log_override_event(log, comp_id=args.comp_id, issuer=issuer, overridden=overridden)
+        print(f"WARNING — rendering with {len(overridden)} overridden gate code(s), issuer={issuer}, "
+              f"logged to {log} ({rec['event_id']})")
 
     # 2. Idempotence guard
     fp = input_fingerprint(episode_dir, args.comp_id)

@@ -5,6 +5,10 @@ runbook allowlist; every accepted override logs its issuer.
 """
 from __future__ import annotations
 
+import hashlib
+import json
+import os
+import socket
 from pathlib import Path
 
 import pytest
@@ -119,9 +123,93 @@ def test_render_allows_allowlisted_code_with_issuer_and_logs_it(render_env, caps
     assert len(rendered) == 1
     log = out.parent / "render_overrides.log"
     assert log.is_file()
-    content = log.read_text(encoding="utf-8")
-    assert "issuer=alice" in content
-    assert "composition_dims_mismatch" in content
+    # W5: JSONL — every line parses as JSON
+    lines = log.read_text(encoding="utf-8").splitlines()
+    assert len(lines) == 1
+    rec = json.loads(lines[0])
+    assert rec["event_type"] == "render_override"
+    payload = rec["payload"]
+    assert payload["issuer"] == "alice"
+    assert payload["comp_id"] == "my-slug-DRAFT"
+    assert "composition_dims_mismatch" in payload["codes"]
+    assert {"code": "composition_dims_mismatch", "message": "canvas drift"} in payload["reasons"]
+
+
+def test_override_log_jsonl_shape_uid_hostname_genesis(render_env, capsys):
+    """W5: record shape, uid/hostname present, first entry chains from genesis."""
+    ep, rendered, gate_reasons = render_env
+    gate_reasons.append({"code": "mix_validation_failed", "message": "drift"})
+    out = ep.parent / "out.mp4"
+    rc = render_episode.main([
+        "my-slug-DRAFT", str(out),
+        "--override-codes", "mix_validation_failed",
+        "--override-issued-by", "carol",
+    ])
+    assert rc == 0
+    rec = json.loads((out.parent / "render_overrides.log").read_text(encoding="utf-8").splitlines()[0])
+    payload = rec["payload"]
+    assert payload["uid"] == os.getuid()
+    assert payload["hostname"] == socket.gethostname()
+    assert payload["prev_hash"] == render_episode.OVERRIDE_CHAIN_GENESIS_HASH
+    # envelope contract from tools/qc/job_events.py
+    assert rec["event_id"].startswith("jev_")
+    assert rec["timestamp"]
+
+
+def _recompute_chain(records: list[dict]) -> None:
+    """Verify W5 chain over a sequence: linkage + per-entry hash recompute."""
+    prev = render_episode.OVERRIDE_CHAIN_GENESIS_HASH
+    for rec in records:
+        payload = rec["payload"]
+        assert payload["prev_hash"] == prev
+        expected = payload.pop("entry_hash")
+        canon = json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+        got = hashlib.sha256((prev + canon).encode("utf-8")).hexdigest()
+        assert got == expected
+        prev = expected
+
+
+def test_override_log_chain_verifies_across_events(tmp_path):
+    """W5: two sequential events chain (rec2.prev_hash == rec1.entry_hash)
+    and the whole sequence recomputes."""
+    log = tmp_path / "render_overrides.log"
+    r1 = render_episode.log_override_event(
+        log, comp_id="c1-DRAFT", issuer="alice",
+        overridden=[{"code": "composition_dims_mismatch", "message": "m1"}])
+    r2 = render_episode.log_override_event(
+        log, comp_id="c2-DRAFT", issuer="bob",
+        overridden=[{"code": "timing_relock_failed", "message": "m2"},
+                    {"code": "mix_validation_failed", "message": "m3"}])
+    records = [json.loads(l) for l in log.read_text(encoding="utf-8").splitlines()]
+    assert len(records) == 2
+    assert records[1]["payload"]["prev_hash"] == r1["payload"]["entry_hash"]
+    assert r2["payload"]["entry_hash"] == records[1]["payload"]["entry_hash"]
+    _recompute_chain(records)
+
+
+def test_override_log_chain_skips_torn_tail(tmp_path):
+    """W5: a torn/garbage tail line does not break the chain — the next
+    event still links from the last good entry_hash."""
+    log = tmp_path / "render_overrides.log"
+    r1 = render_episode.log_override_event(
+        log, comp_id="c1-DRAFT", issuer="alice",
+        overridden=[{"code": "mix_validation_failed", "message": "m1"}])
+    with log.open("a", encoding="utf-8") as f:
+        f.write('{"torn": line not json\n')
+        f.write("\n")
+    render_episode.log_override_event(
+        log, comp_id="c2-DRAFT", issuer="bob",
+        overridden=[{"code": "timing_relock_failed", "message": "m2"}])
+    parsed = []
+    for l in log.read_text(encoding="utf-8").splitlines():
+        try:
+            parsed.append(json.loads(l))
+        except Exception:
+            continue  # torn line — same skip the verifier applies
+    good = [r for r in parsed if "entry_hash" in r.get("payload", {})]
+    assert len(good) == 2
+    assert good[1]["payload"]["prev_hash"] == r1["payload"]["entry_hash"]
+    _recompute_chain(good)
 
 
 def test_render_env_issuer_fallback_logged(render_env, capsys, monkeypatch):
@@ -134,5 +222,5 @@ def test_render_env_issuer_fallback_logged(render_env, capsys, monkeypatch):
         "--override-codes", "timing_relock_failed",
     ])
     assert rc == 0
-    content = (out.parent / "render_overrides.log").read_text(encoding="utf-8")
-    assert "issuer=bob-env" in content
+    rec = json.loads((out.parent / "render_overrides.log").read_text(encoding="utf-8").splitlines()[0])
+    assert rec["payload"]["issuer"] == "bob-env"
