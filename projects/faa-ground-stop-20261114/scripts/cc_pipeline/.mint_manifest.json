@@ -1,21 +1,21 @@
 {
-  "minted_at": "2026-11-16T03:58:06.773632+00:00",
-  "om_commit": "a06017b3ca37b532d8de1aededaca426479f0ac9",
-  "template_content_hash": "822578f7d2142d8cd5fcbc27132e35a31c9f9ed69129125417cef4075fcd8c6e",
+  "minted_at": "2026-11-16T05:05:06.169276+00:00",
+  "om_commit": "01d238dfa31e4ce07779d0e47ad7a4f5cbdd0677",
+  "template_content_hash": "01afe617a41f29231eb39469e98d93ed9f83027a7cc51c2bc455f826662b4c1f",
   "templates": {
     "reviewer_pass.py.tmpl": "f4c641b97b999e3fcc14b50d6e881f62b1f9fa6761d19d92880b74b7473937bb",
     "reviewer_wrapper.py.tmpl": "6003039570b44d3688f81aee1203c619d7cf52524cbcd1dcc536ae253643e6f3",
-    "run_cc_pipeline.py.tmpl": "5201b015c7e8c35ebb3cb3d7dcd13a68080603c1373c6d5fe02878394cc46b13",
-    "writer_wrapper.py.tmpl": "d302ba9c22e2848dd7ea94fde38ec6152e77ca40f1e72a9025c19dc356db054e"
+    "run_cc_pipeline.py.tmpl": "984b0f40c37dc3c591b8aecf71cbcca86a0689e818d439c5ace4b29855d805f7",
+    "writer_wrapper.py.tmpl": "1b3095574546f1c5f5a904c05268d38f7d63a68a9fe4a6285fd5168f370aa56f"
   },
   "rendered": {
-    "writer_wrapper.py": "d302ba9c22e2848dd7ea94fde38ec6152e77ca40f1e72a9025c19dc356db054e",
+    "writer_wrapper.py": "1b3095574546f1c5f5a904c05268d38f7d63a68a9fe4a6285fd5168f370aa56f",
     "reviewer_wrapper.py": "6003039570b44d3688f81aee1203c619d7cf52524cbcd1dcc536ae253643e6f3",
-    "run_cc_pipeline.py": "994055913b827e1685b3065c0fb2d2b4f77ddf0700fa3d23acf32fadf38dfe87"
+    "run_cc_pipeline.py": "93dfc46a65acc7e115e1b21eb18b6b2ee494c3506d1d0bd3ef046f05ad8d3bb5"
   },
   "project": "faa-ground-stop-20261114",
   "scene_count": 12,
-  "strict": false,
+  "strict": true,
   "force": false,
   "preserved_scenes": []
 }

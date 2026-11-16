@@ -18,11 +18,15 @@ Carries the landed Phase-1/2 semantics plus Phase-4A additions:
   day: an accept-edits writer paired with an ALLOW-list, and allow-lists are
   VOID under ``--dangerously-skip-permissions`` (probe 2026-11-14 confirmed
   Write/Edit/Bash still execute) — that writer mutated the packet in rounds
-  3-4. The deny-list, unlike the allow-list, survives the skip flag (it is
-  the reviewer's actual enforcement since phase1 task 1.1). acceptEdits
+  3-4. The deny-list, unlike the allow-list, survives the skip flag for
+  tool-level file writes (``Write``/``Edit``/``MultiEdit``). ``acceptEdits``
   itself stays REQUIRED: plan/default modes return EMPTY stdout under the
   skip flag (probe 2026-11-14). The writer's one sanctioned write target —
   ``.tmp_sandboxes/{scene_id}_{attempt}/`` — is NOT in the deny list.
+  RESIDUAL RISK (documented): ``Bash`` remains enabled because writer tasks
+  instruct ``npx tsc --noEmit``; shell writes via ``Bash`` bypass tool-level
+  denies. Compensating controls: pre-flight import check + bounded wrapper
+  ``tsc`` self-check + reviewer gate + episode gate + promotion symlink-safety.
 - Wave1 P0-3: the writer child env is WHITELISTED (system essentials + OM_*
   + provider API keys, mirroring reviewer_wrapper.py.tmpl) — the full parent
   environment (credentials included) never reaches the claude child.
@@ -345,7 +349,11 @@ def _preflight_gate(episode: Path, scene_src: str, scene_id: str) -> bool:
 # wrapper's containment shape (reviewer_wrapper.py.tmpl header + phase1 task
 # 1.1): ``--permission-mode acceptEdits`` (plan/default modes return EMPTY
 # stdout under the skip flag) PLUS an explicit ``--disallowedTools`` deny-list
-# — the deny-list, unlike the allow-list, overrides the skip flag. Deny scope
+# — the deny-list, unlike the allow-list, overrides the skip flag for
+# tool-level file writes (Write/Edit/MultiEdit). Note: ``Bash`` remains
+# enabled because writer tasks instruct ``npx tsc --noEmit``; shell writes
+# bypass tool-level denies (compensating controls: pre-flight + wrapper tsc +
+# reviewer + episode gates + promotion symlink-safety). Deny scope
 # (sandboxed writer, cwd = episode dir): the canonical ``scenes/`` dir (the
 # wrapper promotes validated output itself), ``packets/`` (the R6 mutation
 # surface), and repository infra dot-directories (``.git/``, ``.claude/``).
@@ -355,7 +363,8 @@ def _preflight_gate(episode: Path, scene_src: str, scene_id: str) -> bool:
 _WRITER_DISALLOWED_TOOLS = ",".join([
     "Edit(scenes/**)", "Write(scenes/**)", "MultiEdit(scenes/**)",
     "Edit(packets/**)", "Write(packets/**)", "MultiEdit(packets/**)",
-    "Edit(.git/**)", "Write(.git/**)", "Edit(.claude/**)", "Write(.claude/**)",
+    "Edit(.git/**)", "Write(.git/**)", "MultiEdit(.git/**)",
+    "Edit(.claude/**)", "Write(.claude/**)", "MultiEdit(.claude/**)",
 ])
 _WRITER_SCENES_DENY_RULES = ("Edit(scenes/**)", "Write(scenes/**)", "MultiEdit(scenes/**)")
 
@@ -388,6 +397,9 @@ def _writer_cmd(legacy_writes_scenes: bool = False) -> list[str]:
 # see. Pass only system essentials, the OM_* pipeline contract vars, and the
 # provider API keys the claude CLI needs; MAX_THINKING_TOKENS stays explicit.
 _WRITER_ENV_ALLOW_KEYS = ("PATH", "HOME", "USER", "SHELL", "TMPDIR")
+# Accepted OM_* passthrough contract vars: OM_SCENE_ID, OM_EPISODE_DIR,
+# OM_ATTEMPT_INDEX, OM_CC_WATCHDOG, OM_TSC_TIMEOUT, OM_FINDINGS_INJECT,
+# OM_LEGACY_QUARANTINE, OM_MAX_CONCURRENCY, OM_WRAPPER_TEMPLATE_STRICT.
 _WRITER_ENV_ALLOW_PREFIXES = ("OM_",)
 _WRITER_ENV_ALLOW_PROVIDER_KEYS = ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY")
 
@@ -459,6 +471,7 @@ def _tsc_own_scene_fail(episode: Path, scene_id: str) -> tuple[bool, str]:
     budget = _tsc_timeout_seconds()
     try:
         tsc = subprocess.run(["npx", "tsc", "--noEmit"], cwd=str(composer),
+                             env=_writer_child_env(),
                              capture_output=True, text=True,
                              timeout=budget)
         own = _tsc_lines_for_scene((tsc.stdout + tsc.stderr).splitlines(), markers)
