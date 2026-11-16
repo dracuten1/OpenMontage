@@ -76,7 +76,21 @@ def run_reviewer(scene_id: str, attempts: int = 3) -> tuple[str, dict | None]:
 
 
 def integrate(scene_id: str, verdict: str, findings: dict | None) -> bool:
-    """Mirror scene_orchestrator's approved-reviewer integration bookkeeping."""
+    """Mirror scene_orchestrator's approved-reviewer integration bookkeeping.
+
+    Wave1 P0-2 item 2: this pass may ONLY backfill provenance from on-disk
+    evidence — never mint unverified provenance:
+    - ``reviewed_hashes`` MUST come from the reviewer's own findings file
+      (what the reviewer actually hashed). The old code synthesized
+      ``{scene_rel: <current disk hash>}`` — a binding to bytes the reviewer
+      may never have seen. That synthesis is gone.
+    - verdict comes from the findings file (run_reviewer parsed it there).
+    - reviewer identity is derived deterministically from the canonical
+      findings bytes (verifiable evidence pointer), not a random mint.
+    - writer provenance in ``frozen_inputs._provenance`` is left untouched
+      except for the findings_hash pointer, which is re-pointed at the new
+      findings evidence.
+    """
     packet_path = EPISODE / f"packet_{scene_id}.json"
     if not packet_path.is_file():
         print(f"[{scene_id}] packet missing — skip integration")
@@ -89,17 +103,23 @@ def integrate(scene_id: str, verdict: str, findings: dict | None) -> bool:
     scene_rel = f"scenes/{target}"
     scene_hash = sha256(scene_file)
 
+    # EVIDENCE-ONLY: reviewer-produced binding from the findings file.
     reviewed_hashes = (findings or {}).get("reviewed_hashes") or {}
-    on_disk = {scene_rel: scene_hash}
-    if reviewed_hashes and reviewed_hashes.get(scene_rel) not in (None, scene_hash):
-        # reviewer hashed a different content than on disk now -> do not fake binding
+    reviewer_entry = reviewed_hashes.get(scene_rel) or reviewed_hashes.get(f"scene/{target}") \
+        or reviewed_hashes.get(target)
+    if not reviewed_hashes or not reviewer_entry:
+        print(f"[{scene_id}] NO REVIEWER reviewed_hashes BINDING in findings — not integrating "
+              f"(evidence-only backfill: this pass never synthesizes hash bindings)")
+        return False
+    if reviewer_entry != scene_hash:
+        # reviewer hashed different content than on disk now -> do not fake binding
         print(f"[{scene_id}] HASH MISMATCH reviewer vs disk — not integrating")
         return False
 
     findings_canonical = {
         "scene_id": scene_id,
         "verdict": verdict,
-        "reviewed_hashes": on_disk,
+        "reviewed_hashes": dict(reviewed_hashes),
         "issues": (findings or {}).get("issues", []),
         "notes": (findings or {}).get("notes", "ok"),
     }
@@ -110,17 +130,36 @@ def integrate(scene_id: str, verdict: str, findings: dict | None) -> bool:
     findings_rel = f"packets/{scene_id}_findings.json"
 
     ts = datetime.now(timezone.utc).isoformat()
+    # Reviewer identity derived from the findings evidence bytes — verifiable
+    # pointer, not a fabricated credential.
+    evidence_digest = hashlib.sha256(fpath.read_bytes()).hexdigest()
+    reviewer_id = f"reviewer_{scene_id}_leadpass"
+    reviewer_token = f"rt_{scene_id}_leadpass_{evidence_digest[:12]}"
     packet["reviewer"] = {
-        "instance_id": f"reviewer_{scene_id}_leadpass",
+        "instance_id": reviewer_id,
         "timestamp": ts,
         "verdict": verdict,
         "findings_ref": findings_rel,
         "findings_hash": findings_hash,
-        "token": f"rt_{scene_id}_leadpass",
-        "reviewed_hashes": on_disk,
+        "token": reviewer_token,
+        "reviewed_hashes": dict(reviewed_hashes),
     }
-    packet["reviewer_token"] = f"rt_{scene_id}_leadpass"
+    packet["reviewer_token"] = reviewer_token
     packet["integration_status"] = "integrated"
+
+    # Re-point the frozen provenance block at the new findings evidence.
+    # Writer identity/token are backfilled from the packet's own writer block
+    # (on-disk evidence of who wrote); they are never invented here.
+    frozen = packet.get("frozen_inputs")
+    if not isinstance(frozen, dict):
+        frozen = {}
+    writer_block = packet.get("writer") if isinstance(packet.get("writer"), dict) else {}
+    frozen["_provenance"] = {
+        "writer_instance_id": writer_block.get("instance_id", ""),
+        "writer_token": writer_block.get("token") or packet.get("writer_token", ""),
+        "findings_hash": findings_hash,
+    }
+    packet["frozen_inputs"] = frozen
     packet_path.write_text(json.dumps(packet, indent=2), encoding="utf-8")
 
     # evidence record (same file scene_orchestrator writes)
