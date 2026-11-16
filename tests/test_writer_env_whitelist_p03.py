@@ -6,7 +6,11 @@ Pins the SubprocessAgentRunner launch path (scene_orchestrator.py):
 - ambient allowlists mirror the cc_wrapper_templates lists (superset
   containment so minted wrappers keep working);
 - PATH survives, missing ambient keys are skipped (no KeyError), the
-  runner's deliberate injections and the caller's extra_env still land.
+  runner's deliberate injections and the caller's extra_env still land;
+- W3: the MERGED result is scrubbed — credential-shaped keys (KEY/TOKEN/
+  SECRET/PASSWORD/PASSPHRASE substring) are dropped unless explicitly
+  allowlisted or deliberately injected, so extra_env can no longer leak
+  credentials into the child env (allowlist wins over the filter).
 """
 from __future__ import annotations
 
@@ -220,3 +224,58 @@ def test_extra_env_deliberate_augmentation_preserved(monkeypatch, tmp_path):
     for sentinel in SENTINELS:
         assert sentinel not in captured[0]["env"]
         assert sentinel not in captured[1]["env"]
+
+
+# ------------------------------------------------------------------------------
+# W3 (wave1-sec) — credential-shaped keys dropped from the extra_env merge
+# ------------------------------------------------------------------------------
+
+def test_extra_env_credential_shaped_keys_dropped(monkeypatch, tmp_path):
+    """KEY/TOKEN/SECRET/PASSWORD/PASSPHRASE-shaped extra_env keys never reach
+    the child env; non-credential extra_env (dir vars etc.) still passes."""
+    captured = _capture_run(monkeypatch)
+    runner = SubprocessAgentRunner()
+
+    cred_env = {
+        "MY_SERVICE_API_KEY": "sk-x",
+        "ROLL_TOKEN": "tok-x",
+        "DB_SECRET": "sec-x",
+        "OM_DB_PASSWORD": "pw-x",
+        "DB_PASSPHRASE": "phrase-x",
+        "OM_EXTRA_DIR": str(tmp_path / "extra"),  # non-credential: must pass
+    }
+    runner.run_writer(_make_writer_ctx(tmp_path, extra_env=dict(cred_env)))
+    runner.run_reviewer(_make_reviewer_ctx(tmp_path, extra_env=dict(cred_env)))
+
+    for env in (captured[0]["env"], captured[1]["env"]):
+        for key in ("MY_SERVICE_API_KEY", "ROLL_TOKEN", "DB_SECRET",
+                    "OM_DB_PASSWORD", "DB_PASSPHRASE"):
+            assert key not in env, key
+        # Everything non-credential in extra_env keeps passing
+        assert env["OM_EXTRA_DIR"] == cred_env["OM_EXTRA_DIR"]
+        # Deliberate runner injections unaffected by the scrub
+        assert env["OM_TOKEN"]
+
+
+def test_allowlisted_om_token_key_survives_credential_filter(monkeypatch, tmp_path):
+    """Precedence: allowlist wins over the credential filter. An OM_*TOKEN*
+    key explicitly on the writer allowlist (OM_WRITER_TOKEN-style provenance
+    token the wrappers legitimately consume) survives even though its name is
+    credential-shaped; an unlisted credential-shaped ambient var does not."""
+    monkeypatch.setattr(
+        so, "_ORCH_WRITER_ENV_ALLOW_OM_KEYS",
+        (*so._ORCH_WRITER_ENV_ALLOW_OM_KEYS, "OM_WRITER_TOKEN"),
+    )
+    monkeypatch.setenv("OM_WRITER_TOKEN", "prov-tok-1")
+    monkeypatch.setenv("AMBIENT_API_KEY", "ambient-leak")  # not allowlisted
+
+    captured = _capture_run(monkeypatch)
+    runner = SubprocessAgentRunner()
+    runner.run_writer(_make_writer_ctx(
+        tmp_path, extra_env={"MY_SERVICE_API_KEY": "sk-x"}))
+
+    env = captured[0]["env"]
+    assert env.get("OM_WRITER_TOKEN") == "prov-tok-1"  # allowlist wins
+    assert "AMBIENT_API_KEY" not in env
+    assert "MY_SERVICE_API_KEY" not in env
+    assert env["OM_TOKEN"]  # deliberate injection survives the scrub

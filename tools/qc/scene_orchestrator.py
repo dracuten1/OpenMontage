@@ -884,6 +884,19 @@ _ORCH_REVIEWER_ENV_ALLOW_OM_KEYS = (
 )
 
 
+# W3 (wave1-sec): a key whose name carries one of these markers
+# (case-insensitive substring) is treated as credential-shaped and dropped
+# from the merged child env unless it is explicitly allowlisted (the ambient
+# tuples or the runner's deliberate ``injected`` injections). PASSPHRASE is
+# included as a fifth marker — the same leak class, distinct substring.
+_CREDENTIAL_ENV_KEY_MARKERS = ("KEY", "TOKEN", "SECRET", "PASSWORD", "PASSPHRASE")
+
+
+def _is_credential_shaped_env_key(key: str) -> bool:
+    upper = key.upper()
+    return any(marker in upper for marker in _CREDENTIAL_ENV_KEY_MARKERS)
+
+
 def _build_child_env(
     allow_keys: tuple[str, ...],
     allow_om_keys: tuple[str, ...],
@@ -894,13 +907,25 @@ def _build_child_env(
 
     Only allowlisted ambient keys survive (missing keys are skipped — no
     KeyError); the runner's deliberate ``injected`` vars and the caller's
-    explicit ``extra_env`` are then merged on top.
+    explicit ``extra_env`` are then merged on top (precedence: ambient
+    allowlist -> injected -> extra_env). W3 (wave1-sec): the MERGED result is
+    then scrubbed — any credential-shaped key (KEY/TOKEN/SECRET/PASSWORD/
+    PASSPHRASE substring) is dropped from the child env unless it is
+    explicitly on the ambient allowlists or is a deliberate runner injection
+    (code-authored protocol surface, e.g. OM_TOKEN), so allowlisted
+    OM_*TOKEN*-style provenance keys survive while a credential-shaped
+    ``extra_env`` var can no longer ride the merge into the child.
     """
+    protected = set(allow_keys) | set(allow_om_keys) | set(injected)
     env = {k: os.environ[k] for k in (*allow_keys, *allow_om_keys) if k in os.environ}
     env.update(injected)
     if extra_env:
         env.update(extra_env)
-    return env
+    return {
+        k: v
+        for k, v in env.items()
+        if not _is_credential_shaped_env_key(k) or k in protected
+    }
 
 
 class SubprocessAgentRunner(AgentRunner):
