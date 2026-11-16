@@ -19,17 +19,77 @@ was DM'd. This wrapper makes the happy path the ONLY path:
 
 Usage:
   .venv/bin/python tools/qc/render_episode.py <comp-id> <out.mp4> [--force]
-      [--timeout 1800] [--no-audio] [--override-codes code1,code2]
+      [--timeout 1800] [--no-audio] [--override-codes code1,code2
+      --override-issued-by <who>]
   .venv/bin/python tools/qc/render_episode.py --check-file <mp4> [--no-audio]
+
+Override discipline (Wave1 P0-2): provenance codes (scene_provenance_*,
+token/findings/binding failures) are NON-OVERRIDABLE — the render is refused.
+Other codes override only when listed in RUNBOOK_OVERRIDABLE_CODES, and every
+accepted override is logged to render_overrides.log together with its issuer
+(--override-issued-by or OM_RENDER_OVERRIDE_ISSUED_BY — required).
 """
 from __future__ import annotations
-import argparse, hashlib, json, subprocess, sys, time
+import argparse, hashlib, json, os, subprocess, sys, time
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 COMPOSER = REPO_ROOT / "remotion-composer"
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
+
+# Wave1 P0-2 item 6 — override discipline (frozensets, enforced).
+#
+# NON_OVERRIDABLE_CODES: provenance/identity codes. A render may NEVER be
+# forced past these via --override-codes — that is exactly how the
+# tin-nong-5tin-20261115 render shipped with writer_token:"" on all 12
+# packets. Fix the underlying provenance instead (re-run writer/reviewer).
+NON_OVERRIDABLE_CODES = frozenset({
+    # scene-file provenance chain (episode_gate._check_scene_tsx_provenance)
+    "scene_provenance_missing", "scene_provenance_corrupt",
+    "scene_provenance_not_approved", "scene_provenance_unbound",
+    "scene_provenance_stale",
+    # packet identity + review binding (scene_packet.integrate_scene_packet)
+    "scene_packets_missing", "scene_packet_missing",
+    "writer_token_invalid", "reviewer_token_invalid",
+    "reviewer_not_independent",
+    "findings_hash_invalid", "findings_hash_mismatch", "findings_not_frozen",
+    "provenance_missing", "provenance_incomplete",
+    "provenance_writer_mismatch", "provenance_findings_mismatch",
+    "scene_file_hash_mismatch", "reviewed_scene_path_escape",
+})
+# RUNBOOK_OVERRIDABLE_CODES: the allowlist of gate codes an operator MAY
+# override for iteration (canvas/timing/mix tuning). Anything NOT listed here
+# is refused — the allowlist is closed by default (fail-closed), so a new
+# code must be added here deliberately, in code, with a reason.
+RUNBOOK_OVERRIDABLE_CODES = frozenset({
+    "composition_dims_mismatch",   # canvas iteration (doctrine §8.6 aware)
+    "timing_relock_failed",        # timing re-lock drift during edit iteration
+    "mix_measurement_incomplete",  # declared-not-measured mix checks in flight
+    "mix_validation_failed",       # mix tuning iteration
+})
+OVERRIDE_ISSUER_ENV = "OM_RENDER_OVERRIDE_ISSUED_BY"
+
+
+def classify_overrides(requested: set[str]) -> tuple[set[str], list[str], list[str]]:
+    """Split requested override codes into (allowed, non_overridable, unlisted).
+
+    - allowed: in the runbook allowlist and NOT provenance (proceed, logged).
+    - non_overridable: provenance codes — render is refused outright.
+    - unlisted: not in the runbook allowlist — render is refused (fail-closed).
+    """
+    allowed = {c for c in requested if c in RUNBOOK_OVERRIDABLE_CODES and c not in NON_OVERRIDABLE_CODES}
+    non_overridable = sorted(c for c in requested if c in NON_OVERRIDABLE_CODES)
+    unlisted = sorted(c for c in requested if c not in RUNBOOK_OVERRIDABLE_CODES and c not in NON_OVERRIDABLE_CODES)
+    return allowed, non_overridable, unlisted
+
+
+def resolve_override_issuer(explicit: str, environ: dict | None = None) -> str:
+    """Issuer identity for an override: --override-issued-by, else env."""
+    env = os.environ if environ is None else environ
+    issuer = (explicit or "").strip() or (env.get(OVERRIDE_ISSUER_ENV, "") or "").strip()
+    return issuer
+
 
 
 def comp_slug(comp_id: str) -> str:
@@ -99,7 +159,8 @@ def main(argv=None) -> int:
     ap.add_argument("--force", action="store_true", help="re-render even if inputs unchanged")
     ap.add_argument("--timeout", type=int, default=1800)
     ap.add_argument("--no-audio", action="store_true", help="don't require an audio stream")
-    ap.add_argument("--override-codes", default="", help="comma-separated episode_gate codes to override (LOGGED, for iteration only)")
+    ap.add_argument("--override-codes", default="", help="comma-separated episode_gate codes to override (LOGGED, runbook allowlist only; provenance codes are NEVER overridable)")
+    ap.add_argument("--override-issued-by", default="", help="identity of whoever approved the override (required for any override; logged; env OM_RENDER_OVERRIDE_ISSUED_BY fallback)")
     ap.add_argument("--check-file", metavar="MP4", help="ffprobe smoke only — run before ANY DM/upload")
     args = ap.parse_args(argv)
 
@@ -129,7 +190,24 @@ def main(argv=None) -> int:
     # 1. Gate first
     from tools.qc.episode_gate import validate_episode
     reasons = validate_episode(episode_dir)
-    overrides = {c.strip() for c in args.override_codes.split(",") if c.strip()}
+    # Wave1 P0-2 item 6: enforce the runbook override discipline BEFORE any
+    # gate verdict is softened — provenance codes are hard-refused, unlisted
+    # codes are hard-refused, and every accepted override records WHO
+    # approved it.
+    requested = {c.strip() for c in args.override_codes.split(",") if c.strip()}
+    overrides, non_overridable, unlisted = classify_overrides(requested)
+    if non_overridable or unlisted:
+        print("OVERRIDE REFUSED — provenance codes are never overridable; other codes need a runbook allowlist entry:", file=sys.stderr)
+        for c in non_overridable:
+            print(f"  - NON_OVERRIDABLE: {c} (fix the provenance: re-run writer/reviewer for the scene)", file=sys.stderr)
+        for c in unlisted:
+            print(f"  - NOT IN RUNBOOK ALLOWLIST: {c} (overridable codes: {', '.join(sorted(RUNBOOK_OVERRIDABLE_CODES)) or '-'})", file=sys.stderr)
+        return 1
+    issuer = resolve_override_issuer(args.override_issued_by)
+    if overrides and not issuer:
+        print("OVERRIDE REFUSED — every override must name its issuer: pass --override-issued-by <who> "
+              f"(or set {OVERRIDE_ISSUER_ENV})", file=sys.stderr)
+        return 1
     hard = [r for r in reasons if r["code"] not in overrides]
     overridden = [r for r in reasons if r["code"] in overrides]
     if hard:
@@ -137,14 +215,15 @@ def main(argv=None) -> int:
         for r in hard:
             print(f"  - {r['code']}: {r['message']}", file=sys.stderr)
         if reasons:
-            print("(to iterate despite known codes: --override-codes code1,code2 — overrides are logged)", file=sys.stderr)
+            print("(to iterate despite known codes: --override-codes code1,code2 --override-issued-by <who> — "
+                  "runbook allowlist only, overrides are logged with their issuer)", file=sys.stderr)
         return 1
     if overridden:
         log = out_path.parent / "render_overrides.log"
         with log.open("a", encoding="utf-8") as f:
-            f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} {args.comp_id} overrides: " +
+            f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} {args.comp_id} issuer={issuer} overrides: " +
                     "; ".join(f"{r['code']}: {r['message']}" for r in overridden) + "\n")
-        print(f"WARNING — rendering with {len(overridden)} overridden gate code(s), logged to {log}")
+        print(f"WARNING — rendering with {len(overridden)} overridden gate code(s), issuer={issuer}, logged to {log}")
 
     # 2. Idempotence guard
     fp = input_fingerprint(episode_dir, args.comp_id)
