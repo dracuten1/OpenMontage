@@ -2,29 +2,52 @@
 """CC reviewer wrapper — MINTED from tools/qc/cc_wrapper_templates (phase 4A.2).
 
 Do not hand-edit: re-mint via ``python -m tools.qc.mint_project_pipeline``.
-Strictly read-only toward scene files (video-slowfix phase1, tasks 1.1/1.2/1.4):
+Strictly read-only toward scene files (video-slowfix phase1, tasks 1.1/1.2/1.4).
 
 Env: OM_SCENE_ID, OM_SANDBOX_DIR, OM_CANONICAL_DIR (optional; history log dir).
-1. Runs `claude` with permission-mode acceptEdits + Read,Glob,Grep allow-list
-   and an explicit --disallowedTools deny-list
-   (Write,Edit,MultiEdit,NotebookEdit,Bash,WebFetch,WebSearch — reviewer cannot
-   write and has no shell/network egress; task 1.1). Containment contract:
-   --dangerously-skip-permissions VOIDS --allowedTools scoping (CLI probe
-   2026-11-14 confirmed Write/Edit/Bash still execute under the skip flag), so
-   the --disallowedTools deny-list is the actual enforcement — it overrides
-   the skip flag. acceptEdits stays required because plan/default modes return
-   EMPTY stdout with --dangerously-skip-permissions (probe 2026-11-14);
-   reviewer-timeout hotfix: planOnly left 4/4 verdicts as stamped timeout_error).
-   The child env is whitelisted (system essentials + OM_* + provider API keys)
-   — the full parent environment (credentials included) never reaches claude.
-2. Captures stdout, tees raw output to <episode>/history/cc_reviewer_{scene_id}.log.
-3. Extracts the delimited JSON verdict from stdout via tools/qc/reviewer_runner
-   (code-fence stripped) — no verdict file is expected from Claude anymore.
+
+Hotfix hunks B & D (2026-11-15 lead, A/B-verified):
+- B — CLI flag stripping: the claude child is invoked with NO --allowedTools
+  and NO --disallowedTools (both flags, and their values, are stripped from
+  the shared build_reviewer_cmd output here). Either flag makes the provider
+  drop the final message entirely (4x4 sample 21:42: no-flags 3/4 OK,
+  --allowedTools 0/4 empty). Containment therefore rests on the review-only
+  task text (ABSOLUTE RULE below), the whitelisted child env (system
+  essentials + OM_* + provider API keys — the full parent environment,
+  credentials included, never reaches claude), and the orchestrator's
+  reviewer-ownership snapshot check (verify_reviewer_ownership) — NOT on CLI
+  tool scoping flags. acceptEdits stays in the command (plan/default modes
+  return EMPTY stdout under --dangerously-skip-permissions, probe
+  2026-11-14; reviewer-timeout hotfix: planOnly left 4/4 verdicts as stamped
+  timeout_error).
+- D — verdict channel: the reviewer speaks plain text
+  @@VERDICT_START@@ ... @@VERDICT_END@@ (parsed locally by
+  _extract_at_verdict; JSON braces in stdout get dropped by the provider)
+  AND the file channel — the reviewer Write-tools its own
+  packets/{scene_id}_findings.json, which the wrapper prefers over stdout
+  parsing and re-stamps with reviewed_hashes it computes itself.
+  OM_CC_REVIEW_OUTPUT=json (env-gated, default text) additionally switches
+  the CLI to --output-format json and unwraps {"result": ...} before
+  delimiter extraction.
+
+Legacy pipeline (unchanged):
+1. Runs `claude` with permission-mode acceptEdits (post-hunk-B flags — see
+   above).
+2. Captures stdout, tees raw output to <episode>/history/cc_reviewer_{scene_id}.log
+   (one "--- stream attempt i/N ---" banner per try; OM_CC_REVIEW_STREAM_ATTEMPTS
+   re-spawns on empty streams with OM_CC_REVIEW_STREAM_SLEEP between — per-
+   attempt watchdog, never cumulative).
+3. Verdict resolution order: findings FILE first (any attempt), then the
+   watchdog stamp ("timeout_error"), then the stdout @@ delimiter block. A
+   stream with NO verdict block (turn cap exhausted / truncation) is
+   classified "timeout_error" — infrastructure failure, not a content
+   rejection.
 4. Writes packets/{scene_id}_cc_verdict.json AND packets/{scene_id}_findings.json
    on Claude's behalf (task 1.1 item 5) — removes the packet-JSON mutation
    surface that consumed attempts in rounds 3-4 (phase 4A.2).
 5. Findings embed "reviewed_hashes": {<scenes_dir>/<resolved filename>: sha256}
-   for the reviewed scene file (task 1.2 item 4).
+   for the reviewed scene file (task 1.2 item 4) — computed by THIS wrapper,
+   never copied from the model's claims.
 Watchdog expiry writes verdict "timeout_error" instead of a content rejection
 (task 1.4); the orchestrator treats that as an infrastructure retry — the
 activation target of phase 4A.2 (wrappers never emitted it before).

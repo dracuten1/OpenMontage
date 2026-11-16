@@ -142,3 +142,63 @@ def test_backfill_never_invents_writer_identity(rp):
 
 def test_packet_missing_refuses(rp):
     assert rp.integrate("scene-1", "approved", {"reviewed_hashes": {}}) is False
+
+
+# ------------------------------------------------------------------------------
+# Wave1 security cycle-1 CRITICAL-1 — verify-on-disk + non-empty evidence gates
+# ------------------------------------------------------------------------------
+
+def test_refuses_when_scene_file_missing_on_disk(rp, capsys):
+    """A missing scene .tsx can never be hash-verified: integrate must refuse
+    EXPLICITLY (False + printed reason), not crash with FileNotFoundError
+    from sha256() (the pre-CRITICAL-1 behavior)."""
+    seed_packet(rp.EPISODE)
+    # NO scene file seeded on disk
+    findings = {"verdict": "approved", "reviewed_hashes": {"scenes/scene-1.tsx": "a" * 64}}
+    assert rp.integrate("scene-1", "approved", findings) is False
+    out = capsys.readouterr().out
+    assert "SCENE FILE MISSING" in out
+    pkt = json.loads((rp.EPISODE / "packet_scene-1.json").read_text(encoding="utf-8"))
+    assert pkt["integration_status"] == "pending"  # untouched
+
+
+def test_refuses_when_evidence_findings_hash_empty(rp, capsys):
+    """An explicitly-present-but-EMPTY findings_hash in the evidence entry is
+    incomplete/tampered evidence — refuse instead of backfilling provenance
+    (CRITICAL-1: evidence must carry BOTH non-empty bindings)."""
+    seed_packet(rp.EPISODE)
+    _tsx, on_disk = seed_scene_file(rp)
+    findings = {
+        "verdict": "approved",
+        "reviewed_hashes": {"scenes/scene-1.tsx": on_disk},
+        "findings_hash": "",
+    }
+    assert rp.integrate("scene-1", "approved", findings) is False
+    out = capsys.readouterr().out
+    assert "EMPTY findings_hash in evidence entry" in out
+    pkt = json.loads((rp.EPISODE / "packet_scene-1.json").read_text(encoding="utf-8"))
+    assert "frozen_inputs" in pkt and pkt["frozen_inputs"].get("_provenance") is None
+
+
+def test_refuses_when_reviewer_entry_hash_is_empty_string(rp, capsys):
+    """A reviewed_hashes entry bound to the empty string is no binding at all
+    — refuse (never integrate on an empty hash claim)."""
+    seed_packet(rp.EPISODE)
+    seed_scene_file(rp)
+    findings = {"verdict": "approved", "reviewed_hashes": {"scenes/scene-1.tsx": ""}}
+    assert rp.integrate("scene-1", "approved", findings) is False
+    assert "NO REVIEWER reviewed_hashes BINDING" in capsys.readouterr().out
+
+
+def test_backfill_writes_nonempty_provenance_bindings(rp):
+    """CRITICAL-1 invariant: the _provenance backfill always lands with BOTH
+    a non-empty findings_hash AND the verified reviewed_hashes scene hash."""
+    pkt_path = seed_packet(rp.EPISODE)
+    _tsx, on_disk = seed_scene_file(rp)
+    findings = {"verdict": "approved", "reviewed_hashes": {"scenes/scene-1.tsx": on_disk}}
+    assert rp.integrate("scene-1", "approved", findings) is True
+    pkt = json.loads(pkt_path.read_text(encoding="utf-8"))
+    prov = pkt["frozen_inputs"]["_provenance"]
+    assert prov["findings_hash"] == hashlib.sha256(
+        (rp.PACKETS_DIR / "scene-1_findings.json").read_bytes()).hexdigest()
+    assert len(prov["findings_hash"]) == 64

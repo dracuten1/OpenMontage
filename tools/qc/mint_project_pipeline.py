@@ -64,6 +64,22 @@ WRAPPER_TEMPLATES = [
 PRESENCE_DECLARED_TEMPLATES = {
     "reviewer_pass.py.tmpl": "scripts/cc_pipeline/reviewer_pass.py",
 }
+# Wave1 security cycle-1 (CRITICAL-3 pre-check): the DEPLOYED-project roster —
+# every git-tracked project dir carrying a minted scripts/cc_pipeline/ tree.
+# ``--all-deployed`` re-mints + hash-verifies ALL of them; a roster that
+# silently omits a deployed copy is exactly the drift/data-loss hole the
+# strict gate exists to close (tai-chinh-3tin-20261111 and canary-phase4 were
+# minted 2026-11-15 from pre-wave1 templates and absent from the informal
+# re-mint list — the security review flagged both as untracked drift).
+# canary-phase4 IS a git-tracked project dir with scripts/cc_pipeline/
+# (verified: git ls-files projects/canary-phase4/scripts/cc_pipeline/), so it
+# belongs on the roster like any production episode.
+DEPLOYED_PROJECTS = [
+    "tin-nong-5tin-20261115",
+    "faa-ground-stop-20261114",
+    "tai-chinh-3tin-20261111",
+    "canary-phase4",
+]
 MANIFEST_NAME = ".mint_manifest.json"
 STRICT_ENV = "OM_WRAPPER_TEMPLATE_STRICT"
 FINDINGS_PURGE_DIR = "history/cc_findings"
@@ -311,18 +327,118 @@ def mint_project(project_dir: Path, scene_count: int, force: bool = False,
     return 0
 
 
+def verify_minted_hashes(project_dir: Path, scene_count: int | None = None) -> list[str]:
+    """Verify every minted wrapper's on-disk sha256 matches BOTH the last
+    mint manifest's recorded hash AND the freshly rendered template (rendered
+    at ``scene_count`` — default: the manifest's recorded scene_count).
+
+    Returns a list of human-readable mismatch strings; empty list = verified.
+    CRITICAL-3: the re-mint roster is only as good as its verification — an
+    unverified re-mint is the silent-clobber risk the strict gate guards.
+    """
+    manifest_path = project_dir / "scripts" / "cc_pipeline" / MANIFEST_NAME
+    if not manifest_path.is_file():
+        return [f"{project_dir}: no {MANIFEST_NAME} — nothing to verify"]
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"{project_dir}: unreadable {MANIFEST_NAME}: {e}"]
+    rendered: dict[str, str] = manifest.get("rendered", {})
+    if not isinstance(rendered, dict) or not rendered:
+        return [f"{project_dir}: manifest carries no rendered hashes"]
+    scenes = scene_count if scene_count is not None else int(manifest.get("scene_count", 15))
+    slug = manifest.get("project") or project_dir.name
+    mismatches: list[str] = []
+    for out_name, recorded in sorted(rendered.items()):
+        out_path = project_dir / "scripts" / "cc_pipeline" / out_name
+        if not out_path.is_file():
+            mismatches.append(f"{project_dir}: {out_name} MISSING on disk")
+            continue
+        on_disk = _sha256_bytes(out_path.read_bytes())
+        if on_disk != recorded:
+            mismatches.append(f"{project_dir}: {out_name} on-disk {on_disk[:12]} != manifest {recorded[:12]}")
+        tmpl_name = out_name + ".tmpl"
+        if (TEMPLATE_DIR / tmpl_name).is_file():
+            fresh = _sha256_bytes(_render(tmpl_name, slug, scenes).encode("utf-8"))
+            if fresh != on_disk:
+                mismatches.append(f"{project_dir}: {out_name} on-disk {on_disk[:12]} != fresh render {fresh[:12]}")
+    return mismatches
+
+
+def mint_all_deployed(force: bool = False, episode_dir: Path | None = None,
+                      scene_count: int | None = None) -> int:
+    """Strict re-mint + hash-verify EVERY project on DEPLOYED_PROJECTS.
+
+    CRITICAL-3: one command covers the whole roster — no deployed copy can be
+    silently skipped by an operator re-minting from memory. Any mint failure
+    or hash mismatch fails the batch (exit 1) with per-project detail. Each
+    project re-mints at its OWN recorded scene_count (the launcher's
+    {{DEFAULT_SCENE_COUNT}} placeholder is per-project state — a global
+    scene count would silently rewrite tin/faa 12 -> 15), falling back to
+    ``scene_count`` when no manifest exists yet.
+    """
+    failed = 0
+    for slug in DEPLOYED_PROJECTS:
+        project_dir = REPO_ROOT / "projects" / slug
+        if not project_dir.is_dir():
+            print(f"FAIL: deployed project dir missing: {project_dir}")
+            failed += 1
+            continue
+        print(f"=== deployed project: {slug} ===")
+        scenes = scene_count
+        manifest_path = project_dir / "scripts" / "cc_pipeline" / MANIFEST_NAME
+        if scenes is None and manifest_path.is_file():
+            try:
+                scenes = int(json.loads(manifest_path.read_text(encoding="utf-8"))
+                             .get("scene_count", 15))
+            except Exception:
+                scenes = None
+        if scenes is None:
+            print(f"FAIL: {slug}: no manifest scene_count and no --scenes given")
+            failed += 1
+            continue
+        rc = mint_project(project_dir, scenes, force=force, episode_dir=episode_dir)
+        if rc != 0:
+            failed += 1
+            continue
+        mismatches = verify_minted_hashes(project_dir, scenes)
+        if mismatches:
+            for m in mismatches:
+                print(f"HASH MISMATCH: {m}")
+            failed += 1
+        else:
+            for out_name in sorted(json.loads(
+                    (project_dir / "scripts" / "cc_pipeline" / MANIFEST_NAME)
+                    .read_text(encoding="utf-8")).get("rendered", {})):
+                on_disk = _sha256_bytes(
+                    (project_dir / "scripts" / "cc_pipeline" / out_name).read_bytes())
+                print(f"  verify OK {slug}/scripts/cc_pipeline/{out_name} sha256={on_disk}")
+    print(f"mint_all_deployed: {len(DEPLOYED_PROJECTS) - failed}/{len(DEPLOYED_PROJECTS)} project(s) minted+verified")
+    return 1 if failed else 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="python -m tools.qc.mint_project_pipeline",
         description="Mint per-project CC pipeline wrappers from shared templates (phase 4A.2).",
     )
     parser.add_argument(
-        "--project-dir", required=True,
+        "--all-deployed", action="store_true",
+        help="CRITICAL-3: strict re-mint + sha256-verify EVERY project on "
+             "the DEPLOYED_PROJECTS roster (mutually exclusive with "
+             "--project-dir). Any mint failure or hash mismatch fails the "
+             "batch with exit 1.",
+    )
+    parser.add_argument(
+        "--project-dir", required=False, default=None,
         help="Target project dir, e.g. projects/<slug> (relative to cwd or absolute).",
     )
     parser.add_argument(
-        "--scenes", type=int, default=15,
-        help="Default scene count baked into the generated launcher (default: 15).",
+        "--scenes", type=int, default=None,
+        help="Default scene count baked into the generated launcher. "
+             "Single-project mode defaults to 15 when omitted; "
+             "--all-deployed defaults to each project's recorded "
+             "manifest scene_count (per-project state).",
     )
     parser.add_argument(
         "--episode-dir", default=None,
@@ -341,14 +457,28 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.all_deployed:
+        if args.project_dir:
+            print("FAIL: --all-deployed is mutually exclusive with --project-dir", file=sys.stderr)
+            return 2
+        if args.scenes is not None and args.scenes < 1:
+            print("FAIL: --scenes must be >= 1", file=sys.stderr)
+            return 2
+        episode_dir = Path(args.episode_dir) if args.episode_dir else None
+        return mint_all_deployed(force=args.force, episode_dir=episode_dir,
+                                 scene_count=args.scenes)
+    if not args.project_dir:
+        print("FAIL: one of --project-dir / --all-deployed is required", file=sys.stderr)
+        return 2
+    scenes = args.scenes if args.scenes is not None else 15
+    if scenes < 1:
+        print("FAIL: --scenes must be >= 1", file=sys.stderr)
+        return 2
     project_dir = Path(args.project_dir)
     if not project_dir.is_absolute():
         project_dir = Path.cwd() / project_dir
-    if args.scenes < 1:
-        print("FAIL: --scenes must be >= 1", file=sys.stderr)
-        return 2
     episode_dir = Path(args.episode_dir) if args.episode_dir else None
-    return mint_project(project_dir, args.scenes, force=args.force, episode_dir=episode_dir)
+    return mint_project(project_dir, scenes, force=args.force, episode_dir=episode_dir)
 
 
 if __name__ == "__main__":

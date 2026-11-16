@@ -492,10 +492,16 @@ def test_reviewer_wrapper_writes_verdict_and_findings_from_stdout(tmp_path, monk
     (sandbox / "scenes" / "S01.tsx").write_bytes(scene_bytes)
 
     import hashlib
+    # Wave0 hunk D verdict channel (plain-text @@ markers + file channel):
+    # the re-minted wrapper (2026-11-16 CRITICAL-3 re-mint upgraded the
+    # deployed tai-chinh copy) no longer parses the legacy <!-- --> JSON
+    # channel — the reviewer speaks @@ markers, or the wrapper reads the
+    # findings FILE the reviewer Write-tools itself.
     stdout = (
-        "<!-- VERDICT_START -->\n```json\n"
-        '{"scene_id": "scene-1", "verdict": "approved", "issues": [], "metrics": {"complexity": "low"}}\n'
-        "```\n<!-- VERDICT_END -->"
+        "blah\n"
+        "@@VERDICT_START@@\n"
+        "VERDICT: approved\n"
+        "@@VERDICT_END@@\n"
     )
     mod = _load_reviewer_wrapper(monkeypatch, ep, sandbox, watchdog="30")
     monkeypatch.setattr(
@@ -506,14 +512,16 @@ def test_reviewer_wrapper_writes_verdict_and_findings_from_stdout(tmp_path, monk
     assert rc == 0
     verdict = json.loads((sandbox / "packets" / "scene-1_cc_verdict.json").read_text())
     assert verdict["verdict"] == "approved"
-    assert verdict["metrics"] == {"complexity": "low"}
     findings = json.loads((sandbox / "packets" / "scene-1_findings.json").read_text())
     assert findings["verdict"] == "approved"
     assert findings["reviewed_hashes"] == {
         "scenes/S01.tsx": hashlib.sha256(scene_bytes).hexdigest()
     }
-    # raw stdout teed to the canonical episode history dir
-    assert (ep / "history" / "cc_reviewer_scene-1.log").read_text(encoding="utf-8") == stdout
+    # raw stdout teed to the canonical episode history dir (stream banner +
+    # captured output)
+    log = (ep / "history" / "cc_reviewer_scene-1.log").read_text(encoding="utf-8")
+    assert "stream attempt 1/" in log
+    assert "@@VERDICT_START@@" in log
 
 
 def test_reviewer_wrapper_watchdog_timeout_error(tmp_path, monkeypatch):

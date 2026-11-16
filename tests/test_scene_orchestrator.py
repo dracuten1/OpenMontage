@@ -160,7 +160,17 @@ def make_test_episode(root: Path, scene_ids: list[str] = ("cut-1", "cut-2")) -> 
         p["style_contract"] = {"ref": "packets/style_contract.json", "sha256": style_hash}
         p["assets"] = [{"ref": f"assets/audio/voice_{sid}.wav", "sha256": wav_hashes[sid], "rights": "licensed"}]
         p["allowed_io"] = ["artifacts", "assets", "packets", "scene"]
-        p["frozen_inputs"] = {}
+        # Wave1 security cycle-1 CRITICAL-2: fixture packets carry the minted
+        # provenance block — production packets always do (scene_orchestrator
+        # mints frozen_inputs._provenance on integration), and restore_seals
+        # now classifies provenance-less packets as re-dispatch drift.
+        p["frozen_inputs"] = {
+            "_provenance": {
+                "writer_instance_id": "w",
+                "writer_token": "wt",
+                "findings_hash": p["reviewer"]["findings_hash"],
+            },
+        }
         (project / f"packet_{sid}.json").write_text(json.dumps(p, indent=2))
 
     return project

@@ -34,13 +34,21 @@ CLI:
         [--dry-run] [--force]
 
 Exit codes: 0 ok/dry-run; 1 missing (truly-absent) evidence; 2 usage/parse
-errors; 3 restore ran but hash-drifted scenes could not be sealed (re-dispatch
+errors; 3 restore ran but drifted scenes could not be sealed (re-dispatch
 failed or was declined). Wave1 P0-2 item 5: hash drift NO LONGER silently
 refuses — by default the drifted scenes are force re-dispatched through
 ``tools.qc.scene_orchestrator.orchestrate_episode`` (fresh writer + reviewer
 for exactly those scenes, explicit ``scene_ids`` pins the list verbatim), and
 a re-seal of the surviving evidence is attempted afterwards. Pass
 ``--no-redispatch`` to keep the legacy refuse-only behavior.
+
+Wave1 security cycle-1 CRITICAL-2: PROVENANCE drift is drift too. A scene
+whose successful attempt carries a missing ``frozen_inputs._provenance``
+block, an empty writer token, an empty findings hash, or an empty
+``reviewed_hashes`` map while the scene ``.tsx`` exists on disk is classified
+``provenance_drift`` and joins the same re-dispatch lane — the legacy
+behavior left those scenes outside ``drift`` entirely and exited 0 cleanly
+over un-minted provenance.
 """
 from __future__ import annotations
 
@@ -304,6 +312,12 @@ def scene_seal_status(
     - ``"incomplete"`` — a successful attempt exists but the combined sources
       cannot establish writer token, reviewer token, an approved verdict, and
       a non-empty ``reviewed_hashes`` map;
+    - ``"provenance_drift"`` — Wave1 security cycle-1 CRITICAL-2: the attempt
+      evidence fails a PROVENANCE gate (missing ``frozen_inputs._provenance``
+      block, empty writer token, empty findings hash, or an empty
+      ``reviewed_hashes`` map while the scene ``.tsx`` exists on disk). NOT
+      "not sealable": this is DRIFT — the scene needs a fresh writer+reviewer
+      round, never a clean exit 0 (main() re-dispatches it by default);
     - ``"ok"`` — complete payload ready for a hash check.
     """
     if not is_valid_scene_id(scene_id):
@@ -385,6 +399,20 @@ def scene_seal_status(
             if isinstance(rh, dict):
                 payload["reviewed_hashes"].update(_clean_hash_map(rh))
 
+    # Wave1 security cycle-1 CRITICAL-2 evidence recovery: an empty
+    # findings_hash payload is drift — but recover it from the canonical
+    # findings evidence FIRST (the same file build_sealed_packet re-stamps at
+    # seal time). A scene with an approved canonical findings file carries a
+    # verifiable findings binding even when a destructive re-mint wiped the
+    # packet's reviewer block; only scenes with NEITHER packet binding NOR
+    # canonical findings evidence drift to re-dispatch.
+    if not payload["findings_hash"] and episode_dir is not None:
+        canonical_findings = _load_packet_json(findings_path_for(episode_dir, scene_id))
+        if isinstance(canonical_findings, dict) and canonical_findings.get("verdict") == "approved":
+            findings_file = findings_path_for(episode_dir, scene_id)
+            if findings_file is not None and findings_file.is_file():
+                payload["findings_hash"] = hash_file(findings_file)
+
     gaps: list[str] = []
     if not payload["writer_token"]:
         gaps.append("writer token")
@@ -394,6 +422,31 @@ def scene_seal_status(
         gaps.append("approved verdict")
     if not payload["reviewed_hashes"]:
         gaps.append("reviewed_hashes")
+
+    # Wave1 security cycle-1 CRITICAL-2: provenance-drift classification.
+    # A successful attempt failing a PROVENANCE gate is drift, not merely
+    # "incomplete evidence" — the legacy path classified these scenes
+    # "incomplete"/"ok", main() left them out of ``drift`` entirely and
+    # exited 0 (a clean exit over un-minted provenance). Fail-closed: each
+    # condition below forces the writer+reviewer re-dispatch lane.
+    drift_reasons: list[str] = []
+    if not payload["writer_token"]:
+        drift_reasons.append("empty writer_token")
+    if not payload["findings_hash"]:
+        drift_reasons.append("empty findings_hash")
+    if not payload["reviewed_hashes"] and _scene_tsx_present(scene_id, episode_dir):
+        drift_reasons.append("empty reviewed_hashes (scene .tsx on disk)")
+    frozen = packet.get("frozen_inputs") if isinstance(packet, dict) else None
+    provenance = frozen.get(PROVENANCE_KEY) if isinstance(frozen, dict) else None
+    # Packet ABSENT (deleted by the destructive re-mint) is NOT provenance
+    # drift: rebuilding it from verified evidence — including minting a fresh
+    # _provenance block — is exactly restore_seals' job (build_sealed_packet).
+    # Drift fires only when a packet EXISTS without the provenance block.
+    if packet is not None and (not isinstance(provenance, dict) or not provenance):
+        drift_reasons.append("missing frozen_inputs._provenance block")
+    if drift_reasons:
+        return "provenance_drift", payload, ", ".join(drift_reasons)
+
     if gaps:
         return "incomplete", payload, "missing: " + ", ".join(gaps)
     return "ok", payload, "complete seal evidence"
@@ -413,6 +466,26 @@ def scene_seal_payload(
 
 def _clean_hash_map(rh: dict) -> dict[str, str]:
     return {str(k): str(v) for k, v in rh.items() if isinstance(k, str) and isinstance(v, str) and v}
+
+
+def _scene_tsx_present(scene_id: str, episode_dir: Path | None) -> bool:
+    """True when the scene's canonical ``.tsx`` exists on disk under
+    ``<episode_dir>/scenes/`` (same resolution shape as
+    ``tools.qc.reviewer_runner.resolve_scene_filename``: ``scene-N`` also
+    matches the zero-padded ``SNN.tsx`` deployment naming). Only used by the
+    CRITICAL-2 empty-reviewed_hashes drift condition: an empty reviewed_hashes
+    map is drift exactly when there IS a scene file the reviewer should have
+    hashed."""
+    if episode_dir is None:
+        return False
+    scenes_dir = Path(episode_dir) / "scenes"
+    if not scenes_dir.is_dir():
+        return False
+    candidates = [f"{scene_id}.tsx"]
+    m = re.match(r"^scene-(\d+)$", scene_id)
+    if m:
+        candidates.append(f"S{int(m.group(1)):02d}.tsx")
+    return any((scenes_dir / c).is_file() for c in candidates)
 
 
 def _load_packet_json(path: Path | None) -> dict[str, Any] | None:
@@ -771,6 +844,7 @@ def main(argv: list[str] | None = None) -> int:
     missing: list[str] = []
     not_sealed: list[str] = []
     incomplete: dict[str, str] = {}
+    provenance_drift: dict[str, str] = {}
     for sid in targets:
         status, payload, reason = scene_seal_status(evidence, sid, episode_dir)
         if status == "ok":
@@ -779,6 +853,10 @@ def main(argv: list[str] | None = None) -> int:
             missing.append(sid)
         elif status == "no_successful_attempt":
             not_sealed.append(sid)
+        elif status == "provenance_drift":
+            # Wave1 security cycle-1 CRITICAL-2: provenance-gate failures are
+            # re-dispatch drift — never a clean "not sealable" exit 0.
+            provenance_drift[sid] = reason
         else:
             incomplete[sid] = reason
 
@@ -807,14 +885,26 @@ def main(argv: list[str] | None = None) -> int:
         if seal_intact(pkt, episode_dir)[0]:
             preserved.append(sid)
 
+    # CRITICAL-2: provenance drift joins the SAME drift lane as hash drift —
+    # re-dispatched when --redispatch (default), refused with exit 3 under
+    # --no-redispatch. Drifted scenes are never in ``payloads``, so they can
+    # never be re-sealed from the drifted evidence.
+    if provenance_drift:
+        drift.update({sid: [reason] for sid, reason in provenance_drift.items()})
+
     print(f"restore_seals: evidence={evidence_path}")
     print(f"episode_dir: {episode_dir}")
     print(f"targets ({len(targets)}): {', '.join(sorted(targets))}")
     print(f"sealable ({len(sealable)}): {', '.join(sorted(sealable)) or '-'}")
     if preserved:
         print(f"  already preserved ({len(preserved)}): {', '.join(sorted(preserved))}")
+    for sid in sorted(provenance_drift):
+        print(f"  provenance drift ({sid}): {provenance_drift[sid]}"
+              + ("" if args.redispatch else " — REFUSED (--no-redispatch)"))
     if drift:
         for sid in sorted(drift):
+            if sid in provenance_drift:
+                continue  # already reported under its own label
             print(f"  hash drift ({sid}): " + "; ".join(drift[sid]))
 
     if args.dry_run:

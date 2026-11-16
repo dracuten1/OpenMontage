@@ -145,7 +145,14 @@ STUB_CLAUDE = textwrap.dedent("""\
             {"scene_id": sid, "verdict": verdict, "issues": issues,
              "metrics": {"complexity": "low"}}, indent=1
         )
-        out = ["<!-- VERDICT_START -->", "```json", block, "```", "<!-- VERDICT_END -->"]
+        # Wave0 hunk D verdict channel: the minted (re-minted 2026-11-16)
+        # wrapper parses plain-text @@ markers / the findings FILE the
+        # reviewer writes itself — the legacy <!-- --> JSON-fence stdout
+        # channel is no longer read. Speak @@ markers; the wrapper stamps
+        # reviewed_hashes it computes itself.
+        out = ["@@VERDICT_START@@", f"VERDICT: {verdict}"]
+        out += [f"ISSUE: {i}" for i in issues]
+        out.append("@@VERDICT_END@@")
         sys.stdout.write("\\n".join(out) + "\\n")
         sys.stdout.flush()
         sys.exit(0)
@@ -747,7 +754,15 @@ def test_canary_round1_rejection_injects_findings_into_attempt2(tmp_path, stub_c
     from tools.qc.mint_project_pipeline import main as mint_main
     assert mint_main(["--project-dir", str(project), "--scenes", "3"]) == 0
 
-    proc = _launch_pipeline(tmp_path, ep, project, stub_claude)
+    proc = _launch_pipeline(tmp_path, ep, project, stub_claude, extra_env={
+        # the re-minted (wave0/wave1) reviewer wrapper retries empty streams
+        # 6x with 45s sleeps — provider-glitch hardening that multiplies the
+        # wall time under a verdict-less stub far past this test's 180s
+        # timeout. One stream attempt per reviewer run keeps the test about
+        # findings injection, not about the retry loop.
+        "OM_CC_REVIEW_STREAM_ATTEMPTS": "1",
+        "OM_CC_REVIEW_STREAM_SLEEP": "0",
+    })
     hist = project / "history"
     log1 = (hist / "cc_writer_scene-1.log").read_text(encoding="utf-8")
     # attempt >= 2 injected the prior reviewer issues (grep contract >= 1)
@@ -772,7 +787,14 @@ def test_canary_findings_inject_off_means_no_injection(tmp_path, stub_claude, mo
     assert mint_main(["--project-dir", str(project), "--scenes", "3"]) == 0
 
     proc = _launch_pipeline(tmp_path, ep, project, stub_claude,
-                            extra_env={"OM_FINDINGS_INJECT": "0"})
+                            extra_env={
+                                "OM_FINDINGS_INJECT": "0",
+                                # see test_canary_round1_rejection...: the
+                                # re-minted wrapper's empty-stream retry
+                                # loop (6x45s) must not run under a stub
+                                "OM_CC_REVIEW_STREAM_ATTEMPTS": "1",
+                                "OM_CC_REVIEW_STREAM_SLEEP": "0",
+                            })
     hist = project / "history"
     for sid in SCENE_IDS_3:
         log = hist / f"cc_writer_{sid}.log"

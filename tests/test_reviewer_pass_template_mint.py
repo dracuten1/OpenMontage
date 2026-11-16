@@ -142,3 +142,39 @@ def test_deployed_faa_has_no_reviewer_pass():
     """Ground truth for the undeclared-mint semantics above."""
     assert not (REPO_ROOT / f"projects/{SLUG_FAA}/scripts/cc_pipeline/"
                 "reviewer_pass.py").exists()
+
+
+# ------------------------------------------------------------------------------
+# Wave1 security cycle-1 CRITICAL-3 — the deployed-project re-mint roster
+# ------------------------------------------------------------------------------
+
+def test_deployed_roster_covers_every_tracked_minted_project():
+    """The roster must name EVERY git-tracked project dir that carries a
+    minted scripts/cc_pipeline tree — an omitted deployed copy is re-mint
+    drift the strict gate cannot see (tai-chinh-3tin-20261111 and
+    canary-phase4 were exactly that omission)."""
+    from tools.qc.mint_project_pipeline import DEPLOYED_PROJECTS
+    import subprocess
+    tracked = subprocess.run(
+        ["git", "-C", str(REPO_ROOT), "ls-files",
+         "projects/*/scripts/cc_pipeline/.mint_manifest.json"],
+        capture_output=True, text=True, check=True).stdout.split()
+    tracked_slugs = sorted({Path(p).parts[1] for p in tracked})
+    assert tracked_slugs, "fixture drift: no tracked minted projects found"
+    for slug in tracked_slugs:
+        assert slug in DEPLOYED_PROJECTS, f"deployed project {slug!r} missing from DEPLOYED_PROJECTS roster"
+    assert set(DEPLOYED_PROJECTS) == set(tracked_slugs)
+
+
+def test_verify_minted_hashes_flags_drift(tmp_path, monkeypatch):
+    """verify_minted_hashes: on-disk drift vs the manifest rendered hash is
+    reported; a template-true tree verifies clean."""
+    from tools.qc.mint_project_pipeline import verify_minted_hashes
+    project = seed_project(tmp_path, SLUG_TIN, declare_reviewer_pass=True)
+    monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
+    assert mint_main(["--project-dir", str(project), "--scenes", "12", "--force"]) == 0
+    assert verify_minted_hashes(project) == []
+    (project / "scripts" / "cc_pipeline" / "writer_wrapper.py").write_text(
+        "# drifted\n", encoding="utf-8")
+    mismatches = verify_minted_hashes(project)
+    assert any("writer_wrapper.py" in m for m in mismatches)

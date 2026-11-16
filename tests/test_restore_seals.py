@@ -527,8 +527,11 @@ def test_failed_scene_is_not_missing_evidence(tmp_path, capsys):
 
 
 def test_incomplete_evidence_reported_not_fatal(tmp_path, capsys):
-    """A successful attempt whose verdict/hash artifacts are gone is reported
-    ('evidence incomplete'), not conflated with missing evidence."""
+    """A successful attempt whose verdict/hash artifacts are gone is REPORTED
+    (never conflated with missing evidence, never a silent skip) — and under
+    the Wave1 CRITICAL-2 contract, provenance-gate failure (unrecoverable
+    empty findings_hash) classifies as PROVENANCE DRIFT: the dry-run says the
+    scene would be re-dispatched instead of sealing. Still non-fatal rc 0."""
     ep, ev_file = build_restore_fixture(tmp_path, evidence_scene_ids=["scene-1"])
     evidence = json.loads(ev_file.read_text(encoding="utf-8"))
     evidence["scenes"]["scene-2"] = _seal_entry("scene-2", ep / "packet_scene-2.json",
@@ -541,8 +544,11 @@ def test_incomplete_evidence_reported_not_fatal(tmp_path, capsys):
     rc = restore_main(["--from-evidence", str(ev_file), "--episode-dir", str(ep), "--dry-run"])
     assert rc == 0
     out = capsys.readouterr().out
-    assert "evidence incomplete for scene-2" in out
-    assert "approved verdict" in out
+    # CRITICAL-2: unrecoverable provenance = drift, reported under its own
+    # label and queued for writer+reviewer re-dispatch (dry-run: no dispatch)
+    assert "provenance drift (scene-2)" in out
+    assert "empty findings_hash" in out
+    assert "would be re-dispatched" in out
     assert "ERROR: Missing evidence" not in out
 
 

@@ -268,3 +268,27 @@ def test_module_level_parse_runs_clean_at_import(launcher_mod):
     assert launcher_mod.RELAUNCH_MAX_ATTEMPTS >= 1
     assert launcher_mod.RELAUNCH_MAX_ATTEMPTS <= launcher_mod.RELAUNCH_HARD_CAP
     assert launcher_mod.RELAUNCH_BACKOFF_BASE_S >= 0.0
+
+
+# ------------------------------------------------------------------------------
+# Wave1 security cycle-1 hygiene — non-finite backoff cannot poison supervision
+# ------------------------------------------------------------------------------
+
+def test_parse_relaunch_backoff_base_s_rejects_non_finite(launcher_mod, capsys):
+    """"inf"/"-inf"/"nan" parse as floats but time.sleep(inf) raises
+    OverflowError and a nan base silently corrupts the doubling backoff —
+    both must fall back to the default (math.isfinite gate)."""
+    parse = launcher_mod._parse_relaunch_backoff_base_s
+    assert parse("inf") == 30.0
+    assert parse("-inf") == 30.0
+    assert parse("nan") == 30.0
+    assert parse("1e400") == 30.0            # float literal overflow -> inf
+    out = capsys.readouterr().out
+    assert out.count("non-finite OM_RELAUNCH_BACKOFF_S") == 4
+    assert "WARN" in out
+
+
+def test_launcher_template_uses_math_isfinite_gate():
+    src = launcher_defaults_src()
+    assert "import math" in src
+    assert "math.isfinite(val)" in src
