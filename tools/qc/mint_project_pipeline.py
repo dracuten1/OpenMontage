@@ -52,6 +52,18 @@ WRAPPER_TEMPLATES = [
     "reviewer_wrapper.py.tmpl",
     "run_cc_pipeline.py.tmpl",
 ]
+
+# Wave1 item 8 (2026-11-16): OPTIONAL templates, minted ONLY for projects
+# that DECLARE them by already carrying the deployed artifact (the tracked
+# on-disk copy IS the declaration — a project never grows one by re-mint).
+# ``reviewer_pass.py`` is the lead-level reviewer-only pass used by
+# tin-nong-5tin-20261115; faa-ground-stop-20261114 has none and must not
+# gain one. Byte-identical render (modulo placeholders) is pinned by the
+# test pack, closing the P0-2 silent-divergence flag (deployed-copy-only,
+# no template).
+PRESENCE_DECLARED_TEMPLATES = {
+    "reviewer_pass.py.tmpl": "scripts/cc_pipeline/reviewer_pass.py",
+}
 MANIFEST_NAME = ".mint_manifest.json"
 STRICT_ENV = "OM_WRAPPER_TEMPLATE_STRICT"
 FINDINGS_PURGE_DIR = "history/cc_findings"
@@ -70,10 +82,14 @@ def _sha256_bytes(data: bytes) -> str:
 
 
 def template_content_hash() -> tuple[str, dict[str, str]]:
-    """Collective template content hash + per-template hashes (sorted, stable)."""
+    """Collective template content hash + per-template hashes (sorted, stable).
+
+    Covers BOTH the always-minted templates and the presence-declared
+    optional templates (auditability: drift in any template in this checkout
+    is visible in every mint's output)."""
     per_file: dict[str, str] = {}
     hasher = hashlib.sha256()
-    for name in sorted(WRAPPER_TEMPLATES):
+    for name in sorted(set(WRAPPER_TEMPLATES) | set(PRESENCE_DECLARED_TEMPLATES)):
         data = (TEMPLATE_DIR / name).read_bytes()
         per_file[name] = _sha256_bytes(data)
         hasher.update(name.encode("utf-8"))
@@ -160,13 +176,25 @@ def _render(template_name: str, slug: str, scene_count: int) -> str:
     )
 
 
+def _declared_optional_templates(project_dir: Path) -> list[str]:
+    """Optional templates the target project DECLARES (presence-declaration:
+    the deployed artifact already exists on disk — Wave1 item 8)."""
+    declared: list[str] = []
+    for tmpl_name, rel in sorted(PRESENCE_DECLARED_TEMPLATES.items()):
+        if (project_dir / rel).is_file():
+            declared.append(tmpl_name)
+    return declared
+
+
 def _detect_hand_written(
     project_dir: Path, previous_manifest: dict | None, rendered: dict[str, str]
 ) -> list[str]:
     """Wrappers on disk that a previous mint did NOT produce (hand-written or
-    hand-edited since the last mint)."""
+    hand-edited since the last mint). Covers the always-minted templates AND
+    the declared optional ones (a hand-edited reviewer_pass.py must hit the
+    same strict gate as a hand-edited wrapper)."""
     flagged: list[str] = []
-    for tmpl_name in WRAPPER_TEMPLATES:
+    for tmpl_name in list(WRAPPER_TEMPLATES) + _declared_optional_templates(project_dir):
         out_name = tmpl_name[: -len(".tmpl")]
         out_path = project_dir / "scripts" / "cc_pipeline" / out_name
         if not out_path.is_file():
@@ -240,7 +268,8 @@ def mint_project(project_dir: Path, scene_count: int, force: bool = False,
 
     out_dir.mkdir(parents=True, exist_ok=True)
     rendered: dict[str, str] = {}
-    for tmpl_name in WRAPPER_TEMPLATES:
+    minted_templates = list(WRAPPER_TEMPLATES) + _declared_optional_templates(project_dir)
+    for tmpl_name in minted_templates:
         content = _render(tmpl_name, slug, scene_count)
         out_name = tmpl_name[: -len(".tmpl")]
         out_path = out_dir / out_name
@@ -270,9 +299,13 @@ def mint_project(project_dir: Path, scene_count: int, force: bool = False,
     print(f"preserve mode: {'OFF (--force / OM_REMINT_PRESERVE=0)' if force else 'ON (4C.1 non-destructive)'} ({PRESERVE_ENV})")
     print(f"minted from OM commit {commit}")
     print(f"template content hash: {tpl_hash}")
-    for tmpl_name in WRAPPER_TEMPLATES:
+    for tmpl_name in minted_templates:
         out_name = tmpl_name[: -len(".tmpl")]
         print(f"  {tmpl_name}  {per_template[tmpl_name][:12]}  -> {out_name}  (rendered {rendered[out_name][:12]})")
+    skipped_optional = sorted(set(PRESENCE_DECLARED_TEMPLATES) - set(minted_templates))
+    if skipped_optional:
+        print(f"  optional templates NOT declared (skipped, no artifact minted): "
+              + ", ".join(skipped_optional))
     print(f"strict mode: {'ON' if strict else 'OFF (warn-only)'} ({STRICT_ENV})")
     print(f"manifest: {manifest_path}")
     return 0

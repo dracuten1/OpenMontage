@@ -342,16 +342,23 @@ def test_orchestrator_no_project_root_skips_findings_no_crash(tmp_path, monkeypa
 # ==============================================================================
 
 def test_template_contract_greps():
-    """R6 + 4A.2 contract on the TEMPLATES (generated artifacts inherit it):
-    reviewer carries permission-mode acceptEdits (reviewer-timeout hotfix —
-    plan/default modes return EMPTY stdout with --dangerously-skip-permissions)
-    while writer/launcher stay acceptEdits-free; zero hardcoded max-concurrency
-    default; reviewer emits timeout_error; launcher asserts the governor
-    import; writer carries the pre-flight + findings injection."""
+    """R6 + 4A.2 contract on the TEMPLATES (generated artifacts inherit it) —
+    UPDATED Wave1 P0-3 (2026-11-16): the old "acceptEdits must stay
+    reviewer-only" rule is SUPERSEDED by the P0-3 mandate (writer migrates to
+    the reviewer containment shape: --permission-mode acceptEdits PLUS a
+    --disallowedTools deny-list; the --allowedTools allow-list is GONE — it
+    was voided noise under --dangerously-skip-permissions, probe 2026-11-14).
+    What stays pinned: launcher carries NO claude CLI flags (it dispatches
+    wrappers); zero hardcoded max-concurrency default; reviewer emits
+    timeout_error; launcher asserts the governor import; writer carries the
+    pre-flight + findings injection + the new deny-list shape."""
     for tmpl in TEMPLATE_DIR.glob("*.tmpl"):
         content = tmpl.read_text(encoding="utf-8")
-        if tmpl.name != "reviewer_wrapper.py.tmpl":
-            assert "acceptEdits" not in content, f"acceptEdits must stay reviewer-only: {tmpl.name}"
+        if tmpl.name == "run_cc_pipeline.py.tmpl":
+            # The launcher spawns wrappers, not claude — no CLI permission
+            # flags belong there (acceptEdits stays a wrapper-CLI-only mode).
+            assert "acceptEdits" not in content, tmpl.name
+            assert "allowedTools" not in content, tmpl.name
         assert 'OM_MAX_CONCURRENCY", "2"' not in content, tmpl.name
         assert "max_concurrency=2" not in content, tmpl.name
     reviewer = (TEMPLATE_DIR / "reviewer_wrapper.py.tmpl").read_text(encoding="utf-8")
@@ -362,6 +369,10 @@ def test_template_contract_greps():
     assert "validate_imports_and_theme" in writer
     assert "PRIOR REVIEWER ISSUES" in writer
     assert "execute_writer_with_backoff" in writer
+    # Wave1 P0-3 writer containment shape (replaces the R6 allow-list era):
+    assert "--permission-mode" in writer and "acceptEdits" in writer
+    assert "--disallowedTools" in writer
+    assert '"--allowedTools"' not in writer  # the voided allow-list flag: never in code again
     launcher = (TEMPLATE_DIR / "run_cc_pipeline.py.tmpl").read_text(encoding="utf-8")
     assert "from tools.qc.concurrency_governor import" in launcher
     assert "raise ImportError" in launcher
