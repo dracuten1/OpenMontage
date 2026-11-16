@@ -304,4 +304,16 @@ Mọi mutation sau freeze → mọi verdict/render phụ thuộc trở nên STAL
 - **Supervision clamp:** `OM_RELAUNCH_MAX_ATTEMPTS` bị hard-cap `RELAUNCH_HARD_CAP = 3` (env override không thể vượt), non-integer env → warn + default (2), không crash import. Posture: supervision là bảo hiểm infra, không phải công cụ chạy-đi-chạy-lại.
 - **Template strict gate — posture operator:** re-mint wrapper `mint_project_pipeline` mặc định `OM_WRAPPER_TEMPLATE_STRICT=1` (refuse clobber khi hash lệch). Chạy production/re-mint thật giữ strict=1; `=0` (warn-and-overwrite) CHỈ cho điều tra/khẩn cấp có chủ đích — không bao giờ là default chạy thường.
 
+### §8.8 Stall-watcher shell-detach doctrine (Wave1 P0-4, 2026-11-16)
+- **Detach là BẮT BUỘC (600s wall cap):** mọi long-running child PHẢI được shell-detach khỏi agent bash call. Open tool-call wait của ensemble agent mang wall cap cứng ~600s SIGKILL im lặng — per-call timeout parameter BỊ IGNORE (timeout=300 ghi nhận vẫn chết ở 600s; diagnose 2026-11-15, platform constraint — fix thật thuộc lane daemon executor).
+- **Watcher = long-running detached process, KHÔNG BAO GIỜ là in-call wait:** `tools/qc/cc_pipeline_stall_watcher.py` là vòng lặp polling dài hạn; chạy như blocking agent tool call là vi phạm doctrine, bất kể timeout param ghi bao nhiêu. Launch bằng shell-detach:
+
+    nohup python3 tools/qc/cc_pipeline_stall_watcher.py \
+        --project-dir projects/<slug> \
+        > <project>/artifacts/stall_watcher.log 2>&1 &
+
+  sau đó inspect log/process bằng short poll calls. Mọi wiring tương lai của script này vào pipeline hoặc agent PHẢI giữ nguyên detach doctrine.
+- **Watcher theo dõi gì / emit gì:** theo dõi evidence pointer mới nhất của project `<project>/artifacts/scene_workflow_evidence.json` (symlink tương đối trỏ tới file per-round `scene_workflow_evidence_<session_id>.json`; regular file khi `OM_EVIDENCE_PER_ROUND=0`). Stall signal = content được trỏ tới im lặng: không mtime đổi VÀ không pointer retarget trong `--stall-seconds`. Lần stall đầu mỗi stall-episode, watcher emit record `stall_detected` qua job-event lane (`tools/qc/job_events.py` → `artifacts/job_events.jsonl`, cùng sink fail_exit hook) và in dòng STALL. Watcher cố ý DUMB: không đọc scene state, không kill, không relaunch (relaunch policy thuộc launcher P0-4); exit codes `0` healthy/no-evidence, `2` stalled.
+- **Không auto-launch — operator step tường minh:** pipeline KHÔNG tự chạy watcher. Launch là bước operator riêng, explicit, theo lệnh nohup ở trên; chỉ chạy khi production run cần giám sát stall. Docstring module (`cc_pipeline_stall_watcher.py:13-31`) và `tests/test_stall_watcher_p04.py:45-50` đều assert doctrine này — sửa doctrine TẠI ĐÂY (§8.5 sync order), không edit docstring thành authority đối lập.
+
 
