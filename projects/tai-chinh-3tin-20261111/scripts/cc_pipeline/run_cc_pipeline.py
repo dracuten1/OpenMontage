@@ -17,12 +17,20 @@ Phase 4A.2 contract:
 - OM_EPISODE_DIR_OVERRIDE (optional): run against a different episode dir
   (canary / synthetic-episode verification); default is this project's
   remotion-composer episode.
+- Wave1 P0-4 (2026-11-16): bounded fail-exit supervision — a non-zero pass
+  relaunches at most OM_RELAUNCH_MAX_ATTEMPTS total attempts (default 2)
+  with doubling backoff (OM_RELAUNCH_BACKOFF_S, default 30); on final
+  failure the fail_exit + owner_approval_request notification stubs emit to
+  the job-event lane (tools/qc/job_events.py — STUB/EMIT ONLY, no real
+  channel; platform lane wires transport later). Truthful-proc print
+  (item 7, backported from faa deployed copy at OM 53449df): every agent
+  dispatch logs role/scene/exit/duration/byte-counts.
 Re-scope note (4C.1, review round 2): per-scene task/packet generation stays
 in per-project mint_director_inputs.py GENERATED artifacts — no shared 4th
 template in 4C scope; this carrier ships wrappers + scene-id selection only.
 """
 from __future__ import annotations
-import os, sys
+import math, os, sys
 from pathlib import Path
 
 # Task 2.4 shim pattern: resolve the repo root statically so the launcher
@@ -70,6 +78,13 @@ class CCRunner(SubprocessAgentRunner):
         try:
             proc = subprocess.run(cmd, cwd=str(cwd), env=env, capture_output=True,
                                   text=True, timeout=timeout)
+            # Truthful-proc print (Wave1 item 7, backported from the faa
+            # deployed copy carried pre-re-mint at OM 53449df): every agent
+            # dispatch prints its own exit/duration/byte counts so a crashed
+            # child can never silently vanish from the launcher log.
+            print(f"[agent] {env_extra.get('OM_ROLE')} {env_extra.get('OM_SCENE_ID')} "
+                  f"exit={proc.returncode} dur={time.time()-t0:.0f}s "
+                  f"out={len(proc.stdout or '')}B err={(proc.stderr or '')[:120]!r}", flush=True)
             return AgentRunResult(
                 instance_id=env_extra.get("OM_INSTANCE_ID", ""),
                 token=env_extra.get("OM_TOKEN", ""),
@@ -148,6 +163,88 @@ def resolve_scene_ids(ep: Path) -> list[str]:
 
 
 def main() -> int:
+    return run_pipeline_supervised()
+
+
+# --- Wave1 P0-4: bounded fail-exit relaunch + notification stub hooks --------
+# Supervision contract (CONSERVATIVE by design — infra-vs-content failure
+# gating comes LATER and is deliberately NOT built here): when a full
+# pipeline pass exits non-zero, the launcher relaunches the whole pass,
+# capped at OM_RELAUNCH_MAX_ATTEMPTS TOTAL attempts (default 2 = the initial
+# pass + at most ONE relaunch; hard-clamped to RELAUNCH_HARD_CAP = 3 so an
+# env override can NEVER exceed three total attempts; non-integer env values
+# warn + fall back to the default instead of crashing at import), sleeping
+# OM_RELAUNCH_BACKOFF_S * 2**(k-1) seconds before relaunch k (doubling
+# backoff). Once the cap is spent, the notification hook fires on the
+# job-event lane (STUB/EMIT ONLY — see tools/qc/job_events.py; the platform
+# lane wires real channels later) for BOTH fail_exit and
+# owner_approval_request, and the launcher exits non-zero.
+RELAUNCH_HARD_CAP = 3
+
+
+def _parse_relaunch_max_attempts(raw: str | None) -> int:
+    default = 2
+    if raw is None:
+        return default
+    try:
+        val = int(raw)
+    except (TypeError, ValueError):
+        print(f"[supervision] WARN: invalid OM_RELAUNCH_MAX_ATTEMPTS={raw!r}; using default {default}")
+        return default
+    return min(RELAUNCH_HARD_CAP, max(1, val))
+
+
+def _parse_relaunch_backoff_base_s(raw: str | None) -> float:
+    default = 30.0
+    if raw is None:
+        return default
+    try:
+        val = float(raw)
+    except (TypeError, ValueError):
+        print(f"[supervision] WARN: invalid OM_RELAUNCH_BACKOFF_S={raw!r}; using default {default}")
+        return default
+    if not math.isfinite(val):
+        # Wave1 security cycle-1 hygiene: "inf"/"-inf"/"nan" parse as floats
+        # but poison the supervision loop — time.sleep(inf) raises
+        # OverflowError and a nan base silently corrupts the doubling backoff
+        # (every wait becomes nan). Fall back to the default instead.
+        print(f"[supervision] WARN: non-finite OM_RELAUNCH_BACKOFF_S={raw!r}; using default {default}")
+        return default
+    return max(0.0, val)
+
+
+RELAUNCH_MAX_ATTEMPTS = _parse_relaunch_max_attempts(os.environ.get("OM_RELAUNCH_MAX_ATTEMPTS"))
+RELAUNCH_BACKOFF_BASE_S = _parse_relaunch_backoff_base_s(os.environ.get("OM_RELAUNCH_BACKOFF_S"))
+
+
+def relaunch_backoff_s(base_s: float, relaunch_index: int) -> float:
+    """Doubling backoff before relaunch ``relaunch_index`` (1-based):
+    base, 2*base, 4*base, ... Relaunch 1 of a cap-2 run waits ``base_s``."""
+    if relaunch_index < 1:
+        return 0.0
+    return base_s * (2 ** (relaunch_index - 1))
+
+
+def emit_pipeline_event(event_type: str, detail: dict) -> None:
+    """Wave1 P0-4 notification hook point — STUB/EMIT ONLY. Appends a JSONL
+    record to the project artifacts job-event lane via tools.qc.job_events
+    and prints a stdout line. NO real transport is built here; never raises
+    into the supervision path (a broken notification lane must not mask the
+    pipeline's own exit code)."""
+    try:
+        from tools.qc.job_events import emit_job_event
+        record = emit_job_event(
+            event_type, detail,
+            sink=REPO / "projects/tai-chinh-3tin-20261111/artifacts/job_events.jsonl",
+        )
+        print(f"[job-event] {event_type} emitted: {record.get('event_id')}")
+    except Exception as _emit_err:
+        print(f"[job-event] emit FAILED for {event_type} (supervision continues): {_emit_err}")
+
+
+def run_pipeline_once() -> tuple[int, str]:
+    """One full orchestrate_episode pass + its report block.
+    Returns ``(exit_code, one-line summary)``."""
     ep = Path(os.environ.get("OM_EPISODE_DIR_OVERRIDE")
               or (REPO / "remotion-composer/src/tai-chinh-3tin-20261111"))
     evidence = REPO / "projects/tai-chinh-3tin-20261111/artifacts/scene_workflow_evidence.json"
@@ -166,7 +263,44 @@ def main() -> int:
               + (f" ({rec.error})" if rec.error else ""))
     gate = session.episode_gate_result
     print("gate:", gate.get("valid"), [r.get("code") for r in gate.get("reasons", [])][:8])
-    return 0 if session.overall_status == "pass" else 1
+    return (0 if session.overall_status == "pass" else 1), \
+        f"Session {session.session_id} overall={session.overall_status}"
+
+
+def run_pipeline_supervised() -> int:
+    """P0-4 fail-exit supervision: bounded relaunch loop around
+    ``run_pipeline_once`` (cap 2 total attempts, doubling backoff), then the
+    fail_exit + owner_approval_request notification stubs on final failure."""
+    attempt = 0
+    exit_code = 1
+    summary = ""
+    while True:
+        attempt += 1
+        exit_code, summary = run_pipeline_once()
+        if exit_code == 0:
+            return 0
+        if attempt >= RELAUNCH_MAX_ATTEMPTS:
+            break
+        wait_s = relaunch_backoff_s(RELAUNCH_BACKOFF_BASE_S, attempt)
+        print(f"[relaunch] pass {attempt}/{RELAUNCH_MAX_ATTEMPTS} failed (exit {exit_code}); "
+              f"relaunch {attempt + 1} in {wait_s:.0f}s "
+              f"(cap {RELAUNCH_MAX_ATTEMPTS} total attempts, doubling backoff)")
+        time.sleep(wait_s)
+    detail = {
+        "reason": "pipeline_fail_exit",
+        "attempts_used": attempt,
+        "attempts_cap": RELAUNCH_MAX_ATTEMPTS,
+        "exit_code": exit_code,
+        "summary": summary,
+    }
+    emit_pipeline_event("fail_exit", detail)
+    emit_pipeline_event("owner_approval_request", {
+        **detail,
+        "request": "owner decision required: inspect infra vs content failure "
+                   "before any further relaunch (supervision cap spent)",
+        "requires_owner": True,
+    })
+    return exit_code
 
 
 if __name__ == "__main__":

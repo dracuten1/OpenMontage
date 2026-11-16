@@ -84,6 +84,11 @@ def integrate(scene_id: str, verdict: str, findings: dict | None) -> bool:
       (what the reviewer actually hashed). The old code synthesized
       ``{scene_rel: <current disk hash>}`` — a binding to bytes the reviewer
       may never have seen. That synthesis is gone.
+    - Wave1 security cycle-1 CRITICAL-1: the scene file is hash-verified ON
+      DISK before any packet state is touched — a missing scene file, an
+      evidence entry with an empty ``findings_hash`` pointer, or a computed
+      empty ``findings_hash`` all refuse integration (fail-closed), never a
+      crash or a provenance backfill over unverified bytes.
     - verdict comes from the findings file (run_reviewer parsed it there).
     - reviewer identity is derived deterministically from the canonical
       findings bytes (verifiable evidence pointer), not a random mint.
@@ -101,6 +106,14 @@ def integrate(scene_id: str, verdict: str, findings: dict | None) -> bool:
     target = resolve_scene_filename(scenes_dir, scene_id)
     scene_file = scenes_dir / target
     scene_rel = f"scenes/{target}"
+    # Wave1 security cycle-1 CRITICAL-1: the scene file must exist on disk
+    # BEFORE any hash verification — a missing file can never be verified
+    # against ``reviewed_hashes``, and refusing explicitly (contract:
+    # False + printed reason) beats a raw FileNotFoundError from sha256().
+    if not scene_file.is_file():
+        print(f"[{scene_id}] SCENE FILE MISSING on disk ({scene_rel}) — not integrating "
+              f"(provenance backfill requires a hash-verifiable scene file)")
+        return False
     scene_hash = sha256(scene_file)
 
     # EVIDENCE-ONLY: reviewer-produced binding from the findings file.
@@ -110,6 +123,15 @@ def integrate(scene_id: str, verdict: str, findings: dict | None) -> bool:
     if not reviewed_hashes or not reviewer_entry:
         print(f"[{scene_id}] NO REVIEWER reviewed_hashes BINDING in findings — not integrating "
               f"(evidence-only backfill: this pass never synthesizes hash bindings)")
+        return False
+    # CRITICAL-1: the evidence entry must carry BOTH the non-empty
+    # reviewed_hashes binding (above) AND a non-empty findings_hash pointer.
+    # An explicitly empty findings_hash in the evidence is incomplete/tampered
+    # evidence — refuse (fail-closed) instead of silently re-minting the
+    # pointer during the frozen-provenance backfill.
+    evidence_findings_hash = (findings or {}).get("findings_hash")
+    if isinstance(evidence_findings_hash, str) and not evidence_findings_hash.strip():
+        print(f"[{scene_id}] EMPTY findings_hash in evidence entry — not integrating")
         return False
     if reviewer_entry != scene_hash:
         # reviewer hashed different content than on disk now -> do not fake binding
@@ -128,6 +150,13 @@ def integrate(scene_id: str, verdict: str, findings: dict | None) -> bool:
     fpath.write_text(json.dumps(findings_canonical, indent=2), encoding="utf-8")
     findings_hash = sha256(fpath)
     findings_rel = f"packets/{scene_id}_findings.json"
+
+    # CRITICAL-1 invariant: the frozen-provenance backfill writes ONLY with a
+    # non-empty findings_hash AND the reviewer's verified reviewed_hashes —
+    # a empty hash here would mint empty provenance downstream (fail-closed).
+    if not findings_hash:
+        print(f"[{scene_id}] computed findings_hash empty — refusing provenance backfill")
+        return False
 
     ts = datetime.now(timezone.utc).isoformat()
     # Reviewer identity derived from the findings evidence bytes — verifiable

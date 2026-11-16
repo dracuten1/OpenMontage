@@ -1,20 +1,21 @@
 {
-  "minted_at": "2026-11-15T04:27:56.655565+00:00",
-  "om_commit": "945637625d62e157230161b6d1ae117c9df9d323",
-  "template_content_hash": "3b7cfc5be90863eb8430b163a0f5fc45e49294deecf8c735a166f7c39302187d",
+  "minted_at": "2026-11-16T05:45:51.872924+00:00",
+  "om_commit": "33c341ecd0459ea417100a5c5805e264a875cda2",
+  "template_content_hash": "6e18f8353cf837046b2e0d4c1d4ab236b56f32c86f945c967c9720709781b0f2",
   "templates": {
-    "reviewer_wrapper.py.tmpl": "b1624954438d20b5ad61c62019cdcc33839a06a5c249007b3a1bb205039a7fb3",
-    "run_cc_pipeline.py.tmpl": "c944292901710b62483cbbb128eb8b1da0a883401b7c86e1caf0dd436b3f705b",
-    "writer_wrapper.py.tmpl": "def0dbb57b9ee9efadc2aaec7814b04c596408617539616acd4c907feab6e0a4"
+    "reviewer_pass.py.tmpl": "2ca01e2a8c9f955e8fcb75efeb261836b8694840906762270f97dbe07e41e5db",
+    "reviewer_wrapper.py.tmpl": "be1fccc56deda813ea4289882c87255c2edca31fe9683a795df9a1f3dc561395",
+    "run_cc_pipeline.py.tmpl": "c1e3723220b980fbcd4e74bac2b72655e13aa0710dbc898fb33abc03b03ff276",
+    "writer_wrapper.py.tmpl": "1b3095574546f1c5f5a904c05268d38f7d63a68a9fe4a6285fd5168f370aa56f"
   },
   "rendered": {
-    "writer_wrapper.py": "def0dbb57b9ee9efadc2aaec7814b04c596408617539616acd4c907feab6e0a4",
-    "reviewer_wrapper.py": "b1624954438d20b5ad61c62019cdcc33839a06a5c249007b3a1bb205039a7fb3",
-    "run_cc_pipeline.py": "e1410e9bfc84331fa1c7204c641e2a9592a7563153811a30975e9189e1c42b7b"
+    "writer_wrapper.py": "1b3095574546f1c5f5a904c05268d38f7d63a68a9fe4a6285fd5168f370aa56f",
+    "reviewer_wrapper.py": "be1fccc56deda813ea4289882c87255c2edca31fe9683a795df9a1f3dc561395",
+    "run_cc_pipeline.py": "f287cf40bc1c55a0af127a68711f580306777c36f0b1bfa1029111a7a721962b"
   },
   "project": "canary-phase4",
   "scene_count": 15,
   "strict": true,
-  "force": true,
+  "force": false,
   "preserved_scenes": []
 }

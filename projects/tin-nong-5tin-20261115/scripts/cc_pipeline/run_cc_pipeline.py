@@ -30,7 +30,7 @@ in per-project mint_director_inputs.py GENERATED artifacts — no shared 4th
 template in 4C scope; this carrier ships wrappers + scene-id selection only.
 """
 from __future__ import annotations
-import os, sys
+import math, os, sys
 from pathlib import Path
 
 # Task 2.4 shim pattern: resolve the repo root statically so the launcher
@@ -202,6 +202,13 @@ def _parse_relaunch_backoff_base_s(raw: str | None) -> float:
         val = float(raw)
     except (TypeError, ValueError):
         print(f"[supervision] WARN: invalid OM_RELAUNCH_BACKOFF_S={raw!r}; using default {default}")
+        return default
+    if not math.isfinite(val):
+        # Wave1 security cycle-1 hygiene: "inf"/"-inf"/"nan" parse as floats
+        # but poison the supervision loop — time.sleep(inf) raises
+        # OverflowError and a nan base silently corrupts the doubling backoff
+        # (every wait becomes nan). Fall back to the default instead.
+        print(f"[supervision] WARN: non-finite OM_RELAUNCH_BACKOFF_S={raw!r}; using default {default}")
         return default
     return max(0.0, val)
 

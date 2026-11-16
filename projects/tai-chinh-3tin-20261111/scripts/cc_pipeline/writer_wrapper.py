@@ -10,9 +10,26 @@ Carries the landed Phase-1/2 semantics plus Phase-4A additions:
   ``ConcurrencyGovernor`` throttling on a 429 burst.
 - task 2.4: static repo-root ``sys.path`` shim (``parents[4]``) so project-local
   execution resolves ``tools.*`` imports from THIS checkout.
-- R6 (phase 4A.2): NEVER the ``--permission-mode`` accept-edits mode — it voids
-  ``--allowedTools`` scoping (writer mutated the packet in rounds 3-4).
-  Default permission mode + explicit ``--allowedTools`` scoping only.
+- R6 -> Wave1 P0-3 (2026-11-16): the writer CLI migrates to the reviewer
+  wrapper's containment shape — ``--permission-mode acceptEdits`` PLUS an
+  explicit ``--disallowedTools`` DENY-list (canonical ``scenes/``, ``packets/``,
+  infra dot-directories), and the ``--allowedTools`` allow-list is GONE.
+  R6's original phrasing ("never acceptEdits") encoded the real bug of its
+  day: an accept-edits writer paired with an ALLOW-list, and allow-lists are
+  VOID under ``--dangerously-skip-permissions`` (probe 2026-11-14 confirmed
+  Write/Edit/Bash still execute) — that writer mutated the packet in rounds
+  3-4. The deny-list, unlike the allow-list, survives the skip flag for
+  tool-level file writes (``Write``/``Edit``/``MultiEdit``). ``acceptEdits``
+  itself stays REQUIRED: plan/default modes return EMPTY stdout under the
+  skip flag (probe 2026-11-14). The writer's one sanctioned write target —
+  ``.tmp_sandboxes/{scene_id}_{attempt}/`` — is NOT in the deny list.
+  RESIDUAL RISK (documented): ``Bash`` remains enabled because writer tasks
+  instruct ``npx tsc --noEmit``; shell writes via ``Bash`` bypass tool-level
+  denies. Compensating controls: pre-flight import check + bounded wrapper
+  ``tsc`` self-check + reviewer gate + episode gate + promotion symlink-safety.
+- Wave1 P0-3: the writer child env is WHITELISTED (system essentials + OM_*
+  + provider API keys, mirroring reviewer_wrapper.py.tmpl) — the full parent
+  environment (credentials included) never reaches the claude child.
 - 4A.1: prior reviewer findings appended to the writer task, gated on
   ``OM_FINDINGS_INJECT`` (default ON; ``=0`` disables both sides).
 - R2 (perf/cc-pipeline R1-R5): the static reviewer-style brief
@@ -24,7 +41,8 @@ Carries the landed Phase-1/2 semantics plus Phase-4A additions:
   layout detected on disk -> pre-seed header uses the REAL specifiers
   (``./lib/SceneShell`` style; ``remotion-composer/src/common/`` does not
   exist in OM) + ``_preflight_gate`` fast pre-check on the sandbox output
-  BEFORE the 240s ``npx tsc --noEmit`` spend. Warn-and-allow when no
+  BEFORE the bounded ``npx tsc --noEmit`` spend (``OM_TSC_TIMEOUT``,
+  default = watchdog budget). Warn-and-allow when no
   SceneShell module exists under the episode (unknown layout never
   hard-fails the pre-flight; tsc remains the real gate).
 - Failure-fixes 1 (2026-11-15): the sandbox preamble states the unified
@@ -41,11 +59,24 @@ Carries the landed Phase-1/2 semantics plus Phase-4A additions:
   are exclusively missing-module/baseline (TS2307 against files absent on
   disk) are downgraded to a printed TSC BASELINE WARN instead of failing the
   writer; once all expected scenes exist the strict own-scene gate returns.
+- Defect 1 (tsc-gate S8 rescue, 2026-11-15): the tsc self-check timeout is
+  FATAL. The old code hard-coded ``timeout=240`` and treated a
+  ``subprocess.TimeoutExpired`` as NON-FATAL (print + pass), so a slow or
+  cold environment promoted unverified code as "TS clean" (anomaly run
+  tin-nong-5tin-20261115: scene gates are the only check before render, and
+  broken S08 code reached the render stage). The budget is now explicit:
+  ``OM_TSC_TIMEOUT`` (seconds), defaulting to the same watchdog budget the
+  wrapper already uses (``OM_CC_WATCHDOG`` / ``WATCHDOG_S``, default 420).
+  On expiry the attempt FAILS (exit 1, no promotion) with the
+  infra-style ``tsc_timeout`` classification marker (mirrors the reviewer
+  ``timeout_error`` verdict contract; the exit-1 attempt consumption follows
+  the orchestrator's existing writer-side failure semantics). Genuine
+  non-timeout tsc failures stay fatal as before.
 
 Env: OM_SCENE_ID, OM_EPISODE_DIR, OM_ATTEMPT_INDEX (optional, default "0").
 Kill-switch: OM_LEGACY_QUARANTINE=1 restores the legacy pre-phase1 behavior
 (Claude writes the canonical scene file directly; own-output pre-clean, no
-sandbox, no promotion) — with the same scoped, accept-edits-free CLI.
+sandbox, no promotion) — with the same Wave1 P0-3 containment CLI shape.
 """
 from __future__ import annotations
 import json, os, re, shutil, subprocess, sys, threading, time
@@ -74,6 +105,64 @@ WRITER_ATTEMPT_MANIFEST_NAME = "attempt_manifest.json"
 WATCHDOG_S = int(os.environ.get("OM_CC_WATCHDOG", "420"))
 MAX_TURNS = os.environ.get("OM_CC_MAX_TURNS", "60")
 PROJ_ROOT = Path(__file__).resolve().parents[2]  # projects/<project>
+
+# Defect 1 (tsc-gate S8 rescue, 2026-11-15): bounded budget for the
+# ``npx tsc --noEmit`` self-check. Previously hard-coded ``timeout=240``
+# with a NON-FATAL TimeoutExpired handler. The budget is now explicit env
+# ``OM_TSC_TIMEOUT`` (seconds); unset -> reuse the SAME budget as this
+# wrapper's existing writer-session watchdog (WATCHDOG_S above, default
+# 420) rather than a second independently-tuned constant.
+TSC_TIMEOUT_ENV = "OM_TSC_TIMEOUT"
+
+# Defect-1 polish (2026-11-15 review): the self-check budget must stay
+# strictly INSIDE the outer writer-session budget (``OM_AGENT_TIMEOUT``,
+# default 900 — run_cc_pipeline.py.tmpl ENV_TIMEOUT), otherwise a hung tsc
+# self-check eats the session and the watchdog kills the writer anyway
+# (wasted attempt, no ``tsc_timeout`` marker). Constraint: OM_TSC_TIMEOUT
+# < OM_AGENT_TIMEOUT; when the outer env is readable we enforce a hard cap
+# of OM_AGENT_TIMEOUT - 60 at this site; when it is NOT readable, a large
+# OM_TSC_TIMEOUT is honored as-is (bounded only by the outer watchdog).
+_AGENT_TIMEOUT_ENV = "OM_AGENT_TIMEOUT"
+
+def _agent_budget_cap():
+    """Cap seconds for the tsc self-check derived from the outer session
+    budget: ``OM_AGENT_TIMEOUT - 60`` (60s headroom for promotion + exit).
+    Returns None when the outer env is unset / non-integer / too small —
+    the budget is then honored as-is (the outer watchdog still bounds it)."""
+    raw = os.environ.get(_AGENT_TIMEOUT_ENV, "")
+    if raw:
+        try:
+            outer = int(raw)
+        except ValueError:
+            return None
+        if outer > 60:
+            return outer - 60
+    return None
+
+
+def _tsc_timeout_seconds() -> int:
+    """Self-check budget seconds: ``OM_TSC_TIMEOUT`` or the watchdog default.
+
+    - Unset / non-integer / zero / negative -> ``WATCHDOG_S`` (the wrapper's
+      existing watchdog budget, default 420), so a typo'd env var can never
+      produce an immediate-fail (``<= 0``) or widen the budget by accident.
+    - A valid value is honored as-is, EXCEPT it is capped at
+      ``OM_AGENT_TIMEOUT - 60`` when that outer budget is readable here
+      (constraint: the self-check must stay strictly inside the outer
+      writer-session budget — see ``_agent_budget_cap``). No readable outer
+      budget -> the value stands as configured (still bounded by the
+      outer watchdog kill, not unbounded).
+    """
+    raw = os.environ.get(TSC_TIMEOUT_ENV, "")
+    if raw:
+        try:
+            value = int(raw)
+        except ValueError:
+            value = 0
+        if value > 0:
+            cap = _agent_budget_cap()
+            return min(value, cap) if cap is not None else value
+    return WATCHDOG_S
 
 # Task 1.3: promotion mutex. Writer wrappers run as separate OS processes, so
 # the cross-process safety actually comes from os.replace()'s atomicity; the
@@ -134,7 +223,7 @@ def _prior_findings_block(scene_id: str, attempt_idx: str) -> str | None:
 #     ``./common[/SceneShell]``, ``./SceneShell``, ``@alias/SceneShell``) OR a
 #     bare ``remotion`` import;
 #   - when no SceneShell module exists under the episode on disk, the layout
-#     cannot be anchored -> WARN + ALLOW (the 240s ``npx tsc --noEmit``
+#     cannot be anchored -> WARN + ALLOW (the bounded ``npx tsc --noEmit``
 #     self-check remains the real gate), never a hard pre-flight exit;
 #   - theme import/usage is WARN-only (S01-style scenes legitimately skip it).
 SCENE_SHELL_IMPORT_HEADER = """import React from 'react';
@@ -232,7 +321,7 @@ def _preflight_gate(episode: Path, scene_src: str, scene_id: str) -> bool:
     """4A.3 rev-2 pre-flight dispatch (warn-and-allow on unknown layout).
 
     - No SceneShell module on disk under the episode: layout cannot be
-      anchored -> WARN + ALLOW (True). The 240s tsc self-check remains the
+      anchored -> WARN + ALLOW (True). The bounded tsc self-check (``OM_TSC_TIMEOUT``) remains the
       real gate; a phantom-specifier hard exit here only false-fails valid
       real-episode scenes.
     - Layout detected: hard-fail ONLY on a missing SceneShell/remotion
@@ -252,17 +341,80 @@ def _preflight_gate(episode: Path, scene_src: str, scene_id: str) -> bool:
     return True
 
 
-# --- R6: scoped writer CLI — never the accept-edits permission mode ---------
-def _writer_cmd() -> list[str]:
-    """Writer CLI invocation. R6: the accept-edits permission mode voids ``--allowedTools``
-    scoping (writer mutated the review packet). Default permission mode keeps
-    the ``--allowedTools`` whitelist enforced; no permission-mode flag passed.
+# --- R6 -> Wave1 P0-3: containment writer CLI --------------------------------
+# R6 history (phase 4A.2): the writer ran accept-edits with an ALLOW-list, and
+# allow-lists are VOID under ``--dangerously-skip-permissions`` (probe
+# 2026-11-14: Write/Edit/Bash still execute) — that writer mutated its review
+# packet in rounds 3-4. Wave1 P0-3 migrates the writer to the reviewer
+# wrapper's containment shape (reviewer_wrapper.py.tmpl header + phase1 task
+# 1.1): ``--permission-mode acceptEdits`` (plan/default modes return EMPTY
+# stdout under the skip flag) PLUS an explicit ``--disallowedTools`` deny-list
+# — the deny-list, unlike the allow-list, overrides the skip flag for
+# tool-level file writes (Write/Edit/MultiEdit). Note: ``Bash`` remains
+# enabled because writer tasks instruct ``npx tsc --noEmit``; shell writes
+# bypass tool-level denies (compensating controls: pre-flight + wrapper tsc +
+# reviewer + episode gates + promotion symlink-safety). Deny scope
+# (sandboxed writer, cwd = episode dir): the canonical ``scenes/`` dir (the
+# wrapper promotes validated output itself), ``packets/`` (the R6 mutation
+# surface), and repository infra dot-directories (``.git/``, ``.claude/``).
+# The writer's one sanctioned write target — ``.tmp_sandboxes/**`` — is NOT
+# denied, so no blanket ``.*`` dot pattern can be used (it would match the
+# sandbox dir itself); infra dot-dirs are enumerated explicitly.
+_WRITER_DISALLOWED_TOOLS = ",".join([
+    "Edit(scenes/**)", "Write(scenes/**)", "MultiEdit(scenes/**)",
+    "Edit(packets/**)", "Write(packets/**)", "MultiEdit(packets/**)",
+    "Edit(.git/**)", "Write(.git/**)", "MultiEdit(.git/**)",
+    "Edit(.claude/**)", "Write(.claude/**)", "MultiEdit(.claude/**)",
+])
+_WRITER_SCENES_DENY_RULES = ("Edit(scenes/**)", "Write(scenes/**)", "MultiEdit(scenes/**)")
+
+
+def _writer_cmd(legacy_writes_scenes: bool = False) -> list[str]:
+    """Writer CLI invocation (Wave1 P0-3): reviewer-wrapper containment shape —
+    ``--permission-mode acceptEdits`` + ``--disallowedTools`` deny-list, NO
+    allow-list flag (voided under ``--dangerously-skip-permissions``; R6
+    probe 2026-11-14 — the flag is gone for good, never re-added).
+    ``legacy_writes_scenes=True`` (OM_LEGACY_QUARANTINE=1 kill-switch flow)
+    drops the ``scenes/**`` deny rules: that legacy path has the writer edit
+    the canonical scene file directly (no sandbox, no promotion).
     """
+    if legacy_writes_scenes:
+        denied = ",".join(rule for rule in _WRITER_DISALLOWED_TOOLS.split(",")
+                          if rule not in _WRITER_SCENES_DENY_RULES)
+    else:
+        denied = _WRITER_DISALLOWED_TOOLS
     return [
         "claude", "--print", "--dangerously-skip-permissions",
-        "--allowedTools", "Read,Edit,Write,Bash,Glob,Grep",
+        "--permission-mode", "acceptEdits",
+        "--disallowedTools", denied,
         "--max-turns", MAX_TURNS,
     ]
+
+
+# --- Wave1 P0-3: reviewer-style child env whitelist --------------------------
+# Security containment (mirrors reviewer_wrapper.py.tmpl, review 2026-11-14):
+# the full parent process env carries credentials a writer session must never
+# see. Pass only system essentials, the OM_* pipeline contract vars, and the
+# provider API keys the claude CLI needs; MAX_THINKING_TOKENS stays explicit.
+_WRITER_ENV_ALLOW_KEYS = ("PATH", "HOME", "USER", "SHELL", "TMPDIR")
+# Accepted OM_* passthrough contract vars: OM_SCENE_ID, OM_EPISODE_DIR,
+# OM_ATTEMPT_INDEX, OM_CC_WATCHDOG, OM_TSC_TIMEOUT, OM_FINDINGS_INJECT,
+# OM_LEGACY_QUARANTINE, OM_MAX_CONCURRENCY, OM_WRAPPER_TEMPLATE_STRICT.
+_WRITER_ENV_ALLOW_PREFIXES = ("OM_",)
+_WRITER_ENV_ALLOW_PROVIDER_KEYS = ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY")
+
+
+def _writer_child_env() -> dict:
+    """Whitelisted env for the claude writer child — the full parent
+    environment (credentials included) never reaches the child."""
+    env = {
+        k: v for k, v in os.environ.items()
+        if k in _WRITER_ENV_ALLOW_KEYS
+        or k.startswith(_WRITER_ENV_ALLOW_PREFIXES)
+        or k in _WRITER_ENV_ALLOW_PROVIDER_KEYS
+    }
+    env["MAX_THINKING_TOKENS"] = "1024"
+    return env
 
 
 def _spawn_claude(cmd: list[str], cwd: Path, env: dict, log_path: Path):
@@ -316,9 +468,12 @@ def _tsc_own_scene_fail(episode: Path, scene_id: str) -> tuple[bool, str]:
     except Exception:
         fname = f"{scene_id}.tsx"
     markers = sorted({fname, f"{scene_id}.tsx"})
+    budget = _tsc_timeout_seconds()
     try:
         tsc = subprocess.run(["npx", "tsc", "--noEmit"], cwd=str(composer),
-                             capture_output=True, text=True, timeout=240)
+                             env=_writer_child_env(),
+                             capture_output=True, text=True,
+                             timeout=budget)
         own = _tsc_lines_for_scene((tsc.stdout + tsc.stderr).splitlines(), markers)
         if tsc.returncode != 0 and own:
             missing = _expected_scene_missing(episode)
@@ -332,7 +487,33 @@ def _tsc_own_scene_fail(episode: Path, scene_id: str) -> tuple[bool, str]:
                 return False, ""
             return True, "\n".join(own)[:2000]
     except subprocess.TimeoutExpired:
-        print(f"writer {scene_id}: tsc self-check timed out (non-fatal)")
+        # Defect 1 (tsc-gate S8 rescue, 2026-11-15): FATAL — was print +
+        # "non-fatal" pass, which let an unverified scene promote as
+        # "TS clean" (scene gates are the only writer-side check before
+        # render). Classification decision, documented: a self-check
+        # timeout is ENVIRONMENTAL (slow machine / cold npx cache), so the
+        # printed marker is the infra-style ``tsc_timeout`` contract,
+        # mirroring the reviewer ``timeout_error`` verdict that
+        # scene_orchestrator maps to an in-place infra retry. The wrapper
+        # has no verdict channel to the orchestrator — only its process
+        # exit code — and the orchestrator's EXISTING semantics classify
+        # any non-zero writer exit as a consumed content attempt
+        # (execute_scene_with_retries: "writer scope/tsc failures",
+        # bounded by max_retries). We follow existing taxonomy semantics:
+        # fail the attempt (return failed=True -> caller unlinks the
+        # staged file and exits 1 -> NO promotion) instead of inventing a
+        # new exit channel, and emit the machine-grepable ``tsc_timeout``
+        # marker so a future orchestrator-side infra mapping can key off
+        # it without another wrapper change. ``budget`` is the value
+        # actually passed to subprocess.run (hoisted above the try).
+        print(f"writer {scene_id}: TSC TIMEOUT (tsc_timeout): self-check exceeded "
+              f"{budget}s — FAILING attempt (environmental infra-style "
+              f"classification marker; no promotion)")
+        return True, (
+            f"tsc_timeout: npx tsc --noEmit exceeded its {budget}s budget "
+            f"({TSC_TIMEOUT_ENV} or watchdog default) — attempt failed, "
+            "scene NOT promoted."
+        )
     return False, ""
 
 
@@ -465,9 +646,8 @@ def _legacy_main(scene_id: str, episode: Path, task_file: Path, log_dir: Path) -
     if block:
         task = task + block
         _log_prior_findings(log_path, block)
-    env = os.environ.copy()
-    env["MAX_THINKING_TOKENS"] = "1024"
-    cmd = _writer_cmd()
+    env = _writer_child_env()
+    cmd = _writer_cmd(legacy_writes_scenes=True)
 
     t0 = time.time()
     # Pre-clean own stale outputs (retries start fresh) + quarantine dir
@@ -494,7 +674,7 @@ def _legacy_main(scene_id: str, episode: Path, task_file: Path, log_dir: Path) -
     # Fail fast: compile errors in own scene -> orchestrator retries writer
     # immediately instead of burning a full reviewer round on a broken file.
     if ok:
-        # 4A.3 pre-flight (fast check BEFORE the 240s tsc spend).
+        # 4A.3 pre-flight (fast check BEFORE the bounded tsc spend).
         scene_src = scene_file.read_text(encoding="utf-8", errors="replace")
         if not _preflight_gate(episode, scene_src, scene_id):
             return 1
@@ -552,8 +732,7 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
         task = task + block
         _log_prior_findings(log_path, block)
 
-    env = os.environ.copy()
-    env["MAX_THINKING_TOKENS"] = "1024"
+    env = _writer_child_env()
     cmd = _writer_cmd()
 
     # Task 2.2: jittered exponential backoff around the writer session. On a
@@ -591,7 +770,7 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
         print(f"writer {scene_id}: exit={returncode} dur={dur:.0f}s file=MISSING (sandbox)")
         return 1
 
-    # 4A.3 pre-flight: fast import check BEFORE the 240s npx tsc spend — a
+    # 4A.3 pre-flight: fast import check BEFORE the bounded npx tsc spend — a
     # missing mandatory import rejects the output immediately (orchestrator
     # re-prompts with a fresh attempt; no TSC time burned on a broken file).
     # Rev-2: warn-and-allow when the episode carries no SceneShell module
