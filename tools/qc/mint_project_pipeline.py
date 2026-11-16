@@ -239,9 +239,10 @@ def mint_project(project_dir: Path, scene_count: int, force: bool = False,
 
     # Strict gate BEFORE any mutation: hand-written wrappers remain valid —
     # strict mode refuses to clobber them silently (plan 4A.2 kill-switch).
+    preview_templates = list(WRAPPER_TEMPLATES) + _declared_optional_templates(project_dir)
     rendered_hashes_preview = {
         tmpl[: -len(".tmpl")]: _sha256_bytes(_render(tmpl, slug, scene_count).encode("utf-8"))
-        for tmpl in WRAPPER_TEMPLATES
+        for tmpl in preview_templates
     }
     flagged = _detect_hand_written(project_dir, previous_manifest, rendered_hashes_preview)
     strict = strict_mode_enabled()

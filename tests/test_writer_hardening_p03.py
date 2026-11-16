@@ -122,13 +122,41 @@ def test_writer_mains_use_their_own_cmd_variants():
     assert "cmd = _writer_cmd()" in src  # _sandboxed_main
 
 
-def test_reviewer_wrapper_is_unchanged_shape_reference():
-    """The pattern source stays intact: reviewer template still carries
-    acceptEdits + the disallowedTools strip logic."""
+def test_reviewer_wrapper_uses_real_confinement_and_final_argv_contract():
+    """Stripped flags are not enforcement; actual Seatbelt denies writes."""
     src = REVIEWER_TMPL.read_text(encoding="utf-8")
-    assert "acceptEdits" in src and "--disallowedTools" in src
+    for needle in ("plan_review_confinement", "smoke_test_confinement",
+                   "strip_tool_scoping_flags", "REVIEWER CONFINEMENT FAIL"):
+        assert needle in src
+    assert "os.environ.copy()" not in src
+    assert "_ENV_ALLOW_OM_KEYS" in src
+    assert "ANTHROPIC_API_KEY" not in src
 
 
+def test_reviewer_confinement_enforces_actual_write_denial(tmp_path):
+    """Run real processes; writes confined to stage, canonical write denied."""
+    import subprocess
+    from tools.qc.reviewer_confinement import confinement_kind, plan_review_confinement, smoke_test
+    kind, _ = confinement_kind()
+    if kind != "seatbelt":
+        pytest.skip("host lacks implemented Seatbelt capability")
+    plan = plan_review_confinement(real_home=tmp_path / "home")
+    try:
+        ok, detail = smoke_test(plan)
+        assert ok, detail
+        denied_target = tmp_path / "canonical.tsx"
+        r = subprocess.run([*plan.argv_prefix, "/bin/sh", "-c",
+                            f"echo forbidden > '{denied_target}'"],
+                           capture_output=True, text=True, timeout=30)
+        assert r.returncode != 0 and not denied_target.exists()
+        allowed = plan.workspace / "packets" / "findings.json"
+        r = subprocess.run([*plan.argv_prefix, "/bin/sh", "-c",
+                            f"mkdir -p '{allowed.parent}' && echo ok > '{allowed}'"],
+                           capture_output=True, text=True, timeout=30)
+        assert r.returncode == 0, r.stderr
+        assert allowed.read_text().strip() == "ok"
+    finally:
+        plan.cleanup()
 # ------------------------------------------------------------------------------
 # Item 2: child env whitelist
 # ------------------------------------------------------------------------------
@@ -137,8 +165,12 @@ def test_writer_template_has_no_full_env_copy():
     """Mirror of the reviewer wrapper's env contract: no full-env copy is
     left anywhere in the writer template."""
     assert "os.environ.copy()" not in render_writer_template()
-    for key in ("PATH", "HOME", "OM_", "ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY"):
-        assert key in render_writer_template()
+    src = render_writer_template()
+    for key in ("PATH", "HOME", "OM_SCENE_ID", "OM_TSC_TIMEOUT", "OM_WRAPPER_TEMPLATE_STRICT"):
+        assert key in src
+    assert "_WRITER_ENV_ALLOW_OM_KEYS" in src
+    assert "_WRITER_ENV_ALLOW_PREFIXES" not in src
+    assert "_WRITER_ENV_ALLOW_PROVIDER_KEYS" not in src
 
 
 def test_writer_child_env_whitelist(writer_module, monkeypatch):
@@ -146,41 +178,40 @@ def test_writer_child_env_whitelist(writer_module, monkeypatch):
         "PATH": "/usr/bin:/bin", "HOME": "/home/op", "USER": "op",
         "SHELL": "/bin/zsh", "TMPDIR": "/tmp",
         "OM_SCENE_ID": "scene-1", "OM_EPISODE_DIR": "/ep", "OM_ATTEMPT_INDEX": "2",
-        "OM_CC_WATCHDOG": "420",
-        "ANTHROPIC_API_KEY": "sk-ant-child-needs-this",
-        "OPENAI_API_KEY": "sk-oai", "GEMINI_API_KEY": "g-key",
-        # credentials that MUST NOT leak into the claude child
-        "AWS_SECRET_ACCESS_KEY": "leak-me-not",
-        "GITHUB_TOKEN": "ghp_leak_me_not",
-        "DATABASE_URL": "postgres://user:pass@host/db",
-        "SLACK_BOT_TOKEN": "xoxb-leak-me-not",
-        "MY_RANDOM_TOOL_SECRET": "nope",
-        # existing MAX_THINKING_TOKENS is overwritten deterministically
-        "MAX_THINKING_TOKENS": "999999",
+        "OM_CC_WATCHDOG": "420", "OM_TSC_TIMEOUT": "30", "OM_FINDINGS_INJECT": "1",
+        "OM_LEGACY_QUARANTINE": "0", "OM_MAX_CONCURRENCY": "4",
+        "OM_WRAPPER_TEMPLATE_STRICT": "1",
+        "OM_TOKEN": "secret-token", "OM_INSTANCE_ID": "secret-instance",
+        "OM_UNDOCUMENTED": "secret-future-key",
+        "ANTHROPIC_API_KEY": "sk-ant-secret", "OPENAI_API_KEY": "sk-oai-secret",
+        "GEMINI_API_KEY": "gemini-secret",
+        "AWS_SECRET_ACCESS_KEY": "leak-me-not", "GITHUB_TOKEN": "ghp_leak_me_not",
+        "DATABASE_URL": "postgres://user:pass@host/db", "SLACK_BOT_TOKEN": "xoxb-leak-me-not",
+        "MY_RANDOM_TOOL_SECRET": "nope", "MAX_THINKING_TOKENS": "999999",
     }
     monkeypatch.setattr(writer_module.os, "environ", seeded)
     env = writer_module._writer_child_env()
     assert env["PATH"] == "/usr/bin:/bin"
     assert env["OM_SCENE_ID"] == "scene-1" and env["OM_EPISODE_DIR"] == "/ep"
-    assert env["ANTHROPIC_API_KEY"] == "sk-ant-child-needs-this"
+    assert env["OM_TSC_TIMEOUT"] == "30" and env["OM_MAX_CONCURRENCY"] == "4"
     assert env["MAX_THINKING_TOKENS"] == "1024"
-    for secret in ("AWS_SECRET_ACCESS_KEY", "GITHUB_TOKEN", "DATABASE_URL",
+    for secret in ("OM_TOKEN", "OM_INSTANCE_ID", "OM_UNDOCUMENTED",
+                   "ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY",
+                   "AWS_SECRET_ACCESS_KEY", "GITHUB_TOKEN", "DATABASE_URL",
                    "SLACK_BOT_TOKEN", "MY_RANDOM_TOOL_SECRET"):
         assert secret not in env, secret
 
 
 def test_writer_child_env_matches_reviewer_allow_shape(writer_module):
-    """Same whitelist construction as the reviewer wrapper: essentials,
-    OM_* prefix, provider keys — nothing else."""
+    """Both wrappers use safe essentials + explicit, noncredential OM keys."""
     reviewer_src = REVIEWER_TMPL.read_text(encoding="utf-8")
     assert writer_module._WRITER_ENV_ALLOW_KEYS == ("PATH", "HOME", "USER", "SHELL", "TMPDIR")
-    assert writer_module._WRITER_ENV_ALLOW_PREFIXES == ("OM_",)
-    assert writer_module._WRITER_ENV_ALLOW_PROVIDER_KEYS == \
-        ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY")
-    # the reviewer's allow tuple appears verbatim in the reviewer source
-    assert '("PATH", "HOME", "USER", "SHELL", "TMPDIR")' in reviewer_src
-    assert '("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY")' in reviewer_src
-
+    assert len(writer_module._WRITER_ENV_ALLOW_OM_KEYS) == 9
+    assert "OM_TOKEN" not in writer_module._WRITER_ENV_ALLOW_OM_KEYS
+    assert "OM_INSTANCE_ID" not in writer_module._WRITER_ENV_ALLOW_OM_KEYS
+    assert '"OM_TOKEN"' not in reviewer_src and '"OM_INSTANCE_ID"' not in reviewer_src
+    assert "_ENV_ALLOW_OM_KEYS" in reviewer_src
+    assert "ANTHROPIC_API_KEY" not in reviewer_src
 
 # ------------------------------------------------------------------------------
 # Item 3: file-presence exit check stays intact
@@ -223,5 +254,21 @@ def test_tsc_self_check_runs_with_whitelisted_child_env(writer_module):
     import inspect
     src = inspect.getsource(writer_module._tsc_own_scene_fail)
     assert "env=_writer_child_env()" in src
-    # and the bare no-env form is gone
-    assert 'subprocess.run(["npx", "tsc", "--noEmit"], cwd=str(composer),\n                             capture_output' not in src
+    # Actual child environment has no provenance IDs or API credentials.
+    from unittest.mock import patch
+    seeded = {"PATH":"/bin", "OM_SCENE_ID":"scene-1", "OM_TOKEN":"secret",
+              "OM_INSTANCE_ID":"instance-secret", "ANTHROPIC_API_KEY":"api-secret",
+              "GITHUB_TOKEN":"gh-secret", "OM_EPISODE_DIR":"/episode"}
+    with patch.dict(writer_module.os.environ, seeded, clear=True):
+        child_env = writer_module._writer_child_env()
+        assert child_env["OM_SCENE_ID"] == "scene-1"
+        for secret in ("OM_TOKEN", "OM_INSTANCE_ID", "ANTHROPIC_API_KEY", "GITHUB_TOKEN"):
+            assert secret not in child_env
+    assert 'subprocess.run(["npx", "tsc", "--noEmit"], cwd=str(composer),\n                             env=_writer_child_env(),' in src
+    seeded = {"PATH":"/bin", "OM_SCENE_ID":"scene-1", "OM_TOKEN":"secret",
+              "OM_INSTANCE_ID":"instance-secret", "ANTHROPIC_API_KEY":"api-secret"}
+    from unittest.mock import patch
+    with patch.dict(writer_module.os.environ, seeded, clear=True):
+        env = writer_module._writer_child_env()
+        assert "OM_TOKEN" not in env and "OM_INSTANCE_ID" not in env
+        assert "ANTHROPIC_API_KEY" not in env

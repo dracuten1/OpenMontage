@@ -6,63 +6,31 @@ Strictly read-only toward scene files (video-slowfix phase1, tasks 1.1/1.2/1.4).
 
 Env: OM_SCENE_ID, OM_SANDBOX_DIR, OM_CANONICAL_DIR (optional; history log dir).
 
-Hotfix hunks B & D (2026-11-15 lead, A/B-verified):
-- B — CLI flag stripping: the claude child is invoked with NO --allowedTools
-  and NO --disallowedTools (both flags, and their values, are stripped from
-  the shared build_reviewer_cmd output here). Either flag makes the provider
-  drop the final message entirely (4x4 sample 21:42: no-flags 3/4 OK,
-  --allowedTools 0/4 empty). Containment therefore rests on the review-only
-  task text (ABSOLUTE RULE below), the whitelisted child env (system
-  essentials + OM_* + provider API keys — the full parent environment,
-  credentials included, never reaches claude), and the orchestrator's
-  reviewer-ownership snapshot check (verify_reviewer_ownership) — NOT on CLI
-  tool scoping flags. acceptEdits stays in the command (plan/default modes
-  return EMPTY stdout under --dangerously-skip-permissions, probe
-  2026-11-14; reviewer-timeout hotfix: planOnly left 4/4 verdicts as stamped
-  timeout_error).
-- D — verdict channel: the reviewer speaks plain text
-  @@VERDICT_START@@ ... @@VERDICT_END@@ (parsed locally by
-  _extract_at_verdict; JSON braces in stdout get dropped by the provider)
-  AND the file channel — the reviewer Write-tools its own
-  packets/{scene_id}_findings.json, which the wrapper prefers over stdout
-  parsing and re-stamps with reviewed_hashes it computes itself.
-  OM_CC_REVIEW_OUTPUT=json (env-gated, default text) additionally switches
-  the CLI to --output-format json and unwraps {"result": ...} before
-  delimiter extraction.
+Hotfix B + security cycle-2 (2026-11-16): the provider drops the final
+message when ``--allowedTools`` OR ``--disallowedTools`` is present (A/B
+probe 2026-11-15), so wrapper strips those flags and values. They DO NOT
+contain the process after stripping. Actual enforcement: real OS-level write
+confinement in ``tools.qc.reviewer_confinement`` (macOS Seatbelt), reviewer
+runs in a confined COPY of the staged episode (never canonical source),
+least-privilege child environment, and orchestrator ownership snapshot check.
+No OS sandbox -> fail closed.
 
-Legacy pipeline (unchanged):
-1. Runs `claude` with permission-mode acceptEdits (post-hunk-B flags — see
-   above).
-2. Captures stdout, tees raw output to <episode>/history/cc_reviewer_{scene_id}.log
-   (one "--- stream attempt i/N ---" banner per try; OM_CC_REVIEW_STREAM_ATTEMPTS
-   re-spawns on empty streams with OM_CC_REVIEW_STREAM_SLEEP between — per-
-   attempt watchdog, never cumulative).
-3. Verdict resolution order: findings FILE first (any attempt), then the
-   watchdog stamp ("timeout_error"), then the stdout @@ delimiter block. A
-   stream with NO verdict block (turn cap exhausted / truncation) is
-   classified "timeout_error" — infrastructure failure, not a content
-   rejection.
-4. Writes packets/{scene_id}_cc_verdict.json AND packets/{scene_id}_findings.json
-   on Claude's behalf (task 1.1 item 5) — removes the packet-JSON mutation
-   surface that consumed attempts in rounds 3-4 (phase 4A.2).
-5. Findings embed "reviewed_hashes": {<scenes_dir>/<resolved filename>: sha256}
-   for the reviewed scene file (task 1.2 item 4) — computed by THIS wrapper,
-   never copied from the model's claims.
-Watchdog expiry writes verdict "timeout_error" instead of a content rejection
-(task 1.4); the orchestrator treats that as an infrastructure retry — the
-activation target of phase 4A.2 (wrappers never emitted it before).
-R5 (perf/cc-pipeline R1-R5): the CLI turn cap is raised 30 -> 45
-(reviewer_runner.DEFAULT_REVIEW_MAX_TURNS) and a stream with NO verdict block
-(turn cap exhausted / truncation) also emits "timeout_error" so the
-orchestrator (R3) infra-retries in place instead of burning a content attempt.
-Exit 0 always when findings file written (verdict may be 'rejected').
+The reviewer still uses ``--dangerously-skip-permissions`` + ``acceptEdits``
+because plan/default mode yields empty output; skip-permissions is NOT
+containment. CLI tool-scope flags stay out due to provider behavior.
+
+Verdict protocol accepts all supported channels: legacy
+``<!-- VERDICT_START -->`` JSON, current ``@@VERDICT_START@@`` plain text,
+and reviewer-written findings file (preferred). Empty stdout and no findings
+file -> infra ``timeout_error``; wrapper is forbidden from retrying forever.
+
 """
 from __future__ import annotations
-import hashlib, json, os, re, subprocess, sys, threading, time
+import hashlib, json, os, re, shutil, subprocess, sys, threading, time
 from pathlib import Path
 
-# Task 2.4: single source of truth — static repo-root resolution
-# (projects/<proj>/scripts/cc_pipeline/<file>.py -> parents[4] = repo root).
+# Reviewer confinement: tool-scope flags are stripped (provider drops final
+# response); real Seatbelt OS write restriction must pass a smoke test.
 REPO_ROOT = Path(__file__).resolve().parents[4]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
@@ -72,36 +40,40 @@ from tools.qc.reviewer_runner import (  # noqa: E402
     DEFAULT_REVIEW_WATCHDOG_S,
     REVIEW_TIMEOUT_VERDICT,
     VERDICT_DELIMITER_RE,
+    AT_VERDICT_DELIMITER_RE,
     build_reviewer_cmd,
+    strip_tool_scoping_flags,
     extract_verdict,
+    extract_at_verdict,
     get_scenes_dir,
     resolve_scene_filename,
 )
+from tools.qc.reviewer_confinement import (
+    plan_review_confinement,
+    smoke_test as smoke_test_confinement,
+)
 
-# Hotfix 2026-11-15 part 4 (lead): JSON-in-output verdict blocks get dropped by
-# the provider (result "" — braces/brackets 0/8 vs control 5/8, 21:40-21:45),
-# so the wire format is plain text @@ markers parsed locally. The shared
-# <!-- --> + JSON parser (extract_verdict) stays untouched in tools/qc.
-AT_VERDICT_DELIMITER_RE = re.compile(r"@@VERDICT_START@@(.*?)@@VERDICT_END@@", re.DOTALL)
-_AT_VERDICT_LINE_RE = re.compile(r"VERDICT:\s*(approved|rejected)", re.IGNORECASE)
-_AT_ISSUE_LINE_RE = re.compile(r"^\s*ISSUE:\s*(.+)$", re.MULTILINE)
-
-
-def _extract_at_verdict(stdout_text: str) -> tuple[str, list[str], dict]:
-    match = AT_VERDICT_DELIMITER_RE.search(stdout_text or "")
-    if not match:
-        return "rejected", ["Delimiter @@VERDICT_START@@ not found in reviewer output"], {}
-    block = match.group(1)
-    vm = _AT_VERDICT_LINE_RE.search(block)
-    verdict = vm.group(1).lower() if vm else "rejected"
-    issues = [m.group(1).strip() for m in _AT_ISSUE_LINE_RE.finditer(block)]
-    if not vm:
-        issues = ["Verdict line missing in @@ block"] + issues
-    return verdict, issues, {"metrics": {}}
-
-
-# Task 1.4: dedicated review watchdog, default 360s.
-WATCHDOG_S = int(os.environ.get("OM_CC_REVIEW_WATCHDOG", str(DEFAULT_REVIEW_WATCHDOG_S)))
+# Both legacy HTML JSON and current @@ plain-text verdicts are accepted by
+# the shared parser. Tool-scope flags are absent from final argv due provider
+# behavior; OS-level Seatbelt confinement is the enforcement boundary.
+# Findings are reviewer-written under packets/, but wrapper always re-stamps
+# the computed hash and atomically writes canonical wrapper-owned evidence.
+# Watchdog is user-configurable, but must remain finite and bounded so a
+# malformed or hostile environment value cannot disable reviewer termination.
+_MAX_REVIEW_WATCHDOG_S = 3600
+_RAW_WATCHDOG = os.environ.get("OM_CC_REVIEW_WATCHDOG", str(DEFAULT_REVIEW_WATCHDOG_S))
+try:
+    WATCHDOG_S = int(_RAW_WATCHDOG)
+except (TypeError, ValueError):
+    print(f"WARNING: invalid OM_CC_REVIEW_WATCHDOG={_RAW_WATCHDOG!r}; using default {DEFAULT_REVIEW_WATCHDOG_S}s", file=sys.stderr)
+    WATCHDOG_S = DEFAULT_REVIEW_WATCHDOG_S
+else:
+    if WATCHDOG_S <= 0:
+        print(f"WARNING: OM_CC_REVIEW_WATCHDOG must be positive; using default {DEFAULT_REVIEW_WATCHDOG_S}s", file=sys.stderr)
+        WATCHDOG_S = DEFAULT_REVIEW_WATCHDOG_S
+    elif WATCHDOG_S > _MAX_REVIEW_WATCHDOG_S:
+        print(f"WARNING: OM_CC_REVIEW_WATCHDOG exceeds {_MAX_REVIEW_WATCHDOG_S}s; clamping", file=sys.stderr)
+        WATCHDOG_S = _MAX_REVIEW_WATCHDOG_S
 PROJ_ROOT = Path(__file__).resolve().parents[2]  # projects/<project>
 
 def sha256(p: Path) -> str:
@@ -111,38 +83,46 @@ def sha256(p: Path) -> str:
             h.update(chunk)
     return h.hexdigest()
 
+def _atomic_write_json(path: Path, data: dict) -> None:
+    """Atomic wrapper-owned JSON write."""
+    import tempfile
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(dir=str(path.parent), prefix=f".{path.name}.", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            json.dump(data, fh, indent=1, ensure_ascii=False)
+        os.replace(tmp_name, path)
+    except Exception:
+        try:
+            os.unlink(tmp_name)
+        except OSError:
+            pass
+        raise
+
+
 def main() -> int:
     scene_id = os.environ["OM_SCENE_ID"]
     sandbox = Path(os.environ["OM_SANDBOX_DIR"]).resolve()
-    # History log lives in the canonical episode's history/ dir (task 1.1);
-    # the orchestrator's scoped reviewer ownership check excludes history/.
     episode = Path(os.environ.get("OM_CANONICAL_DIR") or sandbox).resolve()
     log_dir = episode / "history"
     log_dir.mkdir(parents=True, exist_ok=True)
-
     packets = sandbox / "packets"
     packets.mkdir(parents=True, exist_ok=True)
     findings_path = packets / f"{scene_id}_findings.json"
     verdict_path = packets / f"{scene_id}_cc_verdict.json"
-
-    # Task 1.2 item 4: hash the reviewed scene file under its resolved name.
     scenes_dir = get_scenes_dir(sandbox)
     target_filename = resolve_scene_filename(scenes_dir, scene_id)
     scene_file = scenes_dir / target_filename
     scene_rel = f"{scenes_dir.name}/{target_filename}"
-
-    reviewed_hashes: dict[str, str] = {}
-    if scene_file.is_file():
-        reviewed_hashes[scene_rel] = sha256(scene_file)
-    else:
-        findings_path.write_text(json.dumps({
+    if not scene_file.is_file():
+        _atomic_write_json(findings_path, {
             "scene_id": scene_id, "verdict": "rejected", "reviewed_hashes": {},
             "issues": [f"writer output {scene_rel} missing in sandbox"],
             "notes": f"writer output {scene_rel} missing in sandbox",
-        }, indent=1, ensure_ascii=False))
+        })
         print(f"reviewer {scene_id}: scene file missing in sandbox -> rejected")
         return 0
-
+    reviewed_hashes = {scene_rel: sha256(scene_file)}
     task = f"""# TASK — independent reviewer {scene_id} (read-only verification)
 
 You are the independent scene reviewer (doctrine §7.1: fresh context, findings only).
@@ -161,120 +141,83 @@ Checks (each → issue list entry when violated):
 6. spring damping >= 20; translateY positive→0; no camera scale/translate.
 7. Numbers/labels on screen match the scene spec JSON exactly (whitelist values; caveat labels present when specified).
 
-You do not have write access to scene files, and you must not create or edit ANY other file EXCEPT ONE: your findings file `packets/{scene_id}_findings.json` (path relative to this sandbox). After your silent checks, use the Write tool to create that file with EXACTLY this JSON content (no markdown fence, no extra keys):
-{{
-  "scene_id": "{scene_id}",
-  "verdict": "approved",
-  "issues": [],
-  "notes": "ok"
-}}
-Use "rejected" instead of "approved" when any check fails, and put one string per issue into "issues". Then your entire final message must be exactly: DONE
-Max 12 turns, reads <=4.
+You do not have write access to scene files. Write exactly one JSON findings file to `packets/{scene_id}_findings.json` inside this staged workspace: {{"scene_id":"{scene_id}","verdict":"approved|rejected","issues":[],"notes":"ok"}}. Then final message exactly DONE. Max 12 turns, reads <=4.
 """
-    # Security containment (review 2026-11-14): whitelist the child
-    # environment — the full parent process env carries credentials that a
-    # reviewer session must never see. Pass only system essentials, the OM_*
-    # pipeline contract vars, and the provider API keys the claude CLI needs.
+    # Exactly nine documented OM contract vars; never pass provenance IDs or
+    # provider/API credentials. CLI needs ambient login in staged HOME.
     _ENV_ALLOW_KEYS = ("PATH", "HOME", "USER", "SHELL", "TMPDIR")
-    _ENV_ALLOW_PREFIXES = ("OM_",)
-    _ENV_ALLOW_PROVIDER_KEYS = ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY")
-    env = {
-        k: v for k, v in os.environ.items()
-        if k in _ENV_ALLOW_KEYS
-        or k.startswith(_ENV_ALLOW_PREFIXES)
-        or k in _ENV_ALLOW_PROVIDER_KEYS
-    }
+    _ENV_ALLOW_OM_KEYS = (
+        "OM_ROLE", "OM_SCENE_ID", "OM_SANDBOX_DIR", "OM_CANONICAL_DIR",
+        "OM_CC_REVIEW_MAX_TURNS", "OM_CC_REVIEW_WATCHDOG",
+        "OM_CC_REVIEW_OUTPUT", "OM_CC_REVIEW_STREAM_ATTEMPTS",
+        "OM_CC_REVIEW_STREAM_SLEEP",
+    )
+    env = {k: v for k, v in os.environ.items()
+           if k in _ENV_ALLOW_KEYS or k in _ENV_ALLOW_OM_KEYS}
     env["MAX_THINKING_TOKENS"] = "1024"
-    # Per-cwd warm-up (faa hotfix 2026-11-14): the claude CLI's FIRST --print run in a fresh working
-    # directory returns EMPTY stdout (no verdict possible); the SECOND run in
-    # the SAME directory works (project trust/onboarding entry materialized).
-    # Verified by probe 14/11: fresh dir run1 empty -> run2 verdict. So burn a
-    # cheap one-liner session on the sandbox path before the real review.
-    try:
-        warm_file = sandbox / ".reviewer_warmup.md"
-        warm_file.write_text("Reply with exactly: READY", encoding="utf-8")
-        warm_cmd = build_reviewer_cmd("3")
-        wproc = subprocess.Popen(warm_cmd, cwd=str(sandbox), env=env,
-                                 stdin=open(warm_file, "r", encoding="utf-8"),
-                                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-        try:
-            wproc.communicate(timeout=120)
-        except subprocess.TimeoutExpired:
-            wproc.kill()
-            wproc.communicate()
-        warm_file.unlink(missing_ok=True)
-    except Exception as _werr:
-        print(f"reviewer {scene_id}: warmup skipped ({_werr})", file=sys.stderr)
-    # Stdin race fix (faa hotfix 2026-11-14): communicate()-piped tasks lose the CLI's 3s stdin read
-    # race under concurrency ("no stdin data received in 3s" -> empty session
-    # -> no verdict). Feed the task from a file so it is ready when the CLI
-    # finally reads stdin, however slow the node boot is.
-    task_file = sandbox / ".reviewer_task.md"
-    task_file.write_text(task, encoding="utf-8")
     max_turns = os.environ.get("OM_CC_REVIEW_MAX_TURNS", DEFAULT_REVIEW_MAX_TURNS)
+    mode = os.environ.get("OM_CC_REVIEW_OUTPUT", "text").strip().lower()
     cmd = build_reviewer_cmd(max_turns)
-    # Hotfix 2026-11-15 (lead, env-gated): text-mode stdout from the claude CLI
-    # intermittently comes back EMPTY (exit 0, no output). JSON mode is stable,
-    # so OM_CC_REVIEW_OUTPUT=json switches the CLI to --output-format json and
-    # unwraps {"result": "..."} before delimiter extraction. Default unchanged.
-    review_output_mode = os.environ.get("OM_CC_REVIEW_OUTPUT", "text").strip().lower()
-    if review_output_mode == "json":
-        cmd = cmd + ["--output-format", "json"]
-    # lead debug 23:37: dump effective task to scratch for offline A/B
-    if os.environ.get("OM_CC_DEBUG_TASK"):
-        try:
-            Path(os.environ["OM_CC_DEBUG_TASK"]).write_text(task, encoding="utf-8")
-        except Exception:
-            pass
-    # Hotfix 2026-11-15 part 3 (lead): --allowedTools / --disallowedTools make
-    # the provider return an EMPTY final message (verified A/B 21:29: no-flags
-    # "OK", each flag alone -> result ""; 4x4 sample 21:42 no-flags 3/4 OK,
-    # allowedTools 0/4). Strip both here; containment remains via the
-    # review-only task text, the whitelisted child env, and the orchestrator's
-    # reviewer-ownership snapshot check (verify_reviewer_ownership).
-    _strip_pairs = ("--allowedTools", "--disallowedTools")
-    cleaned: list[str] = []
-    skip_next = False
-    for token in cmd:
-        if skip_next:
-            skip_next = False
-            continue
-        if token in _strip_pairs:
-            skip_next = True
-            continue
-        cleaned.append(token)
-    cmd = cleaned
+    if mode == "json":
+        cmd += ["--output-format", "json"]
+    cmd = strip_tool_scoping_flags(cmd)
+    # Fixed one-attempt policy. Historical six x 45s sleeps are forbidden.
+    requested_attempts = int(os.environ.get("OM_CC_REVIEW_STREAM_ATTEMPTS", "1"))
+    if requested_attempts != 1:
+        print("reviewer: OM_CC_REVIEW_STREAM_ATTEMPTS forced to 1; no verdict => timeout_error", file=sys.stderr)
+    attempts = 1
 
-    # Hotfix 2026-11-15 part 2 (lead): provider intermittently returns an empty
-    # final message (success envelope, result "") — bursts lasting minutes.
-    # Reviewers only speak via the stdout verdict block, so one empty stream =
-    # one lost review. OM_CC_REVIEW_STREAM_ATTEMPTS (default 6) re-spawns the
-    # CLI with a short sleep between tries until a verdict delimiter shows up
-    # or the watchdog kills the run. Per-attempt watchdog, never cumulative.
-    max_stream_attempts = max(1, int(os.environ.get("OM_CC_REVIEW_STREAM_ATTEMPTS", "6")))
-    stream_sleep_s = max(0, int(os.environ.get("OM_CC_REVIEW_STREAM_SLEEP", "45")))
-    log_path = log_dir / f"cc_reviewer_{scene_id}.log"
-    # Hotfix part 5: stale findings must never masquerade as a fresh verdict.
+    confinement = plan_review_confinement(
+        real_home=Path(os.environ.get("HOME", str(sandbox))), workspace_seed=sandbox
+    )
+    child_workspace = confinement.workspace
+    child_findings = child_workspace / "packets" / f"{scene_id}_findings.json"
+    child_verdict = child_workspace / "packets" / f"{scene_id}_cc_verdict.json"
+    child_findings.parent.mkdir(parents=True, exist_ok=True)
+    child_log = child_workspace / "history" / f"cc_reviewer_{scene_id}.log"
+    child_log.parent.mkdir(parents=True, exist_ok=True)
+    child_env = dict(env)
+    child_env.update(confinement.env_overrides)
+    smoke_ok, smoke_detail = smoke_test_confinement(confinement)
+    if not smoke_ok:
+        confinement.cleanup()
+        print(f"REVIEWER CONFINEMENT FAIL {scene_id}: {smoke_detail}; not launching reviewer", file=sys.stderr)
+        return 1
+    print(f"reviewer {scene_id}: OS write confinement active ({confinement.kind}; {smoke_detail})")
+    # This pins the *post-strip final argv* provider contract. Seatbelt, not
+    # this assertion, is the security boundary.
+    if any(x in ("--allowedTools", "--disallowedTools") for x in cmd):
+        confinement.cleanup()
+        print("REVIEWER ARGUMENT CONTRACT FAIL: tool-scope flag survived strip", file=sys.stderr)
+        return 1
+    child_findings.unlink(missing_ok=True)
+    child_verdict.unlink(missing_ok=True)
+    task_file = confinement.parent / "task.md"
+    task_file.write_text(task, encoding="utf-8")
+    warm_file = confinement.parent / "warmup.md"
+    warm_file.write_text("Reply with exactly: READY", encoding="utf-8")
     try:
-        findings_path.unlink()
-    except FileNotFoundError:
-        pass
-    verdict_path.unlink(missing_ok=True)
+        warm_cmd = strip_tool_scoping_flags(build_reviewer_cmd("3"))
+        warm = subprocess.Popen(confinement.child_argv(warm_cmd), cwd=str(child_workspace), env=child_env,
+                                stdin=open(warm_file, "r", encoding="utf-8"), stdout=subprocess.PIPE,
+                                stderr=subprocess.STDOUT, text=True)
+        try:
+            warm.communicate(timeout=120)
+        except subprocess.TimeoutExpired:
+            warm.kill()
+            warm.communicate()
+    except Exception as exc:
+        print(f"reviewer {scene_id}: warmup skipped ({exc})", file=sys.stderr)
+    finally:
+        warm_file.unlink(missing_ok=True)
     timed_out = False
     final_rc = None
     stdout_text = ""
-    verdict_seen = False
-    for stream_attempt in range(1, max_stream_attempts + 1):
-        try:
-            proc = subprocess.Popen(cmd, cwd=str(sandbox), env=env,
-                                    stdin=open(task_file, "r", encoding="utf-8"),
-                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-        except Exception as e:
-            print(f"REVIEWER SPAWN FAIL {scene_id}: {e}", file=sys.stderr)
-            return 1
-        # Task 1.4: watchdog fires proc.kill() and flags the timeout distinctly.
+    try:
+        proc = subprocess.Popen(confinement.child_argv(cmd), cwd=str(child_workspace), env=child_env,
+                                stdin=open(task_file, "r", encoding="utf-8"), stdout=subprocess.PIPE,
+                                stderr=subprocess.STDOUT, text=True)
         attempt_timed_out = False
-
         def _kill(p):
             nonlocal attempt_timed_out
             time.sleep(WATCHDOG_S)
@@ -286,99 +229,54 @@ Max 12 turns, reads <=4.
                 pass
         threading.Thread(target=_kill, args=(proc,), daemon=True).start()
         out, _ = proc.communicate()
-
-        # Hotfix 2026-11-15 (env-gated): unwrap JSON envelope -> inner result.
-        if review_output_mode == "json":
-            raw = out or ""
+        if mode == "json":
             try:
-                envelope = json.loads(raw)
-                out = envelope.get("result", "") if isinstance(envelope, dict) else raw
+                envelope = json.loads(out or "")
+                out = envelope.get("result", "") if isinstance(envelope, dict) else out
             except Exception:
-                out = raw  # fall back to raw text; delimiter check will judge
-
+                pass
+        stdout_text = out or ""
         timed_out = attempt_timed_out
         final_rc = proc.returncode
-        stdout_text = out or ""
-        verdict_seen = bool(AT_VERDICT_DELIMITER_RE.search(stdout_text))
-        # Hotfix part 5b: file-channel success check — the reviewer may have
-        # written its findings even when the final message was dropped.
-        file_ok = False
-        if findings_path.is_file():
-            try:
-                cand = json.loads(findings_path.read_text(encoding="utf-8"))
-                file_ok = isinstance(cand, dict) and cand.get("verdict") in ("approved", "rejected")
-            except Exception:
-                file_ok = False
-        with open(log_path, "a", encoding="utf-8") as lf:
-            lf.write(f"--- stream attempt {stream_attempt}/{max_stream_attempts} "
-                     f"rc={final_rc} timed_out={timed_out} verdict_seen={verdict_seen} "
-                     f"file_ok={file_ok} ---\n")
-            lf.write(stdout_text + "\n")
-        if timed_out:
-            break  # watchdog expired: stop retrying this scene
-        if verdict_seen or file_ok:
-            break
-        if stream_attempt < max_stream_attempts:
-            time.sleep(stream_sleep_s)
-
-    # Hotfix part 5 (lead): file-channel verdicts. The provider drops long
-    # final messages wholesale (13/13 empty wrapper runs vs ~50% base rate on
-    # short probes, 21:40-23:00) regardless of format, flags or thinking cap —
-    # but tool-driven FILE writes keep succeeding (writers did all day). The
-    # reviewer now writes its findings JSON itself; the wrapper prefers that
-    # file over stdout parsing and re-stamps reviewed_hashes it computes.
+        with open(child_log, "a", encoding="utf-8") as lf:
+            lf.write(f"--- stream attempt 1/1 rc={final_rc} timed_out={timed_out} ---\n{stdout_text}\n")
+    except Exception as exc:
+        confinement.cleanup()
+        print(f"REVIEWER SPAWN FAIL {scene_id}: {exc}", file=sys.stderr)
+        return 1
+    finally:
+        task_file.unlink(missing_ok=True)
     file_findings = None
-    if findings_path.is_file():
-        try:
-            cand = json.loads(findings_path.read_text(encoding="utf-8"))
-            if isinstance(cand, dict) and cand.get("verdict") in ("approved", "rejected"):
-                file_findings = cand
-        except Exception:
-            file_findings = None
-
+    try:
+        cand = json.loads(child_findings.read_text(encoding="utf-8"))
+        if isinstance(cand, dict) and cand.get("verdict") in ("approved", "rejected"):
+            file_findings = cand
+    except Exception:
+        pass
     if file_findings is not None:
-        verdict = file_findings.get("verdict", "rejected")
+        verdict = file_findings["verdict"]
         issues = [str(i) for i in file_findings.get("issues", []) or []]
         data = {"metrics": file_findings.get("metrics", {}) if isinstance(file_findings.get("metrics", {}), dict) else {}}
     elif timed_out:
-        verdict = REVIEW_TIMEOUT_VERDICT
-        issues = [f"Reviewer watchdog expired after {WATCHDOG_S}s"]
-        data: dict = {}
+        verdict, issues, data = REVIEW_TIMEOUT_VERDICT, [f"Reviewer watchdog expired after {WATCHDOG_S}s"], {}
     else:
-        verdict, issues, data = _extract_at_verdict(stdout_text)
-        # R5 (perf/cc-pipeline R1-R5): turn-cap headroom + explicit infra
-        # classification. When the reviewer stream carries NO verdict
-        # delimiter, it never delivered a verdict at all (--max-turns cap
-        # exhausted mid-review, or the stream was truncated) — that is an
-        # infrastructure failure, not a content judgment. Emit the orchestrator
-        # contract string ``timeout_error`` (tools.qc.reviewer_runner.
-        # REVIEW_TIMEOUT_VERDICT) so scene_orchestrator infra-retries the scene
-        # in place instead of burning a content attempt / full rewrite (R3).
-        if not AT_VERDICT_DELIMITER_RE.search(stdout_text or ""):
+        verdict, issues, data = extract_verdict(stdout_text)
+        if not (VERDICT_DELIMITER_RE.search(stdout_text) or AT_VERDICT_DELIMITER_RE.search(stdout_text)):
             verdict = REVIEW_TIMEOUT_VERDICT
-            issues = [
-                f"Reviewer delivered no verdict block (turn cap {max_turns} "
-                "exhausted or stream truncated) — infra timeout, not a content rejection"
-            ]
+            issues = [f"Reviewer delivered no verdict block (turn cap {max_turns} exhausted or stream truncated) — infra timeout, not a content rejection"]
             data = {}
-
-    # Task 1.1 item 5: wrapper writes both packet files on Claude's behalf.
-    verdict_path.write_text(json.dumps({
-        "scene_id": scene_id,
-        "verdict": verdict,
-        "issues": issues,
+    _atomic_write_json(verdict_path, {
+        "scene_id": scene_id, "verdict": verdict, "issues": issues,
         "metrics": data.get("metrics", {}) if isinstance(data, dict) else {},
-    }, indent=1, ensure_ascii=False))
-
-    findings_path.write_text(json.dumps({
-        "scene_id": scene_id,
-        "verdict": verdict,
-        "reviewed_hashes": reviewed_hashes,
-        "issues": issues,
-        "notes": "; ".join(issues) if issues else "ok",
-    }, indent=1, ensure_ascii=False))
+    })
+    _atomic_write_json(findings_path, {
+        "scene_id": scene_id, "verdict": verdict, "reviewed_hashes": reviewed_hashes,
+        "issues": issues, "notes": "; ".join(issues) if issues else "ok",
+    })
+    with open(log_dir / f"cc_reviewer_{scene_id}.log", "a", encoding="utf-8") as lf:
+        lf.write(f"--- confined reviewer rc={final_rc} timed_out={timed_out} verdict={verdict} ---\n{stdout_text}\n")
+    confinement.cleanup()
     print(f"reviewer {scene_id}: cc_exit={final_rc} timed_out={timed_out} verdict={verdict}")
     return 0
-
 if __name__ == "__main__":
     sys.exit(main())

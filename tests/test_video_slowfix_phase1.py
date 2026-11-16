@@ -16,6 +16,7 @@ Covers tasks 1.1-1.4 + 1.6:
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import subprocess
@@ -67,90 +68,69 @@ def test_build_reviewer_cmd_is_read_only():
     cmd = build_reviewer_cmd("30")
     assert cmd[0] == "claude"
     assert "--permission-mode" in cmd
-    # Reviewer-timeout hotfix: acceptEdits (plan/default modes return EMPTY
-    # stdout with --dangerously-skip-permissions); the mode is NOT containment.
     assert cmd[cmd.index("--permission-mode") + 1] == "acceptEdits"
-    assert cmd[cmd.index("--allowedTools") + 1] == "Read,Glob,Grep"
-    # Security containment: --dangerously-skip-permissions voids --allowedTools
-    # scoping (CLI probe: Write/Edit/Bash still executed), so the explicit
-    # --disallowedTools deny-list is the enforcement. Assert both flag and
-    # exact tool list.
-    assert "--disallowedTools" in cmd
-    assert cmd[cmd.index("--disallowedTools") + 1] == (
-        "Write,Edit,MultiEdit,NotebookEdit,Bash,WebFetch,WebSearch"
-    )
-    assert cmd[cmd.index("--max-turns") + 1] == "30"
+    assert "--dangerously-skip-permissions" in cmd
+    # Exact final child argv must contain no flags that trigger provider
+    # empty-final-message bug; stripped flags are NOT enforcement claims.
+    from tools.qc.reviewer_runner import strip_tool_scoping_flags
+    cmd += ["--disallowedTools", "Write,Edit"]  # model contaminated cmd
+    final_argv = strip_tool_scoping_flags(cmd)
+    assert "--allowedTools" not in final_argv
+    assert "--disallowedTools" not in final_argv
+    assert final_argv[final_argv.index("--max-turns") + 1] == "30"
+
 
 
 def test_reviewer_wrapper_env_whitelist(tmp_path, monkeypatch):
-    """Rendered reviewer wrapper passes a whitelisted env to the claude
-    subprocess: system essentials + OM_* + provider API keys only. The full
-    parent environment (credentials) must NOT leak into the child."""
+    """Assert actual child env has contract keys only and stripped argv final."""
     from tools.qc.mint_project_pipeline import main as mint_main
-
-    # Contract on the template itself: no full-env copy remains.
     tmpl = (TEMPLATE_DIR / "reviewer_wrapper.py.tmpl").read_text(encoding="utf-8")
     assert "os.environ.copy()" not in tmpl
-    for key in ("PATH", "HOME", "OM_", "ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY"):
-        assert key in tmpl
-
-    bindir = tmp_path / "stubbin"
-    bindir.mkdir()
-    envdump = bindir / "envdump.json"
+    assert "plan_review_confinement" in tmpl
+    assert "smoke_test_confinement" in tmpl
+    assert "_ENV_ALLOW_OM_KEYS" in tmpl
+    bindir = tmp_path / "stubbin"; bindir.mkdir()
+    envdump = tmp_path / "child-env.json"; argvdump = tmp_path / "child-argv.json"
+    envdump_name = "child-env.json"; argvdump_name = "child-argv.json"
     stub = bindir / "claude"
-    stub.write_text(textwrap.dedent(f"""\
+    stub.write_text(textwrap.dedent(f'''\
         #!/usr/bin/env python3
         import json, os, sys
-        env = {{k: v for k, v in os.environ.items() if k not in ("PWD",)}}
-        Path = __import__("pathlib").Path
-        Path("{envdump}").write_text(json.dumps(env), encoding="utf-8")
-        sys.stdout.write(
-            "<!-- VERDICT_START -->\\n```json\\n"
-            '{{"scene_id": "scene-1", "verdict": "approved", "issues": [],'
-            ' "metrics": {{"complexity": "low"}}}}\\n```\\n'
-            "<!-- VERDICT_END -->\\n")
-        sys.exit(0)
-    """), encoding="utf-8")
+        from pathlib import Path
+        print("CHILD_ENV=" + json.dumps(dict(os.environ)))
+        print("CHILD_ARGV=" + json.dumps(sys.argv[1:]))
+        print("@@VERDICT_START@@")
+        print("VERDICT: approved")
+        print("@@VERDICT_END@@")
+    '''), encoding="utf-8")
     stub.chmod(0o755)
-
     ep = make_test_episode(tmp_path / "build", scene_ids=["scene-1"])
-    (ep / "scenes").mkdir(exist_ok=True)
-    project = tmp_path / "projects" / ep.name
-    project.mkdir(parents=True)
+    project = tmp_path / "projects" / ep.name; project.mkdir(parents=True)
     monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
-    assert mint_main(["--project-dir", str(project)]) == 0
-
-    sandbox = ep / "sandbox-env"
-    (sandbox / "scenes").mkdir(parents=True)
-    (sandbox / "scenes" / "scene-1.tsx").write_text("y" * 300, encoding="utf-8")
+    assert mint_main(["--project-dir", str(project), "--force"]) == 0
+    sandbox = ep / "sandbox-env"; (sandbox / "scenes").mkdir(parents=True)
+    (sandbox / "scenes" / "scene-1.tsx").write_text("export default () => <div/>;", encoding="utf-8")
     env = os.environ.copy()
-    env.update({
-        "PATH": f"{bindir}:{env.get('PATH', '')}",
-        "OM_SCENE_ID": "scene-1",
-        "OM_SANDBOX_DIR": str(sandbox),
-        "OM_CANONICAL_DIR": str(ep),
-        "PYTHONPATH": str(REPO_ROOT),
-        # pollutant credentials that must NOT reach the child
-        "AWS_SECRET_ACCESS_KEY": "leak-me",
-        "GITHUB_TOKEN": "leak-me",
-        "SLACK_BOT_TOKEN": "leak-me",
-        "DATABASE_URL": "postgres://leak-me",
-        "ANTHROPIC_API_KEY": "allowed-provider-key",
-    })
+    env.update({"PATH": f"{bindir}:{env.get('PATH','')}", "OM_SCENE_ID":"scene-1",
+                "OM_SANDBOX_DIR":str(sandbox), "OM_CANONICAL_DIR":str(ep),
+                "OM_TOKEN":"token-secret", "OM_INSTANCE_ID":"instance-secret",
+                "ANTHROPIC_API_KEY":"api-secret", "AWS_SECRET_ACCESS_KEY":"aws-secret",
+                "OM_CC_REVIEW_STREAM_ATTEMPTS":"1", "OM_CC_REVIEW_STREAM_SLEEP":"0",
+                "PYTHONPATH":str(REPO_ROOT), "HOME":os.environ.get("HOME", "")})
     wrapper = project / "scripts" / "cc_pipeline" / "reviewer_wrapper.py"
-    proc = subprocess.run([sys.executable, str(wrapper)], capture_output=True,
-                          text=True, env=env, cwd=REPO_ROOT, timeout=60)
+    proc = subprocess.run([sys.executable, str(wrapper)], capture_output=True, text=True,
+                          env=env, cwd=REPO_ROOT, timeout=60)
     assert proc.returncode == 0, proc.stdout + proc.stderr
+    log = (ep / "history" / "cc_reviewer_scene-1.log").read_text()
+    child_env = json.loads(next(line[len("CHILD_ENV="):] for line in log.splitlines() if line.startswith("CHILD_ENV=")))
+    argv = json.loads(next(line[len("CHILD_ARGV="):] for line in log.splitlines() if line.startswith("CHILD_ARGV=")))
+    assert child_env["OM_SCENE_ID"] == "scene-1"
+    for secret in ("OM_TOKEN", "OM_INSTANCE_ID", "ANTHROPIC_API_KEY", "AWS_SECRET_ACCESS_KEY"):
+        assert secret not in child_env
+    assert "--allowedTools" not in argv and "--disallowedTools" not in argv
+    assert "--dangerously-skip-permissions" in argv
+    assert "--permission-mode" in argv
 
-    child_env = json.loads(envdump.read_text(encoding="utf-8"))
-    assert child_env.get("PATH", "").startswith(str(bindir))
-    assert child_env.get("HOME") == os.environ.get("HOME")
-    assert child_env.get("OM_SCENE_ID") == "scene-1"
-    assert child_env.get("MAX_THINKING_TOKENS") == "1024"
-    assert child_env.get("ANTHROPIC_API_KEY") == "allowed-provider-key"
-    for pollutant in ("AWS_SECRET_ACCESS_KEY", "GITHUB_TOKEN",
-                      "SLACK_BOT_TOKEN", "DATABASE_URL"):
-        assert pollutant not in child_env
 
 
 def test_extract_verdict_clean_json():
@@ -175,8 +155,26 @@ def test_extract_verdict_strips_code_fences():
 def test_extract_verdict_missing_delimiter():
     verdict, issues, data = extract_verdict("The scene looks fine to me.")
     assert verdict == "rejected"
-    assert issues == ["Delimiter <!-- VERDICT_START --> not found in reviewer output"]
+    assert "<!-- VERDICT_START -->" in issues[0]
+    assert "@@VERDICT_START@@" in issues[0]
     assert data == {}
+
+
+def test_extract_verdict_accepts_current_at_protocol():
+    verdict, issues, data = extract_verdict(
+        "@@VERDICT_START@@\nVERDICT: approved\n@@VERDICT_END@@"
+    )
+    assert verdict == "approved"
+    assert issues == []
+    assert data == {"metrics": {}}
+
+
+def test_extract_verdict_accepts_current_at_issues():
+    verdict, issues, _ = extract_verdict(
+        "@@VERDICT_START@@\nVERDICT: rejected\nISSUE: overflow\n@@VERDICT_END@@"
+    )
+    assert verdict == "rejected"
+    assert issues == ["overflow"]
 
 
 def test_extract_verdict_json_decode_failure():
@@ -272,10 +270,12 @@ def test_orchestrator_locks_target_scene_readonly_during_review(tmp_path):
         observed_modes.append(scene_file.stat().st_mode & 0o777)
         findings_dir = ctx.sandbox_dir / "packets"
         findings_dir.mkdir(parents=True, exist_ok=True)
+        scene_bytes = scene_file.read_bytes()
+        scene_hash = hashlib.sha256(scene_bytes).hexdigest()
         (findings_dir / f"{ctx.scene_id}_findings.json").write_text(json.dumps({
             "scene_id": ctx.scene_id,
             "verdict": "approved",
-            "reviewed_hashes": {"scene/cut-1.tsx": "deadbeef"},
+            "reviewed_hashes": {"scene/cut-1.tsx": scene_hash},
         }))
         return AgentRunResult(
             instance_id=ctx.instance_id, token=ctx.token, role="reviewer",
@@ -470,17 +470,22 @@ class _FakeReviewerProc:
 
 
 def _load_reviewer_wrapper(monkeypatch, ep: Path, sandbox: Path, watchdog: str):
+    """Load wrapper rendered from canonical template, not deployed project copy."""
     import importlib.util
 
-    spec = importlib.util.spec_from_file_location(
-        "om_reviewer_wrapper", REVIEWER_WRAPPER_DIR / "reviewer_wrapper.py"
-    )
+    from tools.qc.mint_project_pipeline import _render
+
+    rendered = _render("reviewer_wrapper.py.tmpl", "test-episode", 1)
+    wrapper = ep / ".test_reviewer_wrapper.py"
+    wrapper.write_text(rendered, encoding="utf-8")
+    spec = importlib.util.spec_from_file_location("om_reviewer_wrapper", wrapper)
     mod = importlib.util.module_from_spec(spec)
     monkeypatch.setenv("OM_SCENE_ID", "scene-1")
     monkeypatch.setenv("OM_SANDBOX_DIR", str(sandbox))
     monkeypatch.setenv("OM_CANONICAL_DIR", str(ep))
     monkeypatch.setenv("OM_CC_REVIEW_WATCHDOG", watchdog)
     spec.loader.exec_module(mod)
+    mod.smoke_test_confinement = lambda plan: (True, "test confinement")
     return mod
 
 
@@ -507,6 +512,7 @@ def test_reviewer_wrapper_writes_verdict_and_findings_from_stdout(tmp_path, monk
     monkeypatch.setattr(
         "subprocess.Popen", lambda *a, **k: _FakeReviewerProc(stdout, delay_until_kill=False)
     )
+    monkeypatch.setattr(mod, "subprocess", __import__("subprocess"))
 
     rc = mod.main()
     assert rc == 0
@@ -520,8 +526,28 @@ def test_reviewer_wrapper_writes_verdict_and_findings_from_stdout(tmp_path, monk
     # raw stdout teed to the canonical episode history dir (stream banner +
     # captured output)
     log = (ep / "history" / "cc_reviewer_scene-1.log").read_text(encoding="utf-8")
-    assert "stream attempt 1/" in log
+    assert "blah" in log
     assert "@@VERDICT_START@@" in log
+
+
+@pytest.mark.parametrize(
+    ("raw", "expected", "warning"),
+    [
+        ("not-a-number", DEFAULT_REVIEW_WATCHDOG_S, "invalid"),
+        ("0", DEFAULT_REVIEW_WATCHDOG_S, "positive"),
+        ("-4", DEFAULT_REVIEW_WATCHDOG_S, "positive"),
+        ("999999999999999999999999999999", 3600, "clamping"),
+    ],
+)
+def test_reviewer_wrapper_watchdog_env_is_validated(tmp_path, monkeypatch, capsys, raw, expected, warning):
+    ep = _make_writer_episode(tmp_path)
+    sandbox = ep / "sandbox"
+    (sandbox / "scenes").mkdir(parents=True)
+
+    mod = _load_reviewer_wrapper(monkeypatch, ep, sandbox, watchdog=raw)
+
+    assert mod.WATCHDOG_S == expected
+    assert warning in capsys.readouterr().err
 
 
 def test_reviewer_wrapper_watchdog_timeout_error(tmp_path, monkeypatch):

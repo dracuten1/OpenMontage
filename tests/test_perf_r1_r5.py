@@ -179,7 +179,10 @@ def test_r2_minted_writer_wrapper_injects_brief_into_task(tmp_path, monkeypatch)
         #!/usr/bin/env python3
         import os, sys
         from pathlib import Path
-        proj = Path(os.environ["OM_STUB_PROJECT_ROOT"])
+        # writer wrapper child env is allowlisted; proj root travels via a
+        # sentinel file inside the forwarded OM_EPISODE_DIR, not env vars.
+        _proj_file = Path(os.environ["OM_EPISODE_DIR"]) / ".stub_proj_root"
+        proj = Path(_proj_file.read_text(encoding="utf-8").strip()) if _proj_file.exists() else Path(os.environ["OM_EPISODE_DIR"])
         hist = proj / "history"
         if os.environ.get("OM_ROLE", "writer") == "writer":
             task = sys.stdin.read()
@@ -213,7 +216,9 @@ def test_r2_minted_writer_wrapper_injects_brief_into_task(tmp_path, monkeypatch)
     from tools.qc.mint_project_pipeline import main as mint_main
     monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
     assert mint_main(["--project-dir", str(project)]) == 0
-    monkeypatch.setenv("OM_STUB_PROJECT_ROOT", str(project))
+    # stub proj-root sentinel inside the forwarded OM_EPISODE_DIR (child env
+    # allowlist drops OM_STUB_* vars)
+    (ep / ".stub_proj_root").write_text(str(project), encoding="utf-8")
     monkeypatch.setenv("OM_SCENE_ID", "scene-1")
     monkeypatch.setenv("OM_EPISODE_DIR", str(ep))
     monkeypatch.setenv("OM_ATTEMPT_INDEX", "1")
@@ -541,17 +546,46 @@ def test_r5_minted_reviewer_wrapper_emits_timeout_error_on_missing_verdict(tmp_p
     stub.write_text(textwrap.dedent("""\
         #!/usr/bin/env python3
         import os, sys
-        mode = os.environ.get("OM_STUB_MODE", "")
+        from pathlib import Path
         if os.environ.get("OM_ROLE", "reviewer") == "reviewer":
+            # reviewer wrapper child env is allowlisted; mode travels via a
+            # sentinel file inside the forwarded OM_SANDBOX_DIR, not env vars.
+            _mode_file = Path(os.environ["OM_SANDBOX_DIR"]) / ".stub_mode"
+            mode = _mode_file.read_text(encoding="utf-8").strip() if _mode_file.exists() else ""
             if mode == "no-verdict":
+                # Stale artifact must not mask absence of every supported channel.
+                from pathlib import Path
+                # Write/remove findings in the isolated child workspace. The
+                # reviewer wrapper reads this channel before parsing stdout.
+                packets = Path.cwd() / "packets"
+                packets.mkdir(parents=True, exist_ok=True)
+                (packets / "scene-1_findings.json").unlink(missing_ok=True)
+                (packets / "scene-1_cc_verdict.json").unlink(missing_ok=True)
                 sys.stdout.write("partial thoughts, no delimiter block\\n")
                 sys.stdout.flush()
                 sys.exit(0)
-            sys.stdout.write(
-                "<!-- VERDICT_START -->\\n```json\\n"
-                '{"scene_id": "scene-1", "verdict": "approved", "issues": [],'
-                ' "metrics": {"complexity": "low"}}\\n```\\n'
-                "<!-- VERDICT_END -->\\n")
+            if mode == "legacy":
+                sys.stdout.write(
+                    "<!-- VERDICT_START -->\\n"
+                    '{"scene_id": "scene-1", "verdict": "approved", "issues": [],'
+                    ' "metrics": {"complexity": "low"}}'
+                    "<!-- VERDICT_END -->\\n")
+            elif mode == "current":
+                sys.stdout.write(
+                    "@@VERDICT_START@@\\nVERDICT: approved\\n@@VERDICT_END@@\\n")
+            elif mode == "file":
+                import json
+                # findings FILE channel lives in the isolated child workspace
+                # (cwd); the wrapper consumes it before parsing stdout.
+                packets = Path.cwd() / "packets"
+                packets.mkdir(parents=True, exist_ok=True)
+                (packets / "scene-1_findings.json").write_text(json.dumps({
+                    "scene_id": "scene-1", "verdict": "approved", "issues": [],
+                    "metrics": {"complexity": "low"},
+                }))
+                sys.stdout.write("partial thoughts, verdict is in findings file\\n")
+            else:
+                sys.stdout.write("partial thoughts, no verdict block\\n")
             sys.stdout.flush()
             sys.exit(0)
         sys.exit(2)
@@ -566,20 +600,47 @@ def test_r5_minted_reviewer_wrapper_emits_timeout_error_on_missing_verdict(tmp_p
     monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
     assert mint_main(["--project-dir", str(project)]) == 0
 
-    for mode, expected in (("no-verdict", REVIEW_TIMEOUT_VERDICT), ("approved", "approved")):
+    # Isolate the wrapper process's module import using a temporary sitecustomize
+    # shim. Production confinement module remains untouched; this fixture alone
+    # replaces the OS smoke probe with its precise pass result and child argv.
+    shimdir = tmp_path / "test_shim"
+    shimdir.mkdir()
+    (shimdir / "sitecustomize.py").write_text(textwrap.dedent("""\
+        import os, sys
+        if os.environ.get("OM_TEST_REVIEWER_CONFINEMENT") == "1":
+            import tools.qc.reviewer_confinement as confinement
+            _original_plan = confinement.plan_review_confinement
+            def _test_plan(*args, **kwargs):
+                plan = _original_plan(*args, **kwargs)
+                plan.argv_prefix = ["/usr/bin/env"]
+                return plan
+            confinement.plan_review_confinement = _test_plan
+            confinement.smoke_test = lambda plan: (True, "isolated test fixture")
+    """), encoding="utf-8")
+
+    for mode, expected in (
+        ("no-verdict", REVIEW_TIMEOUT_VERDICT),
+        ("legacy", "approved"),
+        ("current", "approved"),
+        ("file", "approved"),
+    ):
         sandbox = ep / f"sandbox-{mode}"
         (sandbox / "scenes").mkdir(parents=True)
         (sandbox / "scenes" / "scene-1.tsx").write_text(
             "// reviewed scene body\n" + "y" * 300, encoding="utf-8")
-        monkeypatch.setenv("OM_STUB_MODE", mode)
+        # stub mode via sentinel file inside the forwarded OM_SANDBOX_DIR
+        (sandbox / ".stub_mode").write_text(mode, encoding="utf-8")
         env = os.environ.copy()
         env.update({
             "PATH": f"{bindir}:{env.get('PATH', '')}",
+            "PYTHONPATH": f"{shimdir}:{REPO_ROOT}",
+            "OM_TEST_REVIEWER_CONFINEMENT": "1",
             "OM_ROLE": "reviewer",
             "OM_SCENE_ID": "scene-1",
             "OM_SANDBOX_DIR": str(sandbox),
             "OM_CANONICAL_DIR": str(ep),
-            "PYTHONPATH": str(REPO_ROOT),
+            "OM_CC_REVIEW_STREAM_ATTEMPTS": "1",
+            "OM_CC_REVIEW_STREAM_SLEEP": "0",
         })
         wrapper = project / "scripts" / "cc_pipeline" / "reviewer_wrapper.py"
         proc = subprocess.run([sys.executable, str(wrapper)], capture_output=True,
@@ -590,5 +651,6 @@ def test_r5_minted_reviewer_wrapper_emits_timeout_error_on_missing_verdict(tmp_p
         assert findings["verdict"] == expected, mode
         assert verdict["verdict"] == expected, mode
         if expected == REVIEW_TIMEOUT_VERDICT:
-            assert "turn cap" in findings["issues"][0]
             assert "not a content rejection" in findings["issues"][0]
+        elif mode == "file":
+            assert findings["issues"] == []

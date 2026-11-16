@@ -1,20 +1,20 @@
 {
-  "minted_at": "2026-11-16T06:38:37.267381+00:00",
-  "om_commit": "74adb4d9a86d8decb2715d874047725c80f8a170",
-  "template_content_hash": "6e18f8353cf837046b2e0d4c1d4ab236b56f32c86f945c967c9720709781b0f2",
+  "minted_at": "2026-11-16T10:28:04.556146+00:00",
+  "om_commit": "a01fb71f315890e8dddb2856933bb14f0edc07a4",
+  "template_content_hash": "b018f2b01fa53194740f2355e5d7500602d2bec6f7292bb9976b3275badab207",
   "templates": {
-    "reviewer_pass.py.tmpl": "2ca01e2a8c9f955e8fcb75efeb261836b8694840906762270f97dbe07e41e5db",
-    "reviewer_wrapper.py.tmpl": "be1fccc56deda813ea4289882c87255c2edca31fe9683a795df9a1f3dc561395",
-    "run_cc_pipeline.py.tmpl": "c1e3723220b980fbcd4e74bac2b72655e13aa0710dbc898fb33abc03b03ff276",
-    "writer_wrapper.py.tmpl": "1b3095574546f1c5f5a904c05268d38f7d63a68a9fe4a6285fd5168f370aa56f"
+    "reviewer_pass.py.tmpl": "243413a70a5bb970f6663d9a267bf125486e44b33869111d001ba11be7158f2b",
+    "reviewer_wrapper.py.tmpl": "1dcbc50750d837bddcd6adb0035b0557d066a2c789e6e8f946977904f3cdbc6b",
+    "run_cc_pipeline.py.tmpl": "f753499ddae515e54e103ae716d38c6552f0e02579fc9b152810f0cb6a438050",
+    "writer_wrapper.py.tmpl": "ec948f5707dd5b71145a8c377a0c6a1b59b4a09241a26af2f96581130a536aac"
   },
   "rendered": {
-    "writer_wrapper.py": "1b3095574546f1c5f5a904c05268d38f7d63a68a9fe4a6285fd5168f370aa56f",
-    "reviewer_wrapper.py": "be1fccc56deda813ea4289882c87255c2edca31fe9683a795df9a1f3dc561395",
-    "run_cc_pipeline.py": "242c0d4cc369ad2433e485b295997e79aac99e6923b8b22730500ea0e05df8b3"
+    "writer_wrapper.py": "ec948f5707dd5b71145a8c377a0c6a1b59b4a09241a26af2f96581130a536aac",
+    "reviewer_wrapper.py": "1dcbc50750d837bddcd6adb0035b0557d066a2c789e6e8f946977904f3cdbc6b",
+    "run_cc_pipeline.py": "d02e90e6de844a9c6c3c7ecdd8d1e2592f8e8371b4d502049e811731dad616bb"
   },
   "project": "faa-ground-stop-20261114",
-  "scene_count": 12,
+  "scene_count": 15,
   "strict": true,
   "force": false,
   "preserved_scenes": []

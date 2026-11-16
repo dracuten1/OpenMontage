@@ -37,6 +37,7 @@ from tools.qc.mint_project_pipeline import (
     om_commit,
     template_content_hash,
 )
+from tools.qc.reviewer_runner import REVIEW_TIMEOUT_VERDICT
 from tools.qc.scene_orchestrator import (
     AgentRunResult,
     CallableAgentRunner,
@@ -85,6 +86,14 @@ def build_project_layout(tmp_path: Path, slug: str = SLUG,
 
     project = tmp_path / "projects" / slug
     project.mkdir(parents=True)
+    # Minted wrappers resolve tools.qc via the static parents[4] shim
+    # (writer_wrapper.py.tmpl task 2.4). The launcher's child-env allowlist
+    # (PATH/HOME/USER/SHELL/TMPDIR only) drops PYTHONPATH, so a tmp-minted
+    # wrapper must find `tools` at the tmp checkout root — symlink this
+    # checkout's tools package there (production checkouts have it natively).
+    tools_link = tmp_path / "tools"
+    if not tools_link.exists():
+        tools_link.symlink_to(REPO_ROOT / "tools", target_is_directory=True)
     tasks = project / "history" / "scene_tasks"
     tasks.mkdir(parents=True)
     for sid in scene_ids:
@@ -100,8 +109,22 @@ STUB_CLAUDE = textwrap.dedent("""\
     from pathlib import Path
 
     role = os.environ.get("OM_ROLE", "writer")
-    mode = os.environ.get("OM_STUB_MODE", "")
-    proj = Path(os.environ["OM_STUB_PROJECT_ROOT"])
+    # Writer/reviewer wrappers pass a NARROW child env (OM_* allowlist), so
+    # test control travels in sentinel FILES inside a forwarded directory —
+    # never env vars. Writer sees OM_EPISODE_DIR; reviewer sees
+    # OM_CANONICAL_DIR (episode root) with OM_SANDBOX_DIR fallback — both
+    # resolve to the same episode dir, so mode + proj-root sentinel files
+    # are shared by every stub invocation of a run.
+    if role == "reviewer":
+        ep = Path(os.environ.get("OM_CANONICAL_DIR") or os.environ["OM_SANDBOX_DIR"])
+    else:
+        ep = Path(os.environ["OM_EPISODE_DIR"])
+    mode = ""
+    _mode_file = ep / ".stub_mode"
+    if _mode_file.exists():
+        mode = _mode_file.read_text(encoding="utf-8").strip()
+    _proj_file = ep / ".stub_proj_root"
+    proj = Path(_proj_file.read_text(encoding="utf-8").strip()) if _proj_file.exists() else ep
     hist = proj / "history"
 
     if role == "writer":
@@ -672,12 +695,14 @@ def _run_writer_wrapper(tmp_path, ep, project, monkeypatch, stub_claude, mode):
     from tools.qc.mint_project_pipeline import main as mint_main
     monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
     assert mint_main(["--project-dir", str(project)]) == 0
-    monkeypatch.setenv("OM_STUB_PROJECT_ROOT", str(project))
-    monkeypatch.setenv("OM_STUB_MODE", mode)
     monkeypatch.setenv("OM_SCENE_ID", "scene-1")
     monkeypatch.setenv("OM_EPISODE_DIR", str(ep))
     monkeypatch.setenv("OM_ATTEMPT_INDEX", "1")
     monkeypatch.setenv("OM_ROLE", "writer")
+    # Stub control via sentinel files inside OM_EPISODE_DIR (the wrapper's
+    # child-env allowlist forwards it; env-var controls do not survive).
+    (ep / ".stub_mode").write_text(mode, encoding="utf-8")
+    (ep / ".stub_proj_root").write_text(str(project), encoding="utf-8")
     env = dict(os.environ)
     env["PATH"] = f"{stub_claude}:{env.get('PATH', '')}"
     env["PYTHONPATH"] = str(REPO_ROOT)  # tmp-minted wrapper resolves this checkout's tools.qc
@@ -729,10 +754,11 @@ def test_writer_wrapper_preflight_warn_allows_unknown_layout(tmp_path, stub_clau
 
 def _launch_pipeline(tmp_path, ep, project, stub_bin, extra_env=None, timeout=180):
     launcher = project / "scripts" / "cc_pipeline" / "run_cc_pipeline.py"
+    # Stub proj-root sentinel inside the forwarded episode dir (see STUB_CLAUDE).
+    (ep / ".stub_proj_root").write_text(str(project), encoding="utf-8")
     env = os.environ.copy()
     env.update({
         "PATH": f"{stub_bin}:{env.get('PATH', '')}",
-        "OM_STUB_PROJECT_ROOT": str(project),
         "OM_EPISODE_DIR_OVERRIDE": str(ep),
         "OM_SCENE_LIST": ",".join(SCENE_IDS_3),
         "OM_MAX_CONCURRENCY": "2",  # deterministic; also avoids the network tier probe
@@ -814,19 +840,24 @@ def test_canary_reviewer_watchdog_emits_timeout_error(tmp_path, stub_claude, mon
     monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
     assert mint_main(["--project-dir", str(project)]) == 0
 
+    # 1s watchdog: stub claude sleeps 30s (see STUB_CLAUDE mode="sleep") and
+    # the wrapper must kill it at WATCHDOG_S and emit the infra-timeout
+    # contract instead of hanging for the stub's full sleep.
+    WATCHDOG_S = 1
+
     sandbox = ep / "sandbox"
     (sandbox / "scenes").mkdir(parents=True)
     (sandbox / "scenes" / "scene-1.tsx").write_text(VALID_SCENE, encoding="utf-8")
     env = os.environ.copy()
+    # stub sleep mode via sentinel file in the forwarded OM_CANONICAL_DIR
+    (ep / ".stub_mode").write_text("sleep", encoding="utf-8")
     env.update({
         "PATH": f"{stub_claude}:{env.get('PATH', '')}",
         "OM_ROLE": "reviewer",
-        "OM_STUB_PROJECT_ROOT": str(project),
-        "OM_STUB_MODE": "sleep",
         "OM_SCENE_ID": "scene-1",
         "OM_SANDBOX_DIR": str(sandbox),
         "OM_CANONICAL_DIR": str(ep),
-        "OM_CC_REVIEW_WATCHDOG": "1",
+        "OM_CC_REVIEW_WATCHDOG": str(WATCHDOG_S),
         "PYTHONPATH": str(REPO_ROOT),
     })
     wrapper = project / "scripts" / "cc_pipeline" / "reviewer_wrapper.py"
@@ -834,16 +865,26 @@ def test_canary_reviewer_watchdog_emits_timeout_error(tmp_path, stub_claude, mon
                           text=True, env=env, cwd=REPO_ROOT, timeout=60)
     assert proc.returncode == 0
     findings = json.loads((sandbox / "packets" / "scene-1_findings.json").read_text(encoding="utf-8"))
-    assert findings["verdict"] == "timeout_error"
-    assert "watchdog expired" in findings["issues"][0]
+    # Canonical contract (reviewer_runner.py REVIEW_TIMEOUT_VERDICT): the
+    # orchestrator classifies this verdict as INFRA failure — never a content
+    # rejection. The watchdog-expiry branch emits exactly one issue string
+    # (reviewer_wrapper.py.tmpl): f"Reviewer watchdog expired after {N}s";
+    # the turn-cap wording ("no verdict block") belongs to the OTHER infra
+    # branch and must NOT appear here.
+    assert findings["verdict"] == REVIEW_TIMEOUT_VERDICT
+    assert findings["issues"] == [f"Reviewer watchdog expired after {WATCHDOG_S}s"]
     verdict = json.loads((sandbox / "packets" / "scene-1_cc_verdict.json").read_text(encoding="utf-8"))
-    assert verdict["verdict"] == "timeout_error"
+    assert verdict["verdict"] == REVIEW_TIMEOUT_VERDICT
 
 
 def test_canary_launcher_governor_assert_fires_when_unimportable(tmp_path, stub_claude, monkeypatch):
     """Startup assert: a checkout where tools.qc.concurrency_governor is NOT
     importable fails LOUD (raise) instead of silently degrading."""
     ep, project = build_project_layout(tmp_path, scene_ids=["scene-1"])
+    # The layout helper symlinks <tmp>/tools so tmp-minted wrapper shims
+    # (parents[4]) resolve tools.qc like a real checkout. THIS test simulates
+    # the opposite: a checkout where tools.qc is unimportable — drop the shim.
+    (tmp_path / "tools").unlink(missing_ok=True)
     from tools.qc.mint_project_pipeline import main as mint_main
     monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
     assert mint_main(["--project-dir", str(project)]) == 0

@@ -93,6 +93,7 @@ def test_cli_no_redispatch_keeps_legacy_refusal(tmp_path, capsys):
     ])
     assert rc == 3
     out = capsys.readouterr().out
+    assert "hash drift (scene-1)" in out
     assert "REFUSED scene-1" in out
 
 
@@ -175,10 +176,17 @@ def _empty_writer_token(ep: Path, ev_file: Path, sid: str) -> None:
 
 
 def _empty_findings_hash(ep: Path, ev_file: Path, sid: str) -> None:
-    """Empty findings_hash is drift only when UNRECOVERABLE — blank the
-    packet reviewer binding AND remove the canonical findings evidence."""
+    """Remove findings evidence and clear all packet hash pointers."""
     pkt = json.loads((ep / f"packet_{sid}.json").read_text(encoding="utf-8"))
     pkt["reviewer"]["findings_hash"] = ""
+    provenance = pkt.get("frozen_inputs", {}).get("_provenance")
+    if isinstance(provenance, dict):
+        provenance["findings_hash"] = ""
+    pkt["frozen_inputs"].pop(f"packets/{sid}_findings.json", None)
+    evd = json.loads(Path(ev_file).read_text(encoding="utf-8"))
+    for att in evd["scenes"][sid]["attempts"]:
+        att.get("reviewer_result", {}).pop("findings_hash", None)
+    Path(ev_file).write_text(json.dumps(evd, indent=2), encoding="utf-8")
     (ep / f"packet_{sid}.json").write_text(json.dumps(pkt, indent=2), encoding="utf-8")
     findings_path = ep / "packets" / f"{sid}_findings.json"
     if findings_path.is_file():
@@ -189,14 +197,19 @@ def _empty_reviewed_hashes(ep: Path, sid: str) -> None:
     pkt = json.loads((ep / f"packet_{sid}.json").read_text(encoding="utf-8"))
     pkt["reviewer"]["reviewed_hashes"] = {}
     pkt["reviewer_token"] = ""
-    # the findings file would re-fill reviewed_hashes via the fallback read —
-    # strip the reviewer's binding there too so the payload stays empty
+    # Strip reviewer binding from findings fixture, then refresh its hash and
+    # frozen binding. Hash remains complete; only reviewed_hashes is incomplete.
     fdir = ep / "packets"
     findings_path = fdir / f"{sid}_findings.json"
     if findings_path.is_file():
-        f = json.loads(findings_path.read_text(encoding="utf-8"))
-        f["reviewed_hashes"] = {}
-        findings_path.write_text(json.dumps(f, indent=2), encoding="utf-8")
+        findings = json.loads(findings_path.read_text(encoding="utf-8"))
+        findings["reviewed_hashes"] = {}
+        findings_path.write_text(json.dumps(findings, indent=2), encoding="utf-8")
+        import hashlib
+        digest = hashlib.sha256(findings_path.read_bytes()).hexdigest()
+        pkt["reviewer"]["findings_hash"] = digest
+        pkt["frozen_inputs"]["_provenance"]["findings_hash"] = digest
+        pkt["frozen_inputs"][f"packets/{sid}_findings.json"] = digest
     (ep / f"packet_{sid}.json").write_text(json.dumps(pkt, indent=2), encoding="utf-8")
 
 
@@ -250,17 +263,15 @@ def test_provenance_drift_empty_reviewed_hashes_with_tsx_on_disk(monkeypatch, tm
     _assert_redispatched(monkeypatch, ep, ev_file, ["scene-1"], capsys)
 
 
-def test_empty_reviewed_hashes_without_tsx_is_incomplete_not_drift(tmp_path, capsys):
-    """Inverse gate: empty reviewed_hashes with NO scene .tsx on disk stays
-    the legacy 'incomplete' classification (reported, non-fatal) — the drift
-    condition is scoped to hashable-on-disk scenes."""
+def test_empty_reviewed_hashes_in_existing_packet_is_provenance_drift(tmp_path, capsys):
+    """Existing packet with empty reviewed_hashes must fail closed and redispatch."""
     ep, ev_file = build_restore_fixture(tmp_path)
     _empty_reviewed_hashes(ep, "scene-1")
     rc = restore_seals.main(["--from-evidence", str(ev_file), "--episode-dir", str(ep)])
-    assert rc == 0
+    assert rc == 3  # no redispatch stub; empty packet binding remains unsafe
     out = capsys.readouterr().out
-    assert "provenance drift" not in out
-    assert "evidence incomplete for scene-1" in out
+    assert "provenance drift (scene-1)" in out
+    assert "empty provenance reviewed_hashes" in out
 
 
 def test_cli_no_redispatch_refuses_provenance_drift_with_exit3(tmp_path, capsys):
@@ -292,17 +303,14 @@ def test_scene_seal_status_provenance_drift_reason_names_all_four(tmp_path):
     assert "empty findings_hash" in reason
 
 
-def test_empty_findings_hash_recovered_from_canonical_findings(tmp_path):
-    """A wiped packet reviewer block is NOT drift when the canonical approved
-    findings file supplies the hash (the clobber-restore use case stays
-    functional); the drift condition targets UNRECOVERABLE provenance."""
+def test_empty_findings_hash_without_review_evidence_is_incomplete(tmp_path):
+    """Mutable findings JSON cannot recover a missing reviewer hash pointer."""
     ep, ev_file = build_restore_fixture(tmp_path)
-    # wipe ONLY the packet reviewer findings_hash — the canonical findings
-    # file stays on disk, so scene_seal_status recovers the hash from it
     pkt = json.loads((ep / "packet_scene-1.json").read_text(encoding="utf-8"))
     pkt["reviewer"]["findings_hash"] = ""
+    pkt["frozen_inputs"]["_provenance"]["findings_hash"] = ""
     (ep / "packet_scene-1.json").write_text(json.dumps(pkt, indent=2), encoding="utf-8")
-    evidence = restore_seals.load_evidence(ev_file)
-    status, payload, _reason = restore_seals.scene_seal_status(evidence, "scene-1", ep)
-    assert status == "ok"
-    assert len(payload["findings_hash"]) == 64
+    status, _payload, reason = restore_seals.scene_seal_status(
+        restore_seals.load_evidence(ev_file), "scene-1", ep)
+    assert status == "provenance_drift"
+    assert "findings_hash" in reason

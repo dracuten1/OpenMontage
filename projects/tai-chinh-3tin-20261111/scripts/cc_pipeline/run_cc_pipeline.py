@@ -19,10 +19,12 @@ Phase 4A.2 contract:
   remotion-composer episode.
 - Wave1 P0-4 (2026-11-16): bounded fail-exit supervision — a non-zero pass
   relaunches at most OM_RELAUNCH_MAX_ATTEMPTS total attempts (default 2)
-  with doubling backoff (OM_RELAUNCH_BACKOFF_S, default 30); on final
-  failure the fail_exit + owner_approval_request notification stubs emit to
-  the job-event lane (tools/qc/job_events.py — STUB/EMIT ONLY, no real
-  channel; platform lane wires transport later). Truthful-proc print
+  with doubling backoff (OM_RELAUNCH_BACKOFF_S, default 30; every backoff
+  wait — base included — is capped at RELAUNCH_BACKOFF_MAX_S = 3600s so a
+  huge-finite or heavily-doubled value can never overflow time.sleep); on
+  final failure the fail_exit + owner_approval_request notification stubs
+  emit to the job-event lane (tools/qc/job_events.py — STUB/EMIT ONLY, no
+  real channel; platform lane wires transport later). Truthful-proc print
   (item 7, backported from faa deployed copy at OM 53449df): every agent
   dispatch logs role/scene/exit/duration/byte-counts.
 Re-scope note (4C.1, review round 2): per-scene task/packet generation stays
@@ -71,7 +73,12 @@ def resolve_launcher_concurrency(env=None):
 
 class CCRunner(SubprocessAgentRunner):
     def _run(self, cmd, cwd, env_extra, timeout):
-        env = os.environ.copy()
+        # Child wrappers are trusted host code, but still pass only their
+        # documented per-role OM contract plus essentials. Keep OM_TOKEN and
+        # OM_INSTANCE_ID in env_extra for wrapper-side AgentRunResult metadata;
+        # the wrappers' own allowlists exclude them before Claude/tsc exec.
+        env = {k: v for k, v in os.environ.items()
+               if k in ("PATH", "HOME", "USER", "SHELL", "TMPDIR")}
         env.update(env_extra)
         t0 = time.time()
         iso = datetime.now(timezone.utc).isoformat()
@@ -175,11 +182,20 @@ def main() -> int:
 # env override can NEVER exceed three total attempts; non-integer env values
 # warn + fall back to the default instead of crashing at import), sleeping
 # OM_RELAUNCH_BACKOFF_S * 2**(k-1) seconds before relaunch k (doubling
-# backoff). Once the cap is spent, the notification hook fires on the
+# backoff; every wait is clamped to RELAUNCH_BACKOFF_MAX_S = 3600s — a
+# huge-finite env value or a doubled overflow never reaches time.sleep).
+# Once the cap is spent, the notification hook fires on the
 # job-event lane (STUB/EMIT ONLY — see tools/qc/job_events.py; the platform
 # lane wires real channels later) for BOTH fail_exit and
 # owner_approval_request, and the launcher exits non-zero.
 RELAUNCH_HARD_CAP = 3
+# Numeric hardening: cap for the backoff base AND every computed wait. A
+# huge-finite OM_RELAUNCH_BACKOFF_S (e.g. 1e308) or the doubling of a large
+# base must never reach time.sleep — sleep(inf) raises OverflowError and
+# kills the supervision loop mid-relaunch. 3600s = "wait at most an hour
+# before retrying", well above the 30s default and far below any sleep
+# overflow (doubling is additionally bounded in relaunch_backoff_s).
+RELAUNCH_BACKOFF_MAX_S = 3600.0
 
 
 def _parse_relaunch_max_attempts(raw: str | None) -> int:
@@ -210,6 +226,12 @@ def _parse_relaunch_backoff_base_s(raw: str | None) -> float:
         # (every wait becomes nan). Fall back to the default instead.
         print(f"[supervision] WARN: non-finite OM_RELAUNCH_BACKOFF_S={raw!r}; using default {default}")
         return default
+    if val > RELAUNCH_BACKOFF_MAX_S:
+        # Huge-finite (e.g. 1e308) parses cleanly but the base and its
+        # doublings would overflow the sleep call — clamp, never crash.
+        print(f"[supervision] WARN: OM_RELAUNCH_BACKOFF_S={raw!r} exceeds cap "
+              f"{RELAUNCH_BACKOFF_MAX_S:g}s; clamped to {RELAUNCH_BACKOFF_MAX_S:g}s")
+        return RELAUNCH_BACKOFF_MAX_S
     return max(0.0, val)
 
 
@@ -219,10 +241,23 @@ RELAUNCH_BACKOFF_BASE_S = _parse_relaunch_backoff_base_s(os.environ.get("OM_RELA
 
 def relaunch_backoff_s(base_s: float, relaunch_index: int) -> float:
     """Doubling backoff before relaunch ``relaunch_index`` (1-based):
-    base, 2*base, 4*base, ... Relaunch 1 of a cap-2 run waits ``base_s``."""
+    base, 2*base, 4*base, ... Relaunch 1 of a cap-2 run waits ``base_s``.
+
+    Numeric hardening: the result is always a finite wait <=
+    RELAUNCH_BACKOFF_MAX_S — a huge-finite base or an oversized exponent
+    must overflow neither the float nor the subsequent time.sleep (both
+    would abort the supervision loop instead of retrying). The exponent is
+    bounded so ``base_s * 2**k`` can never reach inf; a non-finite or
+    non-positive ``base_s`` degenerates safely (0.0 = no wait; the
+    RELAUNCH_MAX_ATTEMPTS cap still bounds total relaunches)."""
     if relaunch_index < 1:
         return 0.0
-    return base_s * (2 ** (relaunch_index - 1))
+    base = float(base_s) if base_s and math.isfinite(base_s) else 0.0
+    if base <= 0.0:
+        return 0.0
+    exponent = min(relaunch_index - 1, 16)   # 2**16 * base already dwarfs the cap
+    wait = base * float(2 ** exponent)       # finite: base finite, exponent bounded
+    return min(wait, RELAUNCH_BACKOFF_MAX_S)
 
 
 def emit_pipeline_event(event_type: str, detail: dict) -> None:

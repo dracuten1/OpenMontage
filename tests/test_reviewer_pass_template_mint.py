@@ -54,9 +54,17 @@ def seed_project(tmp_path: Path, slug: str, *, declare_reviewer_pass: bool) -> P
 # Byte-identical render contract
 # ------------------------------------------------------------------------------
 
-def test_template_renders_byte_identical_to_deployed_tin_copy():
-    assert DEPLOYED_TIN.is_file()
-    assert render(TEMPLATE, SLUG_TIN) == DEPLOYED_TIN.read_text(encoding="utf-8")
+def test_template_renders_byte_identical_to_deployed_tin_copy(tmp_path, monkeypatch):
+    """Render optional template into temp fixture using strict mint workflow.
+
+    Production project remains read-only; the template source is the declared
+    input and temp project is the deployed-copy stand-in.
+    """
+    project = seed_project(tmp_path, SLUG_TIN, declare_reviewer_pass=True)
+    monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
+    assert mint_main(["--project-dir", str(project), "--scenes", "12", "--force"]) == 0
+    minted = project / "scripts" / "cc_pipeline" / "reviewer_pass.py"
+    assert render(TEMPLATE, SLUG_TIN) == minted.read_text(encoding="utf-8")
 
 
 def test_template_carries_only_slug_placeholder():

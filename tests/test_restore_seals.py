@@ -76,8 +76,8 @@ def _clobber_packet(pkt_path: Path) -> None:
 
 
 def _write_findings_file(ep: Path, sid: str) -> None:
-    """Canonical findings file carrying the approved verdict + reviewed_hashes
-    (the reviewer wrapper writes both in production)."""
+    """Fixture findings evidence with explicit packet-bound hash pointer."""
+    import hashlib
     pkt = json.loads((ep / f"packet_{sid}.json").read_text(encoding="utf-8"))
     fdir = ep / "packets"
     fdir.mkdir(parents=True, exist_ok=True)
@@ -87,7 +87,13 @@ def _write_findings_file(ep: Path, sid: str) -> None:
         "reviewed_hashes": pkt["reviewer"]["reviewed_hashes"],
         "issues": [],
     }
-    (fdir / f"{sid}_findings.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    findings_path = fdir / f"{sid}_findings.json"
+    findings_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    digest = hashlib.sha256(findings_path.read_bytes()).hexdigest()
+    pkt["reviewer"]["findings_hash"] = digest
+    pkt["frozen_inputs"]["_provenance"]["findings_hash"] = digest
+    pkt["frozen_inputs"][f"packets/{sid}_findings.json"] = digest
+    (ep / f"packet_{sid}.json").write_text(json.dumps(pkt, indent=2), encoding="utf-8")
 
 
 def _seal_entry(sid: str, pkt_path: Path, writer_token: str, reviewer_token: str) -> dict:
@@ -109,6 +115,7 @@ def _seal_entry(sid: str, pkt_path: Path, writer_token: str, reviewer_token: str
             "reviewer_result": {
                 "instance_id": f"reviewer_{sid}_bbb222", "token": reviewer_token,
                 "role": "reviewer", "exit_code": 0,
+                "findings_hash": json.loads(pkt_path.read_text(encoding="utf-8"))["reviewer"]["findings_hash"],
                 "started_at": "2026-11-13T00:01:00+00:00",
                 "finished_at": "2026-11-13T00:02:00+00:00",
                 "duration_seconds": 60.0,
@@ -538,6 +545,9 @@ def test_incomplete_evidence_reported_not_fatal(tmp_path, capsys):
                                                 "wt_x", "rt_x")
     ev_file.write_text(json.dumps(evidence, indent=2), encoding="utf-8")
     _clobber_packet(ep / "packet_scene-2.json")
+    pkt2 = json.loads((ep / "packet_scene-2.json").read_text(encoding="utf-8"))
+    pkt2["frozen_inputs"]["_provenance"]["findings_hash"] = ""
+    (ep / "packet_scene-2.json").write_text(json.dumps(pkt2, indent=2), encoding="utf-8")
     # no findings file for scene-2 -> no verdict/hash source at all
     (ep / "packets" / "scene-2_findings.json").unlink()
 
@@ -547,7 +557,7 @@ def test_incomplete_evidence_reported_not_fatal(tmp_path, capsys):
     # CRITICAL-2: unrecoverable provenance = drift, reported under its own
     # label and queued for writer+reviewer re-dispatch (dry-run: no dispatch)
     assert "provenance drift (scene-2)" in out
-    assert "empty findings_hash" in out
+    assert "empty provenance findings_hash" in out
     assert "would be re-dispatched" in out
     assert "ERROR: Missing evidence" not in out
 

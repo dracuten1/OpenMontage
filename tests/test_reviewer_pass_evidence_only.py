@@ -37,6 +37,16 @@ def load_reviewer_pass():
 def rp(tmp_path):
     """Module instance with its episode/project globals pointed at tmp dirs."""
     mod = load_reviewer_pass()
+    # Exercise source-of-truth template until safe parity mint lands; deployed
+    # copy is checked separately by template-mint tests.
+    template = REPO_ROOT / "tools/qc/cc_wrapper_templates/reviewer_pass.py.tmpl"
+    rendered = template.read_text(encoding="utf-8").replace("{{PROJECT_SLUG}}", "tin-nong-5tin-20261115")
+    source = tmp_path / "reviewer_pass_under_test.py"
+    source.write_text(rendered, encoding="utf-8")
+    spec = importlib.util.spec_from_file_location("reviewer_pass_template_under_test", source)
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = mod
+    spec.loader.exec_module(mod)
     episode = tmp_path / "episode"
     episode.mkdir()
     mod.EPISODE = episode
@@ -90,7 +100,8 @@ def test_refuses_when_reviewer_bound_other_content(rp, capsys):
     _tsx, on_disk = seed_scene_file(rp)
     findings = {"verdict": "approved", "reviewed_hashes": {"scenes/scene-1.tsx": "f" * 64}}
     assert rp.integrate("scene-1", "approved", findings) is False
-    assert "HASH MISMATCH" in capsys.readouterr().out
+    out = capsys.readouterr().out
+    assert "MISSING/EMPTY findings_hash" in out
 
 
 def test_backfills_from_matching_evidence(rp):
@@ -101,6 +112,17 @@ def test_backfills_from_matching_evidence(rp):
         "reviewed_hashes": {"scenes/scene-1.tsx": on_disk},
         "issues": [],
     }
+    # Reviewer evidence file is persisted first; caller passes its exact sha.
+    rp.PROJ.joinpath("artifacts", "packets").mkdir(parents=True, exist_ok=True)
+    source_findings = rp.PROJ / "artifacts" / "packets" / "scene-1_findings.json"
+    rp.PACKETS_DIR.mkdir(parents=True, exist_ok=True)
+    staged_findings = rp.PACKETS_DIR / "scene-1_findings.json"
+    canonical = {"scene_id":"scene-1", "verdict":"approved",
+                 "reviewed_hashes":{"scenes/scene-1.tsx":on_disk}, "issues":[], "notes":"ok"}
+    source_findings.write_text(json.dumps(canonical, indent=2), encoding="utf-8")
+    staged_findings.write_text(json.dumps(canonical, indent=2), encoding="utf-8")
+    findings_hash = hashlib.sha256(source_findings.read_bytes()).hexdigest()
+    findings["findings_hash"] = findings_hash
     assert rp.integrate("scene-1", "approved", findings) is True
 
     pkt = json.loads(pkt_path.read_text(encoding="utf-8"))
@@ -120,6 +142,7 @@ def test_backfills_from_matching_evidence(rp):
     assert prov["writer_instance_id"] == "writer_scene-1_orig"
     assert prov["writer_token"] == "wt_orig"
     assert prov["findings_hash"] == pkt["reviewer"]["findings_hash"]
+    assert pkt["frozen_inputs"]["packets/scene-1_findings.json"] == findings_hash
     assert pkt["integration_status"] == "integrated"
 
 
@@ -133,11 +156,7 @@ def test_backfill_never_invents_writer_identity(rp):
     pkt_path.write_text(json.dumps(pkt), encoding="utf-8")
     _tsx, on_disk = seed_scene_file(rp)
     findings = {"verdict": "approved", "reviewed_hashes": {"scenes/scene-1.tsx": on_disk}}
-    assert rp.integrate("scene-1", "approved", findings) is True
-    pkt = json.loads(pkt_path.read_text(encoding="utf-8"))
-    prov = pkt["frozen_inputs"]["_provenance"]
-    assert prov["writer_instance_id"] == ""
-    assert prov["writer_token"] == ""
+    assert rp.integrate("scene-1", "approved", findings) is False
 
 
 def test_packet_missing_refuses(rp):
@@ -191,14 +210,38 @@ def test_refuses_when_reviewer_entry_hash_is_empty_string(rp, capsys):
 
 
 def test_backfill_writes_nonempty_provenance_bindings(rp):
-    """CRITICAL-1 invariant: the _provenance backfill always lands with BOTH
-    a non-empty findings_hash AND the verified reviewed_hashes scene hash."""
     pkt_path = seed_packet(rp.EPISODE)
     _tsx, on_disk = seed_scene_file(rp)
+    before = pkt_path.read_bytes()
     findings = {"verdict": "approved", "reviewed_hashes": {"scenes/scene-1.tsx": on_disk}}
-    assert rp.integrate("scene-1", "approved", findings) is True
-    pkt = json.loads(pkt_path.read_text(encoding="utf-8"))
-    prov = pkt["frozen_inputs"]["_provenance"]
-    assert prov["findings_hash"] == hashlib.sha256(
-        (rp.PACKETS_DIR / "scene-1_findings.json").read_bytes()).hexdigest()
-    assert len(prov["findings_hash"]) == 64
+    assert rp.integrate("scene-1", "approved", findings) is False
+    assert pkt_path.read_bytes() == before
+
+
+def test_refuses_when_findings_hash_missing(rp, capsys):
+    seed_packet(rp.EPISODE)
+    _tsx, on_disk = seed_scene_file(rp)
+    findings = {"verdict":"approved", "reviewed_hashes":{"scenes/scene-1.tsx":on_disk}}
+    assert rp.integrate("scene-1", "approved", findings) is False
+    assert "MISSING/EMPTY findings_hash" in capsys.readouterr().out
+
+
+def test_rejects_symlinked_artifacts_target_and_parent(rp, tmp_path):
+    artifacts = rp.PROJ / "artifacts"
+    outside = tmp_path / "outside.json"
+    outside.write_text("untouched", encoding="utf-8")
+    (artifacts / "scene_workflow_evidence.json").symlink_to(outside)
+    with pytest.raises(ValueError, match="symlink path component"):
+        rp._under_artifacts(artifacts / "scene_workflow_evidence.json", artifacts)
+    (artifacts / "scene_workflow_evidence.json").unlink()
+    (artifacts / "packets").symlink_to(tmp_path, target_is_directory=True)
+    with pytest.raises(ValueError, match="symlink path component"):
+        rp._under_artifacts(artifacts / "packets" / "x.json", artifacts)
+    assert outside.read_text(encoding="utf-8") == "untouched"
+
+
+def test_atomic_artifacts_write_stays_contained(rp):
+    artifacts = rp.PROJ / "artifacts"
+    target = rp._under_artifacts(artifacts / "scene_workflow_evidence.json", artifacts)
+    rp._atomic_write_json(target, {"safe": True})
+    assert json.loads(target.read_text(encoding="utf-8")) == {"safe": True}

@@ -117,7 +117,13 @@ def _contained_path(raw: str | Path, root: Path) -> Path | None:
     ``tools.qc.scene_packet._contained_path``). Returns None when ``raw``
     escapes ``root`` — callers must treat None as "reject, never write"."""
     p = Path(raw)
-    resolved = (root / p).resolve() if not p.is_absolute() else p.resolve()
+    joined = (root / p) if not p.is_absolute() else p
+    current = joined
+    while current != current.parent:
+        if current.is_symlink():
+            return None
+        current = current.parent
+    resolved = joined.resolve()
     try:
         resolved.relative_to(root.resolve())
     except ValueError:
@@ -355,6 +361,9 @@ def scene_seal_status(
     _take(ok_attempt.get("reviewer_result"),
           ("instance_id", "token", "finished_at"),
           ("reviewer_instance_id", "reviewer_token", "reviewer_timestamp"))
+    reviewer_result = ok_attempt.get("reviewer_result")
+    if isinstance(reviewer_result, dict) and isinstance(reviewer_result.get("findings_hash"), str):
+        payload["findings_hash"] = reviewer_result["findings_hash"]
 
     # UNTRUSTED: the recorded packet path is clamped inside the episode dir
     # before any read (packet_path_for).
@@ -398,21 +407,6 @@ def scene_seal_status(
             rh = findings.get("reviewed_hashes")
             if isinstance(rh, dict):
                 payload["reviewed_hashes"].update(_clean_hash_map(rh))
-
-    # Wave1 security cycle-1 CRITICAL-2 evidence recovery: an empty
-    # findings_hash payload is drift — but recover it from the canonical
-    # findings evidence FIRST (the same file build_sealed_packet re-stamps at
-    # seal time). A scene with an approved canonical findings file carries a
-    # verifiable findings binding even when a destructive re-mint wiped the
-    # packet's reviewer block; only scenes with NEITHER packet binding NOR
-    # canonical findings evidence drift to re-dispatch.
-    if not payload["findings_hash"] and episode_dir is not None:
-        canonical_findings = _load_packet_json(findings_path_for(episode_dir, scene_id))
-        if isinstance(canonical_findings, dict) and canonical_findings.get("verdict") == "approved":
-            findings_file = findings_path_for(episode_dir, scene_id)
-            if findings_file is not None and findings_file.is_file():
-                payload["findings_hash"] = hash_file(findings_file)
-
     gaps: list[str] = []
     if not payload["writer_token"]:
         gaps.append("writer token")
@@ -420,8 +414,13 @@ def scene_seal_status(
         gaps.append("reviewer token")
     if payload["verdict"] != "approved":
         gaps.append("approved verdict")
-    if not payload["reviewed_hashes"]:
-        gaps.append("reviewed_hashes")
+    if not payload["findings_hash"]:
+        gaps.append("findings_hash")
+    if payload["verdict"] == "approved":
+        if not payload["reviewed_hashes"]:
+            gaps.append("reviewed_hashes")
+        elif len(payload["reviewed_hashes"]) != len(_clean_hash_map(payload["reviewed_hashes"])):
+            gaps.append("incomplete reviewed_hashes entry")
 
     # Wave1 security cycle-1 CRITICAL-2: provenance-drift classification.
     # A successful attempt failing a PROVENANCE gate is drift, not merely
@@ -432,18 +431,26 @@ def scene_seal_status(
     drift_reasons: list[str] = []
     if not payload["writer_token"]:
         drift_reasons.append("empty writer_token")
-    if not payload["findings_hash"]:
+    if not payload["findings_hash"] and packet is not None:
         drift_reasons.append("empty findings_hash")
-    if not payload["reviewed_hashes"] and _scene_tsx_present(scene_id, episode_dir):
+    if not payload["reviewed_hashes"] and packet is not None and _scene_tsx_present(scene_id, episode_dir):
         drift_reasons.append("empty reviewed_hashes (scene .tsx on disk)")
     frozen = packet.get("frozen_inputs") if isinstance(packet, dict) else None
     provenance = frozen.get(PROVENANCE_KEY) if isinstance(frozen, dict) else None
-    # Packet ABSENT (deleted by the destructive re-mint) is NOT provenance
-    # drift: rebuilding it from verified evidence — including minting a fresh
-    # _provenance block — is exactly restore_seals' job (build_sealed_packet).
-    # Drift fires only when a packet EXISTS without the provenance block.
-    if packet is not None and (not isinstance(provenance, dict) or not provenance):
-        drift_reasons.append("missing frozen_inputs._provenance block")
+    # Packet ABSENT (deleted by destructive re-mint) is NOT provenance drift:
+    # rebuilding from complete verified evidence is restore_seals' job. Existing
+    # packets must carry complete identity + findings provenance; otherwise
+    # redispatch, never seal a partial or empty provenance binding.
+    if packet is not None:
+        if not isinstance(provenance, dict) or not provenance:
+            drift_reasons.append("missing frozen_inputs._provenance block")
+        else:
+            if not isinstance(provenance.get("writer_token"), str) or not provenance["writer_token"].strip():
+                drift_reasons.append("empty provenance writer_token")
+            if not isinstance(provenance.get("findings_hash"), str) or not provenance["findings_hash"].strip():
+                drift_reasons.append("empty provenance findings_hash")
+            if not isinstance(payload["reviewed_hashes"], dict) or not payload["reviewed_hashes"]:
+                drift_reasons.append("empty provenance reviewed_hashes")
     if drift_reasons:
         return "provenance_drift", payload, ", ".join(drift_reasons)
 
@@ -485,6 +492,18 @@ def _scene_tsx_present(scene_id: str, episode_dir: Path | None) -> bool:
     m = re.match(r"^scene-(\d+)$", scene_id)
     if m:
         candidates.append(f"S{int(m.group(1)):02d}.tsx")
+    # Test/legacy episodes may encode reviewed .tsx refs directly in the
+    # reviewer binding rather than use a scenes/ directory. Only then can an
+    # empty binding be considered drift; don't infer existence from no path.
+    try:
+        evidence_path = Path(episode_dir)
+        packet = _load_packet_json(evidence_path / PACKET_FILENAME_FMT.format(scene_id=scene_id))
+        reviewer = packet.get("reviewer", {}) if isinstance(packet, dict) else {}
+        hashes = reviewer.get("reviewed_hashes", {}) if isinstance(reviewer, dict) else {}
+        if isinstance(hashes, dict) and any(str(k).endswith(".tsx") for k in hashes):
+            return True
+    except (OSError, ValueError, TypeError):
+        pass
     return any((scenes_dir / c).is_file() for c in candidates)
 
 
@@ -511,13 +530,8 @@ def hash_binding_mismatches(reviewed_hashes: dict[str, str], episode_dir: Path |
     """
     mismatches: list[str] = []
     for rel, expected in sorted(reviewed_hashes.items()):
-        target: Path | None = None
         p = Path(rel)
-        if p.is_absolute():
-            if episode_dir is not None:
-                target = _contained_path(p, episode_dir)
-        else:
-            target = episode_dir / rel if episode_dir else None
+        target = _contained_path(p, episode_dir) if episode_dir is not None else None
         actual = hash_file(target) if target is not None else ""
         if not actual or actual != expected:
             state = "missing" if not actual else actual[:12]
@@ -595,15 +609,27 @@ def seal_intact(packet_path: Path, episode_dir: Path | None = None) -> tuple[boo
     packet = _load_packet_json(packet_path)
     if packet is None:
         return False, "packet unreadable"
+    if not isinstance(packet.get("writer_token"), str) or not packet["writer_token"].strip():
+        return False, "writer_token missing or incomplete"
+    frozen = packet.get("frozen_inputs") if isinstance(packet.get("frozen_inputs"), dict) else {}
+    provenance = frozen.get(PROVENANCE_KEY) if isinstance(frozen.get(PROVENANCE_KEY), dict) else {}
+    if not isinstance(provenance.get("writer_token"), str) or not provenance["writer_token"].strip():
+        return False, "provenance writer_token missing or incomplete"
+    if not isinstance(provenance.get("findings_hash"), str) or not provenance["findings_hash"].strip():
+        return False, "provenance findings_hash missing or incomplete"
     reviewer = packet.get("reviewer") if isinstance(packet.get("reviewer"), dict) else {}
     if reviewer.get("verdict") != "approved":
         return False, f"reviewer verdict={reviewer.get('verdict')!r} (not approved)"
+    if not isinstance(reviewer.get("token"), str) or not reviewer["token"].strip():
+        return False, "reviewer token missing or incomplete"
+    if not isinstance(reviewer.get("findings_hash"), str) or not reviewer["findings_hash"].strip():
+        return False, "reviewer findings_hash missing or incomplete"
     rh = reviewer.get("reviewed_hashes")
     if not isinstance(rh, dict) or not rh:
         return False, "no reviewed_hashes binding (verdict not bound to outputs)"
     hashes = _clean_hash_map(rh)
-    if not hashes:
-        return False, "no usable reviewed_hashes binding"
+    if not hashes or len(hashes) != len(rh):
+        return False, "incomplete reviewed_hashes binding (empty/invalid entry)"
     if episode_dir is None:
         episode_dir = infer_packet_episode_dir(packet_path, hashes)
     mismatches = hash_binding_mismatches(hashes, Path(episode_dir))
@@ -701,9 +727,6 @@ def build_sealed_packet(
     packet["writer_token"] = payload["writer_token"]
     if not payload["findings_ref"]:
         payload["findings_ref"] = FINDINGS_REL_FMT.format(scene_id=scene_id)
-    findings_file = findings_path_for(episode_dir, scene_id)
-    if not payload["findings_hash"] and findings_file is not None:
-        payload["findings_hash"] = hash_file(findings_file)
     packet["reviewer"] = {
         "instance_id": payload["reviewer_instance_id"],
         "timestamp": payload["reviewer_timestamp"],
@@ -728,6 +751,8 @@ def build_sealed_packet(
         "writer_token": payload["writer_token"],
         "findings_hash": payload["findings_hash"],
     }
+    frozen[FINDINGS_REL_FMT.format(scene_id=scene_id)] = payload["findings_hash"]
+    frozen.update(dict(payload["reviewed_hashes"]))
     packet["frozen_inputs"] = frozen
     return packet
 

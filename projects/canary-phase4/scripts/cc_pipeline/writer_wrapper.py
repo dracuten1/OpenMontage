@@ -391,28 +391,19 @@ def _writer_cmd(legacy_writes_scenes: bool = False) -> list[str]:
     ]
 
 
-# --- Wave1 P0-3: reviewer-style child env whitelist --------------------------
-# Security containment (mirrors reviewer_wrapper.py.tmpl, review 2026-11-14):
-# the full parent process env carries credentials a writer session must never
-# see. Pass only system essentials, the OM_* pipeline contract vars, and the
-# provider API keys the claude CLI needs; MAX_THINKING_TOKENS stays explicit.
+# --- Least-privilege child environment (Wave1 sec-cycle2) -------------------
+# Explicit nine-key OM contract only. token IDs and instance IDs are
+# provenance IDs, not child config; API/provider credentials are never passed.
 _WRITER_ENV_ALLOW_KEYS = ("PATH", "HOME", "USER", "SHELL", "TMPDIR")
-# Accepted OM_* passthrough contract vars: OM_SCENE_ID, OM_EPISODE_DIR,
-# OM_ATTEMPT_INDEX, OM_CC_WATCHDOG, OM_TSC_TIMEOUT, OM_FINDINGS_INJECT,
-# OM_LEGACY_QUARANTINE, OM_MAX_CONCURRENCY, OM_WRAPPER_TEMPLATE_STRICT.
-_WRITER_ENV_ALLOW_PREFIXES = ("OM_",)
-_WRITER_ENV_ALLOW_PROVIDER_KEYS = ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY")
-
+_WRITER_ENV_ALLOW_OM_KEYS = (
+    "OM_SCENE_ID", "OM_EPISODE_DIR", "OM_ATTEMPT_INDEX", "OM_CC_WATCHDOG",
+    "OM_TSC_TIMEOUT", "OM_FINDINGS_INJECT", "OM_LEGACY_QUARANTINE",
+    "OM_MAX_CONCURRENCY", "OM_WRAPPER_TEMPLATE_STRICT",
+)
 
 def _writer_child_env() -> dict:
-    """Whitelisted env for the claude writer child — the full parent
-    environment (credentials included) never reaches the child."""
-    env = {
-        k: v for k, v in os.environ.items()
-        if k in _WRITER_ENV_ALLOW_KEYS
-        or k.startswith(_WRITER_ENV_ALLOW_PREFIXES)
-        or k in _WRITER_ENV_ALLOW_PROVIDER_KEYS
-    }
+    env = {k: v for k, v in os.environ.items()
+           if k in _WRITER_ENV_ALLOW_KEYS or k in _WRITER_ENV_ALLOW_OM_KEYS}
     env["MAX_THINKING_TOKENS"] = "1024"
     return env
 
