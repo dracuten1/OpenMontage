@@ -10,9 +10,22 @@ Carries the landed Phase-1/2 semantics plus Phase-4A additions:
   ``ConcurrencyGovernor`` throttling on a 429 burst.
 - task 2.4: static repo-root ``sys.path`` shim (``parents[4]``) so project-local
   execution resolves ``tools.*`` imports from THIS checkout.
-- R6 (phase 4A.2): NEVER the ``--permission-mode`` accept-edits mode — it voids
-  ``--allowedTools`` scoping (writer mutated the packet in rounds 3-4).
-  Default permission mode + explicit ``--allowedTools`` scoping only.
+- R6 -> Wave1 P0-3 (2026-11-16): the writer CLI migrates to the reviewer
+  wrapper's containment shape — ``--permission-mode acceptEdits`` PLUS an
+  explicit ``--disallowedTools`` DENY-list (canonical ``scenes/``, ``packets/``,
+  infra dot-directories), and the ``--allowedTools`` allow-list is GONE.
+  R6's original phrasing ("never acceptEdits") encoded the real bug of its
+  day: an accept-edits writer paired with an ALLOW-list, and allow-lists are
+  VOID under ``--dangerously-skip-permissions`` (probe 2026-11-14 confirmed
+  Write/Edit/Bash still execute) — that writer mutated the packet in rounds
+  3-4. The deny-list, unlike the allow-list, survives the skip flag (it is
+  the reviewer's actual enforcement since phase1 task 1.1). acceptEdits
+  itself stays REQUIRED: plan/default modes return EMPTY stdout under the
+  skip flag (probe 2026-11-14). The writer's one sanctioned write target —
+  ``.tmp_sandboxes/{scene_id}_{attempt}/`` — is NOT in the deny list.
+- Wave1 P0-3: the writer child env is WHITELISTED (system essentials + OM_*
+  + provider API keys, mirroring reviewer_wrapper.py.tmpl) — the full parent
+  environment (credentials included) never reaches the claude child.
 - 4A.1: prior reviewer findings appended to the writer task, gated on
   ``OM_FINDINGS_INJECT`` (default ON; ``=0`` disables both sides).
 - R2 (perf/cc-pipeline R1-R5): the static reviewer-style brief
@@ -59,7 +72,7 @@ Carries the landed Phase-1/2 semantics plus Phase-4A additions:
 Env: OM_SCENE_ID, OM_EPISODE_DIR, OM_ATTEMPT_INDEX (optional, default "0").
 Kill-switch: OM_LEGACY_QUARANTINE=1 restores the legacy pre-phase1 behavior
 (Claude writes the canonical scene file directly; own-output pre-clean, no
-sandbox, no promotion) — with the same scoped, accept-edits-free CLI.
+sandbox, no promotion) — with the same Wave1 P0-3 containment CLI shape.
 """
 from __future__ import annotations
 import json, os, re, shutil, subprocess, sys, threading, time
@@ -324,17 +337,72 @@ def _preflight_gate(episode: Path, scene_src: str, scene_id: str) -> bool:
     return True
 
 
-# --- R6: scoped writer CLI — never the accept-edits permission mode ---------
-def _writer_cmd() -> list[str]:
-    """Writer CLI invocation. R6: the accept-edits permission mode voids ``--allowedTools``
-    scoping (writer mutated the review packet). Default permission mode keeps
-    the ``--allowedTools`` whitelist enforced; no permission-mode flag passed.
+# --- R6 -> Wave1 P0-3: containment writer CLI --------------------------------
+# R6 history (phase 4A.2): the writer ran accept-edits with an ALLOW-list, and
+# allow-lists are VOID under ``--dangerously-skip-permissions`` (probe
+# 2026-11-14: Write/Edit/Bash still execute) — that writer mutated its review
+# packet in rounds 3-4. Wave1 P0-3 migrates the writer to the reviewer
+# wrapper's containment shape (reviewer_wrapper.py.tmpl header + phase1 task
+# 1.1): ``--permission-mode acceptEdits`` (plan/default modes return EMPTY
+# stdout under the skip flag) PLUS an explicit ``--disallowedTools`` deny-list
+# — the deny-list, unlike the allow-list, overrides the skip flag. Deny scope
+# (sandboxed writer, cwd = episode dir): the canonical ``scenes/`` dir (the
+# wrapper promotes validated output itself), ``packets/`` (the R6 mutation
+# surface), and repository infra dot-directories (``.git/``, ``.claude/``).
+# The writer's one sanctioned write target — ``.tmp_sandboxes/**`` — is NOT
+# denied, so no blanket ``.*`` dot pattern can be used (it would match the
+# sandbox dir itself); infra dot-dirs are enumerated explicitly.
+_WRITER_DISALLOWED_TOOLS = ",".join([
+    "Edit(scenes/**)", "Write(scenes/**)", "MultiEdit(scenes/**)",
+    "Edit(packets/**)", "Write(packets/**)", "MultiEdit(packets/**)",
+    "Edit(.git/**)", "Write(.git/**)", "Edit(.claude/**)", "Write(.claude/**)",
+])
+_WRITER_SCENES_DENY_RULES = ("Edit(scenes/**)", "Write(scenes/**)", "MultiEdit(scenes/**)")
+
+
+def _writer_cmd(legacy_writes_scenes: bool = False) -> list[str]:
+    """Writer CLI invocation (Wave1 P0-3): reviewer-wrapper containment shape —
+    ``--permission-mode acceptEdits`` + ``--disallowedTools`` deny-list, NO
+    allow-list flag (voided under ``--dangerously-skip-permissions``; R6
+    probe 2026-11-14 — the flag is gone for good, never re-added).
+    ``legacy_writes_scenes=True`` (OM_LEGACY_QUARANTINE=1 kill-switch flow)
+    drops the ``scenes/**`` deny rules: that legacy path has the writer edit
+    the canonical scene file directly (no sandbox, no promotion).
     """
+    if legacy_writes_scenes:
+        denied = ",".join(rule for rule in _WRITER_DISALLOWED_TOOLS.split(",")
+                          if rule not in _WRITER_SCENES_DENY_RULES)
+    else:
+        denied = _WRITER_DISALLOWED_TOOLS
     return [
         "claude", "--print", "--dangerously-skip-permissions",
-        "--allowedTools", "Read,Edit,Write,Bash,Glob,Grep",
+        "--permission-mode", "acceptEdits",
+        "--disallowedTools", denied,
         "--max-turns", MAX_TURNS,
     ]
+
+
+# --- Wave1 P0-3: reviewer-style child env whitelist --------------------------
+# Security containment (mirrors reviewer_wrapper.py.tmpl, review 2026-11-14):
+# the full parent process env carries credentials a writer session must never
+# see. Pass only system essentials, the OM_* pipeline contract vars, and the
+# provider API keys the claude CLI needs; MAX_THINKING_TOKENS stays explicit.
+_WRITER_ENV_ALLOW_KEYS = ("PATH", "HOME", "USER", "SHELL", "TMPDIR")
+_WRITER_ENV_ALLOW_PREFIXES = ("OM_",)
+_WRITER_ENV_ALLOW_PROVIDER_KEYS = ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY")
+
+
+def _writer_child_env() -> dict:
+    """Whitelisted env for the claude writer child — the full parent
+    environment (credentials included) never reaches the child."""
+    env = {
+        k: v for k, v in os.environ.items()
+        if k in _WRITER_ENV_ALLOW_KEYS
+        or k.startswith(_WRITER_ENV_ALLOW_PREFIXES)
+        or k in _WRITER_ENV_ALLOW_PROVIDER_KEYS
+    }
+    env["MAX_THINKING_TOKENS"] = "1024"
+    return env
 
 
 def _spawn_claude(cmd: list[str], cwd: Path, env: dict, log_path: Path):
@@ -565,9 +633,8 @@ def _legacy_main(scene_id: str, episode: Path, task_file: Path, log_dir: Path) -
     if block:
         task = task + block
         _log_prior_findings(log_path, block)
-    env = os.environ.copy()
-    env["MAX_THINKING_TOKENS"] = "1024"
-    cmd = _writer_cmd()
+    env = _writer_child_env()
+    cmd = _writer_cmd(legacy_writes_scenes=True)
 
     t0 = time.time()
     # Pre-clean own stale outputs (retries start fresh) + quarantine dir
@@ -652,8 +719,7 @@ def _sandboxed_main(scene_id: str, episode: Path, attempt_idx: str,
         task = task + block
         _log_prior_findings(log_path, block)
 
-    env = os.environ.copy()
-    env["MAX_THINKING_TOKENS"] = "1024"
+    env = _writer_child_env()
     cmd = _writer_cmd()
 
     # Task 2.2: jittered exponential backoff around the writer session. On a
