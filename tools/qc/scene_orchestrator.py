@@ -86,6 +86,7 @@ from tools.qc.episode_gate import validate_episode
 from tools.qc.reviewer_runner import REVIEW_TIMEOUT_VERDICT
 from tools.qc.writer_runner import is_transient_api_error
 from tools.qc.scene_packet import (
+    PROVENANCE_KEY,
     SCHEMA_VERSION,
     integrate_scene_packet,
     load_packet,
@@ -1281,6 +1282,14 @@ def load_existing_packet_or_template(episode_dir: Path, scene_id: str) -> dict[s
                 pass
 
     # Synthesize template
+    # Wave1 P0-2 item 2: the skeleton seeds NO provenance blocks at all —
+    # neither the old empty ``writer``/``writer_token``/``reviewer``/
+    # ``reviewer_token`` placeholders nor the fabricated
+    # ``verdict: "approved"``. Empty provenance blocks must never exist
+    # downstream: the writer/reviewer blocks are minted by the orchestrator
+    # only after a real writer run + approved review, and the integration
+    # gate rejects any packet whose provenance is missing or empty
+    # (scene_packet.py ``provenance_missing``/``provenance_incomplete``).
     return {
         "packet_type": "openmontage.scene-packet",
         "schema_version": SCHEMA_VERSION,
@@ -1293,18 +1302,6 @@ def load_existing_packet_or_template(episode_dir: Path, scene_id: str) -> dict[s
         "neighbor_context": {},
         "allowed_io": ["artifacts", "assets", "packets", "scene"],
         "frozen_inputs": {},
-        "writer": {"instance_id": "", "timestamp": "", "token": ""},
-        "writer_token": "",
-        "reviewer": {
-            "instance_id": "",
-            "timestamp": "",
-            "verdict": "approved",
-            "findings_ref": f"packets/{scene_id}_findings.json",
-            "findings_hash": "",
-            "token": "",
-            "reviewed_hashes": {},
-        },
-        "reviewer_token": "",
         "integration_status": "pending",
     }
 
@@ -1753,6 +1750,16 @@ def execute_scene_with_retries(
             assembled_packet = copy.deepcopy(base_template)
             assembled_packet["scene_id"] = scene_id
             assembled_packet["frozen_inputs"] = frozen_inputs
+            # Wave1 P0-2 item 1: mint writer provenance INTO frozen_inputs at
+            # packet creation — the frozen set carries who wrote this packet
+            # (instance id + token) and exactly which findings bytes the
+            # approved verdict is bound to. The integration gate cross-checks
+            # this block against the writer/reviewer blocks (scene_packet.py).
+            frozen_inputs[PROVENANCE_KEY] = {
+                "writer_instance_id": writer_id,
+                "writer_token": writer_token,
+                "findings_hash": findings_hash,
+            }
             assembled_packet["writer"] = {
                 "instance_id": writer_id,
                 "timestamp": writer_res.finished_at,

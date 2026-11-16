@@ -15,6 +15,15 @@ from lib.production_provenance import hash_file
 SCHEMA_VERSION = 1
 REQUIRED = {'packet_type','schema_version','scene_id','claims','narration','word_alignment','assets','style_contract','neighbor_context','allowed_io','frozen_inputs','writer','writer_token','reviewer','reviewer_token','integration_status'}
 OUTPUT_OBJECTS=('narration','word_alignment','style_contract')
+# Wave1 P0-2 item 1: writer-provenance block minted INTO frozen_inputs at packet
+# creation (scene_orchestrator). Reserved key inside the path->sha256 map; the
+# integration gate handles it specially (never hashed as a file, always
+# cross-checked against the packet's writer/reviewer blocks).
+PROVENANCE_KEY = '_provenance'
+PROVENANCE_FIELDS = ('writer_instance_id', 'writer_token', 'findings_hash')
+# Wave1 P0-2 item 4: scene .tsx entries in reviewer.reviewed_hashes are
+# re-verified against the on-disk file at integration time.
+SCENE_TSX_HASH_MISMATCH = 'scene_file_hash_mismatch'
 
 def validate_packet(packet):
     errors=[]
@@ -57,11 +66,33 @@ def integrate_scene_packet(packet, *, packet_path=None, writer_token=None, revie
     frozen=packet['frozen_inputs']
     frozen_hashes={}
     for name, expected in frozen.items():
+        if name == PROVENANCE_KEY:
+            continue  # provenance block, not a file — verified below
         resolved=_contained_path(name,root)
         if resolved is None:
             reasons.append({'code':'frozen_input_path_escape','message':f'frozen input outside episode root: {name}'}); continue
         digest=hash_file(resolved); frozen_hashes[resolved]=digest
         if not digest or digest != expected: reasons.append({'code':'frozen_input_mismatch','message':f'frozen input changed or missing: {name}'})
+    # Wave1 P0-2 item 1: the packet MUST carry the minted writer provenance
+    # block inside frozen_inputs, and it must agree with the packet's own
+    # writer/reviewer blocks. Empty/absent provenance never integrates (empty
+    # blocks must not exist downstream — item 2).
+    prov=frozen.get(PROVENANCE_KEY)
+    if not isinstance(prov,dict) or not prov:
+        reasons.append({'code':'provenance_missing','message':f"frozen_inputs.{PROVENANCE_KEY} missing — packet was not minted with writer provenance (re-run tools/qc/scene_orchestrator.py)"})
+    else:
+        for k in PROVENANCE_FIELDS:
+            v=prov.get(k)
+            if not isinstance(v,str) or not v:
+                reasons.append({'code':'provenance_incomplete','message':f"frozen_inputs.{PROVENANCE_KEY}.{k} missing or empty"})
+        wid=packet['writer'].get('instance_id'); wtok=packet['writer'].get('token') or packet.get('writer_token')
+        if isinstance(prov.get('writer_instance_id'),str) and prov.get('writer_instance_id') != wid:
+            reasons.append({'code':'provenance_writer_mismatch','message':'frozen_inputs._provenance.writer_instance_id differs from packet writer.instance_id'})
+        if isinstance(prov.get('writer_token'),str) and wtok and prov.get('writer_token') != wtok:
+            reasons.append({'code':'provenance_writer_mismatch','message':'frozen_inputs._provenance.writer_token differs from packet writer token'})
+        fh=prov.get('findings_hash'); rfh=packet['reviewer'].get('findings_hash')
+        if isinstance(fh,str) and fh and isinstance(rfh,str) and rfh and fh != rfh:
+            reasons.append({'code':'provenance_findings_mismatch','message':'frozen_inputs._provenance.findings_hash differs from packet reviewer.findings_hash'})
     out_refs=[]
     for field in OUTPUT_OBJECTS:
         ref=packet[field]['ref']; expected=packet[field]['sha256']; out_refs.append((ref,expected))
@@ -94,6 +125,22 @@ def integrate_scene_packet(packet, *, packet_path=None, writer_token=None, revie
         findings_path=_contained_path(findings,root); actual=hash_file(findings_path) if findings_path else ''
         if not actual or actual != expected_findings: reasons.append({'code':'findings_hash_mismatch','message':'reviewer findings hash mismatch or file missing'})
         if findings_path not in frozen_hashes or frozen_hashes.get(findings_path) != expected_findings: reasons.append({'code':'findings_not_frozen','message':'reviewer findings absent from frozen_inputs or hash differs'})
+    # Wave1 P0-2 item 4: re-verify the scene .tsx file(s) the reviewer bound
+    # via reviewed_hashes against the CURRENT on-disk bytes at integration
+    # time. The episode gate re-checks later, but a scene file edited between
+    # review and integration must never produce a valid packet.
+    reviewed=reviewer.get('reviewed_hashes')
+    if isinstance(reviewed,dict):
+        for rel,exp in reviewed.items():
+            if not isinstance(rel,str) or not rel.lower().endswith('.tsx'): continue
+            if not isinstance(exp,str) or not exp:
+                reasons.append({'code':SCENE_TSX_HASH_MISMATCH,'message':f'reviewed_hashes entry for {rel} is empty — approved verdict not bound to file content'}); continue
+            sp=_contained_path(rel,root)
+            if sp is None:
+                reasons.append({'code':'reviewed_scene_path_escape','message':f'reviewed scene path outside episode root: {rel}'}); continue
+            scur=hash_file(sp)
+            if not scur or scur != exp:
+                reasons.append({'code':SCENE_TSX_HASH_MISMATCH,'message':f'scene file changed since review (on-disk {scur[:12] or "missing"} != reviewed {exp[:12]}): {rel}'})
     allowed=[]
     for item in packet['allowed_io']:
         resolved=_contained_path(item,root)

@@ -1,5 +1,5 @@
 import hashlib
-from tools.qc.scene_packet import SCHEMA_VERSION, validate_packet, integrate_scene_packet
+from tools.qc.scene_packet import PROVENANCE_KEY, SCHEMA_VERSION, validate_packet, integrate_scene_packet
 
 def make(tmp_path):
     f=tmp_path/'frozen.txt'; f.write_text('stable')
@@ -8,6 +8,8 @@ def make(tmp_path):
     for name,content in [('audio.wav','audio'),('words.json','words'),('style.json','style'),('asset.png','asset'),('findings.json','findings')]:
         path=out/name; path.write_text(content); refs[name]=hashlib.sha256(path.read_bytes()).hexdigest()
     frozen={str(f):hashlib.sha256(f.read_bytes()).hexdigest()}; frozen.update({str(out/name):digest for name,digest in refs.items()})
+    # Wave1 P0-2: packets are minted with the writer provenance block.
+    frozen[PROVENANCE_KEY]={'writer_instance_id':'w','writer_token':'wt','findings_hash':refs['findings.json']}
     return {'packet_type':'openmontage.scene-packet','schema_version':SCHEMA_VERSION,'scene_id':'s1','claims':{'facts':['approved']},'narration':{'ref':'scene/audio.wav','sha256':refs['audio.wav']},'word_alignment':{'ref':'scene/words.json','sha256':refs['words.json']},'assets':[{'ref':'scene/asset.png','sha256':refs['asset.png'],'rights':'licensed'}],'style_contract':{'ref':'scene/style.json','sha256':refs['style.json']},'neighbor_context':{'prev':'previous scene','next':'next scene'},'allowed_io':['scene'],'frozen_inputs':frozen,'writer':{'instance_id':'w','timestamp':'now','token':'wt'},'writer_token':'wt','reviewer':{'instance_id':'r','timestamp':'now','verdict':'approved','findings_hash':refs['findings.json'],'findings_ref':'scene/findings.json','token':'rt'},'reviewer_token':'rt','integration_status':'pending'}
 
 def test_valid_happy_path(tmp_path):

@@ -53,6 +53,8 @@ def packet(root, scene_id='cut-1'):
  refs['findings.json']=hashlib.sha256(findings_path.read_bytes()).hexdigest()
  frozen={str(f):hashlib.sha256(f.read_bytes()).hexdigest()}
  frozen.update({str(out/name):digest for name,digest in refs.items()})
+ # Wave1 P0-2: packets are minted with the writer provenance block.
+ frozen['_provenance']={'writer_instance_id':'w','writer_token':'wt','findings_hash':refs['findings.json']}
  return {'packet_type':'openmontage.scene-packet','schema_version':SCHEMA_VERSION,'scene_id':scene_id,'claims':{'facts':['approved']},'narration':{'ref':'scene/audio.wav','sha256':refs['audio.wav']},'word_alignment':{'ref':'scene/words.json','sha256':refs['words.json']},'assets':[{'ref':'scene/asset.png','sha256':refs['asset.png'],'rights':'licensed'}],'style_contract':{'ref':'scene/style.json','sha256':refs['style.json']},'neighbor_context':{'prev':'previous scene','next':'next scene'},'allowed_io':['scene'],'frozen_inputs':frozen,'writer':{'instance_id':'w','timestamp':'t','token':'wt'},'writer_token':'wt','reviewer':{'instance_id':'r','timestamp':'t','verdict':'approved','findings_hash':refs['findings.json'],'findings_ref':'scene/findings.json','token':'rt','reviewed_hashes':reviewed_hashes},'reviewer_token':'rt','integration_status':'pending'}
 
 
@@ -91,6 +93,8 @@ def valid_episode(root):
  f_hash=hashlib.sha256(fp.read_bytes()).hexdigest()
  p['reviewer']['findings_hash']=f_hash
  p['frozen_inputs'][str(fp)]=f_hash
+ # Wave1 P0-2: findings evidence changed -> re-point the minted provenance
+ p['frozen_inputs']['_provenance']['findings_hash']=f_hash
  (project/'packet.json').write_text(json.dumps(p))
  return project
 
