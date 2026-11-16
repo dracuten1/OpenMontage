@@ -85,3 +85,48 @@ def test_dims_other_episodes_ignored(tmp_path):
     _register_root(src, "my-slug", [("my-slug-DRAFT", 1080, 1920), ("other-slug-DRAFT", 720, 1280)])
     assert _check_composition_dims(ep) == []
     assert len(_episode_compositions(ep)) == 2
+
+# --- Wave1 P0-2 item 3: the plural `scenes/` layout must be checked too ---
+
+def _pkt_scenes_layout(root, sid, verdict="approved", reviewed=None):
+    tsx = root / "scenes" / f"{sid}.tsx"
+    tsx.parent.mkdir(parents=True, exist_ok=True)
+    tsx.write_text(f"// {sid}\n")
+    h = hashlib.sha256(tsx.read_bytes()).hexdigest()
+    rh = reviewed if reviewed is not None else {f"scenes/{sid}.tsx": h}
+    (root / f"packet_{sid}.json").write_text(json.dumps({
+        "packet_type": "openmontage.scene-packet", "scene_id": sid,
+        "reviewer": {"verdict": verdict, "reviewed_hashes": rh},
+    }))
+    return tsx
+
+def test_scenes_layout_provenance_ok(tmp_path):
+    _pkt_scenes_layout(tmp_path, "scene-1")
+    assert _check_scene_tsx_provenance(tmp_path) == []
+
+def test_scenes_layout_stale_actually_fires(tmp_path):
+    """Regression: the old code only probed scene/ — on the modern scenes/
+    layout the whole provenance family silently no-op'd."""
+    tsx = _pkt_scenes_layout(tmp_path, "scene-1")
+    tsx.write_text("// hand-edited after review\n")
+    reasons = _check_scene_tsx_provenance(tmp_path)
+    assert codes(reasons) == ["scene_provenance_stale"]
+
+def test_scenes_layout_missing_packet(tmp_path):
+    (tmp_path / "scenes").mkdir(parents=True)
+    (tmp_path / "scenes" / "scene-1.tsx").write_text("// x")
+    assert codes(_check_scene_tsx_provenance(tmp_path)) == ["scene_provenance_missing"]
+
+def test_scenes_layout_not_approved(tmp_path):
+    _pkt_scenes_layout(tmp_path, "scene-1", verdict="rejected")
+    assert codes(_check_scene_tsx_provenance(tmp_path)) == ["scene_provenance_not_approved"]
+
+def test_scenes_layout_unbound(tmp_path):
+    _pkt_scenes_layout(tmp_path, "scene-1", reviewed={"scenes/other.tsx": "deadbeef"})
+    assert codes(_check_scene_tsx_provenance(tmp_path)) == ["scene_provenance_unbound"]
+
+def test_scene_layout_stale_still_fires_singular(tmp_path):
+    """The legacy singular scene/ layout keeps working after the probe fix."""
+    tsx = _pkt(tmp_path, "scene-1")
+    tsx.write_text("// hand-edited after review\n")
+    assert codes(_check_scene_tsx_provenance(tmp_path)) == ["scene_provenance_stale"]

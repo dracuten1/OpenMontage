@@ -17,14 +17,20 @@ def _check_scene_tsx_provenance(root: Path):
     provenance. Legacy single-file episodes (no scene/ dir) are unaffected.
     """
     reasons = []
-    scene_dir = root / 'scene'
+    # Wave1 P0-2 item 3: probe BOTH scene-dir spellings, preferring the
+    # modern plural ``scenes/`` layout (same probe as the orchestrator's
+    # get_scenes_dir). The old code only looked at ``scene/`` — on episodes
+    # laid out as ``scenes/*.tsx`` (every current project) the whole
+    # scene_provenance_* family silently no-op'd.
+    scene_dir = root / 'scenes' if (root / 'scenes').is_dir() else root / 'scene'
     if not scene_dir.is_dir():
         return reasons
     tsx_files = sorted(scene_dir.glob('*.tsx'))
     if not tsx_files:
         return reasons
+    scenes_rel_prefix = scene_dir.name  # 'scenes' or 'scene'
     for tsx in tsx_files:
-        rel = f'scene/{tsx.name}'
+        rel = f'{scenes_rel_prefix}/{tsx.name}'
         sid = tsx.stem
         pkt_path = root / f'packet_{sid}.json'
         if not pkt_path.is_file():
@@ -45,7 +51,7 @@ def _check_scene_tsx_provenance(root: Path):
             continue
         rh = reviewer.get('reviewed_hashes')
         rh = rh if isinstance(rh, dict) else {}
-        exp = rh.get(rel) or rh.get(tsx.name)
+        exp = rh.get(rel) or rh.get(tsx.name) or rh.get(f'scene/{tsx.name}')
         if not exp:
             reasons.append({'code': 'scene_provenance_unbound',
                 'message': f'{rel}: approved verdict not bound to this scene file (no reviewed_hashes entry)'})
