@@ -472,15 +472,24 @@ def test_mint_strict_fails_on_hand_edit_after_mint(tmp_path):
 
 
 def test_generated_wrappers_contract(tmp_path):
-    """Contract greps against ACTUAL rendered artifacts (plan verification)."""
+    """Contract greps against ACTUAL rendered artifacts (plan verification) —
+    UPDATED Wave1 P0-3 (2026-11-16): the writer now carries the reviewer
+    containment shape (acceptEdits + --disallowedTools deny-list, NO
+    allow-list flag); the launcher stays claude-flag-free; see
+    test_template_contract_greps for the superseded-R6 rationale."""
     ep, project = build_project_layout(tmp_path)
     from tools.qc.mint_project_pipeline import main as mint_main
     assert mint_main(["--project-dir", str(project), "--scenes", "3"]) == 0
     cc = project / "scripts" / "cc_pipeline"
     for py in cc.glob("*.py"):
-        if py.name != "reviewer_wrapper.py":
+        if py.name == "run_cc_pipeline.py":
+            # launcher dispatches wrappers, not claude — no CLI permission flags
             assert "acceptEdits" not in py.read_text(encoding="utf-8"), py.name
+            assert "allowedTools" not in py.read_text(encoding="utf-8"), py.name
         assert 'OM_MAX_CONCURRENCY", "2"' not in py.read_text(encoding="utf-8"), py.name
+    writer = (cc / "writer_wrapper.py").read_text(encoding="utf-8")
+    assert "acceptEdits" in writer and "--disallowedTools" in writer
+    assert '"--allowedTools"' not in writer  # voided allow-list: gone from code
     assert "acceptEdits" in (cc / "reviewer_wrapper.py").read_text(encoding="utf-8")
     launcher = (cc / "run_cc_pipeline.py").read_text(encoding="utf-8")
     assert "from tools.qc.concurrency_governor import ConcurrencyGovernor" in launcher
