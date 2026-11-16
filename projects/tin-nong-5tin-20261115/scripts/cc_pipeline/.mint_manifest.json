@@ -1,0 +1,20 @@
+{
+  "minted_at": "2026-11-15T14:49:23.163166+00:00",
+  "om_commit": "7003197a8097e261c4b6b1314f3324c8751eb738",
+  "template_content_hash": "aa3659066d02fb5024edcc7b9f8d140c97d1ab79f7afc75dc0d39437d1484c31",
+  "templates": {
+    "reviewer_wrapper.py.tmpl": "b1624954438d20b5ad61c62019cdcc33839a06a5c249007b3a1bb205039a7fb3",
+    "run_cc_pipeline.py.tmpl": "c944292901710b62483cbbb128eb8b1da0a883401b7c86e1caf0dd436b3f705b",
+    "writer_wrapper.py.tmpl": "0417230538ed3c3988ec0f19cea33c3782f4d339ef55b432873eddca53aa7ff9"
+  },
+  "rendered": {
+    "writer_wrapper.py": "0417230538ed3c3988ec0f19cea33c3782f4d339ef55b432873eddca53aa7ff9",
+    "reviewer_wrapper.py": "b1624954438d20b5ad61c62019cdcc33839a06a5c249007b3a1bb205039a7fb3",
+    "run_cc_pipeline.py": "7f4353bd6cfc7659b6d092235d2fe3a60d03e5b4562663576afc8a3adc013b76"
+  },
+  "project": "tin-nong-5tin-20261115",
+  "scene_count": 15,
+  "strict": false,
+  "force": false,
+  "preserved_scenes": []
+}
