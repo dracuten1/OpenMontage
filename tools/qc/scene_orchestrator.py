@@ -861,6 +861,45 @@ class CallableAgentRunner(AgentRunner):
         )
 
 
+# --- Wave1 P0-3: least-privilege child env for agent subprocesses -----------
+# The orchestrator used to hand the full os.environ (incl. credentials) to the
+# writer/reviewer child processes. Mirror the minted-wrapper allowlists from
+# cc_wrapper_templates so the wrapper child itself is scoped the same way its
+# inner claude child already was. Superset-consistent: each list contains the
+# template's keys plus the runner's own deliberate injections (OM_ROLE,
+# OM_INSTANCE_ID, OM_TOKEN — provenance IDs the internal entrypoint expects).
+_ORCH_CHILD_ENV_ALLOW_KEYS = ("PATH", "HOME", "USER", "SHELL", "TMPDIR")
+_ORCH_WRITER_ENV_ALLOW_OM_KEYS = (
+    "OM_ROLE", "OM_SCENE_ID", "OM_EPISODE_DIR", "OM_ATTEMPT_INDEX",
+    "OM_CC_WATCHDOG", "OM_TSC_TIMEOUT", "OM_FINDINGS_INJECT",
+    "OM_LEGACY_QUARANTINE", "OM_MAX_CONCURRENCY", "OM_WRAPPER_TEMPLATE_STRICT",
+)
+_ORCH_REVIEWER_ENV_ALLOW_OM_KEYS = (
+    "OM_ROLE", "OM_SCENE_ID", "OM_SANDBOX_DIR", "OM_CANONICAL_DIR",
+    "OM_CC_REVIEW_MAX_TURNS", "OM_CC_REVIEW_WATCHDOG", "OM_CC_REVIEW_OUTPUT",
+    "OM_CC_REVIEW_STREAM_ATTEMPTS", "OM_CC_REVIEW_STREAM_SLEEP",
+)
+
+
+def _build_child_env(
+    allow_keys: tuple[str, ...],
+    allow_om_keys: tuple[str, ...],
+    injected: dict[str, str],
+    extra_env: dict[str, str] | None = None,
+) -> dict[str, str]:
+    """Whitelist the ambient environment for an agent child process.
+
+    Only allowlisted ambient keys survive (missing keys are skipped — no
+    KeyError); the runner's deliberate ``injected`` vars and the caller's
+    explicit ``extra_env`` are then merged on top.
+    """
+    env = {k: os.environ[k] for k in (*allow_keys, *allow_om_keys) if k in os.environ}
+    env.update(injected)
+    if extra_env:
+        env.update(extra_env)
+    return env
+
+
 class SubprocessAgentRunner(AgentRunner):
     """Executes fresh agent instances as isolated operating system subprocesses.
 
@@ -900,15 +939,19 @@ class SubprocessAgentRunner(AgentRunner):
                 "--workdir", str(context.episode_dir),
             ]
 
-        env = os.environ.copy()
-        env.update({
+        injected = {
             "OM_ROLE": "writer",
             "OM_SCENE_ID": context.scene_id,
             "OM_INSTANCE_ID": context.instance_id,
             "OM_TOKEN": context.token,
             "OM_EPISODE_DIR": str(context.episode_dir),
-        })
-        env.update(context.extra_env)
+        }
+        env = _build_child_env(
+            _ORCH_CHILD_ENV_ALLOW_KEYS,
+            _ORCH_WRITER_ENV_ALLOW_OM_KEYS,
+            injected,
+            context.extra_env,
+        )
 
         try:
             proc = subprocess.run(
@@ -968,16 +1011,20 @@ class SubprocessAgentRunner(AgentRunner):
                 "--output-hashes", json.dumps(context.output_hashes),
             ]
 
-        env = os.environ.copy()
-        env.update({
+        injected = {
             "OM_ROLE": "reviewer",
             "OM_SCENE_ID": context.scene_id,
             "OM_INSTANCE_ID": context.instance_id,
             "OM_TOKEN": context.token,
             "OM_SANDBOX_DIR": str(context.sandbox_dir),
             "OM_CANONICAL_DIR": str(context.canonical_dir),
-        })
-        env.update(context.extra_env)
+        }
+        env = _build_child_env(
+            _ORCH_CHILD_ENV_ALLOW_KEYS,
+            _ORCH_REVIEWER_ENV_ALLOW_OM_KEYS,
+            injected,
+            context.extra_env,
+        )
 
         try:
             proc = subprocess.run(
