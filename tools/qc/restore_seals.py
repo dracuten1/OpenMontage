@@ -34,7 +34,13 @@ CLI:
         [--dry-run] [--force]
 
 Exit codes: 0 ok/dry-run; 1 missing (truly-absent) evidence; 2 usage/parse
-errors; 3 restore ran but hash-drifted scenes were refused.
+errors; 3 restore ran but hash-drifted scenes could not be sealed (re-dispatch
+failed or was declined). Wave1 P0-2 item 5: hash drift NO LONGER silently
+refuses — by default the drifted scenes are force re-dispatched through
+``tools.qc.scene_orchestrator.orchestrate_episode`` (fresh writer + reviewer
+for exactly those scenes, explicit ``scene_ids`` pins the list verbatim), and
+a re-seal of the surviving evidence is attempted afterwards. Pass
+``--no-redispatch`` to keep the legacy refuse-only behavior.
 """
 from __future__ import annotations
 
@@ -57,7 +63,7 @@ from tools.qc.scene_orchestrator import (  # noqa: E402
     discover_authoritative_scenes,
     resolve_project_root_from_episode,
 )
-from tools.qc.scene_packet import SCHEMA_VERSION  # noqa: E402
+from tools.qc.scene_packet import PROVENANCE_KEY, SCHEMA_VERSION  # noqa: E402
 
 PRESERVE_ENV = "OM_REMINT_PRESERVE"
 PACKET_FILENAME_FMT = "packet_{scene_id}.json"
@@ -76,6 +82,8 @@ __all__ = [
     "scene_seal_payload",
     "scene_seal_status",
     "restore_scene_seal",
+    "redispatch_drifted_scenes",
+    "redispatch_succeeded",
     "build_parser",
     "main",
 ]
@@ -445,6 +453,55 @@ def hash_binding_mismatches(reviewed_hashes: dict[str, str], episode_dir: Path |
 
 
 # ==============================================================================
+# Wave1 P0-2 item 5: drift forces writer+reviewer re-dispatch
+# ==============================================================================
+
+def redispatch_drifted_scenes(
+    scene_ids: list[str],
+    episode_dir: Path,
+    runner: Any = None,
+    max_retries: int = 1,
+) -> Any:
+    """Force a fresh writer+reviewer round for hash-drifted scenes.
+
+    The re-dispatch goes through the orchestrator's normal gate stack
+    (``orchestrate_episode`` with an EXPLICIT ``scene_ids`` list — the
+    operator-pinned path that always dispatches verbatim and never consults
+    the preserve set). Every provenance gate re-runs per attempt: fresh
+    writer token, fresh reviewer verdict, findings hash re-minted into
+    ``frozen_inputs``. Returns the OrchestrationSession.
+    """
+    # Local import keeps the module import graph identical for consumers that
+    # only need the seal utilities (orchestrate_episode pulls the runner zoo).
+    from tools.qc.scene_orchestrator import orchestrate_episode
+
+    valid = [s for s in scene_ids if is_valid_scene_id(s)]
+    skipped = [s for s in scene_ids if not is_valid_scene_id(s)]
+    if skipped:
+        print(f"WARNING: re-dispatch skipped invalid scene id(s): {', '.join(sorted(skipped))}")
+    if not valid:
+        print("WARNING: no valid scene ids to re-dispatch")
+        return None
+    print(f"re-dispatch: writer+reviewer for {len(valid)} drifted scene(s): {', '.join(sorted(valid))}")
+    return orchestrate_episode(
+        episode_dir=Path(episode_dir),
+        scene_ids=valid,
+        runner=runner,
+        max_retries=max_retries,
+    )
+
+
+def redispatch_succeeded(session: Any) -> bool:
+    """True when every scene record in a re-dispatch session ended successful."""
+    if session is None:
+        return False
+    scenes = getattr(session, "scenes", None)
+    if not isinstance(scenes, dict) or not scenes:
+        return False
+    return all(getattr(rec, "success", False) for rec in scenes.values())
+
+
+# ==============================================================================
 # Preserve detection (re-mint integration)
 # ==============================================================================
 
@@ -585,6 +642,20 @@ def build_sealed_packet(
     }
     packet["reviewer_token"] = payload["reviewer_token"]
     packet["integration_status"] = "integrated"
+    # Wave1 P0-2 items 1+2: backfill the frozen-inputs provenance block from
+    # the on-disk evidence payload (writer identity + reviewer findings hash
+    # recorded by the orchestrator). Never synthesized: every value comes
+    # from evidence the restore CLI verified (scene_seal_status gates on
+    # writer token + approved verdict + reviewed_hashes before status "ok").
+    frozen = packet.get("frozen_inputs")
+    if not isinstance(frozen, dict):
+        frozen = {}
+    frozen[PROVENANCE_KEY] = {
+        "writer_instance_id": payload["writer_instance_id"],
+        "writer_token": payload["writer_token"],
+        "findings_hash": payload["findings_hash"],
+    }
+    packet["frozen_inputs"] = frozen
     return packet
 
 
@@ -650,6 +721,16 @@ def build_parser() -> argparse.ArgumentParser:
         "--force", action="store_true",
         help="Force re-seal even for scenes whose packet is already preserved "
              "(never overrides hash-drift refusal).",
+    )
+    parser.add_argument(
+        "--redispatch", dest="redispatch", action="store_true", default=True,
+        help="Wave1 P0-2 (default): hash-drifted scenes force a fresh "
+             "writer+reviewer round via tools.qc.scene_orchestrator.",
+    )
+    parser.add_argument(
+        "--no-redispatch", dest="redispatch", action="store_false",
+        help="Legacy behavior: refuse drifted scenes (exit 3) without "
+             "re-dispatching writer/reviewer.",
     )
     return parser
 
@@ -737,16 +818,28 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  hash drift ({sid}): " + "; ".join(drift[sid]))
 
     if args.dry_run:
+        if drift:
+            print("dry-run: hash drift detected — without --dry-run these scenes would be "
+                  f"re-dispatched (writer+reviewer): {', '.join(sorted(drift))}"
+                  if args.redispatch else
+                  "dry-run: hash drift detected — without --dry-run these scenes would be refused (exit 3)")
         print("dry-run: no packets written")
         return 0
 
     restored = 0
     skipped = 0
+    redispatch_failed: list[str] = []
     for sid in sorted(payloads):
         if sid in drift:
-            # Invariant: drift refusal CANNOT be bypassed by --force — a
-            # re-seal would bind stale reviewed hashes and defeat the gate.
-            print(f"REFUSED {sid}: scene files changed since review — re-run writer/reviewer instead of re-sealing")
+            # Invariant: a re-seal of DRIFTED evidence can never happen — it
+            # would bind stale reviewed hashes and defeat the gate. Wave1
+            # P0-2 item 5: instead of refusing and stopping there, the drift
+            # triggers a fresh writer+reviewer round for exactly those scenes
+            # (unless --no-redispatch restores the legacy refuse-only path).
+            if not args.redispatch:
+                print(f"REFUSED {sid}: scene files changed since review — re-run writer/reviewer instead of re-sealing")
+                continue
+            print(f"DRIFT {sid}: scene files changed since review — writer/reviewer re-dispatch forced")
             continue
         if sid in preserved and not args.force:
             print(f"skipped {sid}: packet already preserved (use --force to re-seal)")
@@ -755,8 +848,26 @@ def main(argv: list[str] | None = None) -> int:
         path = restore_scene_seal(payloads[sid], sid, episode_dir)
         restored += 1
         print(f"re-sealed {sid} -> {path} (integration_status=integrated)")
-    print(f"done: {restored} re-sealed, {skipped} preserved skipped, {len(drift)} hash-drift refused")
-    return 3 if drift else 0
+
+    # Wave1 P0-2 item 5: the re-dispatch trigger runs AFTER the sealable set
+    # is restored, so preserved/undrifted scenes are sealed first and only
+    # the drifted ones pay a fresh writer+reviewer round.
+    if drift and args.redispatch:
+        session = redispatch_drifted_scenes(sorted(drift), Path(episode_dir))
+        if redispatch_succeeded(session):
+            print(f"re-dispatch OK: {len(drift)} drifted scene(s) re-approved through the full gate stack")
+        else:
+            failed = sorted(getattr(session, "scenes", {}).keys()) if session is not None else sorted(drift)
+            print(f"re-dispatch FAILED for: {', '.join(failed)}", file=sys.stderr)
+            redispatch_failed = failed
+
+    if redispatch_failed:
+        print(f"done: {restored} re-sealed, {skipped} preserved skipped, "
+              f"{len(drift)} hash-drift re-dispatched ({len(redispatch_failed)} failed)")
+        return 3
+    print(f"done: {restored} re-sealed, {skipped} preserved skipped, "
+          f"{len(drift)} hash-drift {'re-dispatched' if drift and args.redispatch else 'refused'}")
+    return 3 if (drift and not args.redispatch) else 0
 
 
 if __name__ == "__main__":

@@ -271,9 +271,13 @@ def test_force_reseals_already_preserved_packet(tmp_path, capsys):
 
 def test_restore_refuses_hash_drifted_scene(tmp_path, capsys):
     ep, ev_file = build_restore_fixture(tmp_path, clobber=("scene-1",))
-    # scene-1's file drifted after review — re-sealing would bind a stale hash
+    # scene-1's file drifted after review — re-sealing would bind a stale hash.
+    # Wave1 P0-2: default mode re-dispatches drifted scenes (see
+    # test_cli_default_redispatches_drifted_scenes); this pins the legacy
+    # --no-redispatch refusal path.
     (ep / "scene" / "audio.wav").write_text("drifted content", encoding="utf-8")
-    rc = restore_main(["--from-evidence", str(ev_file), "--episode-dir", str(ep)])
+    rc = restore_main(["--from-evidence", str(ev_file), "--episode-dir", str(ep),
+                       "--no-redispatch"])
     assert rc == 3  # W8: refusals in a non-dry-run restore exit non-zero
     out = capsys.readouterr().out
     assert "hash drift" in out and "REFUSED scene-1" in out
@@ -598,11 +602,14 @@ def test_recorded_packet_path_outside_episode_is_clamped(tmp_path, capsys):
 
 def test_drift_refusal_cannot_be_bypassed_by_force(tmp_path, capsys):
     """Spec-critical invariant: --force re-seals preserved packets but can
-    NEVER override hash-drift refusal."""
+    NEVER override hash-drift refusal (no drifted scene is ever re-sealed).
+    Wave1 P0-2: pinned on the --no-redispatch path; the default re-dispatch
+    path never re-seals drift either (see test_cli_default_redispatches_*)."""
     ep, ev_file = build_restore_fixture(tmp_path)
     (ep / "scene" / "audio.wav").write_text("drifted", encoding="utf-8")  # both scenes drift
     before = {sid: (ep / f"packet_{sid}.json").read_text(encoding="utf-8") for sid in SCENE_IDS}
-    rc = restore_main(["--from-evidence", str(ev_file), "--episode-dir", str(ep), "--force"])
+    rc = restore_main(["--from-evidence", str(ev_file), "--episode-dir", str(ep),
+                       "--force", "--no-redispatch"])
     assert rc == 3
     out = capsys.readouterr().out
     assert "REFUSED scene-1" in out and "REFUSED scene-2" in out
