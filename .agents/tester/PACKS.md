@@ -172,3 +172,14 @@ Wrapper: perl-alarm 300 (no timeout/gtimeout on host). Interpreter: /Users/tuyen
 |------|------|-------|----------|--------|
 | reviewer_hotfix_targeted_pack | verification | tests/test_scene_orchestrator_denials.py, test_video_slowfix_phase1.py, test_video_slowfix_phase4.py, test_scene_orchestrator.py, test_perf_r1_governor.py, test_perf_r1_r5.py, test_restore_seals.py, test_video_slowfix_phase2.py, test_video_contract_docs.py (226 tests) | 2026-11-14 | PASS (223/226; 3 pre-existing docs drift in test_video_contract_docs.py) |
 | wrapper_syntax_contract_pack | contract | py_compile (6 wrappers), --disallowedTools argv check, env whitelist filtering, dot-dir sandbox rejection | 2026-11-14 | PASS (4/4 checks) |
+
+## 2026-11-16 — Wave 0 (P0-1) wrapper backport + re-mint verification (branch fix/roadmap-wave0-wave1 @ 096e305)
+
+Ad-hoc inline packs (full evidence in RESULTS/2026-11-16-wave0-p0-1-wrapper-verification.md).
+Wrapper: perl-alarm (no timeout/gtimeout on host). Interpreter: system python3 (worktree has no venv). Read-only; re-renders to mktemp only.
+
+| Pack | Type | Scope | Last Run | Status |
+|------|------|-------|----------|--------|
+| wave0_p0_1_hash_identity_pack | verification | 10-way sha256 (reviewer+writer tmpl vs 4 deployed each), 6-pair run_cc_pipeline variance (slug-only), minter `_render` re-render to tmp (12/12 byte-match), placeholder inventory (reviewer 0 / writer 0 real / run_cc_pipeline exactly 2 documented vars) | 2026-11-16 | PASS 6/6 sub-checks |
+| wave0_p0_1_hunks_syntax_pack | static | hunks A-E + faa warm-up/stdin-race across template + 4 deployed reviewers (all 5 identical); py_compile 11 files (cfile→/tmp, no repo writes) | 2026-11-16 | PASS (hunk A wire-level nuance documented; 11/11 exit 0) |
+| wave0_p0_1_verdict_smoke_pack | behavioral (offline, no LLM) | findings-file verdict + reviewed_hashes re-stamp hash equality, OM_CC_REVIEW_OUTPUT json/unset/garbage gate, stdout-masquerade precedence × canary-phase4 + tin-nong-5tin-20261115 | 2026-11-16 | PASS (all scenarios, both variants; masquerade blocked) |
