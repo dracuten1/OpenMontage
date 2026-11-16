@@ -437,7 +437,6 @@ def _mint_and_run_writer(tmp_path, ep, project, monkeypatch, stub_bin):
     from tools.qc.mint_project_pipeline import main as mint_main
     monkeypatch.setenv("OM_WRAPPER_TEMPLATE_STRICT", "0")
     assert mint_main(["--project-dir", str(project)]) == 0
-    monkeypatch.setenv("OM_STUB_PROJECT_ROOT", str(project))
     monkeypatch.setenv("OM_SCENE_ID", "scene-1")
     monkeypatch.setenv("OM_EPISODE_DIR", str(ep))
     monkeypatch.setenv("OM_ATTEMPT_INDEX", "1")
@@ -482,10 +481,14 @@ def test_writer_preamble_names_resolved_canonical_target(tmp_path, stub_claude_b
     prompt, resolver and promotion. Verified against the stub claude's view."""
     from tests.test_video_slowfix_phase4 import build_project_layout
 
+    # Stub dump goes through OM_EPISODE_DIR — a key the wrapper's child-env
+    # whitelist guarantees (P0-3 hardening); OM_STUB_PROJECT_ROOT is NOT
+    # allowlisted and never reaches the claude child.
     stub_src = STUB_CLAUDE.replace(
         "sys.exit(0)",
-        "Path(os.environ['OM_STUB_PROJECT_ROOT'], 'history', 'task_dump.txt')"
-        ".write_text(sys.stdin.read(), encoding='utf-8')\nsys.exit(0)")
+        "hist = Path(os.environ['OM_EPISODE_DIR'], 'history')\n"
+        "hist.mkdir(parents=True, exist_ok=True)\n"
+        "(hist / 'task_dump.txt').write_text(sys.stdin.read(), encoding='utf-8')\nsys.exit(0)")
     bindir = tmp_path / "stubbin_task"
     bindir.mkdir()
     stub = bindir / "claude"
@@ -496,7 +499,7 @@ def test_writer_preamble_names_resolved_canonical_target(tmp_path, stub_claude_b
     ep, project = build_project_layout(tmp_path, scene_ids=["scene-1"])
     _mint_and_run_writer(tmp_path, ep, project, monkeypatch, bindir)
 
-    task = (project / "history" / "task_dump.txt").read_text(encoding="utf-8")
+    task = (ep / "history" / "task_dump.txt").read_text(encoding="utf-8")
     assert "scenes/S01.tsx" in task
     assert "S{NN}.tsx" in task
     assert "OpenMontage scene filename convention" in task
