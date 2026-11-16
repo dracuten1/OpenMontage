@@ -70,9 +70,6 @@ class CCRunner(SubprocessAgentRunner):
         try:
             proc = subprocess.run(cmd, cwd=str(cwd), env=env, capture_output=True,
                                   text=True, timeout=timeout)
-            print(f"[agent] {env_extra.get('OM_ROLE')} {env_extra.get('OM_SCENE_ID')} "
-                  f"exit={proc.returncode} dur={time.time()-t0:.0f}s "
-                  f"out={len(proc.stdout or '')}B err={(proc.stderr or '')[:120]!r}", flush=True)
             return AgentRunResult(
                 instance_id=env_extra.get("OM_INSTANCE_ID", ""),
                 token=env_extra.get("OM_TOKEN", ""),

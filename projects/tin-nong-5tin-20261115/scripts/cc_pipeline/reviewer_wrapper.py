@@ -134,8 +134,8 @@ Checks (each → issue list entry when violated):
 2. Uses shared contracts (imports from './theme' / './timing' / './lib/SceneShell' or '../../components/...') — no re-implemented copies.
 3. Every animation anchor (interpolate input frame / spring condition) stays within scene window [0, window_frames] read from `artifacts/words_{scene_id}.json`; key word anchors match spoken words ±9f; last cue + reveal must end >=45f before scene end — EXCEPTION: when the final spoken-word cue lands after 65% of window_frames, >=20f tail suffices (compact the reveal: shorter duration, no multi-step stagger on the tail block). No overflow past window end.
 4. No CSS `transition:` string. No `staticFile(` usage for images. No `<Img` of generated media.
-5. Flex-column stacking (no sibling absolute blocks with tops <20px apart); container heights >= children stack + 30px; content lives INSIDE the episode band (theme.ts SAFE: margin 115, content band y460-1220) — generic y1300-1440 / x<=940 ranges DO NOT apply to this episode; right edge x<=965 (=1080-115) is compliant.
-6. spring damping per episode tokens: MOTION.pop (damping 14, theme.ts spring directive) and MOTION.settle (damping 20) are BOTH compliant; no damping below 14; translateY positive→0; no camera scale/translate.
+5. Flex-column stacking (no sibling absolute blocks with tops <20px apart); container heights >= children stack + 30px; content distributed across y330–1440, last block ends y1300–1440; right edge x<=940.
+6. spring damping >= 20; translateY positive→0; no camera scale/translate.
 7. Numbers/labels on screen match the scene spec JSON exactly (whitelist values; caveat labels present when specified).
 
 You do not have write access to scene files, and you must not create or edit ANY other file EXCEPT ONE: your findings file `packets/{scene_id}_findings.json` (path relative to this sandbox). After your silent checks, use the Write tool to create that file with EXACTLY this JSON content (no markdown fence, no extra keys):
@@ -162,6 +162,32 @@ Max 12 turns, reads <=4.
         or k in _ENV_ALLOW_PROVIDER_KEYS
     }
     env["MAX_THINKING_TOKENS"] = "1024"
+    # Per-cwd warm-up (faa hotfix 2026-11-14): the claude CLI's FIRST --print run in a fresh working
+    # directory returns EMPTY stdout (no verdict possible); the SECOND run in
+    # the SAME directory works (project trust/onboarding entry materialized).
+    # Verified by probe 14/11: fresh dir run1 empty -> run2 verdict. So burn a
+    # cheap one-liner session on the sandbox path before the real review.
+    try:
+        warm_file = sandbox / ".reviewer_warmup.md"
+        warm_file.write_text("Reply with exactly: READY", encoding="utf-8")
+        warm_cmd = build_reviewer_cmd("3")
+        wproc = subprocess.Popen(warm_cmd, cwd=str(sandbox), env=env,
+                                 stdin=open(warm_file, "r", encoding="utf-8"),
+                                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        try:
+            wproc.communicate(timeout=120)
+        except subprocess.TimeoutExpired:
+            wproc.kill()
+            wproc.communicate()
+        warm_file.unlink(missing_ok=True)
+    except Exception as _werr:
+        print(f"reviewer {scene_id}: warmup skipped ({_werr})", file=sys.stderr)
+    # Stdin race fix (faa hotfix 2026-11-14): communicate()-piped tasks lose the CLI's 3s stdin read
+    # race under concurrency ("no stdin data received in 3s" -> empty session
+    # -> no verdict). Feed the task from a file so it is ready when the CLI
+    # finally reads stdin, however slow the node boot is.
+    task_file = sandbox / ".reviewer_task.md"
+    task_file.write_text(task, encoding="utf-8")
     max_turns = os.environ.get("OM_CC_REVIEW_MAX_TURNS", DEFAULT_REVIEW_MAX_TURNS)
     cmd = build_reviewer_cmd(max_turns)
     # Hotfix 2026-11-15 (lead, env-gated): text-mode stdout from the claude CLI
@@ -217,7 +243,8 @@ Max 12 turns, reads <=4.
     verdict_seen = False
     for stream_attempt in range(1, max_stream_attempts + 1):
         try:
-            proc = subprocess.Popen(cmd, cwd=str(sandbox), env=env, stdin=subprocess.PIPE,
+            proc = subprocess.Popen(cmd, cwd=str(sandbox), env=env,
+                                    stdin=open(task_file, "r", encoding="utf-8"),
                                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         except Exception as e:
             print(f"REVIEWER SPAWN FAIL {scene_id}: {e}", file=sys.stderr)
@@ -235,7 +262,7 @@ Max 12 turns, reads <=4.
             except Exception:
                 pass
         threading.Thread(target=_kill, args=(proc,), daemon=True).start()
-        out, _ = proc.communicate(task)
+        out, _ = proc.communicate()
 
         # Hotfix 2026-11-15 (env-gated): unwrap JSON envelope -> inner result.
         if review_output_mode == "json":
