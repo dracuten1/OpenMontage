@@ -1,0 +1,21 @@
+{
+  "minted_at": "2026-11-18T04:28:36.655597+00:00",
+  "om_commit": "8b952914fd8163f40ff81c5d5d799412fc98cce0",
+  "template_content_hash": "365cfb81c417ecee3c6d63d784f67d1a5e4f6a50d9f33a96f024f1e0dbbd0ca3",
+  "templates": {
+    "reviewer_pass.py.tmpl": "243413a70a5bb970f6663d9a267bf125486e44b33869111d001ba11be7158f2b",
+    "reviewer_wrapper.py.tmpl": "1dcbc50750d837bddcd6adb0035b0557d066a2c789e6e8f946977904f3cdbc6b",
+    "run_cc_pipeline.py.tmpl": "4d70b6c91d7aa3a667fc1b4eb5fb2c5cacfc54fc3a33f337fa4ba5610e854a9c",
+    "writer_wrapper.py.tmpl": "ec948f5707dd5b71145a8c377a0c6a1b59b4a09241a26af2f96581130a536aac"
+  },
+  "rendered": {
+    "writer_wrapper.py": "ec948f5707dd5b71145a8c377a0c6a1b59b4a09241a26af2f96581130a536aac",
+    "reviewer_wrapper.py": "1dcbc50750d837bddcd6adb0035b0557d066a2c789e6e8f946977904f3cdbc6b",
+    "run_cc_pipeline.py": "d0695f101860657eee79d90fbea80d85ab8123db484eeb3b38fd07afff187983"
+  },
+  "project": "tin-nong-5tin-20261116",
+  "scene_count": 14,
+  "strict": false,
+  "force": false,
+  "preserved_scenes": []
+}

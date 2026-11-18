@@ -76,6 +76,8 @@ PRESENCE_DECLARED_TEMPLATES = {
 # belongs on the roster like any production episode.
 DEPLOYED_PROJECTS = [
     "tin-nong-5tin-20261115",
+    "tin-nong-5tin-20261116",
+    "tin-nong-5tin-20261118",
     "faa-ground-stop-20261114",
     "tai-chinh-3tin-20261111",
     "canary-phase4",
