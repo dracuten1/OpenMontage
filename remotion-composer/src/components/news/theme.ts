@@ -1,23 +1,23 @@
-// Shared News Foundation theme tokens — Warm Archival Print / Editorial Paper + Safe Zone v3.2 SSOT
+// Shared News Foundation theme tokens — Hybrid Broadcast Photojournalism × Swiss Edge-to-Edge Split + Safe Zone v3.2 SSOT
+import { loadFont as loadBarlowCondensed } from "@remotion/google-fonts/BarlowCondensed";
 import { loadFont as loadBeVietnam } from "@remotion/google-fonts/BeVietnamPro";
-import { loadFont as loadMono } from "@remotion/google-fonts/JetBrainsMono";
-import { loadFont as loadSourceSerif } from "@remotion/google-fonts/SourceSerif4";
+import { loadFont as loadPlusJakarta } from "@remotion/google-fonts/PlusJakartaSans";
 
 let loaded = false;
 
-/** Idempotently load Vietnamese-safe editorial Google Fonts once per bundle. */
+/** Idempotently load Vietnamese-safe broadcast & Swiss editorial Google Fonts once per bundle. */
 export function ensureFonts(): void {
   if (loaded) return;
-  loadSourceSerif("normal", {
+  loadBarlowCondensed("normal", {
     weights: ["600", "700", "800", "900"],
+    subsets: ["latin", "latin-ext", "vietnamese"],
+  });
+  loadPlusJakarta("normal", {
+    weights: ["500", "600", "700", "800"],
     subsets: ["latin", "latin-ext", "vietnamese"],
   });
   loadBeVietnam("normal", {
     weights: ["400", "500", "600", "700", "800"],
-    subsets: ["latin", "latin-ext", "vietnamese"],
-  });
-  loadMono("normal", {
-    weights: ["400", "600", "700", "800"],
     subsets: ["latin", "latin-ext", "vietnamese"],
   });
   loaded = true;
@@ -28,46 +28,50 @@ export const WIDTH = 1080;
 export const HEIGHT = 1920;
 
 export const COLORS = {
-  // Warm Archival Print canonical palette
-  paper: "#F4EFE6",
-  paperWarm: "#ECE4D5",
-  surface: "#FAF7F2",
-  surfaceAlt: "#EFE8DB",
-  ink: "#141413",
-  text: "#141413",
-  muted: "#5A554E",
-  textMuted: "#5A554E",
-  vermilion: "#C8281E",
-  ochre: "#A87308",
-  highlighter: "#F3D34A",
-  highlightText: "#141413",
-  ruleStrong: "#141413",
+  // Swiss Gallery & Broadcast Carbon canonical palette
+  paper: "#F5F5F2",
+  paperWarm: "#EAEAE5",
+  surface: "#FFFFFF",
+  surfaceAlt: "#EAEAE5",
+  ink: "#0B0C0E",
+  inkSoft: "#151821",
+  text: "#0B0C0E",
+  textOnDark: "#F5F5F2",
+  muted: "#52565E",
+  textMuted: "#52565E",
+  mutedOnDark: "#A0A6B2",
+  vermilion: "#E11D2E",
+  crimson: "#E11D2E",
+  accentRed: "#E11D2E",
+  accent: "#E11D2E",
+  highlighter: "#FFD100",
+  highlightText: "#0B0C0E",
+  ochre: "#FF5500",
+  amber: "#FF5500",
+  neonYellow: "#FFD100",
+  ok: "#0D9488",
+  cold: "#0052FF",
+  ruleStrong: "#0B0C0E",
+  line: "rgba(11, 12, 14, 0.16)",
+  lineOnDark: "rgba(245, 245, 242, 0.18)",
+  gridLine: "rgba(11, 12, 14, 0.045)",
 
-  // Backward-compatible aliases (mapped to Warm Archival Print so existing episodes render cleanly)
-  slate: "#F4EFE6",
-  panel: "#FAF7F2",
-  panelDeep: "#EFE8DB",
-  white: "#FAF7F2",
-  crimson: "#C8281E",
-  accentRed: "#C8281E",
-  amber: "#A87308",
-  neonYellow: "#A87308",
-  accent: "#C8281E",
-  ok: "#1F6E43",
-  cold: "#1B5E7A",
-  line: "rgba(20, 20, 19, 0.22)",
-  gridLine: "rgba(20, 20, 19, 0.055)",
+  // Backward-compatible aliases (mapped to Swiss Gallery & Broadcast Carbon)
+  slate: "#F5F5F2",
+  panel: "#FFFFFF",
+  panelDeep: "#EAEAE5",
+  white: "#FFFFFF",
   glowRed: "transparent",
   glowAmber: "transparent",
 } as const;
 
 export const FONTS = {
-  body: "'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif",
-  sans: "'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif",
-  display: "'Source Serif Four', 'Source Serif 4', 'Be Vietnam Pro', Georgia, serif",
-  heading: "'Source Serif Four', 'Source Serif 4', 'Be Vietnam Pro', Georgia, serif",
-  mono: "'JetBrains Mono', 'SF Mono', Menlo, monospace",
-  kicker: "'JetBrains Mono', 'Be Vietnam Pro', monospace",
+  body: "'Plus Jakarta Sans', 'Be Vietnam Pro', system-ui, sans-serif",
+  sans: "'Plus Jakarta Sans', 'Be Vietnam Pro', system-ui, sans-serif",
+  display: "'Barlow Condensed', 'Be Vietnam Pro', sans-serif",
+  heading: "'Barlow Condensed', 'Be Vietnam Pro', sans-serif",
+  mono: "'Barlow Condensed', 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif",
+  kicker: "'Barlow Condensed', 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif",
 } as const;
 
 /**
@@ -88,8 +92,8 @@ export const SAFE = {
   railRight: 140,
   maxW: 850,
   titleMaxWidth: 850,
-  titleMinFont: 56,
-  titleMaxFont: 78,
+  titleMinFont: 58,
+  titleMaxFont: 82,
   minFont: 24,
   minLabel: 27,
 } as const;

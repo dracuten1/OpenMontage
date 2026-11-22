@@ -47,8 +47,8 @@ export function comparisonSplitLayout(
 }
 
 /**
- * Side-by-side editorial split comparison with animated center SVG divider
- * and speech-locked highlight windows for left vs right perspectives.
+ * Swiss Edge-to-Edge Split Comparison without 4-sided card borders.
+ * Uses bold 6px top signal bars, oversized tabular metrics, and a central carbon divider.
  */
 export const ComparisonSplit: React.FC<ComparisonSplitProps> = ({
   left,
@@ -70,7 +70,7 @@ export const ComparisonSplit: React.FC<ComparisonSplitProps> = ({
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const lineLen = Math.max(1, height - 48);
+  const lineLen = Math.max(1, height - 32);
 
   const renderColumn = (side: ComparisonSide, fromLeft: boolean) => {
     const p = spring({
@@ -81,8 +81,8 @@ export const ComparisonSplit: React.FC<ComparisonSplitProps> = ({
     const active = !settleAll && frame >= side.enterFrame && frame < side.endFrame;
     const past = !settleAll && frame >= side.endFrame;
     const op =
-      frame < side.enterFrame ? 0.15 : settleAll ? 1.0 : active ? 1.0 : past ? 0.56 : 0.15;
-    const accent = side.color ?? (fromLeft ? COLORS.amber : COLORS.crimson);
+      frame < side.enterFrame ? 0.2 : settleAll ? 1.0 : active ? 1.0 : past ? 0.58 : 0.2;
+    const accent = side.color ?? (fromLeft ? COLORS.ochre : COLORS.vermilion);
     const dx = interpolate(p, [0, 1], [fromLeft ? -16 : 16, 0]);
 
     return (
@@ -90,72 +90,91 @@ export const ComparisonSplit: React.FC<ComparisonSplitProps> = ({
         style={{
           width: layout.columnWidth,
           minHeight: height,
-          padding: "20px 20px",
-          borderRadius: 4,
-          backgroundColor: active ? COLORS.surfaceAlt : COLORS.surface,
-          border: `1px solid ${COLORS.line}`,
-          borderTop: active ? `4px solid ${accent}` : `2px solid ${COLORS.ink}`,
+          padding: "20px 18px",
+          backgroundColor: active ? "#FFFFFF" : "rgba(255, 255, 255, 0.55)",
+          borderTop: `6px solid ${accent}`,
+          borderBottom: `2px solid ${COLORS.ink}`,
           opacity: op,
           transform: `translateX(${dx}px)`,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          gap: 12,
+          gap: 14,
           boxSizing: "border-box",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           <div
             style={{
-              fontFamily: FONTS.mono,
-              fontSize: 24,
-              fontWeight: 800,
+              fontFamily: FONTS.display,
+              fontSize: 25,
+              fontWeight: 900,
               color: accent,
-              letterSpacing: 0.4,
+              letterSpacing: 0.8,
+              textTransform: "uppercase",
             }}
           >
             {side.kicker}
           </div>
           <div
             style={{
-              fontFamily: FONTS.display,
-              fontSize: 30,
+              fontFamily: FONTS.body,
+              fontSize: 28,
               fontWeight: 800,
               color: COLORS.ink,
-              lineHeight: 1.18,
+              lineHeight: 1.2,
             }}
           >
             {side.headline}
           </div>
           <div
             style={{
-              fontFamily: FONTS.mono,
-              fontSize: 36,
-              fontWeight: 800,
-              color: COLORS.crimson,
-              lineHeight: 1.1,
+              fontFamily: FONTS.display,
+              fontSize: 54,
+              fontWeight: 900,
+              color: accent,
+              lineHeight: 1.0,
               marginTop: 4,
+              textTransform: "uppercase",
             }}
           >
             {side.metric}
           </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 10,
+            borderTop: `1px solid ${COLORS.line}`,
+            paddingTop: 12,
+          }}
+        >
           {side.bullets.map((b, i) => (
             <div
               key={i}
               style={{
                 display: "flex",
                 alignItems: "flex-start",
-                gap: 8,
+                gap: 10,
                 fontFamily: FONTS.body,
                 fontSize: 24,
+                fontWeight: 600,
                 color: COLORS.muted,
                 lineHeight: 1.32,
               }}
             >
-              <span style={{ color: accent, fontWeight: 800 }}>•</span>
+              <span
+                aria-hidden="true"
+                style={{
+                  width: 8,
+                  height: 8,
+                  marginTop: 11,
+                  backgroundColor: accent,
+                  flexShrink: 0,
+                }}
+              />
               <span>{b}</span>
             </div>
           ))}
@@ -178,7 +197,7 @@ export const ComparisonSplit: React.FC<ComparisonSplitProps> = ({
     >
       {renderColumn(left, true)}
 
-      {/* Animated SVG center split spine + badge */}
+      {/* Animated SVG center split spine + carbon VS badge */}
       <div
         style={{
           position: "relative",
@@ -197,11 +216,11 @@ export const ComparisonSplit: React.FC<ComparisonSplitProps> = ({
         >
           <line
             x1={layout.dividerGap / 2}
-            y1={24}
+            y1={16}
             x2={layout.dividerGap / 2}
-            y2={height - 24}
-            stroke={COLORS.line}
-            strokeWidth={2}
+            y2={height - 16}
+            stroke={COLORS.ink}
+            strokeWidth={2.5}
             strokeDasharray={lineLen}
             strokeDashoffset={lineLen * (1 - lineProgress)}
           />
@@ -210,14 +229,14 @@ export const ComparisonSplit: React.FC<ComparisonSplitProps> = ({
           style={{
             position: "relative",
             zIndex: 3,
-            padding: "5px 10px",
-            borderRadius: 2,
-            backgroundColor: COLORS.surface,
-            border: `2px solid ${COLORS.ink}`,
-            color: COLORS.ink,
-            fontFamily: FONTS.mono,
-            fontSize: 24,
-            fontWeight: 800,
+            padding: "6px 12px",
+            backgroundColor: COLORS.ink,
+            borderBottom: `3px solid ${COLORS.highlighter}`,
+            color: COLORS.highlighter,
+            fontFamily: FONTS.display,
+            fontSize: 26,
+            fontWeight: 900,
+            letterSpacing: 1.0,
             whiteSpace: "nowrap",
           }}
         >

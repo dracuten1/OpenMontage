@@ -1,4 +1,4 @@
-// Shared News Foundation SceneShell — Safe Zone v3.2 + atomic editorial widgets.
+// Shared News Foundation SceneShell — Hybrid Broadcast Photojournalism × Swiss Edge-to-Edge Split + Safe Zone v3.2
 import React, { useLayoutEffect, useRef, useState } from "react";
 import {
   AbsoluteFill,
@@ -21,6 +21,9 @@ export interface BackplateConfig {
   brightness?: number;
   contrast?: number;
   creditLine?: string;
+  mode?: "full-bleed" | "top-split" | "ambient";
+  fullBleed?: boolean;
+  splitHeight?: number;
 }
 
 export interface MediaBackdropConfig {
@@ -36,6 +39,7 @@ export interface SceneShellProps {
   label: string;
   kicker?: string;
   accent?: "crimson" | "amber";
+  layoutMode?: "full-bleed" | "swiss-split";
   backplate?: BackplateConfig;
   mediaBackdrop?: MediaBackdropConfig;
   photoCredit?: string;
@@ -45,11 +49,18 @@ export interface SceneShellProps {
   captions?: { text: string; start: number; end: number }[];
 }
 
+const GRAIN_TEXTURES = [
+  "textures/film_grain_1.png",
+  "textures/film_grain_2.png",
+  "textures/film_grain_3.png",
+] as const;
+
 export const SceneShell: React.FC<SceneShellProps> = ({
   sceneId,
   label,
   kicker,
   accent = "crimson",
+  layoutMode = "swiss-split",
   backplate,
   mediaBackdrop,
   photoCredit,
@@ -61,20 +72,17 @@ export const SceneShell: React.FC<SceneShellProps> = ({
   ensureFonts();
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
-  const accentColor = accent === "amber" ? COLORS.amber : COLORS.crimson;
-
-  const camScale = interpolate(
-    frame,
-    [0, Math.max(1, durationInFrames)],
-    [1.0, 1.08],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-  );
+  const accentColor = accent === "amber" ? COLORS.ochre : COLORS.vermilion;
+  const isFullBleed =
+    layoutMode === "full-bleed" ||
+    backplate?.fullBleed === true ||
+    backplate?.mode === "full-bleed";
 
   const bpScale = backplate
     ? interpolate(
         frame,
         [0, Math.max(1, durationInFrames)],
-        [backplate.zoomFrom ?? 1.0, backplate.zoomTo ?? 1.1],
+        [backplate.zoomFrom ?? 1.0, backplate.zoomTo ?? 1.08],
         { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
       )
     : 1.0;
@@ -88,22 +96,34 @@ export const SceneShell: React.FC<SceneShellProps> = ({
       )
     : 0;
 
+  // 12fps real 35mm film grain cycle (30fps / 2.5 ≈ 12fps)
+  const grainIdx = Math.floor(frame / 2.5) % GRAIN_TEXTURES.length;
+  const grainSrc = GRAIN_TEXTURES[grainIdx];
+
+  const resolvedBackplateMode = isFullBleed
+    ? "full-bleed"
+    : backplate?.mode ?? (backplate?.splitHeight ? "top-split" : "ambient");
+
   return (
     <AbsoluteFill
-      style={{ backgroundColor: COLORS.paper, fontFamily: FONTS.body, color: COLORS.ink }}
+      style={{
+        backgroundColor: isFullBleed ? COLORS.ink : COLORS.paper,
+        fontFamily: FONTS.body,
+        color: isFullBleed ? COLORS.textOnDark : COLORS.ink,
+      }}
       data-scene-id={sceneId}
       data-scene-label={label}
+      data-layout-mode={isFullBleed ? "full-bleed" : "swiss-split"}
     >
-      <AbsoluteFill
-        style={{
-          overflow: "hidden",
-          transform: `scale(${camScale})`,
-          transformOrigin: "center center",
-        }}
-      >
-        <ArchivalPaperBackdrop accentColor={accentColor} />
+      {/* Structural Swiss Split / Broadcast Carbon Backdrop (locked pixel bounds) */}
+      <AbsoluteFill style={{ overflow: "hidden" }}>
+        <ArchivalPaperBackdrop
+          accentColor={accentColor}
+          layoutMode={isFullBleed ? "full-bleed" : "swiss-split"}
+        />
       </AbsoluteFill>
 
+      {/* Full-bleed motion video backdrop (when provided) */}
       {mediaBackdrop ? (
         <div
           style={{
@@ -125,28 +145,38 @@ export const SceneShell: React.FC<SceneShellProps> = ({
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              opacity: mediaBackdrop.opacity ?? 0.35,
+              opacity: mediaBackdrop.opacity ?? (isFullBleed ? 0.9 : 0.2),
             }}
           />
           <AbsoluteFill
             style={{
-              background: `linear-gradient(180deg, rgba(244, 239, 230, 0.92) 0%, rgba(244, 239, 230, 0.42) 24%, rgba(244, 239, 230, 0.48) 64%, rgba(244, 239, 230, 0.92) 88%, ${COLORS.paper} 100%)`,
+              background: isFullBleed
+                ? "linear-gradient(180deg, rgba(11,12,14,0.88) 0%, rgba(11,12,14,0.28) 24%, rgba(11,12,14,0.34) 58%, rgba(11,12,14,0.92) 86%, rgba(11,12,14,0.98) 100%)"
+                : `linear-gradient(180deg, rgba(245,245,242,0.92) 0%, rgba(245,245,242,0.55) 40%, rgba(245,245,242,0.92) 100%)`,
             }}
           />
         </div>
       ) : null}
 
+      {/* Photojournalism / Satellite Backplate */}
       {backplate ? (
         <div
           style={{
             position: "absolute",
-            top: 210,
+            top: resolvedBackplateMode === "full-bleed" ? 0 : 332,
             left: 0,
             width: 1080,
-            height: 1180,
+            height:
+              resolvedBackplateMode === "full-bleed"
+                ? HEIGHT
+                : resolvedBackplateMode === "top-split"
+                  ? backplate.splitHeight ?? 480
+                  : 1112,
             overflow: "hidden",
             zIndex: 5,
             pointerEvents: "none",
+            borderBottom:
+              resolvedBackplateMode === "top-split" ? `3px solid ${COLORS.ink}` : undefined,
           }}
         >
           <Img
@@ -156,28 +186,61 @@ export const SceneShell: React.FC<SceneShellProps> = ({
               height: "100%",
               objectFit: "cover",
               objectPosition: backplate.objectPosition ?? "center center",
-              opacity: backplate.opacity ?? 0.24,
-              filter: `brightness(${backplate.brightness ?? 1.04}) contrast(${backplate.contrast ?? 1.04}) saturate(0.75)`,
+              opacity:
+                backplate.opacity ??
+                (resolvedBackplateMode === "full-bleed"
+                  ? 0.92
+                  : resolvedBackplateMode === "top-split"
+                    ? 0.96
+                    : 0.14),
+              filter: `brightness(${backplate.brightness ?? 1.0}) contrast(${backplate.contrast ?? 1.08}) saturate(${resolvedBackplateMode === "ambient" ? 0.55 : 0.96})`,
               transform: `scale(${bpScale}) translateX(${bpPanX}%)`,
               transformOrigin: "center center",
             }}
           />
-          <AbsoluteFill
-            style={{
-              background: `linear-gradient(180deg, ${COLORS.paper} 0%, rgba(244, 239, 230, 0.38) 18%, rgba(244, 239, 230, 0.44) 58%, rgba(244, 239, 230, 0.90) 86%, ${COLORS.paper} 100%)`,
-            }}
-          />
-          <AbsoluteFill
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(244, 239, 230, 0.72) 0%, rgba(244, 239, 230, 0.16) 62%, rgba(244, 239, 230, 0.45) 100%)",
-            }}
-          />
+          {resolvedBackplateMode === "full-bleed" ? (
+            <AbsoluteFill
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(11,12,14,0.90) 0%, rgba(11,12,14,0.34) 22%, rgba(11,12,14,0.28) 54%, rgba(11,12,14,0.88) 78%, rgba(11,12,14,0.98) 100%)",
+              }}
+            />
+          ) : resolvedBackplateMode === "top-split" ? (
+            <AbsoluteFill
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(11,12,14,0.22) 0%, rgba(11,12,14,0.04) 45%, rgba(11,12,14,0.38) 100%)",
+              }}
+            />
+          ) : (
+            <>
+              <AbsoluteFill
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.paper} 0%, rgba(245, 245, 242, 0.72) 18%, rgba(245, 245, 242, 0.76) 72%, ${COLORS.paper} 100%)`,
+                }}
+              />
+              <AbsoluteFill
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(245, 245, 242, 0.88) 0%, rgba(245, 245, 242, 0.58) 55%, rgba(245, 245, 242, 0.78) 100%)",
+                }}
+              />
+            </>
+          )}
         </div>
       ) : null}
 
+      {/* Top Broadcast Masthead Kicker (y=250 inside #0B0C0E carbon header band) */}
       {kicker ? (
-        <div style={{ position: "absolute", top: SAFE.kickerTop, left: SAFE.margin, zIndex: 40 }}>
+        <div
+          style={{
+            position: "absolute",
+            top: SAFE.kickerTop,
+            left: SAFE.margin,
+            maxWidth: SAFE.maxW,
+            zIndex: 40,
+          }}
+        >
           <KickerPill text={kicker} accent={accentColor} />
         </div>
       ) : null}
@@ -196,11 +259,12 @@ export const SceneShell: React.FC<SceneShellProps> = ({
         {children}
       </div>
 
+      {/* Optional photo credit positioned cleanly above bottom cinema band */}
       {photoCredit ?? backplate?.creditLine ? (
         <div
           style={{
             position: "absolute",
-            top: 1428,
+            top: 1412,
             left: SAFE.margin,
             maxWidth: SAFE.maxW,
             zIndex: 36,
@@ -213,6 +277,21 @@ export const SceneShell: React.FC<SceneShellProps> = ({
 
       <CaptionLayer captions={captions} />
 
+      {/* Real 12fps 35mm film grain overlay across the full composition */}
+      <AbsoluteFill
+        style={{
+          zIndex: 88,
+          pointerEvents: "none",
+          opacity: isFullBleed ? 0.24 : 0.18,
+          mixBlendMode: "overlay",
+        }}
+      >
+        <Img
+          src={staticFile(grainSrc)}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </AbsoluteFill>
+
       {showHud === true ? (
         <div style={{ position: "absolute", left: SAFE.margin, bottom: 96, zIndex: 45 }}>
           <Hud text={hudText ?? sceneId} />
@@ -222,30 +301,142 @@ export const SceneShell: React.FC<SceneShellProps> = ({
   );
 };
 
-export const ArchivalPaperBackdrop: React.FC<{ accentColor?: string }> = ({
-  accentColor = COLORS.crimson,
-}) => {
+export const ArchivalPaperBackdrop: React.FC<{
+  accentColor?: string;
+  layoutMode?: "full-bleed" | "swiss-split";
+}> = ({ accentColor = COLORS.vermilion, layoutMode = "swiss-split" }) => {
+  if (layoutMode === "full-bleed") {
+    return (
+      <AbsoluteFill style={{ backgroundColor: COLORS.ink }}>
+        <AbsoluteFill
+          style={{
+            background:
+              "radial-gradient(120% 90% at 50% 35%, #161A23 0%, #0B0C0E 78%)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 244,
+            left: 0,
+            width: 8,
+            height: 68,
+            backgroundColor: accentColor,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 326,
+            left: SAFE.margin,
+            right: SAFE.railRight,
+            height: 2,
+            backgroundColor: COLORS.lineOnDark,
+          }}
+        />
+        <svg
+          aria-hidden="true"
+          width="100%"
+          height="100%"
+          style={{ position: "absolute", inset: 0, opacity: 0.02, pointerEvents: "none" }}
+        >
+          <filter id="archival-paper-grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#archival-paper-grain)" />
+        </svg>
+      </AbsoluteFill>
+    );
+  }
+
   return (
-    <AbsoluteFill>
+    <AbsoluteFill style={{ backgroundColor: COLORS.paper }}>
+      {/* Middle Swiss Gallery Stage (y=332..1444) */}
       <AbsoluteFill
         style={{
-          background: `radial-gradient(120% 95% at 50% 42%, #F7F3EA 0%, ${COLORS.paper} 62%, #E5DBC7 100%)`,
+          background:
+            "linear-gradient(180deg, #F8F8F6 0%, #F5F5F2 58%, #EEEEEA 100%)",
         }}
       />
-      {/* Subtle broadsheet framing hairline rules */}
-      <AbsoluteFill
+
+      {/* Top Edge-to-Edge Broadcast Carbon Masthead Block (y=0..332) */}
+      <div
         style={{
-          backgroundImage: `linear-gradient(${COLORS.gridLine} 1px, transparent 1px), linear-gradient(90deg, ${COLORS.gridLine} 1px, transparent 1px)`,
-          backgroundSize: "140px 140px",
-          opacity: 0.55,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: 1080,
+          height: 332,
+          background:
+            "linear-gradient(180deg, #0B0C0E 0%, #12151C 100%)",
         }}
-      />
-      {/* Deterministic archival paper grain texture */}
+      >
+        {/* Left flush edge signal bar */}
+        <div
+          style={{
+            position: "absolute",
+            top: 248,
+            left: 0,
+            width: 10,
+            height: 54,
+            backgroundColor: accentColor,
+          }}
+        />
+        {/* Crisp top masthead rule */}
+        <div
+          style={{
+            position: "absolute",
+            top: 224,
+            left: SAFE.margin,
+            right: SAFE.railRight,
+            height: 1,
+            backgroundColor: COLORS.lineOnDark,
+          }}
+        />
+        {/* Bottom masthead divider rule separating dark broadcast header from light Swiss stage */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 6,
+            backgroundColor: accentColor,
+          }}
+        />
+      </div>
+
+      {/* Bottom Edge-to-Edge Cinema Lower-Third Band (y=1444..1920) */}
+      <div
+        style={{
+          position: "absolute",
+          top: 1444,
+          left: 0,
+          width: 1080,
+          height: 476,
+          background:
+            "linear-gradient(180deg, #0E1014 0%, #0B0C0E 35%, #07080A 100%)",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 4,
+            backgroundColor: accentColor,
+          }}
+        />
+      </div>
+
+      {/* Deterministic subtle turbulence filter node preserved for editorial QC marker compatibility */}
       <svg
         aria-hidden="true"
         width="100%"
         height="100%"
-        style={{ position: "absolute", inset: 0, opacity: 0.045, pointerEvents: "none" }}
+        style={{ position: "absolute", inset: 0, opacity: 0.02, pointerEvents: "none" }}
       >
         <filter id="archival-paper-grain">
           <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
@@ -253,34 +444,30 @@ export const ArchivalPaperBackdrop: React.FC<{ accentColor?: string }> = ({
         </filter>
         <rect width="100%" height="100%" filter="url(#archival-paper-grain)" />
       </svg>
-      {/* Top editorial masthead rule */}
-      <div
-        style={{
-          position: "absolute",
-          top: 218,
-          left: SAFE.margin,
-          right: SAFE.railRight,
-          height: 3,
-          backgroundColor: accentColor,
-          opacity: 0.88,
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: 225,
-          left: SAFE.margin,
-          right: SAFE.railRight,
-          height: 1,
-          backgroundColor: COLORS.ink,
-          opacity: 0.25,
-        }}
-      />
     </AbsoluteFill>
   );
 };
 
 export const BackdropGrid = ArchivalPaperBackdrop;
+
+const CAPTION_HIGHLIGHT_RE =
+  /(\b\d+(?:[.,]\d+)?(?:\s*(?:%|mm|km|m|hải lý|đoạn|bài|tiếng|bậc|tỷ|triệu|người|USD))?(?=\s|$|[.,!?:;–—-]))/gi;
+
+function renderKineticCaptionText(text: string): React.ReactNode {
+  const parts = text.split(CAPTION_HIGHLIGHT_RE);
+  if (parts.length <= 1) return text;
+  return parts.map((part, idx) => {
+    if (!part) return null;
+    if (/^\d/.test(part.trim())) {
+      return (
+        <span key={idx} style={{ color: COLORS.highlighter }}>
+          {part}
+        </span>
+      );
+    }
+    return <React.Fragment key={idx}>{part}</React.Fragment>;
+  });
+}
 
 export const CaptionLayer: React.FC<{
   captions?: { text: string; start: number; end: number }[];
@@ -314,21 +501,18 @@ export const CaptionLayer: React.FC<{
       <div
         style={{
           maxWidth: 880,
-          padding: "12px 26px",
-          borderRadius: 4,
-          backgroundColor: COLORS.ink,
-          border: `1px solid ${COLORS.ink}`,
-          borderTop: `3px solid ${COLORS.crimson}`,
-          color: COLORS.surface,
+          padding: "4px 16px",
+          color: "#FFFFFF",
           fontFamily: FONTS.body,
-          fontWeight: 700,
+          fontWeight: 800,
           fontSize,
-          lineHeight: 1.25,
+          lineHeight: 1.24,
           textAlign: "center",
-          boxShadow: "0 6px 18px rgba(20, 20, 19, 0.22)",
+          letterSpacing: -0.2,
+          textShadow: "0 2px 16px rgba(0, 0, 0, 0.88)",
         }}
       >
-        {active.text}
+        {renderKineticCaptionText(active.text)}
       </div>
     </div>
   );
@@ -337,14 +521,14 @@ export const CaptionLayer: React.FC<{
 export const Hud: React.FC<{ text: string }> = ({ text }) => (
   <div
     style={{
-      fontFamily: FONTS.mono,
+      fontFamily: FONTS.display,
       fontSize: 24,
-      color: COLORS.neonYellow,
-      letterSpacing: 1.5,
-      backgroundColor: "rgba(20, 20, 19, 0.88)",
-      border: `1px solid ${COLORS.ink}`,
-      borderRadius: 3,
-      padding: "8px 16px",
+      fontWeight: 800,
+      color: COLORS.highlighter,
+      letterSpacing: 1.2,
+      backgroundColor: "rgba(11, 12, 14, 0.92)",
+      borderLeft: `4px solid ${COLORS.vermilion}`,
+      padding: "6px 14px",
       whiteSpace: "pre",
     }}
   >
@@ -354,50 +538,94 @@ export const Hud: React.FC<{ text: string }> = ({ text }) => (
 
 export const KickerPill: React.FC<{ text: string; accent?: string }> = ({
   text,
-  accent = COLORS.crimson,
-}) => (
-  <div
-    style={{
-      display: "inline-flex",
-      alignItems: "center",
-      padding: "9px 22px",
-      borderRadius: 2,
-      backgroundColor: COLORS.surface,
-      borderTop: `1px solid ${COLORS.line}`,
-      borderRight: `1px solid ${COLORS.line}`,
-      borderBottom: `1px solid ${COLORS.line}`,
-      borderLeft: `6px solid ${accent}`,
-      color: accent,
-      fontFamily: FONTS.kicker,
-      fontWeight: 800,
-      fontSize: 27,
-      letterSpacing: 0.9,
-      boxShadow: "0 2px 8px rgba(20, 20, 19, 0.06)",
-    }}
-  >
-    {text}
-  </div>
-);
+  accent = COLORS.vermilion,
+}) => {
+  const segments = text
+    .split(/\s*[·•]\s*/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const lead = segments[0] ?? text;
+  const rest = segments.slice(1);
 
-export const SourceBadge: React.FC<{ source: string }> = ({ source }) => (
-  <div
-    style={{
-      display: "inline-flex",
-      alignItems: "center",
-      padding: "7px 16px",
-      borderRadius: 2,
-      border: "1px solid rgba(20, 20, 19, 0.30)",
-      backgroundColor: COLORS.surface,
-      color: COLORS.muted,
-      fontFamily: FONTS.mono,
-      fontWeight: 700,
-      fontSize: 24,
-      letterSpacing: 0.4,
-    }}
-  >
-    NGUỒN: {source}
-  </div>
-);
+  return (
+    <div
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        flexWrap: "wrap",
+        gap: 14,
+        maxWidth: SAFE.maxW,
+      }}
+    >
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          padding: "6px 16px",
+          backgroundColor: accent,
+          color: "#FFFFFF",
+          fontFamily: FONTS.display,
+          fontWeight: 900,
+          fontSize: 28,
+          letterSpacing: 1.2,
+          lineHeight: 1.05,
+          textTransform: "uppercase",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {lead}
+      </span>
+      {rest.length > 0 ? (
+        <span
+          style={{
+            fontFamily: FONTS.display,
+            fontWeight: 800,
+            fontSize: 29,
+            letterSpacing: 0.9,
+            lineHeight: 1.1,
+            color: COLORS.textOnDark,
+            textTransform: "uppercase",
+          }}
+        >
+          {rest.map((seg, i) => (
+            <React.Fragment key={`${seg}-${i}`}>
+              {i > 0 ? (
+                <span style={{ color: COLORS.highlighter, margin: "0 10px" }}>/</span>
+              ) : null}
+              <span>{seg}</span>
+            </React.Fragment>
+          ))}
+        </span>
+      ) : null}
+    </div>
+  );
+};
+
+export const SourceBadge: React.FC<{ source: string; onDark?: boolean }> = ({
+  source,
+  onDark = false,
+}) => {
+  const cleanSource = source.replace(/\s*[·•]\s*/g, " / ");
+  return (
+    <div
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        paddingLeft: 12,
+        borderLeft: `4px solid ${COLORS.vermilion}`,
+        color: onDark ? COLORS.mutedOnDark : COLORS.muted,
+        fontFamily: FONTS.display,
+        fontWeight: 700,
+        fontSize: 25,
+        letterSpacing: 0.7,
+        textTransform: "uppercase",
+        lineHeight: 1.15,
+      }}
+    >
+      NGUỒN: {cleanSource}
+    </div>
+  );
+};
 
 export const AiBadge: React.FC<{ concept?: string }> = ({ concept }) => (
   <div
@@ -405,18 +633,18 @@ export const AiBadge: React.FC<{ concept?: string }> = ({ concept }) => (
       display: "inline-flex",
       alignItems: "center",
       gap: 8,
-      padding: "7px 16px",
-      borderRadius: 2,
-      border: `2px solid ${COLORS.ochre}`,
-      backgroundColor: COLORS.surfaceAlt,
-      color: COLORS.ochre,
-      fontFamily: FONTS.body,
-      fontWeight: 700,
+      padding: "6px 14px",
+      backgroundColor: COLORS.ink,
+      borderLeft: `5px solid ${COLORS.ochre}`,
+      color: "#FFFFFF",
+      fontFamily: FONTS.display,
+      fontWeight: 800,
       fontSize: 24,
-      letterSpacing: 0.4,
+      letterSpacing: 0.6,
+      textTransform: "uppercase",
     }}
   >
-    {concept ? `Hình minh họa: AI · ${concept}` : "Hình minh họa: AI"}
+    {concept ? `MINH HỌA AI / ${concept}` : "MINH HỌA AI"}
   </div>
 );
 
@@ -426,39 +654,40 @@ export const SimulationBadge: React.FC<{ label?: string }> = ({ label = "MÔ PH�
       display: "inline-flex",
       alignItems: "center",
       gap: 8,
-      padding: "7px 16px",
-      borderRadius: 2,
-      border: `2px solid ${COLORS.cold}`,
-      backgroundColor: COLORS.surface,
-      color: COLORS.cold,
-      fontFamily: FONTS.mono,
-      fontWeight: 700,
+      padding: "6px 14px",
+      backgroundColor: COLORS.cold,
+      color: "#FFFFFF",
+      fontFamily: FONTS.display,
+      fontWeight: 800,
       fontSize: 24,
-      letterSpacing: 0.4,
+      letterSpacing: 0.8,
+      textTransform: "uppercase",
     }}
   >
     {label}
   </div>
 );
 
-export const ArchiveLabelBadge: React.FC<{ label: string }> = ({ label }) => (
+export const ArchiveLabelBadge: React.FC<{ label?: string; archiveLabel?: string }> = ({
+  label,
+  archiveLabel,
+}) => (
   <div
     style={{
       display: "inline-flex",
       alignItems: "center",
       gap: 8,
-      padding: "7px 16px",
-      borderRadius: 2,
-      border: `2px solid ${COLORS.ink}`,
-      backgroundColor: COLORS.surface,
-      color: COLORS.ink,
-      fontFamily: FONTS.mono,
-      fontWeight: 800,
+      padding: "6px 14px",
+      backgroundColor: COLORS.vermilion,
+      color: "#FFFFFF",
+      fontFamily: FONTS.display,
+      fontWeight: 900,
       fontSize: 24,
-      letterSpacing: 0.4,
+      letterSpacing: 0.8,
+      textTransform: "uppercase",
     }}
   >
-    {label}
+    {archiveLabel ?? label ?? ""}
   </div>
 );
 
@@ -467,11 +696,10 @@ export const PhotoCreditBadge: React.FC<{ credit: string }> = ({ credit }) => (
     style={{
       display: "inline-flex",
       alignItems: "center",
-      padding: "6px 14px",
-      borderRadius: 2,
-      border: "1px solid rgba(20, 20, 19, 0.28)",
-      backgroundColor: COLORS.surface,
-      color: COLORS.ink,
+      padding: "4px 12px",
+      backgroundColor: "rgba(11, 12, 14, 0.88)",
+      borderLeft: `4px solid ${COLORS.highlighter}`,
+      color: COLORS.textOnDark,
       fontFamily: FONTS.body,
       fontWeight: 600,
       fontSize: 24,
@@ -485,7 +713,7 @@ export const PhotoCreditBadge: React.FC<{ credit: string }> = ({ credit }) => (
 export const VerdictStamp: React.FC<{ text: string; enterFrame: number; color?: string }> = ({
   text,
   enterFrame,
-  color = COLORS.crimson,
+  color = COLORS.vermilion,
 }) => {
   const frame = useCurrentFrame();
   const w = interpolate(frame, [enterFrame, enterFrame + 14], [0, 100], {
@@ -493,25 +721,26 @@ export const VerdictStamp: React.FC<{ text: string; enterFrame: number; color?: 
     extrapolateRight: "clamp",
   });
   if (frame < enterFrame) return null;
+  const cleanText = text.replace(/\s*[·•]\s*/g, " / ");
   return (
     <div
       style={{
         position: "relative",
-        display: "inline-block",
-        padding: "10px 24px",
-        transform: "rotate(-1.2deg)",
-        backgroundColor: COLORS.surface,
-        border: `3px solid ${color}`,
-        borderRadius: 2,
-        fontFamily: FONTS.kicker,
-        fontWeight: 800,
-        fontSize: 28,
-        letterSpacing: 0.9,
-        color,
+        display: "inline-flex",
+        alignItems: "center",
+        padding: "10px 22px",
+        backgroundColor: color,
+        borderLeft: `8px solid ${COLORS.highlighter}`,
+        fontFamily: FONTS.display,
+        fontWeight: 900,
+        fontSize: 30,
+        letterSpacing: 1.1,
+        textTransform: "uppercase",
+        color: "#FFFFFF",
         clipPath: `inset(0 ${100 - w}% 0 0)`,
       }}
     >
-      {text}
+      {cleanText}
     </div>
   );
 };
@@ -523,7 +752,16 @@ export const HeroTitle: React.FC<{
   color?: string;
   highlightColor?: string;
   align?: "left" | "center";
-}> = ({ text, highlight, sub, color, highlightColor = COLORS.highlighter, align = "center" }) => {
+  subColor?: string;
+}> = ({
+  text,
+  highlight,
+  sub,
+  color,
+  highlightColor = COLORS.highlighter,
+  align = "left",
+  subColor,
+}) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const [fontSize, setFontSize] = useState<number>(SAFE.titleMaxFont);
@@ -533,7 +771,7 @@ export const HeroTitle: React.FC<{
     const wrap = wrapRef.current;
     const el = textRef.current;
     if (!wrap || !el) return;
-    const lineHeight = 1.12;
+    const lineHeight = 1.06;
     let size: number = SAFE.titleMaxFont;
     el.style.fontSize = `${size}px`;
     let guard = 0;
@@ -553,11 +791,16 @@ export const HeroTitle: React.FC<{
     setFontSize(size);
   }, [text, width]);
 
-  const isMarkerFill =
+  const isYellowBlock =
     highlightColor.toUpperCase() === COLORS.highlighter.toUpperCase() ||
     highlightColor.toUpperCase() === COLORS.neonYellow.toUpperCase() ||
+    highlightColor.toUpperCase() === "#F3D34A" ||
     highlightColor.toUpperCase() === "#F7C204" ||
     highlightColor.toUpperCase() === "#FFBE0B";
+
+  const isRedBlock =
+    highlightColor.toUpperCase() === COLORS.vermilion.toUpperCase() ||
+    highlightColor.toUpperCase() === "#C8281E";
 
   const renderHighlighted = () => {
     if (!highlight || !text.includes(highlight)) return text;
@@ -567,14 +810,21 @@ export const HeroTitle: React.FC<{
         {text.slice(0, idx)}
         <span
           style={
-            isMarkerFill
+            isYellowBlock
               ? {
                   backgroundColor: COLORS.highlighter,
                   color: COLORS.ink,
-                  padding: "0 10px",
+                  padding: "0 14px",
                   boxDecorationBreak: "clone",
                 }
-              : { color: highlightColor }
+              : isRedBlock
+                ? {
+                    backgroundColor: COLORS.vermilion,
+                    color: "#FFFFFF",
+                    padding: "0 14px",
+                    boxDecorationBreak: "clone",
+                  }
+                : { color: highlightColor }
           }
         >
           {highlight}
@@ -587,7 +837,7 @@ export const HeroTitle: React.FC<{
   return (
     <div
       ref={wrapRef}
-      style={{ width, maxWidth: "100%", display: "flex", flexDirection: "column", gap: 12 }}
+      style={{ width, maxWidth: "100%", display: "flex", flexDirection: "column", gap: 10 }}
     >
       <div
         ref={textRef}
@@ -595,12 +845,12 @@ export const HeroTitle: React.FC<{
           width: "100%",
           fontFamily: FONTS.display,
           fontSize,
-          lineHeight: 1.12,
+          lineHeight: 1.06,
           fontWeight: 900,
           color: color ?? COLORS.ink,
           textAlign: align,
           textTransform: "uppercase",
-          letterSpacing: -0.2,
+          letterSpacing: -0.4,
           overflowWrap: "break-word",
         }}
       >
@@ -609,15 +859,29 @@ export const HeroTitle: React.FC<{
       {sub ? (
         <div
           style={{
-            fontFamily: FONTS.kicker,
-            fontSize: 26,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: align === "center" ? "center" : "flex-start",
+            gap: 10,
+            fontFamily: FONTS.body,
+            fontSize: 25,
             fontWeight: 700,
-            color: COLORS.muted,
+            color: subColor ?? COLORS.muted,
             textAlign: align,
-            letterSpacing: 0.8,
+            letterSpacing: 0.6,
+            textTransform: "uppercase",
           }}
         >
-          {sub}
+          <span
+            aria-hidden="true"
+            style={{
+              width: 18,
+              height: 4,
+              backgroundColor: COLORS.vermilion,
+              flexShrink: 0,
+            }}
+          />
+          <span>{sub.replace(/\s*[·•]\s*/g, " / ")}</span>
         </div>
       ) : null}
     </div>
@@ -653,7 +917,7 @@ export const CountUp: React.FC<{
       ? val.toFixed(decimals).replace(".", ",")
       : Math.round(val).toLocaleString("vi-VN");
   return (
-    <span>
+    <span style={{ fontVariantNumeric: "tabular-nums" }}>
       {prefix}
       {localeFormat ? txt : String(Math.round(val))}
       {suffix}
@@ -673,33 +937,33 @@ export const HighlightBar: React.FC<{
     extrapolateRight: "clamp",
   });
   if (frame < enterFrame) return null;
-  const barBg =
-    color.toUpperCase() === COLORS.crimson.toUpperCase() ? "rgba(200, 40, 30, 0.16)" : color;
+  const cleanText = text.replace(/\s*[·•]\s*/g, " / ");
+  const isCrimson =
+    color.toUpperCase() === COLORS.vermilion.toUpperCase() ||
+    color.toUpperCase() === "#C8281E";
   return (
-    <div style={{ position: "relative", maxWidth: width ?? "fit-content" }}>
-      <div
-        style={{
-          position: "absolute",
-          inset: "6% -1%",
-          backgroundColor: barBg,
-          opacity: 0.85,
-          clipPath: `inset(0 ${100 - w}% 0 0)`,
-          transform: "skewX(-4deg)",
-          borderLeft: `4px solid ${COLORS.crimson}`,
-        }}
-      />
+    <div style={{ position: "relative", width: width ?? "fit-content", maxWidth: "100%" }}>
       <div
         style={{
           position: "relative",
-          fontFamily: FONTS.kicker,
-          fontSize: 27,
-          fontWeight: 800,
-          letterSpacing: 0.4,
-          color: COLORS.ink,
-          padding: "8px 14px",
+          backgroundColor: isCrimson ? COLORS.vermilion : COLORS.ink,
+          borderLeft: `8px solid ${isCrimson ? COLORS.highlighter : color}`,
+          clipPath: `inset(0 ${100 - w}% 0 0)`,
+          padding: "11px 18px",
         }}
       >
-        {text}
+        <div
+          style={{
+            fontFamily: FONTS.body,
+            fontSize: 27,
+            fontWeight: 800,
+            letterSpacing: 0.2,
+            color: "#FFFFFF",
+            lineHeight: 1.25,
+          }}
+        >
+          {cleanText}
+        </div>
       </div>
     </div>
   );
@@ -723,18 +987,19 @@ export const CtaBand: React.FC<{ text: string }> = ({ text }) => {
     >
       <div
         style={{
-          padding: "16px 36px",
-          borderRadius: 3,
-          backgroundColor: COLORS.ink,
-          border: `2px solid ${COLORS.ink}`,
-          borderLeft: `8px solid ${COLORS.crimson}`,
-          color: COLORS.surface,
-          fontFamily: FONTS.kicker,
-          fontSize: 32,
-          fontWeight: 700,
+          width: "100%",
+          padding: "18px 28px",
+          backgroundColor: COLORS.vermilion,
+          borderLeft: `10px solid ${COLORS.highlighter}`,
+          color: "#FFFFFF",
+          fontFamily: FONTS.display,
+          fontSize: 36,
+          fontWeight: 900,
           textAlign: "center",
-          letterSpacing: 0.8,
+          letterSpacing: 1.0,
+          textTransform: "uppercase",
           whiteSpace: "nowrap",
+          boxSizing: "border-box",
         }}
       >
         {text}

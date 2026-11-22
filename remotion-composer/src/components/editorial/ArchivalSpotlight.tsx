@@ -51,14 +51,13 @@ function getTreatmentFilter(treatment: ArchivalTreatment): string {
   if (treatment === "duotone") {
     return "grayscale(100%) sepia(38%) hue-rotate(175deg) saturate(1.4) contrast(1.15)";
   }
-  return "contrast(1.06) brightness(0.96)";
+  return "contrast(1.08) saturate(0.98) brightness(0.97)";
 }
 
 /**
- * Tactile Vox/NYT archival photograph showcase.
- * Gives verified press/archival photography full visual authority with corner
- * registration ticks, archive-year badge, attribution strip, Ken Burns drift,
- * and an optional animated highlighter pull-quote.
+ * Full-impact photojournalism showcase (Brut / NYT Watch / Swiss Editorial).
+ * Straight alignment (zero tilted polaroid), zero outer beige border, crisp
+ * broadcast archive block, Ken Burns drift, and dark-carbon caption deck.
  */
 export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
   src,
@@ -72,7 +71,7 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
   quoteEnterFrame,
   treatment = "authentic",
   objectPosition = "center center",
-  rotateDeg = -0.8,
+  rotateDeg = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -82,8 +81,8 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
     fps,
     config: MOTION.settle,
   });
-  const op = frame < enterFrame ? 0 : interpolate(enterP, [0, 1], [0.15, 1]);
-  const ty = interpolate(enterP, [0, 1], [22, 0]);
+  const op = frame < enterFrame ? 0 : interpolate(enterP, [0, 1], [0.25, 1]);
+  const ty = interpolate(enterP, [0, 1], [18, 0]);
   const kenBurns = interpolate(
     frame,
     [enterFrame, Math.max(enterFrame + 1, durationInFrames)],
@@ -113,7 +112,7 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
           style={{
             position: "relative",
             display: "inline-block",
-            padding: "0 6px",
+            padding: "0 8px",
             color: COLORS.ink,
             backgroundColor: COLORS.highlighter,
             clipPath: `inset(0 ${100 - qWipe}% 0 0)`,
@@ -134,24 +133,21 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
         width,
         height,
         opacity: op,
-        transform: `translateY(${ty}px) rotate(${rotateDeg}deg)`,
-        borderRadius: 4,
-        backgroundColor: COLORS.surface,
-        border: `1.5px solid ${COLORS.ink}`,
-        boxShadow: "0 10px 24px rgba(20, 20, 19, 0.14)",
+        transform: rotateDeg ? `translateY(${ty}px) rotate(${rotateDeg}deg)` : `translateY(${ty}px)`,
+        backgroundColor: COLORS.ink,
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
       }}
     >
-      {/* Framed photograph window */}
+      {/* Clean photograph viewport */}
       <div
         style={{
           position: "relative",
           width: "100%",
           height: layout.photoHeight,
           overflow: "hidden",
-          backgroundColor: COLORS.surfaceAlt,
+          backgroundColor: COLORS.inkSoft,
         }}
       >
         <Img
@@ -166,50 +162,38 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
             transformOrigin: "center center",
           }}
         />
-        {/* Subtle edge vignette */}
+        {/* Cinema scrim at top/bottom edge */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(180deg, rgba(20,20,19,0.12) 0%, rgba(20,20,19,0.0) 50%, rgba(20,20,19,0.32) 100%)",
+              "linear-gradient(180deg, rgba(11,12,14,0.22) 0%, rgba(11,12,14,0.0) 40%, rgba(11,12,14,0.52) 100%)",
             pointerEvents: "none",
           }}
         />
-        {/* Archive label badge (top-left) */}
+        {/* Signal Red archive label badge (top-left) */}
         <div
           style={{
             position: "absolute",
-            top: 14,
-            left: 14,
-            padding: "6px 14px",
-            borderRadius: 2,
-            backgroundColor: COLORS.surface,
-            border: `2px solid ${COLORS.crimson}`,
-            color: COLORS.crimson,
-            fontFamily: FONTS.mono,
-            fontSize: 24,
-            fontWeight: 800,
+            top: 0,
+            left: 0,
+            padding: "7px 16px",
+            backgroundColor: COLORS.vermilion,
+            borderBottom: `3px solid ${COLORS.highlighter}`,
+            color: "#FFFFFF",
+            fontFamily: FONTS.display,
+            fontSize: 25,
+            fontWeight: 900,
+            letterSpacing: 0.8,
+            textTransform: "uppercase",
           }}
         >
           {archiveLabel}
         </div>
-        {/* Corner registration ticks */}
-        <div
-          style={{
-            position: "absolute",
-            top: 12,
-            right: 12,
-            width: 22,
-            height: 22,
-            borderTop: `2px solid ${COLORS.ink}`,
-            borderRight: `2px solid ${COLORS.ink}`,
-            opacity: 0.72,
-          }}
-        />
       </div>
 
-      {/* Pull-quote + mandatory attribution footer */}
+      {/* Flush dark-carbon caption & attribution deck */}
       <div
         style={{
           flex: 1,
@@ -217,20 +201,20 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          gap: 8,
-          backgroundColor: COLORS.surface,
-          borderTop: `1.5px solid ${COLORS.ink}`,
+          gap: 6,
+          backgroundColor: COLORS.ink,
+          borderTop: `4px solid ${COLORS.vermilion}`,
         }}
       >
         {hasQuote ? (
           <div
             style={{
               fontFamily: FONTS.body,
-              fontSize: 26,
-              fontWeight: 700,
+              fontSize: 27,
+              fontWeight: 800,
               lineHeight: 1.28,
-              color: COLORS.ink,
-              opacity: frame >= qStart ? 1 : 0.25,
+              color: "#FFFFFF",
+              opacity: frame >= qStart ? 1 : 0.35,
             }}
           >
             {renderQuote()}
@@ -238,16 +222,16 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
         ) : null}
         <div
           style={{
-            fontFamily: FONTS.mono,
+            fontFamily: FONTS.body,
             fontSize: 24,
             fontWeight: 600,
-            color: COLORS.muted,
+            color: COLORS.mutedOnDark,
             whiteSpace: "nowrap",
             overflow: "hidden",
             textOverflow: "ellipsis",
           }}
         >
-          {creditLine}
+          {creditLine.replace(/\s*[·•]\s*/g, " / ")}
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import {
   interpolate,
   useCurrentFrame,
 } from "remotion";
+import { COLORS, FONTS } from "../news/theme";
 
 export interface EditorialBarDatum {
   label: string;
@@ -40,16 +41,16 @@ export interface EditorialBarChartLayout {
 const DEFAULT_WIDTH = 700;
 const DEFAULT_ROW_HEIGHT = 96;
 const DEFAULT_GROW_FRAMES = 36;
-const DEFAULT_TRACK = "#E5DDD0";
-const DEFAULT_BAR = "#C8281E";
-const DEFAULT_FONT = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
+const DEFAULT_TRACK = "#E2E2DC";
+const DEFAULT_BAR = COLORS.vermilion;
+const DEFAULT_FONT = FONTS.body;
 
 const formatVietnamese = (n: number): string => Math.round(n).toLocaleString("vi-VN");
 
 /**
- * Native DOM editorial chart. Each row computes a single progress `p` from
- * its scene-local anchor; bar geometry and count-up text both consume that
- * same value in the same [anchor, anchor + growFrames] window (anti-detach).
+ * Economist / FT precision editorial bar chart.
+ * Vertical mode constrains pillar width (~76px) above a continuous 2px ink baseline
+ * so multi-column charts never turn into giant filled squares.
  */
 export const EditorialBarChart: React.FC<EditorialBarChartProps> = ({
   data,
@@ -65,9 +66,8 @@ export const EditorialBarChart: React.FC<EditorialBarChartProps> = ({
   rowHeight = DEFAULT_ROW_HEIGHT,
   trackColor = DEFAULT_TRACK,
   barColor = DEFAULT_BAR,
-  // Defaults: WCAG >=4.5:1 on Warm Archival Print paper/surface.
-  labelColor = "#141413",
-  valueColor = "#141413",
+  labelColor = COLORS.ink,
+  valueColor = COLORS.ink,
   showGrid = false,
   showValues = true,
   fontFamily = DEFAULT_FONT,
@@ -117,12 +117,28 @@ export const EditorialBarChart: React.FC<EditorialBarChartProps> = ({
                 left: 0,
                 right: 0,
                 top: fraction * chartHeight,
-                borderTop: `1px solid ${trackColor}`,
+                borderTop: `1px solid ${COLORS.line}`,
                 pointerEvents: "none",
               }}
             />
           ))
         : null}
+
+      {vertical ? (
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 72,
+            height: 2,
+            backgroundColor: COLORS.ink,
+            zIndex: 2,
+          }}
+        />
+      ) : null}
+
       {data.map((datum, index) => {
         const anchor = enterFrames[index];
         const windowFrames = Math.max(1, growFrames);
@@ -139,6 +155,101 @@ export const EditorialBarChart: React.FC<EditorialBarChartProps> = ({
         const visibleValue = datum.display ?? format((countUp ? progress : 1) * datum.value);
         const row = layout.rows[index];
 
+        const activeFillColor = glowing
+          ? COLORS.ochre
+          : highlightIndex !== undefined
+            ? highlighted
+              ? barColor
+              : "#1E222B"
+            : barColor;
+
+        const opacity = interpolate(frame, [anchor, anchor + 1], [0.2, 1], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        });
+
+        if (vertical) {
+          const pillarWidth = Math.min(82, Math.max(44, Math.floor(row.width * 0.38)));
+          return (
+            <div
+              key={`${datum.label}-${index}`}
+              style={{
+                position: "absolute",
+                left: row.left,
+                top: row.top,
+                width: row.width,
+                height: row.height,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                boxSizing: "border-box",
+                padding: "0 8px",
+                opacity,
+              }}
+            >
+              {showValues ? (
+                <div
+                  style={{
+                    fontFamily: FONTS.display,
+                    fontSize: 38,
+                    fontWeight: 900,
+                    fontVariantNumeric: "tabular-nums",
+                    color: highlighted ? barColor : valueColor,
+                    lineHeight: 1.05,
+                    marginBottom: 10,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {countUp ? visibleValue : datum.display ?? format(datum.value)}
+                </div>
+              ) : null}
+
+              <div
+                style={{
+                  position: "relative",
+                  flex: "1 1 0",
+                  width: pillarWidth,
+                  background: trackColor === COLORS.surfaceAlt ? "#E2E2DC" : trackColor,
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    bottom: 0,
+                    width: "100%",
+                    height: `${size * 100}%`,
+                    background: activeFillColor,
+                    borderTop: highlighted ? `5px solid ${COLORS.highlighter}` : undefined,
+                    boxSizing: "border-box",
+                  }}
+                />
+              </div>
+
+              <div
+                style={{
+                  height: 72,
+                  paddingTop: 10,
+                  display: "flex",
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  fontFamily: FONTS.body,
+                  fontSize: 24,
+                  fontWeight: highlighted ? 800 : 700,
+                  lineHeight: 1.2,
+                  color: labelColor,
+                  boxSizing: "border-box",
+                }}
+              >
+                {datum.label}
+              </div>
+            </div>
+          );
+        }
+
         return (
           <div
             key={`${datum.label}-${index}`}
@@ -149,52 +260,74 @@ export const EditorialBarChart: React.FC<EditorialBarChartProps> = ({
               width: row.width,
               height: row.height,
               display: "flex",
-              flexDirection: vertical ? "column" : "row",
-              alignItems: "center",
-              gap: 12,
+              flexDirection: "column",
+              justifyContent: "center",
+              gap: 10,
               boxSizing: "border-box",
-              padding: 8,
-              opacity: interpolate(frame, [anchor, anchor + 1], [0, 1], {
-                extrapolateLeft: "clamp",
-                extrapolateRight: "clamp",
-              }),
+              padding: "8px 0",
+              borderBottom: `1px solid ${COLORS.line}`,
+              opacity,
             }}
           >
-            {!vertical ? (
-              <div style={{ flex: "0 0 24%", overflow: "hidden", whiteSpace: "nowrap", color: labelColor }}>{datum.label}</div>
-            ) : null}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                justifyContent: "space-between",
+                gap: 16,
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: FONTS.body,
+                  fontSize: 26,
+                  fontWeight: highlighted ? 800 : 700,
+                  color: labelColor,
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {datum.label}
+              </div>
+              {showValues ? (
+                <div
+                  style={{
+                    fontFamily: FONTS.display,
+                    fontSize: 34,
+                    fontWeight: 900,
+                    fontVariantNumeric: "tabular-nums",
+                    color: highlighted ? barColor : valueColor,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {countUp ? visibleValue : datum.display ?? format(datum.value)}
+                </div>
+              ) : null}
+            </div>
+
             <div
               style={{
                 position: "relative",
-                flex: vertical ? "1 1 auto" : "1 1 0",
-                width: vertical ? "100%" : undefined,
-                height: vertical ? "100%" : 24,
-                alignSelf: vertical ? "stretch" : undefined,
-                background: trackColor,
-                borderRadius: 4,
+                width: "100%",
+                height: 22,
+                background: trackColor === COLORS.surfaceAlt ? "#E2E2DC" : trackColor,
                 overflow: "hidden",
               }}
             >
               <div
                 style={{
                   position: "absolute",
-                  left: vertical ? 0 : 0,
-                  bottom: vertical ? 0 : undefined,
-                  top: vertical ? undefined : 0,
-                  width: vertical ? "100%" : `${size * 100}%`,
-                  height: vertical ? `${size * 100}%` : "100%",
-                  background: glowing ? "#A87308" : barColor,
-                  borderRadius: 2,
-                  border: glowing ? "2px solid #141413" : undefined,
+                  left: 0,
+                  top: 0,
+                  width: `${size * 100}%`,
+                  height: "100%",
+                  background: activeFillColor,
+                  borderRight: highlighted ? `5px solid ${COLORS.highlighter}` : undefined,
+                  boxSizing: "border-box",
                 }}
               />
             </div>
-            {vertical ? <div style={{ textAlign: "center", color: labelColor }}>{datum.label}</div> : null}
-            {showValues ? (
-              <div style={{ flex: "0 0 auto", whiteSpace: "nowrap", color: valueColor, fontWeight: 700 }}>
-                {countUp ? visibleValue : datum.display ?? format(datum.value)}
-              </div>
-            ) : null}
           </div>
         );
       })}

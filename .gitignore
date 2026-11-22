@@ -119,8 +119,9 @@ remotion-composer/out/
 # throwaway and regenerable. Keeps the shared src/ free of one-off scenes.
 remotion-composer/projects/
 remotion-composer/public/*
-# But keep demo props (shipped with the project for zero-key demos)
+# But keep demo props and shared film-grain textures (shipped with the project)
 !remotion-composer/public/demo-props/
+!remotion-composer/public/textures/
 
 # Ignore test/scratch compositions in demo-props (keep only curated demos)
 remotion-composer/public/demo-props/test-*

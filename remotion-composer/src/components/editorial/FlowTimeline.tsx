@@ -50,9 +50,8 @@ export function flowTimelineLayout(
 }
 
 /**
- * Stepped vertical causal diagram with animated SVG connector spine + arrowheads.
- * Uses exclusive speech-locked states: active (1.0 + glow), settled (0.54), ghost (0.15),
- * settling to full opacity at settleAllFrame.
+ * Borderless Swiss architectural causal timeline with animated SVG connector spine
+ * and oversized numeric step blocks (zero 4-sided card boxes).
  */
 export const FlowTimeline: React.FC<FlowTimelineProps> = ({
   steps,
@@ -117,7 +116,7 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
               markerHeight="6"
               orient="auto"
             >
-              <path d="M 0 1 L 10 5 L 0 9 z" fill={COLORS.crimson} />
+              <path d="M 0 1 L 10 5 L 0 9 z" fill={COLORS.vermilion} />
             </marker>
           </defs>
           <line
@@ -125,7 +124,7 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
             y1={firstY}
             x2={spineX}
             y2={lastY}
-            stroke="rgba(20, 20, 19, 0.16)"
+            stroke={COLORS.line}
             strokeWidth={3}
           />
           <line
@@ -133,8 +132,8 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
             y1={firstY}
             x2={spineX}
             y2={lastY}
-            stroke={COLORS.crimson}
-            strokeWidth={3.5}
+            stroke={COLORS.vermilion}
+            strokeWidth={4}
             strokeDasharray={spineLen}
             strokeDashoffset={spineLen * (1 - spineProgress)}
             markerEnd={spineProgress > 0.9 ? "url(#flow-timeline-arrow)" : undefined}
@@ -151,8 +150,8 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
         const active = !settleAll && frame >= step.startFrame && frame < step.endFrame;
         const past = !settleAll && frame >= step.endFrame;
         const opacity =
-          frame < step.startFrame ? 0.15 : settleAll ? 1.0 : active ? 1.0 : past ? 0.54 : 0.15;
-        const accent = step.color ?? COLORS.crimson;
+          frame < step.startFrame ? 0.2 : settleAll ? 1.0 : active ? 1.0 : past ? 0.56 : 0.2;
+        const accent = step.color ?? COLORS.vermilion;
         const ty = interpolate(p, [0, 1], [14, 0]);
 
         return (
@@ -168,7 +167,7 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
               zIndex: 2,
             }}
           >
-            {/* Node marker on spine */}
+            {/* Solid Swiss index marker on spine */}
             <div
               style={{
                 width: 68,
@@ -180,15 +179,13 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
             >
               <div
                 style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 3,
-                  backgroundColor: active ? accent : COLORS.surface,
-                  border: `2.5px solid ${accent}`,
-                  color: active ? COLORS.surface : accent,
-                  fontFamily: FONTS.mono,
-                  fontSize: 24,
-                  fontWeight: 800,
+                  width: 50,
+                  height: 50,
+                  backgroundColor: active ? accent : COLORS.ink,
+                  color: "#FFFFFF",
+                  fontFamily: FONTS.display,
+                  fontSize: 30,
+                  fontWeight: 900,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -198,15 +195,14 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
               </div>
             </div>
 
-            {/* Step body */}
+            {/* Borderless Swiss architectural row */}
             <div
               style={{
                 flex: 1,
-                padding: "16px 22px",
-                borderRadius: 3,
-                backgroundColor: active ? COLORS.surfaceAlt : COLORS.surface,
-                border: `1px solid ${COLORS.line}`,
-                borderLeft: active ? `5px solid ${accent}` : `2px solid ${COLORS.ink}`,
+                padding: "16px 20px",
+                backgroundColor: active ? "#FFFFFF" : "rgba(255, 255, 255, 0.55)",
+                borderLeft: `6px solid ${active ? accent : COLORS.ink}`,
+                borderBottom: `1.5px solid ${COLORS.line}`,
                 display: "flex",
                 flexDirection: "column",
                 gap: 6,
@@ -222,11 +218,12 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
               >
                 <span
                   style={{
-                    fontFamily: FONTS.mono,
-                    fontSize: 24,
-                    fontWeight: 800,
+                    fontFamily: FONTS.display,
+                    fontSize: 25,
+                    fontWeight: 900,
                     color: accent,
-                    letterSpacing: 0.4,
+                    letterSpacing: 0.7,
+                    textTransform: "uppercase",
                   }}
                 >
                   {step.tag}
@@ -234,22 +231,22 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
                 {step.metric ? (
                   <span
                     style={{
-                      fontFamily: FONTS.mono,
-                      fontSize: 24,
-                      fontWeight: 800,
+                      fontFamily: FONTS.display,
+                      fontSize: 27,
+                      fontWeight: 900,
                       color: COLORS.ink,
                       backgroundColor: COLORS.highlighter,
-                      padding: "2px 8px",
+                      padding: "2px 10px",
                     }}
                   >
-                    {step.metric}
+                    {step.metric.replace(/\s*[·•]\s*/g, " / ")}
                   </span>
                 ) : null}
               </div>
               <div
                 style={{
-                  fontFamily: FONTS.display,
-                  fontSize: 30,
+                  fontFamily: FONTS.body,
+                  fontSize: 29,
                   fontWeight: 800,
                   color: COLORS.ink,
                   lineHeight: 1.18,
@@ -261,11 +258,12 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
                 style={{
                   fontFamily: FONTS.body,
                   fontSize: 24,
+                  fontWeight: 500,
                   color: COLORS.muted,
-                  lineHeight: 1.32,
+                  lineHeight: 1.3,
                 }}
               >
-                {step.detail}
+                {step.detail.replace(/\s*[·•]\s*/g, " / ")}
               </div>
             </div>
           </div>

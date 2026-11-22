@@ -116,9 +116,8 @@ function approxPolylineLength(points: Array<[number, number]>): number {
 }
 
 /**
- * Deterministic 2D/2.5D cartographic map component using d3-geo + world-atlas.
- * Replaces low-poly 3D placeholder maps with geographically accurate,
- * speech-locked coastlines, rivers/straits, animated routes, and beacons.
+ * High-contrast dark tactical cartographic map (NYT Visual Investigations / BBC style)
+ * using d3-geo + world-atlas with sharp dark-carbon callout strips and luminous beacons.
  */
 export const EditorialMap: React.FC<EditorialMapProps> = ({
   width,
@@ -158,7 +157,6 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
   const countriesCollection = useMemo(() => {
     const topo = detail === "10m" ? countries10m : countries50m;
     const fc = feature(topo, topo.objects.countries) as GeoFeatureCollection<CountryProps>;
-    // Filter out inverted-winding world-atlas rings (e.g. 10m Maldives) whose spherical area exceeds half the globe.
     return {
       ...fc,
       features: fc.features.filter((f) => geoArea(f) <= Math.PI),
@@ -217,25 +215,24 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
         position: "relative",
         width,
         height,
-        borderRadius: 6,
         overflow: "hidden",
-        backgroundColor: "#E5DDD0",
-        border: `1.5px solid ${COLORS.ink}`,
-        boxShadow: "0 8px 22px rgba(20, 20, 19, 0.12)",
+        backgroundColor: "#0B1019",
+        borderTop: `4px solid ${COLORS.vermilion}`,
+        borderBottom: `3px solid ${COLORS.ink}`,
       }}
     >
-      {/* Subtle archival parchment ocean wash */}
+      {/* Tactical deep-maritime ocean gradient */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(95% 80% at 50% 48%, rgba(235, 228, 214, 0.72) 0%, rgba(220, 211, 194, 0.96) 78%)",
+            "radial-gradient(95% 85% at 50% 48%, #152030 0%, #0A0F18 85%)",
           pointerEvents: "none",
         }}
       />
 
-      {/* Tilted 2.5D map plane */}
+      {/* Tilted 2.5D tactical map plane */}
       <div
         style={{
           position: "absolute",
@@ -259,7 +256,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
               markerHeight="6"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 10 5 L 0 9 z" fill={COLORS.crimson} />
+              <path d="M 0 1 L 10 5 L 0 9 z" fill={COLORS.highlighter} />
             </marker>
           </defs>
 
@@ -267,20 +264,20 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
             <path
               d={graticulePath}
               fill="none"
-              stroke="rgba(20, 20, 19, 0.08)"
+              stroke="rgba(255, 255, 255, 0.08)"
               strokeWidth={1}
             />
           ) : null}
 
-          {/* Landmasses */}
+          {/* Dark tactical landmasses */}
           <g>
             {countryPaths.map((c) => (
               <path
                 key={c.key}
                 d={c.d}
-                fill={c.highlighted ? "rgba(200, 40, 30, 0.18)" : "#F6F1E7"}
-                stroke={c.highlighted ? COLORS.crimson : "#ADA18E"}
-                strokeWidth={c.highlighted ? 1.8 : 1.2}
+                fill={c.highlighted ? "rgba(225, 29, 46, 0.30)" : "#1E2736"}
+                stroke={c.highlighted ? COLORS.vermilion : "#3D4C66"}
+                strokeWidth={c.highlighted ? 2.2 : 1.3}
                 strokeLinejoin="round"
               />
             ))}
@@ -298,7 +295,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                 <path
                   d={d}
                   fill="none"
-                  stroke="rgba(27, 94, 122, 0.22)"
+                  stroke="rgba(14, 165, 233, 0.28)"
                   strokeWidth={(w.width ?? 14) + 10}
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -306,7 +303,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                 <path
                   d={d}
                   fill="none"
-                  stroke={w.color ?? "#1B5E7A"}
+                  stroke={w.color ?? "#0EA5E9"}
                   strokeWidth={w.width ?? 14}
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -342,7 +339,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
             );
             if (p <= 0) return null;
             const dashOffset = totalLen * (1 - p);
-            const routeColor = route.color ?? COLORS.crimson;
+            const routeColor = route.color ?? COLORS.highlighter;
             const mid = projected[Math.floor(projected.length / 2)];
             return (
               <g key={route.id}>
@@ -354,37 +351,46 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                   strokeLinecap="round"
                   strokeDasharray={route.dashed ? "10 8" : `${totalLen}`}
                   strokeDashoffset={route.dashed ? totalLen * (1 - p) : dashOffset}
-                  opacity={0.95}
+                  opacity={0.96}
                   markerEnd={p > 0.92 && !route.dashed ? "url(#editorial-map-arrow)" : undefined}
                 />
-                {route.label && p > 0.6 ? (() => {
-                  const boxW = Math.max(192, route.label.length * 15 + 28);
-                  return (
-                  <g transform={`translate(${mid[0]}, ${mid[1] - 18})`} opacity={interpolate(p, [0.6, 1], [0, 1])}>
-                    <rect
-                      x={-boxW / 2}
-                      y={-22}
-                      width={boxW}
-                      height={38}
-                      rx={3}
-                      fill={COLORS.surface}
-                      stroke={routeColor}
-                      strokeWidth={1.6}
-                    />
-                    <text
-                      x={0}
-                      y={5}
-                      textAnchor="middle"
-                      fill={COLORS.ink}
-                      fontFamily={FONTS.mono}
-                      fontSize={24}
-                      fontWeight={700}
-                    >
-                      {route.label}
-                    </text>
-                  </g>
-                  );
-                })() : null}
+                {route.label && p > 0.6
+                  ? (() => {
+                      const boxW = Math.max(192, route.label.length * 15 + 28);
+                      return (
+                        <g
+                          transform={`translate(${mid[0]}, ${mid[1] - 18})`}
+                          opacity={interpolate(p, [0.6, 1], [0, 1])}
+                        >
+                          <rect
+                            x={-boxW / 2}
+                            y={-22}
+                            width={boxW}
+                            height={38}
+                            fill="rgba(11, 12, 14, 0.92)"
+                          />
+                          <rect
+                            x={-boxW / 2}
+                            y={-22}
+                            width={5}
+                            height={38}
+                            fill={routeColor}
+                          />
+                          <text
+                            x={0}
+                            y={6}
+                            textAnchor="middle"
+                            fill="#FFFFFF"
+                            fontFamily={FONTS.display}
+                            fontSize={25}
+                            fontWeight={800}
+                          >
+                            {route.label}
+                          </text>
+                        </g>
+                      );
+                    })()
+                  : null}
               </g>
             );
           })}
@@ -399,11 +405,11 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                 x={pt[0]}
                 y={pt[1]}
                 textAnchor="middle"
-                fill={reg.color ?? "rgba(90, 85, 78, 0.78)"}
-                fontFamily={FONTS.mono}
-                fontSize={24}
-                fontWeight={700}
-                letterSpacing={1.4}
+                fill={reg.color ?? "rgba(186, 198, 218, 0.72)"}
+                fontFamily={FONTS.display}
+                fontSize={26}
+                fontWeight={800}
+                letterSpacing={1.8}
               >
                 {reg.label}
               </text>
@@ -421,32 +427,43 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
               config: MOTION.settle,
             });
             const visible = frame >= pin.enterFrame;
-            const pinColor = pin.color ?? COLORS.crimson;
+            const pinColor = pin.color ?? COLORS.vermilion;
             const pulseCycle = (localF % 45) / 45;
-            const ringR = visible ? 10 + pulseCycle * 28 : 0;
-            const ringOp = visible && pin.pulse !== false ? 0.65 * (1 - pulseCycle) : 0;
+            const ringR = visible ? 10 + pulseCycle * 30 : 0;
+            const ringOp = visible && pin.pulse !== false ? 0.8 * (1 - pulseCycle) : 0;
             return (
-              <g key={pin.id} transform={`translate(${pt[0]}, ${pt[1]})`} opacity={visible ? enterP : 0.18}>
+              <g
+                key={pin.id}
+                transform={`translate(${pt[0]}, ${pt[1]})`}
+                opacity={visible ? enterP : 0.25}
+              >
                 {pin.pulse !== false && visible ? (
                   <circle
                     cx={0}
                     cy={0}
                     r={ringR}
                     fill="none"
-                    stroke={pinColor}
+                    stroke={COLORS.highlighter}
                     strokeWidth={2.5}
                     opacity={ringOp}
                   />
                 ) : null}
-                <circle cx={0} cy={0} r={10} fill={pinColor} stroke={COLORS.surface} strokeWidth={3} />
-                <circle cx={0} cy={0} r={4} fill={COLORS.ink} />
+                <circle
+                  cx={0}
+                  cy={0}
+                  r={10}
+                  fill={pinColor}
+                  stroke="#FFFFFF"
+                  strokeWidth={2.5}
+                />
+                <circle cx={0} cy={0} r={4} fill={COLORS.highlighter} />
               </g>
             );
           })}
         </svg>
       </div>
 
-      {/* Un-tilted crisp HTML callout labels anchored to projected pin coords */}
+      {/* Sleek dark-carbon HUD callout strips anchored to projected pin coords */}
       {pins.map((pin, idx) => {
         const pt = projection(pin.coords);
         if (!pt) return null;
@@ -458,7 +475,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
         const rawTop = pt[1] + offset[1];
         const left = Math.max(16, Math.min(width - 350, rawLeft));
         const top = Math.max(title ? 76 : 16, Math.min(height - 96, rawTop));
-        const pinColor = pin.color ?? COLORS.crimson;
+        const pinColor = pin.color ?? COLORS.vermilion;
         return (
           <div
             key={`lbl-${pin.id}`}
@@ -468,25 +485,22 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
               top,
               opacity: visible ? enterP : 0,
               transform: `translateY(${interpolate(enterP, [0, 1], [10, 0])}px)`,
-              backgroundColor: COLORS.surface,
-              border: `1.5px solid ${COLORS.ink}`,
+              backgroundColor: "rgba(11, 12, 14, 0.92)",
               borderLeft: `5px solid ${pinColor}`,
-              borderRadius: 3,
-              padding: "8px 14px",
+              padding: "7px 14px",
               pointerEvents: "none",
               maxWidth: 340,
-              boxShadow: "0 4px 12px rgba(20, 20, 19, 0.14)",
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
               {pin.status ? (
                 <span
                   style={{
-                    fontFamily: FONTS.mono,
+                    fontFamily: FONTS.display,
                     fontSize: 24,
-                    fontWeight: 800,
-                    color: pinColor,
-                    letterSpacing: 0.4,
+                    fontWeight: 900,
+                    color: COLORS.highlighter,
+                    letterSpacing: 0.6,
                   }}
                 >
                   {STATUS_LABELS[pin.status]}
@@ -497,7 +511,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                   fontFamily: FONTS.body,
                   fontSize: 24,
                   fontWeight: 700,
-                  color: COLORS.ink,
+                  color: "#FFFFFF",
                   whiteSpace: "nowrap",
                 }}
               >
@@ -507,20 +521,21 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
             {pin.sublabel ? (
               <div
                 style={{
-                  fontFamily: FONTS.mono,
+                  fontFamily: FONTS.body,
                   fontSize: 24,
-                  color: COLORS.muted,
-                  marginTop: 3,
+                  fontWeight: 600,
+                  color: COLORS.mutedOnDark,
+                  marginTop: 2,
                 }}
               >
-                {pin.sublabel}
+                {pin.sublabel.replace(/\s*[·•]\s*/g, " / ")}
               </div>
             ) : null}
           </div>
         );
       })}
 
-      {/* Title & corner telemetry bar */}
+      {/* Borderless dark-carbon map header & attribution strip */}
       {title ? (
         <div
           style={{
@@ -528,17 +543,17 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
             top: 16,
             left: 18,
             padding: "6px 14px",
-            borderRadius: 2,
-            backgroundColor: COLORS.surface,
-            border: `1.5px solid ${COLORS.ink}`,
-            fontFamily: FONTS.mono,
-            fontSize: 24,
-            fontWeight: 700,
-            color: COLORS.ink,
-            letterSpacing: 0.6,
+            backgroundColor: "rgba(11, 12, 14, 0.90)",
+            borderLeft: `5px solid ${COLORS.highlighter}`,
+            fontFamily: FONTS.display,
+            fontSize: 25,
+            fontWeight: 800,
+            color: "#FFFFFF",
+            letterSpacing: 0.8,
+            textTransform: "uppercase",
           }}
         >
-          {title}
+          {title.replace(/\s*[·•]\s*/g, " / ")}
         </div>
       ) : null}
 
@@ -549,15 +564,17 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
             bottom: 12,
             right: 14,
             padding: "4px 12px",
-            borderRadius: 2,
-            backgroundColor: COLORS.surface,
-            border: `1px solid rgba(20, 20, 19, 0.30)`,
-            fontFamily: FONTS.mono,
+            backgroundColor: "rgba(11, 12, 14, 0.88)",
+            borderLeft: `4px solid ${COLORS.vermilion}`,
+            fontFamily: FONTS.display,
             fontSize: 24,
-            color: COLORS.muted,
+            fontWeight: 700,
+            color: COLORS.mutedOnDark,
+            letterSpacing: 0.6,
+            textTransform: "uppercase",
           }}
         >
-          {source}
+          {source.replace(/\s*[·•]\s*/g, " / ")}
         </div>
       ) : null}
     </div>

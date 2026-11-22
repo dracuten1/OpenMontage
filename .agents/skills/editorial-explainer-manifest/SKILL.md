@@ -13,15 +13,15 @@ Design deterministic, frame-accurate 2D editorial motion graphic manifests for n
 - Harmonizing mixed-media web assets (press clippings, archival photos, satellite maps, SVG icons) into a cohesive Warm Archival Print collage
 - Enforcing Research v2 closed fact-whitelisting and Antigravity Vision QA checks before rendering
 
-## 1. Personal Visual Language — Warm Archival Print (Anti-AI)
+## 1. Personal Visual Language — Broadcast Photojournalism × Swiss Split (Anti-AI)
 
-Reject generic dark-mode SaaS dashboard cards, neon glows, glowing 999px pills, and plastic 3D aesthetics. Anchor every visual and motion decision in **Warm Archival Print / Investigative Broadsheet**:
+Reject sepia HTML Card-itis (`1px solid` boxes stacked on `#F4EFE6`), `JetBrains Mono` middot tags, floating subtitle toast rectangles, dark-mode SaaS neon glows, and plastic 3D aesthetics. Anchor every visual and motion decision in **Broadcast Photojournalism × Swiss Edge-to-Edge Split**:
 
-- **Paper & Ink Foundation:** Warm archival newsprint base (`#F4EFE6`) with clean paper cards (`#FAF7F2`, `#EFE8DB`), subtle deterministic `<feTurbulence>` paper grain, crisp `1–2px` charcoal ink rules (`#141413`), vermilion red (`#C8281E`), deep ochre (`#A87308`), and physical felt-pen yellow highlighter (`#F3D34A`) behind charcoal ink.
-- **Typography:** `Source Serif 4` for display headlines & editorial statements, `Be Vietnam Pro` for body/captions/cards, `JetBrains Mono` for kickers, source stamps, and numeric data (all loaded with Vietnamese subsets via `ensureFonts()`).
-- **Mixed-Media Archival Cutouts:** Source real public-domain photographs, press clippings, patent diagrams, and satellite photos. Unify them via `web_plus_i2i` halftone/duotone ink treatments or authentic mounted print frames (`ArchivalSpotlight`) with crisp registration ticks and mandatory attribution badges (`ẢNH TƯ LIỆU <year>` + credit).
-- **Programmatic Evidence Layers (`remotion_native`):** Render all statistical charts (`EditorialBarChart`, `EditorialLineChart`), geographic maps (`EditorialMap`), causal timelines (`FlowTimeline`), side-by-side comparisons (`ComparisonSplit`), and felt-pen highlighter sweeps natively in Remotion code so numbers and Vietnamese diacritics stay razor-sharp.
-- **Tactile Documentary Sound Design (`sfx_cues`):** Pair visual reveals with restrained, physical documentary audio: camera shutters, paper slides, felt-tip marker swipes, muted low-end transitions, and telemetry clicks (`-6 dB` to `-14 dB`).
+- **Dual Ground & Film Grain Foundation:** Swiss Gallery stage (`#F5F5F2`) framed by full-bleed Broadcast Carbon (`#0B0C0E`) masthead and cinema lower-third bands (or `layoutMode="full-bleed"` photojournalism with multi-stop cinema scrim), Signal Red (`#E11D2E`), Signal Yellow (`#FFD100`), Signal Orange (`#FF5500`), real 12fps 35mm film grain (`textures/film_grain_1..3.png`), and borderless Economist/FT charts + dark tactical `EditorialMap`.
+- **Typography:** `Barlow Condensed` (900 Black) for display headlines, kickers, and tabular metrics; `Plus Jakarta Sans` + `Be Vietnam Pro` for body and borderless kinetic subtitles (all loaded with Vietnamese subsets via `ensureFonts()`).
+- **Mixed-Media Archival Cutouts & Full-Bleed Photos:** Source real public-domain photographs, press clippings, patent diagrams, and satellite photos. Unify them via `web_plus_i2i` treatments or straight full-impact `ArchivalSpotlight` frames (`rotateDeg={0}`) with flush dark-carbon caption decks and mandatory attribution badges (`ẢNH TƯ LIỆU <year>` + credit).
+- **Programmatic Evidence Layers (`remotion_native`):** Render all statistical charts (`EditorialBarChart`, `EditorialLineChart`), geographic maps (`EditorialMap`), causal timelines (`FlowTimeline`), side-by-side comparisons (`ComparisonSplit`), and signal highlighter sweeps natively in Remotion code so numbers and Vietnamese diacritics stay razor-sharp.
+- **Tactile Documentary Sound Design (`sfx_cues`):** Pair visual reveals with restrained, physical documentary audio: camera shutters, crisp transitions, felt-tip marker swipes, and telemetry clicks (`-6 dB` to `-14 dB`).
 
 ## 2. Hook-First Storytelling & Anti-AI Voice Rules
 
@@ -186,14 +186,14 @@ The news-editorial-motion lane enforces a mandatory layer grammar via `tools/qc/
 ## 4. Execution & Shared Kit Surface
 
 1. **Canonical Shared Kit (`remotion-composer/src/components/`):** import and compose directly instead of duplicating shells per episode:
-   - News foundation (`remotion-composer/src/components/news/{theme,SceneShell,BrandBumper}`): Warm Archival Print tokens (`COLORS`, `FONTS`, `SAFE`, `SAFE_16X9`, `MOTION`), `ArchivalPaperBackdrop`, `SceneShell`, `HeroTitle`, `CaptionLayer`, `SourceBadge`, `AiBadge`, `SimulationBadge`, `ArchiveLabelBadge`, `PhotoCreditBadge`, `VerdictStamp`, `HighlightBar`, `CtaBand`, and outro `<BrandBumper />` (`BRAND_BUMPER_FRAMES = 90`, placed at the END of the episode).
-   - Editorial archetypes (`remotion-composer/src/components/editorial/`): `EditorialMap` (`d3-geo` + `world-atlas`), `ArchivalSpotlight`, `FlowTimeline`, `ComparisonSplit`.
-   - Editorial charts (`remotion-composer/src/components/charts/`): `EditorialBarChart`, `EditorialLineChart` (`yDomain: "auto" | "zero"` with automatic `TRỤC RÚT GỌN` axis-break warning and `deltaBadge`).
-2. **Visual Variety Rule:** No two consecutive content scenes may use the same layout archetype. Cap 3-row card stacks at `≤ 35%` of content scenes; alternate maps, spotlights, timelines, splits, and charts.
+   - News foundation (`remotion-composer/src/components/news/{theme,SceneShell,BrandBumper}`): Broadcast Photojournalism × Swiss Split tokens (`COLORS`, `FONTS`, `SAFE`, `SAFE_16X9`, `MOTION`), `ArchivalPaperBackdrop`, `SceneShell`, `HeroTitle`, `CaptionLayer`, `SourceBadge`, `AiBadge`, `SimulationBadge`, `ArchiveLabelBadge`, `PhotoCreditBadge`, `VerdictStamp`, `HighlightBar`, `CtaBand`, and outro `<BrandBumper />` (`BRAND_BUMPER_FRAMES = 90`, placed at the END of the episode).
+   - Editorial archetypes (`remotion-composer/src/components/editorial/`): `EditorialMap` (`d3-geo` + `world-atlas`, dark tactical cartography), `ArchivalSpotlight` (`rotateDeg={0}`), `FlowTimeline`, `ComparisonSplit`.
+   - Editorial charts (`remotion-composer/src/components/charts/`): `EditorialBarChart` (Economist pillar chart), `EditorialLineChart` (`yDomain: "auto" | "zero"` with automatic `TRỤC RÚT GỌN` axis-break warning and `deltaBadge`).
+2. **Visual Variety Rule:** No two consecutive content scenes may use the same layout archetype. Cap 3-row stacks at `≤ 35%` of content scenes; alternate full-bleed photojournalism (`layoutMode="full-bleed"`), dark tactical maps, spotlights, timelines, splits, and pillar charts.
 3. **Chart Selection Rule:** Narrow-variance series (e.g., gold or fuel prices `137.5 → 136.2`) MUST use `EditorialLineChart` (`yDomain: "auto"` + `TRỤC RÚT GỌN` + `deltaBadge`) instead of zero-based horizontal bars that flatten the move.
 4. **Blender 3D Illustration Policy:**
    - **Daily quick roundups:** prefer `EditorialMap`, `ArchivalSpotlight`, and `FlowTimeline`.
-   - **Flagship spatial / mechanism / infrastructure scenes & bumpers:** Blender MCP (`blender-modeling`, `blender-materials`, `blender-lighting`, `blender-cameras`, `blender-animation`, `blender-rendering`, `3d-asset-generation`) IS encouraged when a physical/spatial illustration genuinely clarifies the story (e.g., bridge span mechanics, dam cross-sections, supply-chain geometry). Render using **matte architectural maquette / archival paper lighting** matching `#F4EFE6` / `#FAF7F2` with charcoal/vermilion highlights — never glossy plastic or neon darkroom lighting — at native 30fps for exact scene duration, and stamp `SimulationBadge` (`MÔ PHỎNG 3D`), never `BLENDER`.
+   - **Flagship spatial / mechanism / infrastructure scenes & bumpers:** Blender MCP (`blender-modeling`, `blender-materials`, `blender-lighting`, `blender-cameras`, `blender-animation`, `blender-rendering`, `3d-asset-generation`) IS encouraged when a physical/spatial illustration genuinely clarifies the story (e.g., bridge span mechanics, dam cross-sections, supply-chain geometry). Render using **matte architectural maquette / dark noir studio lighting** matching `#0B0C0E` / `#F5F5F2` with Signal Red `#E11D2E` / Signal Yellow `#FFD100` highlights — never glossy plastic or neon darkroom lighting — at native 30fps for exact scene duration, and stamp `SimulationBadge` (`MÔ PHỎNG 3D`), never `BLENDER`.
 
 ## 5. Antigravity / `agy` Pipeline Integration & Gates (MANDATORY)
 
@@ -221,5 +221,5 @@ Render 9:16 (`1080×1920`) and 16:9 (`1920×1080`) **separately** with re-compos
 
 - **Never use bouncy springs for serious news:** Always keep `damping >= 16`.
 - **Never generate charts or text-heavy graphics with T2I:** Render numbers, charts, and maps programmatically in Remotion.
-- **Never put neon glow or dark-slate SaaS gradients on archival print scenes:** Stick strictly to `#F4EFE6` / `#FAF7F2` paper surfaces and `#141413` charcoal ink.
+- **Never put Card-itis 1px boxes, neon glow, or dark-slate SaaS gradients on editorial scenes:** Stick strictly to the Broadcast Carbon `#0B0C0E` + Swiss Gallery `#F5F5F2` dual ground with Signal Red `#E11D2E` / Signal Yellow `#FFD100` accents.
 - **Keep SFX subtle and tactile:** `-6 dB` to `-14 dB` shutters, paper slides, felt marker swipes, and clicks locked to `trigger_frame`.

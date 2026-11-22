@@ -57,7 +57,7 @@ Schema-valid ≠ production-correct. Ba probe gate sau là bắt buộc:
   3. Khớp ngữ âm → tiếp tục batch TTS. Lệch → sửa `narration_form` / `tts_lexicon.json` rồi probe lại.
 - **Gate B — Still Frame Vision Probe (trước khi render full):**
   1. Render frame đại diện cho scene dày chữ / dữ liệu nhất (và scene ảnh `ArchivalSpotlight` nếu có) bằng `npx remotion still <CompId> /tmp/probe.png --frame=<frame>`.
-  2. Dùng Antigravity `read_file` inspect ảnh PNG trực tiếp: kiểm tra Warm Archival Print palette (`#F4EFE6` / `#141413`), dấu tiếng Việt `Source Serif 4`, thanh phụ đề hiển thị rõ trong dải `y=1480..1600`, không tràn Safe Zone v3.2, không đè sub, không neon glow; với chân dung dọc trong `ArchivalSpotlight`, dùng `objectPosition="center 24%"` và `quoteEnterFrame <= 60` để không crop mặt hoặc ẩn pull-quote.
+  2. Dùng Antigravity `read_file` inspect ảnh PNG trực tiếp: kiểm tra Broadcast Photojournalism × Swiss Split palette (`#0B0C0E` masthead & lower-third cinema bands, `#F5F5F2` Swiss Gallery stage, `#E11D2E` / `#FFD100` / `#FF5500`), dấu tiếng Việt `Barlow Condensed` + `Plus Jakarta Sans`, phụ đề không viền hiển thị rõ trong dải `y=1480..1600`, không tràn Safe Zone v3.2, không Card-itis viền hộp 1px, không neon glow; với chân dung dọc trong `ArchivalSpotlight`, dùng `objectPosition="center 24%"` và `quoteEnterFrame <= 60` để không crop mặt hoặc ẩn pull-quote.
   3. PASS mới chạy full render via `tools/qc/render_episode.py`.
 - **Gate C — Final Verify (sau render, trước khi bàn giao):**
   1. Chạy `.venv/bin/python tools/qc/gate_c_verify.py --project projects/<slug>` (chạy `--check-file`, `ffprobe`, `ebur128`, trích 5 frame spotcheck, và `faster-whisper` speech-bounded `-t scenes_seconds` + `vad_filter=True` để tránh outro bumper music gây ảo giác).
@@ -74,15 +74,15 @@ Schema-valid ≠ production-correct. Ba probe gate sau là bắt buộc:
 
 ---
 
-## §4. Personal Visual Theme — Warm Archival Print (Anti-AI)
+## §4. Personal Visual Theme — Broadcast Photojournalism × Swiss Split (Anti-AI)
 
-Mọi video news/explainer tuân thủ thẩm mỹ **Warm Archival Print / Broadsheet** (`styles/archival-editorial.yaml`, SSOT code `remotion-composer/src/components/news/theme.ts`):
+Mọi video news/explainer tuân thủ thẩm mỹ **Broadcast Photojournalism × Swiss Edge-to-Edge Split** (`styles/archival-editorial.yaml`, SSOT code `remotion-composer/src/components/news/theme.ts`):
 
 1. **Bảng màu & Typography:**
-   - Nền giấy archival `#F4EFE6`, bề mặt card `#FAF7F2` / `#EFE8DB`, mực in `#141413`, chữ phụ `#5A554E`.
-   - Điểm nhấn tiết chế: Đỏ son `#C8281E` (vermilion) và Vàng đất `#A87308` (ochre); highlight dùng nền bút nhớ `#F3D34A` sau chữ tối `#141413`.
-   - Headline dùng `Source Serif 4`, nội dung `Be Vietnam Pro`, dữ liệu/kicker/stamp dùng `JetBrains Mono`.
-   - **Cấm tuyệt đối:** Nền dark-slate gradient AI, `textShadow`/`boxShadow` neon glow, card glassmorphism bo tròn 999px, bullet slide thuần chữ.
+   - Hai nền chủ đạo: **Swiss Gallery `#F5F5F2`** (sân khấu nội dung) kẹp bởi hai dải tràn mép **Broadcast Carbon `#0B0C0E`** (masthead `y 0–332` và cinema lower-third `y 1444–1920`), chữ mực `#0B0C0E` (hoặc `#FFFFFF` khi `layoutMode="full-bleed"`), chữ phụ `#52565E` / `#A0A6B2`.
+   - Điểm nhấn sắc nét: Signal Red `#E11D2E`, Signal Yellow `#FFD100` (highlight & số liệu trọng tâm), Signal Orange `#FF5500`.
+   - Headline & số liệu dùng `Barlow Condensed` (900), nội dung & phụ đề dùng `Plus Jakarta Sans` / `Be Vietnam Pro` (all loaded with Vietnamese subsets); bỏ hoàn toàn `JetBrains Mono` và ký tự `·` kiểu dashboard.
+   - **Cấm tuyệt đối:** Card-itis (thẻ hộp viền `1px solid` xếp chồng trên nền kem), hộp đen toast phụ đề, nền dark-slate gradient AI, `textShadow`/`boxShadow` neon glow, card glassmorphism bo tròn 999px, bullet slide thuần chữ.
 2. **Hệ thống component chuẩn (`remotion-composer/src/components/`):**
    - `news/`: `SceneShell`, `ArchivalPaperBackdrop`, `HeroTitle`, `CaptionLayer`, `KickerPill`, `SourceBadge`, `AiBadge`, `SimulationBadge`, `ArchiveLabelBadge`, `PhotoCreditBadge`, `VerdictStamp`, `HighlightBar`, `CtaBand`, outro `<BrandBumper />`.
    - `editorial/`: `EditorialMap`, `ArchivalSpotlight`, `FlowTimeline`, `ComparisonSplit`.
@@ -93,7 +93,7 @@ Mọi video news/explainer tuân thủ thẩm mỹ **Warm Archival Print / Broad
    - `<BrandBumper />` **CHỈ đặt ở outro cuối tập** (`BRAND_BUMPER_FRAMES = 90`), không bao giờ đặt ở `from={0}`.
 4. **Blender 3D Illustration Policy:**
    - Khuyến khích dùng Blender MCP (`blender-*`, `3d-asset-generation`) cho các cảnh minh họa không gian/kỹ thuật/hạ tầng hoặc bumper chuyên biệt khi 2D không diễn tả đủ chiều sâu.
-   - Lighting và material phải theo phong cách **matte architectural maquette / clay / archival paper** hài hòa với `#F4EFE6`, gắn badge `SimulationBadge` (`MÔ PHỎNG 3D`), không bao giờ dùng nhựa bóng neon hoặc gắn nhãn tên tool `BLENDER`.
+   - Lighting và material phải theo phong cách **matte architectural maquette / dark noir studio** hài hòa với `#0B0C0E` / `#F5F5F2`, gắn badge `SimulationBadge` (`MÔ PHỎNG 3D`), không bao giờ dùng nhựa bóng neon hoặc gắn nhãn tên tool `BLENDER`.
 5. **hexpix Focal Visuals:** Khi dùng AI image làm nền tương tác cho TSX overlay hoặc sprite động theo path, sử dụng `scripts/hexpix_decode.py` / `scripts/hexpix_extract.py` (OpenCV H `0–179` = độ/2) kết hợp I2I cleanup.
 
 ---

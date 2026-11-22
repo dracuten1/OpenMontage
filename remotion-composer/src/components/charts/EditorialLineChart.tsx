@@ -126,8 +126,8 @@ export function editorialLineChartLayout(
 }
 
 /**
- * Dark-theme editorial line/area chart with explicit axis-break signaling
- * when yDomain != "zero", speech-locked SVG path drawing, and delta callout.
+ * Borderless Swiss / Economist line chart with explicit axis-break signaling,
+ * speech-locked SVG path drawing, and high-contrast tabular callouts.
  */
 export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
   data,
@@ -136,7 +136,7 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
   yDomain = "auto",
   width = DEFAULT_WIDTH,
   height = DEFAULT_HEIGHT,
-  lineColor = COLORS.crimson,
+  lineColor = COLORS.vermilion,
   areaFill = true,
   accentColor = COLORS.ochre,
   highlightIndex,
@@ -193,10 +193,8 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
         position: "relative",
         width,
         height,
-        borderRadius: 4,
-        backgroundColor: COLORS.surface,
-        border: `1px solid ${COLORS.line}`,
         borderTop: `3px solid ${COLORS.ink}`,
+        borderBottom: `2px solid ${COLORS.ink}`,
         overflow: "hidden",
       }}
     >
@@ -206,8 +204,8 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
           style={{
             position: "absolute",
             top: 14,
-            left: 20,
-            right: 20,
+            left: 0,
+            right: 0,
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -216,11 +214,12 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
         >
           <div
             style={{
-              fontFamily: FONTS.mono,
-              fontSize: 24,
-              fontWeight: 700,
+              fontFamily: FONTS.display,
+              fontSize: 28,
+              fontWeight: 800,
               color: COLORS.ink,
-              letterSpacing: 0.4,
+              letterSpacing: 0.6,
+              textTransform: "uppercase",
             }}
           >
             {title}
@@ -230,13 +229,13 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
             <div
               style={{
                 padding: "3px 10px",
-                borderRadius: 2,
-                border: `1.5px solid ${COLORS.ochre}`,
-                backgroundColor: COLORS.surfaceAlt,
-                color: COLORS.ochre,
-                fontFamily: FONTS.mono,
+                backgroundColor: COLORS.ink,
+                borderLeft: `4px solid ${COLORS.highlighter}`,
+                color: "#FFFFFF",
+                fontFamily: FONTS.display,
                 fontSize: 24,
-                fontWeight: 700,
+                fontWeight: 800,
+                letterSpacing: 0.6,
               }}
             >
               TRỤC RÚT GỌN
@@ -249,7 +248,7 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
         <defs>
           <linearGradient id="editorial-line-area-grad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={lineColor} stopOpacity={0.18} />
-            <stop offset="100%" stopColor={lineColor} stopOpacity={0.02} />
+            <stop offset="100%" stopColor={lineColor} stopOpacity={0.01} />
           </linearGradient>
         </defs>
 
@@ -261,18 +260,18 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
               y1={tick.y}
               x2={plotLeft + plotWidth}
               y2={tick.y}
-              stroke="rgba(20, 20, 19, 0.14)"
-              strokeDasharray="6 6"
-              strokeWidth={1}
+              stroke={idx === 0 ? COLORS.ink : "rgba(11, 12, 14, 0.14)"}
+              strokeDasharray={idx === 0 ? undefined : "5 5"}
+              strokeWidth={idx === 0 ? 2 : 1}
             />
             <text
               x={plotLeft - 12}
-              y={tick.y + 6}
+              y={tick.y + 7}
               textAnchor="end"
               fill={COLORS.muted}
-              fontFamily={FONTS.mono}
-              fontSize={24}
-              fontWeight={600}
+              fontFamily={FONTS.display}
+              fontSize={26}
+              fontWeight={800}
             >
               {format(tick.value)}
             </text>
@@ -300,9 +299,9 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
             d={polylinePath}
             fill="none"
             stroke={lineColor}
-            strokeWidth={4.5}
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            strokeWidth={5}
+            strokeLinecap="square"
+            strokeLinejoin="miter"
             strokeDasharray={totalPathLen}
             strokeDashoffset={dashOffset}
           />
@@ -328,9 +327,9 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
                 y={plotBottom + 36}
                 textAnchor="middle"
                 fill={isHi ? COLORS.ink : COLORS.muted}
-                fontFamily={FONTS.mono}
-                fontSize={24}
-                fontWeight={isHi ? 700 : 500}
+                fontFamily={FONTS.display}
+                fontSize={25}
+                fontWeight={isHi ? 800 : 700}
               >
                 {datum.label}
               </text>
@@ -349,12 +348,12 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
                   />
                   <text
                     x={pt.x}
-                    y={Math.max(plotTop + 22, pt.y - 16)}
+                    y={Math.max(plotTop + 24, pt.y - 16)}
                     textAnchor="middle"
                     fill={isHi ? accentColor : COLORS.ink}
-                    fontFamily={FONTS.mono}
-                    fontSize={24}
-                    fontWeight={800}
+                    fontFamily={FONTS.display}
+                    fontSize={27}
+                    fontWeight={900}
                   >
                     {valLabel}
                   </text>
@@ -373,16 +372,16 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
         <div
           style={{
             position: "absolute",
-            right: 22,
+            right: 0,
             bottom: 66,
-            padding: "8px 14px",
-            borderRadius: 2,
-            backgroundColor: COLORS.surface,
-            border: `2px solid ${deltaBadge.color ?? accentColor}`,
-            color: deltaBadge.color ?? accentColor,
-            fontFamily: FONTS.mono,
-            fontSize: 24,
-            fontWeight: 800,
+            padding: "8px 16px",
+            backgroundColor: COLORS.ink,
+            borderLeft: `6px solid ${deltaBadge.color ?? accentColor}`,
+            color: "#FFFFFF",
+            fontFamily: FONTS.display,
+            fontSize: 26,
+            fontWeight: 900,
+            letterSpacing: 0.6,
           }}
         >
           {deltaBadge.text}
