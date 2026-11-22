@@ -3,7 +3,55 @@ export { StatCard } from "./StatCard";
 export { ProgressBar } from "./ProgressBar";
 export { CalloutBox } from "./CalloutBox";
 export { ComparisonCard } from "./ComparisonCard";
-export { BarChart, LineChart, PieChart, KPIGrid } from "./charts";
+export {
+  BarChart,
+  EditorialBarChart,
+  editorialBarChartLayout,
+  EditorialLineChart,
+  editorialLineChartLayout,
+  computeYDomain,
+  LineChart,
+  PieChart,
+  KPIGrid,
+} from "./charts";
+export type {
+  EditorialBarDatum,
+  EditorialBarChartProps,
+  EditorialBarChartLayout,
+  EditorialLineDatum,
+  EditorialLineDeltaBadge,
+  EditorialLineChartProps,
+  EditorialLineDomain,
+  EditorialLineChartLayout,
+} from "./charts";
+export {
+  EditorialMap,
+  editorialMapLayout,
+  ArchivalSpotlight,
+  archivalSpotlightLayout,
+  FlowTimeline,
+  flowTimelineLayout,
+  ComparisonSplit,
+  comparisonSplitLayout,
+} from "./editorial";
+export type {
+  EditorialMapLayout,
+  EditorialMapProps,
+  MapPin,
+  MapRegionLabel,
+  MapRoute,
+  MapWaterLine,
+  ArchivalSpotlightLayout,
+  ArchivalSpotlightProps,
+  ArchivalTreatment,
+  FlowStep,
+  FlowTimelineLayout,
+  FlowTimelineProps,
+  ComparisonSide,
+  ComparisonSplitLayout,
+  ComparisonSplitProps,
+} from "./editorial";
+export * from "./news";
 export { CaptionOverlay } from "./CaptionOverlay";
 export { SectionTitle } from "./SectionTitle";
 export { StatReveal } from "./StatReveal";

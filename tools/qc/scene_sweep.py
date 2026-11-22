@@ -309,7 +309,7 @@ def resolve_entry(entry: str) -> str:
     raise SystemExit(f"[scene_sweep] entry not found (repo/remotion-composer): {entry}")
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--entry", required=True, help="remotion entry tsx (path relative to repo root or remotion-composer/)")
     ap.add_argument("--composition", required=True)
@@ -319,7 +319,7 @@ def main() -> int:
     ap.add_argument("--proj", default=None, help="project id (report metadata only)")
     ap.add_argument("--scenes", default=None, help="comma-separated scene_id filter (e.g. s02,s05)")
     ap.add_argument("--max-stills", type=int, default=20, help="hard cap on rendered stills per run")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
 
     if not REMOTION_DIR.is_dir():
         print(f"[scene_sweep] remotion-composer not found: {REMOTION_DIR}", file=sys.stderr)
@@ -327,7 +327,7 @@ def main() -> int:
     timing_path = Path(args.scene_timing)
     if not timing_path.is_absolute():
         timing_path = (REPO_ROOT / timing_path if (REPO_ROOT / timing_path).exists()
-                       else timing_path)
+                       else timing_path).resolve()
     timing = json.loads(timing_path.read_text())
     fps = int(timing.get("fps", 30))
     scenes = timing["scenes"]
@@ -347,7 +347,7 @@ def main() -> int:
               f"raise --max-stills or filter with --scenes", file=sys.stderr)
         return 2
 
-    out_dir = Path(args.out)
+    out_dir = Path(args.out).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
     entry_arg = resolve_entry(args.entry)
 
@@ -367,7 +367,7 @@ def main() -> int:
         for tag, frame in plans[sid]:
             png = out_dir / f"{sid}_{tag}_f{frame}.png"
             cmd = ["npx", "remotion", "still", entry_arg, args.composition, str(png),
-                   f"--frame={frame}", "--log=error"]
+                   f"--frame={frame}", "--log=error", "--timeout=120000"]
             t0 = time.time()
             res = subprocess.run(cmd, cwd=REMOTION_DIR, capture_output=True, text=True)
             if res.returncode != 0 or not png.exists():

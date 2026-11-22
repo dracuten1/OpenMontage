@@ -88,6 +88,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
+SHARED_COMPONENTS_ROOT = (REPO_ROOT / "remotion-composer" / "src" / "components").resolve()
 
 from lib.production_provenance import hash_file, hash_json_data
 
@@ -116,6 +117,14 @@ IDENTIFIER_TOKEN = re.compile(r"^[A-Za-z_$][A-Za-z0-9_$]*$")
 AXIS_DIVISION_MARKER = re.compile(r"/\s*maxValue\b")
 BAR_SLOT_MARKER = re.compile(r"barSlots\s*\(")
 GRID_MARKER = re.compile(r"\bGRID")
+GEO_MAP_MARKER = re.compile(r"\b(?:geoPath|geoMercator|geoNaturalEarth1|data-editorial-map)\b")
+SVG_DRAW_MARKER = re.compile(r"\bstrokeDashoffset\b")
+SVG_DASHARRAY_MARKER = re.compile(r"\bstrokeDasharray\b")
+LINE_CHART_MARKER = re.compile(r"\b(?:computeYDomain|data-editorial-line-chart|yDomain)\b")
+BAR_CHART_MARKER = re.compile(r"\bdata-editorial-bar-chart\b")
+EDITORIAL_DIAGRAM_MARKER = re.compile(
+    r"\b(?:data-editorial-spotlight|data-flow-timeline|data-comparison-split|feTurbulence)\b"
+)
 DECLARATION_MARKER = re.compile(r"^(?:export\s+)?(?:const|function)\s+([A-Za-z_$][A-Za-z0-9_$]*)", re.MULTILINE)
 FLEX_DISPLAY_MARKER = re.compile(r"display\s*:\s*[\"'`]?flex")
 
@@ -358,12 +367,16 @@ def _declaration_span(text: str, name: str) -> str | None:
 
 
 def _genuine_structure_markers(body: str) -> bool:
-    """Numeric axis mapping or bar-slot/grid construction (B.3)."""
-    if BAR_SLOT_MARKER.search(body):
-        return True
-    if GRID_MARKER.search(body):
+    """Numeric axis mapping, bar-slot/grid, geo-map, or SVG-drawn editorial structure (B.3)."""
+    if BAR_SLOT_MARKER.search(body) or GRID_MARKER.search(body):
         return True
     if "maxValue" in body and (AXIS_DIVISION_MARKER.search(body) or "plotHeight" in body):
+        return True
+    if GEO_MAP_MARKER.search(body) or LINE_CHART_MARKER.search(body) or BAR_CHART_MARKER.search(body):
+        return True
+    if SVG_DRAW_MARKER.search(body) and (SVG_DASHARRAY_MARKER.search(body) or "<svg" in body or "<path" in body):
+        return True
+    if EDITORIAL_DIAGRAM_MARKER.search(body):
         return True
     return False
 
@@ -518,32 +531,67 @@ def _parse_scenes_record(text: str) -> dict[str, str]:
 
 def _import_closure(tree_texts: dict[str, str], mapped_rel: str, root: Path) -> dict[str, str]:
     """Mapped scene source + its transitive RELATIVE imports within the
-    composition root (review round 2, MAJOR 1 remedy 3): identifiers resolve
-    only here — never tree-wide."""
+    composition root or the allowlisted shared components library
+    (review round 2, MAJOR 1 remedy 3): identifiers resolve only here —
+    never tree-wide."""
     closure: dict[str, str] = {}
+    shared_texts: dict[str, str] = {}
     seen: set[str] = set()
     queue: list[str] = [mapped_rel] if mapped_rel in tree_texts else []
     root_resolved = root.resolve()
+    shared_prefix = "@components/"
     while queue:
         rel = queue.pop(0)
-        if rel in seen or rel not in tree_texts:
+        if rel in seen:
             continue
+        if rel.startswith(shared_prefix):
+            text = shared_texts.get(rel)
+            if text is None:
+                continue
+            importer_dir = (SHARED_COMPONENTS_ROOT / rel[len(shared_prefix):]).parent
+        else:
+            if rel not in tree_texts:
+                continue
+            text = tree_texts[rel]
+            importer_dir = (root / rel).parent
         seen.add(rel)
-        closure[rel] = tree_texts[rel]
-        importer_dir = (root / rel).parent
-        for m in re.finditer(r"from\s+[\"'](\.[^\"']+)[\"']", tree_texts[rel]):
+        closure[rel] = text
+        for m in re.finditer(r"from\s+[\"'](\.[^\"']+)[\"']", text):
             spec = m.group(1)
             base = (importer_dir / spec).resolve()  # relative to the importing FILE's dir
             candidates = [base]
             if base.suffix == "":
-                candidates += [base.with_suffix(".tsx"), base.with_suffix(".ts"), base / "index.tsx"]
+                candidates += [
+                    base.with_suffix(".tsx"),
+                    base.with_suffix(".ts"),
+                    base / "index.tsx",
+                    base / "index.ts",
+                ]
             for cand in candidates:
                 if cand.suffix not in {".tsx", ".ts"} or not cand.is_file():
                     continue
-                try:
-                    rel2 = str(cand.resolve().relative_to(root_resolved))
-                except ValueError:
-                    continue  # imports escaping the composition root are out of scope
+                cand_resolved = cand.resolve()
+                rel2: str | None = None
+                if not rel.startswith(shared_prefix):
+                    try:
+                        rel2 = str(cand_resolved.relative_to(root_resolved))
+                    except ValueError:
+                        rel2 = None
+                if rel2 is None:
+                    try:
+                        rel_shared = cand_resolved.relative_to(SHARED_COMPONENTS_ROOT)
+                        key = f"{shared_prefix}{rel_shared.as_posix()}"
+                        if key not in shared_texts:
+                            try:
+                                shared_texts[key] = cand_resolved.read_text(encoding="utf-8")
+                            except (OSError, UnicodeDecodeError):
+                                shared_texts[key] = ""
+                        if shared_texts[key]:
+                            rel2 = key
+                    except ValueError:
+                        rel2 = None
+                if rel2 is None:
+                    continue  # imports escaping both composition root and shared components are out of scope
                 if rel2 not in seen:
                     queue.append(rel2)
                 break
@@ -551,11 +599,19 @@ def _import_closure(tree_texts: dict[str, str], mapped_rel: str, root: Path) -> 
 
 
 def _has_native_graphic_markers(text: str) -> bool:
-    """Numeric-axis / bar-slot / grid markers (review round 2, MAJOR 1 remedy 3):
+    """Numeric-axis / bar-slot / grid / geo-map markers (review round 2, MAJOR 1 remedy 3):
     the role+method fallback requires these IN THE MAPPED SCENE SOURCE — never
     tree-level."""
-    return bool(BAR_SLOT_MARKER.search(text) or GRID_MARKER.search(text)
-                or "maxValue" in text or "plotHeight" in text)
+    return bool(
+        BAR_SLOT_MARKER.search(text)
+        or GRID_MARKER.search(text)
+        or "maxValue" in text
+        or "plotHeight" in text
+        or GEO_MAP_MARKER.search(text)
+        or LINE_CHART_MARKER.search(text)
+        or BAR_CHART_MARKER.search(text)
+        or EDITORIAL_DIAGRAM_MARKER.search(text)
+    )
 
 
 def _layer_verdict(

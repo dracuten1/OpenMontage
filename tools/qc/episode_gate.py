@@ -102,6 +102,57 @@ def _check_composition_dims(root: Path):
     return reasons
 
 
+REAL_PHOTO_ASSET_TYPES = frozenset({
+    "real_photo_spotlight",
+    "source_photo",
+    "archival_photo",
+})
+
+
+def _check_source_photos(root: Path):
+    """Enforce Vision + resolution photo verification when photos or provenance exist."""
+    reasons = []
+    local_prov = root / "assets" / "images" / "provenance.json"
+    proj_root_candidate = REPO_ROOT / "projects" / root.name
+    sibling_prov = proj_root_candidate / "assets" / "images" / "provenance.json"
+
+    declares_real_photo = False
+    manifest_p = root / "artifacts" / "asset_manifest.json"
+    if manifest_p.is_file():
+        try:
+            manifest_data = json.loads(manifest_p.read_text(encoding="utf-8"))
+        except Exception:
+            manifest_data = None
+        if isinstance(manifest_data, dict):
+            for item in manifest_data.get("assets", []):
+                if isinstance(item, dict):
+                    atype = str(item.get("type") or "").strip().lower()
+                    if atype in REAL_PHOTO_ASSET_TYPES:
+                        declares_real_photo = True
+                        break
+
+    target_project: Path | None = None
+    if local_prov.is_file():
+        target_project = root
+    elif root.parent.name == "src" and sibling_prov.is_file():
+        target_project = proj_root_candidate
+    elif declares_real_photo:
+        target_project = proj_root_candidate if (root.parent.name == "src" and sibling_prov.is_file()) else root
+
+    if target_project is None:
+        return reasons
+
+    from tools.qc.source_photo_gate import validate_source_photos
+
+    report = validate_source_photos(target_project, write_report=False)
+    for err in report.get("errors", []):
+        reasons.append({
+            "code": "source_photo_gate_failed",
+            "message": f"{err.get('code', 'SPG')}: {err.get('message', '')}",
+        })
+    return reasons
+
+
 def _contained_path(raw, root):
     """Task 1.6: containment-checked path resolution.
 
@@ -284,6 +335,7 @@ def validate_episode(episode_dir):
     # Postmortem 2026-11-11 (tin-nong-3tin-20261110): scene-file provenance + canvas
     reasons.extend(_check_scene_tsx_provenance(root))
     reasons.extend(_check_composition_dims(root))
+    reasons.extend(_check_source_photos(root))
 
     from tools.qc.timing_relock_guard import check_project_timing
     timing = check_project_timing(root, mode='strict')

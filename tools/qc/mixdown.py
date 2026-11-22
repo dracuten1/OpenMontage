@@ -33,6 +33,7 @@ import shutil
 import signal
 import subprocess
 import sys
+import wave
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
@@ -336,6 +337,356 @@ def mixdown(project, draft, final, out, *, bgm=None, work_dir=None,
     }
 
 
+def _collect_sfx_cues(episode_dir: Path, timing: dict, sfx_dir: Path) -> list[tuple[float, Path, float]]:
+    """Extract composition SFX cues from Episode.tsx BLOCK_SFX and scenes/S*.tsx."""
+    cues: list[tuple[float, Path, float]] = []
+    if not episode_dir.is_dir() or not sfx_dir.is_dir():
+        return cues
+    fps = float(timing.get("fps", 30) or 30)
+    secs = {str(s.get("scene_id") or ""): s for s in timing.get("sections", []) if isinstance(s, dict)}
+    ep_tsx = episode_dir / "Episode.tsx"
+    if ep_tsx.is_file():
+        ep_text = ep_tsx.read_text(encoding="utf-8")
+        m_block = re.search(r"BLOCK_SFX\b[^=]*=\s*\{([^}]*)\}", ep_text, re.DOTALL)
+        if m_block:
+            for m in re.finditer(r"(\d+)\s*:\s*[\"']([^\"']+)[\"']", m_block.group(1)):
+                snum = int(m.group(1))
+                fname = m.group(2)
+                sec = secs.get(f"scene-{snum}")
+                sfx_file = sfx_dir / fname
+                if sec is not None and sfx_file.is_file():
+                    cues.append((float(sec["start_seconds"]), sfx_file, 0.28))
+
+        if "<BrandBumper" in ep_text and not re.search(r"<BrandBumper[^>]*\bstingSrc\s*=\s*\{null\}", ep_text):
+            sting_pub = REPO / "remotion-composer" / "public" / "brand" / "kcdt_bumper_sting.wav"
+            sting_repo = REPO / "assets" / "brand" / "kcdt-bumper" / "kcdt_bumper_sting.wav"
+            sting_path = sting_pub if sting_pub.is_file() else (sting_repo if sting_repo.is_file() else None)
+            if sting_path is not None:
+                m_bvol = re.search(r"<BrandBumper[^>]*\bstingVolume\s*=\s*\{([\d.]+)\}", ep_text)
+                bvol = float(m_bvol.group(1)) if m_bvol else 0.55
+                cues.append((0.0, sting_path, bvol))
+
+    scenes_dir = episode_dir / "scenes"
+    if scenes_dir.is_dir():
+        for sc_file in sorted(scenes_dir.glob("S*.tsx")):
+            m_num = re.match(r"S(\d+)\.tsx$", sc_file.name)
+            if not m_num:
+                continue
+            sec = secs.get(f"scene-{int(m_num.group(1))}")
+            if sec is None:
+                continue
+            s0 = float(sec["start_seconds"])
+            txt = sc_file.read_text(encoding="utf-8")
+            for m in re.finditer(
+                r"<Sequence\s+from=\{(\d+)\}[^>]*>\s*<Audio\b(.*?)/>",
+                txt,
+                re.DOTALL,
+            ):
+                f_local = int(m.group(1))
+                attrs = m.group(2)
+                m_src = re.search(r"staticFile\(\s*[\"']sfx/([^\"']+)[\"']\s*\)", attrs)
+                if not m_src:
+                    continue
+                fname = m_src.group(1)
+                m_vol = re.search(r"volume\s*=\s*\{([\d.]+)\}", attrs)
+                vol = float(m_vol.group(1)) if m_vol else 0.28
+                sfx_file = sfx_dir / fname
+                if sfx_file.is_file():
+                    cues.append((s0 + f_local / fps, sfx_file, vol))
+    return cues
+
+
+def _ebur128_integrated_lufs(wav_path: Path) -> float:
+    p = subprocess.run(
+        ["ffmpeg", "-nostats", "-hide_banner", "-i", str(wav_path), "-af", "ebur128=peak=true", "-f", "null", "-"],
+        capture_output=True, text=True, timeout=600,
+    )
+    vals = re.findall(r"I:\s*([-\d.]+)\s*LUFS", p.stderr or "")
+    if not vals:
+        raise MixdownError(f"ebur128 measurement unavailable for {wav_path}: {(p.stderr or '')[-300:]}")
+    return float(vals[-1])
+
+
+def _fine_trim_loudness(work: Path, target_lufs: float, duration: float) -> None:
+    master = work / "mix_master.wav"
+    for _ in range(2):
+        cur_i = _ebur128_integrated_lufs(master)
+        delta_db = target_lufs - cur_i
+        if abs(delta_db) <= 0.15:
+            break
+        tmp = work / "mix_master.adj.wav"
+        run_ffmpeg([
+            "-i", master,
+            "-af", f"volume={delta_db:+.2f}dB,alimiter=limit=-1.6dB:level=false:attack=5:release=60",
+            "-ar", DEFAULT_SAMPLERATE, "-ac", "2", "-t", f"{duration:.6f}", tmp,
+        ])
+        tmp.replace(master)
+
+
+def _pad_stem_to_duration(src: Path, dst: Path, duration: float) -> None:
+    tmp = dst.with_suffix(".pad.wav")
+    run_ffmpeg([
+        "-i", src,
+        "-af", f"apad=whole_dur={duration:.6f}", "-t", f"{duration:.6f}",
+        "-ar", DEFAULT_SAMPLERATE, "-ac", "2", tmp,
+    ])
+    tmp.replace(dst)
+
+
+def premix_from_stems(
+    project,
+    *,
+    episode_dir=None,
+    public_dir=None,
+    sfx_dir=None,
+    bgm=None,
+    timing_path=None,
+    sfx_cues_json=None,
+    target_lufs=DEFAULT_TARGET_LUFS,
+    true_peak=-2.0,
+    lra=DEFAULT_LRA,
+    no_sfx=False,
+    keep_master=True,
+):
+    """Build lossless QC stems + mix_master.wav directly from per-scene WAVs BEFORE Remotion render.
+
+    Eliminates the draft-render chicken-and-egg override (`mix_validation_failed`)
+    and avoids double-AAC extraction loss.
+    """
+    project = Path(project).resolve()
+    if not project.is_dir():
+        raise InputError(f"project dir not found: {project}")
+    slug = project.name
+    ep_dir = Path(episode_dir).resolve() if episode_dir else (REPO / "remotion-composer" / "src" / slug).resolve()
+    pub_dir = Path(public_dir).resolve() if public_dir else (REPO / "remotion-composer" / "public" / slug).resolve()
+    sfx_root = Path(sfx_dir).resolve() if sfx_dir else (REPO / "remotion-composer" / "public" / "sfx").resolve()
+    timing_p = Path(timing_path).resolve() if timing_path else (project / "assets" / "scene_timing.json")
+    bgm_p = Path(bgm).resolve() if bgm else (pub_dir / "bgm.mp3")
+
+    if not timing_p.is_file():
+        raise InputError(f"scene_timing.json not found: {timing_p}")
+    if not bgm_p.is_file():
+        raise InputError(f"bgm input not found: {bgm_p}")
+
+    try:
+        timing = json.loads(timing_p.read_text(encoding="utf-8"), parse_constant=lambda x: float(x))
+        duration = episode_duration(timing)
+    except (OSError, json.JSONDecodeError, UnicodeDecodeError, GateError) as e:
+        raise InputError(f"invalid scene_timing ({timing_p}): {e}") from e
+
+    sections = timing.get("sections")
+    if not isinstance(sections, list) or not sections:
+        raise InputError(f"scene_timing.json missing sections[]: {timing_p}")
+
+    voice_entries: list[tuple[float, Path]] = []
+    for sec in sections:
+        sid = str(sec.get("section_id") or "")
+        if not sid:
+            raise InputError(f"section missing section_id in {timing_p}")
+        cand_pub = pub_dir / "audio" / f"voice_{sid}.wav"
+        cand_proj = project / "assets" / "audio" / f"voice_{sid}.wav"
+        wav_p = cand_pub if cand_pub.is_file() else cand_proj
+        if not wav_p.is_file():
+            raise InputError(f"voice stem missing for {sid}: tried {cand_pub} and {cand_proj}")
+        voice_entries.append((float(sec["start_seconds"]), wav_p))
+
+    cues: list[tuple[float, Path, float]] = []
+    if not no_sfx:
+        if sfx_cues_json:
+            raw_cues = json.loads(Path(sfx_cues_json).read_text(encoding="utf-8"))
+            for item in raw_cues:
+                c_path = Path(item["path"]) if "path" in item else (sfx_root / item["file"])
+                if not c_path.is_file():
+                    raise InputError(f"SFX cue file not found: {c_path}")
+                cues.append((float(item["time_seconds"]), c_path, float(item.get("volume", 0.3))))
+        else:
+            cues = _collect_sfx_cues(ep_dir, timing, sfx_root)
+
+    work = project / "renders" / "_master_work"
+    qc_dir = project / "renders" / "audio_stems"
+    work.mkdir(parents=True, exist_ok=True)
+    qc_dir.mkdir(parents=True, exist_ok=True)
+
+    narration_wav = qc_dir / "narration.wav"
+    bgm_wav = qc_dir / "bgm.wav"
+    sfx_wav = qc_dir / "sfx.wav"
+    mix_master = work / "mix_master.wav"
+    premix_narr = work / "mix_base.wav"
+    premix_sfx = work / "premix_sfx.wav"
+    warnings: list[str] = []
+
+    try:
+        # 1. Assemble lossless narration bed from per-scene WAVs
+        n_inputs = ["-f", "lavfi", "-t", f"{duration:.6f}", "-i", f"anullsrc=channel_layout=stereo:sample_rate={DEFAULT_SAMPLERATE}"]
+        n_filters = []
+        n_labels = ["[0:a]"]
+        for i, (t_sec, wav_p) in enumerate(voice_entries, start=1):
+            n_inputs.extend(["-i", str(wav_p)])
+            ms = max(0, int(round(t_sec * 1000)))
+            n_filters.append(f"[{i}:a]aresample={DEFAULT_SAMPLERATE},aformat=channel_layouts=stereo,adelay={ms}|{ms}[v{i}]")
+            n_labels.append(f"[v{i}]")
+        n_filters.append(f"{''.join(n_labels)}amix=inputs={len(n_labels)}:duration=first:normalize=0[out]")
+        run_ffmpeg([*n_inputs, "-filter_complex", ";".join(n_filters), "-map", "[out]", "-t", f"{duration:.6f}", premix_narr])
+
+        # 2. Loop & trim BGM
+        build_bgm_loop(bgm_p, duration, work)
+
+        # 3. Assemble SFX stem (or silence bed if 0 cues / --no-sfx)
+        if cues:
+            s_inputs = ["-f", "lavfi", "-t", f"{duration:.6f}", "-i", f"anullsrc=channel_layout=stereo:sample_rate={DEFAULT_SAMPLERATE}"]
+            s_filters = []
+            s_labels = ["[0:a]"]
+            for i, (t_sec, s_path, vol) in enumerate(cues, start=1):
+                s_inputs.extend(["-i", str(s_path)])
+                ms = max(0, int(round(t_sec * 1000)))
+                s_filters.append(
+                    f"[{i}:a]aresample={DEFAULT_SAMPLERATE},aformat=channel_layouts=stereo,volume={vol},adelay={ms}|{ms}[s{i}]"
+                )
+                s_labels.append(f"[s{i}]")
+            s_filters.append(f"{''.join(s_labels)}amix=inputs={len(s_labels)}:duration=first:normalize=0[out]")
+            run_ffmpeg([*s_inputs, "-filter_complex", ";".join(s_filters), "-map", "[out]", "-t", f"{duration:.6f}", premix_sfx])
+        else:
+            run_ffmpeg([
+                "-f", "lavfi", "-t", f"{duration:.6f}",
+                "-i", f"anullsrc=channel_layout=stereo:sample_rate={DEFAULT_SAMPLERATE}",
+                premix_sfx,
+            ])
+
+        # 4. Sidechain duck BGM under narration + mix SFX
+        if cues:
+            fc = (
+                "[0:a]volume=0.11[bgm];"
+                "[bgm][1:a]sidechaincompress=threshold=0.025:ratio=10:attack=100:release=600:makeup=1[bgmduck];"
+                "[1:a][bgmduck][2:a]amix=inputs=3:duration=first:dropout_transition=0:weights=1 0.85 1[mix]"
+            )
+            run_ffmpeg(["-i", work / "bgm_loop.wav", "-i", premix_narr, "-i", premix_sfx, "-filter_complex", fc, "-map", "[mix]", "-t", f"{duration:.6f}", work / "mix_bgm.wav"])
+        else:
+            fc = (
+                "[0:a]volume=0.11[bgm];"
+                "[bgm][1:a]sidechaincompress=threshold=0.025:ratio=10:attack=100:release=600:makeup=1[bgmduck];"
+                "[1:a][bgmduck]amix=inputs=2:duration=first:dropout_transition=0:weights=1 0.85[mix]"
+            )
+            run_ffmpeg(["-i", work / "bgm_loop.wav", "-i", premix_narr, "-filter_complex", fc, "-map", "[mix]", "-t", f"{duration:.6f}", work / "mix_bgm.wav"])
+
+        # 5. 2-pass loudnorm + fine trim
+        stats = loudnorm_pass_stats(work, target_lufs, true_peak, lra)
+        loudnorm_apply(work, stats, target_lufs, true_peak, lra)
+        _fine_trim_loudness(work, target_lufs, duration)
+
+        with wave.open(str(mix_master), "rb") as w:
+            m_dur = w.getnframes() / w.getframerate()
+
+        # 6. Pad/trim all retained QC stems to match mix_master.wav exact sample duration
+        _pad_stem_to_duration(premix_narr, narration_wav, m_dur)
+        _pad_stem_to_duration(work / "bgm_loop.wav", bgm_wav, m_dur)
+        _pad_stem_to_duration(premix_sfx, sfx_wav, m_dur)
+
+        # 7. Write episode_dir/audio_stems/manifest.json + mix_profile.json
+        ep_stems_dir = ep_dir / "audio_stems"
+        ep_stems_dir.mkdir(parents=True, exist_ok=True)
+        voice_manifest = {}
+        for sec, (_t, wav_p) in zip(sections, voice_entries):
+            sid = str(sec["section_id"])
+            with wave.open(str(wav_p), "rb") as w:
+                vdur = round(w.getnframes() / w.getframerate(), 3)
+            voice_manifest[f"voice_{sid}"] = {
+                "path": str(wav_p),
+                "kind": "voice",
+                "duration_seconds": vdur,
+                "start_frame": sec["start_frame"],
+                "frames": sec["duration_frames"],
+            }
+        manifest_doc = {
+            "schema": "openmontage.stems",
+            "version": 1,
+            "stems": voice_manifest,
+            "narration": str(narration_wav),
+            "bgm": str(bgm_wav),
+            "mix": str(mix_master),
+        }
+        if not no_sfx:
+            manifest_doc["sfx"] = str(sfx_wav)
+        (ep_stems_dir / "manifest.json").write_text(json.dumps(manifest_doc, indent=1), encoding="utf-8")
+
+        mix_profile = {
+            "schema": "openmontage.mix-profile",
+            "version": 1,
+            "target_lufs": float(target_lufs),
+            "lufs_tolerance": 0.4,
+            "peak_limit": 0.944,
+            "silence_threshold": 0.001,
+            "boundary_tolerance_seconds": 0.05,
+            "ducking": {"min_reduction_db": 15},
+            "windows": {"stem_windows": {}},
+            "no_sfx": bool(no_sfx),
+            "sfx_mode": "none" if no_sfx else "present_in_composition",
+            "declared_not_measured": ["music_masking"] if no_sfx else ["music_masking", "leading_sfx"],
+            "notes": f"Pre-mixed from lossless voice stems via mixdown.py --from-stems (target {target_lufs} LUFS, TP {true_peak} dBTP).",
+        }
+        (ep_stems_dir / "mix_profile.json").write_text(json.dumps(mix_profile, indent=1), encoding="utf-8")
+        (ep_dir / "mix_profile.json").write_text(json.dumps(mix_profile, indent=1), encoding="utf-8")
+    finally:
+        if premix_sfx.exists():
+            try:
+                premix_sfx.unlink()
+            except OSError:
+                pass
+        keep = KEEP_FOR_QC if keep_master else ()
+        removed, problems = cleanup_intermediates(work, keep=keep)
+        warnings.extend(problems)
+
+    return {
+        "operation": "premix_from_stems",
+        "episode_seconds": duration,
+        "mix_duration_seconds": m_dur,
+        "cues": len(cues),
+        "no_sfx": bool(no_sfx),
+        "qc_stems_dir": str(qc_dir),
+        "mix_master": str(mix_master),
+        "episode_manifest": str(ep_dir / "audio_stems" / "manifest.json"),
+        "episode_mix_profile": str(ep_dir / "mix_profile.json"),
+        "intermediates_removed": removed,
+        "cleanup_warnings": warnings,
+    }
+
+
+def mux_master(project, raw_video, out, *, master_wav=None, preview_720p=None):
+    """Mux retained mix_master.wav onto a raw rendered MP4 (-c:v copy) and optional 720p preview."""
+    project = Path(project)
+    raw_p = Path(raw_video)
+    out_p = Path(out)
+    master_p = Path(master_wav) if master_wav else (project / "renders" / "_master_work" / "mix_master.wav")
+    if not raw_p.is_file():
+        raise InputError(f"raw video not found: {raw_p}")
+    if not master_p.is_file():
+        raise InputError(f"master audio WAV not found: {master_p}")
+    out_p.parent.mkdir(parents=True, exist_ok=True)
+    run_ffmpeg([
+        "-i", raw_p, "-i", master_p,
+        "-map", "0:v", "-map", "1:a",
+        "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+        "-movflags", "+faststart", "-shortest", out_p,
+    ])
+    preview_out = None
+    if preview_720p:
+        prev_p = Path(preview_720p)
+        prev_p.parent.mkdir(parents=True, exist_ok=True)
+        run_ffmpeg([
+            "-i", out_p,
+            "-vf", "scale=720:1280:flags=lanczos",
+            "-c:v", "libx264", "-preset", "medium", "-crf", "22", "-pix_fmt", "yuv420p",
+            "-c:a", "copy", "-movflags", "+faststart", prev_p,
+        ])
+        preview_out = str(prev_p)
+    return {
+        "operation": "mux_only",
+        "raw_video": str(raw_p),
+        "master_wav": str(master_p),
+        "output": str(out_p),
+        "preview_720p": preview_out,
+    }
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Shared master-audio mixdown + teardown + sweep.")
     ap.add_argument("--project", help="project dir (renders/_master_work + assets/scene_timing.json)")
@@ -354,6 +705,20 @@ def main(argv=None):
                     help="with --sweep: actually delete the reported strays")
     ap.add_argument("--include-master", action="store_true",
                     help="with --sweep: also report/delete retained QC masters (mix_master.wav) — off by default")
+    ap.add_argument("--from-stems", action="store_true",
+                    help="pre-mix lossless QC stems + mix_master.wav from voice_s*.wav + scene_timing.json BEFORE render")
+    ap.add_argument("--episode-dir", help="override remotion-composer/src/<slug> (for --from-stems)")
+    ap.add_argument("--public-dir", help="override remotion-composer/public/<slug> (for --from-stems)")
+    ap.add_argument("--sfx-dir", help="override remotion-composer/public/sfx (for --from-stems)")
+    ap.add_argument("--sfx-cues-json", help="optional JSON list of SFX cues [{time_seconds, file|path, volume}]")
+    ap.add_argument("--target-lufs", type=float, default=DEFAULT_TARGET_LUFS)
+    ap.add_argument("--true-peak", type=float, default=-2.0)
+    ap.add_argument("--lra", type=float, default=DEFAULT_LRA)
+    ap.add_argument("--no-sfx", action="store_true", help="declare no-sfx intent in generated mix_profile.json")
+    ap.add_argument("--mux-only", metavar="RAW_MP4",
+                    help="mux retained mix_master.wav onto an already-rendered raw MP4 (-c:v copy)")
+    ap.add_argument("--master-wav", help="override mix_master.wav path for --mux-only")
+    ap.add_argument("--preview-720p", help="optional 720x1280 preview output path for --mux-only")
     args = ap.parse_args(argv)
 
     # Review major #4: SIGTERM/SIGHUP must unwind through the try/finally
@@ -374,6 +739,53 @@ def main(argv=None):
         if not args.delete and report["strays"]:
             print("DRY-RUN — re-run with --sweep --delete to reclaim "
                   f"{report['bytes_reclaimable']} bytes", file=sys.stderr)
+        return 0
+
+    if args.from_stems:
+        if not args.project:
+            ap.error("--from-stems requires --project")
+        try:
+            summary = premix_from_stems(
+                args.project,
+                episode_dir=args.episode_dir,
+                public_dir=args.public_dir,
+                sfx_dir=args.sfx_dir,
+                bgm=args.bgm,
+                timing_path=args.timing,
+                sfx_cues_json=args.sfx_cues_json,
+                target_lufs=args.target_lufs,
+                true_peak=args.true_peak,
+                lra=args.lra,
+                no_sfx=bool(args.no_sfx),
+                keep_master=not args.no_keep_master,
+            )
+        except InputError as e:
+            print(json.dumps({"operation": "premix_from_stems", "verdict": "error", "errors": [str(e)]}, indent=1), file=sys.stderr)
+            return 2
+        except MixdownError as e:
+            print(json.dumps({"operation": "premix_from_stems", "verdict": "failed", "errors": [str(e)]}, indent=1), file=sys.stderr)
+            return 1
+        print(json.dumps(summary, indent=1))
+        return 0
+
+    if args.mux_only:
+        if not args.project or not args.out:
+            ap.error("--mux-only requires --project and --out")
+        try:
+            summary = mux_master(
+                args.project,
+                args.mux_only,
+                args.out,
+                master_wav=args.master_wav,
+                preview_720p=args.preview_720p,
+            )
+        except InputError as e:
+            print(json.dumps({"operation": "mux_only", "verdict": "error", "errors": [str(e)]}, indent=1), file=sys.stderr)
+            return 2
+        except MixdownError as e:
+            print(json.dumps({"operation": "mux_only", "verdict": "failed", "errors": [str(e)]}, indent=1), file=sys.stderr)
+            return 1
+        print(json.dumps(summary, indent=1))
         return 0
 
     missing = [f"--{f}" for f, v in (("project", args.project), ("draft", args.draft),

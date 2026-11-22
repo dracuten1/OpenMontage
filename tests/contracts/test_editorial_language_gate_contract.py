@@ -1398,3 +1398,91 @@ def test_adv_b5_midstring_anchor_in_scene_blocks_and_prose_advises(tmp_path):
     assert any("timing_lock" in w for w in qc["warnings"])
     assert not any("timing_lock" in f["message"]
                    for f in _findings(qc, "unresolved-anchor", "blocked"))
+
+
+def test_shared_editorial_components_pass_without_grid_hack(tmp_path):
+    """Shared components imported from remotion-composer/src/components/{editorial,charts}
+    resolve via the allowlisted shared-components closure and satisfy R2 without
+    needing an inlined `const GRID` hack."""
+    import os
+
+    project = _materialize("case01-pass-xd-shape", tmp_path)
+    scenes_dir = project / "comp" / "scenes"
+    scenes_dir.mkdir(parents=True, exist_ok=True)
+    shared_root = REPO_ROOT / "remotion-composer" / "src" / "components"
+
+    checks = [
+        ("S10.tsx", "scene_s10", "editorial", "EditorialMap", "data_viz"),
+        ("S11.tsx", "scene_s11", "charts", "EditorialLineChart", "data_viz"),
+        ("S12.tsx", "scene_s12", "editorial", "FlowTimeline", "evidence_annotation"),
+        ("S13.tsx", "scene_s13", "editorial", "ArchivalSpotlight", "evidence_annotation"),
+        ("S14.tsx", "scene_s14", "charts", "EditorialBarChart", "data_viz"),
+    ]
+    manifest_path = project / "scene_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    for fname, sid, subpkg, comp_name, role in checks:
+        target = scenes_dir / fname
+        rel_import = os.path.relpath(shared_root / subpkg, target.parent).replace("\\", "/")
+        if not rel_import.startswith("."):
+            rel_import = f"./{rel_import}"
+        target.write_text(
+            f'import {{ {comp_name} }} from "{rel_import}";\n'
+            f"export const Scene{sid}: React.FC = () => (<div><{comp_name} /></div>);\n",
+            encoding="utf-8",
+        )
+        manifest["scenes"].append({
+            "scene_id": sid,
+            "narrative_beat": f"shared {comp_name}",
+            "duration_frames": 90,
+            "start_frame_global": 1000,
+            "composition_source": f"scenes/{fname}",
+            "layers": [{
+                "layer_id": f"layer_{sid}",
+                "z_index": 40,
+                "role": role,
+                "pipeline": {"method": "remotion_native", "component": comp_name},
+            }],
+        })
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    qc, _ = _run_gate(project, force=True)
+    for _fname, sid, _subpkg, comp_name, _role in checks:
+        assert not _adv_blocked(qc, "graphic-native-required", sid), f"{comp_name} unexpectedly blocked: {qc}"
+
+
+def test_shared_non_graphic_card_component_still_blocks(tmp_path):
+    """Importing a plain presentation component (TextCard) from the shared
+    components root still fails R2 because it lacks genuine graphic-native structure."""
+    import os
+
+    project = _materialize("case01-pass-xd-shape", tmp_path)
+    scenes_dir = project / "comp" / "scenes"
+    scenes_dir.mkdir(parents=True, exist_ok=True)
+    shared_root = REPO_ROOT / "remotion-composer" / "src" / "components"
+    target = scenes_dir / "S15.tsx"
+    rel_import = os.path.relpath(shared_root, target.parent).replace("\\", "/")
+    if not rel_import.startswith("."):
+        rel_import = f"./{rel_import}"
+    target.write_text(
+        f'import {{ TextCard }} from "{rel_import}";\n'
+        'export const SceneS15: React.FC = () => (<div><TextCard text="hello" /></div>);\n',
+        encoding="utf-8",
+    )
+    manifest_path = project / "scene_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["scenes"].append({
+        "scene_id": "scene_s15",
+        "narrative_beat": "card veto",
+        "duration_frames": 90,
+        "start_frame_global": 1100,
+        "composition_source": "scenes/S15.tsx",
+        "layers": [{
+            "layer_id": "layer_s15",
+            "z_index": 40,
+            "role": "evidence_annotation",
+            "pipeline": {"method": "remotion_native", "component": "TextCard"},
+        }],
+    })
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    qc, _ = _run_gate(project, force=True)
+    hits = _adv_blocked(qc, "graphic-native-required", "scene_s15")
+    assert hits and "TextCard" in hits[0]["message"]

@@ -188,3 +188,59 @@ def test_episode_gate_cli_subprocess(tmp_path):
  assert proc1.returncode==1
  proc2=subprocess.run([sys.executable,'tools/qc/episode_gate.py',str(tmp_path/'nonexistent_dir')],capture_output=True,text=True)
  assert proc2.returncode==2
+
+
+def _write_test_png(path, size=(1000, 800)):
+ from PIL import Image
+ path.parent.mkdir(parents=True, exist_ok=True)
+ Image.new('RGB', size, (40, 80, 120)).save(path, format='PNG')
+
+
+def test_episode_source_photo_gate_passes_verified_photo(tmp_path):
+ project = valid_episode(tmp_path)
+ _write_test_png(project / 'assets' / 'images' / 'photo.png', (1200, 900))
+ prov = [{
+  'file': 'assets/images/photo.png',
+  'license': 'CC BY-SA 4.0',
+  'credit_line': 'Photo: Wikimedia / Test Author',
+  'page': 'https://commons.wikimedia.org/wiki/File:Test.jpg',
+  'taken': '2026-03-01',
+  'vision_verified': True,
+  'visual_type': 'photograph',
+  'subject_match_note': 'Verified real archival press photograph of the target structure.',
+ }]
+ (project / 'assets' / 'images' / 'provenance.json').write_text(json.dumps(prov), encoding='utf-8')
+ assert validate_episode(project) == []
+
+
+def test_episode_source_photo_gate_blocks_stamp_or_unverified(tmp_path):
+ project = valid_episode(tmp_path)
+ _write_test_png(project / 'assets' / 'images' / 'stamp.png', (1000, 700))
+ prov = [{
+  'file': 'assets/images/stamp.png',
+  'license': 'CC0',
+  'credit_line': 'Test Stamp',
+  'page': 'https://example.org/stamp',
+  'taken': '2023-05-01',
+  'vision_verified': False,
+  'visual_type': 'stamp',
+  'subject_match_note': 'bad',
+ }]
+ (project / 'assets' / 'images' / 'provenance.json').write_text(json.dumps(prov), encoding='utf-8')
+ codes = {r['code'] for r in validate_episode(project)}
+ assert 'source_photo_gate_failed' in codes
+
+
+def test_episode_source_photo_gate_blocks_declared_real_photo_without_provenance(tmp_path):
+ project = valid_episode(tmp_path)
+ manifest_p = project / 'artifacts' / 'asset_manifest.json'
+ manifest = json.loads(manifest_p.read_text(encoding='utf-8'))
+ manifest['assets'].append({
+  'id': 'bridge_photo',
+  'type': 'real_photo_spotlight',
+  'path': 'assets/images/bridge.jpg',
+  'scene_id': 'cut-1',
+ })
+ manifest_p.write_text(json.dumps(manifest), encoding='utf-8')
+ codes = {r['code'] for r in validate_episode(project)}
+ assert 'source_photo_gate_failed' in codes
