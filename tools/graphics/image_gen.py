@@ -53,7 +53,7 @@ class ImageGen(BaseTool):
         "Or install diffusers for local generation:\n"
         "  pip install diffusers transformers accelerate torch"
     )
-    agent_skills = ["flux-best-practices", "bfl-api"]
+    agent_skills = []
 
     capabilities = [
         "generate_image",

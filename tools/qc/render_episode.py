@@ -49,6 +49,9 @@ NON_OVERRIDABLE_CODES = frozenset({
     "scene_provenance_missing", "scene_provenance_corrupt",
     "scene_provenance_not_approved", "scene_provenance_unbound",
     "scene_provenance_stale",
+    # editorial, fact-whitelist & source-photo quality gates (never overridable)
+    "editorial_language_gate_failed", "editorial_language_gate_error",
+    "fact_whitelist_failed", "source_photo_gate_failed",
     # packet identity + review binding (scene_packet.integrate_scene_packet)
     "scene_packets_missing", "scene_packet_missing",
     "writer_token_invalid", "reviewer_token_invalid",
@@ -221,6 +224,7 @@ def main(argv=None) -> int:
     ap.add_argument("--force", action="store_true", help="re-render even if inputs unchanged")
     ap.add_argument("--timeout", type=int, default=1800)
     ap.add_argument("--no-audio", action="store_true", help="don't require an audio stream")
+    ap.add_argument("--agy", action="store_true", help="run Antigravity-native episode gate mode (no legacy CC packet_*.json required)")
     ap.add_argument("--override-codes", default="", help="comma-separated episode_gate codes to override (LOGGED, runbook allowlist only; provenance codes are NEVER overridable)")
     ap.add_argument("--override-issued-by", default="", help="identity of whoever approved the override (required for any override; logged; env OM_RENDER_OVERRIDE_ISSUED_BY fallback)")
     ap.add_argument("--check-file", metavar="MP4", help="ffprobe smoke only — run before ANY DM/upload")
@@ -251,7 +255,7 @@ def main(argv=None) -> int:
 
     # 1. Gate first
     from tools.qc.episode_gate import validate_episode
-    reasons = validate_episode(episode_dir)
+    reasons = validate_episode(episode_dir, mode="agy") if args.agy else validate_episode(episode_dir)
     # Wave1 P0-2 item 6: enforce the runbook override discipline BEFORE any
     # gate verdict is softened — provenance codes are hard-refused, unlisted
     # codes are hard-refused, and every accepted override records WHO

@@ -42,7 +42,7 @@ class DoubaoTTS(BaseTool):
     )
     fallback = "google_tts"
     fallback_tools = ["google_tts", "elevenlabs_tts", "openai_tts", "piper_tts"]
-    agent_skills = ["doubao-tts", "text-to-speech"]
+    agent_skills = []
 
     capabilities = [
         "text_to_speech",

@@ -37,7 +37,7 @@ class LTXVideoModal(BaseTool):
     )
     fallback = "ltx_video_local"
     fallback_tools = ["ltx_video_local", "wan_video", "hunyuan_video", "cogvideo_video", "image_selector"]
-    agent_skills = ["ltx2"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video"]
     supports = {

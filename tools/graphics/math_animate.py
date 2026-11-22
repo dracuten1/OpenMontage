@@ -102,7 +102,7 @@ class MathAnimate(BaseTool):
         "  macOS: brew install mactex ffmpeg\n"
         "  Linux: sudo apt install texlive-full ffmpeg"
     )
-    agent_skills = ["manimce-best-practices", "manim-composer"]
+    agent_skills = []
 
     capabilities = [
         "render_scene",

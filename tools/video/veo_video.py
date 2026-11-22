@@ -50,7 +50,7 @@ class VeoVideo(BaseTool):
         "  - FAL.ai backend: Set FAL_KEY (or FAL_AI_API_KEY).\n"
         "    Get one at https://fal.ai/dashboard/keys"
     )
-    agent_skills = ["ai-video-gen"]
+    agent_skills = []
 
     capabilities = [
         "text_to_video",

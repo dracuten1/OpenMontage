@@ -43,7 +43,7 @@ class AtlasImage(BaseTool):
 
     dependencies = ["env:ATLASCLOUD_API_KEY"]
     install_instructions = atlas_client.INSTALL_INSTRUCTIONS
-    agent_skills = ["atlas-cloud", "flux-best-practices"]
+    agent_skills = []
 
     capabilities = ["generate_image", "text_to_image", "image_edit", "layer_decomposition"]
     supports = {

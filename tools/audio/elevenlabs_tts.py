@@ -42,7 +42,7 @@ class ElevenLabsTTS(BaseTool):
     )
     fallback = "openai_tts"
     fallback_tools = ["openai_tts", "piper_tts"]
-    agent_skills = ["elevenlabs", "text-to-speech"]
+    agent_skills = []
 
     capabilities = [
         "text_to_speech",

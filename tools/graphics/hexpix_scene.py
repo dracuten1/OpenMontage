@@ -138,7 +138,7 @@ class HexpixScene(BaseTool):
 
     dependencies = []
     install_instructions = "pip install opencv-python-headless numpy Pillow"
-    agent_skills = ["hexpix-scene-usage"]  # skills/creative/hexpix-scene-usage.md
+    agent_skills = []  # skills/creative/hexpix-scene-usage.md
 
     capabilities = [
         "decode_marker_regions",

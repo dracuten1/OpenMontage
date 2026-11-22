@@ -141,7 +141,7 @@ class SeedanceArkVideo(BaseTool):
         "Set ARK_API_KEY to the API Key body from Volcengine Ark (without "
         "the 'Bearer ' prefix). Optional: ARK_SEEDANCE_MODEL and ARK_BASE_URL."
     )
-    agent_skills = ["seedance-2-0", "seedance-2-5", "ai-video-gen"]
+    agent_skills = []
 
     capabilities = [
         "text_to_video",

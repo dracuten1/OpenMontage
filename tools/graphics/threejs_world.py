@@ -89,7 +89,7 @@ class ThreeJSWorld(BaseTool):
         "World authoring is dependency-free. Final rendering requires the configured "
         "HyperFrames runtime (Node.js >= 22, npx, and FFmpeg)."
     )
-    agent_skills = ["threejs-world-generation"]
+    agent_skills = []
     capabilities = [
         "semantic_region_planning",
         "procedural_height_field",

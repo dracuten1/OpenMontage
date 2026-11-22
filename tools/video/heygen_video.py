@@ -39,7 +39,7 @@ class HeyGenVideo(BaseTool):
     )
     fallback = "wan_video"
     fallback_tools = ["wan_video", "hunyuan_video", "ltx_video_local", "cogvideo_video", "ltx_video_modal", "image_selector"]
-    agent_skills = ["ai-video-gen", "create-video"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video", "provider_selection"]
     supports = {

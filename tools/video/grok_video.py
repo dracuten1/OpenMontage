@@ -62,7 +62,7 @@ class GrokVideo(BaseTool):
         "Set XAI_API_KEY to your xAI API key.\n"
         "  Get one from the xAI developer console"
     )
-    agent_skills = ["grok-media", "ai-video-gen"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video", "reference_to_video"]
     supports = {

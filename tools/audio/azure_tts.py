@@ -65,7 +65,7 @@ class AzureTTS(BaseTool):
     )
     fallback = "piper_tts"
     fallback_tools = ["elevenlabs_tts", "openai_tts", "piper_tts"]
-    agent_skills = ["azure-text-to-speech", "text-to-speech"]
+    agent_skills = []
 
     capabilities = [
         "text_to_speech",

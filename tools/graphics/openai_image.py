@@ -44,7 +44,7 @@ class OpenAIImage(BaseTool):
         "Set OPENAI_API_KEY to your OpenAI API key.\n"
         "  pip install openai"
     )
-    agent_skills = ["flux-best-practices"]  # general image gen knowledge
+    agent_skills = []  # general image gen knowledge
 
     capabilities = [
         "generate_image",

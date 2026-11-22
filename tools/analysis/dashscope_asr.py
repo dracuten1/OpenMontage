@@ -51,7 +51,7 @@ class DashscopeAsr(BaseTool):
     )
     fallback = "transcriber"
     fallback_tools = ["transcriber"]
-    agent_skills = ["dashscope"]
+    agent_skills = []
 
     capabilities = [
         "speech_to_text",

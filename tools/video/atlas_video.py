@@ -59,7 +59,7 @@ class AtlasVideo(BaseTool):
 
     dependencies = ["env:ATLASCLOUD_API_KEY"]
     install_instructions = atlas_client.INSTALL_INSTRUCTIONS
-    agent_skills = ["atlas-cloud", "ai-video-gen", "seedance-2-0", "gemini-omni"]
+    agent_skills = []
 
     capabilities = list(_OPERATIONS)
     supports = {

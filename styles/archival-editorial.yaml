@@ -1,0 +1,138 @@
+identity:
+  name: "Archival Editorial"
+  category: custom
+  mood: authoritative, investigative, human, tactile-print
+  pace: deliberate
+  best_for: "Personal news breakdowns, Vietnamese investigative explainers, economic/policy analyses"
+
+taste_profile:
+  design_read: "Warm Archival Print broadsheet: warm newsprint paper, crisp charcoal ink, physical yellow marker highlights, zero AI dark-mode neon gradients."
+  visual_variance: 6
+  motion_intensity: 5
+  information_density: 6
+  palette_discipline: "Warm newsprint ivory (#F4EFE6) and clean paper cards (#FAF7F2), charcoal ink (#141413), vermilion (#C8281E) and deep ochre (#A87308) strictly for proof points and emphasis."
+  layout_variation: "Alternate EditorialMap, ArchivalSpotlight, FlowTimeline, EditorialLineChart, EditorialBarChart, and ComparisonSplit; never repeat the same archetype consecutively."
+  reference_strategy: "Verify real press photographs via source_photo_gate and preview peak-frame PNGs before final compose."
+  anti_patterns:
+    - "dark slate/blue radial gradients with neon cyan or crimson glows"
+    - "rounded-pill glassmorphic SaaS dashboard cards"
+    - "generic AI slide bullets or plain text walls"
+    - "bouncy cartoon springs (damping < 16)"
+    - "glossy plastic 3D renders"
+  quality_gates:
+    - "Frame t=0 of Scene 1 functions as an authentic print cover/hook with high legibility and zero brand-bumper burn."
+    - "Every number displayed on screen traces strictly to the pinned fact whitelist."
+
+visual_language:
+  color_palette:
+    primary: ["#141413", "#383530"]
+    accent: ["#C8281E", "#A87308"]
+    background: "#F4EFE6"
+    text: "#141413"
+    muted: "#5A554E"
+  composition: broadsheet editorial column grid with Safe Zone v3.2 bounds (content y 350-1420, x 90-940) and sharp 1-2px hairline dividers
+  texture: warm archival newsprint paper with subtle micro-grain (feTurbulence 4.5%), halftone archival photography, physical felt-pen yellow marker (#F3D34A)
+
+typography:
+  headings:
+    font: "Source Serif 4"
+    weight: 800
+    tracking: "-0.01em"
+  body:
+    font: "Be Vietnam Pro"
+    weight: 500
+    line_height: 1.45
+  code:
+    font: "JetBrains Mono"
+    weight: 600
+  stat_card:
+    font: "Source Serif 4"
+    weight: 900
+    size_multiplier: 3.0
+  scale_system: "major_third"
+  weight_matrix:
+    title: 900
+    heading: 800
+    body: 500
+    caption: 700
+
+motion:
+  transitions: [cut, slide-left, paper-wipe]
+  animation_style: "damped editorial snap (damping 16-22, stiffness 120-150), zero overshoot bounce, slow 2.5D camera drift"
+  pacing_rules:
+    min_scene_hold_seconds: 3.0
+    max_scene_hold_seconds: 12.0
+    text_card_hold_seconds: 3.5
+    stat_card_hold_seconds: 3.5
+    transition_duration_seconds: 0.35
+  entrance: "crisp ink settle + directional marker wipe"
+  exit: "clean cut or brief fade"
+
+audio:
+  voice_style: "direct, conversational Vietnamese editorial voice — crisp, human, grounded, never robotic hype"
+  music_mood: "restrained documentary pulse, subtle acoustic/percussive tension bed"
+  music_volume: 0.10
+  sfx_style: "tactile paper slides, camera shutters, felt highlighter swipes, subtle telemetry clicks (-6 to -14 dB)"
+  ducking_threshold_db: -6
+
+asset_generation:
+  image_prompt_prefix: "warm archival print editorial illustration on matte ivory newsprint paper, charcoal ink linework, halftone texture, restrained vermilion and ochre accents, "
+  image_negative_prompt: "dark neon, cyberpunk, 3D Pixar, glossy plastic, cartoon, anime, glowing gradients, watermark, blurry text"
+  diagram_style: "Economist/broadsheet editorial chart on warm #FAF7F2 stock, 2px top ink rule, vermilion lead series"
+  consistency_anchors:
+    - "Warm archival newsprint background (#F4EFE6) and surface cards (#FAF7F2)"
+    - "Charcoal ink (#141413) typography with Source Serif 4 headlines and Be Vietnam Pro body"
+    - "Vermilion (#C8281E) and ochre (#A87308) accents; #F3D34A physical marker fill behind dark text"
+    - "Blender 3D scene illustrations must use matte architectural maquette or clay/paper lighting matching archival paper"
+
+overlays:
+  stat_card:
+    bg: "#FAF7F2"
+    border: "#141413"
+    text: "#141413"
+    radius: 3
+    shadow: "0 4px 12px rgba(20, 20, 19, 0.10)"
+  key_term:
+    bg: "#F3D34A"
+    text: "#141413"
+    radius: 2
+  code_block:
+    bg: "#141413"
+    text: "#FAF7F2"
+    highlight: "#F3D34A"
+  section_title:
+    bg: "#FAF7F2"
+    border: "#C8281E"
+    text: "#141413"
+    accent: "#C8281E"
+  stat_reveal:
+    bg: "#FAF7F2"
+    text: "#141413"
+    accent: "#C8281E"
+  hero_title:
+    bg: "#F4EFE6"
+    text: "#141413"
+    accent: "#C8281E"
+  provider_chip:
+    bg: "#EFE8DB"
+    border: "#141413"
+    text: "#141413"
+
+quality_rules:
+  - "Minimum contrast ratio 4.5:1 for all text on Warm Archival Print surfaces"
+  - "Zero neon textShadow or boxShadow glows anywhere in editorial compositions"
+  - "No AI-generic dark-slate dashboard cards or glowing 999px pills"
+  - "Scene 1 frame 0 must act as a compelling cover thumbnail; BrandBumper belongs strictly at the outro"
+  - "All displayed numbers must trace to the closed fact whitelist; real photos require source badges"
+
+chart_palette:
+  - "#C8281E"
+  - "#A87308"
+  - "#1B5E7A"
+  - "#1F6E43"
+  - "#141413"
+
+color_rules:
+  harmony_type: "split-complementary"
+  contrast_validation: true
+  colorblind_safe: true

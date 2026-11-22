@@ -115,7 +115,7 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
             display: "inline-block",
             padding: "0 6px",
             color: COLORS.ink,
-            backgroundColor: COLORS.neonYellow,
+            backgroundColor: COLORS.highlighter,
             clipPath: `inset(0 ${100 - qWipe}% 0 0)`,
           }}
         >
@@ -135,10 +135,10 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
         height,
         opacity: op,
         transform: `translateY(${ty}px) rotate(${rotateDeg}deg)`,
-        borderRadius: 18,
-        backgroundColor: "#0E131D",
-        border: `1.5px solid rgba(255, 190, 11, 0.42)`,
-        boxShadow: "0 20px 52px rgba(0, 0, 0, 0.65)",
+        borderRadius: 4,
+        backgroundColor: COLORS.surface,
+        border: `1.5px solid ${COLORS.ink}`,
+        boxShadow: "0 10px 24px rgba(20, 20, 19, 0.14)",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
@@ -151,7 +151,7 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
           width: "100%",
           height: layout.photoHeight,
           overflow: "hidden",
-          backgroundColor: COLORS.ink,
+          backgroundColor: COLORS.surfaceAlt,
         }}
       >
         <Img
@@ -166,13 +166,13 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
             transformOrigin: "center center",
           }}
         />
-        {/* Editorial vignette */}
+        {/* Subtle edge vignette */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(180deg, rgba(11,14,20,0.22) 0%, rgba(11,14,20,0.02) 45%, rgba(11,14,20,0.72) 100%)",
+              "linear-gradient(180deg, rgba(20,20,19,0.12) 0%, rgba(20,20,19,0.0) 50%, rgba(20,20,19,0.32) 100%)",
             pointerEvents: "none",
           }}
         />
@@ -183,13 +183,13 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
             top: 14,
             left: 14,
             padding: "6px 14px",
-            borderRadius: 999,
-            backgroundColor: "rgba(11, 14, 20, 0.90)",
-            border: `2px solid ${COLORS.amber}`,
-            color: COLORS.amber,
+            borderRadius: 2,
+            backgroundColor: COLORS.surface,
+            border: `2px solid ${COLORS.crimson}`,
+            color: COLORS.crimson,
             fontFamily: FONTS.mono,
             fontSize: 24,
-            fontWeight: 700,
+            fontWeight: 800,
           }}
         >
           {archiveLabel}
@@ -202,9 +202,9 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
             right: 12,
             width: 22,
             height: 22,
-            borderTop: `2px solid ${COLORS.paper}`,
-            borderRight: `2px solid ${COLORS.paper}`,
-            opacity: 0.55,
+            borderTop: `2px solid ${COLORS.ink}`,
+            borderRight: `2px solid ${COLORS.ink}`,
+            opacity: 0.72,
           }}
         />
       </div>
@@ -218,8 +218,8 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
           flexDirection: "column",
           justifyContent: "center",
           gap: 8,
-          backgroundColor: "rgba(14, 18, 26, 0.96)",
-          borderTop: `1px solid ${COLORS.line}`,
+          backgroundColor: COLORS.surface,
+          borderTop: `1.5px solid ${COLORS.ink}`,
         }}
       >
         {hasQuote ? (
@@ -229,7 +229,7 @@ export const ArchivalSpotlight: React.FC<ArchivalSpotlightProps> = ({
               fontSize: 26,
               fontWeight: 700,
               lineHeight: 1.28,
-              color: COLORS.text,
+              color: COLORS.ink,
               opacity: frame >= qStart ? 1 : 0.25,
             }}
           >

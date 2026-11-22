@@ -59,7 +59,7 @@ class GrokImage(BaseTool):
         "Set XAI_API_KEY to your xAI API key.\n"
         "  Get one from the xAI developer console"
     )
-    agent_skills = ["grok-media"]
+    agent_skills = []
 
     capabilities = [
         "generate_image",

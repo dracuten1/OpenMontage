@@ -45,7 +45,7 @@ class FalElevenLabsMusic(BaseTool):
         "Get one at https://fal.ai/dashboard/keys"
     )
     fallback_tools = ["music_gen", "google_music"]
-    agent_skills = ["music", "elevenlabs"]
+    agent_skills = []
 
     capabilities = [
         "generate_background_music",

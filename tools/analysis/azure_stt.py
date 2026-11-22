@@ -100,7 +100,7 @@ class AzureSpeechToText(BaseTool):
         "'Keys and Endpoint' page. Optionally set AZURE_SPEECH_ENDPOINT to a "
         "full custom endpoint URL instead of the region."
     )
-    agent_skills = ["azure-speech-to-text"]
+    agent_skills = []
 
     capabilities = [
         "transcribe",

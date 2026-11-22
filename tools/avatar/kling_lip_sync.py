@@ -49,7 +49,7 @@ class KlingLipSync(BaseTool):
         "Set KLING_API_KEY in .env for the official Kling API. "
         "Use identify_face first for multi-person clips, then pass face_choose or face_id."
     )
-    agent_skills = ["kling-official", "avatar-video"]
+    agent_skills = []
 
     capabilities = ["lip_sync", "identify_face", "audio_video_alignment"]
     supports = {

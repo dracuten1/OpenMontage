@@ -60,7 +60,7 @@ class WanVideo(BaseTool):
     install_instructions = local_install_instructions()
     fallback = "hunyuan_video"
     fallback_tools = ["hunyuan_video", "ltx_video_local", "cogvideo_video", "image_selector"]
-    agent_skills = ["ltx2"]
+    agent_skills = []
 
     capabilities = [
         "text_to_video",

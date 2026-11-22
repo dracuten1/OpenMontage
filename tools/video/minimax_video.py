@@ -74,7 +74,7 @@ class MiniMaxVideo(BaseTool):
         "  Optionally set MINIMAX_REGION=cn to route to the mainland China host, "
         "or MINIMAX_BASE_URL to override the endpoint entirely."
     )
-    agent_skills = ["minimax-h3", "ai-video-gen"]
+    agent_skills = []
 
     capabilities = [
         "text_to_video",

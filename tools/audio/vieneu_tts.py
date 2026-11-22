@@ -47,7 +47,7 @@ class VieneuTTS(BaseTool):
         f"  cd {VIENEU_HOME} && uv venv --python 3.12 .venv && uv pip install --python .venv/bin/python vieneu\n"
         "Weights download automatically on first run (~540MB, stored in models/)."
     )
-    agent_skills = ["text-to-speech"]
+    agent_skills = []
 
     capabilities = [
         "text_to_speech",

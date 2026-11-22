@@ -13,7 +13,7 @@ This is where words become visuals. A great script with a bad scene plan produce
 | Schema | `schemas/artifacts/scene_plan.schema.json` | Artifact validation |
 | Prior artifacts | `state.artifacts["script"]["script"]`, `state.artifacts["proposal"]["proposal_packet"]` | Script sections and proposal packet |
 | Playbook | Active style playbook | Visual language, transitions, motion rules |
-| Layer 3 | `.agents/skills/flux-best-practices/`, `.agents/skills/beautiful-mermaid/`, `.agents/skills/manim-composer/` | Image gen, diagram, animation knowledge |
+| Layer 3 | `.agents/skills/editorial-explainer-manifest/`, `.agents/skills/remotion-best-practices/`, `.agents/skills/d3-viz/`, `.agents/skills/blender-*` | Editorial manifest, Remotion, data viz, Blender 3D illustration knowledge |
 
 ## Process
 
@@ -143,18 +143,19 @@ Show code with syntax highlighting. Highlight specific lines as the narrator exp
 - Tools: `code_snippet` tool + Remotion
 - Example: "Python code: `results = collection.query(embedding, n_results=5)`. Highlight `embedding` parameter when narrator says 'vector'."
 
-### Step 4a-bis: Editorial Layer Language (news-editorial-motion lane)
+### Step 4a-bis: Editorial Layer Language (news-editorial-motion lane + Warm Archival Print)
 
-Applies when the episode manifest declares `style_playbook == "editorial-explainer-manifest"` or `lane == "news-editorial-motion"` (enforced by the editorial-language gate — BLOCKED ⇒ cannot compose):
+Applies when the episode manifest declares `style_playbook == "editorial-explainer-manifest"` or `lane == "news-editorial-motion"` (enforced by `tools/qc/editorial_language_gate.py` — BLOCKED ⇒ cannot compose):
 
-- **Every content (non-closing) scene must declare ≥1 GENUINE graphic-native layer**: `document_cutout` (via `t2i_chroma_key` or `web_plus_i2i` + `remove_bg`), `data_viz` (via remotion_native chart components), or `evidence_annotation` (via remotion_native highlighter/chip). Photo-frame dominance is role-independent: ANY `hero` layer is blocked whatever its method, and any photo layer (`t2i` method or photoreal-lexicon prompt/prompt_digest hit) covering ≥ 0.85 of the canvas is blocked whatever its declared role — a `background` texture backplate is permitted only BELOW that threshold.
+- **Personal Theme — Warm Archival Print:** Design around `styles/archival-editorial.yaml` and `remotion-composer/src/components/news/theme.ts` (`#F4EFE6` paper, `#FAF7F2` surface, `#141413` charcoal ink, `#C8281E` vermilion, `#A87308` ochre, `#F3D34A` marker highlight, `Source Serif 4` headlines). Never design dark-slate neon dashboards or glowing 999px pills.
+- **Thumbnail-as-Scene-1 & Outro Bumper:** Scene 1 (`t=0`) serves as the cover poster + stakes hook. Place `<BrandBumper />` strictly at the outro after the final scene.
+- **Blender 3D Illustration Option:** For spatial/engineering/infrastructure illustrations where 2D graphics fall short, plan a matte architectural maquette / clay-paper Blender render (`.agents/skills/blender-*`) stamped `MÔ PHỎNG 3D`, matching Warm Archival Print lighting.
+- **Every content (non-closing) scene must declare ≥1 GENUINE graphic-native layer**: `document_cutout` (via `t2i_chroma_key` or `web_plus_i2i` + `remove_bg`), `data_viz` (via remotion_native chart/map/timeline components), or `evidence_annotation` (via remotion_native highlighter/chip). Photo-frame dominance is role-independent: ANY `hero` layer is blocked whatever its method, and any photo layer (`t2i` method or photoreal-lexicon prompt/prompt_digest hit) covering ≥ 0.85 of the canvas is blocked whatever its declared role — a `background` texture backplate is permitted only BELOW that threshold.
 - **Speech-locked EXCLUSIVE highlight:** exactly ONE highlight per scene, locked to the speech-contract anchor windows (active/settled/ghost opacities keyed to cue windows).
-- **Closing-scene budget:** at most ONE scene is exempt: the LAST scene in the manifest array, whose non-empty layer-role set is a subset of `{background, background_texture, editorial_typography, attribution}` and contains at least one `editorial_typography` layer. Any other scene — including a last scene with only a background photo — remains a content scene subject to graphic-native and photo-dominance rules. The reference project's closing scene has both background and typography, so it remains exempt.
+- **Closing-scene budget:** at most ONE scene is exempt: the LAST scene in the manifest array, whose non-empty layer-role set is a subset of `{background, background_texture, editorial_typography, attribution}` and contains at least one `editorial_typography` layer. Any other scene — including a last scene with only a background photo — remains a content scene subject to graphic-native and photo-dominance rules.
 - **Zero unresolved `anchor:` placeholders** anywhere in the manifest — every frame-valued leaf must be speech-locked to a real frame.
 
-**Canonical reference implementation (technique reference only — NOT a story-shape template):** `remotion-composer/src/xang-dau-demo-20261107/Episode.tsx`. Study the individual techniques in isolation — cutout treatment (L441-466, L793-816), chart count-up axis math (L51-66, L608-747), highlighter wipe (L740-750), typewriter reveal (L470-514), pop-in spring (L213-223), parallax `camScale` drift (L231-237), CtaPill (L291) — then re-compose those techniques for THIS story's own beats. Never reuse its scene order, narrative structure, or scene count; your story shape comes exclusively from your own script decomposition (Step 3).
-
-> **Gate-skip caveat (verified on disk):** the reference project `projects/xang-dau-demo-20261107` declares NO editorial key — its `scene_manifest.json` declares neither `style_playbook` nor `lane`, and its `project.json` says `style_playbook: "flat-motion-graphics"` — so the editorial-language gate SKIPs it by default (CLI exit 0, `SKIP — … not an editorial project`, zero findings, zero evidence; compose does not enforce it either). A SKIP is NOT a pass. Audit the reference explicitly with `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/xang-dau-demo-20261107 --force-editorial`.
+**Canonical shared kit (`remotion-composer/src/components/`):** import `SceneShell`, `HeroTitle`, `HighlightBar`, `EditorialMap`, `ArchivalSpotlight`, `FlowTimeline`, `ComparisonSplit`, `EditorialLineChart`, and `EditorialBarChart` directly instead of duplicating per-project `SceneShell.tsx` files. (You may study `remotion-composer/src/xang-dau-demo-20261107/Episode.tsx` for isolated motion techniques like count-up axis math and parallax drift, never reusing its story shape or dark styling.)
 
 ### Step 4b: Write Narration with Duration Budget
 
@@ -257,21 +258,15 @@ Validate `scene_plan_json` against the canonical scene-plan schema, persist it
 through the checkpoint protocol, and attach the stage review. There is no
 separate explainer submit function.
 
-#### Scene Packet Orchestrator Integration (Verified Operational)
+#### Antigravity Scene Authoring & Gate Integration
 
-In the scene-isolated production workflow:
-- The thin director freezes inputs (`frozen_inputs` SHA-256 hashes).
-- Scenes defined in `scene_plan.json` / `scene_manifest.json` are executed via `tools/qc/scene_orchestrator.py`:
+In the Antigravity-native workflow:
+- Freeze `theme.ts`, `SceneShell.tsx`, `timing.ts`, and `artifacts/fact_whitelist.json` before scene authoring.
+- For episodes `> 5` scenes, split into `remotion-composer/src/<slug>/scenes/S01.tsx` … `Snn.tsx` and dispatch parallel authoring + independent review via Antigravity `invoke_subagent` / `run_workflow`.
+- Verify all mechanical gates via `episode_gate.py`:
   ```bash
-  .venv/bin/python tools/qc/scene_orchestrator.py <episode_dir> --runner {auto|subprocess|daemon} --max-concurrency 2 --max-retries 1 --daemon-timeout 600 --scenes id1,id2 --evidence-file artifacts/scene_workflow_evidence.json
+  .venv/bin/python tools/qc/episode_gate.py projects/<slug> --mode agy
   ```
-- Per scene: spawns a fresh scene-local writer and a separate fresh independent reviewer in an enforced sandbox copy.
-- Output hashes must match disk digests; reviewer findings require explicit `reviewed_hashes`.
-- Final integration verified by episode gate:
-  ```bash
-  .venv/bin/python tools/qc/episode_gate.py <episode_root>
-  ```
-- Packet coverage is checked unconditionally against `scene_manifest.scenes` and `edit_decisions.cuts` (missing or extra packets trigger `scene_packet_missing` / `scene_packet_extra`).
 
 ## Common Pitfalls
 
@@ -296,14 +291,17 @@ Approval is per-gate — an earlier "go ahead" does not cover this gate.
 
 ## Production Contract Binding (docs/ORCHESTRATION_DOCTRINE.md)
 
-The canonical production contract is `docs/ORCHESTRATION_DOCTRINE.md` (ENS primary authority; this skill is a synced, subordinate reference — doctrine wins on conflict). This pipeline's manifest stages (`pipeline_defs/<pipeline>.yaml`) map the contract's 7 required phases — brief/script/facts; actual audio + alignment; sealed scene packets; scene author/review; integration; final render/mix review; delivery. Domain-specific phases (rig, localization, research, capture) are additive and never bypass the contract.
+The canonical production contract is `docs/ORCHESTRATION_DOCTRINE.md` (v3.0 Antigravity-native authority; this skill is a synced, subordinate reference — doctrine wins on conflict). This pipeline's manifest stages (`pipeline_defs/<pipeline>.yaml`) map the contract's 7 required phases — brief/script/facts; actual audio + alignment; sealed inputs & visual prep; scene author/review; integration & pre-render gates; final render/mix review; delivery. Domain-specific phases (rig, research, capture) are additive and never bypass the contract.
 
-Applicable mechanical gates (commands verified in-repo; per the doctrine honesty matrix, do NOT cite a gate as enforced for a production that does not use it — state "not applicable" instead):
+Applicable mechanical gates (commands verified in-repo; do NOT cite a gate as enforced for a production that does not use it — state "not applicable" instead):
 
-- Edit→compose timing re-lock (narrated cuts): `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<project_dir>', mode='strict')"` — enforced at the checkpoint edit gate in `lib/checkpoint.py`; applies when `edit_decisions.cuts` contain narrated cuts backed by narration audio.
-- Production validation (compose/publish checkpoint gate): `lib/production_validation.py` runs at every `compose`/`publish` checkpoint write via `validate_checkpoint_production_gate`; strict mode is the default for new production, and the 5 evidence gates (layout, timing-audio, semantic-events, sfx-mix, provenance-freshness) must carry real detector measurements.
-- Remotion layout/events validators (when this pipeline renders via Remotion): `npm run validate:layout -- <spec>` and `npm run validate:events -- <spec>` inside `remotion-composer/`.
-- Mix validation (when a mix profile + stems exist): `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>` — fail-closed on undeclared missing stems; intentionally absent BGM/SFX must be explicitly declared, never silently unmeasured.
-- Scene-packet workflow (only when this production uses scene packets / `scene_manifest.json`): `.venv/bin/python tools/qc/scene_orchestrator.py <episode_dir> --runner subprocess --max-concurrency 2 --max-retries 1 --scenes id1,id2 --evidence-file artifacts/scene_workflow_evidence.json`, then `.venv/bin/python tools/qc/episode_gate.py <episode_root>`. Runner honesty: subprocess is verified deterministic; daemon is experimental for reviewer turns.
+- Source photo verification (when real/archival photos exist): `.venv/bin/python tools/qc/source_photo_gate.py --project projects/<slug>`.
+- Fact whitelist check (Research v2 episodes): `.venv/bin/python tools/qc/fact_whitelist_gate.py --project projects/<slug>`.
+- Editorial-language check (news-editorial-motion lane): `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>`.
+- Edit→compose timing re-lock (narrated cuts): `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<project_dir>', mode='strict')"` — enforced at the checkpoint edit gate in `lib/checkpoint.py`.
+- Production validation (compose/publish checkpoint gate): `lib/production_validation.py` runs at every `compose`/`publish` checkpoint write via `validate_checkpoint_production_gate` (strict mode default).
+- Remotion layout/events validators (when rendering via Remotion): `npm run validate:layout -- <spec>` and `npm run validate:events -- <spec>` inside `remotion-composer/`.
+- Mix validation (when mix profile + stems exist): `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>` — fail-closed on undeclared missing stems; intentionally absent BGM/SFX must be explicitly declared.
+- Antigravity episode gate & guarded render: `.venv/bin/python tools/qc/episode_gate.py projects/<slug> --mode agy`, then `.venv/bin/python tools/qc/render_episode.py <comp-id> <out.mp4> --agy` (never raw `npx remotion render`).
 
-Strict success semantics (doctrine §8.2): completion claims are valid only with applicable gate identities, the exact scene/cut set, stage scope, existing evidence files, bound revisions, and detector measurements. `revise`, `blocked`, missing evidence, or required `not_measured` can NEVER become completion; a mechanical gate failure is `blocked`, never "PASS WITH WARNINGS". Dependency freeze (§8.3): any mutation of frozen inputs invalidates dependent verdicts and renders — re-review/re-render, never reuse stale verdicts; after re-TTS run `tools/audio/refresh_manifest.py` and re-lock cuts. Legacy compat (§8.4): a historical/legacy mode (explicitly declared `validation_mode="legacy"`) can never silently authorize new production — strict is the default. Publication separation (§8.4): render acceptance (QC PASS) authorizes nothing beyond the accepted render; publish/delivery requires its own explicit owner authorization.
+Strict success semantics (doctrine §6.2): completion claims are valid only with applicable gate identities, the exact scene/cut set, stage scope, existing evidence files, and detector measurements. `revise`, `blocked`, missing evidence, or required `not_measured` can NEVER become completion; a mechanical gate failure is `blocked`, never "PASS WITH WARNINGS". Dependency freeze (§6.3): any mutation of frozen inputs invalidates dependent verdicts and renders — re-review/re-render, never reuse stale verdicts; after re-TTS run `tools/audio/refresh_manifest.py` and re-lock cuts. Publication separation (§6.4): render acceptance (QC PASS) authorizes nothing beyond the accepted render; publish/delivery requires explicit owner authorization.

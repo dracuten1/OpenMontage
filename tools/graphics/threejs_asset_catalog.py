@@ -82,7 +82,7 @@ class ThreeJSAssetCatalog(BaseTool):
     runtime = ToolRuntime.HYBRID
     dependencies: list[str] = []
     install_instructions = "Network access for install; no API key. Bundled catalogs are CC0."
-    agent_skills = ["threejs-world-generation", "threejs-loaders", "threejs-materials", "threejs-textures"]
+    agent_skills = []
     best_for = [
         "Installing rights-safe GLTF/GLB libraries for detailed Three.js worlds",
         "Recording model-level provenance before asset-gate review",

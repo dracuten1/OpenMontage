@@ -82,8 +82,10 @@ service_account*.json
 # Stray media downloads (test/scratch clips left in repo root)
 pexels_video_*.mp4
 
-# Scratch/debug scripts
+# Scratch/debug scripts and ffmpeg 2-pass logs
 scratch/
+scratch_*
+ffmpeg2pass-*.log*
 
 # Internal docs (strategy, handoffs, playbooks — not shipped)
 internal/

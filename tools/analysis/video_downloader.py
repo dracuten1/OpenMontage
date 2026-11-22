@@ -44,7 +44,7 @@ class VideoDownloader(BaseTool):
         "https://deno.land/#installation\n"
         "Without Deno, YouTube downloads may fail but other platforms still work."
     )
-    agent_skills = ["video-download"]
+    agent_skills = []
 
     capabilities = [
         "download_video",

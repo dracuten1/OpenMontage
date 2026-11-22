@@ -41,7 +41,7 @@ class PiperTTS(BaseTool):
         "Then download a voice model:\n"
         "  piper --download-dir ~/.piper/models --model en_US-lessac-medium"
     )
-    agent_skills = ["text-to-speech"]
+    agent_skills = []
 
     capabilities = [
         "text_to_speech",

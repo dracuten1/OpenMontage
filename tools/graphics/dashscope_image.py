@@ -44,7 +44,7 @@ class DashscopeImage(BaseTool):
     )
     fallback = "grok_image"
     fallback_tools = ["grok_image", "openai_image", "flux_image", "recraft_image"]
-    agent_skills = ["dashscope"]
+    agent_skills = []
 
     capabilities = ["generate_image", "text_to_image"]
     supports = {

@@ -117,7 +117,7 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
               markerHeight="6"
               orient="auto"
             >
-              <path d="M 0 1 L 10 5 L 0 9 z" fill={COLORS.amber} />
+              <path d="M 0 1 L 10 5 L 0 9 z" fill={COLORS.crimson} />
             </marker>
           </defs>
           <line
@@ -125,7 +125,7 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
             y1={firstY}
             x2={spineX}
             y2={lastY}
-            stroke="rgba(180, 191, 204, 0.20)"
+            stroke="rgba(20, 20, 19, 0.16)"
             strokeWidth={3}
           />
           <line
@@ -133,7 +133,7 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
             y1={firstY}
             x2={spineX}
             y2={lastY}
-            stroke={COLORS.amber}
+            stroke={COLORS.crimson}
             strokeWidth={3.5}
             strokeDasharray={spineLen}
             strokeDashoffset={spineLen * (1 - spineProgress)}
@@ -152,7 +152,7 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
         const past = !settleAll && frame >= step.endFrame;
         const opacity =
           frame < step.startFrame ? 0.15 : settleAll ? 1.0 : active ? 1.0 : past ? 0.54 : 0.15;
-        const accent = step.color ?? COLORS.amber;
+        const accent = step.color ?? COLORS.crimson;
         const ty = interpolate(p, [0, 1], [14, 0]);
 
         return (
@@ -182,17 +182,16 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
                 style={{
                   width: 44,
                   height: 44,
-                  borderRadius: 999,
-                  backgroundColor: active ? accent : "#141A24",
+                  borderRadius: 3,
+                  backgroundColor: active ? accent : COLORS.surface,
                   border: `2.5px solid ${accent}`,
-                  color: active ? COLORS.ink : accent,
+                  color: active ? COLORS.surface : accent,
                   fontFamily: FONTS.mono,
                   fontSize: 24,
                   fontWeight: 800,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: active ? `0 0 22px ${accent}` : undefined,
                 }}
               >
                 {idx + 1}
@@ -204,10 +203,10 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
               style={{
                 flex: 1,
                 padding: "16px 22px",
-                borderRadius: 16,
-                backgroundColor: "rgba(14, 18, 26, 0.92)",
-                border: active ? `2px solid ${accent}` : `1px solid ${COLORS.line}`,
-                boxShadow: active ? `0 0 28px rgba(255, 190, 11, 0.20)` : undefined,
+                borderRadius: 3,
+                backgroundColor: active ? COLORS.surfaceAlt : COLORS.surface,
+                border: `1px solid ${COLORS.line}`,
+                borderLeft: active ? `5px solid ${accent}` : `2px solid ${COLORS.ink}`,
                 display: "flex",
                 flexDirection: "column",
                 gap: 6,
@@ -225,7 +224,7 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
                   style={{
                     fontFamily: FONTS.mono,
                     fontSize: 24,
-                    fontWeight: 700,
+                    fontWeight: 800,
                     color: accent,
                     letterSpacing: 0.4,
                   }}
@@ -238,7 +237,9 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
                       fontFamily: FONTS.mono,
                       fontSize: 24,
                       fontWeight: 800,
-                      color: COLORS.neonYellow,
+                      color: COLORS.ink,
+                      backgroundColor: COLORS.highlighter,
+                      padding: "2px 8px",
                     }}
                   >
                     {step.metric}
@@ -250,7 +251,7 @@ export const FlowTimeline: React.FC<FlowTimelineProps> = ({
                   fontFamily: FONTS.display,
                   fontSize: 30,
                   fontWeight: 800,
-                  color: COLORS.text,
+                  color: COLORS.ink,
                   lineHeight: 1.18,
                 }}
               >

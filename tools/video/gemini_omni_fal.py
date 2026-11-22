@@ -31,7 +31,7 @@ class GeminiOmniFalVideo(BaseTool):
     execution_mode = ExecutionMode.SYNC
     determinism = Determinism.STOCHASTIC
     runtime = ToolRuntime.API
-    agent_skills = ["gemini-omni", "ai-video-gen"]
+    agent_skills = []
     capabilities = [
         "text_to_video",
         "image_to_video",

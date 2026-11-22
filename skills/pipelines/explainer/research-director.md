@@ -210,26 +210,58 @@ Q21: "[topic]" (explainer OR animation OR infographic OR diagram)
 
 Record 2-3 visual references with what works about each approach.
 
-### Step 8: Angle Synthesis
+### Step 8: Research v2 Output — Multi-Angle Matrix, Ranked Hooks & Closed Fact Whitelist
 
-**This is where you earn your keep.** Using everything from Steps 2-7, identify at least 3 genuinely different angle candidates.
+Structure the `research_brief` output so downstream stages (`proposal`, `script`, `scene_plan`, `fact_whitelist_gate.py`) can consume verified facts and ranked hooks mechanically without re-deriving numbers from prose.
 
-For each angle, specify:
+#### 8a. Packet Front-Matter & Stable Event IDs (`EV-1..EV-n`)
+Include in `research/research_brief.md` (and mirror into `artifacts/research_brief.json` + `artifacts/fact_whitelist.json`):
+- `packet_version: 2`
+- `freshness_anchor: "YYYY-MM-DD"` (resolve all relative dates like "hôm nay", "2 ngày qua" against this anchor)
+- `scene_count_exact: <integer>` (pin exact planned scene count — never a vague range like `13–15`)
+- Assign stable IDs `EV-1`, `EV-2`, … to each story/event. Never skip or renumber IDs mid-run.
 
-| Field | What | Quality Bar |
-|-------|------|-------------|
-| `name` | Short title (5-8 words) | Specific. "Why Vector Search Beats SQL LIKE" not "About Vector Databases" |
-| `hook` | One-sentence grabber | Must create an information gap or surprise |
-| `type` | `trending`, `evergreen`, `contrarian`, `narrative`, `data_driven` | Categorize honestly |
-| `why_now` | Why this angle is compelling right now | **Must cite specific research findings** — not vibes |
-| `grounded_in` | Which data points or audience insights support it | Cross-reference your findings |
+#### 8b. Per-Event 5-Angle Matrix
+For each event `EV-n` (or deep-dive topic), populate the angle matrix before picking a framing:
+- `macro-policy` — systemic, regulatory, or geopolitical consequence
+- `personal-money` — direct impact on a viewer's wallet, salary, commute, or savings
+- `mechanism-cause` — *why* it actually happened beneath the headline
+- `timeline` — escalation / sequence of turning points
+- `affected-people` — concrete named human case or real group impacted
+
+Record `premise`, supporting `fact_id`s, `saturation` note (whether recent episodes burned this angle), and `recommend: true/false`.
+
+#### 8c. Ranked Hook Candidates (Scored Rubric)
+Produce 2–3 ranked hook candidates per event, each citing explicit `fact_id`s and scored `0–5` on five evidence-grounded dimensions minus `fragility_penalty`:
+- `scale` (0–5): 1-second magnitude anchor a commuter instantly feels
+- `personal_stakes` (0–5): direct "what this means for YOU" impact
+- `shock_novelty` (0–5): first-ever, steepest drop/spike, sudden reversal
+- `contrast` (0–5): expectation-vs-reality or before/after collision
+- `relatability` (0–5): named human vignette or everyday analogy
+- `- fragility_penalty` (`-1` to `-3`): penalize hooks whose load-bearing number is `CALCULATED`-only, `DỰ THẢO`, `PENDING`, or requires heavy attribution disclaimers; record `risk_flag` explicitly.
+
+*Rule:* A dimension without supporting `fact_id`s scores `0` (prevents clickbait inflation).
+
+#### 8d. Single Closed Fact Whitelist Table
+Every numeric figure, date milestone, or verifiable claim permitted in script or scenes MUST live in one machine-greppable `fact_table` (and `artifacts/fact_whitelist.json`):
+
+```markdown
+| fact_id | display_string | type | source | verification | allowed_scenes | narration_form |
+|---|---|---|---|---|---|---|
+| EV-1#f01 | `136,2` | source | ev01 (VOV 20/11) | CORROBORATED | S02,S03 | "một trăm ba mươi sáu phẩy hai" |
+| EV-1#f07 | `55,1 triệu` | calculated | ev01+ev02 | CALCULATED | S03 | "năm mươi lăm phẩy một triệu" |
+```
+
+- `verification` vocabulary (per row, never inherited table-wide): `PRIMARY_FETCHED` | `CORROBORATED` | `CORROBORATED+ATTR` | `CALCULATED` | `DISCREPANCY-EXCLUDED` | `PENDING(deadline)` | `PULSE_ONLY`.
+- List any discrepant rival numbers or excluded claims under `banned_strings: [...]` so `tools/qc/fact_whitelist_gate.py` blocks leaks automatically.
+- Pre-fill `narration_form` for numbers ≥2 digits so TTS pronunciation stays consistent without re-synthesis churn.
 
 **Angle diversity checklist:**
 - [ ] At least one angle leverages trending/recent findings (if available)
-- [ ] At least one angle is evergreen (works in 6 months too)
+- [ ] At least one angle is evergreen or mechanism-driven
 - [ ] At least one angle is surprising or contrarian
-- [ ] No two angles use the same hook structure
-- [ ] Each angle is grounded in different research findings
+- [ ] Ranked hooks cite explicit `fact_id`s and record any `fragility_penalty`
+- [ ] Every printable number appears in the closed `fact_table` with `allowed_scenes` and `narration_form`
 
 ### Step 9: Source Bibliography
 
@@ -344,14 +376,17 @@ Before submitting your research_brief, verify:
 
 ## Production Contract Binding (docs/ORCHESTRATION_DOCTRINE.md)
 
-The canonical production contract is `docs/ORCHESTRATION_DOCTRINE.md` (ENS primary authority; this skill is a synced, subordinate reference — doctrine wins on conflict). This pipeline's manifest stages (`pipeline_defs/<pipeline>.yaml`) map the contract's 7 required phases — brief/script/facts; actual audio + alignment; sealed scene packets; scene author/review; integration; final render/mix review; delivery. Domain-specific phases (rig, localization, research, capture) are additive and never bypass the contract.
+The canonical production contract is `docs/ORCHESTRATION_DOCTRINE.md` (v3.0 Antigravity-native authority; this skill is a synced, subordinate reference — doctrine wins on conflict). This pipeline's manifest stages (`pipeline_defs/<pipeline>.yaml`) map the contract's 7 required phases — brief/script/facts; actual audio + alignment; sealed inputs & visual prep; scene author/review; integration & pre-render gates; final render/mix review; delivery. Domain-specific phases (rig, research, capture) are additive and never bypass the contract.
 
-Applicable mechanical gates (commands verified in-repo; per the doctrine honesty matrix, do NOT cite a gate as enforced for a production that does not use it — state "not applicable" instead):
+Applicable mechanical gates (commands verified in-repo; do NOT cite a gate as enforced for a production that does not use it — state "not applicable" instead):
 
-- Edit→compose timing re-lock (narrated cuts): `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<project_dir>', mode='strict')"` — enforced at the checkpoint edit gate in `lib/checkpoint.py`; applies when `edit_decisions.cuts` contain narrated cuts backed by narration audio.
-- Production validation (compose/publish checkpoint gate): `lib/production_validation.py` runs at every `compose`/`publish` checkpoint write via `validate_checkpoint_production_gate`; strict mode is the default for new production, and the 5 evidence gates (layout, timing-audio, semantic-events, sfx-mix, provenance-freshness) must carry real detector measurements.
-- Remotion layout/events validators (when this pipeline renders via Remotion): `npm run validate:layout -- <spec>` and `npm run validate:events -- <spec>` inside `remotion-composer/`.
-- Mix validation (when a mix profile + stems exist): `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>` — fail-closed on undeclared missing stems; intentionally absent BGM/SFX must be explicitly declared, never silently unmeasured.
-- Scene-packet workflow (only when this production uses scene packets / `scene_manifest.json`): `.venv/bin/python tools/qc/scene_orchestrator.py <episode_dir> --runner subprocess --max-concurrency 2 --max-retries 1 --scenes id1,id2 --evidence-file artifacts/scene_workflow_evidence.json`, then `.venv/bin/python tools/qc/episode_gate.py <episode_root>`. Runner honesty: subprocess is verified deterministic; daemon is experimental for reviewer turns.
+- Source photo verification (when real/archival photos exist): `.venv/bin/python tools/qc/source_photo_gate.py --project projects/<slug>`.
+- Fact whitelist check (Research v2 episodes): `.venv/bin/python tools/qc/fact_whitelist_gate.py --project projects/<slug>`.
+- Editorial-language check (news-editorial-motion lane): `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>`.
+- Edit→compose timing re-lock (narrated cuts): `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<project_dir>', mode='strict')"` — enforced at the checkpoint edit gate in `lib/checkpoint.py`.
+- Production validation (compose/publish checkpoint gate): `lib/production_validation.py` runs at every `compose`/`publish` checkpoint write via `validate_checkpoint_production_gate` (strict mode default).
+- Remotion layout/events validators (when rendering via Remotion): `npm run validate:layout -- <spec>` and `npm run validate:events -- <spec>` inside `remotion-composer/`.
+- Mix validation (when mix profile + stems exist): `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>` — fail-closed on undeclared missing stems; intentionally absent BGM/SFX must be explicitly declared.
+- Antigravity episode gate & guarded render: `.venv/bin/python tools/qc/episode_gate.py projects/<slug> --mode agy`, then `.venv/bin/python tools/qc/render_episode.py <comp-id> <out.mp4> --agy` (never raw `npx remotion render`).
 
-Strict success semantics (doctrine §8.2): completion claims are valid only with applicable gate identities, the exact scene/cut set, stage scope, existing evidence files, bound revisions, and detector measurements. `revise`, `blocked`, missing evidence, or required `not_measured` can NEVER become completion; a mechanical gate failure is `blocked`, never "PASS WITH WARNINGS". Dependency freeze (§8.3): any mutation of frozen inputs invalidates dependent verdicts and renders — re-review/re-render, never reuse stale verdicts; after re-TTS run `tools/audio/refresh_manifest.py` and re-lock cuts. Legacy compat (§8.4): a historical/legacy mode (explicitly declared `validation_mode="legacy"`) can never silently authorize new production — strict is the default. Publication separation (§8.4): render acceptance (QC PASS) authorizes nothing beyond the accepted render; publish/delivery requires its own explicit owner authorization.
+Strict success semantics (doctrine §6.2): completion claims are valid only with applicable gate identities, the exact scene/cut set, stage scope, existing evidence files, and detector measurements. `revise`, `blocked`, missing evidence, or required `not_measured` can NEVER become completion; a mechanical gate failure is `blocked`, never "PASS WITH WARNINGS". Dependency freeze (§6.3): any mutation of frozen inputs invalidates dependent verdicts and renders — re-review/re-render, never reuse stale verdicts; after re-TTS run `tools/audio/refresh_manifest.py` and re-lock cuts. Publication separation (§6.4): render acceptance (QC PASS) authorizes nothing beyond the accepted render; publish/delivery requires explicit owner authorization.

@@ -43,7 +43,7 @@ class KlingTTS(BaseTool):
         "Set KLING_API_KEY in .env for the official Kling API. "
         "Pass voice_id explicitly; OpenMontage does not guess Kling voice IDs."
     )
-    agent_skills = ["kling-official", "text-to-speech"]
+    agent_skills = []
 
     capabilities = ["text_to_speech", "voice_selection", "multilingual"]
     supports = {

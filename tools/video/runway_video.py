@@ -93,13 +93,7 @@ class RunwayVideo(BaseTool):
         "Set RUNWAY_API_KEY to your Runway API secret.\n"
         "  Get one at https://dev.runwayml.com/"
     )
-    agent_skills = [
-        "seedance-2-0",
-        "seedance-2-5",
-        "gemini-omni",
-        "minimax-h3",
-        "ai-video-gen",
-    ]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video", "video_to_video"]
     supports = {

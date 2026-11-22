@@ -114,14 +114,7 @@ class ComfyUIVideo(BaseTool):
         "Running a separate ComfyUI instance for video? Set COMFYUI_VIDEO_SERVER_URL "
         "instead -- it takes priority over COMFYUI_SERVER_URL for this tool only."
     )
-    agent_skills = [
-        "comfyui",
-        "gemini-omni",
-        "seedance-2-5",
-        "minimax-h3",
-        "ai-video-gen",
-        "ltx2",
-    ]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video"]
     supports = {

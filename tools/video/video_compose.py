@@ -1687,12 +1687,16 @@ class VideoCompose(BaseTool):
                 "transitionDuration": 0.4,
             }
 
-            # Derive caption colors from the palette
+            # Derive caption colors from the palette using actual relative luminance
+            try:
+                from styles.playbook_loader import _relative_luminance
+                is_light_bg = _relative_luminance(bg) > 0.45
+            except Exception:
+                is_light_bg = bg.upper() in ("#FFFFFF", "#FAFAFA", "#F9FAFB", "#F4EFE6", "#FAF7F2")
             theme["captionHighlightColor"] = primary
-            # Caption background: semi-transparent version of the bg color
             theme["captionBackgroundColor"] = (
-                f"rgba(255, 255, 255, 0.85)" if bg.upper() in ("#FFFFFF", "#FAFAFA", "#F9FAFB")
-                else f"rgba(15, 23, 42, 0.75)"
+                "rgba(255, 255, 255, 0.85)" if is_light_bg
+                else "rgba(15, 23, 42, 0.75)"
             )
 
             # Motion style from playbook. `pace` is an identity field in the

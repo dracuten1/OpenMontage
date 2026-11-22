@@ -44,7 +44,7 @@ class SunoMusic(BaseTool):
         "Get a key at https://sunoapi.org/api-key"
     )
 
-    agent_skills = ["music"]
+    agent_skills = []
 
     capabilities = [
         "generate_background_music",

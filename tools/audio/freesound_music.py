@@ -46,7 +46,7 @@ class FreesoundMusic(BaseTool):
         "Get a free key at https://freesound.org/apiv2/apply/"
     )
 
-    agent_skills = ["music"]
+    agent_skills = []
 
     capabilities = ["search_music", "download_music", "stock_music"]
     supports = {

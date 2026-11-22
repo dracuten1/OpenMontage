@@ -48,20 +48,18 @@ If a model misses this distinction, it will often fall back to plain search + gu
 
 ## Mandatory delivery bundle (Thumbnail-as-Scene-1 Contract)
 
-**REQUIRED owner delivery contract (Updated 2026-10-30):** Read `/Users/tuyennguyen/.hermes/skills/media/video-producer/SKILL.md`, section **Thumbnail-as-Scene-1 Contract (SSOT)**. Thumbnail **KHÔNG** cần gửi file riêng nữa. Thay vào đó, thumbnail được thiết kế trực tiếp làm **Scene 1 (Thumbnail Card + Hook)** của video (frame đầu t=0 làm cover poster tự nhiên khi đăng TikTok/Shorts/Reels, kèm lời đọc hook mở đầu), sau đó mới chuyển sang các phân cảnh nội dung chi tiết. Gói bàn giao chỉ gồm: **Video** (draft HUD / final master) + **Copyable description** (tiêu đề, caption, timestamps từ scene_timing, hashtags). Không gửi file ảnh thumbnail riêng lẻ.
+**REQUIRED owner delivery contract (SSOT):** Thumbnail **KHÔNG** gửi file ảnh riêng lẻ nữa. Thay vào đó, thumbnail được thiết kế trực tiếp làm **Scene 1 (Thumbnail Card + Hook)** của video (frame đầu `t=0` làm cover poster tự nhiên khi đăng TikTok/Shorts/Reels, kèm lời đọc hook mở đầu), sau đó mới chuyển sang các phân cảnh nội dung chi tiết. **Gói bàn giao chỉ gồm: Video (draft HUD / final master) + Copyable description** (tiêu đề, caption, timestamps từ `scene_timing`, hashtags). Không gửi file ảnh thumbnail riêng lẻ. If an internal export schema (`ExportBundle`) requires a `thumbnail_path`, auto-extract frame `t=0` from the rendered video; never treat standalone PNG/JPG thumbnail creation as a separate deliverable or block completion on it.
 
-Read the SSOT before production dispatch and before any output delivery, including compose-stage previews, documentary-montage (which has no publish stage), and alternate renderers. Put its required Video / Thumbnail(s) / Copyable description / Bundle status slots into TASK specs and production reports. Generate the thumbnail before delivering the first draft, not only at publish. Use existing `ExportBundle.thumbnail_path` with a real QC-approved file; a concept-only export is partial. Never mark a bundle complete on successful video packaging alone. Keep native artifact schemas and approval semantics unchanged.
+## Visual Presentation & Safe Zone Contract (Warm Archival Print + Safe Zone v3.2 SSOT)
 
-## Visual Presentation & Safe Zone Contract (SSOT — User Mandate 2026-10-30)
-
-Read `/Users/tuyennguyen/.hermes/skills/media/video-producer/SKILL.md`, section **Yêu cầu về Visual & Hình ảnh (Visual Presentation Contract)**:
-1. **Tuyệt đối cấm video text thuần (Never plain text only):** Video không được chỉ toàn các slide chữ hay bullet points. Mọi phân cảnh đều phải có visual hỗ trợ trực quan sinh động (ảnh thực tế, AI visuals, biểu đồ, infographic AntV).
-2. **Ưu tiên hình ảnh thực tế (prefer + ghi nguồn):** Luôn ưu tiên dùng hình ảnh/footage thực tế (ĐBQH tại nghị trường, hiện trường, cơ quan, sự kiện...). BẮT BUỘC gắn badge/overlay ghi rõ nguồn trích dẫn trên hình (`Ảnh: TTXVN`, `Ảnh: Lao Động`...).
-3. **Tận dụng linh hoạt i2i hoặc t2i:** Với các khái niệm trừu tượng, tương lai, ý niệm (dòng vốn, kho vàng, đường sắt cao tốc, mô hình chứng chỉ vàng số...) hoặc khi thiếu ảnh thực tế phù hợp, BẮT BUỘC tạo hình ảnh minh họa bằng t2i hoặc i2i qua 9router (`ag/gemini-3.1-flash-image`, `cx/gpt-image-2.5-sunburst`, `cx/gpt-5.6-luna-image`). Gắn nhãn minh bạch `Hình minh họa: AI / <Concept>`.
-4. **Vị trí Subscription & Subtitles (Phụ đề) — TikTok Safe Zone v3.2 (SSOT code: `remotion-composer/src/components/news/theme.ts`):** TikTok che đáy khung bằng caption/username/music native (**dead zone y ≥ 1440 trên 1080p**, mở rộng cao hơn khi caption dài), top UI (**y < 240**) và rail nút tương tác phải (**x ≥ 940, rộng ~140px**). Toàn bộ nội dung cốt lõi (cards, map, chart, spotlight) đặt trong **content band y: 350–1420 (1080p)**, x 60–940 (chuẩn `left=90, maxW=850`), block cuối giãn đều kết thúc **y: 1300–1420**. **Subtitles (phụ đề burned-in) đặt THẤP SÁT ĐÁY dải y: 1480–1600 (1080p) / ~980–1060 (720p)** — **42–45px bold** (chunk >44 ký tự → 42px), center, ≤2 dòng, chunk ≤64 ký tự (re-split tại khoảng trắng gần giữa, nội suy time), maxWidth ≤ 880 (x 60–940). Subscription/CTA đặt **cách đáy content ≥ 60px** hoặc làm card outro trong content band y: 350–1420; TUYỆT ĐỐI không đặt text/CTA quan trọng ở góc dưới-phải hoặc đè lên thẻ card nội dung.
-5. **Chống tràn chữ tiêu đề Scene 1 (Scene 1 Title Safe Zone):** Tiêu đề Scene 1 (Cover / Thumbnail Card) không bao giờ được tràn viền hay rớt chữ mất kiểm soát (ví dụ lỗi "500 tấn vàng trong dân"). Giới hạn max-width tiêu đề ≤ 850px trên 1080p (margin lề ≥ 115px), tự động ngắt dòng cân đối (2 dòng) và áp dụng dynamic font size, đảm bảo trọn vẹn trong Safe Zone.
-6. **Kích thước chữ & typography TikTok v3.1 (research 11-03):** Scene 1/hook title **72–96px** heavy sans (dài 64–72px, ngắn 76–92px), **2–5 từ punchy**, highlight **1 từ khóa chính** màu vàng neon #F7C204 hoặc accent; scene title/số liệu chính ≥44px; phụ đề 42–46px; badge nguồn/nhãn ≥24px; **cấm chữ <24px trên màn hình 1080p** (HUD debug được miễn). Font bold sans (Montserrat/Anton/Bebas/Poppins Bold) + outline/drop-shadow hoặc pill nền đặc; chữ sáng nền tối, chữ tối nền sáng.
-7. **Description TikTok (SEO):** 80–100 ký tự đầu caption là vùng hiển thị — đặt hook + từ khóa chính lên đầu; **3–5 hashtag liên quan (max 5, cấm #fyp/#foryou vanity)**; kèm CTA kéo comment/follow.
+Code SSOT: `remotion-composer/src/components/news/theme.ts` and `styles/archival-editorial.yaml`:
+1. **Tuyệt đối cấm video text thuần (Never plain text only):** Video không được chỉ toàn các slide chữ hay bullet points. Mọi phân cảnh đều phải có visual hỗ trợ trực quan sinh động (ảnh thực tế, bản đồ `EditorialMap`, biểu đồ `EditorialLineChart`/`EditorialBarChart`, `FlowTimeline`, `ComparisonSplit`, AI collage hoặc mô phỏng 3D Blender matte).
+2. **Thẩm mỹ cá nhân — Warm Archival Print (Anti-AI):** Dùng nền giấy báo archival `#F4EFE6` / card `#FAF7F2`, mực charcoal `#141413`, nhấn đỏ son `#C8281E` / vàng đất `#A87308`, highlight bút nhớ vàng `#F3D34A` sau chữ tối, font tiêu đề `Source Serif 4` + nội dung `Be Vietnam Pro` + dữ liệu `JetBrains Mono`. **Cấm** nền dark-slate neon glow, card kính bo tròn 999px kiểu AI dashboard, hoặc plastic 3D.
+3. **Ưu tiên hình ảnh thực tế (prefer + ghi nguồn):** Luôn ưu tiên dùng hình ảnh/footage thực tế (nghị trường, hiện trường, cơ quan, sự kiện...), kiểm chứng qua `tools/qc/source_photo_gate.py`. BẮT BUỘC gắn badge/overlay ghi rõ nguồn trích dẫn (`NGUỒN: ...` / `ẢNH TƯ LIỆU <year>`).
+4. **Tận dụng linh hoạt i2i/t2i & Blender 3D:** Với khái niệm trừu tượng hoặc mô hình không gian/hạ tầng, dùng t2i/i2i archival collage (gắn nhãn `Hình minh họa: AI · <Concept>`) hoặc Blender 3D matte architectural maquette (gắn nhãn `MÔ PHỎNG 3D`).
+5. **TikTok Safe Zone v3.2 & Subtitles:** TikTok che đáy khung (**dead zone y ≥ 1440 trên 1080p**), top UI (**y < 240**) và rail phải (**x ≥ 940, rộng ~140px**). Toàn bộ nội dung cốt lõi đặt trong **content band y: 350–1420 (1080p)**, x 60–940 (chuẩn `left=90, maxW=850`). **Subtitles burned-in đặt THẤP SÁT ĐÁY dải y: 1480–1600 (1080p)** — **42–45px bold**, center, ≤2 dòng, chunk ≤64 ký tự, maxWidth ≤ 880. CTA đặt cách đáy content ≥ 60px hoặc làm outro card trong band y: 350–1420. `<BrandBumper />` đặt **chỉ ở cuối tập (outro)**, không đốt 0–3s mở đầu.
+6. **Chống tràn chữ & Kích thước chữ TikTok:** Tiêu đề Scene 1 (Cover / Thumbnail Card) max-width ≤ 850px (margin ≥ 115px), tự ngắt ≤ 2 dòng via `HeroTitle` dynamic sizing, **2–5 từ punchy**, highlight **1 từ khóa chính** bằng bút nhớ `#F3D34A` (chữ `#141413`) hoặc đỏ son `#C8281E`. Headline 56–78px `Source Serif 4`; số liệu chính ≥44px; phụ đề 42–45px; badge nguồn/nhãn ≥24px; **cấm chữ <24px trên màn hình 1080p**.
+7. **Description TikTok (SEO):** 80–100 ký tự đầu caption đặt hook + từ khóa chính lên đầu; **3–5 hashtag liên quan (max 5, cấm #fyp/#foryou)**; kèm CTA kéo comment/follow.
 
 ## Rule Zero — All Production Goes Through a Pipeline
 
@@ -195,33 +193,27 @@ This applies especially to:
 - prompt-only substitutes for reference-driven generation,
 - still-image animatics in place of true motion.
 
-## Orchestrator
+## Orchestrator (Antigravity / `agy` CLI Native)
 
 The orchestrator manages the production state machine:
 
 `research -> proposal -> script -> scene_plan -> assets -> edit -> compose -> publish`
 
 **Big Context Protection (Mandatory):**
-To avoid context exhaustion (150k+ tokens from bulk tool logs, Whisper timings, image base64, and npm build messages), the orchestrator MUST operate as a lean coordinator (< 25k tokens) delegating execution to specialized subagents (`skills/meta/agent-orchestrator.md`).
-
-The Orchestrator:
+To avoid context exhaustion from bulk tool logs, Whisper timings, image base64, and npm build messages, Antigravity operates as a lean coordinator delegating heavy batch/scene work via native `invoke_subagent` or `run_workflow` (`skills/meta/agent-orchestrator.md`):
 
 1. Reads the pipeline manifest (`pipeline_defs/*.yaml`) and `checkpoint.get_next_stage()`.
-2. Dispatches specialized subagents (`.claude/agents/`):
-   - `stage-worker`: executes individual planning & creative stages (`idea`, `script`, `scene_plan`, `edit`).
-   - `asset-worker`: executes batch media generation (`assets`), splitting Audio and Visuals into parallel runs.
-   - `composer`: handles Remotion / HyperFrames composition, build errors, and final rendering (`compose`).
-   - `reviewer`: independent QA auditor verifying stage artifacts against schemas and standing rules.
-3. Enforces **Disk-as-State**: subagents write canonical artifacts and assets to `projects/<project>/`, returning only concise reports (< 100 words). Raw tool dumps never enter orchestrator context.
-4. Enforces **Human Approval Gates**: when `human_approval_default: true`, sets checkpoint to `awaiting_human`, presents artifact summary, and waits for explicit user approval before advancing.
+2. For episodes `<= 5` scenes, authors cleanly in a single session or parallel batch; for `> 5` scenes, freezes `theme.ts`, `SceneShell.tsx`, `timing.ts`, and `fact_whitelist.json`, then dispatches isolated Antigravity subagents (`invoke_subagent` / `run_workflow`) per scene/batch plus an independent reviewer subagent for code + Vision frame QA.
+3. Enforces **Disk-as-State**: subagents write canonical artifacts and assets to `projects/<project>/` and scenes to `remotion-composer/src/<project>/`, returning concise reports (< 100 words).
+4. Enforces **Human Approval Gates** and mechanical QC gates (`tools/qc/source_photo_gate.py`, `tools/qc/fact_whitelist_gate.py`, `tools/qc/editorial_language_gate.py`, `tools/qc/mix_validator.py`, `tools/qc/episode_gate.py --mode agy`, `tools/qc/render_episode.py --agy`).
 
 Infrastructure files:
 
 - `skills/meta/agent-orchestrator.md` — multi-agent orchestration & anti-bloat protocol
-- `.claude/agents/` — subagent definitions (`stage-worker`, `asset-worker`, `composer`, `reviewer`)
 - `lib/checkpoint.py` — read/write checkpoints, stage validation
 - `tools/cost_tracker.py` — budget governance
 - `lib/pipeline_loader.py` — manifest loading and helpers
+- `tools/qc/` — deterministic pre-render QC gates and guarded render entrypoint
 
 ## Project Directory Convention
 
@@ -268,20 +260,10 @@ If the folder has tracks, the proposal and asset stages should present them as o
 
 | Pipeline | Best For | Stability |
 |----------|----------|-----------|
-| `animated-explainer` | Topic to fully generated explainer | production |
-| `talking-head` | Footage-led speaker videos | beta |
-| `screen-demo` | Screen recordings and walkthroughs | production |
-| `clip-factory` | Many clips from one long source | beta |
-| `podcast-repurpose` | Podcast highlights and derivatives | beta |
-| `cinematic` | Trailer, teaser, and mood-led edits | production |
-| `animation` | Motion-graphics and animation-first videos | production |
-| `character-animation` | Local rigged cartoon characters and reusable character acting | beta |
-| `hybrid` | Source footage plus support visuals | production |
-| `avatar-spokesperson` | Presenter-led avatar or lip-sync videos | production |
-| `localization-dub` | Subtitle, dub, and translated variants | beta |
+| `animated-explainer` | News breakdowns, investigative explainers, topic to generated video (`archival-editorial` default) | production |
+| `animation` | Motion-graphics, story & Ink Theater animations | production |
+| `documentary-montage` | Archival footage + commentary montages | production |
 | `framework-smoke` | Test: minimal 2-stage smoke test | test |
-
-> **Beta pipelines** have not been fully audited. They work, but expect rough edges. Mention this when the user selects one.
 
 ## Mandatory Preflight
 
@@ -434,7 +416,7 @@ For these requests:
 - Explainer videos with `flat-motion-graphics` playbook -> Remotion animated scenes, not Ken Burns
 - Data-driven videos -> Remotion stat cards and charts, not static image screenshots
 - Any pipeline using still images -> Remotion spring animations, not FFmpeg pan-and-zoom
-- **Screen demos of a CLI/terminal/install flow -> `TerminalScene` (synthetic screen recording), not OS-level capture.** See `.agents/skills/synthetic-screen-recording/SKILL.md`. Faster, deterministic, privacy-safe. Use real capture (`screen_recorder`, `cap_recorder`, `playwright-recording`) only when the demo is a real app UI or requires unpredictable live behavior.
+- **Screen demos of a CLI/terminal/install flow -> `TerminalScene` (synthetic screen recording), not OS-level capture.** Faster, deterministic, privacy-safe. Use real capture (`screen_recorder`, `cap_recorder`) only when the demo is a real app UI or requires unpredictable live behavior.
 
 ### Remotion scene types available in `remotion-composer/`
 
@@ -497,10 +479,10 @@ Key capability families to look for in the output:
 - **analysis** — Transcription, scene detection, frame sampling.
 - **avatar** — Talking head and lip sync generation.
 - **character_animation** — Local character specs, SVG rigs, pose libraries, action timelines, previews, and QA.
-- **3d_world_generation** — Local semantic terrain, procedural biome scattering, explicit landmarks, diagnostic passes, and deterministic HyperFrames/Three.js camera fly-throughs. Route through `threejs_world` and read `skills/creative/3d-world-generation.md` plus `.agents/skills/threejs-world-generation/SKILL.md`.
-- **3d_asset_acquisition** — Rights-safe GLTF/GLB catalogs for production-tier Three.js worlds. Route through `threejs_asset_catalog`; never substitute blockout primitives for a requested detailed or reference-grade environment.
-- **3d_asset_generation** — Unique textured/PBR meshes from text or concept images. Route text-described hero assets through `atlas_3d`, image-conditioned assets and regional object extraction through `fal_3d`, and read `.agents/skills/3d-asset-generation/SKILL.md`. Announce provider/model/unit cost before every first paid call and sample before batching.
-- **3d_world_rendering** — Production assembly, terrain, lighting, materials, camera, and image-sequence rendering in Blender. Route through `blender_world`; use Three.js for interactive/blockout review, not as a substitute for Blender when reference-grade scene density is requested.
+- **3d_world_generation** — Local semantic terrain, procedural biome scattering, explicit landmarks, diagnostic passes, and deterministic 3D camera fly-throughs. Route through `threejs_world` and read `skills/creative/3d-world-generation.md`.
+- **3d_asset_acquisition** — Rights-safe GLTF/GLB catalogs. Route through `threejs_asset_catalog`.
+- **3d_asset_generation** — Unique textured/PBR meshes from text or concept images. Read `.agents/skills/3d-asset-generation/SKILL.md`. Announce provider/model/unit cost before every first paid call and sample before batching.
+- **3d_world_rendering** — Production assembly, lighting, materials, camera, and image-sequence rendering in Blender (`.agents/skills/blender-*`). Use Blender matte architectural maquette lighting for flagship news/explainer illustrations.
 - **enhancement** — Upscale, background removal, face enhance, color grading.
 
 Each tool in the registry declares `best_for`, `install_instructions`, `runtime` (LOCAL, API, LOCAL_GPU, HYBRID), and `status`. Read these fields — do not assume tool strengths from memory.
@@ -576,7 +558,7 @@ Each pipeline manifest's `tools_available` field declares what tools a stage can
 
 ## Stage Agents & Delegation
 
-Each stage produces one canonical artifact that becomes the contract for the next stage. Stage execution is delegated to isolated subagents (`stage-worker`, `asset-worker`, `composer`) configured in `.claude/agents/` to prevent context pollution in the lead orchestrator. The stage director skill teaches the agent HOW to produce each artifact.
+Each stage produces one canonical artifact that becomes the contract for the next stage. Stage execution and scene authoring can be delegated via Antigravity `invoke_subagent` / `run_workflow` to prevent context pollution in the lead coordinator. The stage director skill teaches the agent HOW to produce each artifact.
 
 | Stage | Director Skill | Canonical output | Core quality bar |
 |------|---------------|------------------|------------------|
@@ -657,6 +639,7 @@ Tool rules:
 
 | Playbook | Best For |
 |----------|----------|
+| `archival-editorial` | **Personal Default** — Warm Archival Print broadsheet for news & explainers |
 | `clean-professional` | Corporate, educational, SaaS |
 | `premium-minimalist` | Investor updates, expert explainers, product narratives |
 | `flat-motion-graphics` | Social media, TikTok, startups |
@@ -700,21 +683,14 @@ The `.agents/skills/` directory is large. When you're not coming in through a to
 
 | Category | Skills |
 |---|---|
-| **Composition runtime** | `remotion`, `remotion-best-practices`, `synthetic-screen-recording` (fake terminal/UI demos via Remotion TerminalScene), `threejs-world-generation` (semantic terrain and free-viewpoint HyperFrames worlds) |
-| **Animation knowledge (generic)** | `gsap-core`, `gsap-timeline`, `gsap-plugins` (SplitText / MorphSVG / DrawSVG / MotionPath / Flip / CustomEase), `gsap-utils`, `gsap-react`, `gsap-performance`, `gsap-scrolltrigger`, `gsap-frameworks`, `framer-motion` (Disney 12 principles), `lottie-bodymovin` (Lottie export) |
-| **Character animation** | `character-rigging`, `svg-character-animation`, `pose-library-design`, `canvas-procedural-animation`, `character-animation-qa` |
-| **Image generation** | `bfl-api`, `flux-best-practices` |
-| **Video generation** | `seedance-2-0` (preferred premium default — cinematic, trailer, multi-shot, synced audio, lip-sync), `gemini-omni` (conversational video editing, reference tags, timecoded beats), `ai-video-gen`, `ltx2` |
-| **Audio** | `elevenlabs`, `music`, `sound-effects`, `acestep`, `text-to-speech`, `azure-text-to-speech` (optional cloud TTS — tool `azure_tts`, same Speech key as `azure_stt`), `setup-api-key` |
-| **Speech-to-text** | `speech-to-text` (whisper `transcriber` — default, offline), `azure-speech-to-text` (optional cloud STT — tool `azure_stt`, preferred when `AZURE_SPEECH_KEY` is set) |
-| **Avatar / lip-sync** | `avatar-video`, `heygen`, `create-video`, `faceswap`, `video-translate`, `agents` |
-| **Capture** | `playwright-recording` (browser flows), `ffmpeg` (post) |
-| **Visualization** | `beautiful-mermaid`, `d3-viz`, `manim-composer`, `manimce-best-practices`, `manimgl-best-practices` |
-| **Media editing** | `video-edit`, `video-download`, `video-understand`, `video-toolkit`, `visual-style` |
+| **Editorial & Composition** | `editorial-explainer-manifest`, `remotion-best-practices`, `remotion`, `visual-style` |
+| **Motion & Pacing** | `animation-principles`, `motion-art-direction`, `beat-sync-editing` |
+| **Data Visualization** | `d3-viz` |
+| **3D Illustration (Blender)** | `blender-modeling`, `blender-materials`, `blender-lighting`, `blender-cameras`, `blender-animation`, `blender-rendering`, `3d-asset-generation` |
+| **Media & Web Research** | `ffmpeg`, `video-edit`, `video-understand`, `9router-web-search`, `9router-web-fetch` |
 
 **When in doubt, read the category's meta routing file first:**
-- Picking an animation runtime? → `skills/meta/animation-runtime-selector.md` routes between Remotion primitives, GSAP plugins, framer-motion, Lottie, Manim, D3.
-- Picking a screen-recording mode (real capture vs synthetic terminal)? → `pipeline_defs/screen-demo.yaml` + `skills/pipelines/screen-demo/idea-director.md`.
+- Picking an animation runtime? → `skills/meta/animation-runtime-selector.md` routes between Remotion primitives and custom motion.
 
 ## Quick Lookup
 

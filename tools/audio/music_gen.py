@@ -43,7 +43,7 @@ class MusicGen(BaseTool):
         "Get a key at https://elevenlabs.io"
     )
 
-    agent_skills = ["music", "sound-effects", "elevenlabs"]
+    agent_skills = []
 
     capabilities = [
         "generate_background_music",

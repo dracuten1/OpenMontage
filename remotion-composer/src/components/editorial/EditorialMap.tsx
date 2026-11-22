@@ -217,20 +217,20 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
         position: "relative",
         width,
         height,
-        borderRadius: 20,
+        borderRadius: 6,
         overflow: "hidden",
-        backgroundColor: "#0A101B",
-        border: `1px solid ${COLORS.line}`,
-        boxShadow: "0 18px 46px rgba(0, 0, 0, 0.55)",
+        backgroundColor: "#E5DDD0",
+        border: `1.5px solid ${COLORS.ink}`,
+        boxShadow: "0 8px 22px rgba(20, 20, 19, 0.12)",
       }}
     >
-      {/* Subtle ocean radial lighting */}
+      {/* Subtle archival parchment ocean wash */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(95% 80% at 50% 48%, rgba(22, 41, 68, 0.55) 0%, rgba(10, 16, 27, 0.96) 78%)",
+            "radial-gradient(95% 80% at 50% 48%, rgba(235, 228, 214, 0.72) 0%, rgba(220, 211, 194, 0.96) 78%)",
           pointerEvents: "none",
         }}
       />
@@ -267,7 +267,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
             <path
               d={graticulePath}
               fill="none"
-              stroke="rgba(180, 191, 204, 0.09)"
+              stroke="rgba(20, 20, 19, 0.08)"
               strokeWidth={1}
             />
           ) : null}
@@ -278,8 +278,8 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
               <path
                 key={c.key}
                 d={c.d}
-                fill={c.highlighted ? "rgba(217, 4, 41, 0.16)" : "#1B2434"}
-                stroke={c.highlighted ? "rgba(255, 190, 11, 0.60)" : "rgba(180, 191, 204, 0.34)"}
+                fill={c.highlighted ? "rgba(200, 40, 30, 0.18)" : "#F6F1E7"}
+                stroke={c.highlighted ? COLORS.crimson : "#ADA18E"}
                 strokeWidth={c.highlighted ? 1.8 : 1.2}
                 strokeLinejoin="round"
               />
@@ -298,15 +298,15 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                 <path
                   d={d}
                   fill="none"
-                  stroke="rgba(56, 189, 248, 0.22)"
-                  strokeWidth={(w.width ?? 14) + 12}
+                  stroke="rgba(27, 94, 122, 0.22)"
+                  strokeWidth={(w.width ?? 14) + 10}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
                 <path
                   d={d}
                   fill="none"
-                  stroke={w.color ?? "#1D4E78"}
+                  stroke={w.color ?? "#1B5E7A"}
                   strokeWidth={w.width ?? 14}
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -366,16 +366,16 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                       y={-22}
                       width={boxW}
                       height={38}
-                      rx={8}
-                      fill="rgba(11, 14, 20, 0.90)"
+                      rx={3}
+                      fill={COLORS.surface}
                       stroke={routeColor}
-                      strokeWidth={1.2}
+                      strokeWidth={1.6}
                     />
                     <text
                       x={0}
                       y={5}
                       textAnchor="middle"
-                      fill={COLORS.text}
+                      fill={COLORS.ink}
                       fontFamily={FONTS.mono}
                       fontSize={24}
                       fontWeight={700}
@@ -399,7 +399,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                 x={pt[0]}
                 y={pt[1]}
                 textAnchor="middle"
-                fill={reg.color ?? "rgba(180, 191, 204, 0.65)"}
+                fill={reg.color ?? "rgba(90, 85, 78, 0.78)"}
                 fontFamily={FONTS.mono}
                 fontSize={24}
                 fontWeight={700}
@@ -424,7 +424,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
             const pinColor = pin.color ?? COLORS.crimson;
             const pulseCycle = (localF % 45) / 45;
             const ringR = visible ? 10 + pulseCycle * 28 : 0;
-            const ringOp = visible && pin.pulse !== false ? 0.72 * (1 - pulseCycle) : 0;
+            const ringOp = visible && pin.pulse !== false ? 0.65 * (1 - pulseCycle) : 0;
             return (
               <g key={pin.id} transform={`translate(${pt[0]}, ${pt[1]})`} opacity={visible ? enterP : 0.18}>
                 {pin.pulse !== false && visible ? (
@@ -438,8 +438,8 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                     opacity={ringOp}
                   />
                 ) : null}
-                <circle cx={0} cy={0} r={10} fill={pinColor} stroke={COLORS.ink} strokeWidth={3} />
-                <circle cx={0} cy={0} r={4} fill={COLORS.paper} />
+                <circle cx={0} cy={0} r={10} fill={pinColor} stroke={COLORS.surface} strokeWidth={3} />
+                <circle cx={0} cy={0} r={4} fill={COLORS.ink} />
               </g>
             );
           })}
@@ -468,13 +468,14 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
               top,
               opacity: visible ? enterP : 0,
               transform: `translateY(${interpolate(enterP, [0, 1], [10, 0])}px)`,
-              backgroundColor: "rgba(11, 14, 20, 0.92)",
-              border: `1.5px solid ${pinColor}`,
-              borderRadius: 10,
+              backgroundColor: COLORS.surface,
+              border: `1.5px solid ${COLORS.ink}`,
+              borderLeft: `5px solid ${pinColor}`,
+              borderRadius: 3,
               padding: "8px 14px",
               pointerEvents: "none",
               maxWidth: 340,
-              boxShadow: `0 0 18px rgba(0,0,0,0.65)`,
+              boxShadow: "0 4px 12px rgba(20, 20, 19, 0.14)",
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
@@ -496,7 +497,7 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
                   fontFamily: FONTS.body,
                   fontSize: 24,
                   fontWeight: 700,
-                  color: COLORS.text,
+                  color: COLORS.ink,
                   whiteSpace: "nowrap",
                 }}
               >
@@ -527,13 +528,13 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
             top: 16,
             left: 18,
             padding: "6px 14px",
-            borderRadius: 8,
-            backgroundColor: "rgba(11, 14, 20, 0.88)",
-            border: `1px solid ${COLORS.line}`,
+            borderRadius: 2,
+            backgroundColor: COLORS.surface,
+            border: `1.5px solid ${COLORS.ink}`,
             fontFamily: FONTS.mono,
             fontSize: 24,
             fontWeight: 700,
-            color: COLORS.text,
+            color: COLORS.ink,
             letterSpacing: 0.6,
           }}
         >
@@ -548,9 +549,9 @@ export const EditorialMap: React.FC<EditorialMapProps> = ({
             bottom: 12,
             right: 14,
             padding: "4px 12px",
-            borderRadius: 6,
-            backgroundColor: "rgba(11, 14, 20, 0.85)",
-            border: `1px solid ${COLORS.line}`,
+            borderRadius: 2,
+            backgroundColor: COLORS.surface,
+            border: `1px solid rgba(20, 20, 19, 0.30)`,
             fontFamily: FONTS.mono,
             fontSize: 24,
             color: COLORS.muted,

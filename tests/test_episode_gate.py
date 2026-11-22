@@ -241,6 +241,72 @@ def test_episode_source_photo_gate_blocks_declared_real_photo_without_provenance
   'path': 'assets/images/bridge.jpg',
   'scene_id': 'cut-1',
  })
- manifest_p.write_text(json.dumps(manifest), encoding='utf-8')
+ (project / 'artifacts' / 'asset_manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
  codes = {r['code'] for r in validate_episode(project)}
  assert 'source_photo_gate_failed' in codes
+
+
+def test_episode_agy_mode_enforces_editorial_and_fact_whitelist(tmp_path):
+ from tests.test_timing_relock_validator import _write_real_wav_file
+ project = tmp_path / 'agy-news'
+ art = project / 'artifacts'
+ audio = project / 'assets' / 'audio'
+ scenes = project / 'scenes'
+ art.mkdir(parents=True); audio.mkdir(parents=True); scenes.mkdir(parents=True)
+
+ wav = audio / 'voice_s1.wav'
+ _write_real_wav_file(wav, 1.0)
+ (project / 'project.json').write_text(json.dumps({
+  'project_id': 'agy-news',
+  'pipeline_type': 'animated-explainer',
+  'style_playbook': 'archival-editorial',
+  'lane': 'news-editorial-motion',
+  'orchestrator': 'antigravity',
+ }), encoding='utf-8')
+ (art / 'edit_decisions.json').write_text(json.dumps({
+  'version': '1.0', 'render_runtime': 'remotion',
+  'cuts': [{'id': 'S01', 'source': 'assets/audio/voice_s1.wav', 'in_seconds': 0, 'out_seconds': 1.0, 'layer': 'primary'}],
+ }), encoding='utf-8')
+ (art / 'asset_manifest.json').write_text(json.dumps({
+  'version': '1.0',
+  'assets': [{'id': 'voice-s1', 'type': 'narration', 'scene_id': 'S01', 'path': 'assets/audio/voice_s1.wav', 'duration_seconds': 1.0}],
+  'metadata': {'total_audio_speech_duration_seconds': 1.0},
+ }), encoding='utf-8')
+ (art / 'narration_words.json').write_text(json.dumps([{'word': 'test', 'scene_id': 'S01', 'global_start': 0.05, 'global_end': 0.3}]))
+ stems = project / 'audio_stems'; stems.mkdir()
+ for name in ('narration', 'bgm', 'sfx', 'mix'):
+  with wave.open(str(stems / f'{name}.wav'), 'wb') as w:
+   w.setnchannels(1); w.setsampwidth(2); w.setframerate(16000); w.writeframes(b'\x00\x00' * 16000)
+ (stems / 'manifest.json').write_text(json.dumps({k: f'{k}.wav' for k in ('narration', 'bgm', 'sfx', 'mix')}))
+ (project / 'mix_profile.json').write_text(json.dumps({
+  'schema': 'openmontage.mix-profile', 'version': 1, 'target_lufs': -60, 'lufs_tolerance': 60,
+  'ducking': {'min_reduction_db': 0}, 'windows': {}, 'declared_not_measured': ['music_masking'],
+ }))
+ (art / 'fact_whitelist.json').write_text(json.dumps({
+  'facts': [{'fact_id': 'EV-1#f01', 'display_string': '136,2', 'verification': 'CORROBORATED', 'allowed_scenes': ['S01']}],
+ }))
+ (project / 'scene_manifest.json').write_text(json.dumps({
+  'project_id': 'agy-news',
+  'lane': 'news-editorial-motion',
+  'canvas': {'width': 1080, 'height': 1920, 'fps': 30},
+  'speech_lock_contract': 'locked', 'camera_rig': {'scale': '1.0->1.08'}, 'physics': {'spring_damping': '20'},
+  'global_overlays': [{'type': 'vignette'}],
+  'scenes': [{
+   'scene_id': 'S01',
+   'layers': [{'layer_id': 'chart', 'role': 'data_viz', 'pipeline': {'method': 'remotion_native', 'component': 'PriceLineChart'}}],
+  }],
+ }), encoding='utf-8')
+ # Missing PriceLineChart + leaked number 999 -> both editorial_language_gate_failed & fact_whitelist_failed fire without packet_*.json
+ (scenes / 'S01.tsx').write_text('export default function S01() { return <div>999</div>; }', encoding='utf-8')
+ codes = {r['code'] for r in validate_episode(project)}
+ assert 'scene_packets_missing' not in codes
+ assert 'editorial_language_gate_failed' in codes
+ assert 'fact_whitelist_failed' in codes
+
+ # Fix S01 to declare genuine PriceLineChart and whitelisted number -> auto agy mode passes!
+ (scenes / 'S01.tsx').write_text(
+  'const PriceLineChart = () => <div data-editorial-line-chart="true">136,2</div>;\n'
+  'export default function S01() { return <PriceLineChart />; }\n',
+  encoding='utf-8',
+ )
+ assert validate_episode(project) == []

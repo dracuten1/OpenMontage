@@ -11,8 +11,6 @@ def _read(relative_path: str) -> str:
 def test_music_plans_discover_all_music_capabilities() -> None:
     instruction_files = [
         "AGENT_GUIDE.md",
-        "skills/pipelines/cinematic/idea-director.md",
-        "skills/pipelines/cinematic/proposal-director.md",
         "skills/pipelines/documentary-montage/idea-director.md",
         "skills/pipelines/explainer/proposal-director.md",
     ]

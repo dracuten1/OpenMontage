@@ -66,8 +66,10 @@ class BlenderWorld(BaseTool):
         ".runtime/blender/blender-4.5.10-windows-x64/blender.exe."
     )
     agent_skills = [
-        "3d-asset-generation", "threejs-world-generation", "threejs-loaders", "threejs-materials",
-        "threejs-textures", "threejs-lighting", "threejs-postprocessing",
+        "3d-asset-generation",
+        "blender-modeling",
+        "blender-materials",
+        "blender-lighting",
     ]
     capabilities = [
         "gltf_glb_scene_assembly", "procedural_terrain", "linked_asset_scatter",

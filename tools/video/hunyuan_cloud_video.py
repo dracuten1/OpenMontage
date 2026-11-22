@@ -58,7 +58,7 @@ class HunyuanCloudVideo(BaseTool):
         "Set TENCENT_TOKENHUB_API_KEY to your Tencent Cloud TokenHub API key.\n"
         "  Get it at https://console.cloud.tencent.com/tokenhub"
     )
-    agent_skills = ["ai-video-gen"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video"]
     supports = {

@@ -20,7 +20,7 @@ class ImageSelector(BaseTool):
     provider = "selector"
     stability = ToolStability.BETA
     runtime = ToolRuntime.HYBRID
-    agent_skills = ["flux-best-practices", "bfl-api", "atlas-cloud"]
+    agent_skills = []
 
     capabilities = [
         "generate_image", "search_image", "download_image",

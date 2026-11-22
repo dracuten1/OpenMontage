@@ -37,7 +37,7 @@ class FluxImage(BaseTool):
         "Set FAL_KEY to your fal.ai API key.\n"
         "  Get one at https://fal.ai/dashboard/keys"
     )
-    agent_skills = ["flux-best-practices", "bfl-api"]
+    agent_skills = []
 
     capabilities = ["generate_image", "generate_illustration", "text_to_image"]
     supports = {

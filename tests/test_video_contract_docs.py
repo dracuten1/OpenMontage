@@ -53,50 +53,23 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 DOCTRINE = REPO_ROOT / "docs" / "ORCHESTRATION_DOCTRINE.md"
-INVENTORY = REPO_ROOT / "docs" / "video-contract-inventory.json"
 
 # The audited skill set is GLOB-DERIVED from .agents/skills/*/SKILL.md (the
 # edit-once canonical surface), not hardcoded: a newly added first-party
 # skill is audited automatically instead of being silently missed. Excluded
-# skills are listed EXPLICITLY below, each with its measured reason
-# (fresh scan 2026-11-09, reviewer-remediation group C / W7).
+# skills are listed EXPLICITLY below, each with its measured reason.
 AUDITED_SKILL_EXCLUSIONS = {
-    # Vendored third-party knowledge (inventory kind=vendored — imported
-    # wholesale, never rewritten per the inventory kind vocabulary):
-    "hyperframes-animation": "vendored third-party; cites repo-external helpers",
-    "hyperframes-creative": "vendored third-party; cites repo-external helpers",
-    "tailwind-design-system": "vendored third-party; cites repo-external helpers",
-    # Heavy third-party provider/tool skills whose SKILL.md documents
-    # upstream helper conventions (tools/<name>.py etc.) that do not exist
-    # in this repo — upstream templates, not OpenMontage contract surfaces
-    # (these carry 63 of the 66 measured stale repo-internal refs):
-    "acestep": "upstream provider skill; 14 repo-external helper refs",
-    "dashscope": "upstream provider skill; repo-external helper refs",
-    "elevenlabs": "upstream provider skill; repo-external helper refs",
-    "ltx2": "upstream provider skill; 11 repo-external helper refs",
-    "music-to-video": "upstream provider skill; repo-external helper refs",
-    "playwright-recording": "upstream provider skill; repo-external helper refs",
-    "synthetic-screen-recording": "upstream provider skill; repo-external helper refs",
-    "video-toolkit": "upstream provider skill; 22 repo-external helper refs",
-    "video-understand": "upstream provider skill; 8 repo-external helper refs",
-    # Blender-domain reconstruction skills: their "canonical source (policy)"
-    # phrasing is image/view-template provenance, not production-contract
-    # authority — a measured lexical false positive for the authority check.
-    "mascot-logo-reconstruction": "Blender-domain skill; 'canonical source' = image template policy",
-    "multiview-constraint-solver": "Blender-domain skill; 'canonical source' = view template policy",
+    "video-understand": "upstream provider skill; upstream repo-external helper refs",
 }
 
 # .agents/skills entries WITHOUT a SKILL.md that are deliberately tolerated
 # (reported explicitly here instead of being silently skipped — S11).
-SKILL_DIRS_WITHOUT_SKILL_MD = {
-    "gsap": "README-only placeholder (imported GSAP docs, no SKILL.md contract surface)",
-}
+SKILL_DIRS_WITHOUT_SKILL_MD: dict[str, str] = {}
 
 AUDITED_TOP_DOCS = [
     DOCTRINE,
     REPO_ROOT / "AGENTS.md",
-    REPO_ROOT / "CLAUDE.md",
-    REPO_ROOT / ".claude" / "prompts" / "om_team_leader_prompt.md",
+    REPO_ROOT / "AGENT_GUIDE.md",
 ]
 
 
@@ -228,7 +201,7 @@ def test_only_doctrine_claims_canonical_authority() -> None:
 
 def test_director_files_cite_doctrine_binding_block() -> None:
     """Every director/executive-producer file must be subordinated to the
-    doctrine. All 103 pipeline director / executive-producer files carry the
+    doctrine. All 26 kept pipeline director / executive-producer files carry the
     "Production Contract Binding" block citing the doctrine. The explainer
     pipeline (10 files under skills/pipelines/explainer/) also enforces
     subordination at the lane level in pipeline_defs/animated-explainer.yaml.
@@ -240,8 +213,8 @@ def test_director_files_cite_doctrine_binding_block() -> None:
         sorted((REPO_ROOT / "skills" / "pipelines").glob("*/*-director.md"))
         + sorted((REPO_ROOT / "skills" / "pipelines").glob("*/executive-producer.md"))
     )
-    assert len(director_files) == 103, (
-        f"expected 103 director files under skills/pipelines/, found {len(director_files)}"
+    assert len(director_files) == 26, (
+        f"expected 26 director files under skills/pipelines/, found {len(director_files)}"
     )
     for path in director_files:
         text = path.read_text(encoding="utf-8", errors="replace")
@@ -270,10 +243,10 @@ def test_director_files_cite_doctrine_binding_block() -> None:
 
 # The Production Contract Binding block is the LAST h2 section of every
 # pipeline director/executive-producer file: heading line through EOF,
-# hashed verbatim. md5 pinned from the group-A sync (2026-11-09) — a
-# deliberate block revision must update every carrier and re-pin here.
+# hashed verbatim for the Antigravity-native v3.0 contract. A deliberate
+# block revision must update every carrier and re-pin here.
 BINDING_HEADING = "## Production Contract Binding (docs/ORCHESTRATION_DOCTRINE.md)"
-BINDING_BLOCK_MD5 = "1dd8e674ff57ae3b9fb711c9ff2190cd"
+BINDING_BLOCK_MD5 = "ffe79a4cf74239793ffc9ff68b7bb5ef"
 
 
 def test_binding_block_byte_identical_across_all_pipeline_directors() -> None:
@@ -333,291 +306,63 @@ def test_pipeline_yaml_headers_cite_doctrine_as_canonical() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 2. Inventory integrity
+# 2. Antigravity-native surface & skill/pipeline catalog hygiene
 # ---------------------------------------------------------------------------
 
+EXPECTED_KEPT_PIPELINES = {
+    "animated-explainer.yaml",
+    "animation.yaml",
+    "documentary-montage.yaml",
+    "framework-smoke.yaml",
+}
 
-def _load_inventory() -> dict:
-    assert INVENTORY.exists(), f"{INVENTORY.relative_to(REPO_ROOT)} is missing"
-    return json.loads(INVENTORY.read_text(encoding="utf-8"))
-
-
-def test_inventory_parses_and_counts_are_self_consistent() -> None:
-    data = _load_inventory()
-    entries = data["entries"]
-    counts = data["counts"]
-    assert counts["total_entries"] == len(entries), (
-        "counts.total_entries does not match len(entries): "
-        f"{counts['total_entries']} vs {len(entries)}"
-    )
-    for key, field in (
-        ("by_kind", "kind"),
-        ("by_authority_tier", "authority_tier"),
-        ("by_owner_lane", "owner_lane"),
-        ("by_decision", "decision"),
-    ):
-        recomputed = {}
-        for entry in entries:
-            recomputed[entry[field]] = recomputed.get(entry[field], 0) + 1
-        assert counts[key] == recomputed, (
-            f"counts.{key} does not match the entry distribution: "
-            f"{counts[key]} vs {recomputed}"
-        )
-
-
-# Pinned by_status distribution — recomputed FRESH from the inventory
-# entries on 2026-11-09 (reviewer-remediation group C / W5), not taken from
-# the reviewer's numbers. Sums to 658 == counts.total_entries.
-# The inventory RECORDS a counts.by_status block with these exact values,
-# and the recorded-vs-recomputed assertion below is strict: any drift
-# between the recorded block and a fresh recompute fails the test.
-EXPECTED_BY_STATUS = {
-    "active": 529,
-    "mirror-active": 47,
-    "duplicate-identical": 48,
-    "legacy-reference": 6,
-    "dirty-preserved": 1,
-    "untracked-dirty": 26,
-    "active-evidence": 1,
+EXPECTED_KEPT_SKILLS = {
+    "3d-asset-generation",
+    "9router-web-fetch",
+    "9router-web-search",
+    "animation-principles",
+    "beat-sync-editing",
+    "blender-animation",
+    "blender-cameras",
+    "blender-lighting",
+    "blender-materials",
+    "blender-modeling",
+    "blender-rendering",
+    "d3-viz",
+    "editorial-explainer-manifest",
+    "ffmpeg",
+    "motion-art-direction",
+    "remotion",
+    "remotion-best-practices",
+    "video-edit",
+    "video-understand",
+    "visual-style",
 }
 
 
-def test_inventory_by_status_recompute_matches_pinned_distribution() -> None:
-    """The entry-status distribution must recompute to the pinned 7-value
-    distribution, and any recorded counts.by_status block must match the
-    recomputation exactly."""
-    data = _load_inventory()
-    entries = data["entries"]
-    recomputed: dict[str, int] = {}
-    for entry in entries:
-        recomputed[entry["status"]] = recomputed.get(entry["status"], 0) + 1
-    assert recomputed == EXPECTED_BY_STATUS, (
-        f"by_status recompute drifted from the pinned distribution: "
-        f"{recomputed} vs {EXPECTED_BY_STATUS}"
+def test_antigravity_only_no_legacy_claude_harness() -> None:
+    """Claude Code / legacy harness artifacts must remain removed."""
+    assert not (REPO_ROOT / ".claude").exists(), ".claude/ directory must not exist"
+    assert not (REPO_ROOT / "CLAUDE.md").exists(), "CLAUDE.md must not exist"
+    assert not (REPO_ROOT / ".superpowers").exists(), ".superpowers/ must not exist"
+
+
+def test_kept_pipelines_and_agents_skills_match_contract() -> None:
+    """Only the 4 kept pipeline manifests and 20 kept .agents/skills exist."""
+    actual_pipelines = {p.name for p in (REPO_ROOT / "pipeline_defs").glob("*.yaml")}
+    assert actual_pipelines == EXPECTED_KEPT_PIPELINES, (
+        f"pipeline_defs drifted: expected {sorted(EXPECTED_KEPT_PIPELINES)}, "
+        f"got {sorted(actual_pipelines)}"
     )
-    assert sum(EXPECTED_BY_STATUS.values()) == len(entries), (
-        "pinned by_status values do not sum to len(entries)"
-    )
-    recorded = data["counts"].get("by_status")
-    assert recorded == recomputed, (
-        f"counts.by_status does not match the entry distribution: "
-        f"{recorded} vs {recomputed}"
-    )
-
-
-def test_inventory_scalar_counts_match_disk() -> None:
-    """Structural scalar counts that are unambiguously derivable from disk
-    must match reality.
-
-    ``counts.skills_tree_md_files`` was reconciled on 2026-11-09 (refresh #2:
-    capture-time 296 was entry-derived and inflated by a duplicate
-    skills/INDEX.md entry; the inventory now records 295, matching the
-    on-disk walk) — so it is asserted like the other scalars.
-
-    ``counts.episode_source_dirs`` (63) and ``counts.root_tsx_compositions`` (65)
-    recompute from disk using the inventory's recorded derivation rules.
-    """
-    data = _load_inventory()
-    counts = data["counts"]
-    assert counts["pipeline_defs"] == len(
-        list((REPO_ROOT / "pipeline_defs").glob("*.yaml"))
-    ), "counts.pipeline_defs does not match pipeline_defs/*.yaml on disk"
-    assert counts["skills_tree_md_files"] == len(
-        list((REPO_ROOT / "skills").rglob("*.md"))
-    ), "counts.skills_tree_md_files does not match the skills/ .md walk"
-    agents_dirs = [
-        p
+    actual_skills = {
+        p.name
         for p in (REPO_ROOT / ".agents" / "skills").iterdir()
         if p.is_dir() and not p.is_symlink()
-    ]
-    assert counts["agents_skills_dirs"] == len(agents_dirs), (
-        "counts.agents_skills_dirs does not match .agents/skills/ directories"
-    )
-    assert counts["claude_skills_entries"] == len(
-        list((REPO_ROOT / ".claude" / "skills").iterdir())
-    ), "counts.claude_skills_entries does not match .claude/skills/ entries"
-    claude_agents = REPO_ROOT / ".claude" / "agents"
-    if claude_agents.exists():
-        assert counts["claude_agents"] == len(list(claude_agents.iterdir())), (
-            "counts.claude_agents does not match .claude/agents/ entries"
-        )
-
-    # counts.episode_source_dirs (63): remotion-composer/src/*/ dirs minus the
-    # 4 shared framework dirs {components, lib, cinematic, rigs} per the
-    # inventory's episode_source_dirs_derivation formula.
-    framework_dirs = {"components", "lib", "cinematic", "rigs"}
-    episode_dirs = [
-        p
-        for p in (REPO_ROOT / "remotion-composer" / "src").iterdir()
-        if p.is_dir() and not p.is_symlink() and p.name not in framework_dirs
-    ]
-    assert counts["episode_source_dirs"] == len(episode_dirs), (
-        f"counts.episode_source_dirs ({counts.get('episode_source_dirs')}) does not "
-        f"match disk walk ({len(episode_dirs)})"
-    )
-
-    # counts.root_tsx_compositions (65): count <Composition id="..." registrations
-    # in remotion-composer/src/Root.tsx (exactly 65 compositions registered).
-    root_tsx = (REPO_ROOT / "remotion-composer" / "src" / "Root.tsx").read_text(
-        encoding="utf-8"
-    )
-    compositions = re.findall(r'<Composition\s+id="([^"]+)"', root_tsx)
-    assert counts["root_tsx_compositions"] == len(compositions), (
-        f"counts.root_tsx_compositions ({counts.get('root_tsx_compositions')}) does not "
-        f"match Root.tsx composition registrations ({len(compositions)})"
-    )
-
-
-def _collect_doc_test_count() -> int:
-    """Collect the test count of this file at runtime via pytest --collect-only.
-    Uses -p no:cacheprovider to prevent cache writes and avoid recursion."""
-    repo_venv_python = REPO_ROOT / ".venv" / "bin" / "python"
-    python_bin = str(repo_venv_python) if repo_venv_python.is_file() else sys.executable
-    cmd = [
-        python_bin,
-        "-m",
-        "pytest",
-        "--collect-only",
-        "-q",
-        "-p",
-        "no:cacheprovider",
-        str(Path(__file__).resolve()),
-    ]
-    proc = subprocess.run(
-        cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-        check=True,
-        cwd=str(REPO_ROOT),
-    )
-    match = re.search(r"(\d+)\s+tests?\s+collected", proc.stdout)
-    assert match, f"Could not parse collected test count from pytest output:\n{proc.stdout}"
-    return int(match.group(1))
-
-
-def test_inventory_doc_rule_test_count_matches_collected() -> None:
-    """The inventory must record the actual pytest-collected test count of
-    this file (derived, self-verifying, no hardcode).
-
-    Declared under ``counts.doc_rule_tests`` in docs/video-contract-inventory.json.
-    Tolerant when absent (pending group C edit); strict once present.
-    """
-    data = _load_inventory()
-    counts = data.get("counts", {})
-    declared = counts.get("doc_rule_tests")
-    actual = _collect_doc_test_count()
-    if declared is None:
-        pytest.skip(
-            "counts.doc_rule_tests field is absent in docs/video-contract-inventory.json "
-            f"(pending wave-2 group C addition of counts.doc_rule_tests = {actual})"
-        )
-    assert declared == actual, (
-        f"counts.doc_rule_tests in docs/video-contract-inventory.json ({declared}) "
-        f"does not match actual pytest-collected test count ({actual})"
-    )
-
-
-def test_inventory_active_paths_exist_on_disk() -> None:
-    data = _load_inventory()
-    missing = [
-        entry["path"]
-        for entry in data["entries"]
-        if entry.get("status") == "active" and not (REPO_ROOT / entry["path"]).exists()
-    ]
-    assert not missing, (
-        f"{len(missing)} inventory entries marked 'active' do not exist on "
-        f"disk: {missing[:20]}"
-    )
-
-
-# ---------------------------------------------------------------------------
-# 3. Symlink integrity
-# ---------------------------------------------------------------------------
-
-
-def test_editorial_explainer_manifest_symlink_resolves() -> None:
-    link = REPO_ROOT / ".claude" / "skills" / "editorial-explainer-manifest"
-    target = REPO_ROOT / ".agents" / "skills" / "editorial-explainer-manifest"
-    assert link.is_symlink(), (
-        ".claude/skills/editorial-explainer-manifest must stay a symlink "
-        "(edit-once rule: canonical lives under .agents/skills/)"
-    )
-    assert link.resolve() == target.resolve(), (
-        ".claude/skills/editorial-explainer-manifest must resolve to "
-        f"{target}, got {link.resolve()}"
-    )
-    assert (link / "SKILL.md").is_file(), (
-        "editorial-explainer-manifest symlink target has no SKILL.md"
-    )
-
-
-def test_no_dangling_symlinks_in_claude_skills() -> None:
-    dangling = []
-    for path in (REPO_ROOT / ".claude" / "skills").rglob("*"):
-        if path.is_symlink() and not path.resolve().exists():
-            dangling.append(str(path.relative_to(REPO_ROOT)))
-    assert not dangling, f"dangling symlinks under .claude/skills: {dangling}"
-
-
-# ---------------------------------------------------------------------------
-# 4. Mirror consistency (drift detector)
-# ---------------------------------------------------------------------------
-
-# macOS Finder noise; never part of a skill.
-_MIRROR_IGNORE = {".DS_Store"}
-
-
-def _derive_mirror_pairs() -> list[tuple[Path, Path]]:
-    """Real directories under .claude/skills whose names match an
-    .agents/skills entry. Derived dynamically — never hardcoded — so new
-    duplicates are covered the moment they appear."""
-    agents = REPO_ROOT / ".agents" / "skills"
-    claude = REPO_ROOT / ".claude" / "skills"
-    pairs = []
-    if not (agents.is_dir() and claude.is_dir()):
-        return pairs
-    for entry in sorted(claude.iterdir()):
-        if entry.is_symlink() or not entry.is_dir():
-            continue  # symlink mirrors are checked by the symlink tests
-        canonical = agents / entry.name
-        if canonical.is_dir() and not canonical.is_symlink():
-            pairs.append((canonical, entry))
-    return pairs
-
-
-def _mirror_files(root: Path) -> dict[str, bytes]:
-    files: dict[str, bytes] = {}
-    for path in sorted(root.rglob("*")):
-        if path.is_file() and path.name not in _MIRROR_IGNORE:
-            files[str(path.relative_to(root))] = path.read_bytes()
-    return files
-
-
-def test_realdir_mirror_pairs_are_byte_identical() -> None:
-    pairs = _derive_mirror_pairs()
-    assert pairs, (
-        "no .claude/skills real-directory mirror pairs derived — the "
-        "dynamic derivation is broken or every mirror became a symlink"
-    )
-    diverged = []
-    for canonical, mirror in pairs:
-        canon_files = _mirror_files(canonical)
-        mirror_files = _mirror_files(mirror)
-        if set(canon_files) != set(mirror_files):
-            only_c = sorted(set(canon_files) - set(mirror_files))
-            only_m = sorted(set(mirror_files) - set(canon_files))
-            diverged.append(
-                f"{canonical.name}: file-set drift (canonical-only={only_c}, "
-                f"mirror-only={only_m})"
-            )
-            continue
-        for rel, canon_bytes in canon_files.items():
-            if mirror_files[rel] != canon_bytes:
-                diverged.append(f"{canonical.name}/{rel}: content drift")
-    assert not diverged, (
-        "byte-identical mirror rule violated (real-dir duplicates in "
-        f".claude/skills must match .agents/skills exactly): {diverged}"
+    }
+    assert actual_skills == EXPECTED_KEPT_SKILLS, (
+        f".agents/skills drifted: expected {len(EXPECTED_KEPT_SKILLS)} kept skills, "
+        f"got missing={sorted(EXPECTED_KEPT_SKILLS - actual_skills)} "
+        f"extra={sorted(actual_skills - EXPECTED_KEPT_SKILLS)}"
     )
 
 
@@ -722,150 +467,6 @@ def test_broken_links_zero_stale() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 5b. Status-doc evidence citations resolve on disk
-# ---------------------------------------------------------------------------
-
-CAPABILITY_STATUS = REPO_ROOT / "docs" / "video-capability-status.md"
-EVIDENCE_WORKSPACE = REPO_ROOT / "projects" / "test-production-hardening-20261109-0114"
-
-_STATUS_DOC_PATH_EXTS = {
-    ".md",
-    ".py",
-    ".json",
-    ".yaml",
-    ".yml",
-    ".mjs",
-    ".ts",
-    ".tsx",
-    ".sh",
-    ".txt",
-    ".toml",
-    ".log",
-    ".wav",
-    ".mp4",
-    ".png",
-}
-
-# Token must contain a slash (a real path, not a bare module/filename), and
-# its first component must exist as a directory at the repo root or inside
-# the declared evidence workspace — that root requirement is the false-
-# positive guard: shorthand like `semantic-events-valid/invalid.json`
-# (a fixture-name description, no such dir) is not captured.
-_STATUS_DOC_TOKEN_RE = re.compile(r"\.?[A-Za-z0-9][\w./+-]*")
-
-
-def _status_doc_workspace_base_dirs(text: str) -> set[str]:
-    """Workspace-relative base dirs the doc itself declares (e.g.
-    `packets/episode/artifacts/`, `artifacts/`) — used to resolve citations
-    that are stated relative to an Evidence-file-map section base."""
-    bases = set()
-    if not EVIDENCE_WORKSPACE.is_dir():
-        return bases
-    for span in re.findall(r"`([^`]+)`", text):
-        for tok in re.findall(r"(?:[A-Za-z0-9][\w.-]*/)+", span):
-            candidate = tok.rstrip("/")
-            if (EVIDENCE_WORKSPACE / candidate).is_dir():
-                bases.add(candidate)
-    return bases
-
-
-def _cited_status_doc_paths() -> tuple[list[str], list[str]]:
-    """Path citations in docs/video-capability-status.md partitioned into:
-    (repo_relative_paths, workspace_relative_paths).
-
-    Repo-relative citations must resolve against REPO_ROOT and are asserted
-    unconditionally. Workspace-relative citations belong to EVIDENCE_WORKSPACE
-    (projects/test-production-hardening-20261109-0114/) and are asserted
-    conditionally (skipped when the untracked workspace is absent).
-    """
-    text = CAPABILITY_STATUS.read_text(encoding="utf-8")
-    repo_roots = {p.name for p in REPO_ROOT.iterdir()}
-    try:
-        ws_rel_prefix = f"{EVIDENCE_WORKSPACE.relative_to(REPO_ROOT)}/"
-    except ValueError:
-        ws_rel_prefix = f"{EVIDENCE_WORKSPACE}/"
-    ws_roots = (
-        {p.name for p in EVIDENCE_WORKSPACE.iterdir()}
-        if EVIDENCE_WORKSPACE.is_dir()
-        else set()
-    )
-    repo_cited = set()
-    ws_cited = set()
-    for span in re.findall(r"`([^`]+)`", text):
-        for tok in _STATUS_DOC_TOKEN_RE.findall(span):
-            if "/" not in tok or tok.endswith("/"):
-                continue
-            if tok.startswith(("~", "http://", "https://")) or ".." in tok:
-                continue  # hermes-side / external / relative-escape forms
-            if "*" in tok or "{" in tok or "}" in tok:
-                continue  # glob and brace-expansion forms are not single files
-            if Path(tok).suffix.lower() not in _STATUS_DOC_PATH_EXTS:
-                continue
-            if tok.startswith(ws_rel_prefix):
-                ws_cited.add(tok)
-                continue
-            first = tok.split("/", 1)[0]
-            if first in ws_roots:
-                ws_cited.add(tok)
-            elif first in repo_roots:
-                repo_cited.add(tok)
-    return sorted(repo_cited), sorted(ws_cited)
-
-
-def test_status_doc_cited_evidence_paths_exist() -> None:
-    """Every path citation in docs/video-capability-status.md must exist on
-    disk.
-
-    Repo-relative citations are asserted UNCONDITIONALLY (floor guard >= 20
-    counts only repo-relative citations). Workspace-relative citations (under
-    projects/test-production-hardening-20261109-0114/) are asserted ONLY when
-    that workspace exists on disk; otherwise pytest.skip with an explicit reason
-    naming the missing workspace and that it is untracked (not CI-reproducible).
-    """
-    repo_cited, ws_cited = _cited_status_doc_paths()
-    assert len(repo_cited) >= 20, (
-        "repo-relative evidence-path extraction collapsed "
-        f"({len(repo_cited)} citations found) — extraction regex regressed"
-    )
-    missing_repo = [tok for tok in repo_cited if not (REPO_ROOT / tok).exists()]
-    assert not missing_repo, (
-        "docs/video-capability-status.md cites repo-relative evidence paths that "
-        f"do not exist on disk: {missing_repo}"
-    )
-
-    if not EVIDENCE_WORKSPACE.is_dir():
-        try:
-            ws_rel = EVIDENCE_WORKSPACE.relative_to(REPO_ROOT)
-        except ValueError:
-            ws_rel = EVIDENCE_WORKSPACE
-        pytest.skip(
-            f"evidence workspace {ws_rel} is missing "
-            "(untracked production workspace, not CI-reproducible)"
-        )
-
-    bases = _status_doc_workspace_base_dirs(CAPABILITY_STATUS.read_text(encoding="utf-8"))
-    try:
-        ws_rel_prefix = f"{EVIDENCE_WORKSPACE.relative_to(REPO_ROOT)}/"
-    except ValueError:
-        ws_rel_prefix = f"{EVIDENCE_WORKSPACE}/"
-    missing_ws = []
-    for tok in ws_cited:
-        if tok.startswith(ws_rel_prefix):
-            if not (REPO_ROOT / tok).exists():
-                missing_ws.append(tok)
-            continue
-        if (
-            not (EVIDENCE_WORKSPACE / tok).exists()
-            and not any((EVIDENCE_WORKSPACE / base / tok).exists() for base in bases)
-        ):
-            missing_ws.append(tok)
-    assert not missing_ws, (
-        "docs/video-capability-status.md cites workspace evidence paths that do not "
-        f"exist in {EVIDENCE_WORKSPACE.relative_to(REPO_ROOT)}: {missing_ws}"
-    )
-
-
-# ---------------------------------------------------------------------------
 # 6. Forbidden error-swallowing bypass patterns
 # ---------------------------------------------------------------------------
 
@@ -911,8 +512,11 @@ def test_no_error_swallowing_bypass_patterns() -> None:
 # The contract-cited gate/tool files every director and pipeline manifest
 # relies on (Production Contract Binding surfaces, synced 2026-11-09).
 REQUIRED_CONTRACT_COMMANDS = [
-    "tools/qc/scene_orchestrator.py",
+    "tools/qc/fact_whitelist_gate.py",
+    "tools/qc/source_photo_gate.py",
+    "tools/qc/editorial_language_gate.py",
     "tools/qc/episode_gate.py",
+    "tools/qc/render_episode.py",
     "tools/qc/mix_validator.py",
     "tools/qc/timing_relock_guard.py",
     "tools/qc/scene_packet.py",
@@ -937,7 +541,7 @@ def test_required_contract_commands_exist() -> None:
 
 def test_cited_command_references_exist_on_disk() -> None:
     """Every tools/|lib/|scripts/ file reference in the Production Contract
-    Binding surfaces (pipeline yamls, director files, leader prompt) must
+    Binding surfaces (top docs, pipeline yamls, director files) must
     exist on disk."""
     missing = []
     seen: set[tuple[str, str]] = set()
@@ -945,7 +549,7 @@ def test_cited_command_references_exist_on_disk() -> None:
         sorted((REPO_ROOT / "pipeline_defs").glob("*.yaml"))
         + sorted((REPO_ROOT / "skills" / "pipelines").glob("*/*-director.md"))
         + sorted((REPO_ROOT / "skills" / "pipelines").glob("*/executive-producer.md"))
-        + [REPO_ROOT / ".claude" / "prompts" / "om_team_leader_prompt.md"]
+        + list(AUDITED_TOP_DOCS)
     )
     for path in surfaces:
         if not path.exists():
@@ -978,7 +582,7 @@ def _doctrine_metadata() -> dict:
 
 def test_doctrine_metadata_declares_seven_required_phases() -> None:
     meta = _doctrine_metadata()
-    assert meta["contract_version"] == "2.0", (
+    assert meta["contract_version"] == "3.0", (
         f"unexpected contract_version: {meta.get('contract_version')!r}"
     )
     required_phases = meta["required_phases"]

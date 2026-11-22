@@ -63,7 +63,7 @@ class GeminiOmniVideo(BaseTool):
         "  Get one at https://aistudio.google.com/apikey\n"
         "  Gemini Omni Flash is paid-tier only (no free tier); ~$0.10 per second of video."
     )
-    agent_skills = ["gemini-omni", "ai-video-gen"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video", "reference_to_video", "edit_video"]
     supports = {

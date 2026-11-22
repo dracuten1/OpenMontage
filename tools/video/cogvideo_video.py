@@ -33,7 +33,7 @@ class CogVideoVideo(BaseTool):
     install_instructions = local_install_instructions()
     fallback = "wan_video"
     fallback_tools = ["wan_video", "hunyuan_video", "ltx_video_local", "image_selector"]
-    agent_skills = ["ltx2"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video", "model_selection"]
     supports = {

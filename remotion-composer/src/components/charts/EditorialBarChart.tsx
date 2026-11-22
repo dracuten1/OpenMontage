@@ -23,6 +23,8 @@ export interface EditorialBarChartProps {
   rowHeight?: number;
   trackColor?: string;
   barColor?: string;
+  labelColor?: string;
+  valueColor?: string;
   showGrid?: boolean;
   showValues?: boolean;
   fontFamily?: string;
@@ -38,8 +40,8 @@ export interface EditorialBarChartLayout {
 const DEFAULT_WIDTH = 700;
 const DEFAULT_ROW_HEIGHT = 96;
 const DEFAULT_GROW_FRAMES = 36;
-const DEFAULT_TRACK = "#3A424E";
-const DEFAULT_BAR = "#FFBE0B";
+const DEFAULT_TRACK = "#E5DDD0";
+const DEFAULT_BAR = "#C8281E";
 const DEFAULT_FONT = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
 
 const formatVietnamese = (n: number): string => Math.round(n).toLocaleString("vi-VN");
@@ -63,6 +65,9 @@ export const EditorialBarChart: React.FC<EditorialBarChartProps> = ({
   rowHeight = DEFAULT_ROW_HEIGHT,
   trackColor = DEFAULT_TRACK,
   barColor = DEFAULT_BAR,
+  // Defaults: WCAG >=4.5:1 on Warm Archival Print paper/surface.
+  labelColor = "#141413",
+  valueColor = "#141413",
   showGrid = false,
   showValues = true,
   fontFamily = DEFAULT_FONT,
@@ -156,7 +161,7 @@ export const EditorialBarChart: React.FC<EditorialBarChartProps> = ({
             }}
           >
             {!vertical ? (
-              <div style={{ flex: "0 0 24%", overflow: "hidden", whiteSpace: "nowrap" }}>{datum.label}</div>
+              <div style={{ flex: "0 0 24%", overflow: "hidden", whiteSpace: "nowrap", color: labelColor }}>{datum.label}</div>
             ) : null}
             <div
               style={{
@@ -178,15 +183,15 @@ export const EditorialBarChart: React.FC<EditorialBarChartProps> = ({
                   top: vertical ? undefined : 0,
                   width: vertical ? "100%" : `${size * 100}%`,
                   height: vertical ? `${size * 100}%` : "100%",
-                  background: barColor,
-                  borderRadius: 4,
-                  boxShadow: glowing ? `0 0 24px ${barColor}` : undefined,
+                  background: glowing ? "#A87308" : barColor,
+                  borderRadius: 2,
+                  border: glowing ? "2px solid #141413" : undefined,
                 }}
               />
             </div>
-            {vertical ? <div style={{ textAlign: "center" }}>{datum.label}</div> : null}
+            {vertical ? <div style={{ textAlign: "center", color: labelColor }}>{datum.label}</div> : null}
             {showValues ? (
-              <div style={{ flex: "0 0 auto", whiteSpace: "nowrap" }}>
+              <div style={{ flex: "0 0 auto", whiteSpace: "nowrap", color: valueColor, fontWeight: 700 }}>
                 {countUp ? visibleValue : datum.display ?? format(datum.value)}
               </div>
             ) : null}

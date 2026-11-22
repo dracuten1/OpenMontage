@@ -52,7 +52,7 @@ class GoogleTTS(BaseTool):
     )
     fallback = "openai_tts"
     fallback_tools = ["openai_tts", "elevenlabs_tts", "piper_tts"]
-    agent_skills = ["text-to-speech"]
+    agent_skills = []
 
     capabilities = [
         "text_to_speech",

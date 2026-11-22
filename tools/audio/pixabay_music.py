@@ -50,7 +50,7 @@ class PixabayMusic(BaseTool):
         "site's HTML structure may have changed. Use freesound_music as fallback."
     )
 
-    agent_skills = ["music"]
+    agent_skills = []
 
     capabilities = ["search_music", "download_music", "stock_music"]
     supports = {

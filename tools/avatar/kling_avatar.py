@@ -49,7 +49,7 @@ class KlingAvatar(BaseTool):
         "Set KLING_API_KEY in .env for the official Kling API. "
         "Provide an avatar image plus either audio_id or sound_file/audio_path."
     )
-    agent_skills = ["kling-official", "avatar-video"]
+    agent_skills = []
 
     capabilities = ["photo_to_video", "avatar_video", "audio_driven_avatar"]
     supports = {

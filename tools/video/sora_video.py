@@ -48,7 +48,7 @@ class SoraVideo(BaseTool):
         "Set OPENAI_API_KEY to your OpenAI API key with Sora API access.\n"
         "  pip install 'openai>=2.44.0'"
     )
-    agent_skills = ["ai-video-gen"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video"]
     supports = {

@@ -1,19 +1,19 @@
-// Shared News Foundation theme tokens — Safe Zone v3.2 SSOT
+// Shared News Foundation theme tokens — Warm Archival Print / Editorial Paper + Safe Zone v3.2 SSOT
 import { loadFont as loadBeVietnam } from "@remotion/google-fonts/BeVietnamPro";
 import { loadFont as loadMono } from "@remotion/google-fonts/JetBrainsMono";
-import { loadFont as loadSpaceGrotesk } from "@remotion/google-fonts/SpaceGrotesk";
+import { loadFont as loadSourceSerif } from "@remotion/google-fonts/SourceSerif4";
 
 let loaded = false;
 
 /** Idempotently load Vietnamese-safe editorial Google Fonts once per bundle. */
 export function ensureFonts(): void {
   if (loaded) return;
-  loadBeVietnam("normal", {
-    weights: ["400", "500", "600", "700", "800"],
+  loadSourceSerif("normal", {
+    weights: ["600", "700", "800", "900"],
     subsets: ["latin", "latin-ext", "vietnamese"],
   });
-  loadSpaceGrotesk("normal", {
-    weights: ["500", "700"],
+  loadBeVietnam("normal", {
+    weights: ["400", "500", "600", "700", "800"],
     subsets: ["latin", "latin-ext", "vietnamese"],
   });
   loadMono("normal", {
@@ -28,35 +28,46 @@ export const WIDTH = 1080;
 export const HEIGHT = 1920;
 
 export const COLORS = {
-  slate: "#12161F",
-  panel: "rgba(24, 30, 40, 0.92)",
-  panelDeep: "rgba(14, 18, 26, 0.90)",
-  ink: "#0B0E14",
-  paper: "#F8F9FA",
-  text: "#F8F9FA",
-  white: "#FFFFFF",
-  muted: "#B4BFCC",
-  textMuted: "#B4BFCC",
-  crimson: "#D90429",
-  accentRed: "#D90429",
-  amber: "#FFBE0B",
-  neonYellow: "#F7C204",
-  accent: "#FFBE0B",
-  ok: "#7CE38B",
-  cold: "#38BDF8",
-  line: "rgba(216, 222, 232, 0.24)",
-  gridLine: "rgba(216, 222, 232, 0.07)",
-  glowRed: "rgba(217, 4, 41, 0.45)",
-  glowAmber: "rgba(255, 190, 11, 0.42)",
+  // Warm Archival Print canonical palette
+  paper: "#F4EFE6",
+  paperWarm: "#ECE4D5",
+  surface: "#FAF7F2",
+  surfaceAlt: "#EFE8DB",
+  ink: "#141413",
+  text: "#141413",
+  muted: "#5A554E",
+  textMuted: "#5A554E",
+  vermilion: "#C8281E",
+  ochre: "#A87308",
+  highlighter: "#F3D34A",
+  highlightText: "#141413",
+  ruleStrong: "#141413",
+
+  // Backward-compatible aliases (mapped to Warm Archival Print so existing episodes render cleanly)
+  slate: "#F4EFE6",
+  panel: "#FAF7F2",
+  panelDeep: "#EFE8DB",
+  white: "#FAF7F2",
+  crimson: "#C8281E",
+  accentRed: "#C8281E",
+  amber: "#A87308",
+  neonYellow: "#A87308",
+  accent: "#C8281E",
+  ok: "#1F6E43",
+  cold: "#1B5E7A",
+  line: "rgba(20, 20, 19, 0.22)",
+  gridLine: "rgba(20, 20, 19, 0.055)",
+  glowRed: "transparent",
+  glowAmber: "transparent",
 } as const;
 
 export const FONTS = {
   body: "'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif",
   sans: "'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif",
-  display: "'Be Vietnam Pro', 'Space Grotesk', system-ui, sans-serif",
-  heading: "'Be Vietnam Pro', 'Space Grotesk', system-ui, sans-serif",
+  display: "'Source Serif Four', 'Source Serif 4', 'Be Vietnam Pro', Georgia, serif",
+  heading: "'Source Serif Four', 'Source Serif 4', 'Be Vietnam Pro', Georgia, serif",
   mono: "'JetBrains Mono', 'SF Mono', Menlo, monospace",
-  kicker: "'JetBrains Mono', 'Space Grotesk', monospace",
+  kicker: "'JetBrains Mono', 'Be Vietnam Pro', monospace",
 } as const;
 
 /**

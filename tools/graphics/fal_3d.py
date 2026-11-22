@@ -61,7 +61,7 @@ class Fal3D(BaseTool):
     runtime = ToolRuntime.API
     dependencies = ["env:FAL_KEY"]
     install_instructions = "Set FAL_KEY (or FAL_AI_API_KEY). Create a key at https://fal.ai/dashboard/keys."
-    agent_skills = ["3d-asset-generation", "threejs-loaders", "threejs-materials"]
+    agent_skills = ["3d-asset-generation"]
     capabilities = ["text_to_3d", "image_to_3d", "multi_object_reconstruction", "textured_glb", "pbr_mesh"]
     supports = {
         "text_to_3d": True,

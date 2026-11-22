@@ -116,7 +116,7 @@ class CharacterSpecGenerator(BaseTool):
     execution_mode = ExecutionMode.SYNC
     determinism = Determinism.DETERMINISTIC
     resource_profile = ResourceProfile(cpu_cores=1, ram_mb=128, vram_mb=0, disk_mb=10)
-    agent_skills = ["character-rigging", "pose-library-design"]
+    agent_skills = []
     capabilities = ["draft_character_design", "normalize_character_specs"]
     best_for = ["Converting approved concepts into structured character_design artifacts"]
     not_good_for = ["Generating artwork pixels or finished animation"]
@@ -192,7 +192,7 @@ class SvgRigBuilder(BaseTool):
     execution_mode = ExecutionMode.SYNC
     determinism = Determinism.DETERMINISTIC
     resource_profile = ResourceProfile(cpu_cores=1, ram_mb=128, vram_mb=0, disk_mb=10)
-    agent_skills = ["character-rigging", "svg-character-animation", "gsap-core", "gsap-timeline"]
+    agent_skills = []
     capabilities = ["draft_svg_rig_plan", "define_parts_pivots_layers"]
     input_schema = {
         "type": "object",
@@ -290,7 +290,7 @@ class PoseLibraryBuilder(BaseTool):
     execution_mode = ExecutionMode.SYNC
     determinism = Determinism.DETERMINISTIC
     resource_profile = ResourceProfile(cpu_cores=1, ram_mb=128, vram_mb=0, disk_mb=10)
-    agent_skills = ["pose-library-design", "character-rigging", "svg-character-animation"]
+    agent_skills = []
     capabilities = ["draft_pose_library", "draft_action_cycles"]
     input_schema = {
         "type": "object",
@@ -377,7 +377,7 @@ class ActionTimelineCompiler(BaseTool):
     execution_mode = ExecutionMode.SYNC
     determinism = Determinism.DETERMINISTIC
     resource_profile = ResourceProfile(cpu_cores=1, ram_mb=128, vram_mb=0, disk_mb=10)
-    agent_skills = ["pose-library-design", "svg-character-animation", "gsap-timeline"]
+    agent_skills = []
     capabilities = ["compile_scene_actions", "draft_action_timeline"]
     input_schema = {
         "type": "object",
@@ -474,13 +474,7 @@ class CharacterRigRenderer(BaseTool):
     determinism = Determinism.DETERMINISTIC
     resource_profile = ResourceProfile(cpu_cores=1, ram_mb=128, vram_mb=0, disk_mb=50)
     agent_skills = [
-        "character-rigging",
-        "svg-character-animation",
-        "canvas-procedural-animation",
-        "gsap-core",
-        "gsap-timeline",
         "remotion-best-practices",
-        "hyperframes",
     ]
     capabilities = ["write_browser_preview", "prepare_character_render_package"]
     input_schema = {
@@ -795,7 +789,7 @@ class CharacterAnimationReviewer(BaseTool):
     execution_mode = ExecutionMode.SYNC
     determinism = Determinism.DETERMINISTIC
     resource_profile = ResourceProfile(cpu_cores=1, ram_mb=128, vram_mb=0, disk_mb=10)
-    agent_skills = ["character-animation-qa"]
+    agent_skills = []
     capabilities = ["review_character_artifacts", "draft_character_qa_report"]
     input_schema = {
         "type": "object",

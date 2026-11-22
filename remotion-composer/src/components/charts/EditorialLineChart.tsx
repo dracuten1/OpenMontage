@@ -136,9 +136,9 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
   yDomain = "auto",
   width = DEFAULT_WIDTH,
   height = DEFAULT_HEIGHT,
-  lineColor = COLORS.amber,
+  lineColor = COLORS.crimson,
   areaFill = true,
-  accentColor = COLORS.crimson,
+  accentColor = COLORS.ochre,
   highlightIndex,
   deltaBadge,
   title,
@@ -193,9 +193,10 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
         position: "relative",
         width,
         height,
-        borderRadius: 18,
-        backgroundColor: "rgba(14, 18, 26, 0.92)",
+        borderRadius: 4,
+        backgroundColor: COLORS.surface,
         border: `1px solid ${COLORS.line}`,
+        borderTop: `3px solid ${COLORS.ink}`,
         overflow: "hidden",
       }}
     >
@@ -218,7 +219,7 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
               fontFamily: FONTS.mono,
               fontSize: 24,
               fontWeight: 700,
-              color: COLORS.text,
+              color: COLORS.ink,
               letterSpacing: 0.4,
             }}
           >
@@ -229,10 +230,10 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
             <div
               style={{
                 padding: "3px 10px",
-                borderRadius: 6,
-                border: `1px solid ${COLORS.amber}`,
-                backgroundColor: "rgba(255, 190, 11, 0.14)",
-                color: COLORS.amber,
+                borderRadius: 2,
+                border: `1.5px solid ${COLORS.ochre}`,
+                backgroundColor: COLORS.surfaceAlt,
+                color: COLORS.ochre,
                 fontFamily: FONTS.mono,
                 fontSize: 24,
                 fontWeight: 700,
@@ -247,7 +248,7 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
         <defs>
           <linearGradient id="editorial-line-area-grad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={lineColor} stopOpacity={0.32} />
+            <stop offset="0%" stopColor={lineColor} stopOpacity={0.18} />
             <stop offset="100%" stopColor={lineColor} stopOpacity={0.02} />
           </linearGradient>
         </defs>
@@ -260,7 +261,7 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
               y1={tick.y}
               x2={plotLeft + plotWidth}
               y2={tick.y}
-              stroke="rgba(180, 191, 204, 0.16)"
+              stroke="rgba(20, 20, 19, 0.14)"
               strokeDasharray="6 6"
               strokeWidth={1}
             />
@@ -283,7 +284,7 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
           <path
             d={`M ${plotLeft - 8} ${plotBottom + 10} L ${plotLeft + 4} ${plotBottom + 4} L ${plotLeft - 4} ${plotBottom - 2} L ${plotLeft + 8} ${plotBottom - 8}`}
             fill="none"
-            stroke={COLORS.amber}
+            stroke={COLORS.ochre}
             strokeWidth={2.5}
           />
         ) : null}
@@ -299,7 +300,7 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
             d={polylinePath}
             fill="none"
             stroke={lineColor}
-            strokeWidth={5}
+            strokeWidth={4.5}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeDasharray={totalPathLen}
@@ -326,7 +327,7 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
                 x={pt.x}
                 y={plotBottom + 36}
                 textAnchor="middle"
-                fill={isHi ? COLORS.text : COLORS.muted}
+                fill={isHi ? COLORS.ink : COLORS.muted}
                 fontFamily={FONTS.mono}
                 fontSize={24}
                 fontWeight={isHi ? 700 : 500}
@@ -336,21 +337,21 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
               {visible ? (
                 <g opacity={p}>
                   {isHi ? (
-                    <circle cx={pt.x} cy={pt.y} r={14} fill={dotColor} opacity={0.28} />
+                    <circle cx={pt.x} cy={pt.y} r={14} fill={dotColor} opacity={0.22} />
                   ) : null}
                   <circle
                     cx={pt.x}
                     cy={pt.y}
                     r={isHi ? 8 : 6}
                     fill={dotColor}
-                    stroke={COLORS.ink}
+                    stroke={COLORS.surface}
                     strokeWidth={2.5}
                   />
                   <text
                     x={pt.x}
                     y={Math.max(plotTop + 22, pt.y - 16)}
                     textAnchor="middle"
-                    fill={isHi ? COLORS.neonYellow : COLORS.text}
+                    fill={isHi ? accentColor : COLORS.ink}
                     fontFamily={FONTS.mono}
                     fontSize={24}
                     fontWeight={800}
@@ -375,8 +376,8 @@ export const EditorialLineChart: React.FC<EditorialLineChartProps> = ({
             right: 22,
             bottom: 66,
             padding: "8px 14px",
-            borderRadius: 10,
-            backgroundColor: "rgba(11, 14, 20, 0.92)",
+            borderRadius: 2,
+            backgroundColor: COLORS.surface,
             border: `2px solid ${deltaBadge.color ?? accentColor}`,
             color: deltaBadge.color ?? accentColor,
             fontFamily: FONTS.mono,

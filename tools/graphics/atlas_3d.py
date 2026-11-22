@@ -63,7 +63,7 @@ class Atlas3D(BaseTool):
         "Set ATLASCLOUD_API_KEY (ATLAS_CLOUD_API_KEY and ATLAS_API_KEY are also accepted). "
         "Create a key at https://www.atlascloud.ai/."
     )
-    agent_skills = ["3d-asset-generation", "threejs-loaders", "threejs-materials"]
+    agent_skills = ["3d-asset-generation"]
     capabilities = ["text_to_3d", "textured_glb", "pbr_mesh", "seeded_mesh_generation"]
     supports = {
         "text_to_3d": True,

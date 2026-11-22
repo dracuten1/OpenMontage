@@ -176,190 +176,307 @@ def _contained_path(raw, root):
                 return None
     return None
 
-def validate_episode(episode_dir):
+def _resolve_dual_roots(root: Path) -> tuple[Path, Path]:
+    """Resolve (project_root, composition_root) across projects/<slug> and remotion-composer/src/<slug>."""
+    slug = root.name
+    proj_candidate = (REPO_ROOT / "projects" / slug).resolve()
+    comp_candidate = (REPO_ROOT / "remotion-composer" / "src" / slug).resolve()
+
+    if (root / "artifacts").is_dir() or (root / "project.json").is_file() or (root / "research").is_dir():
+        proj_root = root
+    elif proj_candidate.is_dir():
+        proj_root = proj_candidate
+    else:
+        proj_root = root
+
+    if (root / "scenes").is_dir() or (root / "scene").is_dir() or (root / "Episode.tsx").is_file():
+        comp_root = root
+    elif comp_candidate.is_dir():
+        comp_root = comp_candidate
+    else:
+        comp_root = root
+
+    return proj_root, comp_root
+
+
+def _detect_agy_mode(root: Path, proj_root: Path, packets: list[tuple[Path, dict]], requested_mode: str) -> bool:
+    if requested_mode == "agy":
+        return True
+    if requested_mode == "packet":
+        return False
+    if packets:
+        return False
+    for pj in (proj_root / "project.json", root / "project.json"):
+        if pj.is_file():
+            try:
+                data = json.loads(pj.read_text(encoding="utf-8"))
+                if isinstance(data, dict) and data.get("orchestrator") == "antigravity":
+                    return True
+            except Exception:
+                pass
+    return False
+
+
+def _check_editorial_language(proj_root: Path, comp_root: Path) -> tuple[list[dict], bool]:
+    """Run editorial_language_gate automatically when editorial lane is declared."""
+    reasons: list[dict] = []
+    from tools.qc.editorial_language_gate import (
+        EditorialGateInvocationError,
+        analyze_project,
+        detect_editorial_lane,
+        read_json_if_valid,
+        resolve_manifest_path,
+    )
+
+    sm = read_json_if_valid(resolve_manifest_path(proj_root))
+    pj = read_json_if_valid(proj_root / "project.json")
+    is_editorial = detect_editorial_lane(sm, pj)
+    if not is_editorial:
+        return reasons, False
+    try:
+        has_local_comp = (comp_root / "scenes").is_dir() or (comp_root / "scene").is_dir() or (comp_root / "Episode.tsx").is_file()
+        default_comp = (REPO_ROOT / "remotion-composer" / "src" / proj_root.name).resolve()
+        override_comp = comp_root if (has_local_comp and comp_root != default_comp) else None
+        report = analyze_project(proj_root, composition_root_override=override_comp)
+        for f in report.blocked:
+            reasons.append({
+                "code": "editorial_language_gate_failed",
+                "message": f"{f.scene_id or 'episode'}: {f.code}: {f.message}",
+            })
+    except EditorialGateInvocationError as exc:
+        reasons.append({"code": "editorial_language_gate_failed", "message": str(exc)})
+    except Exception as exc:
+        reasons.append({"code": "editorial_language_gate_error", "message": str(exc)})
+    return reasons, True
+
+
+def _check_fact_whitelist(proj_root: Path, comp_root: Path) -> list[dict]:
+    """Run fact_whitelist_gate automatically when a v2 fact whitelist exists."""
+    reasons: list[dict] = []
+    from tools.qc.fact_whitelist_gate import validate_fact_whitelist
+
+    scenes_dir = comp_root / "scenes" if (comp_root / "scenes").is_dir() else None
+    rep = validate_fact_whitelist(proj_root, scenes_dir=scenes_dir, write_report=False)
+    if rep.get("activated") and not rep.get("pass"):
+        for err in rep.get("errors", []):
+            reasons.append({
+                "code": "fact_whitelist_failed",
+                "message": f"{err.get('code', 'FWG')}: {err.get('message', '')}",
+            })
+    return reasons
+
+
+def validate_episode(episode_dir, *, mode: str = "auto"):
     root = Path(episode_dir).resolve(); reasons = []; packets = []
+    proj_root, comp_root = _resolve_dual_roots(root)
     paths = sorted(root.glob('**/*.json'))
-    if not paths: return [{'code': 'scene_packets_missing', 'message': 'no scene packet JSON files found'}]
     for path in paths:
         try: packet = load_packet(path)
         except (RuntimeError, ValueError) as e:
             if path.parent == root: reasons.append({'code': 'packet_io_error', 'message': f'{path}: {e}'})
             continue
         if isinstance(packet, dict) and packet.get('packet_type') == 'openmontage.scene-packet': packets.append((path, packet))
-        elif path.name not in {'production_evidence.json', 'edit_decisions.json', 'asset_manifest.json', 'narration_words.json', 'mix_manifest.json', 'layout_evidence.json', 'mix_profile.json', 'scene_manifest.json'}:
+        elif path.name not in {'production_evidence.json', 'edit_decisions.json', 'asset_manifest.json', 'narration_words.json', 'mix_manifest.json', 'layout_evidence.json', 'mix_profile.json', 'scene_manifest.json', 'project.json', 'script.json', 'proposal_packet.json', 'research_brief.json', 'fact_whitelist.json', 'decision_log.json', 'tts_lexicon.json', 'provenance.json'}:
             if path.parent == root: reasons.append({'code': 'non_packet_json', 'message': f'{path.name}: missing packet_type marker'})
-    if not packets: reasons.append({'code': 'scene_packets_missing', 'message': 'no scene packets found'})
-    seen = set()
-    for path, p in packets:
-        result = integrate_scene_packet(
-            p,
-            packet_path=path,
-            writer_token=p.get('writer_token'),
-            reviewer_token=p.get('reviewer_token'),
-            episode_packets=[x[1] for x in packets],
-            io_operations=p.get("io_operations") if isinstance(p, dict) else None,
-        )
-        for r in result['reasons']: reasons.append({'code': r['code'], 'message': f"{path.name}: {r['message']}"})
-        if p.get('scene_id') in seen: reasons.append({'code': 'scene_id_collision', 'message': f"duplicate scene_id: {p.get('scene_id')}"})
-        seen.add(p.get('scene_id'))
 
-    # F4: Authoritative scene IDs discovery from scene_manifest.scenes + edit_decisions.cuts
-    authoritative_scene_ids = set()
-    manifest_data = None
-    for mp in (root / 'artifacts' / 'scene_manifest.json', root / 'scene_manifest.json'):
-        if mp.is_file():
-            try: manifest_data = json.loads(mp.read_text(encoding='utf-8'))
-            except Exception: pass
-            if manifest_data: break
-    if isinstance(manifest_data, dict):
-        for s in manifest_data.get('scenes', []):
-            if isinstance(s, dict):
-                sid = s.get('scene_id') or s.get('id')
-                if sid: authoritative_scene_ids.add(str(sid))
-            elif isinstance(s, str) and s:
-                authoritative_scene_ids.add(s)
+    agy_mode = _detect_agy_mode(root, proj_root, packets, mode)
 
-    edit_data = None
-    for ep in (root / 'artifacts' / 'edit_decisions.json', root / 'edit_decisions.json'):
-        if ep.is_file():
-            try: edit_data = json.loads(ep.read_text(encoding='utf-8'))
-            except Exception: pass
-            if edit_data: break
-    if isinstance(edit_data, dict):
-        for c in edit_data.get('cuts', []):
-            if isinstance(c, dict):
-                cid = c.get('scene_id') or c.get('id')
-                if cid: authoritative_scene_ids.add(str(cid))
-            elif isinstance(c, str) and c:
-                authoritative_scene_ids.add(c)
-
-    # Diff packet coverage against authoritative scene set
-    packet_scene_ids = {p.get('scene_id') for _, p in packets if p.get('scene_id')}
-    missing_scenes = sorted(authoritative_scene_ids - packet_scene_ids)
-    for sid in missing_scenes:
-        reasons.append({'code': 'scene_packet_missing', 'message': f'missing scene packet for authoritative scene: {sid}'})
-    extra_scenes = sorted(packet_scene_ids - authoritative_scene_ids)
-    for sid in extra_scenes:
-        msg = (
-            f'scene packet scene_id not in authoritative scene set: {sid}'
-            if authoritative_scene_ids
-            else f'scene packet scene_id not in authoritative scene set (no authoritative scenes discovered): {sid}'
-        )
-        reasons.append({'code': 'scene_packet_extra', 'message': msg})
-    if not authoritative_scene_ids and packets and not packet_scene_ids:
-        reasons.append({'code': 'scene_packet_extra', 'message': 'scene packets present but no authoritative scenes discovered'})
-
-    # F4: Enforce packet staleness against current cut/scene state
-    for path, p in packets:
-        sid = p.get('scene_id')
-        if not sid:
-            continue
-        if isinstance(edit_data, dict):
-            cuts = [c for c in edit_data.get('cuts', []) if isinstance(c, dict) and str(c.get('scene_id') or c.get('id')) == sid]
-            for cut in cuts:
-                src = cut.get('source')
-                if src:
-                    src_p = _contained_path(src, root)
-                    if src_p and src_p.is_file():
-                        disk_hash = hash_file(src_p)
-                        narr_ref = p.get('narration', {}).get('ref')
-                        narr_p = _contained_path(narr_ref, root) if narr_ref else None
-                        if narr_p and narr_p == src_p:
-                            p_hash = p.get('narration', {}).get('sha256')
-                            if p_hash and p_hash != disk_hash:
-                                reasons.append({'code': 'stale_packet', 'message': f"{path.name}: packet narration hash {p_hash} does not match current cut source {src} hash {disk_hash}"})
-                        elif any(str(src).lower().endswith(ext) for ext in ('.wav', '.mp3', '.aac', '.m4a')):
-                            if narr_ref and narr_ref != src and narr_p != src_p:
-                                reasons.append({'code': 'stale_packet', 'message': f"{path.name}: packet narration ref {narr_ref} does not match current cut source {src}"})
-
-    # F4: Enforce verdict/output binding consistency
-    for path, p in packets:
-        reviewer = p.get('reviewer', {})
-        if not isinstance(reviewer, dict):
-            continue
-        verdict = reviewer.get('verdict')
-        if verdict != 'approved':
-            continue
-
-        reviewed_hashes = {}
-        if isinstance(reviewer.get('reviewed_hashes'), dict):
-            reviewed_hashes.update(reviewer['reviewed_hashes'])
-
-        findings_ref = reviewer.get('findings_ref')
-        if findings_ref:
-            fp = _contained_path(findings_ref, root)
-            if fp and fp.is_file():
-                try:
-                    f_data = json.loads(fp.read_text(encoding='utf-8'))
-                    if isinstance(f_data, dict):
-                        f_rev = f_data.get('reviewed_hashes') or f_data.get('output_hashes')
-                        if isinstance(f_rev, dict):
-                            reviewed_hashes.update(f_rev)
-                except Exception:
-                    pass
-
-        if not reviewed_hashes:
-            reasons.append({
-                'code': 'verdict_binding_missing',
-                'message': f"{path.name}: reviewer verdict not bound to reviewed output hashes"
-            })
-            continue
-
-        out_items = []
-        for key in ('narration', 'word_alignment', 'style_contract'):
-            obj = p.get(key)
-            if isinstance(obj, dict) and 'ref' in obj and 'sha256' in obj:
-                out_items.append((key, obj['ref'], obj['sha256']))
-        for i, a in enumerate(p.get('assets', [])):
-            if isinstance(a, dict) and 'ref' in a and 'sha256' in a:
-                out_items.append((f'asset[{i}]', a['ref'], a['sha256']))
-
-        for field_name, ref, exp_hash in out_items:
-            r_hash = (
-                reviewed_hashes.get(ref)
-                or reviewed_hashes.get(field_name)
-                or reviewed_hashes.get(Path(ref).name)
-                or (reviewed_hashes.get(str(_contained_path(ref, root))) if _contained_path(ref, root) else None)
+    if not agy_mode:
+        if not paths or not packets:
+            reasons.append({'code': 'scene_packets_missing', 'message': 'no scene packets found' if paths else 'no scene packet JSON files found'})
+            if not paths:
+                return reasons
+        seen = set()
+        for path, p in packets:
+            result = integrate_scene_packet(
+                p,
+                packet_path=path,
+                writer_token=p.get('writer_token'),
+                reviewer_token=p.get('reviewer_token'),
+                episode_packets=[x[1] for x in packets],
+                io_operations=p.get("io_operations") if isinstance(p, dict) else None,
             )
-            if r_hash is None:
-                reasons.append({
-                    'code': 'verdict_binding_incomplete',
-                    'message': f"{path.name}: reviewer verdict missing hash for output {ref}"
-                })
-            elif r_hash != exp_hash:
-                reasons.append({
-                    'code': 'verdict_binding_mismatch',
-                    'message': f"{path.name}: reviewer verdict was for {ref} hash {r_hash}, but output hash is {exp_hash}"
-                })
+            for r in result['reasons']: reasons.append({'code': r['code'], 'message': f"{path.name}: {r['message']}"})
+            if p.get('scene_id') in seen: reasons.append({'code': 'scene_id_collision', 'message': f"duplicate scene_id: {p.get('scene_id')}"})
+            seen.add(p.get('scene_id'))
 
-    # Postmortem 2026-11-11 (tin-nong-3tin-20261110): scene-file provenance + canvas
-    reasons.extend(_check_scene_tsx_provenance(root))
-    reasons.extend(_check_composition_dims(root))
-    reasons.extend(_check_source_photos(root))
+        # F4: Authoritative scene IDs discovery from scene_manifest.scenes + edit_decisions.cuts
+        authoritative_scene_ids = set()
+        manifest_data = None
+        for mp in (proj_root / 'artifacts' / 'scene_manifest.json', proj_root / 'scene_manifest.json'):
+            if mp.is_file():
+                try: manifest_data = json.loads(mp.read_text(encoding='utf-8'))
+                except Exception: pass
+                if manifest_data: break
+        if isinstance(manifest_data, dict):
+            for s in manifest_data.get('scenes', []):
+                if isinstance(s, dict):
+                    sid = s.get('scene_id') or s.get('id')
+                    if sid: authoritative_scene_ids.add(str(sid))
+                elif isinstance(s, str) and s:
+                    authoritative_scene_ids.add(s)
+
+        edit_data = None
+        for ep in (proj_root / 'artifacts' / 'edit_decisions.json', proj_root / 'edit_decisions.json'):
+            if ep.is_file():
+                try: edit_data = json.loads(ep.read_text(encoding='utf-8'))
+                except Exception: pass
+                if edit_data: break
+        if isinstance(edit_data, dict):
+            for c in edit_data.get('cuts', []):
+                if isinstance(c, dict):
+                    cid = c.get('scene_id') or c.get('id')
+                    if cid: authoritative_scene_ids.add(str(cid))
+                elif isinstance(c, str) and c:
+                    authoritative_scene_ids.add(c)
+
+        # Diff packet coverage against authoritative scene set
+        packet_scene_ids = {p.get('scene_id') for _, p in packets if p.get('scene_id')}
+        missing_scenes = sorted(authoritative_scene_ids - packet_scene_ids)
+        for sid in missing_scenes:
+            reasons.append({'code': 'scene_packet_missing', 'message': f'missing scene packet for authoritative scene: {sid}'})
+        extra_scenes = sorted(packet_scene_ids - authoritative_scene_ids)
+        for sid in extra_scenes:
+            msg = (
+                f'scene packet scene_id not in authoritative scene set: {sid}'
+                if authoritative_scene_ids
+                else f'scene packet scene_id not in authoritative scene set (no authoritative scenes discovered): {sid}'
+            )
+            reasons.append({'code': 'scene_packet_extra', 'message': msg})
+        if not authoritative_scene_ids and packets and not packet_scene_ids:
+            reasons.append({'code': 'scene_packet_extra', 'message': 'scene packets present but no authoritative scenes discovered'})
+
+        # F4: Enforce packet staleness against current cut/scene state
+        for path, p in packets:
+            sid = p.get('scene_id')
+            if not sid:
+                continue
+            if isinstance(edit_data, dict):
+                cuts = [c for c in edit_data.get('cuts', []) if isinstance(c, dict) and str(c.get('scene_id') or c.get('id')) == sid]
+                for cut in cuts:
+                    src = cut.get('source')
+                    if src:
+                        src_p = _contained_path(src, root)
+                        if src_p and src_p.is_file():
+                            disk_hash = hash_file(src_p)
+                            narr_ref = p.get('narration', {}).get('ref')
+                            narr_p = _contained_path(narr_ref, root) if narr_ref else None
+                            if narr_p and narr_p == src_p:
+                                p_hash = p.get('narration', {}).get('sha256')
+                                if p_hash and p_hash != disk_hash:
+                                    reasons.append({'code': 'stale_packet', 'message': f"{path.name}: packet narration hash {p_hash} does not match current cut source {src} hash {disk_hash}"})
+                            elif any(str(src).lower().endswith(ext) for ext in ('.wav', '.mp3', '.aac', '.m4a')):
+                                if narr_ref and narr_ref != src and narr_p != src_p:
+                                    reasons.append({'code': 'stale_packet', 'message': f"{path.name}: packet narration ref {narr_ref} does not match current cut source {src}"})
+
+        # F4: Enforce verdict/output binding consistency
+        for path, p in packets:
+            reviewer = p.get('reviewer', {})
+            if not isinstance(reviewer, dict):
+                continue
+            verdict = reviewer.get('verdict')
+            if verdict != 'approved':
+                continue
+
+            reviewed_hashes = {}
+            if isinstance(reviewer.get('reviewed_hashes'), dict):
+                reviewed_hashes.update(reviewer['reviewed_hashes'])
+
+            findings_ref = reviewer.get('findings_ref')
+            if findings_ref:
+                fp = _contained_path(findings_ref, root)
+                if fp and fp.is_file():
+                    try:
+                        f_data = json.loads(fp.read_text(encoding='utf-8'))
+                        if isinstance(f_data, dict):
+                            f_rev = f_data.get('reviewed_hashes') or f_data.get('output_hashes')
+                            if isinstance(f_rev, dict):
+                                reviewed_hashes.update(f_rev)
+                    except Exception:
+                        pass
+
+            if not reviewed_hashes:
+                reasons.append({
+                    'code': 'verdict_binding_missing',
+                    'message': f"{path.name}: reviewer verdict not bound to reviewed output hashes"
+                })
+                continue
+
+            out_items = []
+            for key in ('narration', 'word_alignment', 'style_contract'):
+                obj = p.get(key)
+                if isinstance(obj, dict) and 'ref' in obj and 'sha256' in obj:
+                    out_items.append((key, obj['ref'], obj['sha256']))
+            for i, a in enumerate(p.get('assets', [])):
+                if isinstance(a, dict) and 'ref' in a and 'sha256' in a:
+                    out_items.append((f'asset[{i}]', a['ref'], a['sha256']))
+
+            for field_name, ref, exp_hash in out_items:
+                r_hash = (
+                    reviewed_hashes.get(ref)
+                    or reviewed_hashes.get(field_name)
+                    or reviewed_hashes.get(Path(ref).name)
+                    or (reviewed_hashes.get(str(_contained_path(ref, root))) if _contained_path(ref, root) else None)
+                )
+                if r_hash is None:
+                    reasons.append({
+                        'code': 'verdict_binding_incomplete',
+                        'message': f"{path.name}: reviewer verdict missing hash for output {ref}"
+                    })
+                elif r_hash != exp_hash:
+                    reasons.append({
+                        'code': 'verdict_binding_mismatch',
+                        'message': f"{path.name}: reviewer verdict was for {ref} hash {r_hash}, but output hash is {exp_hash}"
+                    })
+
+        # Postmortem 2026-11-11 (tin-nong-3tin-20261110): scene-file provenance
+        reasons.extend(_check_scene_tsx_provenance(comp_root))
+
+    reasons.extend(_check_composition_dims(comp_root))
+    reasons.extend(_check_source_photos(proj_root))
+    el_reasons, is_editorial = _check_editorial_language(proj_root, comp_root)
+    reasons.extend(el_reasons)
+    reasons.extend(_check_fact_whitelist(proj_root, comp_root))
 
     from tools.qc.timing_relock_guard import check_project_timing
-    timing = check_project_timing(root, mode='strict')
+    timing = check_project_timing(proj_root, mode='strict')
     if not timing.valid: reasons.extend({'code': 'timing_relock_failed', 'message': e} for e in timing.errors)
-    from lib.production_validation import validate_pre_render
-    edit_path = root / 'artifacts' / 'edit_decisions.json'; manifest_path = root / 'artifacts' / 'asset_manifest.json'
-    if not edit_path.is_file() or not manifest_path.is_file(): reasons.append({'code': 'production_validation_inputs_missing', 'message': 'production validation requires artifacts/edit_decisions.json and artifacts/asset_manifest.json'})
+    from lib.production_validation import (
+        GATE_EDITORIAL_LANGUAGE,
+        REQUIRED_PRE_RENDER_GATES,
+        validate_pre_render,
+    )
+    edit_path = proj_root / 'artifacts' / 'edit_decisions.json'; manifest_path = proj_root / 'artifacts' / 'asset_manifest.json'
+    if not edit_path.is_file() or not manifest_path.is_file():
+        reasons.append({'code': 'production_validation_inputs_missing', 'message': 'production validation requires artifacts/edit_decisions.json and artifacts/asset_manifest.json'})
     else:
         try:
-            evidence_path = root / 'artifacts' / 'production_evidence.json'
+            evidence_path = proj_root / 'artifacts' / 'production_evidence.json'
             if not evidence_path.is_file():
-                reasons.append({'code': 'production_validation_inputs_missing', 'message': 'production validation requires artifacts/production_evidence.json with verified scene evidence records'}); evidence_records = []
+                if not agy_mode:
+                    reasons.append({'code': 'production_validation_inputs_missing', 'message': 'production validation requires artifacts/production_evidence.json with verified scene evidence records'})
+                evidence_records = []
             else:
                 from lib.production_validation import EvidenceRecord
                 raw = json.loads(evidence_path.read_text())
                 if not isinstance(raw, list): raise ValueError('production_evidence.json must contain an array')
                 evidence_records = [EvidenceRecord.from_dict(item) for item in raw]
-            report = validate_pre_render(root, json.loads(edit_path.read_text()), mode='strict', asset_manifest=json.loads(manifest_path.read_text()), evidence_records=evidence_records)
-            if report.status.value != 'pass': reasons.extend({'code': 'production_validation_failed', 'message': x} for x in report.blocking_reasons or [f'production status {report.status.value}'])
+                req_gates = sorted(REQUIRED_PRE_RENDER_GATES | {GATE_EDITORIAL_LANGUAGE}) if is_editorial else None
+                report = validate_pre_render(
+                    proj_root,
+                    json.loads(edit_path.read_text()),
+                    mode='strict',
+                    asset_manifest=json.loads(manifest_path.read_text()),
+                    evidence_records=evidence_records,
+                    required_gates=req_gates,
+                )
+                if report.status.value != 'pass': reasons.extend({'code': 'production_validation_failed', 'message': x} for x in report.blocking_reasons or [f'production status {report.status.value}'])
         except Exception as e: reasons.append({'code': 'production_validation_error', 'message': str(e)})
 
     # F8: Mix validation + measurement completeness enforcement
     from tools.qc import mix_validator
-    stems = root / 'audio_stems'; profile = root / 'mix_profile.json'
+    stems = proj_root / 'audio_stems' if (proj_root / 'audio_stems').is_dir() else (comp_root / 'audio_stems')
+    profile = proj_root / 'mix_profile.json' if (proj_root / 'mix_profile.json').is_file() else (comp_root / 'mix_profile.json')
     if not stems.is_dir() or not (stems / 'manifest.json').is_file() or not profile.is_file():
         reasons.append({'code': 'mix_validation_not_measured', 'message': 'mix validator inputs missing (audio_stems/manifest.json and mix_profile.json required)'})
     else:
@@ -384,10 +501,14 @@ def validate_episode(episode_dir):
     return reasons
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description='Validate episode scene packets and cross-cut production gates'); parser.add_argument('episode_dir'); args = parser.parse_args(argv)
+    parser = argparse.ArgumentParser(description='Validate episode scene packets and cross-cut production gates')
+    parser.add_argument('episode_dir')
+    parser.add_argument('--mode', choices=('auto', 'packet', 'agy'), default='auto',
+                        help='auto (default), packet (CC scene packets), or agy (Antigravity-native)')
+    args = parser.parse_args(argv)
     root = Path(args.episode_dir)
     if not root.is_dir(): print(f'ERROR — episode directory missing: {root}', file=sys.stderr); return 2
-    try: reasons = validate_episode(root)
+    try: reasons = validate_episode(root, mode=args.mode)
     except OSError as e: print(f'ERROR — {e}', file=sys.stderr); return 2
     if reasons:
         print('FAIL — episode gate rejected')

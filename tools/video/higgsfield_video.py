@@ -47,7 +47,7 @@ class HiggsFieldVideo(BaseTool):
         "  Get them at https://cloud.higgsfield.ai/api-keys\n"
         "  Alternatively, set HIGGSFIELD_KEY as a combined key:secret value."
     )
-    agent_skills = ["seedance-2-0", "ai-video-gen"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video"]
     supports = {

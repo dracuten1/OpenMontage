@@ -1,82 +1,87 @@
 ---
 name: editorial-explainer-manifest
-description: Generate a structured 2D editorial motion graphic and documentary explainer manifest (JSON) before generating assets or rendering video. Orchestrates OpenMontage and Remotion pipelines for news, facts, investigative journalism, and technical explainers (Vox, Johnny Harris, ColdFusion style) with archival web sourcing, T2I/I2I editorial collage harmonization, programmatic data visualizations, camera rigs, frame-accurate documentary sound design (SFX), and multimodal vision QA.
+description: Generate a structured 2D editorial motion graphic and documentary explainer manifest (JSON) before generating assets or rendering video. Orchestrates OpenMontage and Remotion pipelines for news, facts, investigative journalism, and technical explainers (Warm Archival Print / Vox / Economist style) with archival web sourcing, T2I/I2I editorial collage harmonization, programmatic data visualizations, camera rigs, frame-accurate documentary sound design (SFX), and multimodal vision QA.
 ---
 # Editorial Explainer Manifest (News, Facts & Documentary Motion Graphics)
 
-Design deterministic, frame-accurate 2D editorial motion graphic manifests for news analysis, factual storytelling, investigative journalism, and deep-dive explainers (inspired by Vox, Johnny Harris, The Economist, and ColdFusion). This skill bridges LLM narrative/evidence planning, archival web sourcing, T2I/I2I documentary style unification, Remotion data/chart primitives, synchronized tactile sound design (SFX), and Vision LLM quality assurance.
+Design deterministic, frame-accurate 2D editorial motion graphic manifests for news analysis, factual storytelling, investigative journalism, and deep-dive explainers in the **Warm Archival Print / Editorial Broadsheet** personal visual style (`styles/archival-editorial.yaml`). This skill bridges LLM narrative/evidence planning, Research v2 closed fact-whitelisting, archival web sourcing, T2I/I2I print collage unification, optional matte Blender 3D illustration, Remotion data/chart/map primitives, synchronized tactile sound design (SFX), and Vision QA inside Antigravity / `agy` CLI.
 
 ## When to Use
 
-- Planning or scripting an editorial explainer, news breakdown, factual documentary, or technical/economic analysis video
+- Planning or scripting an editorial explainer, news breakdown, factual documentary, or economic/policy analysis video
 - Structuring JSON scene manifests for OpenMontage and Remotion with data charts, map pan/zooms, document highlights, and documentary SFX triggers
-- Harmonizing mixed-media web assets (news clippings, historical photos, maps, SVG icons, institutional logos) via Image-to-Image (I2I) and Text-to-Image (T2I)
-- Automating multimodal vision QA checks on static rest frames to prevent data/label collisions, unreadable contrast, or messy photo cutouts before rendering
+- Harmonizing mixed-media web assets (press clippings, archival photos, satellite maps, SVG icons) into a cohesive Warm Archival Print collage
+- Enforcing Research v2 closed fact-whitelisting and Antigravity Vision QA checks before rendering
 
-## 1. Editorial & Documentary Visual Language
+## 1. Personal Visual Language — Warm Archival Print (Anti-AI)
 
-Avoid cartoon or childish aesthetics. Anchor all visual and motion decisions in authoritative investigative journalism:
+Reject generic dark-mode SaaS dashboard cards, neon glows, glowing 999px pills, and plastic 3D aesthetics. Anchor every visual and motion decision in **Warm Archival Print / Investigative Broadsheet**:
 
-- **Mixed-Media Archival Cutouts:** Source real public-domain photographs, press clippings, patent diagrams, and satellite maps from the web. Treat them with high-contrast monochrome halftone, duotone ink tints, or crisp paper-tear borders via I2I or Remotion shaders.
-- **Tactile Investigation Desk & Blueprint Backplates (`t2i`):** Generate dark slate grids, microfiche textures, illuminated lightboxes, or subtle archival paper backplates—never cartoon scenery.
-- **Programmatic Evidence Layers (`remotion_native`):** Render all financial/statistical charts, animated timelines, map route lines, redaction bars, and yellow highlighter sweeps natively in Remotion code so numbers and labels remain razor-sharp.
-- **Editorial Sound Design (`sfx_cues`):** Pair visual reveals with restrained, tactile documentary audio: mechanical camera shutters, microfiche clicks, highlighter pen strokes, subtle low sub-bass drops, muted paper slides, and telemetry ticks.
+- **Paper & Ink Foundation:** Warm archival newsprint base (`#F4EFE6`) with clean paper cards (`#FAF7F2`, `#EFE8DB`), subtle deterministic `<feTurbulence>` paper grain, crisp `1–2px` charcoal ink rules (`#141413`), vermilion red (`#C8281E`), deep ochre (`#A87308`), and physical felt-pen yellow highlighter (`#F3D34A`) behind charcoal ink.
+- **Typography:** `Source Serif 4` for display headlines & editorial statements, `Be Vietnam Pro` for body/captions/cards, `JetBrains Mono` for kickers, source stamps, and numeric data (all loaded with Vietnamese subsets via `ensureFonts()`).
+- **Mixed-Media Archival Cutouts:** Source real public-domain photographs, press clippings, patent diagrams, and satellite photos. Unify them via `web_plus_i2i` halftone/duotone ink treatments or authentic mounted print frames (`ArchivalSpotlight`) with crisp registration ticks and mandatory attribution badges (`ẢNH TƯ LIỆU <year>` + credit).
+- **Programmatic Evidence Layers (`remotion_native`):** Render all statistical charts (`EditorialBarChart`, `EditorialLineChart`), geographic maps (`EditorialMap`), causal timelines (`FlowTimeline`), side-by-side comparisons (`ComparisonSplit`), and felt-pen highlighter sweeps natively in Remotion code so numbers and Vietnamese diacritics stay razor-sharp.
+- **Tactile Documentary Sound Design (`sfx_cues`):** Pair visual reveals with restrained, physical documentary audio: camera shutters, paper slides, felt-tip marker swipes, muted low-end transitions, and telemetry clicks (`-6 dB` to `-14 dB`).
 
-## 2. Editorial Motion Scene Manifest Schema
+## 2. Hook-First Storytelling & Anti-AI Voice Rules
 
-Emit this structured JSON manifest before generating assets or executing Remotion renders:
+- **t=0 Cover Hook (Thumbnail-as-Scene-1):** Frame `0` of Scene 1 IS the cover poster. Open immediately with stakes/contrast (`HeroTitle` 2–5 punchy words + physical `#F3D34A` marker highlight + concrete map/chart/evidence visual). **Never** place `<BrandBumper />` at `from={0}`; brand bumpers belong strictly at the **outro** after the final scene.
+- **Conversational Human Cadence (Vietnamese):** Write short spoken sentences (`≤18 words/sentence`, `≤3 numbers/sentence`). Ban generic AI phrasing (`"Trong bối cảnh hiện nay…"`, `"Hãy cùng tìm hiểu…"`, `"Tóm lại là…"`). Every episode includes an explicit editorial **`NHẬN ĐỊNH`** POV beat separating facts from analysis.
+- **Research v2 Grounding (`research/research_brief.md` + `artifacts/fact_whitelist.json`):** Every event carries a stable ID (`EV-1..EV-n`), a 5-angle matrix (`macro-policy`, `personal-money`, `mechanism-cause`, `timeline`, `affected-people`), evidence-tagged hook candidates scored `0–5` minus `fragility_penalty`, and a single closed **Fact Whitelist Table** (`fact_id | display_string | type | source | verification | allowed_scenes | narration_form`). Any printed number outside the whitelist is blocked by `tools/qc/fact_whitelist_gate.py`.
 
-> **CANVAS: two supported variants — 9:16 vertical (default) and 16:9 landscape.** 「Ký Chủ Điểm Tin」 default: 1080×1920 master / 720×1280 preview. For YouTube/desktop explainer use, emit a separate 16:9 variant (see §5). 9:16 Safe Zone v3.2 (`remotion-composer/src/components/news/theme.ts`): top kicker `y ≥ 250`, content band **y 350–1420 @1080p**, right rail reserved (`x ≥ 940 @1080p`, `left=90, maxW=850`), subtitles low (**y 1480–1600 @1080p**), keep core cards/charts/CTA out of right rail and bottom dead-zone.
+## 3. Editorial Motion Scene Manifest Schema
+
+Emit this structured JSON manifest (`scene_manifest.json` / `scene_manifest.9x16.json` + `scene_manifest.16x9.json`) before authoring scenes:
+
+> **CANVAS: two supported variants — 9:16 vertical (default) and 16:9 landscape.** Default: 1080×1920 master. For YouTube/desktop explainers, emit a separate 16:9 variant (see §6). 9:16 Safe Zone v3.2 (`remotion-composer/src/components/news/theme.ts`): top kicker `y ≥ 250`, content band **y 350–1420 @1080p**, right rail reserved (`x ≥ 940 @1080p`, `left=90, maxW=850`), subtitles low (**y 1480–1600 @1080p**), keep core cards/charts/CTA out of right rail and bottom dead-zone.
 
 ```json
 {
   "project_id": "investigative_explainer_01",
+  "style_playbook": "archival-editorial",
+  "lane": "news-editorial-motion",
   "canvas": { "width": 1080, "height": 1920, "fps": 30, "posterize_fps": 15, "aspect_variants": ["9x16", "16x9"] },
-  "style_anchor": "Editorial documentary collage, high-contrast monochrome halftone print with selective crimson accent #D90429, archival newsprint grain, sharp cutout edges, serious journalistic aesthetic",
-  "negative_prompt": "cartoon, childish, anime, cute, 3D Pixar render, glossy plastic, comic bubble, vibrant neon, blurry text, watermark",
-  "speech_lock_contract": "Every trigger_frame/start_frame in this manifest is a DESIGN PLACEHOLDER; real values are re-derived from scene_elements.json frames.* (from words.json per-word ASR, spoken word ±0.3s). Anchor NUMBER blocks (bars/tiles carrying the number) by the number word; anchor ITEM/label blocks by the item's NAME word. Exclusive highlight states: active (opacity 1.0 + glow) / settled (0.50-0.55, no glow) / ghost (0.15, no border, no glow); after the last anchor + 12f every element settles to full opacity.",
+  "style_anchor": "Warm archival print editorial collage on matte ivory newsprint paper #F4EFE6, charcoal ink #141413, selective vermilion #C8281E and ochre #A87308 accents, physical felt-pen highlighter #F3D34A, subtle archival grain, crisp broadsheet rules",
+  "negative_prompt": "dark neon, cyberpunk, cartoon, childish, anime, cute, 3D Pixar render, glossy plastic, glowing gradient, blurry text, watermark",
+  "speech_lock_contract": "Every trigger_frame/start_frame in this manifest is a DESIGN PLACEHOLDER; real values are re-derived from scene_elements.json frames.* (from words.json per-word ASR, spoken word ±0.3s). Anchor NUMBER blocks (bars/tiles carrying the number) by the number word; anchor ITEM/label blocks by the item's NAME word. Exclusive highlight states: active (opacity 1.0 + solid border) / settled (0.50-0.55) / ghost (0.15, no border); after the last anchor + 12f every element settles to full opacity.",
   "camera_rig": {
     "action": "continuous slow drift",
-    "scale": "1.0 -> 1.10 across each scene",
+    "scale": "1.0 -> 1.08 across each scene",
     "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
     "parallax": { "bg_z0_multiplier": 1.0, "cutout_z20_multiplier": 1.04, "data_z40_multiplier": 1.08 }
   },
   "physics": { "spring_damping": "18-22", "stiffness": "130-150", "rule": "No bouncy springs (damping < 16 forbidden); pop-in translateY goes +N -> 0" },
   "global_overlays": [
     {
-      "type": "texture_loop",
-      "source": "web_free:fine_archival_dust_and_grid.mp4",
-      "blend_mode": "screen",
-      "opacity": 0.12,
+      "type": "paper_grain",
+      "source": "remotion_native (feTurbulence archival grain)",
+      "opacity": 0.045,
       "z_index": 90
     },
     {
       "type": "vignette",
-      "source": "remotion_native (radial gradient)",
-      "opacity": 0.35,
+      "source": "remotion_native (warm ivory edge radial gradient)",
+      "opacity": 0.25,
       "z_index": 89
     }
   ],
   "scenes": [
     {
-      "scene_id": "scene_evidence_01",
-      "narrative_beat": "In 2024, global shipping choke points drove container rates up by 310% in six weeks.",
+      "scene_id": "S01",
+      "narrative_beat": "Giá cước container tăng vọt 310% chỉ trong sáu tuần vì nút thắt vận tải biển.",
       "duration_frames": 180,
       "camera": {
         "action": "pan_and_push",
         "from": { "x": 540, "y": 960, "scale": 1.0 },
-        "to": { "x": 520, "y": 900, "scale": 1.1 },
+        "to": { "x": 528, "y": 930, "scale": 1.08 },
         "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
       },
       "layers": [
         {
-          "layer_id": "bg_slate_grid",
+          "layer_id": "bg_archival_paper",
           "z_index": 0,
           "role": "background",
-          "pipeline": {
-            "method": "t2i",
-            "prompt": "dark charcoal architectural blueprint grid background #12161F, subtle coordinate ticks, flat studio vignette, documentary style"
-          },
+          "pipeline": { "method": "remotion_native", "component": "ArchivalPaperBackdrop" },
           "transform": { "x": 540, "y": 960, "w": 1080, "h": 1920, "anchor": "center" },
           "motion": { "enter": { "type": "fade_in", "start_frame": 0, "duration_frames": 12 } }
         },
@@ -87,18 +92,17 @@ Emit this structured JSON manifest before generating assets or executing Remotio
           "pipeline": {
             "method": "web_plus_i2i",
             "web_query": "cargo ship Suez canal aerial photo Wikimedia public domain",
-            "i2i_denoise": 0.42,
-            "prompt": "high-contrast black and white halftone newspaper photograph of a container ship, rough torn paper border, isolated on solid #00FF00 background",
-            "remove_bg": true,
-            "drop_shadow": { "dx": 12, "dy": 14, "blur": 18, "color": "rgba(0,0,0,0.65)" }
+            "i2i_denoise": 0.40,
+            "prompt": "high-contrast monochrome halftone newspaper photograph of a container ship on warm paper #F4EFE6, rough torn paper edge, isolated on solid #00FF00 background",
+            "remove_bg": true
           },
-          "transform": { "x": 540, "y": 840, "scale": 0.8, "rotation": -2.5, "anchor": "center" },
+          "transform": { "x": 540, "y": 840, "scale": 0.8, "rotation": -1.5, "anchor": "center" },
           "motion": {
             "enter": {
               "type": "slide_and_settle",
-              "from_offset": { "dx": -180, "dy": 40 },
+              "from_offset": { "dx": -140, "dy": 30 },
               "start_frame": 8,
-              "spring_config": { "damping": 18, "stiffness": 140, "mass": 1.0 }
+              "spring_config": { "damping": 20, "stiffness": 140, "mass": 1.0 }
             }
           }
         },
@@ -106,58 +110,41 @@ Emit this structured JSON manifest before generating assets or executing Remotio
           "layer_id": "highlighter_callout",
           "z_index": 35,
           "role": "evidence_annotation",
-          "pipeline": { "method": "remotion_native", "component": "HighlighterStroke" },
-          "style": { "color": "#FFBE0B", "opacity": 0.85, "blend_mode": "multiply" },
+          "pipeline": { "method": "remotion_native", "component": "HighlightBar" },
+          "style": { "color": "#F3D34A", "opacity": 0.85 },
           "transform": { "x": 130, "y": 1120, "w": 560, "h": 56, "anchor": "left-center" },
           "motion": {
-            "enter": {
-              "type": "wipe_left_to_right",
-              "start_frame": 32,
-              "duration_frames": 14
-            }
+            "enter": { "type": "wipe_left_to_right", "start_frame": 32, "duration_frames": 14 }
           }
         },
         {
           "layer_id": "rate_spike_chart",
           "z_index": 40,
           "role": "data_viz",
-          "pipeline": { "method": "remotion_native", "component": "AnimatedLineChart" },
+          "pipeline": { "method": "remotion_native", "component": "EditorialLineChart" },
           "data": {
-            "labels": ["W1", "W2", "W3", "W4", "W5", "W6"],
+            "labels": ["T1", "T2", "T3", "T4", "T5", "T6"],
             "values": [100, 118, 165, 240, 350, 410],
             "unit": "%",
-            "accent_color": "#D90429"
+            "accent_color": "#C8281E"
           },
-          "transform": { "x": 540, "y": 1250, "w": 860, "h": 420, "anchor": "center" },
+          "transform": { "x": 540, "y": 1250, "w": 850, "h": 420, "anchor": "center" },
           "motion": {
             "anchor_phrase": "310%",
-            "enter": {
-              "type": "draw_svg_path",
-              "start_frame": 24,
-              "duration_frames": 45
-            }
+            "enter": { "type": "draw_svg_path", "start_frame": 24, "duration_frames": 45 }
           }
         },
         {
           "layer_id": "fact_header",
           "z_index": 50,
           "role": "editorial_typography",
-          "pipeline": { "method": "remotion_native", "component": "EditorialHeadline" },
-          "text_content": "+310% FREIGHT SURGE",
-          "subtext": "SOURCE: DREWRY WORLD CONTAINER INDEX (2024)",
-          "style": {
-            "font_family": "JetBrains Mono",
-            "font_size": 58,
-            "color": "#F8F9FA",
-            "tag_bg": "#D90429"
-          },
-          "transform": { "x": 540, "y": 500, "w": 900, "h": 150, "anchor": "center" },
+          "pipeline": { "method": "remotion_native", "component": "HeroTitle" },
+          "text_content": "CƯỚC TÀU TĂNG 310%",
+          "subtext": "NGUỒN: DREWRY WORLD CONTAINER INDEX (2024)",
+          "style": { "font_family": "Source Serif 4", "font_size": 68, "color": "#141413" },
+          "transform": { "x": 540, "y": 500, "w": 850, "h": 150, "anchor": "center" },
           "motion": {
-            "enter": {
-              "type": "typewriter_reveal",
-              "start_frame": 16,
-              "duration_frames": 24
-            }
+            "enter": { "type": "fade_in", "start_frame": 0, "duration_frames": 10 }
           }
         }
       ],
@@ -167,21 +154,14 @@ Emit this structured JSON manifest before generating assets or executing Remotio
           "trigger_frame": 8,
           "linked_layer": "archival_press_clipping",
           "query": "heavy archival cardstock paper slide on desk",
-          "volume_db": -7.0
-        },
-        {
-          "sfx_id": "sfx_data_telemetry",
-          "trigger_frame": 16,
-          "linked_layer": "fact_header",
-          "query": "subtle mechanical data ticker click",
-          "volume_db": -11.0
+          "volume_db": -8.0
         },
         {
           "sfx_id": "sfx_marker_stroke",
           "trigger_frame": 32,
           "linked_layer": "highlighter_callout",
           "query": "felt tip highlighter marker swipe on paper",
-          "volume_db": -6.5
+          "volume_db": -7.0
         }
       ]
     }
@@ -189,103 +169,57 @@ Emit this structured JSON manifest before generating assets or executing Remotio
 }
 ```
 
-## 2b. Required Layer Language (gate-enforced)
+## 3b. Required Layer Language (Gate-Enforced)
 
-The news-editorial-motion lane enforces a mandatory layer grammar via the editorial-language pre-render gate (`tools/qc/editorial_language_gate.py`). BLOCKED ⇒ cannot compose.
+The news-editorial-motion lane enforces a mandatory layer grammar via `tools/qc/editorial_language_gate.py`. BLOCKED ⇒ cannot compose.
 
-**Activation (mirrors `detect_editorial_lane()` in `tools/qc/editorial_language_gate.py` — the same detection helper compose imports):** the gate auto-applies when ANY of these holds — (1) the scene manifest declares `style_playbook == "editorial-explainer-manifest"`; (2) the scene manifest declares `lane == "news-editorial-motion"`; (3) `project.json` declares `style_playbook == "editorial-explainer-manifest"` AND `pipeline_type == "animated-explainer"`. A manifest declaring an editorial key while `project.json` `pipeline_type` is anything other than `animated-explainer` is a blocked `EL-LANE-MISMATCH` finding. Projects declaring NO editorial key are audited explicitly with `--force-editorial` — an auto-SKIP (exit 0, no findings, no evidence) is NOT a pass.
+**Activation (`detect_editorial_lane()` in `tools/qc/editorial_language_gate.py`):** auto-applies when ANY of these holds — (1) `scene_manifest.json` declares `style_playbook == "editorial-explainer-manifest"` or `lane == "news-editorial-motion"`; (2) `project.json` declares `style_playbook == "editorial-explainer-manifest"` AND `pipeline_type == "animated-explainer"`. Projects declaring NO editorial key are audited explicitly with `--force-editorial`.
 
-**Compose-side residue (documented; verified in `tools/video/video_compose.py`):** this is a LANGUAGE check that requires the project to DECLARE itself. A project with NO readable editorial metadata is NEVER gated into a pass at compose: on a strict compose, if BOTH `scene_manifest.json` and `project.json` are unavailable — ABSENT or present-but-unreadable (unparseable) — compose emits a LOUD WARNING that states each file's state and does NOT enforce the gate on that compose; audit via `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug> --force-editorial`. Unavailable metadata is a WARNING plus non-enforcement, never a pass.
-
-**Enforcement mode and declaration/manifest split:** the editorial-language gate runs ONLY in strict validation mode; legacy mode does not enforce it and CAN NEVER satisfy production acceptance or checkpoint completion (the compose tool emits a CRITICAL WARNING). A readable `project.json` declaration (`style_playbook == "editorial-explainer-manifest"` AND `pipeline_type == "animated-explainer"`) activates the gate even if the resolved `scene_manifest.json` is missing — that case is BLOCKED `EL-MANIFEST-MISSING`; if the manifest exists but is unparseable, strict compose blocks via the producer-crash path (`EL-MANIFEST-UNPARSEABLE`). A readable manifest declaration (`style_playbook == "editorial-explainer-manifest"` or `lane == "news-editorial-motion"`) also activates the gate. An unparseable manifest cannot itself declare its contents for auto-detection.
-
-- **Every non-closing (content) scene requires ≥1 GENUINE graphic-native layer:**
+- **Every content (non-closing) scene requires ≥1 GENUINE graphic-native layer:**
   - `document_cutout` — via `t2i_chroma_key` or `web_plus_i2i` + `remove_bg: true`;
-  - `data_viz` — via `remotion_native` chart components;
+  - `data_viz` — via `remotion_native` chart/map/timeline components;
   - `evidence_annotation` — via `remotion_native` highlighter/chip.
-- **Photo-frame dominance is role-independent (gate R3):** ANY `hero`-role layer is a blocked finding whatever its pipeline method (photo-as-hero is the anti-pattern by definition — intentional over-block); and any photo layer — `method: "t2i"` or a photoreal-lexicon prompt/prompt_digest hit (`photo`/`dslr`/`render`/`realistic`/`cinematic`) — whose `transform` w×h covers ≥ 0.85 of the canvas is a blocked finding whatever its declared role (the role `background` texture-backplate exemption applies only BELOW the threshold; dim/opacity does not rescue). Photos below 0.85 remain permitted as backplate texture and as cutout subjects.
-- **Closing/CTA scene budget:** at most ONE scene is exempt: the LAST scene in the manifest array, whose non-empty collected layer-role set is a subset of `{background, background_texture, editorial_typography, attribution}` and contains at least one `editorial_typography` role. Any other scene — including a last scene with only a background photo — remains a content scene subject to graphic-native and photo-dominance rules. The reference project's closing scene has both `background` and typography, so it remains exempt.
-- **Zero unresolved `anchor:` placeholders:** every frame-valued leaf in the manifest must resolve to a real frame number (speech-locked) before compose.
-- Soft advisories (e.g. a content scene with a cutout but no chart) are recorded in the qc report `warnings[]` — they never affect the verdict; only `blocked` findings do.
+- **Photo-frame dominance (gate R3):** ANY `hero`-role layer is blocked regardless of method; and any raster photo layer (`t2i`, `i2i`, `web_plus_i2i`, etc., or photoreal prompt) covering `≥ 0.85` of the canvas is blocked regardless of role. Photos below 0.85 are permitted as muted backplate textures (`opacity <= 0.35`) or cutout subjects.
+- **Closing/CTA scene budget:** at most ONE scene (the LAST scene) is exempt when its non-empty layer-role set is a subset of `{background, background_texture, editorial_typography, attribution}` and includes `editorial_typography`.
+- **Zero unresolved `anchor:` placeholders:** every frame-valued leaf must resolve to a concrete integer frame before compose.
 
-## 3. Execution Pipeline Steps
+## 4. Execution & Shared Kit Surface
 
-### Step 1: Evidence & Script Decomposition (LLM)
+1. **Canonical Shared Kit (`remotion-composer/src/components/`):** import and compose directly instead of duplicating shells per episode:
+   - News foundation (`remotion-composer/src/components/news/{theme,SceneShell,BrandBumper}`): Warm Archival Print tokens (`COLORS`, `FONTS`, `SAFE`, `SAFE_16X9`, `MOTION`), `ArchivalPaperBackdrop`, `SceneShell`, `HeroTitle`, `CaptionLayer`, `SourceBadge`, `AiBadge`, `SimulationBadge`, `ArchiveLabelBadge`, `PhotoCreditBadge`, `VerdictStamp`, `HighlightBar`, `CtaBand`, and outro `<BrandBumper />` (`BRAND_BUMPER_FRAMES = 90`, placed at the END of the episode).
+   - Editorial archetypes (`remotion-composer/src/components/editorial/`): `EditorialMap` (`d3-geo` + `world-atlas`), `ArchivalSpotlight`, `FlowTimeline`, `ComparisonSplit`.
+   - Editorial charts (`remotion-composer/src/components/charts/`): `EditorialBarChart`, `EditorialLineChart` (`yDomain: "auto" | "zero"` with automatic `TRỤC RÚT GỌN` axis-break warning and `deltaBadge`).
+2. **Visual Variety Rule:** No two consecutive content scenes may use the same layout archetype. Cap 3-row card stacks at `≤ 35%` of content scenes; alternate maps, spotlights, timelines, splits, and charts.
+3. **Chart Selection Rule:** Narrow-variance series (e.g., gold or fuel prices `137.5 → 136.2`) MUST use `EditorialLineChart` (`yDomain: "auto"` + `TRỤC RÚT GỌN` + `deltaBadge`) instead of zero-based horizontal bars that flatten the move.
+4. **Blender 3D Illustration Policy:**
+   - **Daily quick roundups:** prefer `EditorialMap`, `ArchivalSpotlight`, and `FlowTimeline`.
+   - **Flagship spatial / mechanism / infrastructure scenes & bumpers:** Blender MCP (`blender-modeling`, `blender-materials`, `blender-lighting`, `blender-cameras`, `blender-animation`, `blender-rendering`, `3d-asset-generation`) IS encouraged when a physical/spatial illustration genuinely clarifies the story (e.g., bridge span mechanics, dam cross-sections, supply-chain geometry). Render using **matte architectural maquette / archival paper lighting** matching `#F4EFE6` / `#FAF7F2` with charcoal/vermilion highlights — never glossy plastic or neon darkroom lighting — at native 30fps for exact scene duration, and stamp `SimulationBadge` (`MÔ PHỎNG 3D`), never `BLENDER`.
 
-1. Break the factual script or news narrative into 4-to-7-second evidence beats (`120` to `210` frames at 30fps).
-2. Classify each visual asset into one of three specialized pipelines:
-   - `t2i` (**Atmosphere & Backplates**): Dark tactical maps, blueprint grids, corkboards, microfiche frames, or subtle textured gradients.
-   - `web_plus_i2i` (**Archival Cutouts & Real-World Evidence**): Fetch public-domain photos, historical portraits, hardware photos, or geographic SVGs from Wikimedia Commons, Unsplash, or SVGRepo. Pass them through `i2i` (`denoise: 0.35 - 0.50`) using the `style_anchor` to unify diverse web photos into a cohesive editorial print look (e.g., halftone monochrome or duotone).
-   - `remotion_native` (**Data, Maps, & Typography**): All bar/line charts, percentage counters, source citations, redaction bars, and highlighter strokes. Never use T2I to render numbers, charts, or article text.
-   - **Canonical implementation surface (news-editorial-motion lane):** study and import the shared kit instead of duplicating per-project shells or faking layout grids:
-     - News foundation (`remotion-composer/src/components/news/{theme,SceneShell,BrandBumper}`): Safe Zone v3.2 tokens (`SAFE`, `SAFE_16X9`, `COLORS`, `FONTS`, `MOTION`) + shared `SceneShell`, `HeroTitle`, `CaptionLayer`, `SourceBadge`, `AiBadge`, `ArchiveLabelBadge`, `PhotoCreditBadge`, `VerdictStamp`, `HighlightBar`, `CtaBand`, and reusable 3s 3D channel outro stinger `<BrandBumper />` (`BRAND_BUMPER_FRAMES = 90`, placed at the END of the episode after the final scene so `S01` starts untouched at `0.0s`; backed by `remotion-composer/public/brand/kcdt_bumper_{9x16,16x9}.mp4` + `kcdt_bumper_sting.wav`, auto-collected at the end of content by `mixdown.py --from-stems`).
-     - Editorial visual archetypes (`remotion-composer/src/components/editorial/`):
-       - `EditorialMap` (`d3-geo` + `world-atlas` 50m/10m, custom `waterLines` rivers/straits, animated `routes`, pulsing speech-locked `pins`)
-       - `ArchivalSpotlight` (authentic press photo framing, corner registration ticks, `ẢNH TƯ LIỆU <year>` + credit strip, animated pull-quote highlighter)
-       - `FlowTimeline` (stepped causal diagram with animated SVG spine & directional arrows)
-       - `ComparisonSplit` (side-by-side split comparison with animated center spine & exclusive highlight)
-     - Editorial data charts (`remotion-composer/src/components/charts/`): `EditorialBarChart` (count-up horizontal/vertical bars) and `EditorialLineChart` (SVG path draw, `yDomain: "auto" | "zero"` with automatic `TRỤC RÚT GỌN` axis-break warning, and `deltaBadge`).
-     - Existing motion primitives: `CutoutLayer.tsx`, `HighlighterTitle.tsx`, `ParallaxCamera.tsx`.
-   - **Visual Variety Rule:** No two consecutive scenes may use the same layout archetype. Cap generic 3-row card stacks at ≤ 35% of content scenes; alternate between `EditorialMap`, `ArchivalSpotlight`, `FlowTimeline`, `EditorialLineChart`, `EditorialBarChart`, and `ComparisonSplit`.
-   - **Chart Selection Rule:** Time-series with narrow variance (e.g., SJC prices `137.5 → 136.2`) MUST use `EditorialLineChart` (`yDomain: "auto"` with visible axis-break label + `deltaBadge`) instead of flat zero-based horizontal bars that hide the movement.
-   - **3D / Blender Boundary Policy:**
-     - **Daily news & breaking roundups (`tin-nong-*`, standard deep-dives):** NO ad-hoc procedural `bpy` Blender scenes. Use `EditorialMap` (2.5D geo), `ArchivalSpotlight`, and `CutoutLayer` parallax.
-     - **Blender allowed ONLY for:** (a) reusable, pre-built closing brand bumpers/outro stingers (`assets/brand/kcdt-bumper/`, placed at the END of the video — never burning the `0–3s` opening hook), or (b) rare flagship spatial/engineering reconstructions using real DEM/OSM textures or GLB assets rendered at native 30fps for the exact scene duration (`playbackRate < 0.85` stretching forbidden). Never stamp tool names (`BLENDER`) onto audience-facing badges; use generic `MÔ PHỎNG 3D` / `BẢN ĐỒ`.
+## 5. Antigravity / `agy` Pipeline Integration & Gates (MANDATORY)
 
-### Step 2: Documentary Motion & Camera Rigging
+1. **Speech-locked triggers:** `trigger_frame` / `start_frame` in initial manifests are placeholders. Generate actual TTS WAVs first, transcribe word timestamps (`words.json`), and re-derive every visual anchor (`±0.3s`). Anchor ITEM blocks on the item's NAME word; anchor NUMBER blocks on the number word. Re-run Whisper alignment after any TTS regeneration (`|wav duration - audio_seconds| <= 0.3s`).
+2. **Exclusive speech-locked highlight:** Sequential cards/rows/steps use `active` (opacity 1.0 + solid accent border) / `settled` (0.50–0.55) / `ghost` (0.15) states keyed to speech windows; settle all elements to 1.0 after the last cue + 12f.
+3. **Source Photo Gate (`tools/qc/source_photo_gate.py`):** Verify license, resolution (`≥800px` long edge), and inspect downloaded images directly via Vision (`read_file`) to confirm `vision_verified: true` and real photography (`assets/images/provenance.json`).
+4. **Fact Whitelist Gate (`tools/qc/fact_whitelist_gate.py`):** Run `.venv/bin/python tools/qc/fact_whitelist_gate.py --project projects/<slug>` before compose whenever `artifacts/fact_whitelist.json` or a v2 `research_brief.md` fact table exists.
+5. **Pre-mix & Mix Validator (`tools/qc/mixdown.py` & `tools/qc/mix_validator.py`):** Prefer `music_library/sfx/` and `remotion-composer/public/sfx/`. Run `.venv/bin/python tools/qc/mixdown.py --from-stems --project projects/<slug>` to produce lossless stems and `mix_profile.json`, then validate via `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>`.
+6. **Antigravity Authoring + Pre-Render Gates (`render_episode.py`):**
+   - For episodes `≤ 5` scenes, author in a single clean pass or per-scene modules; for `> 5` scenes, split into `remotion-composer/src/<slug>/scenes/S01.tsx` … `Snn.tsx` with frozen `theme.ts` / `SceneShell.tsx`, and fan out authoring/review via Antigravity `invoke_subagent` / `run_workflow`.
+   - Validate before rendering:
+     - `cd remotion-composer && npm run validate:layout -- <spec>`
+     - `cd remotion-composer && npm run validate:events -- <spec>`
+     - `.venv/bin/python tools/qc/source_photo_gate.py --project projects/<slug>`
+     - `.venv/bin/python tools/qc/fact_whitelist_gate.py --project projects/<slug>`
+     - `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>`
+     - `.venv/bin/python tools/qc/episode_gate.py projects/<slug> --mode agy`
+   - Render exclusively via `.venv/bin/python tools/qc/render_episode.py <comp-id> <out.mp4>` (followed by `mixdown.py --mux-only` when mastering stems), never raw `npx remotion render`.
 
-1. **Damped Editorial Physics:** Avoid bouncy cartoon springs (`damping < 10`). Use high-damping, crisp deceleration (`damping: 16 - 24`, `stiffness: 120 - 160`) or `cubic-bezier(0.22, 1, 0.36, 1)` so documents and charts snap into place with journalistic authority.
-2. **2.5D Camera Push & Pan:** Always apply a continuous, slow camera drift (`scale: 1.0 -> 1.10`) or targeted pan across evidence layers in Remotion, separating background grids (`z_index: 0`), photo cutouts (`z_index: 20`), and foreground charts (`z_index: 40`) via parallax multiplier.
-3. **Posterized Cutout Cadence:** Keep the global camera and typography at a smooth `30` or `60` fps, while applying `posterize_fps: 12` or `15` selectively to paper cutout slides and stop-motion collage layers for a tactile Vox-style contrast.
+## 6. Aspect Variants: 9:16 + 16:9
 
-### Step 3: Peak-Frame Vision Model QA Loop
-
-Render a static composite PNG at the scene's **Information Rest Frame** (the exact frame where all charts, text, and cutouts finish entering) and audit with the Vision LLM:
-
-1. **Data & Citation Legibility:** Are all chart axes, numbers, and `SOURCE:` citations completely unobstructed and readable against the background?
-2. **Highlighter & Callout Alignment:** Does any `evidence_annotation` (highlighter, circle, arrow) accurately land on its target region without obscuring critical facial features or primary headlines?
-3. **Cutout Edge Quality:** Do `document_cutout` layers have clean alpha borders or intentional paper-tear edges without unintended green/white chroma artifacts?
-4. **Editorial Tone Check:** Did T2I/I2I accidentally introduce cartoonish proportions or saturated comic styling?
-
-If the Vision LLM flags a defect, patch the `transform` coordinates in the JSON manifest or re-run `i2i` with lower denoise (`0.30 - 0.40`) to preserve archival photo realism.
-
-## 4. OpenMontage Pipeline Integration (MANDATORY)
-
-This skill is a DESIGN layer on top of the OM pipeline — it never replaces the pipeline (owner rule 11-07: "luôn làm theo pipeline").
-
-1. **Speech-locked triggers (non-negotiable).** `trigger_frame` / `start_frame` values in the manifest are PLACEHOLDERS until audio exists. Every layer motion and SFX cue must be re-derived from per-word timestamps (`words.json` / `scene_elements.json`) after TTS alignment — spoken word ±0.3s, never hand-estimated. Anchor ITEM blocks by the item's NAME word (narration says the name before the value); anchor NUMBER blocks (bars/tiles carrying the number) by the number word. Re-ASR after ANY TTS regeneration and rebuild the manifest timings; guard |wav duration − audio_seconds| ≤ 0.3s before compose.
-2. **Exclusive speech-locked highlight (owner 11-03).** Sequential evidence layers/charts/rows use active (opacity 1 + glow) / settled (0.50–0.55, no glow) / ghost (0.15, no border, no glow) states keyed to cue windows. After the last element's cue +10–15f, all settle to full opacity. Verify with PIL mean-luminance crops, not vision alone.
-3. **Rights & vision verification gate for harvested photos (`web_plus_i2i` / authentic press photos).** Check each source file's license individually (Wikimedia per-file, Unsplash, SVGRepo), inspect the downloaded image directly with Vision to confirm it is an actual photograph (not a stamp, cartoon, envelope, logo, or tiny thumbnail), and record `vision_verified: true`, `visual_type`, `subject_match_note`, `page`/`source_url`, `artist`, `license`, `taken`, and `credit_line` in `assets/images/provenance.json`. Run `.venv/bin/python tools/qc/source_photo_gate.py --project projects/<slug>` (exit 0 PASS required BEFORE TSX authoring, and enforced automatically inside `tools/qc/episode_gate.py` whenever `provenance.json` or real-photo asset types exist). On-screen attribution badge + archive year badge (`ẢNH TƯ LIỆU <year>` when `taken` year < episode year) are mandatory for real photos. I2I stylization does NOT grant underlying rights — unresolved assets block publication (see RIGHTS_AUDIT convention).
-4. **Pipeline stage hook & scene packet integration.** The manifest is the `scene_plan` stage artifact: save as `projects/<id>/scene_manifest.json`, register it in `checkpoint_scene_plan.json` (with `pipeline_type`, e.g. `animated-explainer`) so the Backlot board reflects the episode. In the verified scene workflow:
-   - Each scene produces a `packet.json` orchestrated via `tools/qc/scene_orchestrator.py` with thin director + fresh writer + separate fresh reviewer.
-   - The episode gate (`.venv/bin/python tools/qc/episode_gate.py <episode_root>`) unconditionally diffs packets against `scene_manifest.scenes` and `edit_decisions.cuts` (rejecting `scene_packet_missing` and `scene_packet_extra`).
-   - All reviewer verdicts must bind explicitly to disk SHA-256 digests in `reviewed_hashes`.
-5. **SFX sourcing, lossless pre-mix & mix validation.** Prefer the repo library first: `music_library/sfx/` and `remotion-composer/public/sfx/` (11 curated cinematic files). Only fetch new SFX via `tools/sfx-source/` (CC0/Freesound) with license + source recorded in the manifest. Keep cues at −6 to −14 dB. **Pre-mix stems BEFORE `render_episode.py`:** run `.venv/bin/python tools/qc/mixdown.py --from-stems --project projects/<slug>` so lossless `narration.wav`, `bgm.wav`, `sfx.wav`, `mix_master.wav`, `audio_stems/manifest.json`, and `mix_profile.json` exist before `episode_gate` runs (eliminating draft `mix_validation_failed` overrides and double-AAC loss). Validate with `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>`, and after `render_episode.py` renders `draft_raw.mp4`/`final_raw.mp4`, mux with `.venv/bin/python tools/qc/mixdown.py --mux-only <raw.mp4> --project projects/<slug> --out <out.mp4>`. Undeclared unmeasured checks fail closed (`mix_measurement_incomplete`).
-6. **Pre-compose validators & strict compose gate.** Before final render, execute verified validator commands:
-   - Layout: `npm run validate:layout -- <spec>`
-   - Semantic events: `npm run validate:events -- <spec>`
-   - Timing re-lock: `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<dir>', mode='strict')"`
-   - Mix: `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>`
-   - Editorial-language gate (news-editorial-motion lane): `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — auto-applies when the manifest declares `style_playbook == "editorial-explainer-manifest"` or `lane == "news-editorial-motion"`, or when `project.json` declares `style_playbook == "editorial-explainer-manifest"` AND `pipeline_type == "animated-explainer"` (manifest editorial key + non-`animated-explainer` pipeline_type ⇒ blocked `EL-LANE-MISMATCH`); a project declaring no editorial key is SKIPped (exit 0, no findings, no evidence — NOT a pass): audit it explicitly with `--force-editorial`; exit 0 = pass / 1 = blocked / 2 = invocation error (advisories land in `warnings[]`, never affecting exit); evidence `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`; BLOCKED ⇒ cannot compose.
-   - `--manifest <path>` on `tools/qc/editorial_language_gate.py` is AUDIT-ONLY: selects an alternate `scene_manifest.json` for offline audit/test runs, relaxes no rule, and is never passed by production or compose code — manifests always resolve via the shared root-then-artifacts resolver.
-   - Compose execution requires strict mode (`validation_mode='strict'`) and verified evidence records in `artifacts/production_evidence.json` across all 5 gates (`layout`, `timing-audio`, `semantic-events`, `sfx-mix`, `provenance-freshness`).
-7. **CC worker discovery.** The skill lives in `.agents/skills/editorial-explainer-manifest` with a symlink at `.claude/skills/editorial-explainer-manifest` — if either moves, re-create the symlink or Claude Code workers won't discover it. Consolidation proposal remains PLAN-ONLY.
-
-## 5. Aspect Variants: 9:16 + 16:9 (owner 11-07 — "để 2 version riêng, tùy thời sử dụng")
-
-Both aspect ratios are first-class outputs, rendered SEPARATELY per episode — owner picks which to publish where (TikTok 9:16, YouTube 16:9). NEVER crop/scale one from the other — layouts are re-composed.
-
-**Convention:**
-- One manifest file per variant, sharing narration/cues/data: `scene_manifest.9x16.json` + `scene_manifest.16x9.json`. Only `canvas`, per-layer `transform`, and safe-zone constraints differ. Speech-lock anchors are IDENTICAL (same WAVs, same words.json) — do not re-align per variant.
-- Renders: `renders/<slug>-9x16-<version>.mp4` and `renders/<slug>-16x9-<version>.mp4`; both land in `projects/<id>/renders/`.
-- 16:9 canvas: 1920×1080 (draft 1280×720 HUD). Title-safe margins ≥5% each edge (x ≥ 96, y ≥ 54); no right-rail reservation; subtitles bottom (y ≥ 940) centered max-width 1600.
-- Layout mapping for the same scene (example scene):
-  - 9:16 stack (vertical): header y500 → cutout y840 → highlighter y1120 → chart y1250.
-  - 16:9 split (horizontal): headline top-left (x 520, y 240, w 720), cutout left (x 520, y 560), highlighter under cutout (x 520, y 760, w 420), chart right (x 1360, y 580, w 720, h 460).
-- Which variants to produce: default BOTH when budget allows; 9:16-only when the brief targets TikTok only. State the chosen variants in the manifest (`"aspect_variants": ["9x16", "16x9"]`) and in checkpoint_scene_plan.
+Render 9:16 (`1080×1920`) and 16:9 (`1920×1080`) **separately** with re-composed layouts (`scene_manifest.9x16.json` + `scene_manifest.16x9.json`) sharing identical WAVs and speech-lock anchors. Never crop/scale one from the other.
 
 ## Gotchas
 
-- **Never use bouncy springs for serious news:** Under-damped springs look playful and undermine factual credibility. Always use critical damping (`damping >= 16`) or exponential easing outs.
-- **Never generate charts or maps with T2I:** Diffusion models hallucinate borders and corrupt data proportions. Source accurate SVG maps from Wikimedia/SimpleMaps and render charts programmatically in Remotion.
-- **Keep SFX subtle and tactile:** Avoid loud cartoon boings or exaggerated swooshes. Use low-decibel (`-6dB` to `-14dB`) mechanical shutters, paper slides, muted bass pulses, and data ticks locked to `trigger_frame`.
+- **Never use bouncy springs for serious news:** Always keep `damping >= 16`.
+- **Never generate charts or text-heavy graphics with T2I:** Render numbers, charts, and maps programmatically in Remotion.
+- **Never put neon glow or dark-slate SaaS gradients on archival print scenes:** Stick strictly to `#F4EFE6` / `#FAF7F2` paper surfaces and `#141413` charcoal ink.
+- **Keep SFX subtle and tactile:** `-6 dB` to `-14 dB` shutters, paper slides, felt marker swipes, and clicks locked to `trigger_frame`.

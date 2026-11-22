@@ -66,7 +66,7 @@ class ComfyUIMusic(BaseTool):
         "COMFYUI_MUSIC_SERVER_URL instead -- it takes priority over "
         "COMFYUI_SERVER_URL for this tool only."
     )
-    agent_skills = ["comfyui"]
+    agent_skills = []
 
     capabilities = ["generate_background_music", "generate_song", "generate_instrumental"]
     supports = {

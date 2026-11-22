@@ -69,7 +69,7 @@ class MusicLibrary(BaseTool):
         "Override the location with the MUSIC_LIBRARY_DIR environment variable."
     )
 
-    agent_skills = ["music"]
+    agent_skills = []
 
     capabilities = ["list_user_music_tracks"]
     supports = {

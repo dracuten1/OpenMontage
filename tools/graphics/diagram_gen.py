@@ -42,7 +42,7 @@ class DiagramGen(BaseTool):
         "For Pillow-based diagrams (fallback):\n"
         "  pip install Pillow"
     )
-    agent_skills = ["beautiful-mermaid", "d3-viz"]
+    agent_skills = ["d3-viz"]
 
     capabilities = [
         "generate_mermaid",

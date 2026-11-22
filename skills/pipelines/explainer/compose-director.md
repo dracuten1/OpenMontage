@@ -10,7 +10,7 @@ This is the last technical stage before the video exists as a playable file. Eve
 
 Read `edit_decisions.render_runtime` before anything else. It was locked at proposal and must not be changed silently. The rest of this skill's process steps (Remotion public/ staging, word-level caption burn, etc.) assume `render_runtime="remotion"` — the default for data-driven explainers.
 
-- **`render_runtime="hyperframes"`** — HTML/CSS/GSAP render. Do NOT follow the Remotion-specific steps below. Instead: read `skills/core/hyperframes.md`, `.agents/skills/hyperframes/SKILL.md`, and `.agents/skills/hyperframes-cli/SKILL.md`. Call `video_compose` with the edit_decisions unchanged — it will delegate to `hyperframes_compose`, which materializes a workspace under `projects/<name>/hyperframes/`, runs `lint → validate → render`, and returns the MP4. Both lint AND validate must pass before render; contrast can be deferred during iteration but not for final delivery.
+- **`render_runtime="hyperframes"`** — HTML/CSS/GSAP render. Do NOT follow the Remotion-specific steps below. Instead: read `skills/core/hyperframes.md`. Call `video_compose` with the edit_decisions unchanged — it will delegate to `hyperframes_compose`, which materializes a workspace under `projects/<name>/hyperframes/`, runs `lint → validate → render`, and returns the MP4. Both lint AND validate must pass before render; contrast can be deferred during iteration but not for final delivery.
 - **`render_runtime="ffmpeg"`** — simple concat/trim. Call `video_compose` directly; it will NOT auto-upgrade to Remotion when this runtime is explicitly locked.
 - **Runtime unavailable** — surface the blocker per AGENT_GUIDE.md > "Escalate Blockers Explicitly" and get user approval (recorded as a `render_runtime_selection` decision in decision_log) before switching.
 
@@ -71,81 +71,19 @@ Based on the edit decisions, pick the rendering approach:
 - Subtitles → Remotion `captions` prop (word-level), NOT SRT burn via FFmpeg
 - Text overlays (CTA, titles) → Remotion `text_card` cut type, NOT AI-generated images
 
-### Step 2: Audio Acquisition (Narration, Music, Subtitles)
+### Step 2: Verify Locked Audio & Pre-Mix Stems (Consumed from `assets` Stage)
 
-Before rendering, present the user with audio options and get their preferences.
+Per `docs/ORCHESTRATION_DOCTRINE.md` §6.1 Phase 2, narration TTS audio, word-level Whisper timestamps (`words.json` / `narration_words.json`), and timing re-lock MUST already be complete in the `assets`/`edit` stages before compose begins. **Do NOT author narration or synthesize fresh TTS for the first time in compose** — if narration audio is missing or out of sync, send back to `assets` or `script` and re-run alignment (`tools/audio/refresh_manifest.py`).
 
-**Present to the user:**
-
-> **Audio setup for this video:**
->
-> **Narration:** I can generate TTS narration using OpenAI TTS (`gpt-4o-mini-tts` — $0.015/min, 6 voices, voice direction). Which voice and tone would you like? I'll propose a voice based on the video topic, or you can choose:
-> - `onyx` — deep, authoritative (documentaries, tech)
-> - `echo` — resonant, futuristic (product ads, sci-fi)
-> - `nova` — bright, energetic (upbeat, explainers)
-> - `fable` — warm, storytelling (narratives, education)
-> - `shimmer` — expressive, warm (organic, lifestyle)
-> - `alloy` — neutral, balanced (general purpose)
->
-> **Music:** I can automatically find royalty-free background music from Pixabay (no key needed). If you have a `FREESOUND_API_KEY`, I can also search Freesound as a backup.
->
-> **Subtitles:** I'll generate word-level subtitles using WhisperX transcription of the final narration, burned into the video via Remotion captions.
->
-> Want me to proceed with my recommendations, or adjust anything?
-
-**After user confirms:**
-
-1. **Write narration script with duration budget** (see scene-director Step 4b):
-   - Calculate video duration from cuts
-   - Budget at 85-90% of video duration
-   - Use 2.0-2.5 words/sec for documentary, 2.5-3.0 for energetic
-   - Verify word count before generating TTS
-
-2. **Generate TTS narration:**
-   ```python
-   from tools.audio.openai_tts import OpenAITTS
-   result = OpenAITTS().execute({
-       'text': narration_script,
-       'voice': '<user-chosen or agent-recommended>',
-       'instructions': '<voice direction matching video tone>',
-       'output_path': 'path/to/narration.mp3',
-   })
-   # CRITICAL: Check result.data['audio_duration_seconds'] vs video duration
-   # If narration exceeds video by >1s: shorten script and regenerate
+For news/editorial episodes and stem-mastered productions:
+1. Run lossless stem pre-mix BEFORE `episode_gate.py` / `render_episode.py`:
+   ```bash
+   .venv/bin/python tools/qc/mixdown.py --from-stems --project projects/<slug>
    ```
-
-3. **Download background music:**
-   ```python
-   from tools.audio.pixabay_music import PixabayMusic
-   result = PixabayMusic().execute({
-       'query': '<mood/genre matching video topic>',
-       'min_duration': video_duration_seconds,
-       'max_duration': 300,
-       'output_path': 'path/to/music.mp3',
-   })
-   ```
-
-4. **Generate subtitles via WhisperX:**
-   ```python
-   from tools.analysis.transcriber import Transcriber
-   result = Transcriber().execute({
-       'input_path': 'path/to/narration.mp3',
-       'model_size': 'base',
-       'language': 'en',
-   })
-   # Convert word_timestamps to Remotion caption format:
-   # [{ "word": "Hello", "startMs": 0, "endMs": 340 }, ...]
-   ```
-
-5. **Assemble composition JSON** with audio config:
-   ```json
-   {
-     "audio": {
-       "narration": { "src": "path/to/narration.mp3", "volume": 1 },
-       "music": { "src": "path/to/music.mp3", "volume": 0.1, "fadeInSeconds": 2, "fadeOutSeconds": 3 }
-     },
-     "captions": [ ... word-level captions from WhisperX ... ]
-   }
+   This builds lossless `narration.wav`, `bgm.wav`, `sfx.wav`, `mix_master.wav`, `audio_stems/manifest.json`, and `mix_profile.json` (sidechain-ducked BGM at volume `0.12`, 2-pass loudnorm to `-11.0 LUFS` / `-0.5 dBTP`).
+2. Validate the stems and profile fail-closed:
+   ```bash
+   .venv/bin/python -m tools.qc.mix_validator projects/<slug>/audio_stems projects/<slug>/mix_profile.json
    ```
 
 ### Step 3: Prepare Render Inputs
@@ -203,29 +141,22 @@ as a single Remotion composition using the Explainer entry point. No FFmpeg asse
 The edit_decisions cuts array maps directly to Remotion props. See `skills/core/remotion.md`
 for the proven formula — especially the all-dark-background rule for visual consistency.
 
-### Step 5: Audio Post-Processing
+### Step 5: Audio Mastering & Render Execution
 
-**Remotion path (DEFAULT):** Skip external audio mixing entirely. Remotion handles all audio
-natively via `<Audio>` components. Pass audio sources in the composition props:
-```json
-{
-  "audio": {
-    "narration": { "src": "project/narration.mp3", "volume": 1.0 },
-    "music": { "src": "project/music.mp3", "volume": 0.12, "fadeInSeconds": 1.5, "fadeOutSeconds": 2.5 }
-  }
-}
-```
-Remotion renders audio and video in a single pass — no external muxing needed.
-Do NOT use `audio_mixer` for ducking/mixing when rendering via Remotion.
+**Editorial / Stem-Mastered Remotion Path (DEFAULT for News & Production Episodes):**
+1. Pre-mix lossless stems (`mixdown.py --from-stems`) and verify via `mix_validator.py`.
+2. Run pre-render gates (`source_photo_gate.py`, `fact_whitelist_gate.py`, `editorial_language_gate.py`, `episode_gate.py --mode agy`) + Gate B still frame probe (`npx remotion still <CompId> /tmp/probe.png --frame=<key_frame>`, inspect via `read_file`).
+3. Render exclusively via `.venv/bin/python tools/qc/render_episode.py <CompId> projects/<slug>/renders/raw.mp4 --agy` (never raw `npx remotion render`).
+4. Mux lossless mastered audio into final deliverable:
+   ```bash
+   .venv/bin/python tools/qc/mixdown.py --mux-only projects/<slug>/renders/raw.mp4 --project projects/<slug> --out projects/<slug>/renders/final.mp4
+   ```
+
+**Templated `Explainer` Remotion Path (zero-key / non-stem drafts):**
+Pass `audio.narration` and `audio.music` props directly to `video_compose` (`operation="render"`).
 
 **FFmpeg fallback (ONLY when Remotion is unavailable):**
-Call the `audio_mixer` tool to:
-1. Layer narration segments in order
-2. Mix background music at playbook volume
-3. Apply ducking (music dips during narration)
-4. Normalize overall audio levels
-5. Output the final mixed audio track
-The video_compose tool will mux this with the video.
+Call `audio_mixer` to layer narration, duck music, normalize levels, and pass `audio_path` to `video_compose`.
 
 ### Step 5b: Generate Subtitles (Mandatory)
 
@@ -471,14 +402,17 @@ Validate the render_report against the schema and persist via checkpoint.
 
 ## Production Contract Binding (docs/ORCHESTRATION_DOCTRINE.md)
 
-The canonical production contract is `docs/ORCHESTRATION_DOCTRINE.md` (ENS primary authority; this skill is a synced, subordinate reference — doctrine wins on conflict). This pipeline's manifest stages (`pipeline_defs/<pipeline>.yaml`) map the contract's 7 required phases — brief/script/facts; actual audio + alignment; sealed scene packets; scene author/review; integration; final render/mix review; delivery. Domain-specific phases (rig, localization, research, capture) are additive and never bypass the contract.
+The canonical production contract is `docs/ORCHESTRATION_DOCTRINE.md` (v3.0 Antigravity-native authority; this skill is a synced, subordinate reference — doctrine wins on conflict). This pipeline's manifest stages (`pipeline_defs/<pipeline>.yaml`) map the contract's 7 required phases — brief/script/facts; actual audio + alignment; sealed inputs & visual prep; scene author/review; integration & pre-render gates; final render/mix review; delivery. Domain-specific phases (rig, research, capture) are additive and never bypass the contract.
 
-Applicable mechanical gates (commands verified in-repo; per the doctrine honesty matrix, do NOT cite a gate as enforced for a production that does not use it — state "not applicable" instead):
+Applicable mechanical gates (commands verified in-repo; do NOT cite a gate as enforced for a production that does not use it — state "not applicable" instead):
 
-- Edit→compose timing re-lock (narrated cuts): `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<project_dir>', mode='strict')"` — enforced at the checkpoint edit gate in `lib/checkpoint.py`; applies when `edit_decisions.cuts` contain narrated cuts backed by narration audio.
-- Production validation (compose/publish checkpoint gate): `lib/production_validation.py` runs at every `compose`/`publish` checkpoint write via `validate_checkpoint_production_gate`; strict mode is the default for new production, and the 5 evidence gates (layout, timing-audio, semantic-events, sfx-mix, provenance-freshness) must carry real detector measurements.
-- Remotion layout/events validators (when this pipeline renders via Remotion): `npm run validate:layout -- <spec>` and `npm run validate:events -- <spec>` inside `remotion-composer/`.
-- Mix validation (when a mix profile + stems exist): `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>` — fail-closed on undeclared missing stems; intentionally absent BGM/SFX must be explicitly declared, never silently unmeasured.
-- Scene-packet workflow (only when this production uses scene packets / `scene_manifest.json`): `.venv/bin/python tools/qc/scene_orchestrator.py <episode_dir> --runner subprocess --max-concurrency 2 --max-retries 1 --scenes id1,id2 --evidence-file artifacts/scene_workflow_evidence.json`, then `.venv/bin/python tools/qc/episode_gate.py <episode_root>`. Runner honesty: subprocess is verified deterministic; daemon is experimental for reviewer turns.
+- Source photo verification (when real/archival photos exist): `.venv/bin/python tools/qc/source_photo_gate.py --project projects/<slug>`.
+- Fact whitelist check (Research v2 episodes): `.venv/bin/python tools/qc/fact_whitelist_gate.py --project projects/<slug>`.
+- Editorial-language check (news-editorial-motion lane): `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>`.
+- Edit→compose timing re-lock (narrated cuts): `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<project_dir>', mode='strict')"` — enforced at the checkpoint edit gate in `lib/checkpoint.py`.
+- Production validation (compose/publish checkpoint gate): `lib/production_validation.py` runs at every `compose`/`publish` checkpoint write via `validate_checkpoint_production_gate` (strict mode default).
+- Remotion layout/events validators (when rendering via Remotion): `npm run validate:layout -- <spec>` and `npm run validate:events -- <spec>` inside `remotion-composer/`.
+- Mix validation (when mix profile + stems exist): `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>` — fail-closed on undeclared missing stems; intentionally absent BGM/SFX must be explicitly declared.
+- Antigravity episode gate & guarded render: `.venv/bin/python tools/qc/episode_gate.py projects/<slug> --mode agy`, then `.venv/bin/python tools/qc/render_episode.py <comp-id> <out.mp4> --agy` (never raw `npx remotion render`).
 
-Strict success semantics (doctrine §8.2): completion claims are valid only with applicable gate identities, the exact scene/cut set, stage scope, existing evidence files, bound revisions, and detector measurements. `revise`, `blocked`, missing evidence, or required `not_measured` can NEVER become completion; a mechanical gate failure is `blocked`, never "PASS WITH WARNINGS". Dependency freeze (§8.3): any mutation of frozen inputs invalidates dependent verdicts and renders — re-review/re-render, never reuse stale verdicts; after re-TTS run `tools/audio/refresh_manifest.py` and re-lock cuts. Legacy compat (§8.4): a historical/legacy mode (explicitly declared `validation_mode="legacy"`) can never silently authorize new production — strict is the default. Publication separation (§8.4): render acceptance (QC PASS) authorizes nothing beyond the accepted render; publish/delivery requires its own explicit owner authorization.
+Strict success semantics (doctrine §6.2): completion claims are valid only with applicable gate identities, the exact scene/cut set, stage scope, existing evidence files, and detector measurements. `revise`, `blocked`, missing evidence, or required `not_measured` can NEVER become completion; a mechanical gate failure is `blocked`, never "PASS WITH WARNINGS". Dependency freeze (§6.3): any mutation of frozen inputs invalidates dependent verdicts and renders — re-review/re-render, never reuse stale verdicts; after re-TTS run `tools/audio/refresh_manifest.py` and re-lock cuts. Publication separation (§6.4): render acceptance (QC PASS) authorizes nothing beyond the accepted render; publish/delivery requires explicit owner authorization.

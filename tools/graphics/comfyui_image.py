@@ -62,7 +62,7 @@ class ComfyUIImage(BaseTool):
         "Running a separate ComfyUI instance for images? Set COMFYUI_IMAGE_SERVER_URL "
         "instead -- it takes priority over COMFYUI_SERVER_URL for this tool only."
     )
-    agent_skills = ["comfyui", "flux-best-practices"]
+    agent_skills = []
 
     capabilities = ["text_to_image"]
     supports = {

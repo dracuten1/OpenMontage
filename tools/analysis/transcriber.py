@@ -42,7 +42,7 @@ class Transcriber(BaseTool):
         "pip install faster-whisper[gpu]  # GPU mode (requires CUDA)\n"
         "pip install whisperx  # For diarization support"
     )
-    agent_skills = ["speech-to-text"]
+    agent_skills = []
 
     capabilities = [
         "transcribe",

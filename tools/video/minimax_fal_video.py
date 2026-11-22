@@ -35,7 +35,7 @@ class MiniMaxFalVideo(BaseTool):
     install_instructions = (
         "Set FAL_KEY (or FAL_AI_API_KEY) from https://fal.ai/dashboard/keys."
     )
-    agent_skills = ["minimax-h3", "ai-video-gen"]
+    agent_skills = []
     capabilities = ["text_to_video", "image_to_video", "reference_to_video"]
     supports = {
         "text_to_video": True,

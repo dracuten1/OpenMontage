@@ -63,7 +63,7 @@ class JimengVideo(BaseTool):
         "  Get them at https://console.volcengine.com/iam/keymanage\n"
         "  Ensure your account has access to Jimeng AI (即梦) video generation."
     )
-    agent_skills = ["ai-video-gen"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video"]
     supports = {

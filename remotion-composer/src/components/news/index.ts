@@ -12,6 +12,7 @@ export {
 export {
   AiBadge,
   ArchiveLabelBadge,
+  ArchivalPaperBackdrop,
   BackdropGrid,
   CaptionLayer,
   CountUp,

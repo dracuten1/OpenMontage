@@ -1,8 +1,8 @@
-# Production contract: docs/ORCHESTRATION_DOCTRINE.md is the canonical authority (S7-S8; contract v2.0; ENS primary; this yaml is a synced mirror).
+# Production contract: docs/ORCHESTRATION_DOCTRINE.md is the canonical authority (v3.0 Antigravity-native; this yaml is a synced mirror).
 # Stages below map the doctrine 7 required phases; human gates (human_approval_default) are enforced by lib/checkpoint.py.
-# Mechanical gates/detectors: tools/qc/* (timing re-lock, episode gate, mix validator) — strict success semantics apply (S8.2).
+# Mechanical gates/detectors: tools/qc/* (fact_whitelist_gate, source_photo_gate, editorial_language_gate, timing_relock_guard, episode_gate, mix_validator) — strict success semantics apply.
 name: animated-explainer
-version: "2.0"
+version: "2.1"
 description: >
   Generated explainer video from topic/idea - fully AI-produced with narration, visuals, and music.
   Features a research-first pre-production phase: the agent researches the topic, proposes concepts
@@ -55,6 +55,7 @@ orchestration:
 
 compatible_playbooks:
   recommended:
+    - archival-editorial
     - clean-professional
     - flat-motion-graphics
   also_works:
@@ -247,12 +248,13 @@ stages:
       - Audio is clear with proper narration/music balance
       - "render_runtime in edit_decisions matches proposal_packet — silent swap to another runtime is a CRITICAL governance violation"
       - "If render_runtime='hyperframes': `hyperframes lint` and `hyperframes validate` must pass before render"
-      - "Editorial-language gate (editorial lane): `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — exit 0 required; evidence `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`; BLOCKED ⇒ cannot compose"
+      - "Editorial-language gate (editorial lane): `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — exit 0 required; BLOCKED ⇒ cannot compose"
+      - "Fact-whitelist gate (Research v2): `.venv/bin/python tools/qc/fact_whitelist_gate.py --project projects/<slug>` — zero unwhitelisted numbers or banned strings"
     success_criteria:
-      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
+      - "Follow AGENT_GUIDE.md Thumbnail-as-Scene-1 delivery bundle: Video (draft HUD / final master) + Copyable description; Scene 1 frame t=0 serves as cover thumbnail (no separate thumbnail image required)."
       - Schema-valid render_report with output paths
       - Output file exists and passes ffprobe validation
-      - "Editorial-language gate PASS with per-scene verdicts recorded whenever the lane condition matches (style_playbook=='editorial-explainer-manifest' or lane=='news-editorial-motion'); explicit `--force-editorial` invocation otherwise"
+      - "Editorial-language gate PASS with per-scene verdicts recorded whenever the lane condition matches (`style_playbook=='editorial-explainer-manifest'` or `lane=='news-editorial-motion'`); explicit `--force-editorial` invocation otherwise"
 
   - name: publish
     skill: pipelines/explainer/publish-director
@@ -267,10 +269,10 @@ stages:
     checkpoint_required: true
     human_approval_default: true
     review_focus:
-      - SEO metadata complete and keyword-rich
+      - SEO metadata complete and keyword-rich (first 80-100 chars hook-first, 3-5 topic hashtags, no #fyp/#foryou vanity tags)
       - Chapter markers present
       - Export package structured correctly
     success_criteria:
-      - "Every draft/final delivery includes video, standalone designed thumbnail PNG/JPG, and copyable description; follow AGENT_GUIDE.md Mandatory delivery bundle (thumbnail paths, dimensions, QC and delivery status required)."
+      - "Follow AGENT_GUIDE.md Thumbnail-as-Scene-1 delivery bundle: Video + Copyable description (Scene 1 frame t=0 serves as cover thumbnail; extract cover frame only if internal schema needs thumbnail_path)."
       - Schema-valid publish_log
-      - Export directory contains video, metadata, and thumbnail concept
+      - Export directory contains video and SEO metadata

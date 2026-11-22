@@ -89,7 +89,7 @@ class AudioEnhance(BaseTool):
 
     dependencies = ["cmd:ffmpeg"]
     install_instructions = "Install FFmpeg: https://ffmpeg.org/download.html"
-    agent_skills = ["ffmpeg", "elevenlabs"]
+    agent_skills = ["ffmpeg"]
 
     capabilities = [
         "noise_reduction",

@@ -33,7 +33,7 @@ class HunyuanVideo(BaseTool):
     install_instructions = local_install_instructions()
     fallback = "wan_video"
     fallback_tools = ["wan_video", "ltx_video_local", "cogvideo_video", "image_selector"]
-    agent_skills = ["ltx2"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video"]
     supports = {

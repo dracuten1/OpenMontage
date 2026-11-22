@@ -47,7 +47,7 @@ class FishAudioTTS(BaseTool):
     )
     fallback = "elevenlabs_tts"
     fallback_tools = ["elevenlabs_tts", "google_tts", "openai_tts", "piper_tts"]
-    agent_skills = ["fish-audio-tts", "text-to-speech"]
+    agent_skills = []
 
     capabilities = [
         "text_to_speech",

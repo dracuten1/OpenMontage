@@ -49,7 +49,7 @@ class DashscopeTTS(BaseTool):
         "openai_tts",
         "piper_tts",
     ]
-    agent_skills = ["dashscope"]
+    agent_skills = []
 
     capabilities = [
         "text_to_speech",

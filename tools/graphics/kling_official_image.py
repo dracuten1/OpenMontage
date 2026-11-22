@@ -57,7 +57,7 @@ class KlingOfficialImage(BaseTool):
         "Set KLING_API_KEY in .env for the official Kling API. "
         "Optionally set KLING_API_BASE_URL to override the default Singapore endpoint."
     )
-    agent_skills = ["kling-official"]
+    agent_skills = []
 
     capabilities = ["generate_image", "text_to_image", "image_edit"]
     supports = {

@@ -69,14 +69,7 @@ class HyperFramesCompose(BaseTool):
         "returns 404 -- do NOT use that form. Verify setup with "
         "`npx hyperframes doctor` or run the `doctor` operation on this tool."
     )
-    agent_skills = [
-        "hyperframes",
-        "hyperframes-cli",
-        "hyperframes-registry",
-        "website-to-video",
-        "gsap-core",
-        "gsap-timeline",
-    ]
+    agent_skills = []
 
     capabilities = [
         "hyperframes_render",

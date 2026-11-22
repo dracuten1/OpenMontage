@@ -58,7 +58,7 @@ class KlingOfficialVideo(BaseTool):
         "Set KLING_API_KEY in .env for the official Kling API. "
         "Optionally set KLING_API_BASE_URL to override the default Singapore endpoint."
     )
-    agent_skills = ["ai-video-gen", "kling-official"]
+    agent_skills = []
 
     capabilities = ["text_to_video", "image_to_video", "reference_to_video"]
     supports = {

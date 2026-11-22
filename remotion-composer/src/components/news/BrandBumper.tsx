@@ -67,7 +67,7 @@ export const BrandBumper: React.FC<BrandBumperProps> = ({
   const opacity = fadeInOpacity * fadeOutOpacity;
 
   return (
-    <AbsoluteFill style={{ backgroundColor: COLORS.slate, opacity }}>
+    <AbsoluteFill style={{ backgroundColor: COLORS.paper, opacity }}>
       <OffthreadVideo
         src={videoSrc}
         muted
