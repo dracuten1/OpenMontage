@@ -56,12 +56,12 @@ Schema-valid ≠ production-correct. Ba probe gate sau là bắt buộc:
   2. Sinh audio thử qua TTS tool (`vieneu_tts.py` / selected TTS), ASR lại bằng `faster-whisper`.
   3. Khớp ngữ âm → tiếp tục batch TTS. Lệch → sửa `narration_form` / `tts_lexicon.json` rồi probe lại.
 - **Gate B — Still Frame Vision Probe (trước khi render full):**
-  1. Render frame đại diện cho scene dày chữ / dữ liệu nhất bằng `npx remotion still <CompId> /tmp/probe.png --frame=<frame>`.
-  2. Dùng Antigravity `read_file` inspect ảnh PNG trực tiếp: kiểm tra Warm Archival Print palette (`#F4EFE6` / `#141413`), dấu tiếng Việt `Source Serif 4`, không tràn Safe Zone v3.2, không đè sub, không neon glow.
+  1. Render frame đại diện cho scene dày chữ / dữ liệu nhất (và scene ảnh `ArchivalSpotlight` nếu có) bằng `npx remotion still <CompId> /tmp/probe.png --frame=<frame>`.
+  2. Dùng Antigravity `read_file` inspect ảnh PNG trực tiếp: kiểm tra Warm Archival Print palette (`#F4EFE6` / `#141413`), dấu tiếng Việt `Source Serif 4`, thanh phụ đề hiển thị rõ trong dải `y=1480..1600`, không tràn Safe Zone v3.2, không đè sub, không neon glow; với chân dung dọc trong `ArchivalSpotlight`, dùng `objectPosition="center 24%"` và `quoteEnterFrame <= 60` để không crop mặt hoặc ẩn pull-quote.
   3. PASS mới chạy full render via `tools/qc/render_episode.py`.
 - **Gate C — Final Verify (sau render, trước khi bàn giao):**
-  1. Chạy `tools/qc/render_episode.py --check-file <mp4>` (video + audio stream + duration).
-  2. ASR lại toàn bộ track audio của file render cuối + inspect 2–3 frame key bằng `read_file` + đối chiếu `|actual_duration - target_duration| <= 0.5s`.
+  1. Chạy `.venv/bin/python tools/qc/gate_c_verify.py --project projects/<slug>` (chạy `--check-file`, `ffprobe`, `ebur128`, trích 5 frame spotcheck, và `faster-whisper` speech-bounded `-t scenes_seconds` + `vad_filter=True` để tránh outro bumper music gây ảo giác).
+  2. Inspect trực tiếp các frame đã trích bằng `read_file` và đối chiếu `|actual_duration - target_duration| <= 0.5s`.
 
 ---
 
@@ -87,6 +87,7 @@ Mọi video news/explainer tuân thủ thẩm mỹ **Warm Archival Print / Broad
    - `news/`: `SceneShell`, `ArchivalPaperBackdrop`, `HeroTitle`, `CaptionLayer`, `KickerPill`, `SourceBadge`, `AiBadge`, `SimulationBadge`, `ArchiveLabelBadge`, `PhotoCreditBadge`, `VerdictStamp`, `HighlightBar`, `CtaBand`, outro `<BrandBumper />`.
    - `editorial/`: `EditorialMap`, `ArchivalSpotlight`, `FlowTimeline`, `ComparisonSplit`.
    - `charts/`: `EditorialBarChart`, `EditorialLineChart`.
+   - **Captions binding rule:** `Episode.tsx` BẮT BUỘC import `captions.json` tĩnh (`import captionsData from "../../public/<slug>/captions.json"`) — tuyệt đối không dùng `delayRender() + fetch()` gán vào biến `let` ngoài React state (gây mất phụ đề khi render).
 3. **Hook & Thumbnail-as-Scene-1:**
    - Frame `t = 0` của `S01` là Cover Thumbnail + Hook. Mở thẳng vào stakes/contrast + visual proof (map/chart/archival cutout).
    - `<BrandBumper />` **CHỈ đặt ở outro cuối tập** (`BRAND_BUMPER_FRAMES = 90`), không bao giờ đặt ở `from={0}`.
@@ -135,5 +136,6 @@ Mọi thay đổi trên facts, narration WAV, word alignment, shared theme/Scene
   - Episode gate (Antigravity mode): `.venv/bin/python tools/qc/episode_gate.py projects/<slug> --mode agy`
   - Remotion layout/events: `npm run validate:layout -- <spec>` và `npm run validate:events -- <spec>` trong `remotion-composer/`
   - Pre-DM smoke: `.venv/bin/python tools/qc/render_episode.py --check-file <mp4>`
+  - Gate C bundle check: `.venv/bin/python tools/qc/gate_c_verify.py --project projects/<slug>` (speech-bounded `faster-whisper` với `vad_filter=True` + `ffprobe` + `ebur128` + 5 frame PNG)
 - **Override discipline:** Các mã provenance/editorial/fact-whitelist/source-photo nằm trong `NON_OVERRIDABLE_CODES` của `tools/qc/render_episode.py` — không thể bypass.
 - **Publication separation:** QC PASS ở compose không tự động cho phép đăng bài; mọi upload/publish cần owner duyệt riêng.

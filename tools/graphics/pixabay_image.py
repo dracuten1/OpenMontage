@@ -1,11 +1,14 @@
-"""Stock image acquisition from Pixabay API (free)."""
+"""Stock image acquisition from Pixabay API (free) with Wikimedia Commons CC fallback."""
 
 from __future__ import annotations
 
 import os
+import re
 import time
 from pathlib import Path
 from typing import Any
+
+import requests
 
 from tools.base_tool import (
     BaseTool,
@@ -92,6 +95,9 @@ class PixabayImage(BaseTool):
             "per_page": {"type": "integer", "default": 5, "minimum": 3, "maximum": 200},
             "page": {"type": "integer", "default": 1},
             "output_path": {"type": "string"},
+            "allow_wikimedia_fallback": {"type": "boolean", "default": True},
+            "min_width": {"type": "integer", "default": 800},
+            "min_height": {"type": "integer", "default": 600},
         },
     }
 
@@ -111,18 +117,121 @@ class PixabayImage(BaseTool):
     def estimate_cost(self, inputs: dict[str, Any]) -> float:
         return 0.0  # Pixabay is free
 
+    @staticmethod
+    def _fetch_wikimedia_commons(
+        query: str,
+        orientation: str,
+        output_path: Path,
+        min_width: int = 800,
+        min_height: int = 600,
+    ) -> dict[str, Any]:
+        """Search Wikimedia Commons for a CC/PD-licensed JPEG/PNG matching dimensions."""
+        headers = {"User-Agent": "OpenMontage/3.0 (editorial archival media fetcher)"}
+        params = {
+            "action": "query",
+            "format": "json",
+            "generator": "search",
+            "gsrsearch": query,
+            "gsrnamespace": 6,
+            "gsrlimit": 12,
+            "prop": "imageinfo",
+            "iiprop": "url|size|mime|extmetadata",
+        }
+        resp = requests.get("https://commons.wikimedia.org/w/api.php", params=params, headers=headers, timeout=30)
+        resp.raise_for_status()
+        pages = resp.json().get("query", {}).get("pages", {})
+        if not isinstance(pages, dict) or not pages:
+            raise RuntimeError(f"No Wikimedia Commons results for query: {query}")
+
+        license_pattern = re.compile(r"\b(cc|creative commons|public domain|pd|cc0)\b", re.IGNORECASE)
+        for page in pages.values():
+            infos = page.get("imageinfo") or []
+            if not infos:
+                continue
+            info = infos[0]
+            mime = str(info.get("mime", "")).lower()
+            if mime not in {"image/jpeg", "image/png"}:
+                continue
+            w = int(info.get("width") or 0)
+            h = int(info.get("height") or 0)
+            if w < min_width or h < min_height:
+                continue
+            if orientation == "horizontal" and w < h:
+                continue
+            if orientation == "vertical" and h <= w:
+                continue
+
+            ext = info.get("extmetadata") or {}
+            lic = str((ext.get("LicenseShortName") or ext.get("UsageTerms") or {}).get("value", "")).strip()
+            if not lic or not license_pattern.search(lic) or "nc" in lic.lower():
+                continue
+            artist_raw = str((ext.get("Artist") or {}).get("value", "Unknown"))
+            author = re.sub(r"<[^>]+>", "", artist_raw).strip() or "Unknown"
+
+            image_url = info.get("url")
+            if not image_url:
+                continue
+            img_resp = requests.get(image_url, headers=headers, timeout=60)
+            img_resp.raise_for_status()
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            output_path.write_bytes(img_resp.content)
+
+            return {
+                "provider": "wikimedia_commons",
+                "title": page.get("title", ""),
+                "user": author,
+                "author": author,
+                "image_width": w,
+                "image_height": h,
+                "query": query,
+                "output": str(output_path),
+                "license": lic,
+                "page_url": info.get("descriptionurl", ""),
+            }
+
+        raise RuntimeError(f"No suitable CC/PD Wikimedia Commons JPEG/PNG found for query: {query}")
+
+    def _run_wikimedia_fallback(
+        self,
+        inputs: dict[str, Any],
+        output_path: Path,
+        reason: str,
+        start: float,
+    ) -> ToolResult:
+        """Execute Wikimedia Commons fallback cleanly and attach fallback_reason."""
+        data = self._fetch_wikimedia_commons(
+            query=inputs["query"],
+            orientation=inputs.get("orientation", "all"),
+            output_path=output_path,
+            min_width=int(inputs.get("min_width", 800)),
+            min_height=int(inputs.get("min_height", 600)),
+        )
+        data["fallback_reason"] = reason
+        return ToolResult(
+            success=True,
+            data=data,
+            artifacts=[str(output_path)],
+            cost_usd=0.0,
+            duration_seconds=round(time.time() - start, 2),
+        )
+
     def execute(self, inputs: dict[str, Any]) -> ToolResult:
         api_key = os.environ.get("PIXABAY_API_KEY")
+        allow_fallback = bool(inputs.get("allow_wikimedia_fallback", True))
+        start = time.time()
+        query = inputs["query"]
+        default_out = Path(inputs.get("output_path", "wikimedia_fallback.jpg"))
+
         if not api_key:
+            if allow_fallback:
+                try:
+                    return self._run_wikimedia_fallback(inputs, default_out, "PIXABAY_API_KEY missing", start)
+                except Exception as exc:
+                    return ToolResult(success=False, error=f"PIXABAY_API_KEY not set and Wikimedia fallback failed: {exc}")
             return ToolResult(
                 success=False,
                 error="PIXABAY_API_KEY not set. " + self.install_instructions,
             )
-
-        import requests
-
-        start = time.time()
-        query = inputs["query"]
 
         params: dict[str, Any] = {
             "key": api_key,
@@ -154,6 +263,8 @@ class PixabayImage(BaseTool):
 
             hits = data.get("hits", [])
             if not hits:
+                if allow_fallback:
+                    return self._run_wikimedia_fallback(inputs, default_out, "Pixabay returned zero hits", start)
                 return ToolResult(
                     success=False,
                     error=f"No images found for query: {query}",
@@ -173,6 +284,14 @@ class PixabayImage(BaseTool):
             output_path.write_bytes(image_response.content)
 
         except Exception as e:
+            if allow_fallback:
+                try:
+                    return self._run_wikimedia_fallback(inputs, default_out, f"Pixabay failed ({e})", start)
+                except Exception as fb_exc:
+                    return ToolResult(
+                        success=False,
+                        error=f"Pixabay image search failed: {e}; Wikimedia fallback failed: {fb_exc}",
+                    )
             return ToolResult(success=False, error=f"Pixabay image search failed: {e}")
 
         return ToolResult(

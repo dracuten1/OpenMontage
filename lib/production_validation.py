@@ -818,12 +818,16 @@ def recompute_checkpoint_fingerprint(checkpoint: dict[str, Any], pipeline_dir: P
         raise ProductionValidationError(f"strict provenance recomputation failed: artifacts directory missing: {artifacts_dir}")
     def load_required(name):
         path = artifacts_dir / name
+        if not path.is_file() and name == "scene_timing.json":
+            fallback = project_dir / "assets" / name
+            if fallback.is_file():
+                path = fallback
         try: return json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError) as exc: raise ProductionValidationError(f"strict provenance recomputation failed: required artifact {name} missing/unreadable/invalid: {exc}") from exc
     script, timing, manifest = (load_required(name) for name in ("script.json", "scene_timing.json", "asset_manifest.json"))
     cuts = checkpoint.get("metadata", {}).get("edit_decisions", {}).get("cuts", [])
     ids = {str(x["id"]) for x in cuts if isinstance(x, dict) and x.get("id")}
-    ids.update(str(x["id"]) for x in checkpoint.get("metadata", {}).get("scene_manifest", {}).get("scenes", []) if isinstance(x, dict) and x.get("id"))
+    ids.update(str(x.get("id") or x.get("scene_id")) for x in checkpoint.get("metadata", {}).get("scene_manifest", {}).get("scenes", []) if isinstance(x, dict) and (x.get("id") or x.get("scene_id")))
     sections = {str(x["id"]): x for x in script.get("sections", []) if isinstance(x, dict) and x.get("id")}
     ids.update(sections)
     if not ids: raise ProductionValidationError("strict provenance recomputation failed: checkpoint has no authoritative scene IDs")
@@ -1152,7 +1156,9 @@ def validate_checkpoint_production_gate(
                     scenes = scene_manifest.get("scenes")
                     if isinstance(scenes, list) and scenes:
                         authoritative_scenes = [
-                            str(scene.get("id") if isinstance(scene, dict) else scene)
+                            str(scene.get("id") or scene.get("scene_id"))
+                            if isinstance(scene, dict)
+                            else str(scene)
                             for scene in scenes
                         ]
             if authoritative_scenes is None:

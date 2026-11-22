@@ -266,6 +266,29 @@ def _check_fact_whitelist(proj_root: Path, comp_root: Path) -> list[dict]:
     return reasons
 
 
+def _check_episode_captions_wiring(comp_root: Path) -> list[dict]:
+    """Block module-scope delayRender()+fetch() caption race that drops captions on render."""
+    ep_tsx = comp_root / "Episode.tsx"
+    if not ep_tsx.is_file():
+        return []
+    try:
+        text = ep_tsx.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return []
+    has_async_fetch = "delayRender(" in text and "fetch(" in text and "captions.json" in text
+    has_mutable_let = bool(re.search(r"\blet\s+captions\w*\b", text))
+    if has_async_fetch and has_mutable_let and "useState" not in text:
+        return [{
+            "code": "captions_async_fetch_race",
+            "message": (
+                "Episode.tsx loads captions.json via top-level delayRender()+fetch() into a mutable "
+                "variable without React state (causes missing subtitles on render); replace with a "
+                'static JSON import: import captionsData from "../../public/<slug>/captions.json"'
+            ),
+        }]
+    return []
+
+
 def validate_episode(episode_dir, *, mode: str = "auto"):
     root = Path(episode_dir).resolve(); reasons = []; packets = []
     proj_root, comp_root = _resolve_dual_roots(root)
@@ -276,7 +299,7 @@ def validate_episode(episode_dir, *, mode: str = "auto"):
             if path.parent == root: reasons.append({'code': 'packet_io_error', 'message': f'{path}: {e}'})
             continue
         if isinstance(packet, dict) and packet.get('packet_type') == 'openmontage.scene-packet': packets.append((path, packet))
-        elif path.name not in {'production_evidence.json', 'edit_decisions.json', 'asset_manifest.json', 'narration_words.json', 'mix_manifest.json', 'layout_evidence.json', 'mix_profile.json', 'scene_manifest.json', 'project.json', 'script.json', 'proposal_packet.json', 'research_brief.json', 'fact_whitelist.json', 'decision_log.json', 'tts_lexicon.json', 'provenance.json'}:
+        elif not path.name.startswith('checkpoint_') and path.name not in {'production_evidence.json', 'edit_decisions.json', 'asset_manifest.json', 'narration_words.json', 'mix_manifest.json', 'layout_evidence.json', 'mix_profile.json', 'scene_manifest.json', 'project.json', 'script.json', 'proposal_packet.json', 'research_brief.json', 'fact_whitelist.json', 'decision_log.json', 'tts_lexicon.json', 'provenance.json'}:
             if path.parent == root: reasons.append({'code': 'non_packet_json', 'message': f'{path.name}: missing packet_type marker'})
 
     agy_mode = _detect_agy_mode(root, proj_root, packets, mode)
@@ -433,6 +456,7 @@ def validate_episode(episode_dir, *, mode: str = "auto"):
         reasons.extend(_check_scene_tsx_provenance(comp_root))
 
     reasons.extend(_check_composition_dims(comp_root))
+    reasons.extend(_check_episode_captions_wiring(comp_root))
     reasons.extend(_check_source_photos(proj_root))
     el_reasons, is_editorial = _check_editorial_language(proj_root, comp_root)
     reasons.extend(el_reasons)

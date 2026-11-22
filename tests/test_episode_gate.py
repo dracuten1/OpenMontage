@@ -310,3 +310,63 @@ def test_episode_agy_mode_enforces_editorial_and_fact_whitelist(tmp_path):
   encoding='utf-8',
  )
  assert validate_episode(project) == []
+
+
+def test_episode_gate_agy_allows_root_checkpoint_json(tmp_path):
+ from tests.test_timing_relock_validator import _write_real_wav_file
+ project = tmp_path / 'agy-ckpt'
+ art = project / 'artifacts'
+ audio = project / 'assets' / 'audio'
+ scenes = project / 'scenes'
+ art.mkdir(parents=True); audio.mkdir(parents=True); scenes.mkdir(parents=True)
+ _write_real_wav_file(audio / 'voice_s1.wav', 1.0)
+ (project / 'project.json').write_text(json.dumps({
+  'project_id': 'agy-ckpt',
+  'pipeline_type': 'animated-explainer',
+  'orchestrator': 'antigravity',
+ }), encoding='utf-8')
+ (art / 'edit_decisions.json').write_text(json.dumps({
+  'version': '1.0', 'render_runtime': 'remotion',
+  'cuts': [{'id': 'S01', 'source': 'assets/audio/voice_s1.wav', 'in_seconds': 0, 'out_seconds': 1.0, 'layer': 'primary'}],
+ }))
+ (art / 'asset_manifest.json').write_text(json.dumps({
+  'version': '1.0',
+  'assets': [{'id': 'voice-s1', 'type': 'narration', 'scene_id': 'S01', 'path': 'assets/audio/voice_s1.wav', 'duration_seconds': 1.0}],
+  'metadata': {'total_audio_speech_duration_seconds': 1.0},
+ }))
+ (art / 'narration_words.json').write_text(json.dumps([{'word': 'test', 'scene_id': 'S01', 'global_start': 0.05, 'global_end': 0.3}]))
+ stems = project / 'audio_stems'; stems.mkdir()
+ for name in ('narration', 'bgm', 'sfx', 'mix'):
+  with wave.open(str(stems / f'{name}.wav'), 'wb') as w:
+   w.setnchannels(1); w.setsampwidth(2); w.setframerate(16000); w.writeframes(b'\x00\x00' * 16000)
+ (stems / 'manifest.json').write_text(json.dumps({k: f'{k}.wav' for k in ('narration', 'bgm', 'sfx', 'mix')}))
+ (project / 'mix_profile.json').write_text(json.dumps({
+  'schema': 'openmontage.mix-profile', 'version': 1, 'target_lufs': -60, 'lufs_tolerance': 60,
+  'ducking': {'min_reduction_db': 0}, 'windows': {}, 'declared_not_measured': ['music_masking'],
+ }))
+ (project / 'checkpoint_compose.json').write_text(json.dumps({'stage': 'compose', 'status': 'completed'}))
+ codes = {r['code'] for r in validate_episode(project, mode='agy')}
+ assert 'non_packet_json' not in codes
+ assert codes == set()
+
+
+def test_episode_gate_flags_async_captions_fetch_race(tmp_path):
+ from tools.qc.episode_gate import _check_episode_captions_wiring
+ comp = tmp_path / 'ep'
+ comp.mkdir()
+ (comp / 'Episode.tsx').write_text(
+  'import { delayRender, fetch } from "remotion";\n'
+  'let captionsBySection = {};\n'
+  'const h = delayRender("cap");\n'
+  'fetch("x/captions.json").then(() => continueRender(h));\n',
+  encoding='utf-8',
+ )
+ codes = {r['code'] for r in _check_episode_captions_wiring(comp)}
+ assert codes == {'captions_async_fetch_race'}
+
+ (comp / 'Episode.tsx').write_text(
+  'import captionsData from "../../public/x/captions.json";\n'
+  'const captionsBySection = captionsData.captions;\n',
+  encoding='utf-8',
+ )
+ assert _check_episode_captions_wiring(comp) == []

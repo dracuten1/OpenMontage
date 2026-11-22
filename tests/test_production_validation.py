@@ -1247,4 +1247,68 @@ def test_a2_partial_hash_coverage_blocked(tmp_path):
     assert "lacks artifact hash" in reasons_str
 
 
+def test_recompute_fingerprint_falls_back_to_assets_scene_timing(tmp_path):
+    from lib.production_validation import recompute_checkpoint_fingerprint
+
+    proj = tmp_path / "timing-fallback"
+    art = proj / "artifacts"
+    assets = proj / "assets"
+    art.mkdir(parents=True)
+    assets.mkdir(parents=True)
+    (art / "script.json").write_text(json.dumps({"sections": [{"id": "s01", "text": "hello"}]}), encoding="utf-8")
+    (art / "asset_manifest.json").write_text(json.dumps({"version": "1.0", "assets": []}), encoding="utf-8")
+    (assets / "scene_timing.json").write_text(json.dumps({"total_seconds": 5.0, "sections": [{"section_id": "s01"}]}), encoding="utf-8")
+
+    fp = recompute_checkpoint_fingerprint({"stage": "compose", "metadata": {}}, tmp_path, "timing-fallback")
+    assert "s01" in fp.scene_fingerprints
+
+
+def test_scene_manifest_scene_id_fallback(tmp_path):
+    from lib.production_validation import recompute_checkpoint_fingerprint
+
+    proj = tmp_path / "manifest-scene-id"
+    art = proj / "artifacts"
+    assets = proj / "assets"
+    art.mkdir(parents=True)
+    assets.mkdir(parents=True)
+    (proj / "project.json").write_text(json.dumps({"project_id": "manifest-scene-id"}), encoding="utf-8")
+    (art / "script.json").write_text(json.dumps({"sections": [{"id": "S01", "text": "hello"}]}), encoding="utf-8")
+    (art / "asset_manifest.json").write_text(json.dumps({"version": "1.0", "assets": []}), encoding="utf-8")
+    (assets / "scene_timing.json").write_text(json.dumps({"total_seconds": 5.0, "sections": [{"scene_id": "S01"}]}), encoding="utf-8")
+
+    scene_manifest = {"scenes": [{"scene_id": "S01"}]}
+    fp = recompute_checkpoint_fingerprint(
+        {"stage": "compose", "metadata": {"scene_manifest": scene_manifest}},
+        tmp_path,
+        "manifest-scene-id",
+    ).to_dict()
+    rep = ProductionValidationReport(
+        project_id="manifest-scene-id",
+        pipeline_type="animated-explainer",
+        mode="strict",
+        records=[
+            EvidenceRecord(
+                gate_name=GATE_LAYOUT,
+                scope="compose",
+                status=ValidationStatus.PASS,
+                scene_coverage=["S01"],
+                expected_scenes=["S01"],
+            )
+        ],
+    )
+    checkpoint = {
+        "project_id": "manifest-scene-id",
+        "pipeline_type": "animated-explainer",
+        "stage": "compose",
+        "status": "completed",
+        "metadata": {
+            "validation_mode": "strict",
+            "scene_manifest": scene_manifest,
+            "stage_fingerprint": fp,
+            "production_validation_report": rep.to_dict(),
+        },
+    }
+    validate_checkpoint_production_gate(checkpoint, tmp_path, "manifest-scene-id")
+
+
 

@@ -145,11 +145,13 @@ for the proven formula — especially the all-dark-background rule for visual co
 
 **Editorial / Stem-Mastered Remotion Path (DEFAULT for News & Production Episodes):**
 1. Pre-mix lossless stems (`mixdown.py --from-stems`) and verify via `mix_validator.py`.
-2. Run pre-render gates (`source_photo_gate.py`, `fact_whitelist_gate.py`, `editorial_language_gate.py`, `episode_gate.py --mode agy`) + Gate B still frame probe (`npx remotion still <CompId> /tmp/probe.png --frame=<key_frame>`, inspect via `read_file`).
-3. Render exclusively via `.venv/bin/python tools/qc/render_episode.py <CompId> projects/<slug>/renders/raw.mp4 --agy` (never raw `npx remotion render`).
-4. Mux lossless mastered audio into final deliverable:
+2. In `Episode.tsx`, import `captions.json` synchronously via static JSON import (`import captionsData from "../../public/<slug>/captions.json"`) — never top-level `delayRender() + fetch()` into a mutable `let` variable (causes missing subtitles on multi-tab render; blocked by `episode_gate.py`).
+3. Run pre-render gates (`source_photo_gate.py`, `fact_whitelist_gate.py`, `editorial_language_gate.py`, `episode_gate.py --mode agy`) + Gate B still frame probe (`npx remotion still <CompId> /tmp/probe.png --frame=<key_frame>`, inspect via `read_file` confirming visible subtitles in `y=1480..1600`, clean portrait framing, and visible pull-quotes).
+4. Render exclusively via `.venv/bin/python tools/qc/render_episode.py <CompId> projects/<slug>/renders/raw.mp4 --agy` (never raw `npx remotion render`).
+5. Mux lossless mastered audio into final deliverable and run Gate C verification:
    ```bash
    .venv/bin/python tools/qc/mixdown.py --mux-only projects/<slug>/renders/raw.mp4 --project projects/<slug> --out projects/<slug>/renders/final.mp4
+   .venv/bin/python tools/qc/gate_c_verify.py --project projects/<slug>
    ```
 
 **Templated `Explainer` Remotion Path (zero-key / non-stem drafts):**
