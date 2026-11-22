@@ -129,20 +129,41 @@ def test_collect_sfx_cues_detects_brand_bumper_sting(tmp_path: Path):
     sfx_dir = tmp_path / "sfx"
     ep_dir.mkdir(parents=True)
     sfx_dir.mkdir(parents=True)
-    timing = {"fps": 30, "sections": []}
 
+    # 1. Default outro places sting right after final scene end_seconds
+    outro_timing = {
+        "fps": 30,
+        "total_seconds": 123.5,
+        "sections": [{"scene_id": "scene-1", "start_seconds": 0.0, "end_seconds": 120.5}],
+    }
+    (ep_dir / "Episode.tsx").write_text(
+        '<Sequence from={CONTENT_FRAMES} durationInFrames={90}><BrandBumper aspect="9x16" /></Sequence>\n',
+        encoding="utf-8",
+    )
+    cues = mixdown._collect_sfx_cues(ep_dir, outro_timing, sfx_dir)
+    assert len(cues) == 1
+    assert cues[0][0] == pytest.approx(120.5)
+    assert cues[0][1].name == "kcdt_bumper_sting.wav"
+    assert cues[0][2] == pytest.approx(0.55)
+
+    # 2. Explicit bumper_start_seconds overrides section calculation
+    explicit_timing = {**outro_timing, "bumper_start_seconds": 133.622}
+    cues_explicit = mixdown._collect_sfx_cues(ep_dir, explicit_timing, sfx_dir)
+    assert len(cues_explicit) == 1
+    assert cues_explicit[0][0] == pytest.approx(133.622)
+
+    # 3. Explicit intro <Sequence from={0}> places sting at 0.0s
     (ep_dir / "Episode.tsx").write_text(
         '<Sequence from={0} durationInFrames={90}><BrandBumper aspect="9x16" /></Sequence>\n',
         encoding="utf-8",
     )
-    cues = mixdown._collect_sfx_cues(ep_dir, timing, sfx_dir)
-    assert len(cues) == 1
-    assert cues[0][0] == 0.0
-    assert cues[0][1].name == "kcdt_bumper_sting.wav"
-    assert cues[0][2] == pytest.approx(0.55)
+    cues_intro = mixdown._collect_sfx_cues(ep_dir, outro_timing, sfx_dir)
+    assert len(cues_intro) == 1
+    assert cues_intro[0][0] == 0.0
 
+    # 4. stingSrc={null} suppresses cue
     (ep_dir / "Episode.tsx").write_text(
-        '<Sequence from={0} durationInFrames={90}><BrandBumper stingSrc={null} /></Sequence>\n',
+        '<Sequence from={CONTENT_FRAMES} durationInFrames={90}><BrandBumper stingSrc={null} /></Sequence>\n',
         encoding="utf-8",
     )
-    assert mixdown._collect_sfx_cues(ep_dir, timing, sfx_dir) == []
+    assert mixdown._collect_sfx_cues(ep_dir, outro_timing, sfx_dir) == []

@@ -147,7 +147,7 @@ describe("editorial visual kit", () => {
     });
   });
 
-  it("exports BrandBumper with 90-frame (3s) opener constants", () => {
+  it("exports BrandBumper with 90-frame (3s) outro stinger constants", () => {
     expect(BRAND_BUMPER_FRAMES).toBe(90);
     expect(BRAND_BUMPER_SECONDS).toBe(3);
     expect(typeof BrandBumper).toBe("function");

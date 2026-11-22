@@ -364,7 +364,32 @@ def _collect_sfx_cues(episode_dir: Path, timing: dict, sfx_dir: Path) -> list[tu
             if sting_path is not None:
                 m_bvol = re.search(r"<BrandBumper[^>]*\bstingVolume\s*=\s*\{([\d.]+)\}", ep_text)
                 bvol = float(m_bvol.group(1)) if m_bvol else 0.55
-                cues.append((0.0, sting_path, bvol))
+                if timing.get("bumper_start_seconds") is not None:
+                    bumper_time = float(timing["bumper_start_seconds"])
+                elif (
+                    str(timing.get("bumper_position") or "").strip().lower() == "intro"
+                    or re.search(r"<Sequence\b[^>]*\bfrom=\{\s*0\s*\}[^>]*>[\s\S]{0,160}<BrandBumper", ep_text)
+                ):
+                    bumper_time = 0.0
+                else:
+                    sec_ends: list[float] = []
+                    for s in timing.get("sections", []):
+                        if not isinstance(s, dict):
+                            continue
+                        if s.get("end_seconds") is not None:
+                            sec_ends.append(float(s["end_seconds"]))
+                        elif s.get("start_seconds") is not None:
+                            s_end = float(s["start_seconds"])
+                            if s.get("duration_seconds") is not None:
+                                s_end += float(s["duration_seconds"])
+                            elif s.get("duration_frames") is not None:
+                                s_end += float(s["duration_frames"]) / fps
+                            sec_ends.append(s_end)
+                    if sec_ends:
+                        bumper_time = max(sec_ends)
+                    else:
+                        bumper_time = max(0.0, float(timing.get("total_seconds", 0.0) or 0.0) - 3.0)
+                cues.append((bumper_time, sting_path, bvol))
 
     scenes_dir = episode_dir / "scenes"
     if scenes_dir.is_dir():

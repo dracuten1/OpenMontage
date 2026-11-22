@@ -18,18 +18,21 @@ export interface BrandBumperProps {
   src?: string;
   stingSrc?: string | null;
   stingVolume?: number;
+  fadeInFrames?: number;
   fadeOutFrames?: number;
 }
 
 /**
- * Reusable 3-second Blender-rendered 3D channel opener ("Ký Chủ Điểm Tin").
- * Auto-detects 9:16 vs 16:9 canvas and binds a deterministic frame fade-out + studio audio sting.
+ * Reusable 3-second Blender-rendered 3D channel outro stinger ("Ký Chủ Điểm Tin").
+ * Placed at the end of the episode after the final scene so the opening 0–3s hook stays untouched.
+ * Auto-detects 9:16 vs 16:9 canvas and binds deterministic fade-in/out + studio audio sting.
  */
 export const BrandBumper: React.FC<BrandBumperProps> = ({
   aspect,
   src,
   stingSrc,
   stingVolume = 0.55,
+  fadeInFrames = 6,
   fadeOutFrames = 8,
 }) => {
   const frame = useCurrentFrame();
@@ -46,14 +49,22 @@ export const BrandBumper: React.FC<BrandBumperProps> = ({
   const audioSrc =
     stingSrc === null ? null : stingSrc ?? staticFile("brand/kcdt_bumper_sting.wav");
 
+  const fadeInOpacity =
+    fadeInFrames > 0
+      ? interpolate(frame, [0, fadeInFrames], [0, 1], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        })
+      : 1;
   const fadeStart = Math.max(1, durationInFrames - Math.max(1, fadeOutFrames));
-  const opacity =
+  const fadeOutOpacity =
     fadeOutFrames > 0
       ? interpolate(frame, [fadeStart, durationInFrames], [1, 0], {
           extrapolateLeft: "clamp",
           extrapolateRight: "clamp",
         })
       : 1;
+  const opacity = fadeInOpacity * fadeOutOpacity;
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.slate, opacity }}>
