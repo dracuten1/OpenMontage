@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "project_id": "dam-san",
+  "episode": "VN-Myth S3E02 — Sử thi Đăm Săn (Klei Khan Y Đam San)",
+  "approved_at": "2026-11-22T17:19:07+07:00",
+  "user_command": "Approve all recommendations, chạy một mạch",
+  "approved_concept": "c1",
+  "visual_pipeline": "Hybrid Blender 5.2.2 LTS Cycles (Metal GPU) Diorama + Remotion Atelier",
+  "render_runtime": "remotion",
+  "composition_mode": "atelier",
+  "voice": "vieneu (local 48kHz)",
+  "bgm": "/Users/tuyennguyen/project/media-library/bgm/risk/The Complex.mp3",
+  "mode": "full_run_to_final_1080p",
+  "auto_post": false
+}

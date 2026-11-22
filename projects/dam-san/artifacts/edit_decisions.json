@@ -1,0 +1,378 @@
+{
+  "version": "1.0",
+  "render_runtime": "remotion",
+  "renderer_family": "documentary-montage",
+  "composition_mode": "atelier",
+  "cuts": [
+    {
+      "id": "sc001",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-01-clip.mp4",
+      "in_seconds": 0.0,
+      "out_seconds": 16.1667,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d (MỞ — Hook nghịch lý Mặt Trời & Rừng Sáp Đen)"
+    },
+    {
+      "id": "sc002",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-01-detail.png",
+      "in_seconds": 16.1667,
+      "out_seconds": 34.9,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "split_3d_diagram (MỞ — Nối mạch Season 3 & cam kết 3 lớp)"
+    },
+    {
+      "id": "sc003",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-02-clip.mp4",
+      "in_seconds": 34.9,
+      "out_seconds": 53.2,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d_callout (LỚP A — Ấn bản 2.077 câu & khởi đầu chuê nuê)"
+    },
+    {
+      "id": "sc004",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-02-detail.png",
+      "in_seconds": 53.2,
+      "out_seconds": 71.4667,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_focus (LỚP A — Sự phản kháng ban đầu của chàng tù trưởng trẻ)"
+    },
+    {
+      "id": "sc005",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-03-clip.mp4",
+      "in_seconds": 71.4667,
+      "out_seconds": 94.0667,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d (LỚP A — Chiến trận Mtao Grứ & Mtao Mxây)"
+    },
+    {
+      "id": "sc006",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-04-clip.mp4",
+      "in_seconds": 94.0667,
+      "out_seconds": 121.4,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d_callout (LỚP A — Cú lật địa tầng văn bản 1933)"
+    },
+    {
+      "id": "sc007",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-04-detail.png",
+      "in_seconds": 121.4,
+      "out_seconds": 156.6333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_split_3d (LỚP A — Khôi phục từ 2 lên 6 rồi 8 đối thủ (7 cuộc chiến))"
+    },
+    {
+      "id": "sc008",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-03-clip.mp4",
+      "in_seconds": 156.6333,
+      "out_seconds": 181.8,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "archival_quote_3d (LỚP A — Bản song ngữ 2003 của Nguyễn Hữu Thấu & lối hát khan)"
+    },
+    {
+      "id": "sc009",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-05-clip.mp4",
+      "in_seconds": 181.8,
+      "out_seconds": 202.7333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d (LỚP A — Cây thần Smuk / Ktu & chuyến lên Trời hồi sinh vợ)"
+    },
+    {
+      "id": "sc010",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-06-clip.mp4",
+      "in_seconds": 202.7333,
+      "out_seconds": 222.4667,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d_callout (LỚP A — Băng qua Rừng Sáp Đen đi cầu hôn Nữ thần Mặt Trời)"
+    },
+    {
+      "id": "sc011",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-06-clip.mp4",
+      "in_seconds": 222.4667,
+      "out_seconds": 243.8333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d (LỚP A — Cái chết tan chảy & hóa thân Đăm Săn cháu)"
+    },
+    {
+      "id": "sc012",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-05-detail.png",
+      "in_seconds": 243.8333,
+      "out_seconds": 267.4333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_focus (LỚP A — Hai cách đọc về thất bại của Đăm Săn)"
+    },
+    {
+      "id": "sc013",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-07-clip.mp4",
+      "in_seconds": 267.4333,
+      "out_seconds": 280.1333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d_callout (LỚP B — Chuyển tầng sang thiết chế xã hội & mẫu hệ Ê Đê)"
+    },
+    {
+      "id": "sc014",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-07-detail.png",
+      "in_seconds": 280.1333,
+      "out_seconds": 301.3667,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_split_3d (LỚP B — Tục nối dòng chuê nuê và hai dòng họ Niê – Mlô)"
+    },
+    {
+      "id": "sc015",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-02-clip.mp4",
+      "in_seconds": 301.3667,
+      "out_seconds": 320.2333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d (LỚP B — Không gian kiến trúc Nhà dài hình thuyền)"
+    },
+    {
+      "id": "sc016",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-02-detail.png",
+      "in_seconds": 320.2333,
+      "out_seconds": 341.0,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_focus (LỚP B — Từ Dring gah, cầu thang chạm bầu vú tới ghế Kpan)"
+    },
+    {
+      "id": "sc017",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-08-clip.mp4",
+      "in_seconds": 341.0,
+      "out_seconds": 365.0667,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d_callout (LỚP B — Cú nối Season 3: Nam Đảo giữa đại ngàn Nam Á)"
+    },
+    {
+      "id": "sc018",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-08-detail.png",
+      "in_seconds": 365.0667,
+      "out_seconds": 387.4333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_split_3d (LỚP B — Bằng chứng ngôn ngữ học Chamic từ trước 600 TCN)"
+    },
+    {
+      "id": "sc019",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-08-clip.mp4",
+      "in_seconds": 387.4333,
+      "out_seconds": 411.7,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "archival_quote_3d (LỚP B — Dấu ấn Champa & không gian cồng chiêng liên tộc người)"
+    },
+    {
+      "id": "sc020",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-09-clip.mp4",
+      "in_seconds": 411.7,
+      "out_seconds": 433.1,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d (LỚP B — Bộ chiêng Ê Đê 6 + 3 + 1 + trống cái & linh hồn đêm khan)"
+    },
+    {
+      "id": "sc021",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-09-detail.png",
+      "in_seconds": 433.1,
+      "out_seconds": 448.8333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_focus (LỚP B — Lối diễn xướng hai nốt & kèn đing tut)"
+    },
+    {
+      "id": "sc022",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-08-detail.png",
+      "in_seconds": 448.8333,
+      "out_seconds": 485.1667,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_focus (LỚP C — Dân số Ê Đê năm 2019 & đối chiếu mốc 2009)"
+    },
+    {
+      "id": "sc023",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-10-clip.mp4",
+      "in_seconds": 485.1667,
+      "out_seconds": 510.7333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d_callout (LỚP C — Chiến dịch Kho tàng sử thi Tây Nguyên 2001–2007)"
+    },
+    {
+      "id": "sc024",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-10-detail.png",
+      "in_seconds": 510.7333,
+      "out_seconds": 537.5333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_focus (LỚP C — 75 tác phẩm in sách trong 62 tập & phần của người Ê Đê)"
+    },
+    {
+      "id": "sc025",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-04-detail.png",
+      "in_seconds": 537.5333,
+      "out_seconds": 563.5333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_focus (LỚP C — Nghịch lý đáng báo động từ khảo sát năm 2007)"
+    },
+    {
+      "id": "sc026",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-04-wide.png",
+      "in_seconds": 563.5333,
+      "out_seconds": 596.1333,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "diagram_split_3d (LỚP C — Công nhận Di sản Quốc gia 2014 & lớp truyền dạy 2023)"
+    },
+    {
+      "id": "sc027",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-09-clip.mp4",
+      "in_seconds": 596.1333,
+      "out_seconds": 620.0,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "archival_quote_3d (LỚP C — Rào cản tiếng Ê Đê cổ & nghệ nhân Ama Nhiên tại Akô Dhông)"
+    },
+    {
+      "id": "sc028",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-10-clip.mp4",
+      "in_seconds": 620.0,
+      "out_seconds": 643.5667,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d_callout (LỚP C — 17 buôn làng phục dựng nhà dài & mặt trái sân khấu hóa)"
+    },
+    {
+      "id": "sc029",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-01-clip.mp4",
+      "in_seconds": 643.5667,
+      "out_seconds": 663.2667,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "full_bleed_3d (KẾT — Tổng hợp lời giải cho câu hỏi mở đầu)"
+    },
+    {
+      "id": "sc030",
+      "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-01-wide.png",
+      "in_seconds": 663.2667,
+      "out_seconds": 686.2,
+      "layer": "primary",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "transition_duration": 0.5,
+      "reason": "end_card_3d (KẾT — Đánh giá Condominas & mở sang tập tiếp theo Season 3)"
+    }
+  ],
+  "bespoke": {
+    "entry": "src/dam-san/index.tsx",
+    "composition_id": "dam-san-FINAL",
+    "art_direction": "Tây Nguyên Warm Archival Diorama (Atelier): kết hợp sa bàn điêu khắc 3D chất liệu gỗ trầm – đất đỏ bazan – sáp ong – đồng thau chiêng từ Blender 5.2.2 LTS (Cycles 64–96 samples + OIDN, 1920x1080) với lớp đồ họa phẳng Remotion trên nền giấy dó ngà ấm #F2EAD8 và đêm bazan #1A1512; màu nhấn thổ cẩm đỏ đô #9E3B24, đồng chiêng #D49B38 và xanh rừng đại ngàn #38665E; chữ tiêu đề Newsreader/Be Vietnam Pro sắc nét, số liệu tabular-nums trên JetBrains Mono, nhịp chuyển cảnh êm chắc (damping >= 18), tránh hoàn toàn thẻ card bo góc SaaS.",
+    "public_dir": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san",
+    "scale": 1.0,
+    "crf": 18,
+    "concurrency": 4
+  },
+  "audio": {
+    "narration": {
+      "segments": [
+        {
+          "asset_id": "narration-full",
+          "start_seconds": 0.0,
+          "end_seconds": 686.2
+        }
+      ]
+    },
+    "music": {
+      "asset_id": "bgm-the-complex",
+      "volume": 0.115,
+      "fade_in_seconds": 2.0,
+      "fade_out_seconds": 5.0,
+      "ducking": true
+    }
+  },
+  "subtitles": {
+    "enabled": false,
+    "style": "sidecar_srt",
+    "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/captions.srt",
+    "position": "bottom-center"
+  },
+  "music": {
+    "asset_id": "bgm-the-complex",
+    "volume": 0.115,
+    "ducking": true,
+    "fade_in_seconds": 2.0,
+    "fade_out_seconds": 5.0
+  }
+}

@@ -1,0 +1,1247 @@
+{
+  "version": "1.0",
+  "style_playbook": "ink-genome",
+  "scenes": [
+    {
+      "id": "sc001",
+      "type": "animation",
+      "script_section_id": "s01",
+      "description": "[MỞ — Hook nghịch lý Mặt Trời & Rừng Sáp Đen] full_bleed_3d | 3D=blender/B3D-01-wide.png",
+      "start_seconds": 0.0,
+      "end_seconds": 16.51,
+      "framing": "full_bleed_3d",
+      "movement": "dolly_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lens_mm": 35,
+        "lighting_key": "golden_hour",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "MỞ — Hook nghịch lý Mặt Trời & Rừng Sáp Đen",
+      "narrative_role": "establish_context",
+      "information_role": "Claim ref HOOK;C01;C05",
+      "hero_moment": true,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-01-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc002",
+      "type": "animation",
+      "script_section_id": "s02",
+      "description": "[MỞ — Nối mạch Season 3 & cam kết 3 lớp] split_3d_diagram | 3D=blender/B3D-01-detail.png | Infographic=D01",
+      "start_seconds": 16.51,
+      "end_seconds": 34.96,
+      "framing": "split_3d_diagram",
+      "movement": "pan_right",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D01",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "pan_right",
+        "lens_mm": 50,
+        "lighting_key": "natural",
+        "depth_of_field": "shallow",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "MỞ — Nối mạch Season 3 & cam kết 3 lớp",
+      "narrative_role": "introduce_subject",
+      "information_role": "Claim ref ROADMAP-S3;BRAND",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-01-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D01",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc003",
+      "type": "animation",
+      "script_section_id": "s03",
+      "description": "[LỚP A — Ấn bản 2.077 câu & khởi đầu chuê nuê] full_bleed_3d_callout | 3D=blender/B3D-02-wide.png",
+      "start_seconds": 34.96,
+      "end_seconds": 51.9,
+      "framing": "full_bleed_3d_callout",
+      "movement": "orbital",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "orbital",
+        "lens_mm": 35,
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP A — Ấn bản 2.077 câu & khởi đầu chuê nuê",
+      "narrative_role": "establish_context",
+      "information_role": "Claim ref C02;C07",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-02-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc004",
+      "type": "diagram",
+      "script_section_id": "s04",
+      "description": "[LỚP A — Sự phản kháng ban đầu của chàng tù trưởng trẻ] diagram_focus | 3D=blender/B3D-02-detail.png | Infographic=D02",
+      "start_seconds": 51.9,
+      "end_seconds": 69.06,
+      "framing": "diagram_focus",
+      "movement": "zoom_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D02",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "natural",
+        "depth_of_field": "shallow",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP A — Sự phản kháng ban đầu của chàng tù trưởng trẻ",
+      "narrative_role": "introduce_subject",
+      "information_role": "Claim ref C02;C07",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-02-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D02",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc005",
+      "type": "animation",
+      "script_section_id": "s05",
+      "description": "[LỚP A — Chiến trận Mtao Grứ & Mtao Mxây] full_bleed_3d | 3D=blender/B3D-03-wide.png",
+      "start_seconds": 69.06,
+      "end_seconds": 89.66,
+      "framing": "full_bleed_3d",
+      "movement": "tracking_right",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tracking_right",
+        "lens_mm": 50,
+        "lighting_key": "rim_lit",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP A — Chiến trận Mtao Grứ & Mtao Mxây",
+      "narrative_role": "build_tension",
+      "information_role": "Claim ref C01;C03",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-03-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc006",
+      "type": "animation",
+      "script_section_id": "s06",
+      "description": "[LỚP A — Cú lật địa tầng văn bản 1933] full_bleed_3d_callout | 3D=blender/B3D-04-wide.png",
+      "start_seconds": 89.66,
+      "end_seconds": 111.34,
+      "framing": "full_bleed_3d_callout",
+      "movement": "dolly_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lens_mm": 35,
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP A — Cú lật địa tầng văn bản 1933",
+      "narrative_role": "evidence",
+      "information_role": "Claim ref C03;C04",
+      "hero_moment": true,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-04-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc007",
+      "type": "animation",
+      "script_section_id": "s07",
+      "description": "[LỚP A — Khôi phục từ 2 lên 6 rồi 8 đối thủ (7 cuộc chiến)] diagram_split_3d | 3D=blender/B3D-04-detail.png | Infographic=D03",
+      "start_seconds": 111.34,
+      "end_seconds": 135.84,
+      "framing": "diagram_split_3d",
+      "movement": "zoom_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D03",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "natural",
+        "depth_of_field": "shallow",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP A — Khôi phục từ 2 lên 6 rồi 8 đối thủ (7 cuộc chiến)",
+      "narrative_role": "deliver_payload",
+      "information_role": "Claim ref C03",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-04-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D03",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc008",
+      "type": "animation",
+      "script_section_id": "s08",
+      "description": "[LỚP A — Bản song ngữ 2003 của Nguyễn Hữu Thấu & lối hát khan] archival_quote_3d | 3D=blender/B3D-03-detail.png",
+      "start_seconds": 135.84,
+      "end_seconds": 157.09,
+      "framing": "archival_quote_3d",
+      "movement": "pan_left",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "pan_left",
+        "lens_mm": 85,
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP A — Bản song ngữ 2003 của Nguyễn Hữu Thấu & lối hát khan",
+      "narrative_role": "evidence",
+      "information_role": "Claim ref C04",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-03-detail.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc009",
+      "type": "animation",
+      "script_section_id": "s09",
+      "description": "[LỚP A — Cây thần Smuk / Ktu & chuyến lên Trời hồi sinh vợ] full_bleed_3d | 3D=blender/B3D-05-wide.png",
+      "start_seconds": 157.09,
+      "end_seconds": 176.61,
+      "framing": "full_bleed_3d",
+      "movement": "dolly_out",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_out",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "medium",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP A — Cây thần Smuk / Ktu & chuyến lên Trời hồi sinh vợ",
+      "narrative_role": "build_tension",
+      "information_role": "Claim ref C02",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-05-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc010",
+      "type": "animation",
+      "script_section_id": "s10",
+      "description": "[LỚP A — Băng qua Rừng Sáp Đen đi cầu hôn Nữ thần Mặt Trời] full_bleed_3d_callout | 3D=blender/B3D-06-wide.png",
+      "start_seconds": 176.61,
+      "end_seconds": 195.92,
+      "framing": "full_bleed_3d_callout",
+      "movement": "dolly_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lens_mm": 35,
+        "lighting_key": "rim_lit",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP A — Băng qua Rừng Sáp Đen đi cầu hôn Nữ thần Mặt Trời",
+      "narrative_role": "build_tension",
+      "information_role": "Claim ref C05",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-06-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc011",
+      "type": "animation",
+      "script_section_id": "s11",
+      "description": "[LỚP A — Cái chết tan chảy & hóa thân Đăm Săn cháu] full_bleed_3d | 3D=blender/B3D-06-detail.png",
+      "start_seconds": 195.92,
+      "end_seconds": 215.44,
+      "framing": "full_bleed_3d",
+      "movement": "dolly_out",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "dolly_out",
+        "lens_mm": 85,
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP A — Cái chết tan chảy & hóa thân Đăm Săn cháu",
+      "narrative_role": "emotional_beat",
+      "information_role": "Claim ref C02;C05",
+      "hero_moment": true,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-06-detail.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc012",
+      "type": "diagram",
+      "script_section_id": "s12",
+      "description": "[LỚP A — Hai cách đọc về thất bại của Đăm Săn] diagram_focus | 3D=blender/B3D-05-detail.png | Infographic=D04",
+      "start_seconds": 215.44,
+      "end_seconds": 237.76,
+      "framing": "diagram_focus",
+      "movement": "static",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D04",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lens_mm": 50,
+        "lighting_key": "natural",
+        "depth_of_field": "shallow",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP A — Hai cách đọc về thất bại của Đăm Săn",
+      "narrative_role": "comparison",
+      "information_role": "Claim ref C05",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-05-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D04",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc013",
+      "type": "animation",
+      "script_section_id": "s13",
+      "description": "[LỚP B — Chuyển tầng sang thiết chế xã hội & mẫu hệ Ê Đê] full_bleed_3d_callout | 3D=blender/B3D-07-wide.png",
+      "start_seconds": 237.76,
+      "end_seconds": 250.19,
+      "framing": "full_bleed_3d_callout",
+      "movement": "pan_right",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "pan_right",
+        "lens_mm": 35,
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP B — Chuyển tầng sang thiết chế xã hội & mẫu hệ Ê Đê",
+      "narrative_role": "transition",
+      "information_role": "Claim ref C07",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-07-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc014",
+      "type": "animation",
+      "script_section_id": "s14",
+      "description": "[LỚP B — Tục nối dòng chuê nuê và hai dòng họ Niê – Mlô] diagram_split_3d | 3D=blender/B3D-07-detail.png | Infographic=D05",
+      "start_seconds": 250.19,
+      "end_seconds": 270.79,
+      "framing": "diagram_split_3d",
+      "movement": "zoom_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D05",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "natural",
+        "depth_of_field": "shallow",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP B — Tục nối dòng chuê nuê và hai dòng họ Niê – Mlô",
+      "narrative_role": "deliver_payload",
+      "information_role": "Claim ref C07",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-07-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D05",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc015",
+      "type": "animation",
+      "script_section_id": "s15",
+      "description": "[LỚP B — Không gian kiến trúc Nhà dài hình thuyền] full_bleed_3d | 3D=blender/B3D-02-wide.png",
+      "start_seconds": 270.79,
+      "end_seconds": 289.02,
+      "framing": "full_bleed_3d",
+      "movement": "tracking_left",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tracking_left",
+        "lens_mm": 24,
+        "lighting_key": "golden_hour",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP B — Không gian kiến trúc Nhà dài hình thuyền",
+      "narrative_role": "evidence",
+      "information_role": "Claim ref C08",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-02-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc016",
+      "type": "diagram",
+      "script_section_id": "s16",
+      "description": "[LỚP B — Từ Dring gah, cầu thang chạm bầu vú tới ghế Kpan] diagram_focus | 3D=blender/B3D-02-detail.png | Infographic=D06",
+      "start_seconds": 289.02,
+      "end_seconds": 309.84,
+      "framing": "diagram_focus",
+      "movement": "zoom_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D06",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "zoom_in",
+        "lens_mm": 35,
+        "lighting_key": "natural",
+        "depth_of_field": "medium",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP B — Từ Dring gah, cầu thang chạm bầu vú tới ghế Kpan",
+      "narrative_role": "deliver_payload",
+      "information_role": "Claim ref C08",
+      "hero_moment": true,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-02-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D06",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc017",
+      "type": "animation",
+      "script_section_id": "s17",
+      "description": "[LỚP B — Cú nối Season 3: Nam Đảo giữa đại ngàn Nam Á] full_bleed_3d_callout | 3D=blender/B3D-08-wide.png",
+      "start_seconds": 309.84,
+      "end_seconds": 333.24,
+      "framing": "full_bleed_3d_callout",
+      "movement": "orbital",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "orbital",
+        "lens_mm": 24,
+        "lighting_key": "natural",
+        "depth_of_field": "medium",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP B — Cú nối Season 3: Nam Đảo giữa đại ngàn Nam Á",
+      "narrative_role": "deliver_payload",
+      "information_role": "Claim ref C09",
+      "hero_moment": true,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-08-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc018",
+      "type": "animation",
+      "script_section_id": "s18",
+      "description": "[LỚP B — Bằng chứng ngôn ngữ học Chamic từ trước 600 TCN] diagram_split_3d | 3D=blender/B3D-08-detail.png | Infographic=D07",
+      "start_seconds": 333.24,
+      "end_seconds": 352.98,
+      "framing": "diagram_split_3d",
+      "movement": "pan_right",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D07",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "pan_right",
+        "lens_mm": 35,
+        "lighting_key": "natural",
+        "depth_of_field": "medium",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP B — Bằng chứng ngôn ngữ học Chamic từ trước 600 TCN",
+      "narrative_role": "evidence",
+      "information_role": "Claim ref C09",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-08-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D07",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc019",
+      "type": "animation",
+      "script_section_id": "s19",
+      "description": "[LỚP B — Dấu ấn Champa & không gian cồng chiêng liên tộc người] archival_quote_3d | 3D=blender/B3D-08-wide.png",
+      "start_seconds": 352.98,
+      "end_seconds": 374.23,
+      "framing": "archival_quote_3d",
+      "movement": "dolly_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lens_mm": 50,
+        "lighting_key": "golden_hour",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP B — Dấu ấn Champa & không gian cồng chiêng liên tộc người",
+      "narrative_role": "comparison",
+      "information_role": "Claim ref C09;C10",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-08-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc020",
+      "type": "animation",
+      "script_section_id": "s20",
+      "description": "[LỚP B — Bộ chiêng Ê Đê 6 + 3 + 1 + trống cái & linh hồn đêm khan] full_bleed_3d | 3D=blender/B3D-09-wide.png",
+      "start_seconds": 374.23,
+      "end_seconds": 393.97,
+      "framing": "full_bleed_3d",
+      "movement": "dolly_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lens_mm": 35,
+        "lighting_key": "rim_lit",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP B — Bộ chiêng Ê Đê 6 + 3 + 1 + trống cái & linh hồn đêm khan",
+      "narrative_role": "establish_context",
+      "information_role": "Claim ref C10",
+      "hero_moment": true,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-09-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc021",
+      "type": "diagram",
+      "script_section_id": "s21",
+      "description": "[LỚP B — Lối diễn xướng hai nốt & kèn đing tut] diagram_focus | 3D=blender/B3D-09-detail.png | Infographic=D08",
+      "start_seconds": 393.97,
+      "end_seconds": 409.41,
+      "framing": "diagram_focus",
+      "movement": "zoom_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D08",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "zoom_in",
+        "lens_mm": 85,
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP B — Lối diễn xướng hai nốt & kèn đing tut",
+      "narrative_role": "evidence",
+      "information_role": "Claim ref C04;C14",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-09-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D08",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc022",
+      "type": "diagram",
+      "script_section_id": "s22",
+      "description": "[LỚP C — Dân số Ê Đê năm 2019 & đối chiếu mốc 2009] diagram_focus | 3D=blender/B3D-08-detail.png | Infographic=D09",
+      "start_seconds": 409.41,
+      "end_seconds": 432.81,
+      "framing": "diagram_focus",
+      "movement": "static",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D09",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lens_mm": 50,
+        "lighting_key": "natural",
+        "depth_of_field": "shallow",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP C — Dân số Ê Đê năm 2019 & đối chiếu mốc 2009",
+      "narrative_role": "evidence",
+      "information_role": "Claim ref C11",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-08-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D09",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc023",
+      "type": "animation",
+      "script_section_id": "s23",
+      "description": "[LỚP C — Chiến dịch Kho tàng sử thi Tây Nguyên 2001–2007] full_bleed_3d_callout | 3D=blender/B3D-10-wide.png",
+      "start_seconds": 432.81,
+      "end_seconds": 454.49,
+      "framing": "full_bleed_3d_callout",
+      "movement": "dolly_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lens_mm": 35,
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP C — Chiến dịch Kho tàng sử thi Tây Nguyên 2001–2007",
+      "narrative_role": "deliver_payload",
+      "information_role": "Claim ref C12",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-10-wide.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc024",
+      "type": "diagram",
+      "script_section_id": "s24",
+      "description": "[LỚP C — 75 tác phẩm in sách trong 62 tập & phần của người Ê Đê] diagram_focus | 3D=blender/B3D-10-detail.png | Infographic=D10",
+      "start_seconds": 454.49,
+      "end_seconds": 477.03,
+      "framing": "diagram_focus",
+      "movement": "zoom_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D10",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "natural",
+        "depth_of_field": "shallow",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP C — 75 tác phẩm in sách trong 62 tập & phần của người Ê Đê",
+      "narrative_role": "deliver_payload",
+      "information_role": "Claim ref C12",
+      "hero_moment": true,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-10-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D10",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc025",
+      "type": "diagram",
+      "script_section_id": "s25",
+      "description": "[LỚP C — Nghịch lý đáng báo động từ khảo sát năm 2007] diagram_focus | 3D=blender/B3D-04-detail.png | Infographic=D11",
+      "start_seconds": 477.03,
+      "end_seconds": 500.21,
+      "framing": "diagram_focus",
+      "movement": "static",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D11",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "static",
+        "lens_mm": 50,
+        "lighting_key": "natural",
+        "depth_of_field": "shallow",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP C — Nghịch lý đáng báo động từ khảo sát năm 2007",
+      "narrative_role": "comparison",
+      "information_role": "Claim ref C13",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-04-detail.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D11",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc026",
+      "type": "animation",
+      "script_section_id": "s26",
+      "description": "[LỚP C — Công nhận Di sản Quốc gia 2014 & lớp truyền dạy 2023] diagram_split_3d | 3D=blender/B3D-04-wide.png | Infographic=D12",
+      "start_seconds": 500.21,
+      "end_seconds": 524.47,
+      "framing": "diagram_split_3d",
+      "movement": "pan_left",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D12",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "pan_left",
+        "lens_mm": 35,
+        "lighting_key": "natural",
+        "depth_of_field": "medium",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP C — Công nhận Di sản Quốc gia 2014 & lớp truyền dạy 2023",
+      "narrative_role": "evidence",
+      "information_role": "Claim ref C14",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-04-wide.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D12",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc027",
+      "type": "animation",
+      "script_section_id": "s27",
+      "description": "[LỚP C — Rào cản tiếng Ê Đê cổ & nghệ nhân Ama Nhiên tại Akô Dhông] archival_quote_3d | 3D=blender/B3D-09-detail.png",
+      "start_seconds": 524.47,
+      "end_seconds": 546.58,
+      "framing": "archival_quote_3d",
+      "movement": "dolly_in",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "dolly_in",
+        "lens_mm": 85,
+        "lighting_key": "tungsten_warm",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "LỚP C — Rào cản tiếng Ê Đê cổ & nghệ nhân Ama Nhiên tại Akô Dhông",
+      "narrative_role": "emotional_beat",
+      "information_role": "Claim ref C15",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-09-detail.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc028",
+      "type": "animation",
+      "script_section_id": "s28",
+      "description": "[LỚP C — 17 buôn làng phục dựng nhà dài & mặt trái sân khấu hóa] full_bleed_3d_callout | 3D=blender/B3D-10-detail.png",
+      "start_seconds": 546.58,
+      "end_seconds": 568.26,
+      "framing": "full_bleed_3d_callout",
+      "movement": "dolly_out",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "dolly_out",
+        "lens_mm": 50,
+        "lighting_key": "low_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "LỚP C — 17 buôn làng phục dựng nhà dài & mặt trái sân khấu hóa",
+      "narrative_role": "comparison",
+      "information_role": "Claim ref C15;C10",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-10-detail.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc029",
+      "type": "animation",
+      "script_section_id": "s29",
+      "description": "[KẾT — Tổng hợp lời giải cho câu hỏi mở đầu] full_bleed_3d | 3D=blender/B3D-01-detail.png",
+      "start_seconds": 568.26,
+      "end_seconds": 587.35,
+      "framing": "full_bleed_3d",
+      "movement": "dolly_out",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+      "shot_language": {
+        "shot_size": "medium_close",
+        "camera_movement": "dolly_out",
+        "lens_mm": 50,
+        "lighting_key": "golden_hour",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "KẾT — Tổng hợp lời giải cho câu hỏi mở đầu",
+      "narrative_role": "resolution",
+      "information_role": "Claim ref C05;C06;C07",
+      "hero_moment": true,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-01-detail.png",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc030",
+      "type": "animation",
+      "script_section_id": "s30",
+      "description": "[KẾT — Đánh giá Condominas & mở sang tập tiếp theo Season 3] end_card_3d | 3D=blender/B3D-01-wide.png | Infographic=D01",
+      "start_seconds": 587.35,
+      "end_seconds": 608.6,
+      "framing": "end_card_3d",
+      "movement": "crane_up",
+      "transition_in": "cross_dissolve",
+      "transition_out": "cross_dissolve",
+      "overlay_notes": "Diagram=D01",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "crane_up",
+        "lens_mm": 35,
+        "lighting_key": "golden_hour",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "KẾT — Đánh giá Condominas & mở sang tập tiếp theo Season 3",
+      "narrative_role": "call_to_action",
+      "information_role": "Claim ref C06;ROADMAP-S3",
+      "hero_moment": false,
+      "texture_keywords": [
+        "basalt",
+        "ironwood",
+        "beeswax",
+        "antique_brass",
+        "warm_archival_paper"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-01-wide.png",
+          "source": "generate"
+        },
+        {
+          "type": "diagram",
+          "description": "Remotion Atelier infographic D01",
+          "source": "generate"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "episode": "S3E02-dam-san",
+    "blender_hero_shots": 10,
+    "blender_total_renders": 20,
+    "remotion_diagrams": 12
+  }
+}

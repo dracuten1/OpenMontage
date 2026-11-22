@@ -1,0 +1,397 @@
+{
+  "version": "1.0",
+  "project_id": "dam-san",
+  "pipeline_type": "animated-explainer",
+  "stage": "edit",
+  "status": "completed",
+  "timestamp": "2026-11-22T14:50:36.486411+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": true,
+  "artifacts": {
+    "edit_decisions": {
+      "version": "1.0",
+      "render_runtime": "remotion",
+      "renderer_family": "documentary-montage",
+      "composition_mode": "atelier",
+      "cuts": [
+        {
+          "id": "sc001",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-01-clip.mp4",
+          "in_seconds": 0.0,
+          "out_seconds": 16.1667,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d (M\u1ede \u2014 Hook ngh\u1ecbch l\u00fd M\u1eb7t Tr\u1eddi & R\u1eebng S\u00e1p \u0110en)"
+        },
+        {
+          "id": "sc002",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-01-detail.png",
+          "in_seconds": 16.1667,
+          "out_seconds": 34.9,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "split_3d_diagram (M\u1ede \u2014 N\u1ed1i m\u1ea1ch Season 3 & cam k\u1ebft 3 l\u1edbp)"
+        },
+        {
+          "id": "sc003",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-02-clip.mp4",
+          "in_seconds": 34.9,
+          "out_seconds": 53.2,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d_callout (L\u1edaP A \u2014 \u1ea4n b\u1ea3n 2.077 c\u00e2u & kh\u1edfi \u0111\u1ea7u chu\u00ea nu\u00ea)"
+        },
+        {
+          "id": "sc004",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-02-detail.png",
+          "in_seconds": 53.2,
+          "out_seconds": 71.4667,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_focus (L\u1edaP A \u2014 S\u1ef1 ph\u1ea3n kh\u00e1ng ban \u0111\u1ea7u c\u1ee7a ch\u00e0ng t\u00f9 tr\u01b0\u1edfng tr\u1ebb)"
+        },
+        {
+          "id": "sc005",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-03-clip.mp4",
+          "in_seconds": 71.4667,
+          "out_seconds": 94.0667,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d (L\u1edaP A \u2014 Chi\u1ebfn tr\u1eadn Mtao Gr\u1ee9 & Mtao Mx\u00e2y)"
+        },
+        {
+          "id": "sc006",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-04-clip.mp4",
+          "in_seconds": 94.0667,
+          "out_seconds": 121.4,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d_callout (L\u1edaP A \u2014 C\u00fa l\u1eadt \u0111\u1ecba t\u1ea7ng v\u0103n b\u1ea3n 1933)"
+        },
+        {
+          "id": "sc007",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-04-detail.png",
+          "in_seconds": 121.4,
+          "out_seconds": 156.6333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_split_3d (L\u1edaP A \u2014 Kh\u00f4i ph\u1ee5c t\u1eeb 2 l\u00ean 6 r\u1ed3i 8 \u0111\u1ed1i th\u1ee7 (7 cu\u1ed9c chi\u1ebfn))"
+        },
+        {
+          "id": "sc008",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-03-clip.mp4",
+          "in_seconds": 156.6333,
+          "out_seconds": 181.8,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "archival_quote_3d (L\u1edaP A \u2014 B\u1ea3n song ng\u1eef 2003 c\u1ee7a Nguy\u1ec5n H\u1eefu Th\u1ea5u & l\u1ed1i h\u00e1t khan)"
+        },
+        {
+          "id": "sc009",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-05-clip.mp4",
+          "in_seconds": 181.8,
+          "out_seconds": 202.7333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d (L\u1edaP A \u2014 C\u00e2y th\u1ea7n Smuk / Ktu & chuy\u1ebfn l\u00ean Tr\u1eddi h\u1ed3i sinh v\u1ee3)"
+        },
+        {
+          "id": "sc010",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-06-clip.mp4",
+          "in_seconds": 202.7333,
+          "out_seconds": 222.4667,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d_callout (L\u1edaP A \u2014 B\u0103ng qua R\u1eebng S\u00e1p \u0110en \u0111i c\u1ea7u h\u00f4n N\u1eef th\u1ea7n M\u1eb7t Tr\u1eddi)"
+        },
+        {
+          "id": "sc011",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-06-clip.mp4",
+          "in_seconds": 222.4667,
+          "out_seconds": 243.8333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d (L\u1edaP A \u2014 C\u00e1i ch\u1ebft tan ch\u1ea3y & h\u00f3a th\u00e2n \u0110\u0103m S\u0103n ch\u00e1u)"
+        },
+        {
+          "id": "sc012",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-05-detail.png",
+          "in_seconds": 243.8333,
+          "out_seconds": 267.4333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_focus (L\u1edaP A \u2014 Hai c\u00e1ch \u0111\u1ecdc v\u1ec1 th\u1ea5t b\u1ea1i c\u1ee7a \u0110\u0103m S\u0103n)"
+        },
+        {
+          "id": "sc013",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-07-clip.mp4",
+          "in_seconds": 267.4333,
+          "out_seconds": 280.1333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d_callout (L\u1edaP B \u2014 Chuy\u1ec3n t\u1ea7ng sang thi\u1ebft ch\u1ebf x\u00e3 h\u1ed9i & m\u1eabu h\u1ec7 \u00ca \u0110\u00ea)"
+        },
+        {
+          "id": "sc014",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-07-detail.png",
+          "in_seconds": 280.1333,
+          "out_seconds": 301.3667,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_split_3d (L\u1edaP B \u2014 T\u1ee5c n\u1ed1i d\u00f2ng chu\u00ea nu\u00ea v\u00e0 hai d\u00f2ng h\u1ecd Ni\u00ea \u2013 Ml\u00f4)"
+        },
+        {
+          "id": "sc015",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-02-clip.mp4",
+          "in_seconds": 301.3667,
+          "out_seconds": 320.2333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d (L\u1edaP B \u2014 Kh\u00f4ng gian ki\u1ebfn tr\u00fac Nh\u00e0 d\u00e0i h\u00ecnh thuy\u1ec1n)"
+        },
+        {
+          "id": "sc016",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-02-detail.png",
+          "in_seconds": 320.2333,
+          "out_seconds": 341.0,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_focus (L\u1edaP B \u2014 T\u1eeb Dring gah, c\u1ea7u thang ch\u1ea1m b\u1ea7u v\u00fa t\u1edbi gh\u1ebf Kpan)"
+        },
+        {
+          "id": "sc017",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-08-clip.mp4",
+          "in_seconds": 341.0,
+          "out_seconds": 365.0667,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d_callout (L\u1edaP B \u2014 C\u00fa n\u1ed1i Season 3: Nam \u0110\u1ea3o gi\u1eefa \u0111\u1ea1i ng\u00e0n Nam \u00c1)"
+        },
+        {
+          "id": "sc018",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-08-detail.png",
+          "in_seconds": 365.0667,
+          "out_seconds": 387.4333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_split_3d (L\u1edaP B \u2014 B\u1eb1ng ch\u1ee9ng ng\u00f4n ng\u1eef h\u1ecdc Chamic t\u1eeb tr\u01b0\u1edbc 600 TCN)"
+        },
+        {
+          "id": "sc019",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-08-clip.mp4",
+          "in_seconds": 387.4333,
+          "out_seconds": 411.7,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "archival_quote_3d (L\u1edaP B \u2014 D\u1ea5u \u1ea5n Champa & kh\u00f4ng gian c\u1ed3ng chi\u00eang li\u00ean t\u1ed9c ng\u01b0\u1eddi)"
+        },
+        {
+          "id": "sc020",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-09-clip.mp4",
+          "in_seconds": 411.7,
+          "out_seconds": 433.1,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d (L\u1edaP B \u2014 B\u1ed9 chi\u00eang \u00ca \u0110\u00ea 6 + 3 + 1 + tr\u1ed1ng c\u00e1i & linh h\u1ed3n \u0111\u00eam khan)"
+        },
+        {
+          "id": "sc021",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-09-detail.png",
+          "in_seconds": 433.1,
+          "out_seconds": 448.8333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_focus (L\u1edaP B \u2014 L\u1ed1i di\u1ec5n x\u01b0\u1edbng hai n\u1ed1t & k\u00e8n \u0111ing tut)"
+        },
+        {
+          "id": "sc022",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-08-detail.png",
+          "in_seconds": 448.8333,
+          "out_seconds": 485.1667,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_focus (L\u1edaP C \u2014 D\u00e2n s\u1ed1 \u00ca \u0110\u00ea n\u0103m 2019 & \u0111\u1ed1i chi\u1ebfu m\u1ed1c 2009)"
+        },
+        {
+          "id": "sc023",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-10-clip.mp4",
+          "in_seconds": 485.1667,
+          "out_seconds": 510.7333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d_callout (L\u1edaP C \u2014 Chi\u1ebfn d\u1ecbch Kho t\u00e0ng s\u1eed thi T\u00e2y Nguy\u00ean 2001\u20132007)"
+        },
+        {
+          "id": "sc024",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-10-detail.png",
+          "in_seconds": 510.7333,
+          "out_seconds": 537.5333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_focus (L\u1edaP C \u2014 75 t\u00e1c ph\u1ea9m in s\u00e1ch trong 62 t\u1eadp & ph\u1ea7n c\u1ee7a ng\u01b0\u1eddi \u00ca \u0110\u00ea)"
+        },
+        {
+          "id": "sc025",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-04-detail.png",
+          "in_seconds": 537.5333,
+          "out_seconds": 563.5333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_focus (L\u1edaP C \u2014 Ngh\u1ecbch l\u00fd \u0111\u00e1ng b\u00e1o \u0111\u1ed9ng t\u1eeb kh\u1ea3o s\u00e1t n\u0103m 2007)"
+        },
+        {
+          "id": "sc026",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-04-wide.png",
+          "in_seconds": 563.5333,
+          "out_seconds": 596.1333,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "diagram_split_3d (L\u1edaP C \u2014 C\u00f4ng nh\u1eadn Di s\u1ea3n Qu\u1ed1c gia 2014 & l\u1edbp truy\u1ec1n d\u1ea1y 2023)"
+        },
+        {
+          "id": "sc027",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-09-clip.mp4",
+          "in_seconds": 596.1333,
+          "out_seconds": 620.0,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "archival_quote_3d (L\u1edaP C \u2014 R\u00e0o c\u1ea3n ti\u1ebfng \u00ca \u0110\u00ea c\u1ed5 & ngh\u1ec7 nh\u00e2n Ama Nhi\u00ean t\u1ea1i Ak\u00f4 Dh\u00f4ng)"
+        },
+        {
+          "id": "sc028",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-10-clip.mp4",
+          "in_seconds": 620.0,
+          "out_seconds": 643.5667,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d_callout (L\u1edaP C \u2014 17 bu\u00f4n l\u00e0ng ph\u1ee5c d\u1ef1ng nh\u00e0 d\u00e0i & m\u1eb7t tr\u00e1i s\u00e2n kh\u1ea5u h\u00f3a)"
+        },
+        {
+          "id": "sc029",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-01-clip.mp4",
+          "in_seconds": 643.5667,
+          "out_seconds": 663.2667,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "full_bleed_3d (K\u1ebeT \u2014 T\u1ed5ng h\u1ee3p l\u1eddi gi\u1ea3i cho c\u00e2u h\u1ecfi m\u1edf \u0111\u1ea7u)"
+        },
+        {
+          "id": "sc030",
+          "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-01-wide.png",
+          "in_seconds": 663.2667,
+          "out_seconds": 686.2,
+          "layer": "primary",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "transition_duration": 0.5,
+          "reason": "end_card_3d (K\u1ebeT \u2014 \u0110\u00e1nh gi\u00e1 Condominas & m\u1edf sang t\u1eadp ti\u1ebfp theo Season 3)"
+        }
+      ],
+      "bespoke": {
+        "entry": "src/dam-san/index.tsx",
+        "composition_id": "dam-san-FINAL",
+        "art_direction": "T\u00e2y Nguy\u00ean Warm Archival Diorama (Atelier): k\u1ebft h\u1ee3p sa b\u00e0n \u0111i\u00eau kh\u1eafc 3D ch\u1ea5t li\u1ec7u g\u1ed7 tr\u1ea7m \u2013 \u0111\u1ea5t \u0111\u1ecf bazan \u2013 s\u00e1p ong \u2013 \u0111\u1ed3ng thau chi\u00eang t\u1eeb Blender 5.2.2 LTS (Cycles 64\u201396 samples + OIDN, 1920x1080) v\u1edbi l\u1edbp \u0111\u1ed3 h\u1ecda ph\u1eb3ng Remotion tr\u00ean n\u1ec1n gi\u1ea5y d\u00f3 ng\u00e0 \u1ea5m #F2EAD8 v\u00e0 \u0111\u00eam bazan #1A1512; m\u00e0u nh\u1ea5n th\u1ed5 c\u1ea9m \u0111\u1ecf \u0111\u00f4 #9E3B24, \u0111\u1ed3ng chi\u00eang #D49B38 v\u00e0 xanh r\u1eebng \u0111\u1ea1i ng\u00e0n #38665E; ch\u1eef ti\u00eau \u0111\u1ec1 Newsreader/Be Vietnam Pro s\u1eafc n\u00e9t, s\u1ed1 li\u1ec7u tabular-nums tr\u00ean JetBrains Mono, nh\u1ecbp chuy\u1ec3n c\u1ea3nh \u00eam ch\u1eafc (damping >= 18), tr\u00e1nh ho\u00e0n to\u00e0n th\u1ebb card bo g\u00f3c SaaS.",
+        "public_dir": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san",
+        "scale": 1.0,
+        "crf": 18,
+        "concurrency": 4
+      },
+      "audio": {
+        "narration": {
+          "segments": [
+            {
+              "asset_id": "narration-full",
+              "start_seconds": 0.0,
+              "end_seconds": 686.2
+            }
+          ]
+        },
+        "music": {
+          "asset_id": "bgm-the-complex",
+          "volume": 0.115,
+          "fade_in_seconds": 2.0,
+          "fade_out_seconds": 5.0,
+          "ducking": true
+        }
+      },
+      "subtitles": {
+        "enabled": false,
+        "style": "sidecar_srt",
+        "source": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/captions.srt",
+        "position": "bottom-center"
+      },
+      "music": {
+        "asset_id": "bgm-the-complex",
+        "volume": 0.115,
+        "ducking": true,
+        "fade_in_seconds": 2.0,
+        "fade_out_seconds": 5.0
+      }
+    }
+  },
+  "style_playbook": "ink-genome",
+  "metadata": {
+    "timing_validation_warnings": [
+      "Cut count (30) does not match narration asset count (31). Source of truth: asset_manifest.json. Per-cut boundary check was SKIPPED for this reason; only the full-audio total check applies."
+    ]
+  }
+}

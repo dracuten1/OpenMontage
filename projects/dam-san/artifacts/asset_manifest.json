@@ -1,0 +1,1065 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "img-B3D-01-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-01-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-01-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-01-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-02-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-02-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-02-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-02-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-03-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-03-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-03-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-03-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-04-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-04-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-04-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-04-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-05-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-05-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-05-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-05-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-06-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-06-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-06-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-06-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-07-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-07-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-07-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-07-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-08-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-08-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-08-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-08-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-09-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-09-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-09-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-09-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-10-detail",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-10-detail.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "img-B3D-10-wide",
+      "type": "image",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/B3D-10-wide.png",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "format": "png",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS Cycles (Apple M4 Metal GPU)"
+    },
+    {
+      "id": "vid-B3D-01-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-01-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "vid-B3D-02-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-02-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "vid-B3D-03-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-03-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "vid-B3D-04-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-04-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "vid-B3D-05-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-05-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "vid-B3D-06-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-06-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "vid-B3D-07-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-07-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "vid-B3D-08-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-08-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "vid-B3D-09-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-09-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "vid-B3D-10-clip",
+      "type": "video",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/blender/video/B3D-10-clip.mp4",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "resolution": "1920x1080",
+      "duration_seconds": 10.0,
+      "format": "mp4",
+      "cost_usd": 0.0,
+      "provider": "Blender 5.2.2 LTS EEVEE Animated + BlenderKit (AgX 1080p)"
+    },
+    {
+      "id": "3d-B3D-01-black-wax-forest",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-01-black-wax-forest.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-B3D-02-longhouse",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-02-longhouse.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-B3D-03-mtao-mxay-clash",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-03-mtao-mxay-clash.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-B3D-04-archival-strata",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-04-archival-strata.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-B3D-05-smuk-tree",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-05-smuk-tree.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-B3D-06-sun-climax",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-06-sun-climax.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-B3D-07-kpan-matriliny",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-07-kpan-matriliny.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-B3D-08-topography-chamic",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-08-topography-chamic.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-B3D-09-gong-ensemble",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-09-gong-ensemble.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-B3D-10-archive-heritage",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender/B3D-10-archive-heritage.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-B3D-01-anim",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/B3D-01-anim.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-B3D-04-anim",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/B3D-04-anim.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-B3D-05-anim",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/B3D-05-anim.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-B3D-06-anim",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/B3D-06-anim.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-B3D-07-anim",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/B3D-07-anim.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-B3D-08-anim",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/B3D-08-anim.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-B3D-09-anim",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/B3D-09-anim.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-B3D-10-anim",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/B3D-10-anim.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-anim_b3d02_longhouse",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/anim_b3d02_longhouse.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-anim-anim_b3d03_clash",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blender_anim/anim_b3d03_clash.blend",
+      "source_tool": "blender",
+      "scene_id": "global",
+      "subtype": "animated_scene",
+      "format": "blend",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "3d-blenderkit-manifest",
+      "type": "3d_asset",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/blenderkit_assets/blenderkit_manifest.json",
+      "source_tool": "blenderkit_catalog",
+      "scene_id": "global",
+      "subtype": "provenance_manifest",
+      "format": "json",
+      "provider": "blenderkit",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "tts-s01",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s01.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc001",
+      "duration_seconds": 15.62,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s01",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s02",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s02.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc002",
+      "duration_seconds": 18.2,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s02",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s03",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s03.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc003",
+      "duration_seconds": 17.76,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s03",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s04",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s04.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc004",
+      "duration_seconds": 17.72,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s04",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s05",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s05.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc005",
+      "duration_seconds": 22.04,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s05",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s06",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s06.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc006",
+      "duration_seconds": 26.77,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s06",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s07",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s07.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc007",
+      "duration_seconds": 34.69,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s07",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s08",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s08.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc008",
+      "duration_seconds": 24.61,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s08",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s09",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s09.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc009",
+      "duration_seconds": 20.38,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s09",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s10",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s10.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc010",
+      "duration_seconds": 19.19,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s10",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s11",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s11.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc011",
+      "duration_seconds": 20.82,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s11",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s12",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s12.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc012",
+      "duration_seconds": 23.04,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s12",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s13",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s13.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc013",
+      "duration_seconds": 12.16,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s13",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s14",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s14.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc014",
+      "duration_seconds": 20.68,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s14",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s15",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s15.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc015",
+      "duration_seconds": 18.31,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s15",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s16",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s16.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc016",
+      "duration_seconds": 20.23,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s16",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s17",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s17.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc017",
+      "duration_seconds": 23.53,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s17",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s18",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s18.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc018",
+      "duration_seconds": 21.83,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s18",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s19",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s19.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc019",
+      "duration_seconds": 23.71,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s19",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s20",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s20.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc020",
+      "duration_seconds": 20.85,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s20",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s21",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s21.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc021",
+      "duration_seconds": 15.2,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s21",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s22",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s22.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc022",
+      "duration_seconds": 35.79,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s22",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s23",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s23.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc023",
+      "duration_seconds": 25.01,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s23",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s24",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s24.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc024",
+      "duration_seconds": 26.26,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s24",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s25",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s25.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc025",
+      "duration_seconds": 25.45,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s25",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s26",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s26.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc026",
+      "duration_seconds": 32.05,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s26",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s27",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s27.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc027",
+      "duration_seconds": 23.33,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s27",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s28",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s28.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc028",
+      "duration_seconds": 23.01,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s28",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s29",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s29.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc029",
+      "duration_seconds": 19.16,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s29",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "tts-s30",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/assets/audio/sections/s30.wav",
+      "source_tool": "vieneu",
+      "scene_id": "sc030",
+      "duration_seconds": 21.72,
+      "format": "wav",
+      "cost_usd": 0.0,
+      "voice_performance": {
+        "source_section_id": "s30",
+        "delivery_cues_applied": true,
+        "provider_text_used": true,
+        "sample_approved": true
+      }
+    },
+    {
+      "id": "narration-full",
+      "type": "narration",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/narration_full.wav",
+      "source_tool": "ffmpeg",
+      "scene_id": "global",
+      "duration_seconds": 686.2,
+      "format": "wav",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "bgm-the-complex",
+      "type": "music",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/background_music.mp3",
+      "source_tool": "media_library",
+      "scene_id": "global",
+      "duration_seconds": 686.2,
+      "format": "mp3",
+      "license": "CC-BY-4.0",
+      "original_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300025",
+      "cost_usd": 0.0
+    },
+    {
+      "id": "captions-srt",
+      "type": "subtitle",
+      "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/captions.srt",
+      "source_tool": "transcriber",
+      "scene_id": "global",
+      "format": "srt",
+      "cost_usd": 0.0
+    }
+  ],
+  "total_cost_usd": 0.0,
+  "metadata": {
+    "blender_pngs": 20,
+    "blender_videos": 10,
+    "blend_files": 10,
+    "blend_anim_files": 10,
+    "tts_sections": 30
+  }
+}

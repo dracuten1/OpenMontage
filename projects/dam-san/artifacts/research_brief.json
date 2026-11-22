@@ -1,0 +1,348 @@
+{
+  "version": "1.0",
+  "topic": "VN-Myth S3E02 — Sử thi Đăm Săn (Klei Khan Y Đam San, dân tộc Ê Đê — Tây Nguyên)",
+  "research_date": "2026-11-22",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "Đơn giản hoá: Sử thi Đăm Săn (và một chuyện khác nữa)",
+        "url": "https://www.youtube.com/watch?v=2-afg0HUPb0",
+        "source": "YouTube (Vui Vẻ)",
+        "angle": "Kể tóm tắt hài hước theo trích đoạn SGK Ngữ văn 10 Kết nối tri thức",
+        "what_it_covers": "Cuộc đi bắt Nữ thần Mặt trời và hình tượng người anh hùng trong chương trình Ngữ văn 10.",
+        "what_it_misses": "Bỏ qua địa tầng văn bản từ Sabatier (1933) tới Đỗ Hồng Kỳ (2006), không giải thích ngữ hệ Nam Đảo và thiết chế chuê nuê.",
+        "engagement_signal": "~494K views (xuất bản 23/10/2025)"
+      },
+      {
+        "title": "The Entire Epic of Dam San in 10 Minutes",
+        "url": "https://www.youtube.com/watch?v=lFXZY6XkPaw",
+        "source": "YouTube",
+        "angle": "Tóm tắt mạch truyện liên hoàn trong 10 phút",
+        "what_it_covers": "Cốt truyện từ lúc lấy H'Nhị, H'Bhị đến trận đánh Mtao Mxây và chặng Rừng Sáp Đen.",
+        "what_it_misses": "Không có số liệu điền dã, khảo cổ-ngôn ngữ hay phân tích bối cảnh nhà dài hình thuyền và cồng chiêng Tây Nguyên.",
+        "engagement_signal": "Video tóm tắt 10 phút xuất bản 08/04/2025"
+      },
+      {
+        "title": "Dam San Goes to Capture the Sun Goddess | Literature 10",
+        "url": "https://www.youtube.com/watch?v=Y3SycQgx1oA",
+        "source": "YouTube",
+        "angle": "Ôn tập trích đoạn Ngữ văn 10",
+        "what_it_covers": "Nội dung bài học Đăm Săn đi bắt Nữ thần Mặt Trời phục vụ học sinh.",
+        "what_it_misses": "Thuần tính giáo khoa, thiếu phân tích đối chiếu văn hóa Mường (S3E01) vs Ê Đê và thực trạng truyền dạy khan hôm nay.",
+        "engagement_signal": "Xuất bản 18/05/2022"
+      },
+      {
+        "title": "Sử thi Đăm Săn là gì? Nguồn gốc, cốt truyện và giá trị tác phẩm",
+        "url": "https://zim.vn/su-thi-dam-san",
+        "source": "ZIM Academy",
+        "angle": "Tổng hợp cốt truyện 3 chặng và giá trị nội dung – nghệ thuật",
+        "what_it_covers": "Giải thích khái niệm chuê nuê (dẫn GS Phan Đăng Nhật) và nhận định của Condominas, Dournes.",
+        "what_it_misses": "Thiếu đối chiếu 2 trận (Sabatier) vs 6–8 tù trưởng/7 trận chiến và thiếu toàn bộ dữ liệu bảo tồn Kho tàng sử thi Tây Nguyên 2001–2007.",
+        "engagement_signal": "Bài viết chuẩn hóa SEO ôn thi THPT"
+      }
+    ],
+    "saturated_angles": [
+      "Tóm tắt thuần túy 2 trích đoạn SGK (Chiến thắng Mtao Mxây và Đi bắt Nữ thần Mặt Trời)",
+      "Bình giảng một chiều về lòng dũng cảm và khát vọng chinh phục thiên nhiên",
+      "Video slide chữ đọc lại văn mẫu trên nền ảnh minh họa AI rời rạc"
+    ],
+    "underserved_gaps": [
+      "Địa tầng văn bản học thuật: vì sao bản SGK chỉ có 2 trận chiến (Sabatier 1933 tự ý cắt đoạn lặp) trong khi thực địa nghệ nhân Y Nuh Niê kể tới 8 tù trưởng / 7 cuộc chiến giành vợ?",
+      "Mối nối trực tiếp với Season 3 «50 lên núi»: khác với người Mường nói tiếng Nam Á (S3E01), người Ê Đê nói tiếng Nam Đảo (Highlands Chamic) giữa không gian láng giềng Môn–Khmer Tây Nguyên.",
+      "Giải mã cấu trúc xã hội mẫu hệ – tục nối dòng chuê nuê – kiến trúc nhà dài hình thuyền qua mô hình 3D Blender giúp khán giả nhìn thấy không gian Dring gah / Gah / Ôk / Kpan.",
+      "Thực trạng di sản bằng con số: 388 nghệ nhân – gần 5.700 băng 90 phút – 75 sử thi xuất bản (2001–2007) và nghịch lý khảo sát 2007 (97% thích nhưng 62,1% không biết hoặc biết rất ít)."
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "Khảo sát 17 buôn làng phục dựng nhà dài gắn với du lịch cộng đồng và trình diễn khan tại Đắk Lắk",
+        "url": "https://dantoctongiao.vn/so-hoa-di-san-van-hoa-cua-cong-dong-dan-toc-e-de-gop-phan-phat-trien-ben-vung-khu-vuc-tay-nguyen-1782465236111.htm",
+        "date": "2026-06-28",
+        "relevance": "Phản ánh xu hướng số hóa di sản kết hợp du lịch nhưng tiềm ẩn nguy cơ sân khấu hóa sử thi bên bếp lửa."
+      },
+      {
+        "headline": "Nghệ nhân Ama Nhiên (buôn Akô Dhông) tự ghi chép và dịch song ngữ khan vì lớp trẻ không hiểu tiếng Ê Đê cổ",
+        "url": "https://nhandan.vn/nguoi-giu-lua-khan-e-de-post954253.html",
+        "date": "2026-10-06",
+        "relevance": "Cung cấp lát cắt nhân vật đương đại chân thực cho Lớp C của tập phim."
+      },
+      {
+        "headline": "Đắk Lắk mở lớp truyền dạy hát kể khan tại Ea Tul (20 học viên) và hát vần klei duê tại Cuôr Đăng (22 học viên)",
+        "url": "https://vhttdl.daklak.gov.vn/khai-mac-lop-truyen-day-dien-xuong-hat-ke-su-thi-ke-khan-tai-xa-ea-tul-va-lop-hat-van-klei-due-cua-nguoi-ede-va-xa-cuor-dang-huyen-cu-mgar-12372.html",
+        "date": "2023-06-27",
+        "relevance": "Chứng cứ chính thống về nỗ lực truyền dạy di sản cấp tỉnh."
+      }
+    ],
+    "active_discussions": [
+      {
+        "platform": "Bình luận độc giả & giới nghiên cứu (Dotchuoinon / Linh Nga Niê Kdăm)",
+        "topic_or_url": "https://dotchuoinon.com/2011/06/10/s%E1%BB%AD-thi-chang-dam-san-klei-khan-y-dam-san/",
+        "sentiment": "analytical",
+        "key_quotes": [
+          "không phải bắt nữ thần mặt trời là phản kháng chế độ mẫu hệ, mà cho rằng Dam San khát vọng lớn hơn, kiêu hãnh hơn muốn là người đem ánh sáng về với buôn làng"
+        ]
+      }
+    ],
+    "timeliness_window": "Evergreen + phù hợp cao điểm học tập Ngữ văn 10 và mạch Season 3 VN-Myth."
+  },
+  "data_points": [
+    {
+      "claim": "L. Sabatier (1933) cắt bỏ các đoạn chiến trận lặp lại nên bản phổ biến chỉ còn 2 trận (Mtao Grứ, Mtao Mxây); GS Phan Đăng Nhật (1985–1987) khôi phục 6 tù trưởng; Đỗ Hồng Kỳ & Y Wơn Kna (2002/2006) ghi nhận từ nghệ nhân Y Nuh Niê tới 8 đối thủ / 7 cuộc chiến giành vợ.",
+      "source_url": "https://nguvan.hnue.edu.vn/Nghi%C3%AAn-c%E1%BB%A9u/V%C4%83n-h%E1%BB%8Dc-d%C3%A2n-gian/p/cac-tieu-nhom-su-thi-thiet-che-xa-hoi-o-viet-nam-220",
+      "source_name": "Khoa Ngữ văn ĐHSP Hà Nội (TS. Phạm Đặng Xuân Hương)",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "hook_and_visual_timeline"
+    },
+    {
+      "claim": "Điều tra 53 DTTS 1/4/2019: Dân số Ê Đê đạt 398.671 người (nam 195.351; nữ 203.320; 88,9% sống ở nông thôn). Mốc Tổng điều tra 2009 là 331.194 người, riêng Đắk Lắk chiếm 298.534 người (90,1%).",
+      "source_url": "https://nhandan.vn/dan-toc-e-de-post723907.html",
+      "source_name": "Báo Nhân Dân & Wikipedia EN (Central Highlands)",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "infographic_stat"
+    },
+    {
+      "claim": "Khác với nhóm Việt–Mường (Nam Á) ở S3E01, người Ê Đê nói tiếng Nam Đảo (Malayo-Polynesia / Highlands Chamic) thuộc nhóm 5 dân tộc Nam Đảo tại VN; tổ tiên Chamic có mặt ở duyên hải từ trước 600 TCN trước khi lên cao nguyên giao thoa với 21 dân tộc Môn–Khmer.",
+      "source_url": "https://chinhphu.vn/dan-toc-68388",
+      "source_name": "Cổng TTĐT Chính phủ & Marc Brunelle (dẫn Thurgood 1999)",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "linguistic_map_contrast"
+    },
+    {
+      "claim": "Dự án Kho tàng sử thi Tây Nguyên (2001–2007) xác định 388 nghệ nhân, thu gần 5.700 băng 90 phút của 801 tác phẩm hát kể, xuất bản 75 tác phẩm trong 62 tập (60.400–60.555 trang), trong đó Ê Đê có 10 tác phẩm.",
+      "source_url": "https://vnexpress.net/kho-tang-su-thi-tay-nguyen-bo-sach-quy-ve-van-hoa-dai-ngan-1971707.html",
+      "source_name": "VnExpress (19/03/2010) & Báo Nhân Dân",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "treemap_data_viz"
+    },
+    {
+      "claim": "Khảo sát 2007 (Viện KHXH VN): 37% thích và 60% rất thích sử thi (chỉ 2% không thích), nhưng 8,8% không biết gì và 53,3% hiểu biết rất ít; 80% ủng hộ mở lớp dạy tại buôn/plây.",
+      "source_url": "https://nhandan.vn/hay-cuu-lay-su-thi-tay-nguyen-post223625.html",
+      "source_name": "GS.TSKH Phan Đăng Nhật (Báo Nhân Dân 22/01/2015)",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "conservation_chart"
+    },
+    {
+      "claim": "Không gian văn hóa Cồng chiêng Tây Nguyên (UNESCO công bố 2005, ghi danh 2008) gắn kết 17 cộng đồng Nam Á & Nam Đảo; Khan (Sử thi) của người Ê Đê được công nhận Di sản VH phi vật thể QG theo QĐ 4205/QĐ-BVHTTDL ngày 19/12/2014; hiện Đắk Lắk có 17 buôn phục dựng nhà dài du lịch cộng đồng.",
+      "source_url": "https://ich.unesco.org/en/RL/space-of-gong-culture-00120",
+      "source_name": "UNESCO ICH & Bộ VHTTDL (dulieuphapluat.vn)",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "heritage_timeline"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "Vì sao Đăm Săn đã mạnh vô địch mà lại chết khi đi cầu hôn Nữ thần Mặt Trời?",
+      "Tục nối dây (chuê nuê) thực chất vận hành ra sao và vì sao Đăm Săn phải lấy hai chị em H'Nhị – H'Bhị?",
+      "Vì sao sử thi Đăm Săn lại có chi tiết nhà dài giống thuyền, gỗ đóng chiêng hay ngữ hệ Nam Đảo gần với Chăm?",
+      "Sử thi Đăm Săn chỉ có 2 trận chiến (Mtao Grự, Mtao Mxây) hay còn nhiều dị bản khác chưa dạy trong SGK?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "Sử thi Đăm Săn chỉ gồm 2 trận đánh Mtao Grự và Mtao Mxây trong bản 2.077 câu ở trường học.",
+        "reality": "L. Sabatier (1933) đã tự ý cắt bớt các chiến trận lặp lại; khôi phục của GS Phan Đăng Nhật có 6 tù trưởng và bản ghi từ nghệ nhân Y Nuh Niê (Đỗ Hồng Kỳ & Y Wơn Kna 2006) ghi tới 8 đối thủ / 7 cuộc chiến.",
+        "source": "https://nguvan.hnue.edu.vn/Nghi%C3%AAn-c%E1%BB%A9u/V%C4%83n-h%E1%BB%8Dc-d%C3%A2n-gian/p/cac-tieu-nhom-su-thi-thiet-che-xa-hoi-o-viet-nam-220"
+      },
+      {
+        "myth": "Mọi dân tộc miền núi Tây Nguyên trong nhánh «50 lên núi» đều chung một gốc ngôn ngữ.",
+        "reality": "Tây Nguyên là khảm giao thoa giữa hai ngữ hệ khác nhau hoàn toàn: Nam Đảo / Chamic (Ê Đê, Gia Rai...) và Nam Á / Môn–Khmer (Ba Na, Mnông, Xơ Đăng, Cơ Ho...).",
+        "source": "https://chinhphu.vn/dan-toc-68388"
+      },
+      {
+        "myth": "Sử thi Ê Đê ngày nay biến mất hoàn toàn vì người dân không quan tâm.",
+        "reality": "Khảo sát 2007 cho thấy tới 97% (37% thích + 60% rất thích) vẫn trân trọng sử thi, nhưng 62,1% (8,8% + 53,3%) đứt gãy khả năng tiếp cận do rào cản tiếng Ê Đê cổ và thiếu môi trường diễn xướng.",
+        "source": "https://nhandan.vn/hay-cuu-lay-su-thi-tay-nguyen-post223625.html"
+      }
+    ],
+    "knowledge_level": "intermediate",
+    "pain_points": [
+      "Khán giả phổ thông nhớ mơ hồ tên Đăm Săn từ Ngữ văn 10 nhưng chưa từng thấy không gian kiến trúc nhà dài, ngữ hệ Nam Đảo hay lịch sử cắt xén văn bản năm 1927–1933."
+    ]
+  },
+  "expert_voices": [
+    {
+      "name": "GS.TSKH Phan Đăng Nhật",
+      "title_or_affiliation": "Nhà nghiên cứu văn hóa dân gian & sử thi Tây Nguyên",
+      "position": "Khôi phục 6 tù trưởng trong văn bản Đăm Săn (1985–1987) và chỉ ra nghịch lý khảo sát 2007: yêu thích rất cao nhưng hiểu biết đang đứng sát bờ vực tiêu vong.",
+      "source_url": "https://nhandan.vn/hay-cuu-lay-su-thi-tay-nguyen-post223625.html",
+      "contrarian": false
+    },
+    {
+      "name": "TS. Phạm Đặng Xuân Hương",
+      "title_or_affiliation": "Khoa Ngữ văn — Trường ĐHSP Hà Nội",
+      "position": "Tổng hợp địa tầng văn bản từ Sabatier (2 trận) -> Phan Đăng Nhật (6 tù trưởng) -> Đỗ Hồng Kỳ & Y Wơn Kna (8 tù trưởng / 7 cuộc chiến) gắn với chức năng thiết chế xã hội.",
+      "source_url": "https://nguvan.hnue.edu.vn/Nghi%C3%AAn-c%E1%BB%A9u/V%C4%83n-h%E1%BB%8Dc-d%C3%A2n-gian/p/cac-tieu-nhom-su-thi-thiet-che-xa-hoi-o-viet-nam-220",
+      "contrarian": true
+    },
+    {
+      "name": "Georges Condominas",
+      "title_or_affiliation": "Nhà dân tộc học Pháp",
+      "position": "Khẳng định sử thi Đăm Săn là kiệt tác hàng đầu không phải bàn cãi của văn học truyền miệng các tộc người nội địa Trung Bộ Việt Nam.",
+      "source_url": "https://zim.vn/su-thi-dam-san",
+      "contrarian": false
+    },
+    {
+      "name": "Linh Nga Niê Kdăm",
+      "title_or_affiliation": "Nhà văn, nhà nghiên cứu văn hóa Ê Đê",
+      "position": "Đọc hành trình cầu hôn Nữ thần Mặt Trời như khát vọng kiêu hãnh muốn mang ánh sáng về cho buôn làng chứ không chỉ là phản kháng chế độ mẫu hệ; lưu ý Sabatier từng cắt bớt văn bản.",
+      "source_url": "https://dotchuoinon.com/2011/06/10/s%E1%BB%AD-thi-chang-dam-san-klei-khan-y-dam-san/",
+      "contrarian": true
+    }
+  ],
+  "angles_discovered": [
+    {
+      "name": "Góc 1 (Khuyến nghị): Vì sao người anh hùng mạnh nhất Tây Nguyên lại thất bại khi cầu hôn Nữ thần Mặt Trời?",
+      "hook": "Thắng sạch mọi tù trưởng dưới mặt đất, nhưng vừa rời bỏ kỷ cương buôn làng tiến vào Rừng Sáp Đen, Đăm Săn tan rã. Vì sao bộ SGK chỉ kể 2 trận chiến, và bí mật nào ẩn sau kiến trúc nhà dài hình thuyền lẫn ngôn ngữ Nam Đảo của người Ê Đê?",
+      "type": "contrarian",
+      "why_now": "Khai thác trọn vẹn tính kịch 3D (Blender diorama Rừng Sáp Đen, Nhà dài hình thuyền, giao chiến Mtao Mxây) lẫn chiều sâu dữ liệu (2->6->8 tù trưởng, đối chiếu Nam Á Mường ở S3E01 vs Nam Đảo Ê Đê ở S3E02).",
+      "grounded_in": [
+        "C01",
+        "C03",
+        "C05",
+        "C07",
+        "C08",
+        "C09",
+        "C12"
+      ]
+    },
+    {
+      "name": "Góc 2: Klei bhian & Chuê nuê — Khi tự do cá nhân va đầu vào luật tục mẫu hệ bất khả xâm phạm",
+      "hook": "Từ cú quăng mình kháng cự hôn nhân nối dây ở đầu trường ca đến cái chết trong Rừng Sáp Đen, Đăm Săn thực chất là cuộc đối thoại giữa khát vọng cá nhân và cấu trúc giữ tài sản – liên minh hai dòng họ Niê–Mlô.",
+      "type": "narrative",
+      "why_now": "Rất sâu về nhân học gia đình mẫu hệ, nhưng nặng lý thuyết xã hội và thiếu điểm tựa sử thi–ngôn ngữ rộng bằng Góc 1.",
+      "grounded_in": [
+        "C07",
+        "C08",
+        "C05"
+      ]
+    },
+    {
+      "name": "Góc 3: Giải mã địa tầng 1927–2007 — Sử thi Đăm Săn đã bị 'cắt' và 'cứu' như thế nào?",
+      "hook": "Năm 1927, công sứ Pháp L. Sabatier in bản Đăm Săn đầu tiên và cắt bỏ hàng loạt trận chiến vì cho là lặp lại. Gần một thế kỷ sau, 388 nghệ nhân và 5.700 cuộn băng 90 phút mới trả lại tầm vóc thật của kho sử thi đại ngàn.",
+      "type": "data_driven",
+      "why_now": "Hấp dẫn giới nghiên cứu văn bản học, nhưng hơi khô nếu đứng làm trục chính cho toàn bộ 15 phút (phù hợp nhất khi lồng vào nửa đầu Góc 1).",
+      "grounded_in": [
+        "C03",
+        "C04",
+        "C12",
+        "C13",
+        "C14"
+      ]
+    }
+  ],
+  "visual_references": [
+    {
+      "description": "Blender 5.2.2 LTS headless Cycles matte clay-wood diorama: Nhà dài Ê Đê kiến trúc hình thuyền, cầu thang đực/cái chạm bầu vú & trăng lưỡi liềm, nội thất Gah với ghế độc mộc Kpan và dàn 6 chiêng bằng + 3 chiêng núm.",
+      "what_works": "Cho phép camera 3D đi xuyên không gian kiến trúc văn hóa thật trước khi chuyển sang đồ họa Remotion 2D giải thích trục phân tầng."
+    },
+    {
+      "description": "Blender miniature mountain-plateau basalt map & Black Wax Forest (Rừng Sáp Đen) diorama: ánh sáng nghiêng ấm hổ phách đối đầu mặt trời chói gắt.",
+      "what_works": "Khắc phục hoàn toàn cảm giác AI 2D phẳng lì ở các tập kể chuyện dân gian phổ thông."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://nguvan.hnue.edu.vn/Nghi%C3%AAn-c%E1%BB%A9u/V%C4%83n-h%E1%BB%8Dc-d%C3%A2n-gian/p/cac-tieu-nhom-su-thi-thiet-che-xa-hoi-o-viet-nam-220",
+      "title": "Khoa Ngữ văn ĐHSP HN — Các tiểu nhóm sử thi, thiết chế xã hội",
+      "used_for": "Địa tầng 2 trận (Sabatier) vs 6 (Phan Đăng Nhật) vs 8 tù trưởng/7 trận (Đỗ Hồng Kỳ 2006)",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://www.persee.fr/doc/befeo_0336-1519_1933_num_33_1_4619",
+      "title": "Persée — L. Sabatier (1933) La chanson de Damsan, BEFEO Tome 33",
+      "used_for": "Ấn bản song ngữ Pháp–Ê Đê gốc & mô tả kỹ thuật hát kể khan",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://daklakmuseum.vn/nghien-cuu/bai-viet/khan-dam-san-va-khan-dam-kteh-mlan-su-thi-ede",
+      "title": "Bảo tàng Đắk Lắk — Khan Đăm San và Khan Đăm Kteh Mlan",
+      "used_for": "Bản chỉnh lý song ngữ 2 tập của Nguyễn Hữu Thấu (2003)",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://nhandan.vn/dan-toc-e-de-post723907.html",
+      "title": "Báo Nhân Dân — Dân tộc Ê Đê (Điều tra 1/4/2019)",
+      "used_for": "Dân số 398.671 (2019), ngữ hệ Nam Đảo, mẫu hệ, chuê nuê, cồng chiêng",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://nhandan.vn/nha-dai-cua-nguoi-e-de-post432718.html",
+      "title": "Báo Nhân Dân — Nhà dài của người Ê Đê",
+      "used_for": "Chi tiết kiến trúc Dring gah, Kpan, cầu thang đực/cái chạm bầu vú & mặt trăng",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://chinhphu.vn/dan-toc-68388",
+      "title": "Cổng TTĐT Chính phủ — 54 dân tộc Việt Nam",
+      "used_for": "Phân nhóm 5 dân tộc Nam Đảo và 21 dân tộc Môn–Khmer",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://chamstudies.wordpress.com/wp-content/uploads/2015/08/brunelle_chamic_expansion.pdf",
+      "title": "Marc Brunelle — Revisiting the expansion of the Chamic language family",
+      "used_for": "Mốc trước 600 TCN (Thurgood 1999) và tiếp xúc Highlands Chamic – Bahnaric",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://ich.unesco.org/en/RL/space-of-gong-culture-00120",
+      "title": "UNESCO ICH — Space of Gong Culture (00120)",
+      "used_for": "Công bố 2005, ghi danh 2008 trên 17 cộng đồng Nam Á & Nam Đảo",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://vnexpress.net/kho-tang-su-thi-tay-nguyen-bo-sach-quy-ve-van-hoa-dai-ngan-1971707.html",
+      "title": "VnExpress — Kho tàng sử thi Tây Nguyên (2010)",
+      "used_for": "388 nghệ nhân, ~5.700 băng 90 phút, 801 tác phẩm, phân bổ 75 sử thi xuất bản",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://nhandan.vn/hay-cuu-lay-su-thi-tay-nguyen-post223625.html",
+      "title": "Báo Nhân Dân — GS.TSKH Phan Đăng Nhật (2015)",
+      "used_for": "Số liệu khảo sát 2007 (37%, 60%, 8,8%, 53,3%, 80%)",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://dulieuphapluat.vn/cong-cu/di-san-phi-vat-the/khan-su-thi-cua-nguoi-e-de.html",
+      "title": "Dữ liệu Pháp luật — Quyết định 4205/QĐ-BVHTTDL (19/12/2014)",
+      "used_for": "Ghi danh Khan (Sử thi) Ê Đê là Di sản VH phi vật thể quốc gia",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://vhttdl.daklak.gov.vn/khai-mac-lop-truyen-day-dien-xuong-hat-ke-su-thi-ke-khan-tai-xa-ea-tul-va-lop-hat-van-klei-due-cua-nguoi-ede-va-xa-cuor-dang-huyen-cu-mgar-12372.html",
+      "title": "Sở VHTTDL Đắk Lắk — Lớp truyền dạy kể khan & klei duê 2023",
+      "used_for": "Số học viên (20 Ea Tul, 22 Cuôr Đăng) và nhạc cụ kèn đing tut",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://nhandan.vn/nguoi-giu-lua-khan-e-de-post954253.html",
+      "title": "Báo Nhân Dân — Nghệ nhân Ama Nhiên giữ lửa khan Ê Đê",
+      "used_for": "Rào cản ngôn ngữ cổ ở người trẻ tại Akô Dhông & dịch song ngữ",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://dantoctongiao.vn/so-hoa-di-san-van-hoa-cua-cong-dong-dan-toc-e-de-gop-phan-phat-trien-ben-vung-khu-vuc-tay-nguyen-1782465236111.htm",
+      "title": "Dân tộc & Tôn giáo — Số hóa di sản Ê Đê (2026)",
+      "used_for": "17 buôn làng Đắk Lắk phục dựng nhà dài du lịch cộng đồng",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Central_Highlands_(Vietnam)",
+      "title": "Wikipedia EN — Central Highlands (Vietnam)",
+      "used_for": "Mốc tổng điều tra 2009 (331.194 Ê Đê) phân tách rõ với mốc 2019",
+      "reliability": "secondary"
+    }
+  ],
+  "research_summary": "15 nhận định đã khóa (C01–C15) cùng 33 trích dẫn PASS_RAW đối khớp từng chữ với 27 tệp nguồn lưu tại vn-myth-series/episodes/S3E02-dam-san/research/v1/raw/. Điểm đột phá nghiên cứu: (1) giải mã địa tầng 2->6->8 tù trưởng do Sabatier cắt bản năm 1933; (2) nối mạch Season 3 chỉ ra người Ê Đê nói tiếng Nam Đảo (Chamic) khác hẳn Nam Á Mường ở S3E01; (3) phân tách rạch ròi mốc dân số 2019 (398.671) và 2009 cấp tỉnh Đắk Lắk (298.534) để tuyệt đối không gộp nhầm số liệu.",
+  "metadata": {
+    "research_seal_dir": "/Users/tuyennguyen/project/vn-myth-series/episodes/S3E02-dam-san/research/v1",
+    "claims_count": 15,
+    "citations_verified_pass_raw": 33,
+    "raw_snapshots_count": 27
+  }
+}

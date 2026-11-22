@@ -6,13 +6,14 @@ description: Generate, reconstruct, inspect, and route production 3D assets for 
 # 3D Asset Generation
 
 Use this skill when a production needs real meshes rather than primitive stand-ins.
-It complements `threejs-world-generation`: that skill owns semantic world planning;
+It complements `threejs-world-generation` and `blender-explainer-animation`: those skills own semantic world and animated explainer planning;
 this skill owns how unique and repeated meshes enter the world with provenance.
 
 ## Route by asset role
 
 | Need | Tool | Model/path | Why |
 |---|---|---|---|
+| Props, animals, foliage, books, furniture, architecture for Blender explainers | `blenderkit_catalog` | Free BlenderKit `.blend` + `blender_explainer_kit.py` | Free, high-detail reusable `.blend` assets with local cache, GeoNodes baking, and 1-frame EEVEE probe QA |
 | Repeated vegetation, rocks, generic props | `threejs_asset_catalog` | CC0 Kenney catalog | Free, coherent, instancing-friendly |
 | Unique object described in words | `atlas_3d` | `tripo-h3.1/text-to-3d` | Direct textured/PBR GLB with seeds and face limit |
 | Object matching a concept image | `fal_3d` | Hunyuan 3D v3.1 Rapid image-to-3D | Better silhouette/style conditioning from one image |

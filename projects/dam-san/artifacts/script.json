@@ -1,0 +1,649 @@
+{
+  "version": "1.0",
+  "title": "VN-Myth S3E02 — Sử thi Đăm Săn: Vì sao người anh hùng mạnh nhất Tây Nguyên thất bại?",
+  "total_duration_seconds": 608.6,
+  "voice_performance": {
+    "performance_intent": "Kể sử thi có chiều sâu khảo cứu, giữ sự tôn trọng bản sắc Ê Đê, tránh kịch tính sáo rỗng.",
+    "pacing_profile": "conversational",
+    "pause_policy": "Nghỉ ngắn 0.45s giữa các đoạn để chuyển cảnh Blender 3D và Remotion infographic rõ nhịp."
+  },
+  "sections": [
+    {
+      "id": "s01",
+      "label": "MỞ — Hook nghịch lý Mặt Trời & Rừng Sáp Đen",
+      "text": "Đánh thắng mọi tù trưởng trên mặt đất, thống lĩnh hàng nghìn tôi tớ và mở rộng buôn làng trù phú nhất đại ngàn — vậy mà vừa đặt chân vào Rừng Sáp Đen, người anh hùng mạnh nhất Tây Nguyên lại ngã quỵ mà không hề chạm được vào mũi giáo của bất kỳ kẻ thù nào. Vì sao Đăm Săn lại thất bại trong chuyến đi cầu hôn Nữ thần Mặt Trời?",
+      "start_seconds": 0.0,
+      "end_seconds": 16.51,
+      "source_ref": "HOOK;C01;C05",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Đánh thắng mọi tù trưởng trên mặt đất, thống lĩnh hàng nghìn tôi tớ và mở rộng buôn làng trù phú nhất đại ngàn — vậy mà vừa đặt chân vào Rừng Sáp Đen, người anh hùng mạnh nhất Tây Nguyên lại ngã quỵ mà không hề chạm được vào mũi giáo của bất kỳ kẻ thù nào. Vì sao Đăm Săn lại thất bại trong chuyến đi cầu hôn Nữ thần Mặt Trời?",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-01-wide: Bàn sa bàn Rừng Sáp Đen & chiến binh gỗ tiến về quầng sáng gắt"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "label": "MỞ — Nối mạch Season 3 & cam kết 3 lớp",
+      "text": "Sau tập mở màn Season 3 với người Mường và Mo Đẻ đất đẻ nước ở phía Bắc, hôm nay chúng ta đi tiếp về phía Nam — bước lên cao nguyên đất đỏ bazan Đắk Lắk để giải mã bài ca chàng Đăm Săn, tiếng Ê Đê gọi là Klei Khan Y Đam San. Vẫn giữ đúng nguyên tắc ba lớp: sử thi trong văn bản, thiết chế – ngôn ngữ phía sau sử thi, và đời sống diễn xướng hôm nay.",
+      "start_seconds": 16.51,
+      "end_seconds": 34.96,
+      "source_ref": "ROADMAP-S3;BRAND",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Sau tập mở màn Mùa ba với người Mường và Mo Đẻ đất đẻ nước ở phía Bắc, hôm nay chúng ta đi tiếp về phía Nam — bước lên cao nguyên đất đỏ bazan Đắk Lắk để giải mã bài ca chàng Đăm Săn, tiếng Ê Đê gọi là Cờ-lây Khan Y Đăm Săn. Vẫn giữ đúng nguyên tắc ba lớp: sử thi trong văn bản, thiết chế – ngôn ngữ phía sau sử thi, và đời sống diễn xướng hôm nay.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D01/S3 Callback: Bọc trăm trứng 50 lên núi — S3E01 Mường vs S3E02 Ê Đê"
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "label": "LỚP A — Ấn bản 2.077 câu & khởi đầu chuê nuê",
+      "text": "Trong ấn bản phổ thông dài 2.077 câu mà nhiều thế hệ học sinh Việt Nam từng đọc, câu chuyện không hề mở ra bằng chiến công, mà mở ra bằng một cuộc cưỡng hôn theo tập tục. Theo tục nối dây chuê nuê của chế độ mẫu hệ Ê Đê, Đăm Săn buộc phải cưới hai chị em H'Nhị và H'Bhị để giữ trọn khối tài sản và dây liên minh giữa hai dòng họ.",
+      "start_seconds": 34.96,
+      "end_seconds": 51.9,
+      "source_ref": "C02;C07",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Trong ấn bản phổ thông dài hai nghìn không trăm bảy mươi bảy câu mà nhiều thế hệ học sinh Việt Nam từng đọc, câu chuyện không hề mở ra bằng chiến công, mà mở ra bằng một cuộc cưỡng hôn theo tập tục. Theo tục nối dây chuê nuê của chế độ mẫu hệ Ê Đê, Đăm Săn buộc phải cưới hai chị em Hơ Nhị và Hơ Bhị để giữ trọn khối tài sản và dây liên minh giữa hai dòng họ.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-02-wide: Mặt cắt Nhà dài hình thuyền trên bệ bazan"
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "label": "LỚP A — Sự phản kháng ban đầu của chàng tù trưởng trẻ",
+      "text": "Lúc đầu, Đăm Săn quyết liệt phản kháng. Chàng mải mê chơi đánh quay, bỏ mặc vợ gọi về ăn cơm suốt nhiều ngày, chỉ đến khi thần linh Trời — tiếng Ê Đê gọi là Yàng — gõ gậy mây xuống đầu răn dạy thì chàng mới chịu khuất phục. Trở thành tù trưởng nhà vợ, danh tiếng giàu có và nhan sắc của H'Nhị bắt đầu thu hút lòng tham từ khắp các buôn xa.",
+      "start_seconds": 51.9,
+      "end_seconds": 69.06,
+      "source_ref": "C02;C07",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Lúc đầu, Đăm Săn quyết liệt phản kháng. Chàng mải mê chơi đánh quay, bỏ mặc vợ gọi về ăn cơm suốt nhiều ngày, chỉ đến khi thần linh Trời — tiếng Ê Đê gọi là Giàng — gõ gậy mây xuống đầu răn dạy thì chàng mới chịu khuất phục. Trở thành tù trưởng nhà vợ, danh tiếng giàu có và nhan sắc của Hơ Nhị bắt đầu thu hút lòng tham từ khắp các buôn xa.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D02: Cấu trúc 3 chặng sử thi Klei Khan Y Đam San"
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "label": "LỚP A — Chiến trận Mtao Grứ & Mtao Mxây",
+      "text": "Trận đầu tiên, Mtao Grứ — tù trưởng Kền Kền — nhân lúc Đăm Săn vắng nhà đã lừa H'Nhị mang ống điếu ra rồi bắt cóc nàng. Đăm Săn truy đuổi và đánh bại hắn. Ngay sau đó, Mtao Mxây — tù trưởng Sắt mặc áo giáp kín mít — lại cưỡi voi tới cướp vợ. Hai người giao chiến kinh thiên động địa, và nhờ lời mách của Yàng ném chày mòn trúng tai kẻ địch, Đăm Săn đập tan giáp sắt, thu phục toàn bộ dân làng về buôn mình.",
+      "start_seconds": 69.06,
+      "end_seconds": 89.66,
+      "source_ref": "C01;C03",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Trận đầu tiên, Mơ-tao Gờ-rứ — tù trưởng Kền Kền — nhân lúc Đăm Săn vắng nhà đã lừa Hơ Nhị mang ống điếu ra rồi bắt cóc nàng. Đăm Săn truy đuổi và đánh bại hắn. Ngay sau đó, Mơ-tao Mơ-xây — tù trưởng Sắt mặc áo giáp kín mít — lại cưỡi voi tới cướp vợ. Hai người giao chiến kinh thiên động địa, và nhờ lời mách của Giàng ném chày mòn trúng tai kẻ địch, Đăm Săn đập tan giáp sắt, thu phục toàn bộ dân làng về buôn mình.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-03-wide: Voi chiến & tù trưởng áo giáp sắt Mtao Mxây"
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "label": "LỚP A — Cú lật địa tầng văn bản 1933",
+      "text": "Nhưng đây mới là điểm gần như không sách giáo khoa nào kể đủ: thực ra Đăm Săn không chỉ đánh có hai trận đó. Năm 1927 ở Paris và năm 1933 trên tập san BEFEO, công sứ Pháp L. Sabatier là người đầu tiên công bố bản song ngữ Pháp – Ê Đê của Đăm Săn. Nghiên cứu văn bản học sau này của Trường Đại học Sư phạm Hà Nội chỉ rõ: chính Sabatier đã tự tay cắt bỏ hàng loạt trận đánh vì ông cho rằng các đoạn chiến trận lặp lại quá đơn điệu.",
+      "start_seconds": 89.66,
+      "end_seconds": 111.34,
+      "source_ref": "C03;C04",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Nhưng đây mới là điểm gần như không sách giáo khoa nào kể đủ: thực ra Đăm Săn không chỉ đánh có hai trận đó. Năm 1927 ở Paris và năm 1933 trên tập san tập san Trường Viễn Đông Bác Cổ, công sứ Pháp Lê-ô-pôn Sa-ba-ti-ê là người đầu tiên công bố bản song ngữ Pháp – Ê Đê của Đăm Săn. Nghiên cứu văn bản học sau này của Trường Đại học Sư phạm Hà Nội chỉ rõ: chính Sa-ba-ti-ê đã tự tay cắt bỏ hàng loạt trận đánh vì ông cho rằng các đoạn chiến trận lặp lại quá đơn điệu.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-04-wide: Bàn lưu trữ BEFEO 1933 & 7 thẻ gỗ tù trưởng"
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "label": "LỚP A — Khôi phục từ 2 lên 6 rồi 8 đối thủ (7 cuộc chiến)",
+      "text": "Các bản dịch tiếp nối như Đào Tử Chí giai đoạn 1959 đến 1977 hay bản Nguyễn Hữu Thấu năm 1988 cũng chủ yếu giữ khung hai cuộc chiến ấy, dù phần phụ lục có thêm trận Mtao Tuôr. Phải đến giai đoạn 1985 đến 1987, giáo sư Phan Đăng Nhật mới phục dựng được tới sáu tù trưởng. Và tháng 5 năm 2002, khi hai nhà nghiên cứu Đỗ Hồng Kỳ và Y Wơn Kna gặp nghệ nhân Y Nuh Niê ở buôn Jé, xã Ea Kênh, huyện Krông Pắc, họ ghi được trọn vẹn tám đối thủ: từ Mtao Anur, Mtao Ak đến Yang Hruê — tức ít nhất bảy cuộc chiến giành vợ chứ không phải hai.",
+      "start_seconds": 111.34,
+      "end_seconds": 135.84,
+      "source_ref": "C03",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Các bản dịch tiếp nối như Đào Tử Chí giai đoạn 1959 đến 1977 hay bản Nguyễn Hữu Thấu năm 1988 cũng chủ yếu giữ khung hai cuộc chiến ấy, dù phần phụ lục có thêm trận Mơ-tao Tua. Phải đến giai đoạn 1985 đến 1987, giáo sư Phan Đăng Nhật mới phục dựng được tới sáu tù trưởng. Và tháng 5 năm 2002, khi hai nhà nghiên cứu Đỗ Hồng Kỳ và Y Wơn Kna gặp nghệ nhân Y Nu Niê ở buôn Jé, xã Ê-a Kênh, huyện Kờ-rông Pắc, họ ghi được trọn vẹn tám đối thủ: từ Mơ-tao A-nua, Mơ-tao Ác đến Yăng Hơ-ruê — tức ít nhất bảy cuộc chiến giành vợ chứ không phải hai.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D03: Địa tầng văn bản Sabatier 1933 (2) -> Phan Đăng Nhật (6) -> Đỗ Hồng Kỳ 2006 (8 đối thủ / 7 trận)"
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "label": "LỚP A — Bản song ngữ 2003 của Nguyễn Hữu Thấu & lối hát khan",
+      "text": "Đến năm 2003, Nhà xuất bản Chính trị quốc gia mới in bộ sách hai tập Khan Đăm San và Khan Đăm Kteh Mlan do nhà dân tộc học Nguyễn Hữu Thấu dày công sưu tầm, đặt song song tập I bằng tiếng Ê Đê và tập II bằng tiếng Việt. Trong lời tựa năm 1933, ngay cả Sabatier cũng từng nhận xét rằng mỗi đêm kể khan thực chất là lối ngâm đều nhịp trên hai nốt trầm bổng bên bếp lửa, khác xa những dòng văn xuôi rút gọn in trong sách học trò.",
+      "start_seconds": 135.84,
+      "end_seconds": 157.09,
+      "source_ref": "C04",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Đến năm 2003, Nhà xuất bản Chính trị quốc gia mới in bộ sách hai tập Khan Đăm San và Khan Đăm Kteh Mlan do nhà dân tộc học Nguyễn Hữu Thấu dày công sưu tầm, đặt song song tập I bằng tiếng Ê Đê và tập II bằng tiếng Việt. Trong lời tựa năm 1933, ngay cả Sa-ba-ti-ê cũng từng nhận xét rằng mỗi đêm kể khan thực chất là lối ngâm đều nhịp trên hai nốt trầm bổng bên bếp lửa, khác xa những dòng văn xuôi rút gọn in trong sách học trò.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-04-detail: Cận cảnh trang sách song ngữ & thẻ khắc Mtao"
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "label": "LỚP A — Cây thần Smuk / Ktu & chuyến lên Trời hồi sinh vợ",
+      "text": "Trước khi đi về phía Mặt Trời, Đăm Săn còn lập thêm một kỳ tích nữa: chặt đổ cây thần Smuk — hay cây Ktu — gốc cây linh thiêng gắn liền với sinh mệnh dòng họ hai người vợ. Cây đổ xuống đè chết cả H'Nhị lẫn H'Bhị. Đau đớn và phẫn nộ, Đăm Săn vác gươm lên tận nhà Trời đòi lại công lý, buộc Ông Trời chỉ cho phép làm từ ngải, củ nén và gừng để cứu sống cả hai người vợ trở về.",
+      "start_seconds": 157.09,
+      "end_seconds": 176.61,
+      "source_ref": "C02",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Trước khi đi về phía Mặt Trời, Đăm Săn còn lập thêm một kỳ tích nữa: chặt đổ cây thần Sờ-múc — hay cây Kờ-tu — gốc cây linh thiêng gắn liền với sinh mệnh dòng họ hai người vợ. Cây đổ xuống đè chết cả Hơ Nhị lẫn Hơ Bhị. Đau đớn và phẫn nộ, Đăm Săn vác gươm lên tận nhà Trời đòi lại công lý, buộc Ông Trời chỉ cho phép làm từ ngải, củ nén và gừng để cứu sống cả hai người vợ trở về.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-05-wide: Cây thần Smuk gãy đổ ngang sân buôn"
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "label": "LỚP A — Băng qua Rừng Sáp Đen đi cầu hôn Nữ thần Mặt Trời",
+      "text": "Và bây giờ câu hỏi lớn nhất hiện ra: đã giàu có tột bậc và đánh đâu thắng đó, Đăm Săn lại quyết định cưỡi ngựa băng qua vùng đất tối tăm nhất — Rừng Sáp Đen — để đến tận nhà Nữ thần Mặt Trời cầu hôn nàng làm vợ lẽ. Bất chấp H'Nhị, H'Bhị cùng cả dân làng níu áo khóc lóc can ngăn, chàng vẫn cương quyết rời bỏ quỹ đạo quen thuộc của buôn làng để bước vào địa giới của thần linh.",
+      "start_seconds": 176.61,
+      "end_seconds": 195.92,
+      "source_ref": "C05",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Và bây giờ câu hỏi lớn nhất hiện ra: đã giàu có tột bậc và đánh đâu thắng đó, Đăm Săn lại quyết định cưỡi ngựa băng qua vùng đất tối tăm nhất — Rừng Sáp Đen — để đến tận nhà Nữ thần Mặt Trời cầu hôn nàng làm vợ lẽ. Bất chấp Hơ Nhị, Hơ Bhị cùng cả dân làng níu áo khóc lóc can ngăn, chàng vẫn cương quyết rời bỏ quỹ đạo quen thuộc của buôn làng để bước vào địa giới của thần linh.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-06-wide: Hành lang trụ Rừng Sáp Đen tan chảy dưới nắng gắt"
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "label": "LỚP A — Cái chết tan chảy & hóa thân Đăm Săn cháu",
+      "text": "Nữ thần Mặt Trời thẳng thắn từ chối: nếu nàng rời nhà đi cùng chàng, sức nóng từ thân thể nàng sẽ thiêu rụi mùa màng, sông suối và toàn bộ thế gian. Đăm Săn đành quay ngựa trở về, nhưng nắng gắt đã làm sáp đen chảy ra thành vũng lầy nuốt chửng cả người lẫn ngựa. Cuối sử thi, linh hồn chàng hóa thành con ruồi bay vào miệng chị gái H'Âng, sinh ra Đăm Săn cháu lại tiếp tục lên đường theo tập tục cũ.",
+      "start_seconds": 195.92,
+      "end_seconds": 215.44,
+      "source_ref": "C02;C05",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Nữ thần Mặt Trời thẳng thắn từ chối: nếu nàng rời nhà đi cùng chàng, sức nóng từ thân thể nàng sẽ thiêu rụi mùa màng, sông suối và toàn bộ thế gian. Đăm Săn đành quay ngựa trở về, nhưng nắng gắt đã làm sáp đen chảy ra thành vũng lầy nuốt chửng cả người lẫn ngựa. Cuối sử thi, linh hồn chàng hóa thành con ruồi bay vào miệng chị gái Hơ Âng, sinh ra Đăm Săn cháu lại tiếp tục lên đường theo tập tục cũ.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-06-detail: Sáp ong chảy óng như hổ phách nuốt chửng chiến binh"
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "label": "LỚP A — Hai cách đọc về thất bại của Đăm Săn",
+      "text": "Vì sao người anh hùng không thể thắng ở Rừng Sáp Đen? Giới nghiên cứu nhìn thấy ít nhất hai tầng nghĩa song song. Một phía đọc đây là giới hạn của sức mạnh cá nhân khi chạm tới trật tự tự nhiên và kỷ cương cộng đồng không thể phá vỡ. Nhưng mặt khác, nhà nghiên cứu văn hóa Ê Đê Linh Nga Niê Kdăm cũng từng lưu ý rằng: Đăm Săn không hẳn chỉ chống lại mẫu hệ, mà còn mang một khát vọng kiêu hãnh lớn hơn — muốn mang ánh sáng Mặt Trời về cho buôn làng.",
+      "start_seconds": 215.44,
+      "end_seconds": 237.76,
+      "source_ref": "C05",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Vì sao người anh hùng không thể thắng ở Rừng Sáp Đen? Giới nghiên cứu nhìn thấy ít nhất hai tầng nghĩa song song. Một phía đọc đây là giới hạn của sức mạnh cá nhân khi chạm tới trật tự tự nhiên và kỷ cương cộng đồng không thể phá vỡ. Nhưng mặt khác, nhà nghiên cứu văn hóa Ê Đê Linh Nga Niê Kờ-đăm cũng từng lưu ý rằng: Đăm Săn không hẳn chỉ chống lại mẫu hệ, mà còn mang một khát vọng kiêu hãnh lớn hơn — muốn mang ánh sáng Mặt Trời về cho buôn làng.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D04: Thẻ đối chiếu hai cách đọc Rừng Sáp Đen (Giới hạn trật tự vs Khát vọng ánh sáng)"
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "label": "LỚP B — Chuyển tầng sang thiết chế xã hội & mẫu hệ Ê Đê",
+      "text": "Muốn hiểu trọn vẹn bi kịch lẫn khát vọng ấy, ta phải bước xuống khỏi ngựa chiến và bước thẳng vào đời sống thực của người Ê Đê ở Lớp thứ hai. Đăm Săn không tồn tại trong khoảng chân không; chàng bị giằng co bởi một bộ máy xã hội cực kỳ chặt chẽ.",
+      "start_seconds": 237.76,
+      "end_seconds": 250.19,
+      "source_ref": "C07",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Muốn hiểu trọn vẹn bi kịch lẫn khát vọng ấy, ta phải bước xuống khỏi ngựa chiến và bước thẳng vào đời sống thực của người Ê Đê ở Lớp thứ hai. Đăm Săn không tồn tại trong khoảng chân không; chàng bị giằng co bởi một bộ máy xã hội cực kỳ chặt chẽ.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-07-wide: Không gian gian khách Gah và ghế độc mộc Kpan"
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "label": "LỚP B — Tục nối dòng chuê nuê và hai dòng họ Niê – Mlô",
+      "text": "Gia đình Ê Đê là gia đình mẫu hệ: phụ nữ chủ động hỏi chồng, đàn ông cưới xong về ở rể bên nhà vợ, con cái sinh ra mang họ mẹ và cô con gái út là người thừa kế toàn bộ gia sản cùng vai trò chủ nhà. Khi một người qua đời, dòng họ phải cử người thay thế theo tục nối dòng chuê nuê — như lời dặn cổ truyền giữ cho sợi dây luyến ái giữa hai dòng họ Niê và Mlô không bao giờ bị đứt đoạn.",
+      "start_seconds": 250.19,
+      "end_seconds": 270.79,
+      "source_ref": "C07",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Gia đình Ê Đê là gia đình mẫu hệ: phụ nữ chủ động hỏi chồng, đàn ông cưới xong về ở rể bên nhà vợ, con cái sinh ra mang họ mẹ và cô con gái út là người thừa kế toàn bộ gia sản cùng vai trò chủ nhà. Khi một người qua đời, dòng họ phải cử người thay thế theo tục nối dòng chuê nuê — như lời dặn cổ truyền giữ cho sợi dây luyến ái giữa hai dòng họ Niê và Mơ-lô không bao giờ bị đứt đoạn.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D05: Sơ đồ mẫu hệ & vòng liên minh hôn nhân chuê nuê Niê — Mlô"
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "label": "LỚP B — Không gian kiến trúc Nhà dài hình thuyền",
+      "text": "Mạng lưới họ hàng ấy được đúc thành gỗ qua ngôi nhà sàn dài Ê Đê — một kiến trúc mô phỏng hình con thuyền lướt sóng với hai vách dọc dựng thượng thách hạ thu và hai đầu mái nhô ra, đặt theo trục Đông – Tây gần bến nước. Mỗi khi cô con gái trong nhà lập gia đình, ngôi nhà lại được nối dài thêm về phía sau để nhiều thế hệ cùng sống chung dưới một mái tranh.",
+      "start_seconds": 270.79,
+      "end_seconds": 289.02,
+      "source_ref": "C08",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Mạng lưới họ hàng ấy được đúc thành gỗ qua ngôi nhà sàn dài Ê Đê — một kiến trúc mô phỏng hình con thuyền lướt sóng với hai vách dọc dựng thượng thách hạ thu và hai đầu mái nhô ra, đặt theo trục Đông – Tây gần bến nước. Mỗi khi cô con gái trong nhà lập gia đình, ngôi nhà lại được nối dài thêm về phía sau để nhiều thế hệ cùng sống chung dưới một mái tranh.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-02-detail: Vách thượng thách hạ thu & trục kiến trúc nhà dài"
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "label": "LỚP B — Từ Dring gah, cầu thang chạm bầu vú tới ghế Kpan",
+      "text": "Bước lên sân sàn trước gọi là Dring gah, người ta thấy hai chiếc cầu thang gỗ đặc đẽo bậc số lẻ — cầu thang khách và cầu thang người nhà — tạc hình đôi bầu vú căng tròn cùng trăng lưỡi liềm hay chim cu đất tôn vinh quyền uy người mẹ. Qua cửa là gian khách Gah kê bếp lửa Kpưr gah, bày cồng chiêng ché quý và chiếc ghế dài độc mộc Kpan đẽo từ nguyên một thân cổ thụ; còn nửa sau là Ôk dành cho từng đôi vợ chồng.",
+      "start_seconds": 289.02,
+      "end_seconds": 309.84,
+      "source_ref": "C08",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Bước lên sân sàn trước gọi là Đờ-rinh gah, người ta thấy hai chiếc cầu thang gỗ đặc đẽo bậc số lẻ — cầu thang khách và cầu thang người nhà — tạc hình đôi bầu vú căng tròn cùng trăng lưỡi liềm hay chim cu đất tôn vinh quyền uy người mẹ. Qua cửa là gian khách Gah kê bếp lửa Kờ-pư gah, bày cồng chiêng ché quý và chiếc ghế dài độc mộc Kờ-pan đẽo từ nguyên một thân cổ thụ; còn nửa sau là Ôk dành cho từng đôi vợ chồng.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D06: Sơ đồ mặt bằng Dring gah — Gah (Kpưr gah, Kpan) — Ôk & cầu thang chạm bầu vú"
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "label": "LỚP B — Cú nối Season 3: Nam Đảo giữa đại ngàn Nam Á",
+      "text": "Và nhìn ngôi nhà hình thuyền ấy ta chợt nhận ra một bí mật cực lớn kết nối trực tiếp với tập trước của Season 3. Nếu người Mường ở tập 1 nói ngôn ngữ thuộc nhánh Việt – Mường trong ngữ hệ Nam Á, thì người Ê Đê ở Tây Nguyên lại thuộc ngữ hệ Nam Đảo — nhóm Malayo-Polynesia! Tại Việt Nam, Cổng thông tin điện tử Chính phủ xếp nhóm Nam Đảo gồm năm dân tộc là Chăm, Chu Ru, Ê Đê, Gia Rai và Raglai, sống xen kẽ ngay bên cạnh 21 dân tộc nhóm Môn – Khmer trên vùng cao nguyên.",
+      "start_seconds": 309.84,
+      "end_seconds": 333.24,
+      "source_ref": "C09",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Và nhìn ngôi nhà hình thuyền ấy ta chợt nhận ra một bí mật cực lớn kết nối trực tiếp với tập trước của Mùa ba. Nếu người Mường ở tập 1 nói ngôn ngữ thuộc nhánh Việt – Mường trong ngữ hệ Nam Á, thì người Ê Đê ở Tây Nguyên lại thuộc ngữ hệ Nam Đảo — nhóm Mã Lai Đa Đảo! Tại Việt Nam, Cổng thông tin điện tử Chính phủ xếp nhóm Nam Đảo gồm năm dân tộc là Chăm, Chu Ru, Ê Đê, Gia Rai và Raglai, sống xen kẽ ngay bên cạnh 21 dân tộc nhóm Môn – Khmer trên vùng cao nguyên.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-08-wide: Sa bàn địa hình nổi 3D cao nguyên Tây Nguyên & duyên hải"
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "label": "LỚP B — Bằng chứng ngôn ngữ học Chamic từ trước 600 TCN",
+      "text": "Theo tổng hợp ngôn ngữ học lịch sử của Marc Brunelle dẫn lại Thurgood năm 1999, các nhóm nói tiếng Chamic thuộc ngữ hệ Nam Đảo đã đặt chân lên duyên hải miền Trung Việt Nam từ trước năm 600 trước Công nguyên, rồi một nhánh tiến lên cao nguyên tiếp xúc sâu với cư dân Môn – Khmer bản địa. Vậy nên «năm mươi người con lên núi» không phải một khối đồng nhất, mà là sự gặp gỡ của nhiều dòng chảy ngôn ngữ khác hẳn nhau.",
+      "start_seconds": 333.24,
+      "end_seconds": 352.98,
+      "source_ref": "C09",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Theo tổng hợp ngôn ngữ học lịch sử của Mác Bờ-ru-nen dẫn lại Thơ-gút năm 1999, các nhóm nói tiếng Chăm-ích thuộc ngữ hệ Nam Đảo đã đặt chân lên duyên hải miền Trung Việt Nam từ trước năm 600 trước Công nguyên, rồi một nhánh tiến lên cao nguyên tiếp xúc sâu với cư dân Môn – Khmer bản địa. Vậy nên «năm mươi người con lên núi» không phải một khối đồng nhất, mà là sự gặp gỡ của nhiều dòng chảy ngôn ngữ khác hẳn nhau.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D07: Bản đồ ngữ hệ Tây Nguyên — 5 dân tộc Nam Đảo (Chamic) đan xen khối Môn–Khmer Nam Á"
+        }
+      ]
+    },
+    {
+      "id": "s19",
+      "label": "LỚP B — Dấu ấn Champa & không gian cồng chiêng liên tộc người",
+      "text": "Chứng tích giao lưu ấy còn hằn trong bia ký Chăm từ thế kỷ VIII đến X nhắc tới tên gọi cổ Rang Đê và tháp Yang Prông trên đất Đắk Lắk. Nhưng dù nói tiếng Nam Đảo hay tiếng Nam Á Môn – Khmer, các dân tộc Trường Sơn – Tây Nguyên vẫn chia sẻ một sợi dây chung là Không gian văn hóa Cồng chiêng Tây Nguyên — được UNESCO công bố là kiệt tác năm 2005 và ghi danh năm 2008 trải rộng qua tới 17 cộng đồng Nam Á và Nam Đảo.",
+      "start_seconds": 352.98,
+      "end_seconds": 374.23,
+      "source_ref": "C09;C10",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Chứng tích giao lưu ấy còn hằn trong bia ký Chăm từ thế kỷ VIII đến X nhắc tới tên gọi cổ Rang Đê và tháp Yang Prông trên đất Đắk Lắk. Nhưng dù nói tiếng Nam Đảo hay tiếng Nam Á Môn – Khmer, các dân tộc Trường Sơn – Tây Nguyên vẫn chia sẻ một sợi dây chung là Không gian văn hóa Cồng chiêng Tây Nguyên — được U-nét-xcô công bố là kiệt tác năm 2005 và ghi danh năm 2008 trải rộng qua tới 17 cộng đồng Nam Á và Nam Đảo.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-08-detail: Nhánh cao nguyên Đắk Lắk – Gia Lai & dòng tiếp xúc"
+        }
+      ]
+    },
+    {
+      "id": "s20",
+      "label": "LỚP B — Bộ chiêng Ê Đê 6 + 3 + 1 + trống cái & linh hồn đêm khan",
+      "text": "Riêng với người Ê Đê, dàn nhạc nghi lễ chuẩn gồm 6 chiêng bằng, 3 chiêng núm, 1 chiêng giữ nhịp và 1 trống cái mặt da. Theo hồ sơ UNESCO, sau mỗi chiếc chiêng là một vị thần càng cổ càng linh thiêng, còn trong đêm kể khan bên bếp lửa gian Gah, tiếng kể của po khan hòa cùng nhịp chiêng và khói rượu cần chính là nơi luật tục, lịch sử buôn làng và sử thi Đăm Săn được truyền thẳng vào ký ức người nghe.",
+      "start_seconds": 374.23,
+      "end_seconds": 393.97,
+      "source_ref": "C10",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Riêng với người Ê Đê, dàn nhạc nghi lễ chuẩn gồm 6 chiêng bằng, 3 chiêng núm, 1 chiêng giữ nhịp và 1 trống cái mặt da. Theo hồ sơ U-nét-xcô, sau mỗi chiếc chiêng là một vị thần càng cổ càng linh thiêng, còn trong đêm kể khan bên bếp lửa gian Gah, tiếng kể của pô khan hòa cùng nhịp chiêng và khói rượu cần chính là nơi luật tục, lịch sử buôn làng và sử thi Đăm Săn được truyền thẳng vào ký ức người nghe.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-09-wide: Dàn 6 chiêng bằng + 3 chiêng núm + 1 chiêng giữ nhịp + trống cái"
+        }
+      ]
+    },
+    {
+      "id": "s21",
+      "label": "LỚP B — Lối diễn xướng hai nốt & kèn đing tut",
+      "text": "Khác với kịch nói hiện đại, kể khan là nghệ thuật ngâm xướng kéo dài thâu đêm với chất giọng trầm bổng nối vần — gọi là klei duê — đôi khi có tiếng kèn đing tut phụ họa. Từng cụm ba chữ ngân lên rồi hạ xuống tạo thành một cơn thôi miên bằng âm thanh giữ chân cả đại gia đình mẫu hệ suốt nhiều giờ liền.",
+      "start_seconds": 393.97,
+      "end_seconds": 409.41,
+      "source_ref": "C04;C14",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Khác với kịch nói hiện đại, kể khan là nghệ thuật ngâm xướng kéo dài thâu đêm với chất giọng trầm bổng nối vần — gọi là cờ-lây đuê — đôi khi có tiếng kèn đinh tút phụ họa. Từng cụm ba chữ ngân lên rồi hạ xuống tạo thành một cơn thôi miên bằng âm thanh giữ chân cả đại gia đình mẫu hệ suốt nhiều giờ liền.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D08: Cấu trúc bộ chiêng Ê Đê (6+3+1+trống) & mô phỏng nhịp ngâm 2 nốt klei duê"
+        }
+      ]
+    },
+    {
+      "id": "s22",
+      "label": "LỚP C — Dân số Ê Đê năm 2019 & đối chiếu mốc 2009",
+      "text": "Bước sang Lớp thứ ba — người Ê Đê và sử thi Đăm Săn hôm nay đang đứng ở đâu? Theo số liệu Điều tra 53 dân tộc thiểu số ngày 1 tháng 4 năm 2019 được báo Nhân Dân công bố, tổng dân số dân tộc Ê Đê là 398.671 người, gồm 195.351 nam và 203.320 nữ, với tỷ lệ sống ở nông thôn lên tới 88,9 phần trăm. Ở mốc Tổng điều tra năm 2009 trước đó — vốn tách bảng phân tỉnh rõ — người Ê Đê có 331.194 người, riêng tại Đắk Lắk chiếm tới 298.534 người, tương đương 90,1 phần trăm.",
+      "start_seconds": 409.41,
+      "end_seconds": 432.81,
+      "source_ref": "C11",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Bước sang Lớp thứ ba — người Ê Đê và sử thi Đăm Săn hôm nay đang đứng ở đâu? Theo số liệu Điều tra 53 dân tộc thiểu số ngày 1 tháng 4 năm 2019 được báo Nhân Dân công bố, tổng dân số dân tộc Ê Đê là ba trăm chín mươi tám nghìn sáu trăm bảy mươi mốt người, gồm một trăm chín mươi lăm nghìn ba trăm năm mươi mốt nam và hai trăm lẻ ba nghìn ba trăm hai mươi nữ, với tỷ lệ sống ở nông thôn lên tới 88,9 phần trăm. Ở mốc Tổng điều tra năm 2009 trước đó — vốn tách bảng phân tỉnh rõ — người Ê Đê có ba trăm ba mươi mốt nghìn một trăm chín mươi tư người, riêng tại Đắk Lắk chiếm tới hai trăm chín mươi tám nghìn năm trăm ba mươi tư người, tương đương 90,1 phần trăm.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D09: Thống kê dân số Ê Đê 2019 (398.671; 88,9% nông thôn) tách bạch mốc 2009 (Đắk Lắk 298.534)"
+        }
+      ]
+    },
+    {
+      "id": "s23",
+      "label": "LỚP C — Chiến dịch Kho tàng sử thi Tây Nguyên 2001–2007",
+      "text": "Trước nguy cơ lớp nghệ nhân cao tuổi lần lượt qua đời, từ năm 2001 đến hết năm 2007, Chính phủ giao Viện Khoa học xã hội Việt Nam phối hợp các tỉnh Tây Nguyên thực hiện một chiến dịch giải cứu chưa từng có. Kết quả được công bố khi ra mắt bộ Kho tàng sử thi Tây Nguyên thật sự choáng ngợp: đoàn điều tra tìm được 388 nghệ nhân biết hát kể ở nhiều mức độ và thu vào gần 5.700 cuộn băng ghi âm 90 phút của 801 tác phẩm hát kể khác nhau.",
+      "start_seconds": 432.81,
+      "end_seconds": 454.49,
+      "source_ref": "C12",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Trước nguy cơ lớp nghệ nhân cao tuổi lần lượt qua đời, từ năm 2001 đến hết năm 2007, Chính phủ giao Viện Khoa học xã hội Việt Nam phối hợp các tỉnh Tây Nguyên thực hiện một chiến dịch giải cứu chưa từng có. Kết quả được công bố khi ra mắt bộ Kho tàng sử thi Tây Nguyên thật sự choáng ngợp: đoàn điều tra tìm được 388 nghệ nhân biết hát kể ở nhiều mức độ và thu vào gần năm nghìn bảy trăm cuộn băng ghi âm 90 phút của 801 tác phẩm hát kể khác nhau.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-10-wide: Chồng 62 tập sách, cuộn băng 90 phút & kèn đing tut trên sàn nhà dài"
+        }
+      ]
+    },
+    {
+      "id": "s24",
+      "label": "LỚP C — 75 tác phẩm in sách trong 62 tập & phần của người Ê Đê",
+      "text": "Từ kho băng khổng lồ ấy, 75 tác phẩm sử thi đã được chọn phiên âm song ngữ và xuất bản thành bộ sách 62 tập, dày khoảng 60.400 đến 60.555 trang theo các thống kê công bố năm 2007 và 2015. Trong 75 tác phẩm được in thành sách, Ba Na có 30 tác phẩm, Mơ Nông 26 tác phẩm, Ê Đê đứng thứ ba với 10 tác phẩm, theo sau là Xơ Đăng 4, Raglai 3 và Chăm 2 tác phẩm — một bằng chứng cho thấy Đăm Săn chỉ là đỉnh nổi của cả một đại dương sử thi.",
+      "start_seconds": 454.49,
+      "end_seconds": 477.03,
+      "source_ref": "C12",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Từ kho băng khổng lồ ấy, 75 tác phẩm sử thi đã được chọn phiên âm song ngữ và xuất bản thành bộ sách 62 tập, dày khoảng sáu mươi nghìn bốn trăm đến sáu mươi nghìn năm trăm năm mươi lăm trang theo các thống kê công bố năm 2007 và 2015. Trong 75 tác phẩm được in thành sách, Ba Na có 30 tác phẩm, Mơ Nông 26 tác phẩm, Ê Đê đứng thứ ba với 10 tác phẩm, theo sau là Xơ Đăng 4, Raglai 3 và Chăm 2 tác phẩm — một bằng chứng cho thấy Đăm Săn chỉ là đỉnh nổi của cả một đại dương sử thi.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D10: Biểu đồ phân bổ 75 tác phẩm Kho tàng sử thi Tây Nguyên (Ba Na 30, Mơ Nông 26, Ê Đê 10...)"
+        }
+      ]
+    },
+    {
+      "id": "s25",
+      "label": "LỚP C — Nghịch lý đáng báo động từ khảo sát năm 2007",
+      "text": "Thế nhưng bộ sách dày hơn sáu vạn trang vẫn không thể tự động cứu lấy sử thi khỏi sự đứt gãy thế hệ. Năm 2007, trong đề tài cấp Bộ «Sử thi Tây Nguyên với cuộc sống đương đại», giáo sư Phan Đăng Nhật công bố một con số đầy nghịch lý: có tới 37 phần trăm người được hỏi thích và 60 phần trăm rất thích sử thi — chỉ 2 phần trăm không thích — nhưng đồng thời lại có 8,8 phần trăm không biết gì và 53,3 phần trăm hiểu biết rất ít về sử thi của chính dân tộc mình.",
+      "start_seconds": 477.03,
+      "end_seconds": 500.21,
+      "source_ref": "C13",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Thế nhưng bộ sách dày hơn sáu vạn trang vẫn không thể tự động cứu lấy sử thi khỏi sự đứt gãy thế hệ. Năm 2007, trong đề tài cấp Bộ «Sử thi Tây Nguyên với cuộc sống đương đại», giáo sư Phan Đăng Nhật công bố một con số đầy nghịch lý: có tới 37 phần trăm người được hỏi thích và 60 phần trăm rất thích sử thi — chỉ 2 phần trăm không thích — nhưng đồng thời lại có 8,8 phần trăm không biết gì và 53,3 phần trăm hiểu biết rất ít về sử thi của chính dân tộc mình.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D11: Nghịch lý khảo sát 2007 — 97% yêu thích vs 62,1% chưa hiểu hoặc không biết gì"
+        }
+      ]
+    },
+    {
+      "id": "s26",
+      "label": "LỚP C — Công nhận Di sản Quốc gia 2014 & lớp truyền dạy 2023",
+      "text": "Khảo sát năm 2007 cũng ghi nhận 80 phần trăm người dân tán thành và sẵn sàng tham gia mở lớp truyền dạy ngay tại buôn làng. Đến ngày 19 tháng 12 năm 2014, Bộ Văn hóa, Thể thao và Du lịch ban hành Quyết định 4205/QĐ-BVHTTDL chính thức ghi danh Khan — tức sử thi của người Ê Đê — vào Danh mục Di sản văn hóa phi vật thể quốc gia. Tới tháng 6 năm 2023, Đắk Lắk tiếp tục mở lớp truyền dạy hát kể khan tại xã Ea Tul cho 20 học viên và hát vần klei duê tại xã Cuôr Đăng cho 22 học viên.",
+      "start_seconds": 500.21,
+      "end_seconds": 524.47,
+      "source_ref": "C14",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Khảo sát năm 2007 cũng ghi nhận 80 phần trăm người dân tán thành và sẵn sàng tham gia mở lớp truyền dạy ngay tại buôn làng. Đến ngày 19 tháng 12 năm 2014, Bộ Văn hóa, Thể thao và Du lịch ban hành Quyết định bốn nghìn hai trăm lẻ năm, quyết định của Bộ Văn hóa, Thể thao và Du lịch chính thức ghi danh Khan — tức sử thi của người Ê Đê — vào Danh mục Di sản văn hóa phi vật thể quốc gia. Tới tháng 6 năm 2023, Đắk Lắk tiếp tục mở lớp truyền dạy hát kể khan tại xã Ê-a Tun cho 20 học viên và hát vần cờ-lây đuê tại xã Cuô Đăng cho 22 học viên.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "D12: Mốc pháp lý & truyền dạy (1927 Sabatier -> 2008 UNESCO Chiêng -> 2014 QĐ 4205 -> 2023 Cư M'Gar)"
+        }
+      ]
+    },
+    {
+      "id": "s27",
+      "label": "LỚP C — Rào cản tiếng Ê Đê cổ & nghệ nhân Ama Nhiên tại Akô Dhông",
+      "text": "Dù có thêm những người giữ lửa trẻ trung, thử thách lớn nhất hiện nay nằm ngay ở ngôn ngữ. Trong căn nhà dài tại buôn Akô Dhông, phường Tân Lợi, Đắk Lắk, nghệ nhân Ama Nhiên tâm sự một nỗi trăn trở rất thật: lớp trẻ bây giờ nghe tiếng Ê Đê cổ trong khan không hiểu hết được nên khó cảm nhận trọn cái hay. Vì vậy, anh phải phối hợp cùng vợ mình — một giáo viên dạy văn — dịch song ngữ từng đoạn sử thi sang tiếng phổ thông để làm tư liệu lưu truyền.",
+      "start_seconds": 524.47,
+      "end_seconds": 546.58,
+      "source_ref": "C15",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Dù có thêm những người giữ lửa trẻ trung, thử thách lớn nhất hiện nay nằm ngay ở ngôn ngữ. Trong căn nhà dài tại buôn A-kô Đơ-hông, phường Tân Lợi, Đắk Lắk, nghệ nhân A-ma Nhiên tâm sự một nỗi trăn trở rất thật: lớp trẻ bây giờ nghe tiếng Ê Đê cổ trong khan không hiểu hết được nên khó cảm nhận trọn cái hay. Vì vậy, anh phải phối hợp cùng vợ mình — một giáo viên dạy văn — dịch song ngữ từng đoạn sử thi sang tiếng phổ thông để làm tư liệu lưu truyền.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-09-detail: Ánh lửa ấm hắt lên mặt chiêng đồng thau cổ"
+        }
+      ]
+    },
+    {
+      "id": "s28",
+      "label": "LỚP C — 17 buôn làng phục dựng nhà dài & mặt trái sân khấu hóa",
+      "text": "Song hành với công tác số hóa di sản, nghiên cứu thực địa tại tỉnh Đắk Lắk ghi nhận đã có 17 buôn làng phục dựng nhà dài gắn với du lịch cộng đồng, kết hợp trình diễn cồng chiêng và kể sử thi. Tuy nhiên, cả người trong cuộc như Ama Nhiên lẫn cảnh báo của UNESCO đều nhắc tới áp lực thương mại hóa: khi một đêm khan vốn kéo dài bên bếp lửa bị cắt ngắn thành tiết mục vài chục phút đón khách, hồn cốt tự nhiên của di sản dễ bị bào mòn.",
+      "start_seconds": 546.58,
+      "end_seconds": 568.26,
+      "source_ref": "C15;C10",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Song hành với công tác số hóa di sản, nghiên cứu thực địa tại tỉnh Đắk Lắk ghi nhận đã có 17 buôn làng phục dựng nhà dài gắn với du lịch cộng đồng, kết hợp trình diễn cồng chiêng và kể sử thi. Tuy nhiên, cả người trong cuộc như A-ma Nhiên lẫn cảnh báo của U-nét-xcô đều nhắc tới áp lực thương mại hóa: khi một đêm khan vốn kéo dài bên bếp lửa bị cắt ngắn thành tiết mục vài chục phút đón khách, hồn cốt tự nhiên của di sản dễ bị bào mòn.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-10-detail: Cuộn băng tư liệu cạnh ánh lửa tàn trong gian Gah"
+        }
+      ]
+    },
+    {
+      "id": "s29",
+      "label": "KẾT — Tổng hợp lời giải cho câu hỏi mở đầu",
+      "text": "Quay trở lại câu hỏi đầu tập phim: vì sao Đăm Săn mạnh hơn mọi tù trưởng dưới trần gian mà lại gục ngã trên đường cầu hôn Nữ thần Mặt Trời? Bởi chiến công dưới hạ giới vẫn nằm trong ranh giới thiết chế buôn làng và dòng họ mẫu hệ Niê – Mlô; còn bước vào Rừng Sáp Đen, chàng đã chạm tới giới hạn tối hậu giữa khát vọng của một con người đơn độc với trật tự vận hành của tự nhiên.",
+      "start_seconds": 568.26,
+      "end_seconds": 587.35,
+      "source_ref": "C05;C06;C07",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Quay trở lại câu hỏi đầu tập phim: vì sao Đăm Săn mạnh hơn mọi tù trưởng dưới trần gian mà lại gục ngã trên đường cầu hôn Nữ thần Mặt Trời? Bởi chiến công dưới hạ giới vẫn nằm trong ranh giới thiết chế buôn làng và dòng họ mẫu hệ Niê – Mơ-lô; còn bước vào Rừng Sáp Đen, chàng đã chạm tới giới hạn tối hậu giữa khát vọng của một con người đơn độc với trật tự vận hành của tự nhiên.",
+        "pause_after_seconds": 0.45
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Blender B3D-01-detail: Mặt chiến binh điêu khắc gỗ đối diện quầng nắng Mặt Trời"
+        }
+      ]
+    },
+    {
+      "id": "s30",
+      "label": "KẾT — Đánh giá Condominas & mở sang tập tiếp theo Season 3",
+      "text": "Nhà dân tộc học Pháp Georges Condominas từng khẳng định người ta không thể nhắc tới folklore tiền Đông Dương mà trong đầu không hiện lên ngay nhan đề sử thi Đăm Săn. Từ Mường đất Tổ xuống tới đại ngàn Tây Nguyên mang dòng máu ngôn ngữ Nam Đảo, hành trình «Những người con đi lên núi» mới chỉ mở ra hai cánh cửa đầu tiên — và nếu các bạn muốn biết còn những dị bản hay dân tộc nào khác trên dải Trường Sơn, hãy để lại bình luận cho tập tiếp theo.",
+      "start_seconds": 587.35,
+      "end_seconds": 608.6,
+      "source_ref": "C06;ROADMAP-S3",
+      "speaker_directions": "voice=người kể trầm ấm, phân tích chắc nhịp; pace=conversational",
+      "delivery_cues": {
+        "pace": "conversational",
+        "delivery_note": "Đọc rành mạch từ Ê Đê và học giả; nhấn chậm nhịp ở các con số kiểm chứng.",
+        "provider_text": "Nhà dân tộc học Pháp Gioóc-giơ Công-đô-mi-nát từng khẳng định người ta không thể nhắc tới folklore tiền Đông Dương mà trong đầu không hiện lên ngay nhan đề sử thi Đăm Săn. Từ Mường đất Tổ xuống tới đại ngàn Tây Nguyên mang dòng máu ngôn ngữ Nam Đảo, hành trình «Những người con đi lên núi» mới chỉ mở ra hai cánh cửa đầu tiên — và nếu các bạn muốn biết còn những dị bản hay dân tộc nào khác trên dải Trường Sơn, hãy để lại bình luận cho tập tiếp theo.",
+        "pause_after_seconds": 0.8
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "End Card Atelier: Tóm tắt S3E01 Mường (Nam Á) -> S3E02 Ê Đê (Nam Đảo) -> Next S3"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "episode": "S3E02-dam-san",
+    "concept": "c1",
+    "sections_count": 30,
+    "words_display": 2755,
+    "verified_against_raw_data": "/Users/tuyennguyen/project/vn-myth-series/episodes/S3E02-dam-san/research/v1/raw_data.json"
+  }
+}

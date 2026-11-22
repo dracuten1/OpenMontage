@@ -1,0 +1,216 @@
+{
+  "version": "1.0",
+  "project_id": "dam-san",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "proposal",
+      "category": "pipeline_selection",
+      "subject": "Select production pipeline for VN-Myth S3E02 (S\u1eed thi \u0110\u0103m S\u0103n)",
+      "options_considered": [
+        {
+          "option_id": "animated-explainer",
+          "label": "Animated Explainer Pipeline (Research -> Proposal -> Script -> Scene Plan -> Assets -> Edit -> Compose)",
+          "score": 0.96,
+          "reason": "Fits 3-layer documented mythology + data visualization + custom Blender 3D / Remotion production cleanly."
+        },
+        {
+          "option_id": "research-video",
+          "label": "Research Video Pipeline (fact-first short report)",
+          "score": 0.62,
+          "reason": "Good for pure journalism, weaker for epic storytelling + 3D architectural/mythic diorama staging.",
+          "rejected_because": "Too rigid for mythic narrative pacing."
+        }
+      ],
+      "selected": "animated-explainer",
+      "reason": "Standard VN-Myth series pipeline supporting research seal, bilingual-safe cultural nuance, and bespoke Remotion/Blender composition.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.96
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Select final composition & motion runtime (remotion vs hyperframes vs ffmpeg)",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion (React/TypeScript bespoke TSX compositions + Tailwind/SVG/Canvas overlays)",
+          "score": 0.96,
+          "reason": "Supports bespoke Atelier React scenes, frame-accurate typography over Blender Cycles EXR/PNG sequences, interactive-quality SVG linguistic maps & charts, and direct reuse of VN-Myth series engine patterns."
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "Hyperframes (HTML/CSS/GSAP headless timeline compositor)",
+          "score": 0.72,
+          "reason": "Viable for HTML/CSS typography and DOM animation, and available locally.",
+          "rejected_because": "Less suited for complex reusable TSX infographic components and parity with existing VN-Myth S1-S3E01 React/Remotion architecture."
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg Direct Filtergraph Assembly",
+          "score": 0.45,
+          "reason": "Fast deterministic muxing and linear slideshow stitching, zero React tooling needed.",
+          "rejected_because": "Cannot render custom SVG linguistic maps, animated bar/treemap charts, or precision editorial lower-thirds."
+        }
+      ],
+      "selected": "remotion",
+      "reason": "Remotion Atelier gives exact frame-level control combining Blender 3D Cycles renders with bespoke TSX infographics and caption/audio sync.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Select composition mode (atelier vs templated)",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "Atelier Mode (bespoke TSX scenes + custom Central Highlands palette & typography)",
+          "score": 0.95,
+          "reason": "Avoids generic template cards; crafts custom spatial diagrams for Nh\u00e0 d\u00e0i h\u00ecnh thuy\u1ec1n, \u0110\u0103m S\u0103n 7-war stratification, and Chamic vs Mon-Khmer map."
+        },
+        {
+          "option_id": "templated",
+          "label": "Templated Playbook Mode",
+          "score": 0.58,
+          "reason": "Faster boilerplate setup.",
+          "rejected_because": "User approved Atelier mode for unique Central Highlands epic visual identity."
+        }
+      ],
+      "selected": "atelier",
+      "reason": "Custom editorial + Blender diorama presentation requires scene-specific Atelier compositions.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "renderer_family_selection",
+      "subject": "Select hybrid 3D + 2D visual illustration strategy using Blender 5.2.2 LTS",
+      "options_considered": [
+        {
+          "option_id": "hybrid_blender_remotion",
+          "label": "Hybrid Blender 5.2.2 LTS Headless Cycles Diorama + Remotion 2D Editorial Infographics (documentary-montage grammar)",
+          "score": 0.97,
+          "reason": "Blender 5.2.2 LTS is verified locally and ideal for rich clay-wood diorama/maquette 3D hero shots (Nh\u00e0 d\u00e0i, \u0110\u1ea5u tr\u01b0\u1eddng Mtao Mx\u00e2y, R\u1eebng S\u00e1p \u0110en, B\u1ed9 Chi\u00eang 6+3+1) composited seamlessly inside Remotion 2D data stories."
+        },
+        {
+          "option_id": "pure_t2i_remotion",
+          "label": "Pure 2D AI Illustration + Remotion",
+          "score": 0.65,
+          "reason": "Lower local CPU render load.",
+          "rejected_because": "User explicitly requested Blender 3D illustration and approved the Hybrid Blender + Remotion recommendation."
+        },
+        {
+          "option_id": "pure_blender_all_scenes",
+          "label": "100% Full-Frame Character Animation in Blender",
+          "score": 0.42,
+          "reason": "All-3D pipeline.",
+          "rejected_because": "Unnecessary character-rigging risk and unreadable statistical charts compared to Remotion vector charts."
+        }
+      ],
+      "selected": "hybrid_blender_remotion",
+      "reason": "Matte museum-diorama / maquette 3D aesthetics play to Blender's Cycles lighting strengths while keeping character stylization authentic and cultural architecture anatomically accurate.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.96
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Select Vietnamese narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "vieneu",
+          "label": "VieNeu local TTS v3 Turbo (48kHz, zero API cost) + Whisper word alignment",
+          "score": 0.95,
+          "reason": "Native Vietnamese pronunciation (including \u00ca \u0110\u00ea loanwords phonetically guided), consistent voice identity with VN-Myth S1-S3E01, zero per-minute fee."
+        },
+        {
+          "option_id": "openai",
+          "label": "OpenAI TTS",
+          "score": 0.6,
+          "reason": "Cloud API option.",
+          "rejected_because": "Paid API and less natural Vietnamese epic/cultural prosody than local VieNeu."
+        }
+      ],
+      "selected": "vieneu",
+      "reason": "Matches series canon and costs $0.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Select fresh unused CC-BY-4.0 BGM track from verified local catalog",
+      "options_considered": [
+        {
+          "option_id": "the_complex",
+          "label": "The Complex \u2014 Kevin MacLeod (104 BPM, 267.69s, Dark/Driving/Epic/Percussion, -12.7 LUFS, LRA 7.4 LU)",
+          "score": 0.93,
+          "reason": "Unused across E04-S3E01; epic organic+percussion drive fits \u0110\u0103m S\u0103n martial & R\u1eebng S\u00e1p \u0110en climax while preserving 7.4 LU dynamic headroom for clean -20 dB voice ducking."
+        },
+        {
+          "option_id": "fearless_first",
+          "label": "Fearless First \u2014 Kevin MacLeod (92 BPM, 195.65s, Guitar/Bass/Drums/Flute, -7.0 LUFS, LRA 1.6 LU)",
+          "score": 0.71,
+          "reason": "Has flute texture.",
+          "rejected_because": "Loudness check measured -7.0 LUFS with compressed LRA 1.6 LU and heavy bass requiring aggressive EQ."
+        },
+        {
+          "option_id": "wallpaper",
+          "label": "Wallpaper \u2014 Kevin MacLeod (92 BPM, 220s, Bright/Bouncy Synths)",
+          "score": 0.4,
+          "reason": "Clean spectral balance.",
+          "rejected_because": "Upbeat corporate tech feel clashes with Central Highlands heroic tragedy."
+        }
+      ],
+      "selected": "the_complex",
+      "reason": "Best emotional fit (epic percussion & tension), clean verified sha256 c270fb44a69828f6cae7412e077a38b92d55015d30ced549d0d477f864e7e41e, and widest dynamic headroom (-12.7 LUFS, LRA 7.4 LU).",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.92
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Recommend narrative concept c1 vs c2 vs c3 for S3E02",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "V\u00ec sao ng\u01b0\u1eddi anh h\u00f9ng m\u1ea1nh nh\u1ea5t T\u00e2y Nguy\u00ean l\u1ea1i th\u1ea5t b\u1ea1i khi c\u1ea7u h\u00f4n N\u1eef th\u1ea7n M\u1eb7t Tr\u1eddi?",
+          "score": 0.95,
+          "reason": "Combines mythic cliffhanger hook, 2-vs-7 wars textual revelation, Austronesian Chamic vs Austroasiatic continuity from S3E01, and rich 3D Blender diorama staging."
+        },
+        {
+          "option_id": "c2",
+          "label": "Klei bhian & Chu\u00ea nu\u00ea \u2014 Khi t\u1ef1 do c\u00e1 nh\u00e2n va v\u00e0o lu\u1eadt t\u1ee5c m\u1eabu h\u1ec7",
+          "score": 0.84,
+          "reason": "Strong anthropological angle.",
+          "rejected_because": "Best embedded inside Layer B of c1 rather than narrowing the whole episode."
+        },
+        {
+          "option_id": "c3",
+          "label": "Gi\u1ea3i m\u00e3 \u0111\u1ecba t\u1ea7ng 1927\u20132007: S\u1eed thi \u0110\u0103m S\u0103n \u0111\u00e3 b\u1ecb 'c\u1eaft' v\u00e0 'c\u1ee9u' nh\u01b0 th\u1ebf n\u00e0o?",
+          "score": 0.78,
+          "reason": "High scholarly value.",
+          "rejected_because": "Philological framing works strongest as the mid-episode twist in c1."
+        }
+      ],
+      "selected": "c1",
+      "reason": "Maximum YouTube retention hook paired with rigorous 3-layer VN-Myth series architecture.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.94
+    }
+  ]
+}

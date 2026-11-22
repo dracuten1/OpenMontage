@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "output_path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/renders/dam-san-final-1080p.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 686.2,
+      "resolution": "1920x1080",
+      "fps": 30,
+      "has_audio": true,
+      "codec": "h264 / aac",
+      "file_size_bytes": 572439588,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "frames_sampled": 4,
+      "frame_paths": [
+        "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/qc/final_start.jpg",
+        "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/qc/final_diagram.jpg",
+        "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/qc/final_mid.jpg",
+        "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/qc/final_late.jpg"
+      ],
+      "black_frames_detected": false,
+      "broken_overlays": false,
+      "missing_assets": false,
+      "unreadable_text": false,
+      "issues": []
+    },
+    "audio_spotcheck": {
+      "narration_present": true,
+      "music_present": true,
+      "unexpected_silence": false,
+      "clipping_detected": false,
+      "mix_intelligible": true,
+      "issues": []
+    },
+    "promise_preservation": {
+      "delivery_promise_honored": true,
+      "renderer_family_used": "documentary-montage",
+      "render_runtime_used": "remotion",
+      "runtime_swap_detected": false,
+      "runtime_swap_check": "PASS (remotion Atelier matched proposal_packet)",
+      "motion_ratio_actual": 1.0,
+      "silent_downgrade_detected": false,
+      "issues": []
+    },
+    "subtitle_check": {
+      "subtitles_expected": false,
+      "subtitles_present": false,
+      "coverage_ratio": 1.0,
+      "timing_drift_detected": false,
+      "issues": []
+    },
+    "atelier": {
+      "stock_reuse_detected": false,
+      "offending_imports": [],
+      "art_direction_declared": true,
+      "art_direction": "Tây Nguyên Warm Archival Diorama (Blender 5.2.2 LTS EEVEE Animated + BlenderKit + Remotion Atelier)",
+      "issues": []
+    }
+  },
+  "issues_found": [],
+  "recommended_action": "present_to_user",
+  "metadata": {
+    "ebur128_integrated_lufs": -14.4,
+    "ebur128_lra_lu": 2.1,
+    "blender_renders": 20,
+    "blender_videos": 10
+  }
+}

@@ -18,7 +18,7 @@ Quick routing for common explainer needs:
 | Word-level caption highlight synced to narration | Existing `CaptionOverlay` / `CaptionLayer` component (in `remotion-composer/src/components/`) |
 | Editorial maps, timelines, spotlight cards, splits | Shared editorial kit (`remotion-composer/src/components/editorial/`) |
 | Data chart (bar/line/pie/KPI) | Remotion built-in / editorial chart components (`remotion-composer/src/components/charts/`) |
-| 3D spatial / infrastructure illustration | Blender MCP (`3d-asset-generation` & `blender-*` skills) rendered with matte Warm Archival Print lighting |
+| 3D spatial / infrastructure illustration | `blenderkit_catalog` + `tools/graphics/templates/blender_explainer_kit.py` (`blender-explainer-animation` skill) with articulated rigs, one-way EEVEE clips, and `screen_tracks.json` |
 
 **The keep-it-simple bias:** if Remotion primitives solve a scene in ≤ 20 lines, use them. Only pull in GSAP when the plugin genuinely earns its bundle weight.
 
@@ -127,6 +127,12 @@ Process asset tasks grouped by tool for efficiency:
 1. Extract language and code from the scene description
 2. Apply syntax highlighting theme from playbook's overlay styles
 3. Generate highlighted image or Remotion-compatible data
+
+**3D Animated Explainer Clips (`blenderkit_catalog` + `blender_explainer_kit.py`)**:
+Read `.agents/skills/blender-explainer-animation/SKILL.md` first. Prefer reusing free BlenderKit `.blend` assets before sculpting custom props:
+1. **Search, Cache & Probe QA**: Call `blenderkit_catalog` (`search` -> `download` -> `probe`) and inspect the 1-frame EEVEE preview with `read_file`; reject mismatched or >100k-poly assets and record SHA-256 provenance in `blenderkit_manifest.json`.
+2. **Geometry Nodes & Foliage Optimization**: Append with `bake_geonodes=True` (`append_normalized_blend` / `instance_baked_blend`); preserve natural leaf alpha textures and set `disable_shadows=True` (`visible_shadow = False`) on dense background foliage so EEVEE renders quickly (`~0.6–1.4s/frame`).
+3. **One-Way Narrative Render & Screen Tracks**: Animate articulated actors and domain mechanics over `240` frames @ `24fps`, encode one-way `30fps` MP4 (`encode_oneway_mp4` — NO ping-pong reverse), and export `screen_tracks.json` via `export_screen_tracks()` for Remotion `SceneTrackedCallouts` + `CrossfadeLoopVideo`.
 
 ### Step 5: Generate Music
 

@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "youtube",
+      "status": "pending_review",
+      "export_path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/renders/dam-san-final-1080p.mp4",
+      "timestamp": "2026-11-22T14:50:39.998005+00:00",
+      "metadata_used": {
+        "title": "VN-Myth S3E02 — Sử thi Đăm Săn: Vì sao người anh hùng mạnh nhất Tây Nguyên thất bại?"
+      }
+    }
+  ],
+  "metadata": {
+    "notes": "Auto-post disabled per APPROVAL_FULL_RUN.json; deliverables ready for owner upload."
+  }
+}

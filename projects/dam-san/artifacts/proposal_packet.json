@@ -1,0 +1,366 @@
+{
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "c1",
+      "title": "Vì sao người anh hùng mạnh nhất Tây Nguyên lại thất bại khi cầu hôn Nữ thần Mặt Trời?",
+      "hook": "Thắng sạch mọi tù trưởng dưới mặt đất, nhưng vừa tiến vào Rừng Sáp Đen, Đăm Săn tan rã. Vì sao bộ SGK chỉ kể 2 trận chiến trong khi thực địa có 7 cuộc chiến, và bí mật nào nối Đăm Săn với ngữ hệ Nam Đảo lẫn ngôi nhà dài hình thuyền?",
+      "narrative_structure": "myth_busting",
+      "visual_approach": "Hybrid Blender 5.2.2 LTS Cycles Matte Diorama (10 hero 3D sets: Nhà dài hình thuyền, Sa bàn Chamic–Bahnaric, Rừng Sáp Đen, Bộ chiêng 6+3+1) kết hợp Remotion Atelier infographics.",
+      "suggested_playbook": "ink-genome",
+      "target_audience": "Khán giả Việt Nam yêu văn hóa – lịch sử – dân tộc học, học sinh/sinh viên muốn hiểu vượt khung SGK Ngữ văn 10.",
+      "target_platform": "youtube",
+      "target_duration_seconds": 900,
+      "key_points": [
+        "Lớp A: Toàn cảnh cốt truyện 3 chặng + cú lật địa tầng văn bản 2 trận (Sabatier 1933) -> 6 tù trưởng (Phan Đăng Nhật) -> 8 đối thủ / 7 cuộc chiến (Đỗ Hồng Kỳ 2006) + bi kịch Rừng Sáp Đen.",
+        "Lớp B: Giải mã cơ chế mẫu hệ – chuê nuê (Niê–Mlô), kiến trúc nhà dài hình thuyền (Dring gah, Gah, Ôk, Kpan), và bản đồ ngữ hệ Nam Đảo (Highlands Chamic) vs Nam Á ở Tây Nguyên (nối mạch S3E01).",
+        "Lớp C: Chân dung hiện tại qua số liệu 398.671 người (2019), dự án Kho tàng sử thi Tây Nguyên (388 nghệ nhân / ~5.700 băng / 75 tác phẩm), khảo sát 2007 (97% thích vs 62,1% biết ít/không biết), QĐ 4205/2014 & nỗ lực của nghệ nhân Ama Nhiên."
+      ],
+      "core_message": "Đăm Săn không chỉ là chuyện anh hùng chiến thắng rồi gục ngã; đó là ký ức bằng âm thanh của một cộng đồng gốc Nam Đảo định hình luật tục, kiến trúc và giới hạn giữa con người với tự nhiên suốt hàng trăm năm bên bếp lửa nhà dài.",
+      "cta": "Khán giả để lại góc nhìn về 7 cuộc chiến bị cắt và chờ tập tiếp theo của Season 3 «50 lên núi».",
+      "tone": "investigative_analytical_respectful",
+      "grounded_in": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15"
+      ],
+      "why_this_works": "Mở đầu bằng câu hỏi nghịch lý giàu sức hút đại chúng, nâng cấp bằng cú lật tư liệu văn bản học hiếm thấy trên YouTube, rồi khóa mạch Season 3 bằng đối chiếu ngôn ngữ học Mường (Nam Á) – Ê Đê (Nam Đảo) và tận dụng trọn vẹn sức mạnh không gian của 10 diorama 3D Blender."
+    },
+    {
+      "id": "c2",
+      "title": "Klei bhian & Chuê nuê — Khi tự do cá nhân va đầu vào luật tục mẫu hệ bất khả xâm phạm",
+      "hook": "Ngay chương mở đầu, Đăm Săn chống cự việc cưới chị em H'Nhị – H'Bhị theo tục nối dây. Cả trường ca là bản án hay là bản giao hưởng về sự hòa giải giữa cá nhân kiệt xuất và thiết chế dòng họ Niê–Mlô?",
+      "narrative_structure": "debate",
+      "visual_approach": "Tập trung sâu vào mô hình 3D Nhà dài Gah–Ôk, đồ họa sơ đồ phả hệ mẫu hệ và trích dẫn đối chiếu luật tục Ê Đê 236 điều.",
+      "suggested_playbook": "ink-genome",
+      "target_audience": "Khán giả quan tâm nhân học gia đình, xã hội mẫu hệ và thiết chế truyền thống.",
+      "target_platform": "youtube",
+      "target_duration_seconds": 840,
+      "key_points": [
+        "Cơ chế vận hành tài sản và hôn nhân trao đổi giữa hai dòng họ Niê – Mlô qua tục chuê nuê.",
+        "Quá trình chuyển hóa từ phản kháng ở đầu khan tới trách nhiệm bảo vệ buôn làng và hồi sinh hai vợ."
+      ],
+      "core_message": "Chuê nuê vừa là xiềng xích với tự do cá nhân, vừa là lưới an sinh bảo vệ dòng họ mẫu hệ Ê Đê.",
+      "cta": "Mời khán giả bình luận giữa hai cách đọc: phản kháng tập tục hay khát vọng đem ánh sáng về buôn.",
+      "tone": "empathetic_analytical",
+      "grounded_in": [
+        "C05",
+        "C07",
+        "C08"
+      ],
+      "why_this_works": "Chiều sâu nhân học sắc nét nhưng phạm vi hơi hẹp cho vai trò tập flagship thứ 2 của Season 3; khuyến nghị lồng làm trục Lớp B trong c1."
+    },
+    {
+      "id": "c3",
+      "title": "Giải mã địa tầng 1927–2007: Sử thi Đăm Săn đã bị 'cắt' và 'cứu' như thế nào?",
+      "hook": "Năm 1927, công sứ Pháp L. Sabatier công bố Đăm Săn tại Paris nhưng tự cắt hàng loạt trận chiến vì cho là đơn điệu. Mất gần 80 năm và gần 5.700 cuộn băng 90 phút mới khôi phục được bức tranh 75 tác phẩm đại ngàn.",
+      "narrative_structure": "timeline",
+      "visual_approach": "Phong cách hồ sơ lưu trữ 3D (Sabatier BEFEO 1933, Nguyễn Hữu Thấu 2003, bộ sách 62 tập 2007) kết hợp timeline và treemap Remotion.",
+      "suggested_playbook": "ink-genome",
+      "target_audience": "Người yêu khảo cứu văn bản, di sản văn hóa phi vật thể và lịch sử sưu tầm.",
+      "target_platform": "youtube",
+      "target_duration_seconds": 840,
+      "key_points": [
+        "Đối chiếu 4 mốc văn bản: Sabatier 1927/1933 (2 trận) -> Phan Đăng Nhật 1985–1987 (6 tù trưởng) -> Nguyễn Hữu Thấu 1988/2003 -> Đỗ Hồng Kỳ & Y Wơn Kna 2006 (8 đối thủ / 7 trận).",
+        "Chiến dịch điền dã 2001–2007 với 388 nghệ nhân, 801 tác phẩm ghi âm và 75 tác phẩm in sách."
+      ],
+      "core_message": "Di sản truyền miệng không tự nhiên nằm gọn trong 2.077 dòng sách giáo khoa; đó là cuộc chạy đua giữ ký ức trước khi các po khan cao tuổi qua đời.",
+      "cta": "Khán giả khám phá thêm các sử thi Ê Đê khác như Đăm Kteh Mlan, Xing Nhã.",
+      "tone": "investigative_archival",
+      "grounded_in": [
+        "C03",
+        "C04",
+        "C12",
+        "C13",
+        "C14",
+        "C15"
+      ],
+      "why_this_works": "Sức nặng học thuật cao nhưng dễ khô ở 3 phút mở đầu nếu chưa kể mạch bi kịch Rừng Sáp Đen; rất mạnh khi làm cú lật giữa Góc 1."
+    }
+  ],
+  "selected_concept": {
+    "concept_id": "c1",
+    "rationale": "Đáp ứng đồng thời độ hút đại chúng (câu hỏi thất bại trước Nữ thần Mặt Trời), giá trị khám phá học thuật (địa tầng 2->6->8 tù trưởng, ngữ hệ Nam Đảo nối mạch S3E01) và tận dụng triệt để 10 diorama 3D Blender 5.2.2 LTS.",
+    "modifications": [
+      "Lồng trục c2 (chuê nuê & luật tục Niê–Mlô + phản biện Linh Nga Niê Kdăm) làm trung tâm Lớp B",
+      "Lồng trục c3 (hồ sơ cắt bản Sabatier 1933 & khôi phục Đỗ Hồng Kỳ 2006 + Kho tàng 2001–2007) làm cú lật giữa Lớp A và Lớp C",
+      "10 phân cảnh diorama/maquette 3D Blender Cycles + 12+ infographic Remotion Atelier",
+      "Tách bạch hoàn toàn mốc dân số 2019 (398.671) và mốc 2009 Đắk Lắk (298.534) trên mọi đồ họa"
+    ]
+  },
+  "production_plan": {
+    "pipeline": "animated-explainer",
+    "playbook": "ink-genome",
+    "renderer_family": "documentary-montage",
+    "render_runtime": "remotion",
+    "composition_mode": "atelier",
+    "art_direction": "Tây Nguyên Warm Archival Diorama (Atelier): kết hợp sa bàn điêu khắc 3D chất liệu gỗ trầm – đất đỏ bazan – sáp ong – đồng thau chiêng từ Blender 5.2.2 LTS (Cycles 64–96 samples + OIDN, 1920x1080) với lớp đồ họa phẳng Remotion trên nền giấy dó ngà ấm #F2EAD8 và đêm bazan #1A1512; màu nhấn thổ cẩm đỏ đô #9E3B24, đồng chiêng #D49B38 và xanh rừng đại ngàn #38665E; chữ tiêu đề Newsreader/Be Vietnam Pro sắc nét, số liệu tabular-nums trên JetBrains Mono, nhịp chuyển cảnh êm chắc (damping >= 18), tránh hoàn toàn thẻ card bo góc SaaS.",
+    "taste_profile": {
+      "design_read": "Bảo tàng Dân tộc học thu nhỏ (Blender Cycles Clay-Wood Diorama) gặp Ấn phẩm Khảo cứu Báo chí (Remotion Warm Archival Split & SVG Maps).",
+      "visual_variance": 8,
+      "motion_intensity": 6,
+      "information_density": 7,
+      "palette_discipline": "Giới hạn 5 sắc cốt lõi: Đêm Bazan #1A1512, Giấy Dó Ngà #F2EAD8, Đỏ Thổ Cẩm/Đất Đỏ #9E3B24, Đồng Chiêng #D49B38, Xanh Đại Ngàn #38665E.",
+      "layout_variation": "Xen kẽ không lặp lại: Toàn cảnh Diorama 3D Cycles -> Split Infographic Ngữ hệ / Bản đồ -> Biểu đồ Cột / Treemap Kho tàng -> Mặt cắt Nhà Dài 3D kèm Callout Vector -> Trích dẫn Văn bản Chữ Lớn.",
+      "reference_strategy": "Mỗi cảnh 3D Blender phải được kiểm tra góc máy bằng script + render preview JPEG/PNG inspect qua multimodal Vision trước khi đưa vào Remotion.",
+      "anti_patterns": [
+        "Thẻ card viền 1px kiểu dashboard SaaS",
+        "Nhân vật 3D hoạt hình nhựa bóng loáng sai chất liệu Ê Đê",
+        "Gộp nhầm số liệu dân số 2019 (398.671) với số Đắk Lắk 2009 (298.534)",
+        "Dùng nhạc nền ồn áp giọng kể sử thi hoặc lặp track E04–S3E01"
+      ],
+      "quality_gates": [
+        "Đọc Vision kiểm tra 10 render Blender (ánh sáng, bố cục, không xuyên thấu mesh) trước giai đoạn Edit",
+        "Khớp 100% số liệu & trích dẫn với raw_data.json và citation_ledger.json (PASS_RAW)",
+        "Draft 540p + Final 1080p đạt EBU R128 (-14 LUFS integrated, <= -1 dBTP) và zero frame overlap"
+      ]
+    },
+    "stages": [
+      {
+        "stage": "script",
+        "tools": [
+          {
+            "tool_name": "antigravity_writer",
+            "role": "Kịch bản 3 lớp ~15 phút gắn chặt claim_ledger & raw_data",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "approach": "Biên soạn 34–38 đoạn thoại nhịp <= 25s/đoạn để tối ưu độ khớp TTS + Whisper alignment.",
+        "fallback_if_unavailable": "Chia nhỏ đoạn nếu TTS drift vượt 2s."
+      },
+      {
+        "stage": "scene_plan",
+        "tools": [
+          {
+            "tool_name": "scene_director",
+            "role": "Kế hoạch phân cảnh 10 Blender 3D shots + 12+ Remotion infographics",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "approach": "Khóa mapping từng section thoại vào đúng loại cảnh (Blender 3D / Remotion Data Viz / Optional 2D panel) và kiểm density gate.",
+        "fallback_if_unavailable": "-"
+      },
+      {
+        "stage": "assets",
+        "tools": [
+          {
+            "tool_name": "blender",
+            "role": "Blender 5.2.2 LTS headless Cycles dựng & render 10 diorama/maquette 3D",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "tool_name": "vieneu",
+            "role": "VieNeu local v3 Turbo TTS (48kHz) + Whisper word timestamps",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "approach": "Dựng script Python Blender có tham số tái lập (.blend + render PNG/MP4), chạy vision QA từng shot, chuẩn bị SFX mộc (chiêng/bếp lửa/tiếng gió cao nguyên) miễn phí bản quyền.",
+        "fallback_if_unavailable": "Nếu shot 3D nặng thời gian render, ưu tiên Cycles 64 samples OIDN hoặc render still 4K camera Ken-Burns/2.5D trong Remotion."
+      },
+      {
+        "stage": "edit",
+        "tools": [
+          {
+            "tool_name": "remotion",
+            "role": "Lắp ráp Atelier TSX + 12+ đồ họa SVG/Canvas + hạ đề lớp 3",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "approach": "Dựng composition Remotion riêng cho dam-san, đồng bộ từ từng từ qua Whisper manifest và chạy still-frame gate.",
+        "fallback_if_unavailable": "Hyperframes HTML/GSAP nếu cần nhánh nhẹ."
+      },
+      {
+        "stage": "compose",
+        "tools": [
+          {
+            "tool_name": "ffmpeg",
+            "role": "Mux âm thanh, ducking BGM The Complex -20dB, EBU R128 & Final 1080p",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "approach": "Render DRAFT 540p kiểm tra toàn mạch trước khi xuất FINAL 1080p60 + ảnh thumbnail + YouTube description.",
+        "fallback_if_unavailable": "-"
+      }
+    ],
+    "delivery_promise": {
+      "promise_type": "hybrid",
+      "motion_required": true,
+      "source_required": true,
+      "tone_mode": "analytical",
+      "quality_floor": "broadcast",
+      "approved_fallback": "Chạy Blender Cycles 64-96 samples + OIDN denoiser; trường hợp scene phức tạp có thể xuất render tĩnh 2.5D độ phân giải cao kết hợp chuyển động camera trong Remotion."
+    },
+    "music_source": {
+      "source_type": "user_library",
+      "track_path": "/Users/tuyennguyen/project/media-library/bgm/risk/The Complex.mp3",
+      "mood_direction": "The Complex — Kevin MacLeod (CC-BY-4.0, 104 BPM, 267.69s, -12.7 LUFS, LRA 7.4 LU; nhịp trống & căng thẳng sử thi, chưa sử dụng trong E04-S3E01).",
+      "estimated_cost_usd": 0.0
+    },
+    "voice_selection": {
+      "provider": "vieneu",
+      "voice_id": "default-series",
+      "rationale": "Giữ nguyên chất giọng tường thuật tiếng Việt đồng bộ với toàn bộ VN-Myth S1–S3E01, miễn phí hoàn toàn.",
+      "estimated_cost_usd": 0.0,
+      "delivery_style": "Trầm tĩnh, phân tích rõ mạch, nhấn nhá hợp lý ở đoạn đối thoại sử thi và số liệu.",
+      "pacing_policy": "Nhịp vừa phải ~145–160 từ/phút, nghỉ 0.4–0.6s trước mỗi cú lật luận điểm.",
+      "sample_approval_required": false
+    },
+    "decision_log_ref": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/decision_log.json"
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0.0,
+    "budget_cap_usd": 0.0,
+    "budget_verdict": "within_budget",
+    "line_items": [
+      {
+        "tool": "blender_cycles_3d",
+        "operation": "10 hero 3D diorama/maquette scenes via Blender 5.2.2 LTS headless",
+        "quantity": 10,
+        "estimated_usd": 0.0,
+        "notes": "Local GPU/CPU render"
+      },
+      {
+        "tool": "remotion_atelier",
+        "operation": "Bespoke React/TSX composition + 12+ custom infographics",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "Local Chromium/Remotion render"
+      },
+      {
+        "tool": "vieneu_tts",
+        "operation": "Local Vietnamese narration + Whisper word alignment",
+        "quantity": 36,
+        "estimated_usd": 0.0,
+        "notes": "Zero API charge"
+      },
+      {
+        "tool": "media_library_bgm",
+        "operation": "The Complex (Kevin MacLeod, CC-BY-4.0, sha256 c270fb44...e41e)",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "Requires CC-BY-4.0 credit in YouTube description"
+      }
+    ],
+    "savings_options": [
+      "Nếu muốn tăng tốc render Blender, có thể giảm sample xuống 64 với OIDN và tận dụng camera pan/zoom Remotion trên ảnh 2.5K đối với các cảnh sa bàn tĩnh."
+    ]
+  },
+  "approval": {
+    "status": "approved",
+    "approved_budget_usd": 0.0,
+    "user_notes": "User approved all recommendations (c1, Hybrid Blender 5.2.2 LTS + Remotion Atelier, The Complex CC-BY-4.0, VieNeu local) and authorized full-run to FINAL 1080p (no auto-post)."
+  },
+  "metadata": {
+    "episode_code": "S3E02-dam-san",
+    "research_seal_dir": "/Users/tuyennguyen/project/vn-myth-series/episodes/S3E02-dam-san/research/v1",
+    "blender_version": "5.2.2 LTS (/Users/tuyennguyen/.local/bin/blender)",
+    "bgm_sha256": "c270fb44a69828f6cae7412e077a38b92d55015d30ced549d0d477f864e7e41e",
+    "bgm_lufs_i": -12.7,
+    "bgm_lra_lu": 7.4,
+    "blender_3d_shot_list": [
+      {
+        "shot_id": "B3D-01",
+        "scene_slot": "MỞ — Hook Nghịch lý Mặt Trời & Rừng Sáp Đen",
+        "title": "Bàn sa bàn Tây Nguyên & Rừng Sáp Đen lúc bình minh gắt",
+        "visual_concept": "Diorama thu nhỏ bằng gỗ trầm, đá bazan đen và sáp ong cháy đỏ; tượng chiến binh điêu khắc gỗ cầm khiên đồng tiến dần vào vùng sáng gắt chói lòa.",
+        "camera_lighting": "35mm tilt-shift diorama push-in 4s; directional rim sun-key ấm 4200K đổ bóng dài qua cột sáp đen; DOF nông f/2.8.",
+        "remotion_composite": "Tiêu đề mở «TỪ CHIẾN THẮNG TUYỆT ĐỐI ĐẾN BƯỚC DỪNG CỦA MẶT TRỜI» + thẻ chú thích BEFEO 1933."
+      },
+      {
+        "shot_id": "B3D-02",
+        "scene_slot": "LỚP A — Kiến trúc Xã hội Mở Đầu",
+        "title": "Mô hình Nhà Dài Ê Đê Hình Thuyền (Mặt cắt 3D Gah – Ôk – Dring gah)",
+        "visual_concept": "Mô hình kiến trúc cutaway tỷ lệ bảo tàng trên bệ đất đỏ bazan: lộ rõ sàn trước Dring gah, cầu thang đực & cầu thang cái tạc đôi bầu sữa + trăng lưỡi liềm, vách thượng thách – hạ thu hình thuyền.",
+        "camera_lighting": "Orbit 25 độ quanh mặt cắt mái tranh tháo rời; đèn bếp lửa Kpưr gah ấm 2400K bên trong tương phản ánh chiều cao nguyên 5600K bên ngoài.",
+        "remotion_composite": "Nhãn callout Remotion: Dring gah, Kpưr gah, Kpan độc mộc, gian Ôk, trục Đông–Tây gần bến nước."
+      },
+      {
+        "shot_id": "B3D-03",
+        "scene_slot": "LỚP A — Khoảnh khắc Khiêu chiến Mtao Mxây",
+        "title": "Voi chiến, Nhà sàn & Tù trưởng Áo Giáp Sắt (Mtao Mxây)",
+        "visual_concept": "Tượng điêu khắc cách điệu (clay-bronze maquette): hai võ sĩ đứng đối diện sân nhà sàn dài; khiên tròn đồng vỗ nhịp, áo giáp kim loại xỉn của Mtao Mxây phản quang ánh lửa.",
+        "camera_lighting": "Low-angle 50mm arc slow-motion giữa hai nhân vật tĩnh kiểu bảo tàng; tia tro lửa bay nhẹ (Cycles volumetrics vừa phải).",
+        "remotion_composite": "So sánh trực quan trên màn hình: bản phổ thông 2 trận vs ký ức nghệ nhân Y Nuh Niê."
+      },
+      {
+        "shot_id": "B3D-04",
+        "scene_slot": "LỚP A — Cú Lật Địa tầng Văn bản",
+        "title": "Bàn lưu trữ Học thuật 3D: Tập hồ sơ Sabatier 1933 vs Cuộn băng 2001–2007",
+        "visual_concept": "Close-up macro trên bàn gỗ tối: trang sách chữ Quốc ngữ Ê Đê / BEFEO Tome 33 (1933) đặt cạnh 7 thanh thẻ gỗ khắc tên Mtao và cuộn băng cassette tư liệu Tây Nguyên.",
+        "camera_lighting": "Top-down diagonal macro pan 45 độ; ánh đèn bàn thư viện ấm chiếu nổi vân giấy dó & khắc gỗ.",
+        "remotion_composite": "Biểu đồ thanh Remotion bật số 2 -> 6 -> 8 tù trưởng / 7 cuộc chiến ngay bên cạnh vật thể 3D."
+      },
+      {
+        "shot_id": "B3D-05",
+        "scene_slot": "LỚP A — Cây Thần Smuk / Ktu & Lên Trời Cầu Cứu",
+        "title": "Cây Cổ Thụ Smuk Gãy Đổ & Cơn Phẫn Nộ Của Người Chồng",
+        "visual_concept": "Diorama tán cây đại thụ sẫm màu xoắn rễ đứt lìa bằng búa rìu đồng, thân cây ngã vắt ngang sân buôn thu nhỏ.",
+        "camera_lighting": "Dutch-tilt nhẹ theo thân cây đổ; sương mù mỏng xanh rêu (#38665E) dưới tán rừng, ánh sáng giông bão trên đỉnh.",
+        "remotion_composite": "Text nhịp thơ đối xứng trích bản dịch cổ + giải thích biểu tượng cây sinh mệnh hai chị em H'Nhị – H'Bhị."
+      },
+      {
+        "shot_id": "B3D-06",
+        "scene_slot": "LỚP A — Đỉnh Bi kịch Rừng Sáp Đen",
+        "title": "Cổng Mặt Trời & Rừng Sáp Đen Tan Chảy (Climax Lớp A)",
+        "visual_concept": "Hành lang trụ sáp đen thẳng đứng vây quanh bóng dáng chiến binh gục đầu quay ngựa; ánh mặt trời vàng rực làm mép sáp ong chảy óng như nham thạch.",
+        "camera_lighting": "Slow dolly pull-back từ chiến binh ra toàn cảnh bức tường ánh sáng rực; sub-surface scattering trên sáp ong hổ phách.",
+        "remotion_composite": "Đối chiếu 2 cách đọc song song: phá vỡ giới hạn tự nhiên vs lời bình Linh Nga Niê Kdăm «đem ánh sáng về buôn làng»."
+      },
+      {
+        "shot_id": "B3D-07",
+        "scene_slot": "LỚP B — Thiết chế Chuê Nuê & Kết cấu Nhà Dài",
+        "title": "Chiếc Ghế Độc Mộc Kpan & Dây Liên Kết Hai Dòng Họ Niê – Mlô",
+        "visual_concept": "Trong gian Gah thu nhỏ: chiếc ghế độc mộc Kpan tạc từ một thân gỗ nguyên khối đặt song song hàng vò rượu cần và ché cổ, nối chỉ đỏ tượng trưng hai họ Niê–Mlô.",
+        "camera_lighting": "Track camera dọc theo thân ghế Kpan 85mm shallow DOF; ánh sáng bếp lửa hắt ngang làm rõ mặt gỗ nguyên khối.",
+        "remotion_composite": "Sơ đồ mạng quan hệ mẫu hệ (ở rể – họ mẹ – con gái út thừa kế – chuê nuê) do Remotion vẽ đồng bộ nhịp track."
+      },
+      {
+        "shot_id": "B3D-08",
+        "scene_slot": "LỚP B — Cầu nối Season 3 «50 lên núi»",
+        "title": "Địa hình 3D Tây Nguyên & Luồng Di Cư Ngữ Hệ Nam Đảo – Nam Á",
+        "visual_concept": "Bản đồ địa hình nổi 3D dãy Trường Sơn – Tây Nguyên – duyên hải miền Trung chế tác kiểu sa bàn đất nung & gỗ phân tầng độ cao 400–800m.",
+        "camera_lighting": "Orbit từ duyên hải Champa (nhắc mốc trước 600 TCN) trườn lên cao nguyên Đắk Lắk – Gia Lai – Kon Tum – Lâm Đồng.",
+        "remotion_composite": "Vector overlay Remotion tô sáng 5 dân tộc Nam Đảo (Chăm, Chu Ru, Ê Đê, Gia Rai, Raglai) đan xen 21 nhóm Môn–Khmer (so với Việt–Mường ở S3E01)."
+      },
+      {
+        "shot_id": "B3D-09",
+        "scene_slot": "LỚP B & C — Không gian Diễn xướng Đêm Khan",
+        "title": "Dàn 6 Chiêng Bằng, 3 Chiêng Núm, 1 Chiêng Giữ Nhịp & Trống Cái",
+        "visual_concept": "Cận cảnh bộ cồng chiêng đồng thau cổ xếp theo đúng tỷ lệ 6 chiêng bằng + 3 chiêng núm + 1 chiêng giữ nhịp + 1 trống cái trên giá gỗ, đặt cạnh bếp lửa kể khan.",
+        "camera_lighting": "Rim light đồng ấm quét qua bề mặt búa gò thủ công trên từng mặt chiêng (roughness variation tinh tế).",
+        "remotion_composite": "Nhãn UNESCO 2005/2008 (17 cộng đồng Nam Á & Nam Đảo) và nốt mô tả lối ngâm 2 nốt của po khan (Sabatier 1933)."
+      },
+      {
+        "shot_id": "B3D-10",
+        "scene_slot": "LỚP C — Ký ức Đương đại & Bảo tồn",
+        "title": "Băng Ghi Âm 90 Phút, Kho Sách 62 Tập & Bếp Lửa Tàn Của Po Khan",
+        "visual_concept": "Tĩnh vật biểu tượng trên sàn gỗ nhà dài: chồng 62 tập sách lớn cách điệu cạnh bó băng cassette tư liệu, một cây kèn đing tut và ánh lửa nhỏ vẫn cháy trong gian Gah.",
+        "camera_lighting": "Slow crane-up nhẹ và lùi xa dần qua cửa nhà dài hình thuyền mở ra bầu trời cao nguyên.",
+        "remotion_composite": "Dashboard Remotion: 388 nghệ nhân – gần 5.700 băng – 75/801 tác phẩm in – nghịch lý khảo sát 2007 (97% thích vs 62,1% chưa hiểu sâu)."
+      }
+    ]
+  }
+}

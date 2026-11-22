@@ -1,0 +1,1261 @@
+{
+  "version": "1.0",
+  "project_id": "dam-san",
+  "pipeline_type": "animated-explainer",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-11-22T10:24:44.199713+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "ink-genome",
+      "scenes": [
+        {
+          "id": "sc001",
+          "type": "animation",
+          "script_section_id": "s01",
+          "description": "[M\u1ede \u2014 Hook ngh\u1ecbch l\u00fd M\u1eb7t Tr\u1eddi & R\u1eebng S\u00e1p \u0110en] full_bleed_3d | 3D=blender/B3D-01-wide.png",
+          "start_seconds": 0.0,
+          "end_seconds": 16.51,
+          "framing": "full_bleed_3d",
+          "movement": "dolly_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 35,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "M\u1ede \u2014 Hook ngh\u1ecbch l\u00fd M\u1eb7t Tr\u1eddi & R\u1eebng S\u00e1p \u0110en",
+          "narrative_role": "establish_context",
+          "information_role": "Claim ref HOOK;C01;C05",
+          "hero_moment": true,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-01-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc002",
+          "type": "animation",
+          "script_section_id": "s02",
+          "description": "[M\u1ede \u2014 N\u1ed1i m\u1ea1ch Season 3 & cam k\u1ebft 3 l\u1edbp] split_3d_diagram | 3D=blender/B3D-01-detail.png | Infographic=D01",
+          "start_seconds": 16.51,
+          "end_seconds": 34.96,
+          "framing": "split_3d_diagram",
+          "movement": "pan_right",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D01",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "pan_right",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "M\u1ede \u2014 N\u1ed1i m\u1ea1ch Season 3 & cam k\u1ebft 3 l\u1edbp",
+          "narrative_role": "introduce_subject",
+          "information_role": "Claim ref ROADMAP-S3;BRAND",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-01-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D01",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc003",
+          "type": "animation",
+          "script_section_id": "s03",
+          "description": "[L\u1edaP A \u2014 \u1ea4n b\u1ea3n 2.077 c\u00e2u & kh\u1edfi \u0111\u1ea7u chu\u00ea nu\u00ea] full_bleed_3d_callout | 3D=blender/B3D-02-wide.png",
+          "start_seconds": 34.96,
+          "end_seconds": 51.9,
+          "framing": "full_bleed_3d_callout",
+          "movement": "orbital",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "orbital",
+            "lens_mm": 35,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP A \u2014 \u1ea4n b\u1ea3n 2.077 c\u00e2u & kh\u1edfi \u0111\u1ea7u chu\u00ea nu\u00ea",
+          "narrative_role": "establish_context",
+          "information_role": "Claim ref C02;C07",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-02-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc004",
+          "type": "diagram",
+          "script_section_id": "s04",
+          "description": "[L\u1edaP A \u2014 S\u1ef1 ph\u1ea3n kh\u00e1ng ban \u0111\u1ea7u c\u1ee7a ch\u00e0ng t\u00f9 tr\u01b0\u1edfng tr\u1ebb] diagram_focus | 3D=blender/B3D-02-detail.png | Infographic=D02",
+          "start_seconds": 51.9,
+          "end_seconds": 69.06,
+          "framing": "diagram_focus",
+          "movement": "zoom_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D02",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "zoom_in",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP A \u2014 S\u1ef1 ph\u1ea3n kh\u00e1ng ban \u0111\u1ea7u c\u1ee7a ch\u00e0ng t\u00f9 tr\u01b0\u1edfng tr\u1ebb",
+          "narrative_role": "introduce_subject",
+          "information_role": "Claim ref C02;C07",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-02-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D02",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc005",
+          "type": "animation",
+          "script_section_id": "s05",
+          "description": "[L\u1edaP A \u2014 Chi\u1ebfn tr\u1eadn Mtao Gr\u1ee9 & Mtao Mx\u00e2y] full_bleed_3d | 3D=blender/B3D-03-wide.png",
+          "start_seconds": 69.06,
+          "end_seconds": 89.66,
+          "framing": "full_bleed_3d",
+          "movement": "tracking_right",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "tracking_right",
+            "lens_mm": 50,
+            "lighting_key": "rim_lit",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP A \u2014 Chi\u1ebfn tr\u1eadn Mtao Gr\u1ee9 & Mtao Mx\u00e2y",
+          "narrative_role": "build_tension",
+          "information_role": "Claim ref C01;C03",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-03-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc006",
+          "type": "animation",
+          "script_section_id": "s06",
+          "description": "[L\u1edaP A \u2014 C\u00fa l\u1eadt \u0111\u1ecba t\u1ea7ng v\u0103n b\u1ea3n 1933] full_bleed_3d_callout | 3D=blender/B3D-04-wide.png",
+          "start_seconds": 89.66,
+          "end_seconds": 111.34,
+          "framing": "full_bleed_3d_callout",
+          "movement": "dolly_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 35,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP A \u2014 C\u00fa l\u1eadt \u0111\u1ecba t\u1ea7ng v\u0103n b\u1ea3n 1933",
+          "narrative_role": "evidence",
+          "information_role": "Claim ref C03;C04",
+          "hero_moment": true,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-04-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc007",
+          "type": "animation",
+          "script_section_id": "s07",
+          "description": "[L\u1edaP A \u2014 Kh\u00f4i ph\u1ee5c t\u1eeb 2 l\u00ean 6 r\u1ed3i 8 \u0111\u1ed1i th\u1ee7 (7 cu\u1ed9c chi\u1ebfn)] diagram_split_3d | 3D=blender/B3D-04-detail.png | Infographic=D03",
+          "start_seconds": 111.34,
+          "end_seconds": 135.84,
+          "framing": "diagram_split_3d",
+          "movement": "zoom_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D03",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "zoom_in",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP A \u2014 Kh\u00f4i ph\u1ee5c t\u1eeb 2 l\u00ean 6 r\u1ed3i 8 \u0111\u1ed1i th\u1ee7 (7 cu\u1ed9c chi\u1ebfn)",
+          "narrative_role": "deliver_payload",
+          "information_role": "Claim ref C03",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-04-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D03",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc008",
+          "type": "animation",
+          "script_section_id": "s08",
+          "description": "[L\u1edaP A \u2014 B\u1ea3n song ng\u1eef 2003 c\u1ee7a Nguy\u1ec5n H\u1eefu Th\u1ea5u & l\u1ed1i h\u00e1t khan] archival_quote_3d | 3D=blender/B3D-03-detail.png",
+          "start_seconds": 135.84,
+          "end_seconds": 157.09,
+          "framing": "archival_quote_3d",
+          "movement": "pan_left",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "pan_left",
+            "lens_mm": 85,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP A \u2014 B\u1ea3n song ng\u1eef 2003 c\u1ee7a Nguy\u1ec5n H\u1eefu Th\u1ea5u & l\u1ed1i h\u00e1t khan",
+          "narrative_role": "evidence",
+          "information_role": "Claim ref C04",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-03-detail.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc009",
+          "type": "animation",
+          "script_section_id": "s09",
+          "description": "[L\u1edaP A \u2014 C\u00e2y th\u1ea7n Smuk / Ktu & chuy\u1ebfn l\u00ean Tr\u1eddi h\u1ed3i sinh v\u1ee3] full_bleed_3d | 3D=blender/B3D-05-wide.png",
+          "start_seconds": 157.09,
+          "end_seconds": 176.61,
+          "framing": "full_bleed_3d",
+          "movement": "dolly_out",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_out",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP A \u2014 C\u00e2y th\u1ea7n Smuk / Ktu & chuy\u1ebfn l\u00ean Tr\u1eddi h\u1ed3i sinh v\u1ee3",
+          "narrative_role": "build_tension",
+          "information_role": "Claim ref C02",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-05-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc010",
+          "type": "animation",
+          "script_section_id": "s10",
+          "description": "[L\u1edaP A \u2014 B\u0103ng qua R\u1eebng S\u00e1p \u0110en \u0111i c\u1ea7u h\u00f4n N\u1eef th\u1ea7n M\u1eb7t Tr\u1eddi] full_bleed_3d_callout | 3D=blender/B3D-06-wide.png",
+          "start_seconds": 176.61,
+          "end_seconds": 195.92,
+          "framing": "full_bleed_3d_callout",
+          "movement": "dolly_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 35,
+            "lighting_key": "rim_lit",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP A \u2014 B\u0103ng qua R\u1eebng S\u00e1p \u0110en \u0111i c\u1ea7u h\u00f4n N\u1eef th\u1ea7n M\u1eb7t Tr\u1eddi",
+          "narrative_role": "build_tension",
+          "information_role": "Claim ref C05",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-06-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc011",
+          "type": "animation",
+          "script_section_id": "s11",
+          "description": "[L\u1edaP A \u2014 C\u00e1i ch\u1ebft tan ch\u1ea3y & h\u00f3a th\u00e2n \u0110\u0103m S\u0103n ch\u00e1u] full_bleed_3d | 3D=blender/B3D-06-detail.png",
+          "start_seconds": 195.92,
+          "end_seconds": 215.44,
+          "framing": "full_bleed_3d",
+          "movement": "dolly_out",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "dolly_out",
+            "lens_mm": 85,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP A \u2014 C\u00e1i ch\u1ebft tan ch\u1ea3y & h\u00f3a th\u00e2n \u0110\u0103m S\u0103n ch\u00e1u",
+          "narrative_role": "emotional_beat",
+          "information_role": "Claim ref C02;C05",
+          "hero_moment": true,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-06-detail.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc012",
+          "type": "diagram",
+          "script_section_id": "s12",
+          "description": "[L\u1edaP A \u2014 Hai c\u00e1ch \u0111\u1ecdc v\u1ec1 th\u1ea5t b\u1ea1i c\u1ee7a \u0110\u0103m S\u0103n] diagram_focus | 3D=blender/B3D-05-detail.png | Infographic=D04",
+          "start_seconds": 215.44,
+          "end_seconds": 237.76,
+          "framing": "diagram_focus",
+          "movement": "static",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D04",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP A \u2014 Hai c\u00e1ch \u0111\u1ecdc v\u1ec1 th\u1ea5t b\u1ea1i c\u1ee7a \u0110\u0103m S\u0103n",
+          "narrative_role": "comparison",
+          "information_role": "Claim ref C05",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-05-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D04",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc013",
+          "type": "animation",
+          "script_section_id": "s13",
+          "description": "[L\u1edaP B \u2014 Chuy\u1ec3n t\u1ea7ng sang thi\u1ebft ch\u1ebf x\u00e3 h\u1ed9i & m\u1eabu h\u1ec7 \u00ca \u0110\u00ea] full_bleed_3d_callout | 3D=blender/B3D-07-wide.png",
+          "start_seconds": 237.76,
+          "end_seconds": 250.19,
+          "framing": "full_bleed_3d_callout",
+          "movement": "pan_right",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "pan_right",
+            "lens_mm": 35,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP B \u2014 Chuy\u1ec3n t\u1ea7ng sang thi\u1ebft ch\u1ebf x\u00e3 h\u1ed9i & m\u1eabu h\u1ec7 \u00ca \u0110\u00ea",
+          "narrative_role": "transition",
+          "information_role": "Claim ref C07",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-07-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc014",
+          "type": "animation",
+          "script_section_id": "s14",
+          "description": "[L\u1edaP B \u2014 T\u1ee5c n\u1ed1i d\u00f2ng chu\u00ea nu\u00ea v\u00e0 hai d\u00f2ng h\u1ecd Ni\u00ea \u2013 Ml\u00f4] diagram_split_3d | 3D=blender/B3D-07-detail.png | Infographic=D05",
+          "start_seconds": 250.19,
+          "end_seconds": 270.79,
+          "framing": "diagram_split_3d",
+          "movement": "zoom_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D05",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "zoom_in",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP B \u2014 T\u1ee5c n\u1ed1i d\u00f2ng chu\u00ea nu\u00ea v\u00e0 hai d\u00f2ng h\u1ecd Ni\u00ea \u2013 Ml\u00f4",
+          "narrative_role": "deliver_payload",
+          "information_role": "Claim ref C07",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-07-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D05",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc015",
+          "type": "animation",
+          "script_section_id": "s15",
+          "description": "[L\u1edaP B \u2014 Kh\u00f4ng gian ki\u1ebfn tr\u00fac Nh\u00e0 d\u00e0i h\u00ecnh thuy\u1ec1n] full_bleed_3d | 3D=blender/B3D-02-wide.png",
+          "start_seconds": 270.79,
+          "end_seconds": 289.02,
+          "framing": "full_bleed_3d",
+          "movement": "tracking_left",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "tracking_left",
+            "lens_mm": 24,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP B \u2014 Kh\u00f4ng gian ki\u1ebfn tr\u00fac Nh\u00e0 d\u00e0i h\u00ecnh thuy\u1ec1n",
+          "narrative_role": "evidence",
+          "information_role": "Claim ref C08",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-02-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc016",
+          "type": "diagram",
+          "script_section_id": "s16",
+          "description": "[L\u1edaP B \u2014 T\u1eeb Dring gah, c\u1ea7u thang ch\u1ea1m b\u1ea7u v\u00fa t\u1edbi gh\u1ebf Kpan] diagram_focus | 3D=blender/B3D-02-detail.png | Infographic=D06",
+          "start_seconds": 289.02,
+          "end_seconds": 309.84,
+          "framing": "diagram_focus",
+          "movement": "zoom_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D06",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "zoom_in",
+            "lens_mm": 35,
+            "lighting_key": "natural",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP B \u2014 T\u1eeb Dring gah, c\u1ea7u thang ch\u1ea1m b\u1ea7u v\u00fa t\u1edbi gh\u1ebf Kpan",
+          "narrative_role": "deliver_payload",
+          "information_role": "Claim ref C08",
+          "hero_moment": true,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-02-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D06",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc017",
+          "type": "animation",
+          "script_section_id": "s17",
+          "description": "[L\u1edaP B \u2014 C\u00fa n\u1ed1i Season 3: Nam \u0110\u1ea3o gi\u1eefa \u0111\u1ea1i ng\u00e0n Nam \u00c1] full_bleed_3d_callout | 3D=blender/B3D-08-wide.png",
+          "start_seconds": 309.84,
+          "end_seconds": 333.24,
+          "framing": "full_bleed_3d_callout",
+          "movement": "orbital",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "orbital",
+            "lens_mm": 24,
+            "lighting_key": "natural",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP B \u2014 C\u00fa n\u1ed1i Season 3: Nam \u0110\u1ea3o gi\u1eefa \u0111\u1ea1i ng\u00e0n Nam \u00c1",
+          "narrative_role": "deliver_payload",
+          "information_role": "Claim ref C09",
+          "hero_moment": true,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-08-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc018",
+          "type": "animation",
+          "script_section_id": "s18",
+          "description": "[L\u1edaP B \u2014 B\u1eb1ng ch\u1ee9ng ng\u00f4n ng\u1eef h\u1ecdc Chamic t\u1eeb tr\u01b0\u1edbc 600 TCN] diagram_split_3d | 3D=blender/B3D-08-detail.png | Infographic=D07",
+          "start_seconds": 333.24,
+          "end_seconds": 352.98,
+          "framing": "diagram_split_3d",
+          "movement": "pan_right",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D07",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "pan_right",
+            "lens_mm": 35,
+            "lighting_key": "natural",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP B \u2014 B\u1eb1ng ch\u1ee9ng ng\u00f4n ng\u1eef h\u1ecdc Chamic t\u1eeb tr\u01b0\u1edbc 600 TCN",
+          "narrative_role": "evidence",
+          "information_role": "Claim ref C09",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-08-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D07",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc019",
+          "type": "animation",
+          "script_section_id": "s19",
+          "description": "[L\u1edaP B \u2014 D\u1ea5u \u1ea5n Champa & kh\u00f4ng gian c\u1ed3ng chi\u00eang li\u00ean t\u1ed9c ng\u01b0\u1eddi] archival_quote_3d | 3D=blender/B3D-08-wide.png",
+          "start_seconds": 352.98,
+          "end_seconds": 374.23,
+          "framing": "archival_quote_3d",
+          "movement": "dolly_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 50,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP B \u2014 D\u1ea5u \u1ea5n Champa & kh\u00f4ng gian c\u1ed3ng chi\u00eang li\u00ean t\u1ed9c ng\u01b0\u1eddi",
+          "narrative_role": "comparison",
+          "information_role": "Claim ref C09;C10",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-08-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc020",
+          "type": "animation",
+          "script_section_id": "s20",
+          "description": "[L\u1edaP B \u2014 B\u1ed9 chi\u00eang \u00ca \u0110\u00ea 6 + 3 + 1 + tr\u1ed1ng c\u00e1i & linh h\u1ed3n \u0111\u00eam khan] full_bleed_3d | 3D=blender/B3D-09-wide.png",
+          "start_seconds": 374.23,
+          "end_seconds": 393.97,
+          "framing": "full_bleed_3d",
+          "movement": "dolly_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 35,
+            "lighting_key": "rim_lit",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP B \u2014 B\u1ed9 chi\u00eang \u00ca \u0110\u00ea 6 + 3 + 1 + tr\u1ed1ng c\u00e1i & linh h\u1ed3n \u0111\u00eam khan",
+          "narrative_role": "establish_context",
+          "information_role": "Claim ref C10",
+          "hero_moment": true,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-09-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc021",
+          "type": "diagram",
+          "script_section_id": "s21",
+          "description": "[L\u1edaP B \u2014 L\u1ed1i di\u1ec5n x\u01b0\u1edbng hai n\u1ed1t & k\u00e8n \u0111ing tut] diagram_focus | 3D=blender/B3D-09-detail.png | Infographic=D08",
+          "start_seconds": 393.97,
+          "end_seconds": 409.41,
+          "framing": "diagram_focus",
+          "movement": "zoom_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D08",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "zoom_in",
+            "lens_mm": 85,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP B \u2014 L\u1ed1i di\u1ec5n x\u01b0\u1edbng hai n\u1ed1t & k\u00e8n \u0111ing tut",
+          "narrative_role": "evidence",
+          "information_role": "Claim ref C04;C14",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-09-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D08",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc022",
+          "type": "diagram",
+          "script_section_id": "s22",
+          "description": "[L\u1edaP C \u2014 D\u00e2n s\u1ed1 \u00ca \u0110\u00ea n\u0103m 2019 & \u0111\u1ed1i chi\u1ebfu m\u1ed1c 2009] diagram_focus | 3D=blender/B3D-08-detail.png | Infographic=D09",
+          "start_seconds": 409.41,
+          "end_seconds": 432.81,
+          "framing": "diagram_focus",
+          "movement": "static",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D09",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP C \u2014 D\u00e2n s\u1ed1 \u00ca \u0110\u00ea n\u0103m 2019 & \u0111\u1ed1i chi\u1ebfu m\u1ed1c 2009",
+          "narrative_role": "evidence",
+          "information_role": "Claim ref C11",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-08-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D09",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc023",
+          "type": "animation",
+          "script_section_id": "s23",
+          "description": "[L\u1edaP C \u2014 Chi\u1ebfn d\u1ecbch Kho t\u00e0ng s\u1eed thi T\u00e2y Nguy\u00ean 2001\u20132007] full_bleed_3d_callout | 3D=blender/B3D-10-wide.png",
+          "start_seconds": 432.81,
+          "end_seconds": 454.49,
+          "framing": "full_bleed_3d_callout",
+          "movement": "dolly_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 35,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP C \u2014 Chi\u1ebfn d\u1ecbch Kho t\u00e0ng s\u1eed thi T\u00e2y Nguy\u00ean 2001\u20132007",
+          "narrative_role": "deliver_payload",
+          "information_role": "Claim ref C12",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-10-wide.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc024",
+          "type": "diagram",
+          "script_section_id": "s24",
+          "description": "[L\u1edaP C \u2014 75 t\u00e1c ph\u1ea9m in s\u00e1ch trong 62 t\u1eadp & ph\u1ea7n c\u1ee7a ng\u01b0\u1eddi \u00ca \u0110\u00ea] diagram_focus | 3D=blender/B3D-10-detail.png | Infographic=D10",
+          "start_seconds": 454.49,
+          "end_seconds": 477.03,
+          "framing": "diagram_focus",
+          "movement": "zoom_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D10",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "zoom_in",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP C \u2014 75 t\u00e1c ph\u1ea9m in s\u00e1ch trong 62 t\u1eadp & ph\u1ea7n c\u1ee7a ng\u01b0\u1eddi \u00ca \u0110\u00ea",
+          "narrative_role": "deliver_payload",
+          "information_role": "Claim ref C12",
+          "hero_moment": true,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-10-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D10",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc025",
+          "type": "diagram",
+          "script_section_id": "s25",
+          "description": "[L\u1edaP C \u2014 Ngh\u1ecbch l\u00fd \u0111\u00e1ng b\u00e1o \u0111\u1ed9ng t\u1eeb kh\u1ea3o s\u00e1t n\u0103m 2007] diagram_focus | 3D=blender/B3D-04-detail.png | Infographic=D11",
+          "start_seconds": 477.03,
+          "end_seconds": 500.21,
+          "framing": "diagram_focus",
+          "movement": "static",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D11",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP C \u2014 Ngh\u1ecbch l\u00fd \u0111\u00e1ng b\u00e1o \u0111\u1ed9ng t\u1eeb kh\u1ea3o s\u00e1t n\u0103m 2007",
+          "narrative_role": "comparison",
+          "information_role": "Claim ref C13",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-04-detail.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D11",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc026",
+          "type": "animation",
+          "script_section_id": "s26",
+          "description": "[L\u1edaP C \u2014 C\u00f4ng nh\u1eadn Di s\u1ea3n Qu\u1ed1c gia 2014 & l\u1edbp truy\u1ec1n d\u1ea1y 2023] diagram_split_3d | 3D=blender/B3D-04-wide.png | Infographic=D12",
+          "start_seconds": 500.21,
+          "end_seconds": 524.47,
+          "framing": "diagram_split_3d",
+          "movement": "pan_left",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D12",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "pan_left",
+            "lens_mm": 35,
+            "lighting_key": "natural",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP C \u2014 C\u00f4ng nh\u1eadn Di s\u1ea3n Qu\u1ed1c gia 2014 & l\u1edbp truy\u1ec1n d\u1ea1y 2023",
+          "narrative_role": "evidence",
+          "information_role": "Claim ref C14",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-04-wide.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D12",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc027",
+          "type": "animation",
+          "script_section_id": "s27",
+          "description": "[L\u1edaP C \u2014 R\u00e0o c\u1ea3n ti\u1ebfng \u00ca \u0110\u00ea c\u1ed5 & ngh\u1ec7 nh\u00e2n Ama Nhi\u00ean t\u1ea1i Ak\u00f4 Dh\u00f4ng] archival_quote_3d | 3D=blender/B3D-09-detail.png",
+          "start_seconds": 524.47,
+          "end_seconds": 546.58,
+          "framing": "archival_quote_3d",
+          "movement": "dolly_in",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "dolly_in",
+            "lens_mm": 85,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "L\u1edaP C \u2014 R\u00e0o c\u1ea3n ti\u1ebfng \u00ca \u0110\u00ea c\u1ed5 & ngh\u1ec7 nh\u00e2n Ama Nhi\u00ean t\u1ea1i Ak\u00f4 Dh\u00f4ng",
+          "narrative_role": "emotional_beat",
+          "information_role": "Claim ref C15",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-09-detail.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc028",
+          "type": "animation",
+          "script_section_id": "s28",
+          "description": "[L\u1edaP C \u2014 17 bu\u00f4n l\u00e0ng ph\u1ee5c d\u1ef1ng nh\u00e0 d\u00e0i & m\u1eb7t tr\u00e1i s\u00e2n kh\u1ea5u h\u00f3a] full_bleed_3d_callout | 3D=blender/B3D-10-detail.png",
+          "start_seconds": 546.58,
+          "end_seconds": 568.26,
+          "framing": "full_bleed_3d_callout",
+          "movement": "dolly_out",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "dolly_out",
+            "lens_mm": 50,
+            "lighting_key": "low_key",
+            "depth_of_field": "shallow",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "L\u1edaP C \u2014 17 bu\u00f4n l\u00e0ng ph\u1ee5c d\u1ef1ng nh\u00e0 d\u00e0i & m\u1eb7t tr\u00e1i s\u00e2n kh\u1ea5u h\u00f3a",
+          "narrative_role": "comparison",
+          "information_role": "Claim ref C15;C10",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-10-detail.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc029",
+          "type": "animation",
+          "script_section_id": "s29",
+          "description": "[K\u1ebeT \u2014 T\u1ed5ng h\u1ee3p l\u1eddi gi\u1ea3i cho c\u00e2u h\u1ecfi m\u1edf \u0111\u1ea7u] full_bleed_3d | 3D=blender/B3D-01-detail.png",
+          "start_seconds": 568.26,
+          "end_seconds": 587.35,
+          "framing": "full_bleed_3d",
+          "movement": "dolly_out",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Minimal editorial chapter tag only (no toast pill)",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "dolly_out",
+            "lens_mm": 50,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "K\u1ebeT \u2014 T\u1ed5ng h\u1ee3p l\u1eddi gi\u1ea3i cho c\u00e2u h\u1ecfi m\u1edf \u0111\u1ea7u",
+          "narrative_role": "resolution",
+          "information_role": "Claim ref C05;C06;C07",
+          "hero_moment": true,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-01-detail.png",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc030",
+          "type": "animation",
+          "script_section_id": "s30",
+          "description": "[K\u1ebeT \u2014 \u0110\u00e1nh gi\u00e1 Condominas & m\u1edf sang t\u1eadp ti\u1ebfp theo Season 3] end_card_3d | 3D=blender/B3D-01-wide.png | Infographic=D01",
+          "start_seconds": 587.35,
+          "end_seconds": 608.6,
+          "framing": "end_card_3d",
+          "movement": "crane_up",
+          "transition_in": "cross_dissolve",
+          "transition_out": "cross_dissolve",
+          "overlay_notes": "Diagram=D01",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "crane_up",
+            "lens_mm": 35,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "K\u1ebeT \u2014 \u0110\u00e1nh gi\u00e1 Condominas & m\u1edf sang t\u1eadp ti\u1ebfp theo Season 3",
+          "narrative_role": "call_to_action",
+          "information_role": "Claim ref C06;ROADMAP-S3",
+          "hero_moment": false,
+          "texture_keywords": [
+            "basalt",
+            "ironwood",
+            "beeswax",
+            "antique_brass",
+            "warm_archival_paper"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blender 5.2.2 LTS Cycles render: blender/B3D-01-wide.png",
+              "source": "generate"
+            },
+            {
+              "type": "diagram",
+              "description": "Remotion Atelier infographic D01",
+              "source": "generate"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "episode": "S3E02-dam-san",
+        "blender_hero_shots": 10,
+        "blender_total_renders": 20,
+        "remotion_diagrams": 12
+      }
+    }
+  },
+  "style_playbook": "ink-genome"
+}

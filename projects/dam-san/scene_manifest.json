@@ -1,0 +1,274 @@
+{
+  "scenes": [
+    {
+      "scene_id": "sc001",
+      "section_id": "s01",
+      "label": "MỞ — Hook nghịch lý Mặt Trời & Rừng Sáp Đen",
+      "archetype": "full_bleed_3d",
+      "blender_asset": "blender/B3D-01-wide.png",
+      "diagram_id": null,
+      "source_ref": "HOOK;C01;C05"
+    },
+    {
+      "scene_id": "sc002",
+      "section_id": "s02",
+      "label": "MỞ — Nối mạch Season 3 & cam kết 3 lớp",
+      "archetype": "split_3d_diagram",
+      "blender_asset": "blender/B3D-01-detail.png",
+      "diagram_id": "D01",
+      "source_ref": "ROADMAP-S3;BRAND"
+    },
+    {
+      "scene_id": "sc003",
+      "section_id": "s03",
+      "label": "LỚP A — Ấn bản 2.077 câu & khởi đầu chuê nuê",
+      "archetype": "full_bleed_3d_callout",
+      "blender_asset": "blender/B3D-02-wide.png",
+      "diagram_id": null,
+      "source_ref": "C02;C07"
+    },
+    {
+      "scene_id": "sc004",
+      "section_id": "s04",
+      "label": "LỚP A — Sự phản kháng ban đầu của chàng tù trưởng trẻ",
+      "archetype": "diagram_focus",
+      "blender_asset": "blender/B3D-02-detail.png",
+      "diagram_id": "D02",
+      "source_ref": "C02;C07"
+    },
+    {
+      "scene_id": "sc005",
+      "section_id": "s05",
+      "label": "LỚP A — Chiến trận Mtao Grứ & Mtao Mxây",
+      "archetype": "full_bleed_3d",
+      "blender_asset": "blender/B3D-03-wide.png",
+      "diagram_id": null,
+      "source_ref": "C01;C03"
+    },
+    {
+      "scene_id": "sc006",
+      "section_id": "s06",
+      "label": "LỚP A — Cú lật địa tầng văn bản 1933",
+      "archetype": "full_bleed_3d_callout",
+      "blender_asset": "blender/B3D-04-wide.png",
+      "diagram_id": null,
+      "source_ref": "C03;C04"
+    },
+    {
+      "scene_id": "sc007",
+      "section_id": "s07",
+      "label": "LỚP A — Khôi phục từ 2 lên 6 rồi 8 đối thủ (7 cuộc chiến)",
+      "archetype": "diagram_split_3d",
+      "blender_asset": "blender/B3D-04-detail.png",
+      "diagram_id": "D03",
+      "source_ref": "C03"
+    },
+    {
+      "scene_id": "sc008",
+      "section_id": "s08",
+      "label": "LỚP A — Bản song ngữ 2003 của Nguyễn Hữu Thấu & lối hát khan",
+      "archetype": "archival_quote_3d",
+      "blender_asset": "blender/B3D-03-detail.png",
+      "diagram_id": null,
+      "source_ref": "C04"
+    },
+    {
+      "scene_id": "sc009",
+      "section_id": "s09",
+      "label": "LỚP A — Cây thần Smuk / Ktu & chuyến lên Trời hồi sinh vợ",
+      "archetype": "full_bleed_3d",
+      "blender_asset": "blender/B3D-05-wide.png",
+      "diagram_id": null,
+      "source_ref": "C02"
+    },
+    {
+      "scene_id": "sc010",
+      "section_id": "s10",
+      "label": "LỚP A — Băng qua Rừng Sáp Đen đi cầu hôn Nữ thần Mặt Trời",
+      "archetype": "full_bleed_3d_callout",
+      "blender_asset": "blender/B3D-06-wide.png",
+      "diagram_id": null,
+      "source_ref": "C05"
+    },
+    {
+      "scene_id": "sc011",
+      "section_id": "s11",
+      "label": "LỚP A — Cái chết tan chảy & hóa thân Đăm Săn cháu",
+      "archetype": "full_bleed_3d",
+      "blender_asset": "blender/B3D-06-detail.png",
+      "diagram_id": null,
+      "source_ref": "C02;C05"
+    },
+    {
+      "scene_id": "sc012",
+      "section_id": "s12",
+      "label": "LỚP A — Hai cách đọc về thất bại của Đăm Săn",
+      "archetype": "diagram_focus",
+      "blender_asset": "blender/B3D-05-detail.png",
+      "diagram_id": "D04",
+      "source_ref": "C05"
+    },
+    {
+      "scene_id": "sc013",
+      "section_id": "s13",
+      "label": "LỚP B — Chuyển tầng sang thiết chế xã hội & mẫu hệ Ê Đê",
+      "archetype": "full_bleed_3d_callout",
+      "blender_asset": "blender/B3D-07-wide.png",
+      "diagram_id": null,
+      "source_ref": "C07"
+    },
+    {
+      "scene_id": "sc014",
+      "section_id": "s14",
+      "label": "LỚP B — Tục nối dòng chuê nuê và hai dòng họ Niê – Mlô",
+      "archetype": "diagram_split_3d",
+      "blender_asset": "blender/B3D-07-detail.png",
+      "diagram_id": "D05",
+      "source_ref": "C07"
+    },
+    {
+      "scene_id": "sc015",
+      "section_id": "s15",
+      "label": "LỚP B — Không gian kiến trúc Nhà dài hình thuyền",
+      "archetype": "full_bleed_3d",
+      "blender_asset": "blender/B3D-02-wide.png",
+      "diagram_id": null,
+      "source_ref": "C08"
+    },
+    {
+      "scene_id": "sc016",
+      "section_id": "s16",
+      "label": "LỚP B — Từ Dring gah, cầu thang chạm bầu vú tới ghế Kpan",
+      "archetype": "diagram_focus",
+      "blender_asset": "blender/B3D-02-detail.png",
+      "diagram_id": "D06",
+      "source_ref": "C08"
+    },
+    {
+      "scene_id": "sc017",
+      "section_id": "s17",
+      "label": "LỚP B — Cú nối Season 3: Nam Đảo giữa đại ngàn Nam Á",
+      "archetype": "full_bleed_3d_callout",
+      "blender_asset": "blender/B3D-08-wide.png",
+      "diagram_id": null,
+      "source_ref": "C09"
+    },
+    {
+      "scene_id": "sc018",
+      "section_id": "s18",
+      "label": "LỚP B — Bằng chứng ngôn ngữ học Chamic từ trước 600 TCN",
+      "archetype": "diagram_split_3d",
+      "blender_asset": "blender/B3D-08-detail.png",
+      "diagram_id": "D07",
+      "source_ref": "C09"
+    },
+    {
+      "scene_id": "sc019",
+      "section_id": "s19",
+      "label": "LỚP B — Dấu ấn Champa & không gian cồng chiêng liên tộc người",
+      "archetype": "archival_quote_3d",
+      "blender_asset": "blender/B3D-08-wide.png",
+      "diagram_id": null,
+      "source_ref": "C09;C10"
+    },
+    {
+      "scene_id": "sc020",
+      "section_id": "s20",
+      "label": "LỚP B — Bộ chiêng Ê Đê 6 + 3 + 1 + trống cái & linh hồn đêm khan",
+      "archetype": "full_bleed_3d",
+      "blender_asset": "blender/B3D-09-wide.png",
+      "diagram_id": null,
+      "source_ref": "C10"
+    },
+    {
+      "scene_id": "sc021",
+      "section_id": "s21",
+      "label": "LỚP B — Lối diễn xướng hai nốt & kèn đing tut",
+      "archetype": "diagram_focus",
+      "blender_asset": "blender/B3D-09-detail.png",
+      "diagram_id": "D08",
+      "source_ref": "C04;C14"
+    },
+    {
+      "scene_id": "sc022",
+      "section_id": "s22",
+      "label": "LỚP C — Dân số Ê Đê năm 2019 & đối chiếu mốc 2009",
+      "archetype": "diagram_focus",
+      "blender_asset": "blender/B3D-08-detail.png",
+      "diagram_id": "D09",
+      "source_ref": "C11"
+    },
+    {
+      "scene_id": "sc023",
+      "section_id": "s23",
+      "label": "LỚP C — Chiến dịch Kho tàng sử thi Tây Nguyên 2001–2007",
+      "archetype": "full_bleed_3d_callout",
+      "blender_asset": "blender/B3D-10-wide.png",
+      "diagram_id": null,
+      "source_ref": "C12"
+    },
+    {
+      "scene_id": "sc024",
+      "section_id": "s24",
+      "label": "LỚP C — 75 tác phẩm in sách trong 62 tập & phần của người Ê Đê",
+      "archetype": "diagram_focus",
+      "blender_asset": "blender/B3D-10-detail.png",
+      "diagram_id": "D10",
+      "source_ref": "C12"
+    },
+    {
+      "scene_id": "sc025",
+      "section_id": "s25",
+      "label": "LỚP C — Nghịch lý đáng báo động từ khảo sát năm 2007",
+      "archetype": "diagram_focus",
+      "blender_asset": "blender/B3D-04-detail.png",
+      "diagram_id": "D11",
+      "source_ref": "C13"
+    },
+    {
+      "scene_id": "sc026",
+      "section_id": "s26",
+      "label": "LỚP C — Công nhận Di sản Quốc gia 2014 & lớp truyền dạy 2023",
+      "archetype": "diagram_split_3d",
+      "blender_asset": "blender/B3D-04-wide.png",
+      "diagram_id": "D12",
+      "source_ref": "C14"
+    },
+    {
+      "scene_id": "sc027",
+      "section_id": "s27",
+      "label": "LỚP C — Rào cản tiếng Ê Đê cổ & nghệ nhân Ama Nhiên tại Akô Dhông",
+      "archetype": "archival_quote_3d",
+      "blender_asset": "blender/B3D-09-detail.png",
+      "diagram_id": null,
+      "source_ref": "C15"
+    },
+    {
+      "scene_id": "sc028",
+      "section_id": "s28",
+      "label": "LỚP C — 17 buôn làng phục dựng nhà dài & mặt trái sân khấu hóa",
+      "archetype": "full_bleed_3d_callout",
+      "blender_asset": "blender/B3D-10-detail.png",
+      "diagram_id": null,
+      "source_ref": "C15;C10"
+    },
+    {
+      "scene_id": "sc029",
+      "section_id": "s29",
+      "label": "KẾT — Tổng hợp lời giải cho câu hỏi mở đầu",
+      "archetype": "full_bleed_3d",
+      "blender_asset": "blender/B3D-01-detail.png",
+      "diagram_id": null,
+      "source_ref": "C05;C06;C07"
+    },
+    {
+      "scene_id": "sc030",
+      "section_id": "s30",
+      "label": "KẾT — Đánh giá Condominas & mở sang tập tiếp theo Season 3",
+      "archetype": "end_card_3d",
+      "blender_asset": "blender/B3D-01-wide.png",
+      "diagram_id": "D01",
+      "source_ref": "C06;ROADMAP-S3"
+    }
+  ]
+}

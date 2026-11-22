@@ -13,7 +13,7 @@ This is where words become visuals. A great script with a bad scene plan produce
 | Schema | `schemas/artifacts/scene_plan.schema.json` | Artifact validation |
 | Prior artifacts | `state.artifacts["script"]["script"]`, `state.artifacts["proposal"]["proposal_packet"]` | Script sections and proposal packet |
 | Playbook | Active style playbook | Visual language, transitions, motion rules |
-| Layer 3 | `.agents/skills/editorial-explainer-manifest/`, `.agents/skills/remotion-best-practices/`, `.agents/skills/d3-viz/`, `.agents/skills/blender-*` | Editorial manifest, Remotion, data viz, Blender 3D illustration knowledge |
+| Layer 3 | `.agents/skills/editorial-explainer-manifest/`, `.agents/skills/remotion-best-practices/`, `.agents/skills/d3-viz/`, `.agents/skills/blender-explainer-animation/`, `.agents/skills/blender-*` | Editorial manifest, Remotion, data viz, Blender + BlenderKit animated 3D explainer knowledge |
 
 ## Process
 
@@ -86,6 +86,7 @@ description; the Edit stage converts that intent into `cut.type`.
 | `progress_bar` | Journey visualization, completion, stacked metrics | Remotion ProgressBar (fill/pulse/step animations) | 4-6s |
 | `text_card` | Statements, closing messages, key terms | Remotion TextCard (centered, spring animation) | 3-5s |
 | `animation` | Concepts needing motion (data flow, math) | Remotion, Manim | 4-10s |
+| `3D animated diorama` (`generated` / `animation`) | Spatial mechanisms, historical/cultural cutaways, physical processes, geographic trajectories | Blender + `blenderkit_catalog` (`blender_explainer_kit.py`) + Remotion 3D-tracked callouts (`CrossfadeLoopVideo`) | 8-20s |
 | `diagram` | Processes, architecture, relationships | `diagram_gen` (Mermaid), `image_selector` | 4-8s |
 | `generated` | Illustrations, metaphors, real-world imagery | `image_selector` (FLUX/GPT Image) | 3-6s |
 | `talking_head` | AI avatar speaking (if HeyGen available) | HeyGen tools | 5-15s |
@@ -142,6 +143,11 @@ Start with a wide view of a system, then zoom into a specific component to expla
 Show code with syntax highlighting. Highlight specific lines as the narrator explains them. Can animate typing or progressive reveal.
 - Tools: `code_snippet` tool + Remotion
 - Example: "Python code: `results = collection.query(embedding, n_results=5)`. Highlight `embedding` parameter when narrator says 'vector'."
+
+**3D Animated Explainer Diorama (Blender + BlenderKit)**
+Replace static camera ping-pongs with a one-way `240`-frame (`10s` @ `24fps`) causal action timeline combining reusable free BlenderKit `.blend` props/foliage/animals with articulated character rigs (`create_articulated_actor`) and mechanical storytelling (cutaways, rising stacks, sweeping NURBS paths, contact sparks/acoustics).
+- Tools: `blenderkit_catalog`, `tools/graphics/templates/blender_explainer_kit.py`, `.agents/skills/blender-explainer-animation/SKILL.md`, plus `export_screen_tracks()` -> Remotion `SceneTrackedCallouts` & `CrossfadeLoopVideo`.
+- Example: "Roof hinges open to reveal hearth & pottery (`blenderkit_catalog`), groom climbs stair (`anim_walk`), rear bay slides open while tracked Vietnamese callout labels lock to 3D bones."
 
 ### Step 4a-bis: Editorial Layer Language (news-editorial-motion lane + Warm Archival Print)
 

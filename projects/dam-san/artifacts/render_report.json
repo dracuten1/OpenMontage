@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/renders/dam-san-final-1080p.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1920x1080",
+      "fps": 30,
+      "duration_seconds": 686.2,
+      "file_size_bytes": 572439588,
+      "platform_target": "youtube"
+    }
+  ],
+  "warnings": [],
+  "verification_notes": [
+    "FINAL 1080p remuxed bit-for-bit after 2-ch AAC audio normalization (Integrated=-14.4 LUFS, LRA=2.1 LU).",
+    "Captions disabled on video stream (sidecar captions.srt).",
+    "4 probe stills (start, diagram, mid, late) extracted from final MP4 and inspected via Vision QA."
+  ],
+  "render_grammar": "documentary-montage",
+  "decision_log_ref": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/decision_log.json",
+  "final_review_ref": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/artifacts/final_review.json",
+  "metadata": {
+    "sha256": "0d8715cf970d175bdf8b204989db7fceac4f0ca9e61d2c6b8a76f096a733c997",
+    "thumbnail_path": "/Users/tuyennguyen/project/OpenMontage/projects/dam-san/deliverables/dam-san-thumbnail-1280x720.jpg",
+    "thumbnail_sha256": "4ddbd42c9fcbba0ed59ca7ee34c7ea9971b6aa43a775e7c9e405a5692849b208",
+    "srt_path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/dam-san/captions.srt",
+    "srt_sha256": "414eb2faf0707a527687a4e3bbd50c84eb6f4a2771d77b61f5d00dc5d4934432"
+  }
+}
