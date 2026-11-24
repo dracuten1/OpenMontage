@@ -15,6 +15,8 @@ Use this skill when the user wants to generate **short video clips (`~10s`, `16:
 - **`gemini-video-asset` is the primary Browser AI Video B-Roll provider.** Try each signed-in Chrome profile from `Local State` first.
 - If a Chrome profile hits Gemini Web video quota/rate limits, fall back to the next signed-in Chrome profile.
 - Once all Chrome profiles' Gemini Web quotas are exhausted, fall back to **`google-flow-asset`** (`.agents/skills/google-flow-asset/SKILL.md`) across all Chrome profiles.
+- **Parallel Multi-Profile & Hybrid Gemini + Flow Strategy (2+ Clips):** When generating multiple short clips, run jobs concurrently instead of serially — open a second signed-in Chrome profile (`open -a "Google Chrome" --args --profile-directory="Profile 2" "https://gemini.google.com/app"`) OR run Gemini Web on one tab/profile while running **Google Flow** (`labs.google/fx/tools/flow`) on another tab/profile simultaneously.
+- **Fast Quota Detection:** After submitting a prompt, check the Chrome tab title in the snapshot. If it changes to `"Video Generation Limit Reached - Google Gemini"`, immediately switch to the next signed-in Chrome profile or fall back to `google-flow-asset` without waiting for a timeout.
 
 **Scope guardrail — Assets only:**
 - Gemini video clips are **supporting visual assets** for scenes inside a larger OpenMontage composition (`SceneShell`, split panels, animated backdrops) — **never** treat a raw generated clip as a finished standalone video.

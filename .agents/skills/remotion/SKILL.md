@@ -145,6 +145,30 @@ For detailed API documentation on all hooks, components, renderer, Lambda, and P
 
 Remotion has a special license. Companies may need to obtain a license for commercial use. Check https://remotion.dev/license
 
+## OpenMontage News `SceneShell` & Mechanical QC Gate Cheatsheet
+
+When authoring bespoke Atelier news scenes under `remotion-composer/src/<slug>/` using `src/components/news`:
+
+1. **`SceneShell` `{children}` Local Coordinates (Critical):**
+   - `SceneShell` already mounts `{children}` inside TikTok Safe Zone v3.2 (`top: 350`, `left: 90`, `width: 850`, `height: 1070`).
+   - Always position children in **local `0..850 × 0..1040` coordinates** (never add `top: 350` or `left: 90` again, or bottom blocks will spill into the dark cinema lower-third band `y: 1444–1920`).
+   - Below a `backplate={{ mode: "top-split", splitHeight: H }}`, start the lower data stage at local `top ≈ H + 12`.
+
+2. **Verified Shared News Component Props:**
+   - `HeroTitle`: accepts `{ text, highlight, color, highlightColor, align, sub, subColor }` (no `highlightTextColor` or `enterFrame`).
+   - `AiBadge`: accepts `{ concept }` (not `label`).
+   - `<OffthreadVideo muted />`: does **not** accept a `loop` prop — wrap in `<Loop durationInFrames={N}>` from `"remotion"`.
+
+3. **`fact_whitelist_gate.py` & `editorial_language_gate.py` TSX Hygiene:**
+   - Use `after(frame, N)` / `between(frame, a, b)` from `timing.ts` instead of raw `frame >= N` inside TSX files (prevents `>...<` regex false positives on unwhitelisted numbers).
+   - Prefer `<path d="M ..." />` over `<polygon points="..." />` and avoid numeric CSS `filter: "contrast(1.06)"` strings.
+   - Whitelist verified archival photograph years (e.g. `2019`, `2015`) in `fact_whitelist.json` when displayed in `<ArchiveLabelBadge />`.
+   - Ensure every non-closing content scene has a genuine graphic-native layer (`EditorialBarChart`, `ComparisonSplit`, or SVG with `maxValue` / `GRID` math) bound in `scene_manifest.json`.
+
+4. **Strict Timing Re-Lock & Mix Gate Defaults:**
+   - Keep per-scene post-audio breathing pad at **`≤ 0.25s`** (strict `timing_relock_guard` tolerance is `±0.30s` against measured WAV duration).
+   - Always emit `artifacts/narration_words.json` (section-dict shape) and include `"declared_not_measured": ["music_masking"]` in `mix_profile.json` when validating stems with `tools.qc.mix_validator`.
+
 ---
 
 ## Feedback & Contributions

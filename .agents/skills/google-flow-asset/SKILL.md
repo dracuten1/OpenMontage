@@ -129,16 +129,18 @@ Author prompts using the active playbook's visual constraints (`styles/archival-
 ### Step 7: Start Generation & Poll to Completion
 
 1. `desktop_click` `"Start generation"`.
-2. Wait in `25000–30000ms` increments (`desktop_wait`) and re-snapshot the `webarea` (`compact: true, max_depth: 12`) to monitor percentage (`4%` → `36%` → complete).
-3. Generation is complete when the card displays `"Generated video thumbnail"` (`image` inside the prompt-titled `group`).
+2. **Parallel multi-clip queueing (2+ clips):** You do **not** need to wait for Clip 1 to finish before submitting Clip 2. Wait `1500ms`, inject Clip 2's prompt into `"What do you want to create?"` via `desktop_set_value`, and click `"Start generation"` again so both clips render concurrently. For larger batches, you may also run Google Flow in one Chrome profile/tab while running `gemini-video-asset` (or another Flow tab) in a second Chrome profile simultaneously.
+3. Wait in `25000–30000ms` increments (`desktop_wait`) and re-snapshot the `webarea` (`compact: true, max_depth: 15`, **omit `interactive_only: true`**) to monitor percentage (`4%` → `36%` → complete).
+4. Generation is complete when the card displays `"Generated video thumbnail"` (`image` inside the prompt-titled `group`).
 
 ### Step 8: Download the Clip
 
 1. `desktop_click` the generated video card (`group` with the short prompt title) to open the clip editor view.
 2. Wait `1000ms`, snapshot the `webarea`, and `desktop_click` `"Download media"` (`combobox`).
 3. Snapshot the `webarea` again and `desktop_click` the **Original size** `menuitem` (e.g., `"360p Original size"` / `"720p Original size"` — avoid paid upscaling unless explicitly requested).
-4. Wait `1500–3000ms` and snapshot the **window** (`window_id=..., skeleton=true`) to detect macOS's native **`save-panel` sheet** (`Where: Downloads`, `Save As: <filename>`).
-5. `desktop_click` `"Save"` (`OKButton`) and wait `4000ms`.
+4. Wait `1500–3000ms` and snapshot the **window** (`window_id=..., interactive_only=true, max_depth=10`).
+   - **2nd+ download `alertdialog`:** On the second clip download in a session, Chrome may pop an `alertdialog` (`"flow.google.com wants to: Download multiple files"` with `"Block"` / `"Allow"`) *before* macOS's native `save` sheet opens. Click `"Allow"`, wait `2500ms`, then snapshot `surface="sheet"`.
+5. On macOS's native **`save-panel` sheet** (`Where: Downloads`, `Save As: <filename>`), `desktop_click` `"Save"` (`OKButton`) and wait `2500–4000ms`.
 
 ### Step 9: Technical + Vision QA & Project Ingestion
 
@@ -173,3 +175,7 @@ Author prompts using the active playbook's visual constraints (`styles/archival-
 - **Missing the native Save dialog:** Chrome triggers a macOS `save-panel` sheet (`Where: Downloads`). Always snapshot the **window** (not just `webarea`) after clicking `"720p Original size"` to click `"Save"`.
 - **Using `9:16` for split/card slots:** Crops left/right edges badly in `top-split` (`1080×480`–`608px`). Default to `16:9` for assets unless filling the full `1080×1920` screen.
 - **Forgetting editorial disclosure:** Never ship an unbadged Flow clip in a news explainer — always label it `MINH HỌA AI / <Concept>`.
+- **Completed video cards invisible with `interactive_only: true`:** `"Generated video thumbnail"` (`image`) inside each prompt `group` is filtered out when `interactive_only: true`. Always omit `interactive_only` (`compact: true, max_depth: 15`) when polling for completed cards and finding the card `group` ref to click.
+- **2nd+ download blocked by `"Download multiple files"` `alertdialog`:** Click `"Allow"` on Chrome's permission prompt before looking for macOS's native `save` sheet.
+- **`Length` slider rejects `desktop_set_value`:** Flow's slider (`val=5` = `8s`, `8 credits` at `360p`) often fails `desktop_set_value` post-action verification; keep default `8s` or adjust via focus + arrow keys.
+- **Looping & cropping the Flow spark mark in Remotion:** `<OffthreadVideo>` has no `loop` prop — wrap it in `<Loop durationInFrames={236}>` (for an `8.0s` clip at `30fps`) and apply `objectFit: "cover"`, `transform: "scale(1.16)"`, `transformOrigin: "42% 36%"` to cleanly mask the bottom-right spark mark.
