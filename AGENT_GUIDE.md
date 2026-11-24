@@ -254,7 +254,7 @@ music_library/
 └── ...
 ```
 
-If the folder has tracks, the proposal and asset stages should present them as options alongside generated music. See the proposal-director and asset-director skills for details.
+If the folder has tracks, check `music_library/bgm/README.md` (when-to-use index) first and present matching tracks as options before falling back to API generation or `.agents/skills/google-flow-music/SKILL.md` (`flowmusic.google` via `agent-desktop`). See the proposal-director and asset-director skills for details.
 
 ## Available Pipelines
 
@@ -683,7 +683,7 @@ The `.agents/skills/` directory is large. When you're not coming in through a to
 
 | Category | Skills |
 |---|---|
-| **Editorial & Composition** | `editorial-explainer-manifest`, `google-flow-asset`, `gemini-video-asset`, `remotion-best-practices`, `remotion`, `visual-style` |
+| **Editorial & Composition** | `editorial-explainer-manifest`, `google-flow-asset`, `gemini-video-asset`, `google-flow-music`, `remotion-best-practices`, `remotion`, `visual-style` |
 | **Motion & Pacing** | `animation-principles`, `motion-art-direction`, `beat-sync-editing` |
 | **Data Visualization** | `d3-viz` |
 | **3D Illustration (Blender)** | `blender-modeling`, `blender-materials`, `blender-lighting`, `blender-cameras`, `blender-animation`, `blender-rendering`, `3d-asset-generation` |

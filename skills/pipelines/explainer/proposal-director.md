@@ -373,9 +373,9 @@ Music is a critical part of the video's feel. **Surface the music situation to t
 
 **Check music availability in this order:**
 
-1. **User music library:** Check `registry.get_by_capability("music_library")` and inspect `music_library/`. List tracks with durations.
+1. **User music library:** Check `registry.get_by_capability("music_library")` and `music_library/bgm/README.md` (series/mood index). List matching tracks with durations.
 2. **Royalty-free search:** Check `registry.get_by_capability("music_search")`. Report providers, licensing constraints, and key requirements.
-3. **Music generation APIs:** Check `registry.get_by_capability("music_generation")`. Report status, quota, cost, and quality tradeoffs honestly.
+3. **Music generation APIs / Flow Music:** Check `registry.get_by_capability("music_generation")` (report status/cost), or offer `.agents/skills/google-flow-music/SKILL.md` (`flowmusic.google` via `agent-desktop`) if no library track fits.
 
 **Present to the user:**
 
