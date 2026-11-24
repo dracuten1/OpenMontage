@@ -134,6 +134,12 @@ Read `.agents/skills/blender-explainer-animation/SKILL.md` first. Prefer reusing
 2. **Geometry Nodes & Foliage Optimization**: Append with `bake_geonodes=True` (`append_normalized_blend` / `instance_baked_blend`); preserve natural leaf alpha textures and set `disable_shadows=True` (`visible_shadow = False`) on dense background foliage so EEVEE renders quickly (`~0.6–1.4s/frame`).
 3. **One-Way Narrative Render & Screen Tracks**: Animate articulated actors and domain mechanics over `240` frames @ `24fps`, encode one-way `30fps` MP4 (`encode_oneway_mp4` — NO ping-pong reverse), and export `screen_tracks.json` via `export_screen_tracks()` for Remotion `SceneTrackedCallouts` + `CrossfadeLoopVideo`.
 
+**Google Flow & Gemini Web Video B-Roll Assets (`gemini-video-asset` / `google-flow-asset` via `agent-desktop`)**:
+When `scene_plan` specifies browser-generated AI video B-roll (or cloud `video_selector` APIs are unconfigured), follow this **provider & Chrome profile priority**:
+1. **Primary — `gemini-video-asset` (`gemini.google.com/app`) across Chrome profiles first:** Read `.agents/skills/gemini-video-asset/SKILL.md` and `~/Library/Application Support/Google/Chrome/Local State`. Generate `16:9` · `720p` (`~10s`) clips in the first available Chrome profile; if a profile hits quota/rate limits, fall back to the next signed-in Chrome profile.
+2. **Fallback — `google-flow-asset` (`labs.google/fx/tools/flow`) across all Chrome profiles:** If all Gemini Web profiles are exhausted (or exact `4–8s` / `360p` `Omni 1.2 Flash` control is required), read `.agents/skills/google-flow-asset/SKILL.md` and run `16:9` · `Omni 1.2 Flash` · `360p` · `x1` (`~8 credits`); if a profile runs out of credits, fall back to the next Chrome profile.
+3. **Download, QA & Ingestion:** Download via Chrome's native `save` sheet (`max_depth: 25` on Gemini Web), verify with `ffprobe` + Vision frame inspection (`read_file`), ingest into `projects/<slug>/assets/video/` and `remotion-composer/public/<slug>/video/`, strip or mute audio (`<OffthreadVideo muted />`), record provenance (provider + Chrome profile), and stamp `MINH HỌA AI / <Concept>`.
+
 ### Step 5: Generate Music
 
 1. Read playbook's `audio.music_mood` and `audio.music_volume`

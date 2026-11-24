@@ -105,6 +105,7 @@ Record:
 - Which video generation providers are available — run `registry.get_by_capability("video_generation")` and check status
 - Which enhancement tools are available
 - Image generation status — run `registry.get_by_capability("image_generation")` and check status
+- **Browser AI Video B-Roll (`gemini-video-asset` & `google-flow-asset` via `agent-desktop`)** — check signed-in Chrome profiles in `~/Library/Application Support/Google/Chrome/Local State`. Priority order: **(1) `gemini-video-asset` (`gemini.google.com/app`) across each Chrome profile first**, then **(2) `google-flow-asset` (`labs.google/fx/tools/flow`) across all Chrome profiles** if Gemini Web quota is exhausted (falling back to the next profile on credit/quota exhaustion).
 - **Remotion render engine status** — check `video_compose.get_info()["render_engines"]["remotion"]`. If `true`, Remotion is available for animated text cards, stat cards, charts, spring-physics transitions, and image-to-video rendering. This is a major quality upgrade over Ken Burns pan-and-zoom.
 
 This directly affects what you can promise in the production plan. **Do not propose a concept that requires tools you don't have.**
@@ -214,6 +215,9 @@ Before choosing or generating a playbook, read `skills/meta/taste-direction.md` 
 - `kpi_grid` — multi-stat dashboard layout
 
 **Important:** When Remotion is available, **always design for Remotion component scenes** rather than static AI-generated images with Ken Burns pan. This is the difference between a professional motion graphics video and a slideshow.
+
+**Evaluate Browser AI Video B-Roll as a Main Visual Aspect:**
+In every proposal, explicitly assess whether **Browser AI Video B-Roll** (`gemini-video-asset` / `google-flow-asset`) should serve as a **primary visual pillar** of the video (not just a fallback) — for example when the topic involves infrastructure, physical/geographic journeys, historical/documentary atmosphere, or dynamic processes that benefit from `16:9` moving shots inside Swiss Split / media cards paired with Remotion maps/charts (`MINH HỌA AI` badge). State clearly in the proposal whether this video-asset approach is suitable for the brief (and if not, why real photos / 3D / pure motion graphics are better), and lock the provider priority: **`gemini-video-asset` across Chrome profiles first → `google-flow-asset` across all Chrome profiles on quota/credit exhaustion**.
 
 #### 3d: Duration and Platform
 
