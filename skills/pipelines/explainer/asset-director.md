@@ -145,12 +145,12 @@ When `scene_plan` specifies browser-generated AI video B-roll (or cloud `video_s
 1. Read playbook's `audio.music_mood` and `audio.music_volume`
 2. Check the music decision from `proposal_packet.production_plan.music_source` (set by the Proposal Director)
 3. Source the background track in this priority order:
-   - **User-selected library track**: If the proposal specified a track from `music_library/`, copy it to `projects/<project>/assets/music/background_music.mp3`
-   - **User music library (`music_library/`)**: If the folder exists and has tracks, pick the best match for the playbook's `audio.music_mood`. List candidates by filename and let the EP decide.
-   - **Music generation API**: Use `music_gen` (ElevenLabs) or `suno_music` if available. Check status via registry first — if the tool is unavailable or quota-exhausted, skip immediately (do NOT attempt and fail silently).
+   - **User-selected / reusable library track (`music_library/bgm/` or `music_library/candidates/`):** Check `music_library/bgm/README.md` first. Before ingesting, inspect the track's first 30s with `ffmpeg -t 30 -i <track> -af volumedetect -f null -`: if `mean_volume < -22 dB` (long quiet filmscore intro), probe per-15s windows, trim `-ss` to where the active pulse starts, and loudness-normalize (`loudnorm=I=-16:TP=-2.0:LRA=5`) into `projects/<project>/assets/music/background_music.mp3` (for `.m4a`, either pass `--bgm <path>` to `mixdown.py` or transcode with `ffmpeg -vn` to `bgm.mp3`).
+   - **Browser AI music (`google-flow-music`):** If no library track fits and user approves generating a new bed, read `.agents/skills/google-flow-music/SKILL.md` (`flowmusic.google` via `agent-desktop`), ingest `.m4a` into `music_library/bgm/`, and update `README.md`.
+   - **Music generation API:** Use `music_gen` (ElevenLabs) or `suno_music` if available. Check status via registry first — if the tool is unavailable or quota-exhausted, skip immediately (do NOT attempt and fail silently).
    - **No music available**: Log this clearly in the asset manifest as `"music_status": "unavailable"` with the reason. Do NOT silently produce a video without music — the EP and user should know.
 4. Duration should be at least as long as total video duration. If shorter, it can be looped by the compose stage.
-5. Verify the audio file exists at `projects/<project>/assets/music/background_music.mp3`
+5. Verify the audio file exists in `projects/<project>/assets/music/` (e.g., `background_music.mp3` or `.m4a`)
 
 **Critical:** If music generation fails or is unavailable, report it immediately in the asset manifest — do not defer the problem to the compose stage.
 

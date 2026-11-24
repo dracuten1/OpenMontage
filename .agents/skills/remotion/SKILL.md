@@ -169,6 +169,11 @@ When authoring bespoke Atelier news scenes under `remotion-composer/src/<slug>/`
    - Keep per-scene post-audio breathing pad at **`≤ 0.25s`** (strict `timing_relock_guard` tolerance is `±0.30s` against measured WAV duration).
    - Always emit `artifacts/narration_words.json` (section-dict shape) and include `"declared_not_measured": ["music_masking"]` in `mix_profile.json` when validating stems with `tools.qc.mix_validator`.
 
+5. **BGM Audibility & Loudness Normalization (Never Ship `-50 dB` Music):**
+   - Never wire a raw `music_library/` track directly at `0.08–0.10` volume without checking `0–30s` loudness (`ffmpeg -t 30 -i track.mp3 -af volumedetect -f null -`). Filmscore tracks often start at `-28` to `-30 dB`, making `0.085` completely inaudible beneath `-14 dB` narration.
+   - If `0–30s` `mean_volume < -22 dB`, probe per-15s windows, trim `-ss` to the active pulse section, and normalize the ingested `bgm.mp3` to **`-16 LUFS`** (`loudnorm=I=-16:TP=-2.0:LRA=5`).
+   - On a `-16 LUFS` normalized bed, set Remotion `<Audio>` gain to **`0.20–0.24`** under narration (`~13 dB` below voice — clearly audible without masking speech) and swell to **`0.35–0.40`** during the outro `<BrandBumper />` before fade-out.
+
 ---
 
 ## Feedback & Contributions

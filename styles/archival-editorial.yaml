@@ -71,8 +71,8 @@ motion:
 
 audio:
   voice_style: "direct, conversational Vietnamese editorial voice — crisp, human, grounded, never robotic hype"
-  music_mood: "restrained documentary pulse, subtle acoustic/percussive tension bed"
-  music_volume: 0.10
+  music_mood: "restrained documentary pulse, subtle acoustic/percussive tension bed (-16 LUFS normalized, quiet intro trimmed)"
+  music_volume: 0.22
   sfx_style: "camera shutters, clean crisp transitions, felt highlighter swipes, subtle telemetry clicks (-6 to -14 dB)"
   ducking_threshold_db: -6
 
