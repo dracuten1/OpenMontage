@@ -123,7 +123,11 @@ SVG_DASHARRAY_MARKER = re.compile(r"\bstrokeDasharray\b")
 LINE_CHART_MARKER = re.compile(r"\b(?:computeYDomain|data-editorial-line-chart|yDomain)\b")
 BAR_CHART_MARKER = re.compile(r"\bdata-editorial-bar-chart\b")
 EDITORIAL_DIAGRAM_MARKER = re.compile(
-    r"\b(?:data-editorial-spotlight|data-flow-timeline|data-comparison-split|feTurbulence)\b"
+    r"\b(?:data-editorial-spotlight|data-flow-timeline|data-comparison-split|feTurbulence|"
+    r"EditorialMap|ArchivalSpotlight|FlowTimeline|ComparisonSplit|EditorialBarChart|EditorialLineChart|CutoutLayer)\b"
+)
+FULL_BLEED_TSX_MARKER = re.compile(
+    r"layoutMode\s*=\s*(?:\{\s*)?[\"']full-bleed[\"']\s*\}?"
 )
 DECLARATION_MARKER = re.compile(r"^(?:export\s+)?(?:const|function)\s+([A-Za-z_$][A-Za-z0-9_$]*)", re.MULTILINE)
 FLEX_DISPLAY_MARKER = re.compile(r"display\s*:\s*[\"'`]?flex")
@@ -368,7 +372,7 @@ def _declaration_span(text: str, name: str) -> str | None:
 
 def _genuine_structure_markers(body: str) -> bool:
     """Numeric axis mapping, bar-slot/grid, geo-map, or SVG-drawn editorial structure (B.3)."""
-    if BAR_SLOT_MARKER.search(body) or GRID_MARKER.search(body):
+    if BAR_SLOT_MARKER.search(body) or len(GRID_MARKER.findall(body)) >= 2:
         return True
     if "maxValue" in body and (AXIS_DIVISION_MARKER.search(body) or "plotHeight" in body):
         return True
@@ -604,7 +608,7 @@ def _has_native_graphic_markers(text: str) -> bool:
     tree-level."""
     return bool(
         BAR_SLOT_MARKER.search(text)
-        or GRID_MARKER.search(text)
+        or len(GRID_MARKER.findall(text)) >= 2
         or "maxValue" in text
         or "plotHeight" in text
         or GEO_MAP_MARKER.search(text)
@@ -824,6 +828,7 @@ def analyze_project(
     heroes = 0
     r2_reasons: list[str] = []
     genuine_scene_ids: set[str] = set()
+    scene_source_texts: dict[str, str] = {}
     for idx in content_positions:
         scene = scenes[idx]
         sid = scene_ids[idx]
@@ -835,6 +840,8 @@ def analyze_project(
             r2_reasons.append(f"{sid}: {map_failure.code}")
             continue
         source_text = tree_texts.get(source_rel)
+        if source_text is not None:
+            scene_source_texts[sid] = source_text
         if source_text is None:
             if source_rel in bad_sources:
                 findings.append(Finding(RULE_GRAPHIC_NATIVE, sid, "blocked", "EL-SOURCE-UNPARSEABLE",
@@ -939,9 +946,19 @@ def analyze_project(
                 continue
             area_frac = (w * h) / (canvas_w * canvas_h)
             if area_frac >= PHOTO_AREA_FRAC_THRESHOLD:
-                reasons.append(
-                    f"photo layer {layer.get('layer_id')!r} (role {role!r}) covers {area_frac:.2%} "
-                    f"of canvas (threshold {PHOTO_AREA_FRAC_THRESHOLD:.2f})")
+                scene_tsx = scene_source_texts.get(sid, "")
+                is_declared_full_bleed = (
+                    role != "hero"
+                    and method == "photo_asset"
+                    and (pipeline.get("layout_mode") == "full-bleed" or layer.get("layout_mode") == "full-bleed")
+                    and sid in genuine_scene_ids
+                    and "SceneShell" in scene_tsx
+                    and bool(FULL_BLEED_TSX_MARKER.search(scene_tsx))
+                )
+                if not is_declared_full_bleed:
+                    reasons.append(
+                        f"photo layer {layer.get('layer_id')!r} (role {role!r}) covers {area_frac:.2%} "
+                        f"of canvas (threshold {PHOTO_AREA_FRAC_THRESHOLD:.2f})")
         if idx not in closing_positions and photo_without_area:
             reasons.append(
                 "unmeasurable raster photo layer(s) " + ", ".join(photo_without_area)

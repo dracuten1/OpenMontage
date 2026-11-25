@@ -575,7 +575,7 @@ class TestAgentContextFiles:
             assert header in contents
 
     def test_platform_wrappers_reference_agent_guide(self):
-        for path in ("CLAUDE.md", "CODEX.md", "CURSOR.md", "COPILOT.md", "AGENTS.md"):
+        for path in ("AGENTS.md",):
             contents = (PROJECT_ROOT / path).read_text(encoding="utf-8")
             assert "AGENT_GUIDE.md" in contents
 

@@ -370,3 +370,58 @@ def test_episode_gate_flags_async_captions_fetch_race(tmp_path):
   encoding='utf-8',
  )
  assert _check_episode_captions_wiring(comp) == []
+
+
+def test_episode_agy_validates_runtime_mismatch_and_missing_assets(tmp_path):
+ from tests.test_timing_relock_validator import _write_real_wav_file
+ project = tmp_path / 'agy-check'
+ art = project / 'artifacts'
+ audio = project / 'assets' / 'audio'
+ scenes = project / 'scenes'
+ art.mkdir(parents=True); audio.mkdir(parents=True); scenes.mkdir(parents=True)
+ _write_real_wav_file(audio / 'voice_s1.wav', 1.0)
+ (project / 'project.json').write_text(json.dumps({
+  'project_id': 'agy-check', 'pipeline_type': 'animated-explainer', 'orchestrator': 'antigravity',
+ }))
+ (art / 'proposal_packet.json').write_text(json.dumps({
+  'production_plan': {'render_runtime': 'remotion'},
+ }))
+ (art / 'edit_decisions.json').write_text(json.dumps({
+  'version': '1.0', 'render_runtime': 'ffmpeg',
+  'cuts': [{'id': 'S01', 'source': 'assets/audio/voice_s1.wav', 'in_seconds': 0, 'out_seconds': 1.0, 'layer': 'primary'}],
+ }))
+ (art / 'asset_manifest.json').write_text(json.dumps({
+  'version': '1.0',
+  'assets': [
+   {'id': 'voice-s1', 'type': 'narration', 'scene_id': 'S01', 'path': 'assets/audio/voice_s1.wav', 'duration_seconds': 1.0},
+   {'id': 'img-missing', 'type': 'image', 'scene_id': 'S01', 'path': 'assets/images/missing.png'},
+  ],
+  'metadata': {'total_audio_speech_duration_seconds': 1.0},
+ }))
+ stems = project / 'audio_stems'; stems.mkdir()
+ for name in ('narration', 'bgm', 'sfx', 'mix'):
+  with wave.open(str(stems / f'{name}.wav'), 'wb') as w:
+   w.setnchannels(1); w.setsampwidth(2); w.setframerate(16000); w.writeframes(b'\x00\x00' * 16000)
+ (stems / 'manifest.json').write_text(json.dumps({k: f'{k}.wav' for k in ('narration', 'bgm', 'sfx', 'mix')}))
+ (project / 'mix_profile.json').write_text(json.dumps({
+  'schema': 'openmontage.mix-profile', 'version': 1, 'target_lufs': -60, 'lufs_tolerance': 60,
+  'ducking': {'min_reduction_db': 0}, 'windows': {}, 'declared_not_measured': ['music_masking'],
+ }))
+ codes = {r['code'] for r in validate_episode(project, mode='agy')}
+ assert 'render_runtime_mismatch' in codes
+ assert 'manifest_asset_missing' in codes
+
+
+def test_episode_inline_bgm_gate_blocks_short_unlooped_bgm(tmp_path):
+ from tools.qc.episode_gate import _check_bgm_duration
+ project = tmp_path / 'ep'
+ comp = tmp_path / 'comp'
+ (project / 'assets').mkdir(parents=True)
+ (project / 'assets' / 'music').mkdir(parents=True)
+ comp.mkdir(parents=True)
+ (project / 'assets' / 'scene_timing.json').write_text(json.dumps({'fps': 30, 'total_seconds': 10.0}))
+ with wave.open(str(project / 'assets' / 'music' / 'bgm.mp3'), 'wb') as w:
+  w.setnchannels(1); w.setsampwidth(2); w.setframerate(16000); w.writeframes(b'\x00\x00' * 16000)
+ (comp / 'Episode.tsx').write_text('<Audio src={staticFile("x/bgm.mp3")} volume={0.22} />', encoding='utf-8')
+ reasons = _check_bgm_duration(project, comp)
+ assert reasons and reasons[0]['code'] == 'bgm_duration_failed'

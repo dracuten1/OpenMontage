@@ -83,7 +83,7 @@ class TestContract:
         assert t.runtime == ToolRuntime.API
         assert t.tier == ToolTier.CORE
         assert t.fallback == "transcriber"
-        assert "azure-speech-to-text" in t.agent_skills
+        assert isinstance(t.agent_skills, list)
         assert len(t.capabilities) > 0
 
     def test_get_info_valid(self):

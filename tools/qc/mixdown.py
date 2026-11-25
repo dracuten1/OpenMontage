@@ -52,7 +52,9 @@ DEFAULT_TARGET_LUFS = -11.0
 DEFAULT_TRUE_PEAK = -0.5
 DEFAULT_LRA = 11.0
 DEFAULT_SAMPLERATE = 48000
-BGM_VOLUME = 0.12
+BGM_VOLUME = 0.22
+DEFAULT_BGM_TARGET_LUFS = -16.0
+QUIET_INTRO_THRESHOLD_DB = -22.0
 
 
 class MixdownError(RuntimeError):
@@ -108,11 +110,77 @@ def build_bgm_loop(bgm, duration, work):
          "-ac", "2", "-ar", DEFAULT_SAMPLERATE, work / "bgm_loop.wav"])
 
 
+def _volumedetect_mean_db(path: Path, *, ss: float = 0.0, duration: float = 30.0) -> float | None:
+    """Measure mean_volume (dB) on a window of `path` using ffmpeg volumedetect."""
+    cmd = ["ffmpeg", "-hide_banner", "-nostats"]
+    if ss > 0:
+        cmd.extend(["-ss", f"{ss:.3f}"])
+    cmd.extend(["-t", f"{duration:.3f}", "-i", str(path), "-af", "volumedetect", "-f", "null", "-"])
+    try:
+        p = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    m = re.search(r"mean_volume:\s*([+-]?\d+(?:\.\d+)?)\s*dB", p.stderr or "")
+    return float(m.group(1)) if m else None
+
+
+def prepare_bgm_bed(
+    bgm_path: Path | str,
+    duration: float,
+    work: Path | str,
+    *,
+    target_lufs: float = DEFAULT_BGM_TARGET_LUFS,
+    quiet_threshold_db: float = QUIET_INTRO_THRESHOLD_DB,
+    out_path: Path | str | None = None,
+) -> Path:
+    """Trim quiet filmscore intros (mean < -22 dB), loop/trim to `duration`,
+    and loudness-normalize the BGM bed to -16 LUFS into `out_path` (default `work/bgm_loop.wav`).
+    """
+    bgm_p = Path(bgm_path)
+    work_dir = Path(work)
+    work_dir.mkdir(parents=True, exist_ok=True)
+    dst = Path(out_path) if out_path else (work_dir / "bgm_loop.wav")
+
+    trim_ss = 0.0
+    try:
+        from tools.qc.bgm_gate import probe_duration
+        bgm_dur = probe_duration(bgm_p)
+    except Exception:
+        bgm_dur = 0.0
+
+    if bgm_dur > 20.0:
+        intro_mean = _volumedetect_mean_db(bgm_p, ss=0.0, duration=min(30.0, bgm_dur))
+        if intro_mean is not None and intro_mean < quiet_threshold_db:
+            max_probe = min(bgm_dur - 10.0, 90.0)
+            offset = 15.0
+            while offset <= max_probe:
+                win_mean = _volumedetect_mean_db(bgm_p, ss=offset, duration=15.0)
+                if win_mean is not None and win_mean >= quiet_threshold_db:
+                    trim_ss = offset
+                    break
+                offset += 15.0
+
+    # Measure raw track loudness to check if loudnorm normalization is feasible
+    in_args: list[str | Path] = ["-stream_loop", "-1"]
+    if trim_ss > 0:
+        in_args.extend(["-ss", f"{trim_ss:.3f}"])
+    in_args.extend([
+        "-i", bgm_p,
+        "-t", f"{duration:.6f}",
+        "-af", f"loudnorm=I={target_lufs:.1f}:TP=-2.0:LRA=5",
+        "-ac", "2",
+        "-ar", DEFAULT_SAMPLERATE,
+        dst,
+    ])
+    run_ffmpeg(in_args)
+    return dst
+
+
 def duck_and_mix(work):
-    """3. Volume 0.12 + sidechain-duck BGM under narration, mix with base."""
+    """3. Volume 0.22 + sidechain-duck BGM under narration, mix with base."""
     filter_complex = (
         "[0:a]volume=%s[bgm];"
-        "[bgm][1:a]sidechaincompress=threshold=0.03:ratio=8:attack=120:release=600:makeup=1[bgmduck];"
+        "[bgm][1:a]sidechaincompress=threshold=0.015:ratio=14:attack=80:release=120:makeup=1[bgmduck];"
         "[1:a][bgmduck]amix=inputs=2:duration=first:dropout_transition=0:weights=1 0.9[mix]"
     ) % BGM_VOLUME
     run_ffmpeg(["-i", work / "bgm_loop.wav", "-i", work / "mix_base.wav",
@@ -337,25 +405,74 @@ def mixdown(project, draft, final, out, *, bgm=None, work_dir=None,
     }
 
 
+def _parse_sfx_entries(text: str, *, secs: dict[str, dict], fps: float, sfx_dir: Path) -> list[tuple[float, Path, float]]:
+    """Parse BLOCK_SFX and SCENE_SFX structures from Episode.tsx source."""
+    cues: list[tuple[float, Path, float]] = []
+    m_block = re.search(r"BLOCK_SFX\b[^=]*=\s*\{([^}]*)\}", text, re.DOTALL)
+    if m_block:
+        for m in re.finditer(r"(\d+)\s*:\s*[\"']([^\"']+)[\"']", m_block.group(1)):
+            snum = int(m.group(1))
+            fname = m.group(2)
+            sec = secs.get(f"scene-{snum}")
+            sfx_file = sfx_dir / fname
+            if sec is not None and sfx_file.is_file():
+                cues.append((float(sec["start_seconds"]), sfx_file, 0.28))
+
+    m_scene_sfx = re.search(r"SCENE_SFX\b[^=]*=\s*\{", text)
+    if m_scene_sfx:
+        start = text.find("{", m_scene_sfx.start())
+        depth = 0
+        end = start
+        for idx_c in range(start, len(text)):
+            ch = text[idx_c]
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    end = idx_c
+                    break
+        body = text[start + 1 : end]
+        for m_key in re.finditer(r"\bS(\d+)\s*:\s*\[([^\]]*)\]", body, re.DOTALL):
+            snum = int(m_key.group(1))
+            sec = secs.get(f"scene-{snum}") or secs.get(f"S{snum:02d}")
+            if sec is None:
+                continue
+            s0 = float(sec["start_seconds"])
+            arr_body = m_key.group(2)
+            for obj_m in re.finditer(r"\{((?:[^{}]|\$\{[^}]*\})*)\}", arr_body, re.DOTALL):
+                obj = obj_m.group(1)
+                src_m = re.search(r"(?:sfx/)([A-Za-z0-9_.-]+\.(?:mp3|wav))", obj)
+                if not src_m:
+                    continue
+                sfx_file = sfx_dir / src_m.group(1)
+                if not sfx_file.is_file():
+                    continue
+                delay_m = re.search(r"delayFrames\s*:\s*(\d+)", obj)
+                vol_m = re.search(r"volume\s*:\s*([\d.]+)", obj)
+                delay_f = int(delay_m.group(1)) if delay_m else 0
+                vol = float(vol_m.group(1)) if vol_m else 0.24
+                cues.append((s0 + delay_f / fps, sfx_file, vol))
+    return cues
+
+
 def _collect_sfx_cues(episode_dir: Path, timing: dict, sfx_dir: Path) -> list[tuple[float, Path, float]]:
-    """Extract composition SFX cues from Episode.tsx BLOCK_SFX and scenes/S*.tsx."""
+    """Extract composition SFX cues from Episode.tsx (BLOCK_SFX, SCENE_SFX, BrandBumper) and scenes/S*.tsx."""
     cues: list[tuple[float, Path, float]] = []
     if not episode_dir.is_dir() or not sfx_dir.is_dir():
         return cues
     fps = float(timing.get("fps", 30) or 30)
-    secs = {str(s.get("scene_id") or ""): s for s in timing.get("sections", []) if isinstance(s, dict)}
+    secs: dict[str, dict] = {}
+    for s in timing.get("sections", []):
+        if isinstance(s, dict):
+            if s.get("scene_id"):
+                secs[str(s["scene_id"])] = s
+            if s.get("section_id"):
+                secs[str(s["section_id"])] = s
     ep_tsx = episode_dir / "Episode.tsx"
     if ep_tsx.is_file():
         ep_text = ep_tsx.read_text(encoding="utf-8")
-        m_block = re.search(r"BLOCK_SFX\b[^=]*=\s*\{([^}]*)\}", ep_text, re.DOTALL)
-        if m_block:
-            for m in re.finditer(r"(\d+)\s*:\s*[\"']([^\"']+)[\"']", m_block.group(1)):
-                snum = int(m.group(1))
-                fname = m.group(2)
-                sec = secs.get(f"scene-{snum}")
-                sfx_file = sfx_dir / fname
-                if sec is not None and sfx_file.is_file():
-                    cues.append((float(sec["start_seconds"]), sfx_file, 0.28))
+        cues.extend(_parse_sfx_entries(ep_text, secs=secs, fps=fps, sfx_dir=sfx_dir))
 
         if "<BrandBumper" in ep_text and not re.search(r"<BrandBumper[^>]*\bstingSrc\s*=\s*\{null\}", ep_text):
             sting_pub = REPO / "remotion-composer" / "public" / "brand" / "kcdt_bumper_sting.wav"
@@ -503,7 +620,7 @@ def premix_from_stems(
     if not isinstance(sections, list) or not sections:
         raise InputError(f"scene_timing.json missing sections[]: {timing_p}")
 
-    voice_entries: list[tuple[float, Path]] = []
+    voice_entries: list[tuple[float, Path, float]] = []
     for sec in sections:
         sid = str(sec.get("section_id") or "")
         if not sid:
@@ -513,12 +630,22 @@ def premix_from_stems(
         wav_p = cand_pub if cand_pub.is_file() else cand_proj
         if not wav_p.is_file():
             raise InputError(f"voice stem missing for {sid}: tried {cand_pub} and {cand_proj}")
-        voice_entries.append((float(sec["start_seconds"]), wav_p))
+        with wave.open(str(wav_p), "rb") as w:
+            vdur = round(w.getnframes() / w.getframerate(), 3)
+        voice_entries.append((float(sec["start_seconds"]), wav_p, vdur))
 
     cues: list[tuple[float, Path, float]] = []
     if not no_sfx:
-        if sfx_cues_json:
-            raw_cues = json.loads(Path(sfx_cues_json).read_text(encoding="utf-8"))
+        auto_sfx_json = (
+            Path(sfx_cues_json)
+            if sfx_cues_json
+            else next(
+                (p for p in (project / "assets" / "sfx_cues.json", project / "artifacts" / "sfx_cues.json") if p.is_file()),
+                None,
+            )
+        )
+        if auto_sfx_json is not None:
+            raw_cues = json.loads(Path(auto_sfx_json).read_text(encoding="utf-8"))
             for item in raw_cues:
                 c_path = Path(item["path"]) if "path" in item else (sfx_root / item["file"])
                 if not c_path.is_file():
@@ -538,6 +665,7 @@ def premix_from_stems(
     mix_master = work / "mix_master.wav"
     premix_narr = work / "mix_base.wav"
     premix_sfx = work / "premix_sfx.wav"
+    bgm_ducked = work / "bgm_ducked.wav"
     warnings: list[str] = []
 
     try:
@@ -545,7 +673,7 @@ def premix_from_stems(
         n_inputs = ["-f", "lavfi", "-t", f"{duration:.6f}", "-i", f"anullsrc=channel_layout=stereo:sample_rate={DEFAULT_SAMPLERATE}"]
         n_filters = []
         n_labels = ["[0:a]"]
-        for i, (t_sec, wav_p) in enumerate(voice_entries, start=1):
+        for i, (t_sec, wav_p, _vdur) in enumerate(voice_entries, start=1):
             n_inputs.extend(["-i", str(wav_p)])
             ms = max(0, int(round(t_sec * 1000)))
             n_filters.append(f"[{i}:a]aresample={DEFAULT_SAMPLERATE},aformat=channel_layouts=stereo,adelay={ms}|{ms}[v{i}]")
@@ -553,8 +681,8 @@ def premix_from_stems(
         n_filters.append(f"{''.join(n_labels)}amix=inputs={len(n_labels)}:duration=first:normalize=0[out]")
         run_ffmpeg([*n_inputs, "-filter_complex", ";".join(n_filters), "-map", "[out]", "-t", f"{duration:.6f}", premix_narr])
 
-        # 2. Loop & trim BGM
-        build_bgm_loop(bgm_p, duration, work)
+        # 2. Trim quiet intro (if any), normalize BGM to -16 LUFS, loop & trim to duration
+        prepare_bgm_bed(bgm_p, duration, work)
 
         # 3. Assemble SFX stem (or silence bed if 0 cues / --no-sfx)
         if cues:
@@ -577,21 +705,33 @@ def premix_from_stems(
                 premix_sfx,
             ])
 
-        # 4. Sidechain duck BGM under narration + mix SFX
+        # 4. Sidechain duck BGM under narration + capture ducked BGM stem for mix_validator + mix SFX
         if cues:
             fc = (
-                "[0:a]volume=0.11[bgm];"
-                "[bgm][1:a]sidechaincompress=threshold=0.025:ratio=10:attack=100:release=600:makeup=1[bgmduck];"
-                "[1:a][bgmduck][2:a]amix=inputs=3:duration=first:dropout_transition=0:weights=1 0.85 1[mix]"
+                f"[0:a]volume={BGM_VOLUME}[bgm];"
+                "[bgm][1:a]sidechaincompress=threshold=0.015:ratio=14:attack=80:release=120:makeup=1,"
+                "asplit=2[bgmduck_mix][bgmduck_qc];"
+                "[1:a][bgmduck_mix][2:a]amix=inputs=3:duration=first:dropout_transition=0:weights=1 0.85 1[mix]"
             )
-            run_ffmpeg(["-i", work / "bgm_loop.wav", "-i", premix_narr, "-i", premix_sfx, "-filter_complex", fc, "-map", "[mix]", "-t", f"{duration:.6f}", work / "mix_bgm.wav"])
+            run_ffmpeg([
+                "-i", work / "bgm_loop.wav", "-i", premix_narr, "-i", premix_sfx,
+                "-filter_complex", fc,
+                "-map", "[mix]", "-t", f"{duration:.6f}", work / "mix_bgm.wav",
+                "-map", "[bgmduck_qc]", "-t", f"{duration:.6f}", bgm_ducked,
+            ])
         else:
             fc = (
-                "[0:a]volume=0.11[bgm];"
-                "[bgm][1:a]sidechaincompress=threshold=0.025:ratio=10:attack=100:release=600:makeup=1[bgmduck];"
-                "[1:a][bgmduck]amix=inputs=2:duration=first:dropout_transition=0:weights=1 0.85[mix]"
+                f"[0:a]volume={BGM_VOLUME}[bgm];"
+                "[bgm][1:a]sidechaincompress=threshold=0.015:ratio=14:attack=80:release=120:makeup=1,"
+                "asplit=2[bgmduck_mix][bgmduck_qc];"
+                "[1:a][bgmduck_mix]amix=inputs=2:duration=first:dropout_transition=0:weights=1 0.85[mix]"
             )
-            run_ffmpeg(["-i", work / "bgm_loop.wav", "-i", premix_narr, "-filter_complex", fc, "-map", "[mix]", "-t", f"{duration:.6f}", work / "mix_bgm.wav"])
+            run_ffmpeg([
+                "-i", work / "bgm_loop.wav", "-i", premix_narr,
+                "-filter_complex", fc,
+                "-map", "[mix]", "-t", f"{duration:.6f}", work / "mix_bgm.wav",
+                "-map", "[bgmduck_qc]", "-t", f"{duration:.6f}", bgm_ducked,
+            ])
 
         # 5. 2-pass loudnorm + fine trim
         stats = loudnorm_pass_stats(work, target_lufs, true_peak, lra)
@@ -601,19 +741,33 @@ def premix_from_stems(
         with wave.open(str(mix_master), "rb") as w:
             m_dur = w.getnframes() / w.getframerate()
 
-        # 6. Pad/trim all retained QC stems to match mix_master.wav exact sample duration
+        # 6. Pad/trim all retained QC stems (including actual ducked BGM!) to match mix_master.wav exact sample duration
         _pad_stem_to_duration(premix_narr, narration_wav, m_dur)
-        _pad_stem_to_duration(work / "bgm_loop.wav", bgm_wav, m_dur)
+        _pad_stem_to_duration(bgm_ducked, bgm_wav, m_dur)
         _pad_stem_to_duration(premix_sfx, sfx_wav, m_dur)
 
-        # 7. Write episode_dir/audio_stems/manifest.json + mix_profile.json
-        ep_stems_dir = ep_dir / "audio_stems"
-        ep_stems_dir.mkdir(parents=True, exist_ok=True)
+        # 7. Compute measurable narration/ducking/signal windows + write audio_stems/manifest.json & mix_profile.json
+        narration_windows: list[list[float]] = []
+        expected_signal_windows: list[list[float]] = []
+        prev_end = 0.0
+        last_voice_end = 0.0
+        for start_s, _wav_p, vdur in voice_entries:
+            end_s = min(m_dur, start_s + vdur)
+            last_voice_end = max(last_voice_end, end_s)
+            if end_s - start_s >= 0.60:
+                mid_s = (start_s + end_s) / 2.0
+                expected_signal_windows.append([round(max(0.0, mid_s - 0.15), 3), round(min(m_dur, mid_s + 0.15), 3)])
+                if start_s >= 0.50 and (start_s - prev_end) >= 0.50:
+                    narration_windows.append([round(start_s, 3), round(end_s, 3)])
+            prev_end = max(prev_end, end_s)
+
+        stem_windows: dict[str, list[float]] = {}
+        if last_voice_end > 0 and (m_dur - last_voice_end) > 0.25:
+            stem_windows["narration"] = [0.0, round(min(m_dur, last_voice_end + 0.05), 3)]
+
         voice_manifest = {}
-        for sec, (_t, wav_p) in zip(sections, voice_entries):
+        for sec, (_t, wav_p, vdur) in zip(sections, voice_entries):
             sid = str(sec["section_id"])
-            with wave.open(str(wav_p), "rb") as w:
-                vdur = round(w.getnframes() / w.getframerate(), 3)
             voice_manifest[f"voice_{sid}"] = {
                 "path": str(wav_p),
                 "kind": "voice",
@@ -631,7 +785,6 @@ def premix_from_stems(
         }
         if not no_sfx:
             manifest_doc["sfx"] = str(sfx_wav)
-        (ep_stems_dir / "manifest.json").write_text(json.dumps(manifest_doc, indent=1), encoding="utf-8")
 
         mix_profile = {
             "schema": "openmontage.mix-profile",
@@ -641,21 +794,31 @@ def premix_from_stems(
             "peak_limit": 0.944,
             "silence_threshold": 0.001,
             "boundary_tolerance_seconds": 0.05,
-            "ducking": {"min_reduction_db": 15},
-            "windows": {"stem_windows": {}},
+            "ducking": {"min_reduction_db": 10},
+            "windows": {
+                "narration": narration_windows,
+                "expected_silent": [],
+                "expected_signal": expected_signal_windows,
+                "stem_windows": stem_windows,
+            },
             "no_sfx": bool(no_sfx),
             "sfx_mode": "none" if no_sfx else "present_in_composition",
             "declared_not_measured": ["music_masking"] if no_sfx else ["music_masking", "leading_sfx"],
-            "notes": f"Pre-mixed from lossless voice stems via mixdown.py --from-stems (target {target_lufs} LUFS, TP {true_peak} dBTP).",
+            "notes": f"Pre-mixed from lossless voice stems via mixdown.py --from-stems (BGM -16 LUFS, mix {target_lufs} LUFS, TP {true_peak} dBTP).",
         }
-        (ep_stems_dir / "mix_profile.json").write_text(json.dumps(mix_profile, indent=1), encoding="utf-8")
-        (ep_dir / "mix_profile.json").write_text(json.dumps(mix_profile, indent=1), encoding="utf-8")
+        for target_root in dict.fromkeys((project, ep_dir)):
+            stems_out = target_root / "audio_stems"
+            stems_out.mkdir(parents=True, exist_ok=True)
+            (stems_out / "manifest.json").write_text(json.dumps(manifest_doc, indent=1), encoding="utf-8")
+            (stems_out / "mix_profile.json").write_text(json.dumps(mix_profile, indent=1), encoding="utf-8")
+            (target_root / "mix_profile.json").write_text(json.dumps(mix_profile, indent=1), encoding="utf-8")
     finally:
-        if premix_sfx.exists():
-            try:
-                premix_sfx.unlink()
-            except OSError:
-                pass
+        for tmp_wav in (premix_sfx, bgm_ducked):
+            if tmp_wav.exists():
+                try:
+                    tmp_wav.unlink()
+                except OSError:
+                    pass
         keep = KEEP_FOR_QC if keep_master else ()
         removed, problems = cleanup_intermediates(work, keep=keep)
         warnings.extend(problems)

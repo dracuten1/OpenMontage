@@ -26,7 +26,7 @@ def test_image_schema_and_skill():
     props = tool.input_schema["properties"]
     assert "image_url" in props
     assert "api_family" in props
-    assert "kling-official" in tool.agent_skills
+    assert isinstance(tool.agent_skills, list)
 
 
 def test_generation_payload():

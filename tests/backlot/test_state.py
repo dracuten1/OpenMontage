@@ -55,7 +55,7 @@ class TestBoardState:
     def test_full_project(self, projects_root):
         p = _make_project(projects_root, "film")
         _write(p / "project.json", {"project_id": "film", "title": "My Film",
-                                    "pipeline_type": "cinematic", "created_at": "2026-01-01T00:00:00Z"})
+                                    "pipeline_type": "animated-explainer", "created_at": "2026-01-01T00:00:00Z"})
         _write(p / "artifacts" / "scene_plan.json", SCENE_PLAN)
         _write(p / "artifacts" / "script.json", SCRIPT)
         img = p / "assets" / "images" / "sc1.png"
@@ -71,14 +71,14 @@ class TestBoardState:
             "total_cost_usd": 0.1,
         })
         _write(p / "checkpoint_script.json", {
-            "version": "1.0", "project_id": "film", "pipeline_type": "cinematic",
+            "version": "1.0", "project_id": "film", "pipeline_type": "animated-explainer",
             "stage": "script", "status": "completed", "timestamp": "2026-01-01T01:00:00Z",
             "human_approved": True, "artifacts": {},
         })
 
         s = load_board_state(p)
         assert s["title"] == "My Film"
-        assert s["pipeline"]["pipeline_type"] == "cinematic"
+        assert s["pipeline"]["pipeline_type"] == "animated-explainer"
         assert s["pipeline"]["known"] is True
         board = s["storyboard"]
         assert len(board["scenes"]) == 2
@@ -100,7 +100,7 @@ class TestBoardState:
         # completed on a gated stage with no awaiting_human history and no
         # human_approved -> gate_skipped flag
         _write(p / "checkpoint_script.json", {
-            "version": "1.0", "project_id": "sneaky", "pipeline_type": "cinematic",
+            "version": "1.0", "project_id": "sneaky", "pipeline_type": "animated-explainer",
             "stage": "script", "status": "completed",
             "timestamp": "2026-01-01T01:00:00Z", "artifacts": {},
         })
@@ -147,7 +147,7 @@ class TestBoardState:
     def test_undeclared_stage_surfaces(self, projects_root):
         p = _make_project(projects_root, "legacy")
         _write(p / "checkpoint_idea.json", {
-            "version": "1.0", "project_id": "legacy", "pipeline_type": "cinematic",
+            "version": "1.0", "project_id": "legacy", "pipeline_type": "animated-explainer",
             "stage": "idea", "status": "completed",
             "timestamp": "2026-01-01T01:00:00Z", "artifacts": {},
         })
@@ -183,7 +183,7 @@ class TestLibrary:
 
     def test_summary_shape(self, projects_root):
         p = _make_project(projects_root, "sum")
-        _write(p / "project.json", {"title": "Sum", "pipeline_type": "cinematic"})
+        _write(p / "project.json", {"title": "Sum", "pipeline_type": "animated-explainer"})
         _write(p / "checkpoint_script.json", {
             "stage": "script", "status": "awaiting_human",
             "timestamp": "2026-01-01T01:00:00Z", "artifacts": {},
@@ -259,7 +259,7 @@ class TestStoryboardVisualSelection:
 
     def _project_with_scenes(self, root, scenes, assets):
         p = _make_project(root, "vis")
-        _write(p / "project.json", {"pipeline_type": "cinematic"})
+        _write(p / "project.json", {"pipeline_type": "animated-explainer"})
         _write(p / "artifacts" / "scene_plan.json", {"version": "1.0", "scenes": scenes})
         _write(p / "artifacts" / "asset_manifest.json", {"version": "1.0", "assets": assets})
         return p

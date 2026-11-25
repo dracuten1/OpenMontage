@@ -8,7 +8,20 @@ export {
   SAFE_16X9,
   WIDTH,
   ensureFonts,
+  waitForFonts,
 } from "./theme";
+export {
+  NewsEpisodeShell,
+  normalizeSectionCaptions,
+} from "./NewsEpisodeShell";
+export type {
+  EpisodeSceneConfig,
+  InlineBgmConfig,
+  NewsEpisodeShellProps,
+  NormalizedCaptionItem,
+  RawCaptionItem,
+  SceneSfxCue,
+} from "./NewsEpisodeShell";
 export {
   AiBadge,
   ArchiveLabelBadge,

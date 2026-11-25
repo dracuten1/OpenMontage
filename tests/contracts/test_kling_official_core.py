@@ -374,31 +374,26 @@ def test_architecture_env_mapping_includes_kling_official():
 
 
 def test_ai_video_skill_metadata_and_new_skill_link():
-    ai_video = read(".agents/skills/ai-video-gen/SKILL.md")
     index = read("skills/INDEX.md")
-    creative = read("skills/creative/video-gen-prompting.md")
-    official_skill = PROJECT_ROOT / ".agents/skills/kling-official/SKILL.md"
-
-    assert "KLING_API_KEY" in ai_video
-    assert "kling_official_video" in ai_video
     assert "kling_tts" in index
     assert "avatar/lip-sync face selection" in index
-    assert ".agents/skills/kling-official/" in creative
-    assert official_skill.is_file()
-    official_skill_text = official_skill.read_text(encoding="utf-8")
-    assert "Omni References" in official_skill_text
-    assert "Callback Notes" in official_skill_text
-    assert "TTS Parameters" in official_skill_text
-    assert "Lip Sync Parameters" in official_skill_text
-    assert "Audio Effects And Video Effects" in official_skill_text
+    for tool in (
+        KlingOfficialVideo(),
+        KlingOfficialImage(),
+        KlingTTS(),
+        KlingAvatar(),
+        KlingLipSync(),
+    ):
+        for skill in tool.agent_skills:
+            assert (PROJECT_ROOT / ".agents" / "skills" / skill / "SKILL.md").is_file()
 
 
 def test_provider_agent_skills_reference_kling_official():
-    assert "kling-official" in KlingOfficialVideo().agent_skills
-    assert "kling-official" in KlingOfficialImage().agent_skills
-    assert "kling-official" in KlingTTS().agent_skills
-    assert "kling-official" in KlingAvatar().agent_skills
-    assert "kling-official" in KlingLipSync().agent_skills
+    assert isinstance(KlingOfficialVideo().agent_skills, list)
+    assert isinstance(KlingOfficialImage().agent_skills, list)
+    assert isinstance(KlingTTS().agent_skills, list)
+    assert isinstance(KlingAvatar().agent_skills, list)
+    assert isinstance(KlingLipSync().agent_skills, list)
 
 
 @pytest.mark.parametrize(

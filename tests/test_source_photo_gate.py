@@ -102,3 +102,22 @@ def test_path_escape_blocks(tmp_path: Path):
     report = source_photo_gate.validate_source_photos(proj)
     assert report["pass"] is False
     assert any(e["code"] == "SPG-PATH-ESCAPE" for e in report["errors"])
+
+
+def test_sha256_mismatch_blocks_mutated_photo(tmp_path: Path):
+    import hashlib
+    proj = tmp_path / "proj-20261121"
+    img_path = proj / "assets" / "images" / "bridge.jpg"
+    _make_jpg(img_path, (1200, 900))
+    orig_sha = hashlib.sha256(img_path.read_bytes()).hexdigest()
+    prov = proj / "assets" / "images" / "provenance.json"
+    prov.write_text(json.dumps([_valid_entry(sha256=orig_sha)]), encoding="utf-8")
+
+    ok_report = source_photo_gate.validate_source_photos(proj)
+    assert ok_report["pass"] is True
+    assert ok_report["entries"][0]["sha256"] == orig_sha
+
+    _make_jpg(img_path, (1300, 900))
+    bad_report = source_photo_gate.validate_source_photos(proj)
+    assert bad_report["pass"] is False
+    assert any(e["code"] == "SPG-HASH-MISMATCH" for e in bad_report["errors"])

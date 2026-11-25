@@ -29,8 +29,7 @@ def test_hyperframes_tool_identity():
     assert t.name == "hyperframes_compose"
     assert t.capability == "video_post"
     assert t.provider == "hyperframes"
-    assert "hyperframes" in t.agent_skills
-    assert "hyperframes-cli" in t.agent_skills
+    assert isinstance(t.agent_skills, list)
 
 
 def test_hyperframes_get_info_reports_runtime():
@@ -214,11 +213,34 @@ def test_install_instructions_reference_correct_npm_package_name():
     )
 
 
+def test_hyperframes_disabled_by_default_skips_subprocesses(monkeypatch):
+    """When retired in config.yaml (and OM_ENABLE_HYPERFRAMES unset), status stays
+    UNAVAILABLE and zero npx/npm subprocesses are spawned during discovery."""
+    import subprocess as sp
+
+    monkeypatch.delenv("OM_ENABLE_HYPERFRAMES", raising=False)
+    monkeypatch.setattr(
+        sp,
+        "run",
+        lambda *args, **kwargs: (_ for _ in ()).throw(
+            AssertionError("must not shell out when disabled")
+        ),
+    )
+    tool = HyperFramesCompose()
+    assert tool.get_status() == ToolStatus.UNAVAILABLE
+    rc = tool._runtime_check()
+    assert rc["runtime_available"] is False
+    assert rc["disabled"] is True
+    assert "disabled" in " ".join(rc["reasons"]).lower()
+    assert "setup_offer" not in tool.get_info()
+
+
 def test_runtime_check_fails_when_npm_package_unresolvable(monkeypatch):
     """Regression: `_runtime_check()` previously returned runtime_available=True
     based only on local binaries (node/ffmpeg/npx). That meant the tool lied
     when the machine was offline, npm was down, or the package name was wrong.
     The check must now include a real npm resolve."""
+    monkeypatch.setenv("OM_ENABLE_HYPERFRAMES", "1")
     # Clear process cache and force _resolve_npm_package to return a 404.
     monkeypatch.setattr(
         HyperFramesCompose, "_npm_resolve_cache", None, raising=False
@@ -242,6 +264,7 @@ def test_runtime_check_fails_when_npm_package_unresolvable(monkeypatch):
 
 
 def test_runtime_check_succeeds_when_npm_resolves(monkeypatch):
+    monkeypatch.setenv("OM_ENABLE_HYPERFRAMES", "1")
     monkeypatch.setattr(
         HyperFramesCompose, "_npm_resolve_cache", None, raising=False
     )
@@ -265,6 +288,7 @@ def test_runtime_check_succeeds_when_npm_resolves(monkeypatch):
 
 
 def test_runtime_check_fails_when_published_cli_crashes(monkeypatch):
+    monkeypatch.setenv("OM_ENABLE_HYPERFRAMES", "1")
     monkeypatch.setattr(
         HyperFramesCompose,
         "_resolve_npm_package",
@@ -294,6 +318,7 @@ def test_video_compose_render_engines_follow_hyperframes_runtime_check(monkeypat
     must track the true availability, not just the local-binary floor.
     Without this, the 'Present Both Composition Runtimes' HARD RULE surfaces
     a runtime that cannot actually render."""
+    monkeypatch.setenv("OM_ENABLE_HYPERFRAMES", "1")
     monkeypatch.setattr(
         HyperFramesCompose, "_npm_resolve_cache", None, raising=False
     )

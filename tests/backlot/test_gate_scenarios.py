@@ -56,7 +56,7 @@ def test_completed_gated_stage_without_approval_is_rejected(tmp_path):
             "script",
             "completed",
             {"script": _script_artifact()},
-            pipeline_type="cinematic",
+            pipeline_type="animated-explainer",
         )
 
 
@@ -79,7 +79,7 @@ def test_handwritten_completed_checkpoint_surfaces_gate_skip(tmp_path, monkeypat
     _write(project / "checkpoint_script.json", {
         "version": "1.0",
         "project_id": "film",
-        "pipeline_type": "cinematic",
+        "pipeline_type": "animated-explainer",
         "stage": "script",
         "status": "completed",
         "timestamp": "2026-07-02T00:00:00Z",
@@ -96,7 +96,7 @@ def test_awaiting_then_approved_archives_history_without_gate_skip(tmp_path):
     _approve_predecessors(
         tmp_path,
         "film",
-        "cinematic",
+        "animated-explainer",
         "research",
         "proposal",
         "script",
@@ -108,7 +108,7 @@ def test_awaiting_then_approved_archives_history_without_gate_skip(tmp_path):
         "assets",
         "awaiting_human",
         {"asset_manifest": _manifest_artifact()},
-        pipeline_type="cinematic",
+        pipeline_type="animated-explainer",
     )
     write_checkpoint(
         tmp_path,
@@ -116,7 +116,7 @@ def test_awaiting_then_approved_archives_history_without_gate_skip(tmp_path):
         "assets",
         "completed",
         {"asset_manifest": _manifest_artifact()},
-        pipeline_type="cinematic",
+        pipeline_type="animated-explainer",
         human_approved=True,
     )
 

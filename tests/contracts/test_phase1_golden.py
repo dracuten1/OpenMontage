@@ -30,20 +30,20 @@ from schemas.artifacts import load_schema, validate_artifact, list_schemas
 
 
 class TestTalkingHeadManifest:
-    """Verify the talking-head pipeline manifest is well-formed."""
+    """Verify the kept animated-explainer pipeline manifest is well-formed."""
 
     def test_manifest_loads(self):
-        manifest = load_pipeline("talking-head")
-        assert manifest["name"] == "talking-head"
+        manifest = load_pipeline("animated-explainer")
+        assert manifest["name"] == "animated-explainer"
 
     def test_all_stages_present(self):
-        manifest = load_pipeline("talking-head")
+        manifest = load_pipeline("animated-explainer")
         stage_names = get_stage_order(manifest)
-        expected = ["idea", "script", "scene_plan", "assets", "edit", "compose", "publish"]
+        expected = ["research", "proposal", "script", "scene_plan", "assets", "edit", "compose", "publish"]
         assert stage_names == expected
 
     def test_manifest_listed(self):
-        assert "talking-head" in list_pipelines()
+        assert "animated-explainer" in list_pipelines()
 
 
 class TestGoldenScenarioArtifacts:

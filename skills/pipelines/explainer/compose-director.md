@@ -10,7 +10,7 @@ This is the last technical stage before the video exists as a playable file. Eve
 
 Read `edit_decisions.render_runtime` before anything else. It was locked at proposal and must not be changed silently. The rest of this skill's process steps (Remotion public/ staging, word-level caption burn, etc.) assume `render_runtime="remotion"` — the default for data-driven explainers.
 
-- **`render_runtime="hyperframes"`** — HTML/CSS/GSAP render. Do NOT follow the Remotion-specific steps below. Instead: read `skills/core/hyperframes.md`. Call `video_compose` with the edit_decisions unchanged — it will delegate to `hyperframes_compose`, which materializes a workspace under `projects/<name>/hyperframes/`, runs `lint → validate → render`, and returns the MP4. Both lint AND validate must pass before render; contrast can be deferred during iteration but not for final delivery.
+- **`render_runtime="hyperframes"`** — retired/disabled by default in `config.yaml` (`runtimes.hyperframes.enabled: false`; opt in via `OM_ENABLE_HYPERFRAMES=1`). If explicitly selected and enabled, read `skills/core/hyperframes.md` and call `video_compose` with `edit_decisions` unchanged — it delegates to `hyperframes_compose`, which materializes a workspace under `projects/<name>/hyperframes/`, runs `lint -> validate -> render`, and returns the MP4. Both lint AND validate must pass before render.
 - **`render_runtime="ffmpeg"`** — simple concat/trim. Call `video_compose` directly; it will NOT auto-upgrade to Remotion when this runtime is explicitly locked.
 - **Runtime unavailable** — surface the blocker per AGENT_GUIDE.md > "Escalate Blockers Explicitly" and get user approval (recorded as a `render_runtime_selection` decision in decision_log) before switching.
 
@@ -32,7 +32,7 @@ For production workspaces, `VideoCompose.execute()` enforces strict evidence val
    - Timing re-lock: `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('<dir>', mode='strict')"`
    - Mix validator: `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>` (fail-closed on undeclared missing stems or unmeasured checks)
    - Episode gate: `.venv/bin/python tools/qc/episode_gate.py <episode_root>`
-   - Editorial-language gate (editorial lane only): auto-applies when `style_playbook == 'editorial-explainer-manifest'` or `lane == 'news-editorial-motion'`; otherwise invoke explicitly with `--force-editorial`. Command: `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — exit 0 = all findings pass, exit 1 = ≥1 blocked finding, exit 2 = invocation error (advisories land in the qc report `warnings[]` and never affect exit). Evidence: `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`. BLOCKED ⇒ compose MUST NOT proceed — never "PASS WITH WARNINGS" (doctrine §8.2).
+   - Editorial-language gate (editorial lane only): auto-applies when `style_playbook == 'editorial-explainer-manifest'` or `lane == 'news-editorial-motion'`; otherwise invoke explicitly with `--force-editorial`. Command: `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — exit 0 = all findings pass, exit 1 = ≥1 blocked finding, exit 2 = invocation error (advisories land in the qc report `warnings[]` and never affect exit). Evidence: `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`. BLOCKED ⇒ compose MUST NOT proceed — never "PASS WITH WARNINGS" (doctrine §6.2).
 3. **Fail-Closed Checkpoint Gate:**
    - `lib/checkpoint.py` enforces strict default behavior on ambiguity, consuming valid checkpoint stamps. Failures prevent progression to render.
 
@@ -80,13 +80,13 @@ For news/editorial episodes and stem-mastered productions:
    ```bash
    .venv/bin/python tools/qc/mixdown.py --from-stems --project projects/<slug>
    ```
-   This builds lossless `narration.wav`, `bgm.wav`, `sfx.wav`, `mix_master.wav`, `audio_stems/manifest.json`, and `mix_profile.json` (sidechain-ducked BGM at volume `0.12`, 2-pass loudnorm to `-11.0 LUFS` / `-0.5 dBTP`).
+   This builds lossless `narration.wav`, `bgm.wav`, `sfx.wav`, `mix_master.wav`, `audio_stems/manifest.json`, and `mix_profile.json` (sidechain-ducked BGM at volume `0.22` after quiet-intro trim & `-16 LUFS` normalization, 2-pass loudnorm to `-11.0 LUFS` / `-0.5 dBTP`).
 2. Validate the stems and profile fail-closed:
    ```bash
    .venv/bin/python -m tools.qc.mix_validator projects/<slug>/audio_stems projects/<slug>/mix_profile.json
    ```
 
-### Step 3: Prepare Render Inputs
+### Step 3: Prepare Render Inputs & Output Profile
 
 For each cut in the edit decisions:
 1. Verify the source asset exists at its declared path
@@ -97,8 +97,6 @@ For audio:
 1. Verify narration duration fits within video duration (use `audio_probe`)
 2. Verify music duration covers video duration
 3. Prepare ducking parameters from edit decisions
-
-### Step 3: Determine Output Profile
 
 Read the target platform from the brief artifact. Map to a media profile:
 
@@ -147,8 +145,8 @@ for the proven formula — especially the all-dark-background rule for visual co
 1. Pre-mix lossless stems (`mixdown.py --from-stems`) and verify via `mix_validator.py`.
 2. In `Episode.tsx`, import `captions.json` synchronously via static JSON import (`import captionsData from "../../public/<slug>/captions.json"`) — never top-level `delayRender() + fetch()` into a mutable `let` variable (causes missing subtitles on multi-tab render; blocked by `episode_gate.py`).
 3. Run pre-render gates (`source_photo_gate.py`, `fact_whitelist_gate.py`, `editorial_language_gate.py`, `episode_gate.py --mode agy`) + Gate B still frame probe (`npx remotion still <CompId> /tmp/probe.png --frame=<key_frame>`, inspect via `read_file` confirming visible subtitles in `y=1480..1600`, clean portrait framing, and visible pull-quotes).
-4. Render exclusively via `.venv/bin/python tools/qc/render_episode.py <CompId> projects/<slug>/renders/raw.mp4 --agy` (never raw `npx remotion render`).
-5. Mux lossless mastered audio into final deliverable and run Gate C verification:
+4. Render via `.venv/bin/python tools/qc/render_episode.py <CompId> projects/<slug>/renders/raw.mp4 --agy` (never raw `npx remotion render`), OR run the single-command wrapper `.venv/bin/python tools/qc/ship_episode.py --project projects/<slug> --comp <CompId>` which executes pre-render gates (`episode_gate.py --mode agy`), `render_episode.py`, `mixdown.py --mux-only`, and `gate_c_verify.py` in one pass.
+5. Mux lossless mastered audio into final deliverable and run Gate C verification (if invoking steps manually instead of `ship_episode.py`):
    ```bash
    .venv/bin/python tools/qc/mixdown.py --mux-only projects/<slug>/renders/raw.mp4 --project projects/<slug> --out projects/<slug>/renders/final.mp4
    .venv/bin/python tools/qc/gate_c_verify.py --project projects/<slug>
@@ -172,7 +170,7 @@ Subtitles are mandatory for all explainer content. Generate them from the narrat
    result = Transcriber().execute({
        'input_path': 'projects/<project>/assets/audio/narration_full.mp3',
        'model_size': 'base',
-       'language': 'en',
+       'language': '<project_language>',  # e.g. 'vi' or 'en' from brief/project.json
        'output_dir': 'projects/<project>/assets/audio'
    })
    # result.data contains segments with word-level timestamps
@@ -244,7 +242,7 @@ Common catches:
 
 **Do not skip this step.** If validation fails, fix the issue and re-validate before rendering.
 
-**Editorial-language gate (editorial lane render-time path):** when `style_playbook == 'editorial-explainer-manifest'` or `lane == 'news-editorial-motion'`, also run `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — auto-applied for editorial projects, otherwise invoke with `--force-editorial`. Exit 0 = all findings pass / 1 = ≥1 blocked finding / 2 = invocation error (advisories land in `warnings[]`, never affecting exit); evidence `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`. BLOCKED ⇒ the render is void — compose MUST NOT proceed, regardless of visual quality, and there is no "PASS WITH WARNINGS" (doctrine §8.2).
+**Editorial-language gate (editorial lane render-time path):** when `style_playbook == 'editorial-explainer-manifest'` or `lane == 'news-editorial-motion'`, also run `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>` — auto-applied for editorial projects, otherwise invoke with `--force-editorial`. Exit 0 = all findings pass / 1 = ≥1 blocked finding / 2 = invocation error (advisories land in `warnings[]`, never affecting exit); evidence `artifacts/editorial_language_evidence.json` + `qc/editorial_language.json`. BLOCKED ⇒ the render is void — compose MUST NOT proceed, regardless of visual quality, and there is no "PASS WITH WARNINGS" (doctrine §6.2).
 
 Canonical reference implementation (technique reference only — NOT a story-shape template): `remotion-composer/src/xang-dau-demo-20261107/Episode.tsx`. Study the individual techniques in isolation — cutout treatment, chart count-up axis math, highlighter wipe, typewriter reveal, pop-in spring, parallax `camScale` drift, CtaPill — then re-compose those techniques for THIS story's own beats. Never reuse its scene order, narrative structure, or scene count.
 
@@ -290,7 +288,7 @@ from tools.analysis.transcriber import Transcriber
 result = Transcriber().execute({
     'input_path': 'path/to/rendered_video.mp4',
     'model_size': 'base',
-    'language': 'en',
+    'language': '<project_language>',  # e.g. 'vi' or 'en' from brief/project.json
     'output_dir': 'path/to/review-frames',
 })
 # If result returns 0 words: audio is silent/missing — STOP and fix
@@ -326,24 +324,6 @@ result = Transcriber().execute({
 > Want me to fix these issues and re-render, or is this good to go?
 
 **Only after user approves (or agent finds zero issues) should the video be considered final.**
-
-### Step 6-old: File and Content Verification
-
-**File verification:**
-- [ ] Output file exists at declared path
-- [ ] File size is reasonable (not 0 bytes, not suspiciously small)
-- [ ] File is a valid container (ffprobe succeeds)
-
-**Content verification:**
-- [ ] Duration within ±5% of target
-- [ ] Resolution matches selected profile
-- [ ] Audio channels present (stereo)
-- [ ] No audio clipping or silence gaps > 1s
-
-**Quality check (covered by self-review above):**
-- [ ] Visual: all scene frames inspected
-- [ ] Audio: full transcription verified
-- [ ] Subtitles: visible and correctly timed
 
 ### Step 7: Build Render Report
 

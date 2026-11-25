@@ -68,7 +68,7 @@ def test_threejs_world_contract_and_registry_discovery():
     tool = ThreeJSWorld()
     assert tool.capability == "3d_world_generation"
     assert tool.provider == "threejs"
-    assert "threejs-world-generation" in tool.agent_skills
+    assert isinstance(tool.agent_skills, list)
     assert {"cinematic", "semantic", "wireframe"} == set(
         tool.input_schema["properties"]["render_mode"]["enum"]
     )

@@ -242,6 +242,17 @@ Produce 2–3 ranked hook candidates per event, each citing explicit `fact_id`s 
 
 *Rule:* A dimension without supporting `fact_id`s scores `0` (prevents clickbait inflation).
 
+#### 8c-bis. Dual Engagement Mode (`standard` vs. `debate_engagement`)
+Every research run operates in one of two explicit modes (record `engagement_mode` in the brief; default to `standard` unless the user selects `debate_engagement`):
+
+- **Mode 1 — `standard` (Default / Current Baseline):** Pure informational and analytical research. Do **NOT** invent controversy, force two-camp arguments, or add debate questions. Use the standard 5-angle matrix and 5-dimension hook rubric above as-is.
+- **Mode 2 — `debate_engagement` (Hook + Open Questions + Debate Mode):** Activate when the user wants higher comment velocity, debate, and retention (works for any video length, from 30s shorts up to 5-minute deep dives). In addition to all standard Research v2 outputs, add:
+  1. **6th Angle (`tradeoff-debate` / `fault-line`):** Identify where real people, experts, or affected groups genuinely split into two defensible camps (Camp A vs. Camp B).
+  2. **6th Hook Rubric Dimension — `debate_voltage` (0–5):** Score how strongly the hook touches personal stakes, fairness, or a real decision where viewers immediately pick a side. Keep `fragility_penalty` active so controversy never comes from unverified numbers.
+  3. **`debate_fault_lines` block:** Extract 1–3 real tensions per major event from press coverage, expert disagreements, or public comment threads (VnExpress, Reddit, VOZ, TikTok). Record `camp_a`, `camp_b`, `trigger_fact_ids`, and mark community sentiment strictly as `PULSE_ONLY` (never promote comment sentiment into `fact_table`).
+  4. **`debate_questions` bank:** Draft 2–4 concrete open-ended / forced-choice questions (`option_a` vs. `option_b` or tradeoff dilemmas) tagged by `placement_hint` (`opening_hook`, `mid_roll`, `closing_dilemma`). Never write generic filler like *"Bạn nghĩ sao?"*.
+  5. **Editorial Safety Invariant:** Controversy must live strictly in **tradeoffs, priorities, or viewer choices** — never in distorted numbers, personal attacks, or speculation outside `fact_table`.
+
 #### 8d. Single Closed Fact Whitelist Table
 Every numeric figure, date milestone, or verifiable claim permitted in script or scenes MUST live in one machine-greppable `fact_table` (and `artifacts/fact_whitelist.json`):
 

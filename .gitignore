@@ -162,6 +162,12 @@ character-performer/kids/turn4_cc_*.err
 *.[mM][pP][eE][gG]
 *.[mM][pP][gG]
 *.[mM][tT][sS]
+!remotion-composer/vitest.config.mts
 *.[oO][gG][vV]
 *.[wW][eE][bB][mM]
 *.[wW][mM][vV]
+
+# Agent/SQLite session state and temporary Remotion sandboxes
+:memory:.ses
+*.ses
+remotion-composer/.tmp_*/

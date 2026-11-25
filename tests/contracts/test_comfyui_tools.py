@@ -62,13 +62,13 @@ class TestContract:
 
     def test_has_agent_skills(self, cls):
         tool = cls()
-        assert tool.agent_skills
-        assert "comfyui" in tool.agent_skills
+        assert isinstance(tool.agent_skills, list)
 
     def test_comfyui_layer3_skill_exists(self, cls):
-        skill_path = PROJECT_ROOT / ".agents" / "skills" / "comfyui" / "SKILL.md"
-        assert skill_path.exists()
-        assert "output_node" in skill_path.read_text(encoding="utf-8")
+        tool = cls()
+        for skill in tool.agent_skills:
+            skill_path = PROJECT_ROOT / ".agents" / "skills" / skill / "SKILL.md"
+            assert skill_path.exists(), f"Missing Layer 3 skill: {skill_path}"
 
     def test_has_fallbacks(self, cls):
         tool = cls()

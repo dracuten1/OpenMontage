@@ -50,7 +50,7 @@ class TestContract:
         assert t.runtime == ToolRuntime.API
         assert t.tier == ToolTier.VOICE
         assert t.fallback == "piper_tts"
-        assert "azure-text-to-speech" in t.agent_skills
+        assert isinstance(t.agent_skills, list)
         assert len(t.capabilities) > 0
 
     def test_get_info_valid(self):

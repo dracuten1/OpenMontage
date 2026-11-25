@@ -72,6 +72,15 @@ NHẬN ĐỊNH (POV) → Dedicated human editorial commentary beat: connect the 
 LANDING (last 5s) → Sharp takeaway + concrete CTA (before the 3s outro BrandBumper).
 ```
 
+#### Engagement Mode Respect (`standard` vs. `debate_engagement`)
+Check `proposal_packet.production_plan.engagement_mode` (or `selected_concept.engagement_mode`, default `standard`):
+- **If `standard` (or omitted):** Follow the standard Narrative Arc above strictly. Do **NOT** inject unsolicited debate questions, forced-choice polls, or artificial controversy.
+- **If `debate_engagement`:** Execute the approved `selected_concept.engagement_design` faithfully across the full runtime (whether 45s or up to 5 minutes):
+  - Deliver the `opening_hook_type` tension in seconds 0–3.
+  - Place each approved `friction_beats` micro-question at its planned act/chapter transition (with matching on-screen text/question card cue).
+  - Present both `steelman_sides` (`camp_a` vs. `camp_b`) fairly without taking a partisan stance or inventing facts outside `fact_table`.
+  - Close with the exact `closing_dilemma` (A vs. B / tradeoff question) paired with the `debate_visual_cue`.
+
 #### Anti-AI Voice & Spoken Cadence Rules
 - **Short spoken sentences:** Keep sentences crisp (`≤18 words/sentence` where natural in Vietnamese, max 1 clause pivot per beat) and cap spoken numbers at **≤3 numbers per sentence** so listeners absorb figures effortlessly.
 - **Display vs. Narration Consistency (Doctrine §3):** Use exact `fact_table.display_string` for on-screen text and `fact_table.narration_form` for TTS `provider_text`. Never display an English label while narrating a different Vietnamese translation (e.g., never display `"Expert"` while saying `"chuyên gia"`).

@@ -52,6 +52,7 @@ NON_OVERRIDABLE_CODES = frozenset({
     # editorial, fact-whitelist & source-photo quality gates (never overridable)
     "editorial_language_gate_failed", "editorial_language_gate_error",
     "fact_whitelist_failed", "source_photo_gate_failed",
+    "bgm_duration_failed", "render_runtime_mismatch",
     # packet identity + review binding (scene_packet.integrate_scene_packet)
     "scene_packets_missing", "scene_packet_missing",
     "writer_token_invalid", "reviewer_token_invalid",
@@ -172,12 +173,17 @@ def input_fingerprint(episode_dir: Path, comp_id: str) -> str:
         if not d.is_dir():
             return
         for p in sorted(x for x in d.rglob("*") if x.is_file()):
-            if "node_modules" in p.parts:
+            if "node_modules" in p.parts or "__pycache__" in p.parts or ".test." in p.name:
                 continue
-            h.update(str(p.relative_to(REPO_ROOT)).encode())
+            try:
+                rel = p.relative_to(REPO_ROOT)
+            except ValueError:
+                rel = p.relative_to(COMPOSER) if COMPOSER in p.parents else p
+            h.update(str(rel).encode())
             h.update(hashlib.sha256(p.read_bytes()).digest())
 
     absorb_dir(episode_dir)
+    absorb_dir(COMPOSER / "src" / "components")
     absorb_dir(COMPOSER / "public" / episode_dir.name)
     root_tsx = COMPOSER / "src" / "Root.tsx"
     if root_tsx.is_file():
@@ -299,8 +305,19 @@ def main(argv=None) -> int:
             print("       (use --force to re-render anyway)")
             return 0
 
-    # 3. Render
-    cmd = ["npx", "remotion", "render", args.comp_id, str(out_path), "--overwrite", "--log=error"]
+    # 3. Render (prefer per-episode index.ts/tsx entrypoint when present)
+    local_entry = next(
+        (p for p in (episode_dir / "index.ts", episode_dir / "index.tsx") if p.is_file()),
+        None,
+    )
+    if local_entry is not None:
+        cmd = [
+            "npx", "remotion", "render",
+            f"src/{slug}/{local_entry.name}",
+            args.comp_id, str(out_path), "--overwrite", "--log=error",
+        ]
+    else:
+        cmd = ["npx", "remotion", "render", args.comp_id, str(out_path), "--overwrite", "--log=error"]
     print(f"RENDER — {' '.join(cmd)}")
     t0 = time.time()
     proc = subprocess.run(cmd, cwd=str(COMPOSER), timeout=args.timeout)

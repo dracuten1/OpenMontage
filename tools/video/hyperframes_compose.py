@@ -355,14 +355,46 @@ class HyperFramesCompose(BaseTool):
             cls._cli_probe_cache = {"status": "ok"}
         return cls._cli_probe_cache
 
+    @classmethod
+    def _is_disabled(cls) -> bool:
+        """Return True when HyperFrames runtime is disabled by env or config.yaml."""
+        enable_override = os.environ.get("OM_ENABLE_HYPERFRAMES", "").strip().lower()
+        if enable_override in {"1", "true", "yes"}:
+            return False
+        disable_override = os.environ.get("OM_DISABLE_HYPERFRAMES", "").strip().lower()
+        if disable_override in {"1", "true", "yes"}:
+            return True
+        try:
+            from lib.config_model import OpenMontageConfig
+
+            return not bool(OpenMontageConfig.load().runtimes.hyperframes.enabled)
+        except Exception:
+            return True
+
     def _runtime_check(self) -> dict[str, Any]:
         """Return availability state for the HyperFrames runtime.
 
-        Checks BOTH local binaries (node >= 22, ffmpeg, npx) AND that the
-        `hyperframes` npm package actually resolves. A missing/404 package
-        counts as unavailable — `runtime_available: True` means the runtime
-        can genuinely run end-to-end, not just that the local tooling exists.
+        Checks config/env disable toggle first (zero subprocesses when disabled),
+        then local binaries (node >= 22, ffmpeg, npx) AND that the `hyperframes`
+        npm package resolves.
         """
+        if self._is_disabled():
+            return {
+                "runtime_available": False,
+                "disabled": True,
+                "node_major": None,
+                "ffmpeg_available": False,
+                "npx_available": False,
+                "npm_package": self._NPM_PACKAGE,
+                "npm_package_version": None,
+                "npm_resolve_error": None,
+                "cli_probe_status": None,
+                "cli_probe_error": None,
+                "reasons": [
+                    "HyperFrames runtime disabled in config.yaml (runtimes.hyperframes.enabled: false); set OM_ENABLE_HYPERFRAMES=1 to opt in."
+                ],
+            }
+
         node_major = self._node_major_version()
         ffmpeg_ok = shutil.which("ffmpeg") is not None
         npx_ok = shutil.which("npx") is not None
@@ -417,7 +449,7 @@ class HyperFramesCompose(BaseTool):
         info = super().get_info()
         check = self._runtime_check()
         info["hyperframes_runtime"] = check
-        if not check["runtime_available"]:
+        if not check["runtime_available"] and not check.get("disabled"):
             info["setup_offer"] = {
                 "effort": (
                     "1-minute fix"

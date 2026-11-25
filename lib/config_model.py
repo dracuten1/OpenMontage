@@ -62,6 +62,14 @@ class PathsConfig(BaseModel):
     output_dir: str = "output"
 
 
+class HyperFramesRuntimeConfig(BaseModel):
+    enabled: bool = False
+
+
+class RuntimesConfig(BaseModel):
+    hyperframes: HyperFramesRuntimeConfig = Field(default_factory=HyperFramesRuntimeConfig)
+
+
 class OpenMontageConfig(BaseModel):
     """Top-level runtime configuration."""
 
@@ -70,6 +78,7 @@ class OpenMontageConfig(BaseModel):
     checkpoint: CheckpointConfig = Field(default_factory=CheckpointConfig)
     output: OutputConfig = Field(default_factory=OutputConfig)
     paths: PathsConfig = Field(default_factory=PathsConfig)
+    runtimes: RuntimesConfig = Field(default_factory=RuntimesConfig)
 
     @classmethod
     def load(cls, config_path: Optional[Path] = None) -> "OpenMontageConfig":

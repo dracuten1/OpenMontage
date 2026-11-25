@@ -1,15 +1,17 @@
 // Shared News Foundation SceneShell — Hybrid Broadcast Photojournalism × Swiss Edge-to-Edge Split + Safe Zone v3.2
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   AbsoluteFill,
   Img,
   OffthreadVideo,
+  continueRender,
+  delayRender,
   interpolate,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { COLORS, FONTS, FPS, HEIGHT, SAFE, ensureFonts } from "./theme";
+import { COLORS, FONTS, FPS, HEIGHT, SAFE, ensureFonts, waitForFonts } from "./theme";
 
 export interface BackplateConfig {
   src: string;
@@ -767,28 +769,52 @@ export const HeroTitle: React.FC<{
   const [fontSize, setFontSize] = useState<number>(SAFE.titleMaxFont);
   const width = SAFE.titleMaxWidth;
 
-  useLayoutEffect(() => {
+  const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+  useIsomorphicLayoutEffect(() => {
     const wrap = wrapRef.current;
     const el = textRef.current;
     if (!wrap || !el) return;
-    const lineHeight = 1.06;
-    let size: number = SAFE.titleMaxFont;
-    el.style.fontSize = `${size}px`;
-    let guard = 0;
-    while (guard < 60) {
-      guard += 1;
-      const lineBox = size * lineHeight;
-      const lines = Math.max(1, Math.round(el.offsetHeight / lineBox));
-      const overflowX = el.scrollWidth > el.clientWidth + 1;
-      if (lines <= 2 && !overflowX) break;
-      if (size <= SAFE.titleMinFont) {
-        size = SAFE.titleMinFont;
-        break;
-      }
-      size = Math.max(SAFE.titleMinFont, size - 2);
+
+    const measureAndFit = (): number => {
+      const lineHeight = 1.06;
+      let size: number = SAFE.titleMaxFont;
       el.style.fontSize = `${size}px`;
-    }
-    setFontSize(size);
+      let guard = 0;
+      while (guard < 60) {
+        guard += 1;
+        const lineBox = size * lineHeight;
+        const lines = Math.max(1, Math.round(el.offsetHeight / lineBox));
+        const overflowX = el.scrollWidth > el.clientWidth + 1;
+        if (lines <= 2 && !overflowX) break;
+        if (size <= SAFE.titleMinFont) {
+          size = SAFE.titleMinFont;
+          break;
+        }
+        size = Math.max(SAFE.titleMinFont, size - 2);
+        el.style.fontSize = `${size}px`;
+      }
+      return size;
+    };
+
+    // Initial fast fit + font-ready re-measure guarded by delayRender so Barlow Condensed metrics win
+    setFontSize(measureAndFit());
+    let cancelled = false;
+    const handle = typeof window !== "undefined" ? delayRender("HeroTitle font-fit") : null;
+    waitForFonts()
+      .then(() => {
+        if (!cancelled) {
+          setFontSize(measureAndFit());
+        }
+      })
+      .catch(() => undefined)
+      .finally(() => {
+        if (handle !== null) {
+          continueRender(handle);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [text, width]);
 
   const isYellowBlock =

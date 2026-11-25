@@ -224,3 +224,44 @@ def test_render_env_issuer_fallback_logged(render_env, capsys, monkeypatch):
     assert rc == 0
     rec = json.loads((out.parent / "render_overrides.log").read_text(encoding="utf-8").splitlines()[0])
     assert rec["payload"]["issuer"] == "bob-env"
+
+
+def test_input_fingerprint_tracks_shared_components(tmp_path, monkeypatch):
+    comp_dir = tmp_path / "src" / "components"
+    ep_dir = tmp_path / "src" / "ep"
+    comp_dir.mkdir(parents=True)
+    ep_dir.mkdir(parents=True)
+    theme = comp_dir / "theme.ts"
+    theme.write_text("export const X = 1;\n", encoding="utf-8")
+    (ep_dir / "Episode.tsx").write_text("export const E = () => null;\n", encoding="utf-8")
+    monkeypatch.setattr(render_episode, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(render_episode, "COMPOSER", tmp_path)
+
+    fp1 = render_episode.input_fingerprint(ep_dir, "ep-DRAFT")
+    theme.write_text("export const X = 2;\n", encoding="utf-8")
+    fp2 = render_episode.input_fingerprint(ep_dir, "ep-DRAFT")
+    assert fp1 != fp2
+
+
+def test_render_episode_uses_local_entrypoint_when_present(tmp_path, monkeypatch):
+    src = tmp_path / "src"
+    ep = src / "my-slug"
+    ep.mkdir(parents=True)
+    (ep / "index.ts").write_text("import { registerRoot } from 'remotion';\n", encoding="utf-8")
+    monkeypatch.setattr(render_episode, "COMPOSER", tmp_path)
+    monkeypatch.setattr("tools.qc.episode_gate.validate_episode", lambda root, **kw: [])
+    captured = []
+
+    def fake_run(cmd, **kw):
+        Path(cmd[5]).write_bytes(b"fake-mp4")
+        captured.append(cmd)
+        return type("P", (), {"returncode": 0})()
+
+    monkeypatch.setattr(render_episode.subprocess, "run", fake_run)
+    monkeypatch.setattr(render_episode, "smoke_check", lambda path, expect: [])
+    monkeypatch.setattr(render_episode, "ffprobe_streams", lambda path: {"duration": 1.0, "video": 1, "audio": 1})
+
+    out = ep.parent / "out.mp4"
+    rc = render_episode.main(["my-slug-DRAFT", str(out), "--agy"])
+    assert rc == 0
+    assert captured[0][:5] == ["npx", "remotion", "render", "src/my-slug/index.ts", "my-slug-DRAFT"]

@@ -13,6 +13,7 @@ export interface HighlighterTitleProps {
   wipeWidth?: number | string;
   barHeight?: number;
   accent?: string;
+  color?: string;
   fontFamily?: "mono" | "sans";
   fontSize?: number;
   pop?: { damping?: number; stiffness?: number };
@@ -56,6 +57,7 @@ export const HighlighterTitle: React.FC<HighlighterTitleProps> = ({
   wipeWidth = "100%",
   barHeight = 10,
   accent = "#FFBE0B",
+  color = "#F2F5F9",
   fontFamily = "mono",
   fontSize = 44,
   pop,
@@ -78,13 +80,15 @@ export const HighlighterTitle: React.FC<HighlighterTitleProps> = ({
 
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
-      <div
+        <div
         style={{
           position: "relative",
           zIndex: 1,
           fontFamily: fontFamily === "mono" ? MONO : SANS,
           fontWeight: 700,
           fontSize,
+          color,
+          textShadow: "0 2px 10px rgba(0,0,0,0.65)",
           opacity: motion.opacity,
           transform: `translateY(${motion.translateY}px) scale(${motion.scale})`,
           transformOrigin: "center center",

@@ -99,10 +99,71 @@ def test_premix_from_stems_produces_valid_mix_and_passes_validator(tmp_path: Pat
     assert Path(summary["mix_master"]).is_file()
     assert not (proj / "renders" / "_master_work" / "mix_base.wav").exists()
     assert not (proj / "renders" / "_master_work" / "mix_bgm.wav").exists()
+    assert not (proj / "renders" / "_master_work" / "bgm_ducked.wav").exists()
 
-    verdict = mix_validator.validate(ep_dir / "audio_stems", ep_dir / "mix_profile.json")
+    profile = json.loads((proj / "mix_profile.json").read_text(encoding="utf-8"))
+    assert profile["windows"]["narration"] == [[2.5, 4.5]]
+    assert len(profile["windows"]["expected_signal"]) == 2
+    assert profile["windows"]["stem_windows"] == {"narration": [0.0, 4.55]}
+
+    verdict = mix_validator.validate(proj / "audio_stems", proj / "mix_profile.json")
     assert verdict["valid"] is True, verdict["errors"]
     assert abs(verdict["loudness"] - (-11.0)) <= 0.4
+
+    # Replacing ducked bgm.wav with an unducked bed MUST fail ducking validation
+    unducked = np.column_stack((bgm, bgm))
+    _write_wav(proj / "renders" / "audio_stems" / "bgm.wav", np.tile(unducked, (2, 1))[: rate * 5], rate=rate, channels=2)
+    bad_verdict = mix_validator.validate(proj / "audio_stems", proj / "mix_profile.json")
+    assert bad_verdict["valid"] is False
+    assert any("ducking insufficient" in err for err in bad_verdict["errors"])
+
+
+@pytest.mark.skipif(not shutil.which("ffmpeg"), reason="ffmpeg binary required")
+def test_prepare_bgm_bed_trims_quiet_intro_and_normalizes(tmp_path: Path):
+    rate = 48000
+    quiet_intro = 0.002 * np.sin(2 * np.pi * 110.0 * (np.arange(rate * 16) / rate))
+    active_body = 0.35 * np.sin(2 * np.pi * 110.0 * (np.arange(rate * 16) / rate))
+    raw_bgm = tmp_path / "filmscore.wav"
+    _write_wav(raw_bgm, np.concatenate([quiet_intro, active_body]), rate=rate)
+
+    out_bed = mixdown.prepare_bgm_bed(raw_bgm, 6.0, tmp_path / "work")
+    assert out_bed.is_file()
+    lufs = mix_validator.integrated_lufs(out_bed)
+    assert abs(lufs - (-16.0)) <= 1.5
+    samples, sr = mix_validator.read_wav(out_bed)
+    assert sr == 48000
+    assert float(np.sqrt(np.mean(samples[:sr] ** 2))) > 0.05
+
+
+def test_collect_sfx_cues_parses_scene_sfx_and_sfx_cues_json(tmp_path: Path):
+    ep_dir = tmp_path / "comp"
+    sfx_dir = tmp_path / "sfx"
+    ep_dir.mkdir(parents=True)
+    sfx_dir.mkdir(parents=True)
+    (sfx_dir / "click-camera.mp3").write_bytes(b"ID3")
+    (sfx_dir / "impact-cine.mp3").write_bytes(b"ID3")
+
+    timing = {
+        "fps": 30,
+        "total_seconds": 10.0,
+        "sections": [
+            {"scene_id": "scene-1", "section_id": "s01", "start_seconds": 0.0, "end_seconds": 5.0},
+            {"scene_id": "scene-2", "section_id": "s02", "start_seconds": 5.0, "end_seconds": 10.0},
+        ],
+    }
+    (ep_dir / "Episode.tsx").write_text(
+        'const SCENE_SFX = {\n'
+        '  S01: [{ src: `${BASE}/sfx/click-camera.mp3`, delayFrames: 30, volume: 0.22 }],\n'
+        '  S02: [{ src: `${BASE}/sfx/impact-cine.mp3`, delayFrames: 15, volume: 0.24 }],\n'
+        '};\n',
+        encoding="utf-8",
+    )
+    cues = mixdown._collect_sfx_cues(ep_dir, timing, sfx_dir)
+    assert len(cues) == 2
+    assert cues[0][0] == pytest.approx(1.0)
+    assert cues[0][1].name == "click-camera.mp3"
+    assert cues[1][0] == pytest.approx(5.5)
+    assert cues[1][1].name == "impact-cine.mp3"
 
 
 def test_premix_missing_voice_stem_raises_input_error(tmp_path: Path):

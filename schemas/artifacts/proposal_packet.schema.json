@@ -43,7 +43,66 @@
             "items": { "type": "string" },
             "description": "Which research_brief findings support this concept"
           },
-          "why_this_works": { "type": "string", "description": "Rationale citing research findings — not vibes" }
+          "why_this_works": { "type": "string", "description": "Rationale citing research findings — not vibes" },
+          "engagement_mode": {
+            "type": "string",
+            "enum": ["standard", "debate_engagement"],
+            "default": "standard",
+            "description": "Mode 1 ('standard'): clean editorial without added debate framing. Mode 2 ('debate_engagement'): hooks, scaled mid-roll friction prompts, balanced two-camp steelmanning, and forced-choice closing dilemma."
+          },
+          "engagement_design": {
+            "type": "object",
+            "description": "Populated when engagement_mode='debate_engagement'. Scales dynamically for videos of any duration (including 30s-300s / up to 5 minutes).",
+            "properties": {
+              "opening_hook_type": {
+                "type": "string",
+                "enum": ["money_shock", "paradox", "split_opinion", "myth_flip", "custom"]
+              },
+              "friction_beats": {
+                "type": "array",
+                "description": "1-3 mid-roll micro-questions scaled to video duration (1 for <=60s, 1-2 for 60-180s, 2-3 for 180-300s).",
+                "items": {
+                  "type": "object",
+                  "required": ["timestamp_hint_or_act", "prompt_text"],
+                  "properties": {
+                    "timestamp_hint_or_act": { "type": "string", "description": "e.g., '20s', 'Act 1 pivot (~55s)', '45% runtime'" },
+                    "prompt_text": { "type": "string", "description": "Short open question or tension prompt to spark early comments" },
+                    "purpose": { "type": "string", "description": "e.g., 'early_comment_trigger', 'chapter_retention_bridge'" }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "steelman_sides": {
+                "type": "object",
+                "required": ["camp_a", "camp_b"],
+                "properties": {
+                  "camp_a": { "type": "string", "description": "Strongest fair argument for Camp A" },
+                  "camp_b": { "type": "string", "description": "Strongest fair argument for Camp B" },
+                  "neutral_framing_note": { "type": "string", "description": "How narration stays balanced and within editorial_language_gate" }
+                },
+                "additionalProperties": false
+              },
+              "closing_dilemma": {
+                "type": "object",
+                "required": ["question", "option_a", "option_b"],
+                "properties": {
+                  "question": { "type": "string", "description": "Forced-choice or tradeoff closing question (replaces generic CTA)" },
+                  "option_a": { "type": "string" },
+                  "option_b": { "type": "string" }
+                },
+                "additionalProperties": false
+              },
+              "debate_visual_cue": {
+                "type": "string",
+                "description": "Suggested on-screen visual card (e.g., split comparison card Camp A vs Camp B, mid-roll question badge)"
+              },
+              "editorial_safety_check": {
+                "type": "string",
+                "description": "Confirmation that numbers stay inside fact_table and debate focuses on tradeoffs/choices rather than attacks or speculation"
+              }
+            },
+            "additionalProperties": false
+          }
         },
         "additionalProperties": false
       },
@@ -154,6 +213,12 @@
           "type": "string",
           "enum": ["remotion", "hyperframes", "ffmpeg"],
           "description": "Locked at proposal stage — the technical runtime that realizes renderer_family. remotion=React scene components, hyperframes=HTML/CSS/GSAP, ffmpeg=simple concat/trim. Must be explicit and auditable; silent swaps are forbidden."
+        },
+        "engagement_mode": {
+          "type": "string",
+          "enum": ["standard", "debate_engagement"],
+          "default": "standard",
+          "description": "Locked at proposal stage — 'standard' (default, no added debate framing) or 'debate_engagement' (hooks, scaled mid-roll friction beats, balanced two-camp steelmanning, and forced-choice closing dilemma)."
         },
         "composition_mode": {
           "type": "string",

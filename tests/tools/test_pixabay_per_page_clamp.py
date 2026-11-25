@@ -46,10 +46,10 @@ def test_pixabay_image_tool_clamps_per_page(monkeypatch):
     captured = {}
     _patch_requests_get(monkeypatch, captured)
 
-    PixabayImage().execute({"query": "sky", "per_page": 1})
+    PixabayImage().execute({"query": "sky", "per_page": 1, "allow_wikimedia_fallback": False})
     assert captured["params"]["per_page"] == 3
 
-    PixabayImage().execute({"query": "sky", "per_page": 500})
+    PixabayImage().execute({"query": "sky", "per_page": 500, "allow_wikimedia_fallback": False})
     assert captured["params"]["per_page"] == 200
 
 

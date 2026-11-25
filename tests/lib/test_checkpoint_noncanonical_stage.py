@@ -24,6 +24,50 @@ from lib.checkpoint import (  # noqa: E402
 )
 
 
+@pytest.fixture(autouse=True)
+def _custom_pipeline_yaml(tmp_path, monkeypatch):
+    """Provide a temporary schema-valid pipeline manifest with noncanonical stages."""
+    import copy
+    import yaml
+    import lib.pipeline_loader as pl_mod
+
+    src_manifest = pl_mod.load_pipeline("animated-explainer")
+    data = copy.deepcopy(src_manifest)
+    data["name"] = "character-animation"
+    data["stages"] = [
+        {
+            "name": "character_design",
+            "skill": "pipelines/explainer/scene-director",
+            "produces": ["scene_plan"],
+            "tools_available": [],
+            "checkpoint_required": True,
+            "human_approval_default": False,
+        },
+        {
+            "name": "rig_plan",
+            "skill": "pipelines/explainer/scene-director",
+            "produces": ["scene_plan"],
+            "tools_available": [],
+            "checkpoint_required": True,
+            "human_approval_default": False,
+        },
+        *data["stages"],
+    ]
+
+    pdir = tmp_path / "pipeline_defs"
+    pdir.mkdir()
+    (pdir / "character-animation.yaml").write_text(
+        yaml.safe_dump(data, sort_keys=False),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(pl_mod, "PIPELINE_DEFS_DIR", pdir)
+    pl_mod._load_pipeline_cached.cache_clear()
+    try:
+        yield
+    finally:
+        pl_mod._load_pipeline_cached.cache_clear()
+
+
 def _checkpoint(stage, status, artifacts, pipeline_type):
     return {
         "version": "1.0",

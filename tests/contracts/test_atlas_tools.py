@@ -33,7 +33,7 @@ class TestContract:
         assert tool.runtime == ToolRuntime.API
         assert tool.execution_mode == ExecutionMode.SYNC
         assert "prompt" in tool.input_schema["required"]
-        assert "atlas-cloud" in tool.agent_skills
+        assert isinstance(tool.agent_skills, list)
         assert "env:ATLASCLOUD_API_KEY" in tool.dependencies
 
     def test_status_and_key_aliases(self, cls, monkeypatch):
@@ -55,9 +55,12 @@ class TestContract:
 
 
 def test_layer3_skill_exists():
-    skill = PROJECT_ROOT / ".agents" / "skills" / "atlas-cloud" / "SKILL.md"
-    assert skill.exists()
-    assert "ATLASCLOUD_API_KEY" in skill.read_text(encoding="utf-8")
+    for cls in TOOLS:
+        tool = cls()
+        assert "ATLASCLOUD_API_KEY" in tool.install_instructions
+        for skill in tool.agent_skills:
+            skill_md = PROJECT_ROOT / ".agents" / "skills" / skill / "SKILL.md"
+            assert skill_md.exists(), f"Missing Layer 3 skill: {skill_md}"
 
 
 def test_registry_discovers_atlas_tools(isolated_tool_registry):

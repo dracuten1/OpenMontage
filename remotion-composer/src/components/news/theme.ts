@@ -4,23 +4,50 @@ import { loadFont as loadBeVietnam } from "@remotion/google-fonts/BeVietnamPro";
 import { loadFont as loadPlusJakarta } from "@remotion/google-fonts/PlusJakartaSans";
 
 let loaded = false;
+const fontLoadPromises: Promise<unknown>[] = [];
+
+function trackFontLoad(handle: unknown): void {
+  if (
+    handle &&
+    typeof handle === "object" &&
+    "waitUntilDone" in handle &&
+    typeof (handle as { waitUntilDone?: () => Promise<unknown> }).waitUntilDone === "function"
+  ) {
+    fontLoadPromises.push((handle as { waitUntilDone: () => Promise<unknown> }).waitUntilDone());
+  }
+}
 
 /** Idempotently load Vietnamese-safe broadcast & Swiss editorial Google Fonts once per bundle. */
 export function ensureFonts(): void {
   if (loaded) return;
-  loadBarlowCondensed("normal", {
-    weights: ["600", "700", "800", "900"],
-    subsets: ["latin", "latin-ext", "vietnamese"],
-  });
-  loadPlusJakarta("normal", {
-    weights: ["500", "600", "700", "800"],
-    subsets: ["latin", "latin-ext", "vietnamese"],
-  });
-  loadBeVietnam("normal", {
-    weights: ["400", "500", "600", "700", "800"],
-    subsets: ["latin", "latin-ext", "vietnamese"],
-  });
   loaded = true;
+  trackFontLoad(
+    loadBarlowCondensed("normal", {
+      weights: ["600", "700", "800", "900"],
+      subsets: ["latin", "latin-ext", "vietnamese"],
+    }),
+  );
+  trackFontLoad(
+    loadPlusJakarta("normal", {
+      weights: ["500", "600", "700", "800"],
+      subsets: ["latin", "latin-ext", "vietnamese"],
+    }),
+  );
+  trackFontLoad(
+    loadBeVietnam("normal", {
+      weights: ["400", "500", "600", "700", "800"],
+      subsets: ["latin", "latin-ext", "vietnamese"],
+    }),
+  );
+}
+
+/** Resolve once all tracked editorial fonts and document.fonts have finished loading. */
+export async function waitForFonts(): Promise<void> {
+  ensureFonts();
+  await Promise.all(fontLoadPromises);
+  if (typeof document !== "undefined" && document.fonts && document.fonts.ready) {
+    await document.fonts.ready;
+  }
 }
 
 export const FPS = 30;

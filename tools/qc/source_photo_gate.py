@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import hashlib
 import json
 import re
 import sys
@@ -115,6 +116,7 @@ def validate_source_photos(
                     needs_archive_badge = False
                     width = 0
                     height = 0
+                    file_sha256 = ""
 
                     resolved = _resolve_contained(project_root, rel_file)
                     if resolved is None:
@@ -130,6 +132,17 @@ def validate_source_photos(
                             "message": f"source photo missing on disk: {resolved}",
                         })
                     else:
+                        file_sha256 = hashlib.sha256(resolved.read_bytes()).hexdigest()
+                        declared_sha = str(entry.get("sha256") or "").strip().lower()
+                        if declared_sha and declared_sha != file_sha256:
+                            item_errors.append({
+                                "code": "SPG-HASH-MISMATCH",
+                                "file": rel_file,
+                                "message": (
+                                    f"{rel_file} sha256 mismatch: provenance {declared_sha[:12]}… "
+                                    f"!= on-disk {file_sha256[:12]}… (re-verify via Vision)"
+                                ),
+                            })
                         try:
                             with Image.open(resolved) as im:
                                 im.verify()
@@ -211,6 +224,7 @@ def validate_source_photos(
                     errors.extend(item_errors)
                     entries_report.append({
                         "file": rel_file,
+                        "sha256": file_sha256,
                         "width": width,
                         "height": height,
                         "visual_type": visual_type,

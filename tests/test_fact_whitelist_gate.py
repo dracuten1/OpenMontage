@@ -135,3 +135,30 @@ banned_strings: ["18.670"]
     codes = {e["code"] for e in rep["errors"]}
     assert FWG_SCENE_COUNT_MISMATCH in codes
     assert FWG_BANNED_STRING in codes
+
+
+def test_blocks_countup_and_template_numbers_and_no_scenes(tmp_path: Path) -> None:
+    from tools.qc.fact_whitelist_gate import FWG_NO_SCENES_FOUND
+    proj, scenes = _setup_project(tmp_path)
+    wl = {
+        "facts": [
+            {"fact_id": "EV-1#f01", "display_string": "100", "verification": "CORROBORATED", "allowed_scenes": ["*"]}
+        ],
+    }
+    (proj / "artifacts" / "fact_whitelist.json").write_text(json.dumps(wl), encoding="utf-8")
+
+    # 0 scenes -> fail-closed
+    empty_rep = validate_fact_whitelist(proj, scenes_dir=scenes, write_report=False)
+    assert empty_rep["pass"] is False
+    assert any(e["code"] == FWG_NO_SCENES_FOUND for e in empty_rep["errors"])
+
+    # CountUp to={777} and template literal ${888} -> blocked
+    (scenes / "S01.tsx").write_text(
+        'export default function S01() { return <div><CountUp to={777} startFrame={0} />{`Mất ${888} tỷ`}</div>; }',
+        encoding="utf-8",
+    )
+    rep = validate_fact_whitelist(proj, scenes_dir=scenes, write_report=False)
+    assert rep["pass"] is False
+    tokens = {e.get("token") for e in rep["errors"]}
+    assert "777" in tokens
+    assert "888" in tokens

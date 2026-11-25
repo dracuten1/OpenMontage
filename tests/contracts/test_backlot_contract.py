@@ -89,7 +89,7 @@ class TestGateEnforcement:
             write_checkpoint(
                 tmp_path, "proj", "assets", "completed",
                 artifacts={"asset_manifest": manifest_assets},
-                pipeline_type="cinematic",
+                pipeline_type="animated-explainer",
             )
 
     def test_ungated_stage_unaffected(self, tmp_path):
@@ -133,7 +133,7 @@ class TestCheckpointHistory:
             write_checkpoint(
                 tmp_path, "proj", "assets", "in_progress",
                 artifacts={},
-                pipeline_type="cinematic",
+                pipeline_type="animated-explainer",
                 metadata={"partial_progress": {"completed_scene_ids": ["sc1"]}},
             )
         history_dir = tmp_path / "proj" / HISTORY_DIRNAME
@@ -143,7 +143,7 @@ class TestCheckpointHistory:
 class TestInitProject:
     def test_creates_layout_and_marker(self, tmp_path):
         pdir = init_project(
-            "my-film", title="My Film", pipeline_type="cinematic",
+            "my-film", title="My Film", pipeline_type="animated-explainer",
             pipeline_dir=tmp_path, style_playbook="clean-professional",
         )
         assert (pdir / "artifacts").is_dir()
@@ -151,14 +151,14 @@ class TestInitProject:
         assert (pdir / "renders").is_dir()
         marker = json.loads((pdir / PROJECT_MARKER_FILENAME).read_text())
         assert marker["project_id"] == "my-film"
-        assert marker["pipeline_type"] == "cinematic"
+        assert marker["pipeline_type"] == "animated-explainer"
         assert marker["style_playbook"] == "clean-professional"
         assert "created_at" in marker
 
     def test_idempotent_preserves_created_at(self, tmp_path):
-        pdir = init_project("p", title="P", pipeline_type="cinematic", pipeline_dir=tmp_path)
+        pdir = init_project("p", title="P", pipeline_type="animated-explainer", pipeline_dir=tmp_path)
         created = json.loads((pdir / PROJECT_MARKER_FILENAME).read_text())["created_at"]
-        init_project("p", title="P2", pipeline_type="cinematic", pipeline_dir=tmp_path)
+        init_project("p", title="P2", pipeline_type="animated-explainer", pipeline_dir=tmp_path)
         marker = json.loads((pdir / PROJECT_MARKER_FILENAME).read_text())
         assert marker["created_at"] == created
         assert marker["title"] == "P2"

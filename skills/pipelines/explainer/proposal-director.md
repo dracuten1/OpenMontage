@@ -221,15 +221,32 @@ In every proposal, explicitly assess whether **Browser AI Video B-Roll** (`gemin
 
 #### 3d: Duration and Platform
 
-Set realistic duration based on platform and content depth:
+Set realistic duration based on platform and content depth (videos are NOT restricted to 60s — TikTok and short-form news/explainers can run flexibly up to 5 minutes when depth justifies it):
 
-| Platform | Duration Range | Word Budget (150 WPM) |
-|----------|---------------|----------------------|
-| TikTok | 30-60s | 65-150 words |
+| Platform | Duration Range | Word Budget (~150 WPM) |
+|----------|---------------|------------------------|
+| TikTok (Quick News / Short) | 30-90s | 65-225 words |
+| TikTok (Deep-Dive / Multi-News) | 90-300s (up to 5 min) | 225-750 words |
 | Instagram Reels | 30-90s | 65-225 words |
 | YouTube Shorts | 30-60s | 65-150 words |
-| YouTube | 60-180s | 150-450 words |
-| LinkedIn | 60-120s | 150-300 words |
+| YouTube | 60-300s+ | 150-750+ words |
+| LinkedIn | 60-180s | 150-450 words |
+
+#### 3d-bis: Engagement Mode Selection (`standard` vs. `debate_engagement`)
+
+At the Proposal gate, explicitly let the user choose (or confirm) `engagement_mode` and record it in `production_plan.engagement_mode` (and on each `concept_options` entry):
+
+- **Mode 1 — `standard` (Default / Clean Editorial):** Keep the existing straightforward explainer/news structure with **no forced arguments, no inserted mid-roll debate prompts, and no controversial framing**. Use a clean, direct `cta` (or none).
+- **Mode 2 — `debate_engagement` (Hook + Open Questions + Debate):** Design each concept with an explicit `engagement_design` block grounded in `research_brief.debate_fault_lines` and `debate_questions`:
+  - **`opening_hook_type`**: `money_shock`, `paradox`, `split_opinion`, `myth_flip`, or `custom` — create immediate tension in the first 3 seconds without violating `fact_table`.
+  - **`friction_beats` (scaled dynamically to `target_duration_seconds`, up to 5 minutes):**
+    - `≤ 60s`: **1 mid-roll prompt** around 40–55% runtime (e.g., 15–25s) to trigger early comment-opening while watching.
+    - `60s – 180s` (1–3 min): **1–2 mid-roll prompts** placed right after major data revelations or chapter pivots (roughly every 45–60s).
+    - `180s – 300s` (3–5 min): **2–3 micro-questions** distributed across Act 1 / Act 2 / Act 3 transitions so comment momentum and retention stay high throughout the full piece.
+  - **`steelman_sides`**: Present the strongest, fairest case for both `camp_a` and `camp_b` with a `neutral_framing_note` so both sides feel represented and motivated to comment without bias.
+  - **`closing_dilemma`**: Replace generic *"Bạn nghĩ sao?"* CTAs with a sharp **forced-choice (A vs. B)** or personal-tradeoff question in the final 3–5 seconds.
+  - **`debate_visual_cue`**: Specify on-screen support for Scene Director (e.g., Remotion `comparison` split card for Camp A vs. Camp B, floating question badge on mid-roll beats).
+  - **`editorial_safety_check`**: Confirm that all numbers stay inside `fact_table`, community views are attributed as opinion/`PULSE_ONLY`, and the prompt debates a *choice or tradeoff* rather than attacking individuals or violating `editorial_language_gate`.
 
 #### 3e: When to Break the Patterns
 

@@ -296,7 +296,20 @@ def scene_frames(scene: dict, fps: int, n: int) -> list[tuple[str, int]]:
     return plan
 
 
-def resolve_entry(entry: str) -> str:
+def resolve_entry(entry: str | None, composition: str | None = None) -> str:
+    if not entry or entry in {"src/index.tsx", "remotion-composer/src/index.tsx"}:
+        if composition:
+            slug = composition
+            for suffix in ("-DRAFT", "-FINAL"):
+                if slug.upper().endswith(suffix):
+                    slug = slug[: -len(suffix)]
+                    break
+            for ext in ("index.ts", "index.tsx"):
+                local_ep = REMOTION_DIR / "src" / slug / ext
+                if local_ep.is_file():
+                    return f"src/{slug}/{ext}"
+        if not entry:
+            entry = "src/index.tsx"
     p = Path(entry)
     if p.is_absolute():
         if not p.exists():
@@ -311,7 +324,7 @@ def resolve_entry(entry: str) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--entry", required=True, help="remotion entry tsx (path relative to repo root or remotion-composer/)")
+    ap.add_argument("--entry", default=None, help="remotion entry tsx (auto-detects src/<slug>/index.ts when omitted)")
     ap.add_argument("--composition", required=True)
     ap.add_argument("--scene-timing", required=True, help="scene_timing.json of the project")
     ap.add_argument("--frames-per-scene", type=int, default=2)
@@ -349,7 +362,7 @@ def main(argv: list[str] | None = None) -> int:
 
     out_dir = Path(args.out).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
-    entry_arg = resolve_entry(args.entry)
+    entry_arg = resolve_entry(args.entry, args.composition)
 
     report: dict = {
         "tool": "scene_sweep", "version": "1.0",

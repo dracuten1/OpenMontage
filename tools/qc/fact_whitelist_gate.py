@@ -32,6 +32,7 @@ FWG_UNWHITELISTED_NUMBER = "FWG-UNWHITELISTED-NUMBER"
 FWG_BANNED_STRING = "FWG-BANNED-STRING"
 FWG_EMPTY_WHITELIST = "FWG-EMPTY-WHITELIST"
 FWG_SCENE_COUNT_MISMATCH = "FWG-SCENE-COUNT-MISMATCH"
+FWG_NO_SCENES_FOUND = "FWG-NO-SCENES-FOUND"
 
 DISALLOWED_VERIFICATIONS = frozenset({"DISCREPANCY-EXCLUDED", "PULSE_ONLY", "REJECTED"})
 
@@ -78,10 +79,16 @@ NON_FACT_PROP_RE = re.compile(
     """
 )
 
-# Extract remaining string literals and JSX text content
+# Extract remaining string literals, JSX text content, and numeric counter/chart props
 STRING_LITERAL_RE = re.compile(r'"((?:\\.|[^"\\])*)"|\'((?:\\.|[^\'\\])*)\'|`((?:\\.|[^`\\])*)`')
 JSX_TEXT_RE = re.compile(r">([^<>{}]+)<")
-CHART_VALUE_RE = re.compile(r"\bvalue\s*:\s*(-?\d+(?:\.\d+)?)\b")
+JSX_INLINE_NUM_RE = re.compile(r">[^<>{}]*\{\s*(-?\d+(?:[.,]\d+)?)\s*\}[^<>{}]*<")
+TEMPLATE_NUM_EXPR_RE = re.compile(r"\$\{\s*(-?\d+(?:[.,]\d+)?)\s*\}")
+CHART_VALUE_RE = re.compile(
+    r"(?:\bvalue\s*:\s*(-?\d+(?:\.\d+)?)\b|"
+    r"<CountUp\b[^>]*?\bto=\{\s*(-?\d+(?:\.\d+)?)\s*\}|"
+    r"\bendValue\s*[:=]\s*\{?\s*(-?\d+(?:\.\d+)?)\s*\}?)"
+)
 
 # Numeric tokens in displayed text (supports Vietnamese 136,2 or 25.920 and decimals/percents)
 NUMBER_TOKEN_RE = re.compile(r"(?<![A-Za-z0-9_#])\d+(?:[.,]\d+)*(?:\s*%)?(?![A-Za-z0-9_])")
@@ -294,7 +301,7 @@ def _extract_visible_texts_and_chart_values(tsx_source: str) -> tuple[list[str],
     cleaned = HEX_COLOR_RE.sub(" ", cleaned)
     cleaned = RGBA_RE.sub(" ", cleaned)
 
-    chart_vals = [m.group(1) for m in CHART_VALUE_RE.finditer(cleaned)]
+    chart_vals = [next(g for g in m.groups() if g is not None) for m in CHART_VALUE_RE.finditer(cleaned)]
 
     # Strip non-fact CSS/layout/animation props iteratively
     stripped = NON_FACT_PROP_RE.sub(" ", cleaned)
@@ -302,6 +309,8 @@ def _extract_visible_texts_and_chart_values(tsx_source: str) -> tuple[list[str],
     texts: list[str] = []
     for m in STRING_LITERAL_RE.finditer(stripped):
         raw_str = next((g for g in m.groups() if g is not None), "")
+        for tm in TEMPLATE_NUM_EXPR_RE.finditer(raw_str):
+            texts.append(tm.group(1))
         # Remove ${...} template expressions
         s = re.sub(r"\$\{[^}]*\}", " ", raw_str).strip()
         if not s or CSS_OR_STRUCTURAL_TEXT_RE.match(s):
@@ -313,6 +322,9 @@ def _extract_visible_texts_and_chart_values(tsx_source: str) -> tuple[list[str],
         if not s or CSS_OR_STRUCTURAL_TEXT_RE.match(s):
             continue
         texts.append(s)
+
+    for m in JSX_INLINE_NUM_RE.finditer(stripped):
+        texts.append(m.group(1))
 
     return texts, chart_vals
 
@@ -387,6 +399,13 @@ def validate_fact_whitelist(
 
     sdir_path = Path(scenes_dir) if scenes_dir else None
     scene_files = _discover_scene_files(project_root, sdir_path)
+
+    if not scene_files:
+        errors.append({
+            "code": FWG_NO_SCENES_FOUND,
+            "scene_id": None,
+            "message": "v2 fact whitelist active, but no scene TSX files (S*.tsx or Episode.tsx) found to verify",
+        })
 
     expected_count = whitelist.get("scene_count_exact")
     if expected_count is not None and scene_files and scene_files[0][0] != "EPISODE":

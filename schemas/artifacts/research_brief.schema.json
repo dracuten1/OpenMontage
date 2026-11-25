@@ -235,6 +235,62 @@
       "minItems": 5,
       "description": "All sources used — at least 5. Full bibliography."
     },
+    "engagement_mode": {
+      "type": "string",
+      "enum": ["standard", "debate_engagement"],
+      "default": "standard",
+      "description": "Mode 1 ('standard', default): standard informational research without adding debate framing. Mode 2 ('debate_engagement'): additionally mines two-camp fault lines, scores hook debate_voltage, and drafts forced-choice open questions."
+    },
+    "debate_fault_lines": {
+      "type": "array",
+      "description": "Populated when engagement_mode='debate_engagement'. Pairs of competing viewpoints (Camp A vs Camp B) grounded in press/expert sources or community pulse.",
+      "items": {
+        "type": "object",
+        "required": ["topic_or_tension", "camp_a", "camp_b"],
+        "properties": {
+          "event_id": { "type": "string", "description": "Optional EV-n identifier for multi-event briefs" },
+          "topic_or_tension": { "type": "string", "description": "Core tradeoff or point of public disagreement" },
+          "camp_a": { "type": "string", "description": "Strongest steelman argument for Camp A (beneficiaries / proponents)" },
+          "camp_b": { "type": "string", "description": "Strongest steelman argument for Camp B (skeptics / affected critics)" },
+          "trigger_fact_ids": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Whitelisted fact_ids or data_point references that spark the tension"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": ["press_and_experts", "community_pulse", "mixed"],
+            "description": "Origin of the debate viewpoints (mark community sentiment as PULSE_ONLY, never as hard fact)"
+          },
+          "safety_note": { "type": "string", "description": "Guardrail note ensuring neutrality and editorial_language_gate compliance" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "debate_questions": {
+      "type": "array",
+      "description": "Populated when engagement_mode='debate_engagement'. Open-ended forced-choice (A vs B) or tradeoff questions for opening, mid-roll, or closing beats.",
+      "items": {
+        "type": "object",
+        "required": ["question", "placement_hint"],
+        "properties": {
+          "question": { "type": "string", "description": "Concrete open-ended or forced-choice question" },
+          "option_a": { "type": "string", "description": "Camp A / Choice A label" },
+          "option_b": { "type": "string", "description": "Camp B / Choice B label" },
+          "placement_hint": {
+            "type": "string",
+            "enum": ["opening_hook", "mid_roll", "closing_dilemma"],
+            "description": "Where in the video pacing this prompt works best"
+          },
+          "grounded_in_facts": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Whitelisted fact_ids supporting this question"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "research_summary": {
       "type": "string",
       "description": "One paragraph: the single most important insight from this research and why it matters for the video"

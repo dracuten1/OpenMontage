@@ -75,48 +75,51 @@ The `assets` stage is the single largest source of context exhaustion. It MUST b
 
 ## Subagent Dispatch Reference
 
+Per `docs/ORCHESTRATION_DOCTRINE.md` v3.0 (Antigravity-native), dispatch workers via `invoke_subagent(...)` or fan out parallel stages via `run_workflow(...)`. For standard audio/photo/delivery steps, invoke the deterministic repo CLIs directly:
+- `tools/audio/build_episode_audio.py` (TTS + word-level alignment + scene durations)
+- `tools/media/harvest_photos.py` (Wikimedia/web source photo harvest + portrait QC + manifest)
+- `tools/qc/ship_episode.py` (`episode_gate.py --mode agy` + `render_episode.py` + `mixdown.py --mux-only` + `gate_c_verify.py`)
+
 ### Dispatching a Stage Worker
 ```python
-# Orchestrator calls:
-Agent(
-    description="Execute scene_plan stage",
-    subagent_type="stage-worker",
-    prompt="""
+invoke_subagent(
+    TypeName="general-purpose",
+    Role="Scene Plan Director",
+    Prompt="""
 Execute the scene_plan stage for project 'projects/nguon-goc-dan-toc-v2/'.
 1. Read input: projects/nguon-goc-dan-toc-v2/artifacts/script.json
-2. Read stage director: skills/pipelines/explainer/scene_plan-director.md
-3. Read style playbook: styles/ink-genome.yaml
+2. Read stage director: skills/pipelines/explainer/scene-director.md
+3. Read style playbook: styles/archival-editorial.yaml
 4. Produce: projects/nguon-goc-dan-toc-v2/artifacts/scene_plan.json
 5. Validate against schemas/artifacts/scene_plan.schema.json
 6. Report under 100 words. Do not dump JSON.
-"""
+""",
 )
 ```
 
 ### Dispatching Parallel Asset Workers
 ```python
 # Dispatch Audio Worker:
-Agent(
-    description="Generate TTS narration audio",
-    subagent_type="asset-worker",
-    prompt="""
-Generate audio assets for projects/nguon-goc-dan-toc-v2/.
-1. Read scene_plan: projects/nguon-goc-dan-toc-v2/artifacts/scene_plan.json
-2. Run TTS via vieneu_tts to projects/nguon-goc-dan-toc-v2/assets/audio/
-3. Align with faster-whisper to projects/nguon-goc-dan-toc-v2/assets/audio/transcripts/
-4. Report count and duration under 50 words.
-"""
+invoke_subagent(
+    TypeName="general-purpose",
+    Role="Episode Audio Worker",
+    Prompt="""
+Generate audio assets for projects/nguon-goc-dan-toc-v2/ using tools/audio/build_episode_audio.py.
+1. Read script/scene_plan artifacts in projects/nguon-goc-dan-toc-v2/artifacts/
+2. Run TTS and Whisper alignment to projects/nguon-goc-dan-toc-v2/assets/audio/
+3. Report count and total duration under 50 words.
+""",
 )
 
 # Dispatch Visuals Worker:
-Agent(
-    description="Generate scene images",
-    subagent_type="asset-worker",
-    prompt="""
-Generate visual image assets for projects/nguon-goc-dan-toc-v2/.
+invoke_subagent(
+    TypeName="general-purpose",
+    Role="Episode Visuals Worker",
+    Prompt="""
+Harvest/generate visual assets for projects/nguon-goc-dan-toc-v2/ (tools/media/harvest_photos.py / 9router).
 1. Read scene_plan: projects/nguon-goc-dan-toc-v2/artifacts/scene_plan.json
-2. Generate images to projects/nguon-goc-dan-toc-v2/assets/images/ via 9router gateway
+2. Populate projects/nguon-goc-dan-toc-v2/assets/images/ and update asset_manifest.json
 3. Report count and paths under 50 words.
-"""
+""",
 )
 ```

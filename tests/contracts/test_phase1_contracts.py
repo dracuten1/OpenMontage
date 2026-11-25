@@ -295,41 +295,41 @@ class TestPhase1ErrorHandling:
         assert not result.success
 
 
-# ---- Contract: talking-head pipeline manifest ----
+# ---- Contract: animated-explainer pipeline manifest ----
 
 class TestTalkingHeadManifest:
     def test_manifest_loads(self):
-        manifest = load_pipeline("talking-head")
-        assert manifest["name"] == "talking-head"
-        assert manifest["category"] == "talking_head"
+        manifest = load_pipeline("animated-explainer")
+        assert manifest["name"] == "animated-explainer"
+        assert manifest["category"] == "generated"
 
     def test_manifest_has_all_stages(self):
-        manifest = load_pipeline("talking-head")
+        manifest = load_pipeline("animated-explainer")
         stages = get_stage_order(manifest)
-        assert stages == ["idea", "script", "scene_plan", "assets", "edit", "compose", "publish"]
+        assert stages == ["research", "proposal", "script", "scene_plan", "assets", "edit", "compose", "publish"]
 
     def test_manifest_references_phase1_tools(self):
-        manifest = load_pipeline("talking-head")
+        manifest = load_pipeline("animated-explainer")
         tools = get_required_tools(manifest)
         phase1_tools = {"transcriber", "video_trimmer", "subtitle_gen", "frame_sampler", "audio_mixer", "video_compose"}
         # At least some Phase 1 tools should be referenced
         assert len(tools & phase1_tools) > 0
 
     def test_manifest_listed(self):
-        assert "talking-head" in list_pipelines()
+        assert "animated-explainer" in list_pipelines()
 
     def test_manifest_has_required_skills(self):
-        manifest = load_pipeline("talking-head")
+        manifest = load_pipeline("animated-explainer")
         skills = manifest.get("required_skills", [])
         # Instruction-driven architecture: skills are stage director + meta skills
-        assert any("talking-head" in s for s in skills)
+        assert any("explainer" in s for s in skills)
         assert any("reviewer" in s for s in skills)
         assert any("checkpoint-protocol" in s for s in skills)
 
     def test_idea_and_publish_require_approval(self):
-        manifest = load_pipeline("talking-head")
+        manifest = load_pipeline("animated-explainer")
         for stage in manifest["stages"]:
-            if stage["name"] in ("idea", "publish"):
+            if stage["name"] in ("proposal", "publish"):
                 assert stage.get("human_approval_default") is True
 
 

@@ -1486,3 +1486,72 @@ def test_shared_non_graphic_card_component_still_blocks(tmp_path):
     qc, _ = _run_gate(project, force=True)
     hits = _adv_blocked(qc, "graphic-native-required", "scene_s15")
     assert hits and "TextCard" in hits[0]["message"]
+
+
+def test_full_bleed_photojournalism_scene_passes_r3_and_dead_grid_fails_r2(tmp_path):
+    """Broadcast Photojournalism full-bleed press photo with genuine graphic-native
+    layer and SceneShell layoutMode='full-bleed' passes R3; dead single-use `const GRID`
+    no longer satisfies R2."""
+    project = _materialize("case01-pass-xd-shape", tmp_path)
+    scenes_dir = project / "comp" / "scenes"
+    scenes_dir.mkdir(parents=True, exist_ok=True)
+    shared_root = REPO_ROOT / "remotion-composer" / "src" / "components"
+    import os
+    rel_import = os.path.relpath(shared_root / "editorial", scenes_dir).replace("\\", "/")
+    if not rel_import.startswith("."):
+        rel_import = f"./{rel_import}"
+
+    (scenes_dir / "S20.tsx").write_text(
+        f'import {{ FlowTimeline }} from "{rel_import}";\n'
+        'export const S20: React.FC = () => (\n'
+        '  <SceneShell sceneId="S20" layoutMode="full-bleed"><FlowTimeline steps={[]} /></SceneShell>\n'
+        ');\n',
+        encoding="utf-8",
+    )
+    (scenes_dir / "S21.tsx").write_text(
+        'const GRID = { width: 850, height: 210 };\n'
+        'export const S21: React.FC = () => <div style={{ display: "flex" }}>card</div>;\n',
+        encoding="utf-8",
+    )
+    manifest_path = project / "scene_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    canvas = manifest["canvas"]
+    manifest["scenes"].extend([
+        {
+            "scene_id": "scene_s20",
+            "narrative_beat": "full-bleed photojournalism",
+            "duration_frames": 90,
+            "composition_source": "scenes/S20.tsx",
+            "layers": [
+                {
+                    "layer_id": "bg_s20",
+                    "role": "archival_photo",
+                    "pipeline": {"method": "photo_asset", "layout_mode": "full-bleed"},
+                    "transform": {"x": 540, "y": 960, "w": canvas["width"], "h": canvas["height"]},
+                },
+                {
+                    "layer_id": "tl_s20",
+                    "role": "data_viz",
+                    "pipeline": {"method": "remotion_native", "component": "FlowTimeline"},
+                },
+            ],
+        },
+        {
+            "scene_id": "scene_s21",
+            "narrative_beat": "dead grid hack",
+            "duration_frames": 90,
+            "composition_source": "scenes/S21.tsx",
+            "layers": [
+                {
+                    "layer_id": "fake_s21",
+                    "role": "data_viz",
+                    "pipeline": {"method": "remotion_native"},
+                }
+            ],
+        },
+    ])
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    qc, _ = _run_gate(project, force=True)
+    assert not _adv_blocked(qc, "photo-frame-dominance", "scene_s20"), qc
+    assert not _adv_blocked(qc, "graphic-native-required", "scene_s20"), qc
+    assert _adv_blocked(qc, "graphic-native-required", "scene_s21"), "Single unused GRID must be blocked"

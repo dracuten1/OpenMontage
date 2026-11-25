@@ -63,22 +63,28 @@ def _check_scene_tsx_provenance(root: Path):
     return reasons
 
 def _episode_compositions(root: Path):
-    """Parse sibling Root.tsx registrations: [(id, width, height)]."""
-    root_tsx = root.parent / 'Root.tsx'
-    if not root_tsx.is_file():
-        return []
-    try:
-        text = root_tsx.read_text(encoding='utf-8', errors='replace')
-    except OSError:
-        return []
+    """Parse local entrypoint (index.ts/tsx, Root.tsx) or sibling Root.tsx registrations: [(id, width, height)]."""
+    candidates = [root / 'index.ts', root / 'index.tsx', root / 'Root.tsx', root.parent / 'Root.tsx']
     comps = []
-    for m in re.finditer(r'<Composition\b(.*?)/>', text, re.S):
-        attrs = m.group(1)
-        idm = re.search(r'id="([^"]+)"', attrs)
-        wm = re.search(r'width=\{(\d+)\}', attrs)
-        hm = re.search(r'height=\{(\d+)\}', attrs)
-        if idm and wm and hm:
-            comps.append((idm.group(1), int(wm.group(1)), int(hm.group(1))))
+    for candidate in candidates:
+        if not candidate.is_file():
+            continue
+        try:
+            text = candidate.read_text(encoding='utf-8', errors='replace')
+        except OSError:
+            continue
+        found = []
+        for m in re.finditer(r'<Composition\b(.*?)/>', text, re.S):
+            attrs = m.group(1)
+            idm = re.search(r'id="([^"]+)"', attrs)
+            wm = re.search(r'width=\{(\d+)\}', attrs)
+            hm = re.search(r'height=\{(\d+)\}', attrs)
+            if idm and wm and hm:
+                found.append((idm.group(1), int(wm.group(1)), int(hm.group(1))))
+        if found:
+            comps.extend(found)
+            if candidate.parent == root:
+                break
     return comps
 
 def _check_composition_dims(root: Path):
@@ -109,7 +115,7 @@ REAL_PHOTO_ASSET_TYPES = frozenset({
 })
 
 
-def _check_source_photos(root: Path):
+def _check_source_photos(root: Path, comp_root: Path | None = None):
     """Enforce Vision + resolution photo verification when photos or provenance exist."""
     reasons = []
     local_prov = root / "assets" / "images" / "provenance.json"
@@ -130,6 +136,16 @@ def _check_source_photos(root: Path):
                     if atype in REAL_PHOTO_ASSET_TYPES:
                         declares_real_photo = True
                         break
+
+    if not declares_real_photo and comp_root is not None and comp_root.is_dir():
+        for tsx_p in comp_root.rglob("*.tsx"):
+            try:
+                txt = tsx_p.read_text(encoding="utf-8", errors="replace")
+            except OSError:
+                continue
+            if re.search(r"<ArchivalSpotlight\b", txt):
+                declares_real_photo = True
+                break
 
     target_project: Path | None = None
     if local_prov.is_file():
@@ -275,18 +291,134 @@ def _check_episode_captions_wiring(comp_root: Path) -> list[dict]:
         text = ep_tsx.read_text(encoding="utf-8", errors="replace")
     except OSError:
         return []
-    has_async_fetch = "delayRender(" in text and "fetch(" in text and "captions.json" in text
-    has_mutable_let = bool(re.search(r"\blet\s+captions\w*\b", text))
-    if has_async_fetch and has_mutable_let and "useState" not in text:
+    has_async_fetch = "delayRender(" in text and "fetch(" in text and "captions" in text
+    if has_async_fetch and "useState" not in text:
         return [{
             "code": "captions_async_fetch_race",
             "message": (
-                "Episode.tsx loads captions.json via top-level delayRender()+fetch() into a mutable "
-                "variable without React state (causes missing subtitles on render); replace with a "
-                'static JSON import: import captionsData from "../../public/<slug>/captions.json"'
+                "Episode.tsx loads captions via top-level delayRender()+fetch() without React useState "
+                "(causes missing subtitles on render); replace with a static JSON import: "
+                'import captionsData from "../../public/<slug>/captions.json"'
             ),
         }]
     return []
+
+
+def _check_bgm_duration(proj_root: Path, comp_root: Path) -> list[dict]:
+    """When Episode.tsx directly embeds a BGM <Audio> tag, enforce tools/qc/bgm_gate.py."""
+    ep_tsx = comp_root / "Episode.tsx"
+    if not ep_tsx.is_file():
+        return []
+    try:
+        text = ep_tsx.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return []
+    m_audio = re.search(r"<Audio\b[^>]*\bbgm[^>]*/?>", text, re.DOTALL | re.IGNORECASE)
+    if not m_audio:
+        return []
+
+    slug = proj_root.name
+    timing_path = next(
+        (
+            p
+            for p in (
+                proj_root / "assets" / "scene_timing.json",
+                proj_root / "artifacts" / "scene_timing.json",
+                REPO_ROOT / "remotion-composer" / "public" / slug / "scene_timing.json",
+            )
+            if p.is_file()
+        ),
+        None,
+    )
+    if timing_path is None:
+        return [{
+            "code": "bgm_duration_failed",
+            "message": "Episode.tsx embeds inline BGM <Audio> but scene_timing.json is missing for bgm_gate verification",
+        }]
+
+    bgm_candidates = [
+        REPO_ROOT / "remotion-composer" / "public" / slug / "audio" / "bgm.mp3",
+        REPO_ROOT / "remotion-composer" / "public" / slug / "bgm.mp3",
+        proj_root / "assets" / "music" / "bgm.mp3",
+        proj_root / "assets" / "music" / "background_music.mp3",
+    ]
+    bgm_path = next((p for p in bgm_candidates if p.is_file()), None)
+    if bgm_path is None:
+        return [{
+            "code": "bgm_duration_failed",
+            "message": "Episode.tsx embeds inline BGM <Audio> but BGM file could not be resolved on disk",
+        }]
+
+    from tools.qc.bgm_gate import GateError, gate as run_bgm_gate
+    try:
+        verdict = run_bgm_gate(timing_path, bgm_path, ep_tsx)
+    except GateError as exc:
+        return [{"code": "bgm_duration_failed", "message": str(exc)}]
+    if not verdict.get("valid"):
+        return [
+            {"code": "bgm_duration_failed", "message": err}
+            for err in verdict.get("errors", ["BGM duration gate failed"])
+        ]
+    return []
+
+
+def _validate_agy_artifacts(proj_root: Path, edit_data: dict, manifest_data: dict) -> list[dict]:
+    """Validate Antigravity-native edit_decisions, proposal runtime lock, and asset existence when production_evidence.json is absent."""
+    reasons: list[dict] = []
+    if not isinstance(edit_data, dict):
+        return [{"code": "production_validation_failed", "message": "edit_decisions.json must be a JSON object"}]
+
+    runtime = edit_data.get("render_runtime")
+    if runtime not in {"remotion", "ffmpeg", "hyperframes"}:
+        reasons.append({
+            "code": "production_validation_failed",
+            "message": f"edit_decisions.render_runtime must be one of remotion/ffmpeg/hyperframes (got {runtime!r})",
+        })
+
+    cuts = edit_data.get("cuts")
+    if not isinstance(cuts, list) or not cuts:
+        reasons.append({
+            "code": "production_validation_failed",
+            "message": "edit_decisions.cuts must be a non-empty list",
+        })
+
+    for prop_path in (proj_root / "artifacts" / "proposal_packet.json", proj_root / "proposal_packet.json"):
+        if prop_path.is_file():
+            try:
+                prop = json.loads(prop_path.read_text(encoding="utf-8"))
+            except Exception:
+                prop = None
+            if isinstance(prop, dict):
+                locked_runtime = (prop.get("production_plan") or {}).get("render_runtime")
+                if locked_runtime and runtime and locked_runtime != runtime:
+                    reasons.append({
+                        "code": "render_runtime_mismatch",
+                        "message": f"edit_decisions.render_runtime={runtime!r} disagrees with proposal_packet.production_plan.render_runtime={locked_runtime!r}",
+                    })
+            break
+
+    if isinstance(manifest_data, dict):
+        for item in manifest_data.get("assets", []):
+            if not isinstance(item, dict):
+                continue
+            raw_path = str(item.get("path") or "").strip()
+            if not raw_path:
+                continue
+            resolved = _contained_path(raw_path, proj_root)
+            if (resolved is None or not resolved.is_file()) and not Path(raw_path).is_absolute():
+                repo_cand = (REPO_ROOT / raw_path).resolve()
+                try:
+                    repo_cand.relative_to(REPO_ROOT.resolve())
+                    if repo_cand.is_file():
+                        resolved = repo_cand
+                except ValueError:
+                    pass
+            if resolved is None or not resolved.is_file():
+                reasons.append({
+                    "code": "manifest_asset_missing",
+                    "message": f"asset_manifest item {item.get('id', '<unnamed>')} references missing file: {raw_path}",
+                })
+    return reasons
 
 
 def validate_episode(episode_dir, *, mode: str = "auto"):
@@ -457,7 +589,8 @@ def validate_episode(episode_dir, *, mode: str = "auto"):
 
     reasons.extend(_check_composition_dims(comp_root))
     reasons.extend(_check_episode_captions_wiring(comp_root))
-    reasons.extend(_check_source_photos(proj_root))
+    reasons.extend(_check_bgm_duration(proj_root, comp_root))
+    reasons.extend(_check_source_photos(proj_root, comp_root))
     el_reasons, is_editorial = _check_editorial_language(proj_root, comp_root)
     reasons.extend(el_reasons)
     reasons.extend(_check_fact_whitelist(proj_root, comp_root))
@@ -476,21 +609,24 @@ def validate_episode(episode_dir, *, mode: str = "auto"):
     else:
         try:
             evidence_path = proj_root / 'artifacts' / 'production_evidence.json'
+            edit_json = json.loads(edit_path.read_text(encoding='utf-8'))
+            manifest_json = json.loads(manifest_path.read_text(encoding='utf-8'))
             if not evidence_path.is_file():
                 if not agy_mode:
                     reasons.append({'code': 'production_validation_inputs_missing', 'message': 'production validation requires artifacts/production_evidence.json with verified scene evidence records'})
-                evidence_records = []
+                else:
+                    reasons.extend(_validate_agy_artifacts(proj_root, edit_json, manifest_json))
             else:
                 from lib.production_validation import EvidenceRecord
-                raw = json.loads(evidence_path.read_text())
+                raw = json.loads(evidence_path.read_text(encoding='utf-8'))
                 if not isinstance(raw, list): raise ValueError('production_evidence.json must contain an array')
                 evidence_records = [EvidenceRecord.from_dict(item) for item in raw]
                 req_gates = sorted(REQUIRED_PRE_RENDER_GATES | {GATE_EDITORIAL_LANGUAGE}) if is_editorial else None
                 report = validate_pre_render(
                     proj_root,
-                    json.loads(edit_path.read_text()),
+                    edit_json,
                     mode='strict',
-                    asset_manifest=json.loads(manifest_path.read_text()),
+                    asset_manifest=manifest_json,
                     evidence_records=evidence_records,
                     required_gates=req_gates,
                 )
