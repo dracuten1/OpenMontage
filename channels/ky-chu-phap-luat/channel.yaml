@@ -1,0 +1,53 @@
+version: "1.0"
+id: ky-chu-phap-luat
+name: "Ký Chủ Pháp Luật"
+platform: tiktok
+
+canvas:
+  width: 1080
+  height: 1920
+  fps: 30
+  aspect_ratio: "9:16"
+
+theme:
+  remotion_theme_id: ky-chu-phap-luat
+  style_playbook: archival-editorial
+  safe_zone_profile: tiktok-v3.2
+
+audio:
+  tts_provider: vieneu_tts
+  voice: null
+  speed: 1.1
+  language: vi
+  tail_seconds: 0.25
+  lexicon: tts_lexicon.json
+  mix_profile: mix_profile.json
+  bgm_dir: assets/bgm
+
+brand:
+  bumper_enabled: true
+  bumper_frames: 90
+  bumper_video_9x16: assets/brand/kcpl_bumper_9x16.mp4
+  bumper_video_16x9: null
+  bumper_sting: assets/brand/kcpl_bumper_sting.wav
+  characters_dir: assets/characters
+  textures_dir: assets/textures
+
+pipeline:
+  default_pipeline: animated-explainer
+  lane: news-editorial-motion
+  qc_gates:
+    - source_photo_gate
+    - fact_whitelist_gate
+    - editorial_language_gate
+    - bgm_gate
+
+editorial_rules: editorial-rules.md
+
+publish:
+  hashtags_max: 5
+  forbidden_hashtags:
+    - "#fyp"
+    - "#foryou"
+    - "#xuhuong"
+  description_template: "80-100 ký tự đầu nêu thẳng Nghị định/Luật + tác động đời sống, 3-5 hashtag pháp luật liên quan, CTA lưu/bình luận tình huống"

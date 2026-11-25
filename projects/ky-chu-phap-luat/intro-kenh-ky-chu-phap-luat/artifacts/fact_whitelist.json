@@ -1,0 +1,113 @@
+{
+  "packet_version": 2,
+  "project_id": "intro-kenh-ky-chu-phap-luat",
+  "freshness_anchor": "2026-11-25",
+  "scene_count_exact": 7,
+  "banned_strings": [
+    "tư vấn lách luật",
+    "đảm bảo thắng kiện 100%",
+    "cam kết chuẩn tuyệt đối mọi trường hợp",
+    "văn bản hết hiệu lực"
+  ],
+  "facts": [
+    {
+      "fact_id": "EV-1#f00",
+      "display_string": "1",
+      "type": "source",
+      "source": "Số thứ tự danh mục (Mục 1 / Lớp 1)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["*"],
+      "narration_form": "một"
+    },
+    {
+      "fact_id": "EV-1#f01",
+      "display_string": "2",
+      "type": "source",
+      "source": "channels/ky-chu-phap-luat/editorial-rules.md (§1 Chiến lược nội dung 2 chế độ)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["*"],
+      "narration_form": "hai"
+    },
+    {
+      "fact_id": "EV-1#f02",
+      "display_string": "24–72 giờ",
+      "type": "source",
+      "source": "channels/ky-chu-phap-luat/editorial-rules.md (§1 Chế độ A)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S02", "S03"],
+      "narration_form": "hai mươi tư đến bảy mươi hai giờ"
+    },
+    {
+      "fact_id": "EV-1#f03",
+      "display_string": "7–30 ngày",
+      "type": "source",
+      "source": "channels/ky-chu-phap-luat/editorial-rules.md (§1 Chế độ A)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S02", "S03"],
+      "narration_form": "bảy đến ba mươi ngày"
+    },
+    {
+      "fact_id": "EV-1#f04",
+      "display_string": "6",
+      "type": "source",
+      "source": "channels/ky-chu-phap-luat/series_backlog.yaml (6 mảng chủ đề)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["*"],
+      "narration_form": "sáu"
+    },
+    {
+      "fact_id": "EV-1#f05",
+      "display_string": "30",
+      "type": "source",
+      "source": "channels/ky-chu-phap-luat/series_backlog.yaml (EVG-01 đến EVG-30)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["*"],
+      "narration_form": "ba mươi"
+    },
+    {
+      "fact_id": "EV-1#f06",
+      "display_string": "5",
+      "type": "source",
+      "source": "channels/ky-chu-phap-luat/editorial-rules.md (§2.1 5 cổng chính thống)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["*"],
+      "narration_form": "năm"
+    },
+    {
+      "fact_id": "EV-1#f07",
+      "display_string": "3",
+      "type": "source",
+      "source": "channels/ky-chu-phap-luat/editorial-rules.md (§2 Quy trình kiểm chứng 3 lớp & 3 thông số)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["*"],
+      "narration_form": "ba"
+    },
+    {
+      "fact_id": "EV-1#f08",
+      "display_string": "4",
+      "type": "source",
+      "source": "Số thứ tự Mục 4 (Tài chính, Thuế & Ngân hàng)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S04"],
+      "narration_form": "bốn"
+    },
+    {
+      "fact_id": "EV-1#f09",
+      "display_string": "60 giây",
+      "type": "source",
+      "source": "channels/ky-chu-phap-luat/editorial-rules.md (Định dạng tin ngắn TikTok)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S01", "S06", "S07"],
+      "narration_form": "sáu mươi giây"
+    },
+    {
+      "fact_id": "EV-1#f10",
+      "display_string": "100%",
+      "type": "source",
+      "source": "channels/ky-chu-phap-luat/editorial-rules.md (Khóa 100% con số vào fact_whitelist)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S05", "S06"],
+      "narration_form": "một trăm phần trăm"
+    }
+  ]
+}

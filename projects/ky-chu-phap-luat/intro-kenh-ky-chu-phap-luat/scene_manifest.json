@@ -1,0 +1,365 @@
+{
+  "version": "1.0",
+  "project_id": "intro-kenh-ky-chu-phap-luat",
+  "lane": "news-editorial-motion",
+  "style_playbook": "editorial-explainer-manifest",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "aspect_variants": [
+      "9x16"
+    ]
+  },
+  "speech_lock_contract": "All scene frame boundaries and animated reveals are locked directly to real VieNeu TTS WAV durations and artifacts/narration_words.json within +/-0.30s tolerance.",
+  "camera_rig": {
+    "action": "gentle editorial drift via SceneShell",
+    "scale": "1.0 -> 1.08",
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
+  },
+  "physics": {
+    "spring_damping": "16-20 (MOTION.pop 16/120, MOTION.settle 20/140)",
+    "rule": "damped Swiss Legal Dossier snap, zero cartoon bounce"
+  },
+  "global_overlays": [
+    {
+      "type": "grain_loop",
+      "source": "remotion_native (12fps film_grain_1..3.png)",
+      "opacity": 0.1,
+      "z_index": 90
+    },
+    {
+      "type": "cinema_lower_third",
+      "source": "remotion_native (CaptionLayer Safe Zone v3.2 y 1480-1600)",
+      "z_index": 80
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "S01",
+      "section_id": "s01",
+      "label": "Cover + Hook",
+      "duration_frames": 219,
+      "speech_lock": true,
+      "layers": [
+        {
+          "layer_id": "bg_s01",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920
+          }
+        },
+        {
+          "layer_id": "ai_cover_s01",
+          "z_index": 10,
+          "role": "archival_photo",
+          "pipeline": {
+            "method": "t2i",
+            "file": "assets/images/ai_s01_legal_dossier.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 800,
+            "w": 1080,
+            "h": 1320
+          }
+        },
+        {
+          "layer_id": "callout_s01",
+          "z_index": 30,
+          "role": "evidence_annotation",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "transform": {
+            "x": 515,
+            "y": 1120,
+            "w": 850,
+            "h": 220
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "S02",
+      "section_id": "s02",
+      "label": "Hai chế độ nội dung",
+      "duration_frames": 302,
+      "speech_lock": true,
+      "layers": [
+        {
+          "layer_id": "bg_s02",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920
+          }
+        },
+        {
+          "layer_id": "split_s02",
+          "z_index": 20,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "transform": {
+            "x": 515,
+            "y": 880,
+            "w": 850,
+            "h": 760
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "S03",
+      "section_id": "s03",
+      "label": "Series 3 mảng đầu",
+      "duration_frames": 276,
+      "speech_lock": true,
+      "layers": [
+        {
+          "layer_id": "bg_s03",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920
+          }
+        },
+        {
+          "layer_id": "photo_s03",
+          "z_index": 10,
+          "role": "archival_photo",
+          "pipeline": {
+            "method": "photo_asset",
+            "file": "assets/images/photo_s03_traffic.jpg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 560,
+            "w": 1080,
+            "h": 420
+          }
+        },
+        {
+          "layer_id": "pillars_1_3_s03",
+          "z_index": 25,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "transform": {
+            "x": 515,
+            "y": 1080,
+            "w": 850,
+            "h": 540
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "S04",
+      "section_id": "s04",
+      "label": "Series 3 mảng sau",
+      "duration_frames": 250,
+      "speech_lock": true,
+      "layers": [
+        {
+          "layer_id": "bg_s04",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920
+          }
+        },
+        {
+          "layer_id": "ai_civil_s04",
+          "z_index": 10,
+          "role": "archival_photo",
+          "pipeline": {
+            "method": "t2i",
+            "file": "assets/images/ai_s04_civil_life.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 560,
+            "w": 1080,
+            "h": 420
+          }
+        },
+        {
+          "layer_id": "pillars_4_6_s04",
+          "z_index": 25,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "transform": {
+            "x": 515,
+            "y": 1080,
+            "w": 850,
+            "h": 540
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "S05",
+      "section_id": "s05",
+      "label": "5 cổng nguồn chính thống",
+      "duration_frames": 298,
+      "speech_lock": true,
+      "layers": [
+        {
+          "layer_id": "bg_s05",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920
+          }
+        },
+        {
+          "layer_id": "photo_s05",
+          "z_index": 10,
+          "role": "archival_photo",
+          "pipeline": {
+            "method": "photo_asset",
+            "file": "assets/images/photo_s05_law_institution.jpg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 540,
+            "w": 1080,
+            "h": 380
+          }
+        },
+        {
+          "layer_id": "source_network_s05",
+          "z_index": 25,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "transform": {
+            "x": 515,
+            "y": 1060,
+            "w": 850,
+            "h": 580
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "S06",
+      "section_id": "s06",
+      "label": "Quy trình verify 3 lớp",
+      "duration_frames": 278,
+      "speech_lock": true,
+      "layers": [
+        {
+          "layer_id": "bg_s06",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920
+          }
+        },
+        {
+          "layer_id": "verify_flow_s06",
+          "z_index": 20,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "transform": {
+            "x": 515,
+            "y": 880,
+            "w": 850,
+            "h": 760
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "S07",
+      "section_id": "s07",
+      "label": "Tuyên bố tham khảo & CTA",
+      "duration_frames": 219,
+      "speech_lock": true,
+      "layers": [
+        {
+          "layer_id": "bg_s07",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920
+          }
+        },
+        {
+          "layer_id": "closing_checklist_s07",
+          "z_index": 20,
+          "role": "evidence_annotation",
+          "pipeline": {
+            "method": "remotion_native"
+          },
+          "transform": {
+            "x": 515,
+            "y": 880,
+            "w": 850,
+            "h": 760
+          }
+        }
+      ]
+    }
+  ]
+}

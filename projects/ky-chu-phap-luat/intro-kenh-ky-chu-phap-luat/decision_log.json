@@ -1,0 +1,235 @@
+{
+  "version": "1.0",
+  "project_id": "intro-kenh-ky-chu-phap-luat",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "proposal",
+      "category": "pipeline_selection",
+      "subject": "Production pipeline",
+      "options_considered": [
+        {
+          "option_id": "animated-explainer",
+          "label": "animated-explainer",
+          "score": 0.95,
+          "reason": "Channel default in channels/ky-chu-phap-luat/channel.yaml; supports research-first Legal Dossier workflow, Remotion composition, fact_whitelist_gate, and editorial QC gates."
+        },
+        {
+          "option_id": "animation",
+          "label": "animation",
+          "score": 0.45,
+          "reason": "Built for Ink Theater / character-led stories rather than factual legal explainers.",
+          "rejected_because": "Does not fit Legal Dossier editorial briefing structure."
+        },
+        {
+          "option_id": "documentary-montage",
+          "label": "documentary-montage",
+          "score": 0.5,
+          "reason": "Requires existing archival video footage as primary backbone.",
+          "rejected_because": "Channel intro centers on structured diagrams, 2 modes, 6 pillars, and 3-layer verification."
+        }
+      ],
+      "selected": "animated-explainer",
+      "reason": "Matches channel SSOT default_pipeline and editorial QC gates.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.96
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "playbook_selection",
+      "subject": "Style playbook and channel visual theme",
+      "options_considered": [
+        {
+          "option_id": "archival-editorial",
+          "label": "archival-editorial (theme: ky-chu-phap-luat Legal Dossier)",
+          "score": 0.98,
+          "reason": "Channel SSOT playbook: Warm Gazette Paper #F6F2E9, Statutory Navy #0D1B2A, Legal Forest Green #145A4A, Seal Crimson #B91C1C, Brass Gold #C58B16/#F2C94C, Barlow Condensed + Plus Jakarta Sans, 35mm 12fps grain, TikTok Safe Zone v3.2."
+        },
+        {
+          "option_id": "clean-professional",
+          "label": "clean-professional",
+          "score": 0.5,
+          "reason": "Generic corporate clean style without Vietnamese Legal Dossier identity.",
+          "rejected_because": "Overrides channel visual contract."
+        },
+        {
+          "option_id": "flat-motion-graphics",
+          "label": "flat-motion-graphics",
+          "score": 0.45,
+          "reason": "High-saturation flat social style.",
+          "rejected_because": "Lacks the authority and archival trust of Legal Dossier."
+        }
+      ],
+      "selected": "archival-editorial",
+      "reason": "Preserves ky-chu-phap-luat channel visual contract and Safe Zone v3.2.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.98
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition render runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion (React + spring physics + Safe Zone v3.2 + KcplBumper9x16)",
+          "score": 0.97,
+          "reason": "Available on machine; powers existing ky-chu-phap-luat theme, word-level burned-in captions, EditorialMap/FlowTimeline/ComparisonSplit motion, and KcplBumper9x16 outro."
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames (HTML/CSS/GSAP)",
+          "score": 0.0,
+          "reason": "HTML/CSS/GSAP runtime for bespoke kinetic web-style compositions.",
+          "rejected_because": "runtime not available on this machine (disabled in config.yaml: runtimes.hyperframes.enabled: false)"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg only (Ken Burns / concat)",
+          "score": 0.3,
+          "reason": "Always available locally for simple video concat/trim.",
+          "rejected_because": "Cannot render React Legal Dossier diagrams, spring transitions, or Safe Zone v3.2 word-level TikTok captions."
+        }
+      ],
+      "selected": "remotion",
+      "reason": "Remotion is available and natively integrates ky-chu-phap-luat theme, Safe Zone v3.2 captions, and KcplBumper9x16; HyperFrames is disabled on this machine.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.98
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Composition authoring mode",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "Atelier (hand-authored bespoke scenes using kyChuPhapLuatTheme mechanics)",
+          "score": 0.94,
+          "reason": "Channel intro is a flagship pinned video; custom bespoke Legal Dossier scenes avoid repetitive stock card look while keeping Safe Zone v3.2 and channel theme."
+        },
+        {
+          "option_id": "templated",
+          "label": "Templated (stock Explainer cut.type cards)",
+          "score": 0.6,
+          "reason": "Faster assembly using generic stock cut types.",
+          "rejected_because": "Less distinctive for a flagship channel intro pinned at the top of the TikTok profile."
+        }
+      ],
+      "selected": "atelier",
+      "reason": "Flagship channel intro warrants bespoke Legal Dossier visual storytelling.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.92
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "vieneu_tts",
+          "label": "VieNeu TTS (local 48kHz Vietnamese, speed 1.1, channel tts_lexicon.json)",
+          "score": 0.95,
+          "reason": "Configured channel default in channels/ky-chu-phap-luat/channel.yaml; native Vietnamese 48kHz voiceover, $0.00 cost, integrates tts_lexicon.json."
+        },
+        {
+          "option_id": "openai_tts",
+          "label": "OpenAI TTS (API)",
+          "score": 0.55,
+          "reason": "Cloud API fallback ($0.05-0.15), less natural Vietnamese legal pronunciation than VieNeu.",
+          "rejected_because": "VieNeu local 48kHz is natively tuned for Vietnamese news/legal channels and free."
+        }
+      ],
+      "selected": "vieneu_tts",
+      "reason": "Native 48kHz Vietnamese narration matching channel SSOT at zero cost.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.96
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Background music track",
+      "options_considered": [
+        {
+          "option_id": "data_and_systems",
+          "label": "Channel BGM: data-and-systems.m4a (2:55, ~92 BPM, modular synth + piano ostinato)",
+          "score": 0.95,
+          "reason": "Explicitly indexed in channels/ky-chu-phap-luat/assets/bgm/README.md for calm, authoritative explanation of legal articles and life-law series."
+        },
+        {
+          "option_id": "editorial_edge",
+          "label": "Channel BGM: editorial-edge.m4a (2:58, ~106 BPM)",
+          "score": 0.78,
+          "reason": "Higher urgency groove suited for breaking decrees/penalties.",
+          "rejected_because": "Slightly too urgent for a welcoming channel introduction."
+        },
+        {
+          "option_id": "tech_news_broadcast_bed",
+          "label": "Channel BGM: tech-news-broadcast-bed.m4a (2:56, ~114 BPM)",
+          "score": 0.7,
+          "reason": "Fast news roundup bed.",
+          "rejected_because": "Better suited to multi-item daily news digests."
+        },
+        {
+          "option_id": "pixabay_music",
+          "label": "Royalty-free search via pixabay_music",
+          "score": 0.5,
+          "reason": "Available backup if user wants a different mood.",
+          "rejected_because": "Channel already has curated BGM beds mixed for voiceover headroom."
+        },
+        {
+          "option_id": "none",
+          "label": "No background music",
+          "score": 0.2,
+          "reason": "Dry narration only.",
+          "rejected_because": "Reduces TikTok retention and channel polish."
+        }
+      ],
+      "selected": "data_and_systems",
+      "reason": "Calm, credible ~92 BPM bed specifically matched in channel BGM README for legal breakdowns.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.94
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Channel intro concept option",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "Công Báo Thu Nhỏ — Mở Hồ Sơ Ký Chủ Pháp Luật (Problem-Solution, 75s)",
+          "score": 0.94,
+          "reason": "Addresses viewer distrust of clipped TikTok legal rumors upfront, then clearly unpacks 2 content modes, 6 series pillars (30 topics), 5 official portals, and 3-layer verification."
+        },
+        {
+          "option_id": "c2",
+          "label": "60 Giây Pháp Luật Qua 3 Cửa Kiểm Chứng Thế Nào? (Journey, 65s)",
+          "score": 0.84,
+          "reason": "Leads with behind-the-scenes verification rigor; strong authority but less warm as a first-impression welcome."
+        },
+        {
+          "option_id": "c3",
+          "label": "30 Tình Huống Luật Đời Sống — Bạn Đã Gặp Mấy Chuyện? (Data Narrative, 80s)",
+          "score": 0.87,
+          "reason": "Very relatable everyday hooks first, then introduces channel modes and verification."
+        }
+      ],
+      "selected": "c1",
+      "reason": "Recommended default pending user choice: best balance of hook, full roadmap, and verification proof.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.92
+    }
+  ]
+}

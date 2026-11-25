@@ -1,0 +1,311 @@
+version: "1.0"
+channel_id: ky-chu-phap-luat
+series_name: "Luật Cần Biết Đời Sống"
+selection_rule: "Pick next status=pending (priority=high first), rotate pillar from last run, and verify live current legal texts before scripting."
+
+topics:
+  # --- Pillar 1: Giao thông ---
+  - id: EVG-01
+    pillar: giao-thong
+    title: "Nồng độ cồn và cơ chế trừ điểm GPLX"
+    hook_angle: "Uống từ tối hôm trước, sáng hôm sau thổi vẫn dính cồn — bị trừ mấy điểm và giữ xe bao lâu?"
+    verify_laws: "Kiểm tra Luật Trật tự, an toàn giao thông đường bộ 2024 và Nghị định xử phạt vi phạm hành chính giao thông đường bộ hiện hành."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-02
+    pillar: giao-thong
+    title: "Vượt đèn vàng, đèn đỏ và quyền giám sát CSGT"
+    hook_angle: "Đang đi qua vạch thì đèn vàng bật sáng — có bị phạt lỗi vượt đèn đỏ không?"
+    verify_laws: "Kiểm tra quy định tín hiệu đèn trong Luật Trật tự ATGTĐB, QCVN 41 và Thông tư quy định tuần tra kiểm soát CSGT hiện hành."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-03
+    pillar: giao-thong
+    title: "Giao xe cho người chưa đủ tuổi hoặc chưa có bằng lái"
+    hook_angle: "Cho con hoặc bạn mượn xe máy không bằng lái — chủ xe bị phạt tiền hay bị truy cứu hình sự?"
+    verify_laws: "Kiểm tra Nghị định xử phạt VPHC giao thông hiện hành và Điều 264 Bộ luật Hình sự (nếu gây hậu quả nghiêm trọng)."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-04
+    pillar: giao-thong
+    title: "Phạt nguội: cách tra cứu, thời hạn giải quyết và rủi ro đăng kiểm"
+    hook_angle: "Quên kiểm tra phạt nguội tới ngày đi đăng kiểm bị từ chối — quy trình xử lý đúng hạn là gì?"
+    verify_laws: "Kiểm tra Thông tư quy định trình tự xử lý phạt nguội Bộ Công an và quy định cảnh báo đăng kiểm hiện hành."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-05
+    pillar: giao-thong
+    title: "Va chạm giao thông nhẹ: khi nào tự thỏa thuận, khi nào buộc gọi công an"
+    hook_angle: "Đụng xe nhẹ rồi bỏ đi sau khi đền tiền tại chỗ — coi chừng vẫn bị phạt lỗi rời khỏi hiện trường."
+    verify_laws: "Kiểm tra nghĩa vụ người điều khiển phương tiện khi xảy ra tai nạn trong Luật Trật tự ATGTĐB và Nghị định xử phạt hiện hành."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  # --- Pillar 2: Lao động & BHXH ---
+  - id: EVG-06
+    pillar: lao-dong-bhxh
+    title: "Thử việc tối đa bao lâu và mức lương tối thiểu 85%"
+    hook_angle: "Bị bắt thử việc 3 tháng hoặc trả dưới 85% lương — người lao động được đòi lại quyền lợi thế nào?"
+    verify_laws: "Kiểm tra Điều 24, 25, 26, 27 Bộ luật Lao động 2019 và Nghị định xử phạt vi phạm hành chính lĩnh vực lao động hiện hành."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-07
+    pillar: lao-dong-bhxh
+    title: "Công ty nợ lương hoặc ép ký đơn tự nguyện nghỉ việc"
+    hook_angle: "Bị ép viết đơn xin nghỉ hoặc chậm lương quá 15 ngày — ký vào đơn là mất khoản bồi thường nào?"
+    verify_laws: "Kiểm tra Bộ luật Lao động 2019 về trả lương chậm, đơn phương chấm dứt HĐLĐ trái luật và trợ cấp thôi việc/mất việc."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-08
+    pillar: lao-dong-bhxh
+    title: "Nghỉ việc báo trước bao nhiêu ngày để không mất tiền"
+    hook_angle: "Nghỉ ngang không báo trước đúng 30 hoặc 45 ngày — bạn có thể phải bồi thường ngược lại cho công ty."
+    verify_laws: "Kiểm tra Điều 35, Điều 40 Bộ luật Lao động 2019 về thời hạn báo trước và trường hợp được nghỉ ngay không cần báo trước."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-09
+    pillar: lao-dong-bhxh
+    title: "Rút BHXH 1 lần và điều kiện số năm đóng hưởng lương hưu mới"
+    hook_angle: "Đóng BHXH dưới 15 năm hay sau mốc hiệu lực mới — ai còn được rút 1 lần, ai nên giữ lại?"
+    verify_laws: "Kiểm tra Luật Bảo hiểm xã hội 2024 (hiệu lực 01/07/2025) và các nghị định hướng dẫn thi hành mới nhất."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-10
+    pillar: lao-dong-bhxh
+    title: "Tính tiền tăng ca (OT) 150%, 200%, 300% và giới hạn giờ làm thêm"
+    hook_angle: "Làm thêm ngày lễ hoặc ban đêm nhưng công ty chỉ tính lương thường — con số thực nhận phải nhân mấy lần?"
+    verify_laws: "Kiểm tra Điều 98 và Điều 107 Bộ luật Lao động 2019 cùng Nghị định 145/2020/NĐ-CP (hoặc văn bản sửa đổi mới nhất)."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  # --- Pillar 3: Nhà trọ & Đất đai ---
+  - id: EVG-11
+    pillar: nha-tro-dat-dai
+    title: "Thuê trọ mất cọc: khi nào chủ nhà phải trả, khi nào người thuê mất"
+    hook_angle: "Chưa hết hợp đồng nhưng nhà trọ mất an toàn hoặc chủ nhà đổi ý — tiền cọc có được đòi lại gấp đôi?"
+    verify_laws: "Kiểm tra Điều 328 Bộ luật Dân sự 2015 và Luật Nhà ở 2023 cùng văn bản hướng dẫn."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-12
+    pillar: nha-tro-dat-dai
+    title: "Chủ trọ thu tiền điện, nước cao hơn giá nhà nước quy định"
+    hook_angle: "Tiền điện trọ bị tính 4.000 đến 5.000 đồng một số — chủ nhà có thể bị phạt tới bao nhiêu triệu?"
+    verify_laws: "Kiểm tra quy định giá bán lẻ điện sinh hoạt cho người thuê nhà của Bộ Công Thương và Nghị định xử phạt lĩnh vực điện lực."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-13
+    pillar: nha-tro-dat-dai
+    title: "Hàng xóm hát karaoke ồn ào và mức phạt vi phạm tiếng ồn"
+    hook_angle: "Không chỉ sau 22 giờ — hát karaoke vượt chuẩn tiếng ồn ban ngày có bị lập biên bản xử phạt không?"
+    verify_laws: "Kiểm tra Nghị định 144/2021/NĐ-CP (gây tiếng động lớn sau 22h) và Nghị định 45/2022/NĐ-CP về xử phạt tiếng ồn môi trường."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-14
+    pillar: nha-tro-dat-dai
+    title: "Mua bán nhà đất bằng giấy viết tay và vi bằng: rủi ro mất trắng"
+    hook_angle: "Nhiều người tưởng lập vi bằng là sang tên hợp pháp — thực tế tòa án xử lý giao dịch này ra sao?"
+    verify_laws: "Kiểm tra Luật Đất đai 2024, Luật Kinh doanh BĐS 2023 và Nghị định 08/2020/NĐ-CP về giá trị pháp lý của vi bằng."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-15
+    pillar: nha-tro-dat-dai
+    title: "Hàng xóm xây nhà làm nứt tường hoặc lấn ranh đất"
+    hook_angle: "Nhà bên cạnh đào móng làm nứt tường nhà mình — 3 bước lập chứng cứ để buộc dừng thi công và bồi thường."
+    verify_laws: "Kiểm tra Điều 174, 175, 605 Bộ luật Dân sự 2015 và quy định quản lý trật tự xây dựng trong Luật Xây dựng hiện hành."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  # --- Pillar 4: Tài chính, Thuế & Ngân hàng ---
+  - id: EVG-16
+    pillar: tai-chinh-thue-ngan-hang
+    title: "Cho vay tiền qua chuyển khoản không có giấy vay nợ"
+    hook_angle: "Chỉ có sao kê chuyển khoản và tin nhắn Zalo — ra tòa có đòi lại được tiền cho vay không?"
+    verify_laws: "Kiểm tra quy định hợp đồng vay tài sản trong Bộ luật Dân sự 2015 và giá trị chứng cứ điện tử theo Bộ luật Tố tụng dân sự 2015."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-17
+    pillar: tai-chinh-thue-ngan-hang
+    title: "Bán hàng online, livestream, làm tự do: ngưỡng nào phải đóng thuế"
+    hook_angle: "Bán hàng trên sàn TMĐT hay nhận job tự do — doanh thu bao nhiêu một năm thì bắt buộc kê khai nộp thuế?"
+    verify_laws: "Kiểm tra Luật Thuế TNCN, Luật Quản lý thuế sửa đổi 2024, Thông tư 40/2021/TT-BTC và ngưỡng chịu thuế GTGT/TNCN mới nhất."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-18
+    pillar: tai-chinh-thue-ngan-hang
+    title: "Chuyển khoản nhầm và hậu quả khi người nhận cố tình không trả"
+    hook_angle: "Bỗng dưng nhận tiền chuyển nhầm vào tài khoản — tiêu xài hoặc chặn liên lạc từ mấy triệu đồng thì đi tù?"
+    verify_laws: "Kiểm tra Điều 176 Bộ luật Hình sự 2015 (sửa đổi 2017) về tội chiếm giữ trái phép tài sản và Điều 579 BLDS 2015."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-19
+    pillar: tai-chinh-thue-ngan-hang
+    title: "Cho thuê, mượn tài khoản ngân hàng và siết xác thực sinh trắc học"
+    hook_angle: "Cho bạn mượn hoặc bán tài khoản ngân hàng lấy vài trăm nghìn — rủi ro thành đồng phạm lừa đảo ra sao?"
+    verify_laws: "Kiểm tra quy định cấm mua bán/cho thuê tài khoản thanh toán của NHNN và Nghị định xử phạt VPHC lĩnh vực tiền tệ ngân hàng."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-20
+    pillar: tai-chinh-thue-ngan-hang
+    title: "Đòi nợ kiểu khủng bố điện thoại, ghép ảnh bôi nhọ người thân"
+    hook_angle: "Không vay nhưng bị gọi điện đe dọa, đăng ảnh lên mạng đòi nợ — lưu ngay 3 bằng chứng để trình báo xử phạt."
+    verify_laws: "Kiểm tra Nghị định 15/2020/NĐ-CP (sửa đổi), Nghị định 144/2021/NĐ-CP và Điều 155, 156 Bộ luật Hình sự."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  # --- Pillar 5: Hôn nhân & Gia đình ---
+  - id: EVG-21
+    pillar: hon-nhan-gia-dinh
+    title: "Tài sản đứng tên 1 người trước và trong hôn nhân"
+    hook_angle: "Mua đất hoặc xe trong thời kỳ hôn nhân nhưng sổ chỉ đứng tên 1 người — khi ly hôn có được coi là tài sản riêng?"
+    verify_laws: "Kiểm tra Điều 33 và Điều 43 Luật Hôn nhân và Gia đình 2014."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-22
+    pillar: hon-nhan-gia-dinh
+    title: "Quyền nuôi con khi ly hôn: mốc dưới 36 tháng và từ đủ 7 tuổi"
+    hook_angle: "Không có thu nhập cao hơn liệu có giành được quyền nuôi con? Luật quy định 2 mốc tuổi quan trọng nào?"
+    verify_laws: "Kiểm tra Điều 81 Luật Hôn nhân và Gia đình 2014 và Nghị quyết 01/2024/NQ-HĐTP của Hội đồng Thẩm phán TANDTC."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-23
+    pillar: hon-nhan-gia-dinh
+    title: "Chia thừa kế khi không có di chúc theo 3 hàng thừa kế"
+    hook_angle: "Cha mẹ mất không để lại di chúc — con dâu, con rể hay con riêng có được chia phần thừa kế không?"
+    verify_laws: "Kiểm tra Điều 650, 651, 652, 654 Bộ luật Dân sự 2015."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-24
+    pillar: hon-nhan-gia-dinh
+    title: "Bạo lực gia đình về tinh thần, kinh tế và lệnh cấm tiếp xúc"
+    hook_angle: "Kiểm soát tiền bạc, cô lập hoặc xúc phạm danh dự bạn đời cũng là bạo lực gia đình — cơ quan nào can thiệp ngay?"
+    verify_laws: "Kiểm tra Luật Phòng, chống bạo lực gia đình 2022 và Nghị định hướng dẫn hiện hành."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-25
+    pillar: hon-nhan-gia-dinh
+    title: "Làm khai sinh, đăng ký kết hôn và giấy tờ hộ tịch qua VNeID / Dịch vụ công"
+    hook_angle: "Sinh con hoặc đăng ký kết hôn giờ không cần chạy nhiều cửa — 2 thủ tục liên thông trực tuyến làm trong bao lâu?"
+    verify_laws: "Kiểm tra Nghị định 63/2024/NĐ-CP về liên thông điện tử đăng ký khai sinh, thường trú, cấp thẻ BHYT."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  # --- Pillar 6: Đời sống & Quyền công dân ---
+  - id: EVG-26
+    pillar: doi-song-cong-dan
+    title: "Quay clip, đăng bài bôi nhọ người khác lên mạng xã hội"
+    hook_angle: "Bức xúc rồi quay mặt người khác đăng TikTok bóc phốt — mức phạt hành chính và bồi thường danh dự là bao nhiêu?"
+    verify_laws: "Kiểm tra Nghị định 15/2020/NĐ-CP (sửa đổi bởi Nghị định 14/2022/NĐ-CP), Điều 34 & Điều 592 Bộ luật Dân sự 2015."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-27
+    pillar: doi-song-cong-dan
+    title: "Mua hàng online giao sai mẫu hoặc bị lừa: quyền của người tiêu dùng"
+    hook_angle: "Bóc hàng ra không giống quảng cáo nhưng shop chặn tin nhắn — người mua được quyền trả hàng và tố cáo ra sao?"
+    verify_laws: "Kiểm tra Luật Bảo vệ quyền lợi người tiêu dùng 2023 và Nghị định 55/2024/NĐ-CP."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-28
+    pillar: doi-song-cong-dan
+    title: "Chó thả rông không rọ mõm cắn người: chủ nuôi chịu phạt và đền bù gì"
+    hook_angle: "Chó thả rông lao ra đường gây tai nạn hoặc cắn hàng xóm — chủ vật nuôi phải bồi thường những khoản nào?"
+    verify_laws: "Kiểm tra Nghị định 90/2017/NĐ-CP (sửa đổi bởi Nghị định 04/2020/NĐ-CP) và Điều 603 Bộ luật Dân sự 2015."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-29
+    pillar: doi-song-cong-dan
+    title: "Quên mang CCCD bản cứng: xuất trình VNeID mức 2 có hợp lệ không"
+    hook_angle: "Đi máy bay, làm thủ tục hành chính hay bị kiểm tra giấy tờ mà quên ví — dùng VNeID mức độ 2 thay thế được lúc nào?"
+    verify_laws: "Kiểm tra Luật Căn cước 2023 và Nghị định 69/2024/NĐ-CP về định danh và xác thực điện tử."
+    priority: high
+    status: pending
+    pitched_date: null
+    published_slug: null
+
+  - id: EVG-30
+    pillar: doi-song-cong-dan
+    title: "Nhặt được của rơi không trả lại: ranh giới phạt tiền và án tù"
+    hook_angle: "Nhặt được ví tiền hoặc điện thoại ngoài đường rồi giữ luôn — từ giá trị bao nhiêu triệu thì chuyển sang án hình sự?"
+    verify_laws: "Kiểm tra Điều 230 Bộ luật Dân sự 2015, Nghị định 144/2021/NĐ-CP và Điều 176 Bộ luật Hình sự 2015."
+    priority: medium
+    status: pending
+    pitched_date: null
+    published_slug: null

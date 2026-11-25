@@ -1,0 +1,313 @@
+{
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "c1",
+      "title": "Công Báo Thu Nhỏ — Mở Hồ Sơ Ký Chủ Pháp Luật",
+      "hook": "Nghe tin mức phạt mới trên mạng mà nửa tin nửa ngờ? Đây là lý do Ký Chủ Pháp Luật ra đời.",
+      "narrative_structure": "problem_solution",
+      "visual_approach": "Legal Dossier Atelier (9:16 TikTok Safe Zone v3.2): S1 Thumbnail Cover + hồ sơ mở khóa thực trạng tin luật cắt ghép; S2 Hai chế độ nội dung (ComparisonSplit: Tin Nghị Định Nóng 24–72h / 7–30 ngày vs Series Luật Cần Biết Đời Sống); S3–S4 Lưới 6 mảng Series & 30 chủ đề thiết thực (Giao thông, Lao động/BHXH, Nhà trọ/Đất đai, Tài chính/Thuế, Hôn nhân, Quyền công dân); S5 Bản đồ 5 cổng dữ liệu chính thống (.gov.vn, vanban.chinhphu.vn, vbpl.vn, quochoi.vn); S6 FlowTimeline 3 lớp kiểm chứng (Hiệu lực + Số hiệu/Điều/Khoản/Ngày hiệu lực → Khóa số liệu fact_whitelist → Ngôn ngữ trung tính); S7 Tuyên bố tham khảo + CTA theo dõi & bình luận tình huống + KcplBumper9x16 outro.",
+      "suggested_playbook": "archival-editorial",
+      "target_audience": "Người đi làm, sinh viên, hộ kinh doanh và người dân Việt Nam dùng TikTok muốn hiểu đúng luật, tránh phạt oan và bảo vệ quyền lợi hợp pháp",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 75,
+      "key_points": [
+        "Kênh vận hành 2 chế độ rõ ràng: Chế độ A cập nhật Luật/Nghị định mới trong 24–72 giờ hoặc sắp hiệu lực 7–30 ngày; Chế độ B là Series 'Luật Cần Biết Đời Sống' gồm 6 mảng / 30 chủ đề sát sườn",
+        "Dữ liệu lấy từ 5 cổng chính thống (vanban.chinhphu.vn, xaydungchinhsach.chinhphu.vn, baochinhphu.vn, quochoi.vn, vbpl.vn) và qua 3 lớp kiểm chứng: xác minh còn hiệu lực kèm Số hiệu – Điều/Khoản – Ngày hiệu lực, khóa toàn bộ con số, và trình bày trung tính kèm tuyên bố tham khảo"
+      ],
+      "core_message": "Ký Chủ Pháp Luật là công báo thu nhỏ trên TikTok: nói đúng văn bản đang có hiệu lực, rõ nguồn chính thống và không bịa điều khoản.",
+      "cta": "Lưu video này để tra cứu khi cần, nhấn theo dõi kênh và bình luận tình huống pháp luật bạn đang gặp để kênh tổng hợp giải thích ở các tập tiếp theo.",
+      "tone": "Điềm tĩnh, mạch lạc, chuẩn mực công báo nhưng gần gũi và dễ hiểu cho người không chuyên",
+      "grounded_in": [
+        "Ngân hàng nguồn chính thống 5 cổng .gov.vn/vbpl.vn/quochoi.vn",
+        "Chiến lược 2 chế độ và 3 lớp kiểm chứng pháp lý",
+        "Cảnh báo thông tin pháp luật cắt xén trên mạng xã hội"
+      ],
+      "why_this_works": "Mở đầu chạm đúng nỗi băn khoăn thật của người xem TikTok về tin luật cắt ghép, từ đó biến quy trình kiểm chứng 3 lớp và nguồn chính thống thành điểm khác biệt đắt giá nhất của kênh.",
+      "engagement_mode": "standard"
+    },
+    {
+      "id": "c2",
+      "title": "60 Giây Pháp Luật Qua 3 Cửa Kiểm Chứng Thế Nào?",
+      "hook": "Trước khi lên sóng 60 giây, mỗi con số phạt ở đây phải qua 3 cửa kiểm chứng.",
+      "narrative_structure": "journey",
+      "visual_approach": "Legal Dossier Atelier (9:16): Dựng theo trục kiểm định hồ sơ (Audit Trail) — đi từ phòng tra cứu cổng Chính phủ/Quốc hội/Bộ Tư pháp → dấu triện đóng mộc 'Còn Hiệu Lực' cho 3 thông số (Số hiệu, Điều/Khoản, Ngày hiệu lực) → rẽ nhánh giới thiệu 2 tuyến nội dung (Tin nóng 24–72h & Series Đời sống 6 mảng / 30 chủ đề) → kết bằng Disclaimer + KcplBumper9x16.",
+      "suggested_playbook": "archival-editorial",
+      "target_audience": "Người xem kỹ tính, người làm kinh doanh, nhân sự và bạn trẻ quan tâm tính chính xác của nguồn tin pháp luật",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 65,
+      "key_points": [
+        "Mọi số liệu và điều khoản đều đi qua 3 cửa kiểm chứng: nguồn chính thống .gov.vn/vbpl.vn/quochoi.vn, xác minh hiệu lực hiện hành, và khóa số liệu chống suy diễn",
+        "Từ nền tảng kiểm chứng đó, kênh xuất bản đều 2 chế độ: Tin Nghị định mới và Series Luật Cần Biết Đời Sống gồm 6 mảng, 30 chủ đề"
+      ],
+      "core_message": "Độ tin cậy của Ký Chủ Pháp Luật nằm ở quy trình 3 cửa kiểm chứng trước mỗi 60 giây lên sóng.",
+      "cta": "Theo dõi Ký Chủ Pháp Luật và để lại câu hỏi pháp lý bên dưới để kênh kiểm chứng theo văn bản gốc.",
+      "tone": "Sắc nét, kỷ luật, giàu tính điều tra và minh bạch dữ liệu",
+      "grounded_in": [
+        "Legal Verification Gate 3 lớp",
+        "Bộ 3 định danh Số hiệu - Điều/Khoản - Ngày hiệu lực"
+      ],
+      "why_this_works": "Nhấn mạnh trực diện vào cơ chế chống sai lệch thông tin ngay từ giây đầu tiên, tạo uy tín chuyên môn cực nhanh trong 65 giây.",
+      "engagement_mode": "standard"
+    },
+    {
+      "id": "c3",
+      "title": "30 Tình Huống Luật Đời Sống — Bạn Đã Gặp Mấy Chuyện?",
+      "hook": "Mất cọc trọ, chuyển khoản nhầm, tăng ca thiếu lương — luật bảo vệ bạn chỗ nào?",
+      "narrative_structure": "data_narrative",
+      "visual_approach": "Legal Dossier Atelier (9:16): Mở màn bằng montage 6 tình huống đời sống gần gũi (giao thông, tăng ca/BHXH, cọc trọ, chuyển khoản nhầm, hôn nhân, VNeID) → tổng hợp thành 6 mảng / 30 chủ đề Series + tuyến Tin Nghị định nóng → trình bày 5 cổng nguồn gốc & 3 lớp kiểm chứng ở nửa sau → Outro KcplBumper9x16.",
+      "suggested_playbook": "archival-editorial",
+      "target_audience": "Đại chúng người lao động, người thuê trọ, sinh viên và người tham gia giao thông trên TikTok",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 80,
+      "key_points": [
+        "Kênh giải quyết trực tiếp 6 mảng vấn đề đời sống với 30 chủ đề thực chiến kết hợp cập nhật Nghị định, mức phạt mới nhất trong 24–72 giờ",
+        "Toàn bộ nội dung đều trích từ văn bản đang có hiệu lực trên cổng Chính phủ, Quốc hội, Bộ Tư pháp và qua 3 lớp đối chiếu số liệu"
+      ],
+      "core_message": "Từ chuyện đi đường, đi làm đến thuê trọ, tiền bạc — mọi câu trả lời tại Ký Chủ Pháp Luật đều dựa trên văn bản gốc còn hiệu lực.",
+      "cta": "Bạn đang quan tâm mảng nào trong 6 mảng trên? Bình luận số thứ tự và tình huống của bạn nhé.",
+      "tone": "Gần gũi, thực tế, chạm thẳng nhu cầu sinh hoạt và ví tiền hàng ngày",
+      "grounded_in": [
+        "6 mảng chủ đề và 30 chủ đề trong series_backlog.yaml",
+        "Pain points của người lao động, người thuê trọ và người tham gia giao thông"
+      ],
+      "why_this_works": "Dùng những tình huống ai cũng từng gặp để giữ chân người xem 10 giây đầu, rồi mới giới thiệu cấu trúc kênh và quy trình kiểm chứng.",
+      "engagement_mode": "standard"
+    }
+  ],
+  "selected_concept": {
+    "concept_id": "c1",
+    "rationale": "Khuyến nghị mặc định (chờ người dùng phê duyệt): cân bằng tốt nhất giữa hook chạm đúng tâm lý nghi ngại tin luật trên mạng, lộ trình đầy đủ 2 chế độ + 6 mảng/30 chủ đề và sự minh bạch về 5 cổng nguồn + 3 lớp kiểm chứng."
+  },
+  "production_plan": {
+    "pipeline": "animated-explainer",
+    "playbook": "archival-editorial",
+    "renderer_family": "explainer-data",
+    "render_runtime": "remotion",
+    "composition_mode": "atelier",
+    "engagement_mode": "standard",
+    "art_direction": "Legal Dossier — Công báo hiện đại (theme ky-chu-phap-luat): nền giấy công báo ấm #F6F2E9/#EBE4D5 kẹp dải masthead & cinema đáy Statutory Navy #0D1B2A/#162A3E; nhấn Legal Forest Green #145A4A, Seal Crimson #B91C1C, Gazette Brass Gold #C58B16 & Highlighter #F2C94C; font Barlow Condensed (headline 58–82px) + Plus Jakarta Sans (body & phụ đề burned-in 42–45px không viền); film grain 35mm 12fps; tuân thủ TikTok Safe Zone v3.2 (content band y:350..1420, x:90..940); Scene 1 t=0 là Cover Thumbnail Card; KcplBumper9x16 chỉ đặt ở outro cuối tập; cấm Card-itis viền 1px hay nền tím neon AI.",
+    "taste_profile": {
+      "design_read": "Hồ sơ công báo hiện đại cho TikTok: uy tín, mạch lạc, giàu chất liệu giấy hồ sơ và con dấu pháp lý; tránh cảm giác slide chữ hay AI neon.",
+      "visual_variance": 6,
+      "motion_intensity": 5,
+      "information_density": 6,
+      "palette_discipline": "Giấy công báo #F6F2E9 làm sân khấu chính, dải Statutory Navy #0D1B2A khóa Safe Zone trên/dưới, Forest Green #145A4A cho quyền lợi/hợp lệ, Crimson #B91C1C cho cảnh báo/mức phạt, Brass Gold #F2C94C cho badge số liệu.",
+      "layout_variation": "Luân phiên Cover Thumbnail (S1) → Split 2 chế độ (S2) → Lưới 6 mảng Series (S3-S4) → Bản đồ cổng dữ liệu chính thống (S5) → FlowTimeline 3 lớp verify (S6) → Card tuyên bố & KcplBumper9x16 outro (S7).",
+      "reference_strategy": "Dùng trực tiếp bộ nhận diện kênh (avatar_navy_emblem.png, avatar_paper_seal.png, KcplBumper9x16) và ảnh tư liệu/minh họa tiết chế có nhãn nguồn rõ ràng.",
+      "anti_patterns": [
+        "Card-itis (viền border 1px quanh mọi khối)",
+        "Slide chữ thuần không có sơ đồ/visual",
+        "Hộp đen toast phụ đề che nội dung",
+        "Nền dark-slate neon glow hoặc glassmorphism"
+      ],
+      "quality_gates": [
+        "fact_whitelist_gate.py PASS",
+        "editorial_language_gate.py PASS",
+        "source_photo_gate.py PASS (nếu dùng ảnh thực tế/stock)",
+        "mix_validator PASS (-11.0 LUFS, ducking 15-20 dB)",
+        "episode_gate.py --mode agy PASS + Vision QA frame check"
+      ]
+    },
+    "delivery_promise": {
+      "promise_type": "data_explainer",
+      "motion_required": true,
+      "source_required": false,
+      "tone_mode": "educational",
+      "quality_floor": "broadcast",
+      "approved_fallback": null
+    },
+    "voice_selection": {
+      "provider": "vieneu",
+      "voice_id": "default",
+      "rationale": "Đúng chuẩn kênh ky-chu-phap-luat (VieNeu Turbo 48kHz local, speed 1.1, đọc tự nhiên tiếng Việt và khớp tts_lexicon.json, miễn phí $0.00).",
+      "estimated_cost_usd": 0.0,
+      "delivery_style": "Điềm tĩnh, rõ chữ, dứt khoát như biên tập viên bản tin pháp luật nhưng gần gũi đời sống",
+      "pacing_policy": "Tốc độ 1.1x theo channel.yaml; ngắt nghỉ 0.25s giữa các ý chuyển cảnh, nhấn rõ con số 2 chế độ, 6 mảng, 30 chủ đề, 5 cổng chính thống và 3 lớp kiểm chứng.",
+      "sample_approval_required": false
+    },
+    "music_source": {
+      "source_type": "user_library",
+      "track_path": "channels/ky-chu-phap-luat/assets/bgm/data-and-systems.m4a",
+      "mood_direction": "Minimalist modular synth & piano ostinato (~92 BPM), điềm tĩnh, đáng tin cậy, chừa dải trung cho giọng đọc",
+      "estimated_cost_usd": 0.0
+    },
+    "stages": [
+      {
+        "stage": "research",
+        "tools": [],
+        "approach": "Đã hoàn tất đối chiếu SSOT kênh (editorial-rules.md, series_backlog.yaml, profile-kit.md) và tra cứu web về thị trường nội dung pháp luật TikTok + cổng văn bản chính thống."
+      },
+      {
+        "stage": "proposal",
+        "tools": [],
+        "approach": "Trình bày 3 concept, khóa runtime Remotion + chế độ Atelier + giọng VieNeu + nhạc nền data-and-systems.m4a, chờ phê duyệt tại gate."
+      },
+      {
+        "stage": "script",
+        "tools": [],
+        "approach": "Viết lời đọc 7 scene (~175–190 từ tiếng Việt, ~75s), khóa chặt toàn bộ số liệu vào fact_whitelist.json và áp dụng tts_lexicon.json."
+      },
+      {
+        "stage": "scene_plan",
+        "tools": [],
+        "approach": "Thiết kế 7 scene Remotion Atelier theo Legal Dossier & Safe Zone v3.2, lồng avatar/emblem kênh và KcplBumper9x16 làm outro."
+      },
+      {
+        "stage": "assets",
+        "tools": [
+          {
+            "tool_name": "vieneu_tts",
+            "role": "Tạo voiceover tiếng Việt 48kHz theo từng scene",
+            "provider": "vieneu",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Mặc định trong channel.yaml, chạy local miễn phí và chất lượng phát thanh tiếng Việt cao."
+          },
+          {
+            "tool_name": "openai_image",
+            "role": "Tạo tối đa 2 ảnh minh họa biên tập (bìa hồ sơ pháp lý / ẩn dụ dòng chảy công báo) gắn nhãn MINH HỌA AI (tùy chọn Standard)",
+            "provider": "openai",
+            "available": true,
+            "estimated_cost_usd": 0.08,
+            "why_this_provider": "Available qua OpenAI image API; có thể bỏ qua để chạy gói Free $0.00 bằng tài sản thương hiệu có sẵn + Remotion Atelier."
+          },
+          {
+            "tool_name": "music_library",
+            "role": "Sử dụng track data-and-systems.m4a của kênh",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Nhạc nền có sẵn của kênh, đã tối ưu cho phân tích pháp luật."
+          }
+        ],
+        "approach": "Sinh TTS trước để khóa timing thực tế, chuẩn bị ảnh/tài sản thương hiệu kênh (avatar_navy_emblem.png, kcpl_bumper_9x16.mp4, và tối đa 2 ảnh minh họa hoặc B-roll tùy user chọn).",
+        "fallback_if_unavailable": "Nếu bỏ qua openai_image hoặc Browser AI Video, dùng 100% Remotion Atelier vectors/diagrams + brand assets có sẵn ($0.00)."
+      },
+      {
+        "stage": "edit",
+        "tools": [],
+        "approach": "Khóa cut in/out khớp 100% với thời lượng audio thực tế, cấu hình phụ đề burned-in trong cinema đáy y:1480..1600 và BGM ducking."
+      },
+      {
+        "stage": "compose",
+        "tools": [
+          {
+            "tool_name": "audio_mixer",
+            "role": "Mix narration + BGM ducking + kcpl_bumper_sting.wav đạt chuẩn -11.0 LUFS",
+            "provider": "ffmpeg",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Local FFmpeg pipeline + mix_validator."
+          },
+          {
+            "tool_name": "video_compose",
+            "role": "Render Remotion composition 1080x1920 30fps qua render_episode.py --agy sau khi qua đủ các QC gates",
+            "provider": "remotion",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Hỗ trợ đầy đủ Legal Dossier theme, Safe Zone v3.2 và spring physics."
+          }
+        ],
+        "approach": "Chạy đầy đủ fact_whitelist_gate, editorial_language_gate, mix_validator, episode_gate --mode agy và render qua render_episode.py --agy + Vision QA.",
+        "fallback_if_unavailable": "Không tự ý chuyển sang FFmpeg Ken Burns nếu Remotion gặp lỗi; báo blocker ngay."
+      },
+      {
+        "stage": "publish",
+        "tools": [
+          {
+            "tool_name": "export_bundle",
+            "role": "Đóng gói video final + Description TikTok chuẩn SEO (80-100 ký tự đầu + max 5 hashtag + CTA)",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Chuẩn bàn giao Thumbnail-as-Scene-1 (không xuất ảnh thumbnail rời)."
+          }
+        ],
+        "approach": "Xuất video master + DESCRIPTION.md (có thể copy đăng ngay)."
+      }
+    ],
+    "quality_tradeoffs": [
+      {
+        "tradeoff": "Remotion Atelier ($0.00) vs HyperFrames (không khả dụng) vs FFmpeg Ken Burns ($0.00)",
+        "recommendation": "Chọn Remotion Atelier",
+        "quality_impact": "Có đầy đủ biểu đồ/sơ đồ động, spring physics, Safe Zone v3.2 và KcplBumper9x16; HyperFrames hiện đang tắt trong config.yaml."
+      },
+      {
+        "tradeoff": "Standard với 2 ảnh minh họa OpenAI (~$0.08) / hoặc 1–2 clip B-roll Browser AI ($0.00) vs Pure Remotion + Brand Assets ($0.00)",
+        "recommendation": "Standard (~$0.08 hoặc Browser AI B-roll $0.00) hoặc Pure Remotion nếu thích tối giản công báo",
+        "quality_impact": "Thêm ảnh/video minh họa giúp mở đầu giàu chiều sâu điện ảnh hơn nhưng phải gắn nhãn MINH HỌA AI; Pure Remotion sắc nét như đồ họa công báo thuần."
+      },
+      {
+        "tradeoff": "VieNeu TTS local 48kHz ($0.00) vs OpenAI TTS ($0.05–$0.15)",
+        "recommendation": "Chọn VieNeu TTS",
+        "quality_impact": "Giọng tiếng Việt tự nhiên, khớp từ điển tts_lexicon.json và miễn phí hoàn toàn."
+      }
+    ],
+    "alternative_paths": [
+      {
+        "description": "Free / Pure Legal Dossier: VieNeu TTS + BGM kênh + Remotion Atelier (dùng brand assets có sẵn + sơ đồ động)",
+        "total_cost_usd": 0.0,
+        "quality_level": "budget",
+        "what_changes": "Không phát sinh chi phí API ảnh/video; toàn bộ hình ảnh là sơ đồ, thẻ hồ sơ công báo và nhận diện kênh."
+      },
+      {
+        "description": "Standard (Recommended): VieNeu TTS + BGM kênh + 2 ảnh minh họa OpenAI editorial collage + Remotion Atelier",
+        "total_cost_usd": 0.08,
+        "quality_level": "standard",
+        "what_changes": "Bổ sung 2 ảnh minh họa editorial gắn nhãn MINH HỌA AI cho phân cảnh mở đầu và tình huống đời sống."
+      },
+      {
+        "description": "Browser AI B-Roll Hybrid: VieNeu TTS + BGM kênh + 1–2 clip B-roll 16:9 từ gemini-video-asset (fallback google-flow-asset) + Remotion Atelier",
+        "total_cost_usd": 0.0,
+        "quality_level": "premium",
+        "what_changes": "Có thêm chuyển động video B-roll (chạy qua Chrome profile, 0 USD API) đặt trong khung Split của Remotion kèm nhãn MINH HỌA AI."
+      }
+    ],
+    "decision_log_ref": "projects/ky-chu-phap-luat/intro-kenh-ky-chu-phap-luat/decision_log.json"
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0.08,
+    "line_items": [
+      {
+        "tool": "vieneu_tts",
+        "operation": "Tổng hợp giọng đọc tiếng Việt 48kHz (~180 từ, 7 scenes)",
+        "quantity": 7,
+        "estimated_usd": 0.0,
+        "notes": "Local 48kHz miễn phí"
+      },
+      {
+        "tool": "openai_image",
+        "operation": "Tạo tối đa 2 ảnh minh họa editorial collage (tùy chọn Standard)",
+        "quantity": 2,
+        "estimated_usd": 0.08,
+        "notes": "Có thể hạ xuống $0.00 nếu chọn gói Free hoặc Browser AI B-roll"
+      },
+      {
+        "tool": "music_library",
+        "operation": "Sử dụng data-and-systems.m4a từ thư viện BGM của kênh",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "Có sẵn trong channels/ky-chu-phap-luat/assets/bgm/"
+      },
+      {
+        "tool": "video_compose",
+        "operation": "Render Remotion 1080x1920 30fps + audio_mixer",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "Render local"
+      }
+    ],
+    "budget_cap_usd": 2.0,
+    "budget_verdict": "within_budget",
+    "savings_options": [
+      "Chọn gói Free ($0.00) bằng cách dùng 100% Remotion Atelier diagrams + brand assets sẵn có.",
+      "Hoặc dùng Browser AI B-Roll (gemini-video-asset / google-flow-asset) chạy trên Chrome profile đang đăng nhập với chi phí API $0.00."
+    ]
+  },
+  "approval": {
+    "status": "approved",
+    "approved_budget_usd": 2.0,
+    "user_notes": "User approved recommended Concept A, Standard visual package (~$0.08), Remotion Atelier, VieNeu TTS, data-and-systems.m4a, standard mode, and authorized rendering draft video."
+  }
+}

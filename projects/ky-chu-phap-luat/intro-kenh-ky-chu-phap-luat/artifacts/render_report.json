@@ -1,0 +1,35 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "renders/final.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "duration_seconds": 64.4,
+      "file_size_bytes": 24153440,
+      "platform_target": "tiktok"
+    },
+    {
+      "path": "renders/final_preview_720p.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "720x1280",
+      "fps": 30,
+      "duration_seconds": 64.4,
+      "file_size_bytes": 5796967,
+      "platform_target": "tiktok"
+    }
+  ],
+  "render_grammar": "explainer-data",
+  "decision_log_ref": "projects/ky-chu-phap-luat/intro-kenh-ky-chu-phap-luat/decision_log.json",
+  "final_review_ref": "artifacts/final_review.json",
+  "verification_notes": [
+    "Clean no-HUD FINAL master passed ship_episode.py: tsc, source_photo_gate, fact_whitelist_gate, editorial_language_gate, mixdown_premix, mix_validator, render_episode (agy), mixdown_mux, gate_c_verify.",
+    "EBUR128 integrated loudness: -11.2 LUFS, true peak -1.5 dBFS, LRA 1.7 LU.",
+    "Vision spotcheck on qc/gate_c_frames/f01_cover.png and f02_early_mid.png confirmed ZERO HUD tags in bottom-left corner."
+  ]
+}

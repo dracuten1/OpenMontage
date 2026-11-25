@@ -13,3 +13,9 @@ These workspace-level owner preferences refine default proposal behavior while p
 3. **News Storytelling Hook & Natural Debate / Open-Question Standard:**
    - Never produce dry, robotic legal or press-release readouts.
    - Hook viewers in seconds 0–3 with concrete real-world friction, stakes, or contrast, deliver complete verified facts from `fact_whitelist.json`, and—whenever the topic has genuine public tension—weave in a fair two-sided perspective (steelmanning both sides) and close with a **natural, thought-provoking open question** (no gimmicky clickbait or shouty social clichés).
+
+4. **Do Not Use Pixabay (`pixabay_image` / `pixabay_video` / `pixabay_music`):**
+   - Do **not** rely on Pixabay tools or pitch Pixabay in proposals/plans — the Pixabay API consistently hits `429 Too Many Requests` on this machine.
+   - For verified real/archival photographs (`source_photo_gate`), source directly from Vietnamese official portals or press articles (via `9router-web-search` / `search_web` with explicit credit & citation), verified Wikimedia Commons files (using a descriptive `User-Agent` header when downloading), or previously verified CC-licensed archive assets in the workspace (preserving full provenance).
+   - For conceptual visuals or motion B-roll, use `openai_image` (`MINH HỌA AI`) or Browser AI Video B-roll (`gemini-video-asset` → `google-flow-asset`, muted inside split frames).
+   - For background music, use channel `assets/bgm/` or `music_library/bgm/` (or `google-flow-music`), not `pixabay_music`.

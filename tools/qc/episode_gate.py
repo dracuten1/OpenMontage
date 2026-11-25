@@ -4,6 +4,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path: sys.path.insert(0, str(REPO_ROOT))
 from tools.qc.scene_packet import load_packet, integrate_scene_packet
+from lib.paths import resolve_project_dir
 from lib.production_provenance import hash_file
 
 # --- Scene-file provenance + composition canvas checks (2026-11-11, tin-nong-3tin postmortem) ---
@@ -119,7 +120,7 @@ def _check_source_photos(root: Path, comp_root: Path | None = None):
     """Enforce Vision + resolution photo verification when photos or provenance exist."""
     reasons = []
     local_prov = root / "assets" / "images" / "provenance.json"
-    proj_root_candidate = REPO_ROOT / "projects" / root.name
+    proj_root_candidate = resolve_project_dir(root.name) or (REPO_ROOT / "projects" / root.name)
     sibling_prov = proj_root_candidate / "assets" / "images" / "provenance.json"
 
     declares_real_photo = False
@@ -195,7 +196,7 @@ def _contained_path(raw, root):
 def _resolve_dual_roots(root: Path) -> tuple[Path, Path]:
     """Resolve (project_root, composition_root) across projects/<slug> and remotion-composer/src/<slug>."""
     slug = root.name
-    proj_candidate = (REPO_ROOT / "projects" / slug).resolve()
+    proj_candidate = (resolve_project_dir(slug) or (REPO_ROOT / "projects" / slug)).resolve()
     comp_candidate = (REPO_ROOT / "remotion-composer" / "src" / slug).resolve()
 
     if (root / "artifacts").is_dir() or (root / "project.json").is_file() or (root / "research").is_dir():

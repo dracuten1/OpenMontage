@@ -1,0 +1,221 @@
+{
+  "version": "1.0",
+  "topic": "Video intro kênh Ký Chủ Pháp Luật: nội dung kênh sẽ làm, các series, nguồn dữ liệu pháp luật và quy trình kiểm chứng",
+  "research_date": "2026-11-25",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "Hệ thống kênh TikTok báo chí & cổng pháp luật (LuatVietnam, Pháp Luật TP.HCM, Lao Động, VTV24)",
+        "url": "https://luatvietnam.vn",
+        "source": "tiktok",
+        "angle": "Tin tức nhanh dưới 60 giây cập nhật nghị định và mức phạt mới",
+        "what_it_covers": "Tin nóng về văn bản mới ban hành, mức phạt giao thông và lao động",
+        "what_it_misses": "Thường chạy theo tin đơn lẻ, ít khi giải thích minh bạch cách kênh kiểm tra hiệu lực văn bản hay lộ trình series đời sống có hệ thống",
+        "engagement_signal": "Lượt xem cao với các chủ đề mức phạt giao thông, BHXH, thuế"
+      },
+      {
+        "title": "Kênh cá nhân của luật sư và người chia sẻ tình huống pháp lý trên TikTok",
+        "url": "https://thanhnien.vn",
+        "source": "tiktok",
+        "angle": "Kể chuyện tình huống thực tế và giải đáp bình luận của người xem",
+        "what_it_covers": "Tranh chấp thuê trọ, cho vay, hôn nhân gia đình, đòi nợ",
+        "what_it_misses": "Chất lượng không đồng đều; báo chí từng cảnh báo nhiều video cắt xén ngữ cảnh hoặc diễn giải cảm tính gây hiểu nhầm quy định",
+        "engagement_signal": "Tỷ lệ bình luận hỏi đáp tình huống cá nhân rất cao"
+      },
+      {
+        "title": "Kênh tuyên truyền pháp luật của cơ quan Tư pháp và Công an địa phương",
+        "url": "https://hanoimoi.vn",
+        "source": "tiktok",
+        "angle": "Cảnh báo hành vi vi phạm và tuyên truyền chuyển đổi số pháp luật",
+        "what_it_covers": "An toàn giao thông, lừa đảo mạng, định danh điện tử VNeID",
+        "what_it_misses": "Hình thức trình bày đôi khi còn khô cứng, ít biểu đồ so sánh quy định cũ vs mới và checklist hành động nhanh",
+        "engagement_signal": "Độ tin cậy cao nhưng nhịp dựng chưa tối ưu cho thói quen lướt nhanh"
+      }
+    ],
+    "saturated_angles": [
+      "Chào hỏi chung chung kiểu 'Kênh này chia sẻ kiến thức pháp luật bổ ích, hãy follow nhé'",
+      "Slide chữ thuần liệt kê điều luật khô khan không có nguồn đối chiếu trực quan",
+      "Giật tít mức phạt gây hoang mang mà không ghi rõ số hiệu văn bản và ngày hiệu lực"
+    ],
+    "underserved_gaps": [
+      "Chưa có video giới thiệu kênh công khai rõ ràng nguồn dữ liệu chính thống (.gov.vn / vbpl.vn / quochoi.vn) và quy trình kiểm chứng 3 lớp chống bịa điều khoản",
+      "Kết hợp đồng thời 2 tuyến rõ ràng: cập nhật Nghị định nóng (24–72 giờ) + Series Luật Cần Biết Đời Sống (6 mảng, 30 chủ đề thiết thực)"
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "Nhiều quy định lớn về giao thông, căn cước, nhà ở, đất đai và BHXH liên tục cập nhật hiệu lực giai đoạn 2024–2026",
+        "url": "https://vanban.chinhphu.vn",
+        "date": "2026-11-25",
+        "relevance": "Người dân cần nguồn theo dõi văn bản mới ban hành và sắp có hiệu lực một cách chuẩn xác, dễ hiểu"
+      },
+      {
+        "headline": "Cảnh báo tình trạng video pháp luật cắt xén ngữ cảnh, đưa tin sai mức phạt trên mạng xã hội",
+        "url": "https://thanhnien.vn",
+        "date": "2026-11-25",
+        "relevance": "Tạo lý do thuyết phục để Ký Chủ Pháp Luật nhấn mạnh tiêu chuẩn kiểm chứng nguồn gốc trước khi phát hành"
+      }
+    ],
+    "active_discussions": [
+      {
+        "platform": "tiktok",
+        "topic_or_url": "Người dùng thường hỏi mức phạt mới có áp dụng ngay chưa và tra văn bản gốc ở đâu",
+        "sentiment": "Quan tâm sát sườn nhưng dè chừng tin giả, tin câu view trên mạng",
+        "key_quotes": [
+          "Nghe trên mạng nói tăng phạt gấp đôi nhưng không biết theo Nghị định số mấy và ngày nào áp dụng"
+        ]
+      }
+    ],
+    "timeliness_window": "evergreen"
+  },
+  "data_points": [
+    {
+      "claim": "Ký Chủ Pháp Luật vận hành theo chiến lược 2 chế độ: Chế độ A cập nhật Luật, Nghị định, Thông tư mới ban hành trong 24–72 giờ hoặc sắp có hiệu lực trong 7–30 ngày; Chế độ B là Series 'Luật Cần Biết Đời Sống'",
+      "source_url": "https://vanban.chinhphu.vn",
+      "source_name": "Contract kênh Ký Chủ Pháp Luật (editorial-rules.md) & Cổng văn bản Chính phủ",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "Series 'Luật Cần Biết Đời Sống' gồm 6 mảng thiết yếu với 30 chủ đề thực tế: Giao thông; Lao động & BHXH; Nhà trọ & Đất đai; Tài chính, Thuế & Ngân hàng; Hôn nhân & Gia đình; Đời sống & Quyền công dân",
+      "source_url": "https://vbpl.vn",
+      "source_name": "Series Backlog Ký Chủ Pháp Luật (series_backlog.yaml) & Cổng VBPL Bộ Tư pháp",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "Dữ liệu pháp luật ưu tiên nguồn gốc từ 5 cổng chính thống: vanban.chinhphu.vn, xaydungchinhsach.chinhphu.vn, baochinhphu.vn, quochoi.vn và vbpl.vn (cùng PDF ký số datafiles.chinhphu.vn và cổng bộ ngành .gov.vn)",
+      "source_url": "https://quochoi.vn",
+      "source_name": "Cổng Thông tin Điện tử Chính phủ, Bộ Tư pháp & Quốc hội",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "Mỗi tập đi qua 3 lớp kiểm chứng bắt buộc: xác minh văn bản còn hiệu lực hiện hành kèm 3 thông số (Số hiệu, Điều/Khoản, Ngày hiệu lực); khóa toàn bộ con số vào bảng kiểm chứng (fact_whitelist); giữ ngôn ngữ trung tính kèm tuyên bố tham khảo",
+      "source_url": "https://xaydungchinhsach.chinhphu.vn",
+      "source_name": "Legal Verification Gate — Ký Chủ Pháp Luật & Xây dựng Chính sách Chính phủ",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "Các cơ quan truyền thông và pháp lý khuyến cáo người dùng mạng xã hội cần đối chiếu số hiệu Nghị định trên cổng Chính phủ hoặc Cơ sở dữ liệu quốc gia về pháp luật để tránh hiểu sai do video ngắn cắt xén ngữ cảnh",
+      "source_url": "https://baochinhphu.vn",
+      "source_name": "Báo Chính phủ & Báo chí chính thống Việt Nam",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "hook"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "Kênh này sẽ làm những chủ đề pháp luật gì — chỉ tin thời sự hay cả luật dân sự, lao động, thuê trọ?",
+      "Số liệu mức phạt và điều luật trên kênh lấy từ đâu, có chính xác theo quy định mới nhất không?",
+      "Làm sao phân biệt tin thật với video câu view cắt ghép trên TikTok, và có giải đáp tình huống người xem gửi về không?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "Xem video luật trên TikTok chỉ là nghe kể chuyện hoặc trích bài báo cũ, văn bản nào cũng giống nhau",
+        "reality": "Một văn bản có thể đã bị sửa đổi hoặc hết hiệu lực; cần tra trực tiếp trên vanban.chinhphu.vn, vbpl.vn, quochoi.vn và kiểm tra ngày hiệu lực thực tế",
+        "source": "https://vbpl.vn"
+      },
+      {
+        "myth": "Pháp luật chỉ xoay quanh xử phạt hình sự hay tranh chấp ra tòa",
+        "reality": "Phần lớn va chạm hàng ngày nằm ở giao thông, thử việc/lương thưởng/BHXH, tiền cọc trọ, chuyển khoản nhầm, thuế bán hàng online và định danh VNeID",
+        "source": "https://vanban.chinhphu.vn"
+      }
+    ],
+    "knowledge_level": "Người đi làm, sinh viên, hộ kinh doanh và người dân phổ thông quan tâm đến quyền lợi và mức phạt hằng ngày nhưng không chuyên thuật ngữ pháp lý.",
+    "pain_points": [
+      "Ngại đọc văn bản luật dài hàng chục trang với ngôn ngữ hành chính khó hiểu",
+      "Bị nhiễu thông tin giữa tin mới ban hành, dự thảo chưa thông qua và quy định cũ đã hết hiệu lực",
+      "Không biết tra cứu hoặc kiểm chứng lại nguồn văn bản gốc ở đâu"
+    ]
+  },
+  "angles_discovered": [
+    {
+      "name": "Công Báo Thu Nhỏ — Hồ Sơ Ký Chủ Pháp Luật",
+      "hook": "Nghe tin mức phạt mới trên mạng mà nửa tin nửa ngờ? Đây là lý do Ký Chủ Pháp Luật ra đời.",
+      "type": "narrative",
+      "why_now": "Đánh trúng tâm lý nghi ngại tin luật câu view trên TikTok, rồi mở ra giải pháp toàn diện của kênh: 2 chế độ nội dung, 6 mảng series, nguồn chính thống và 3 lớp kiểm chứng.",
+      "grounded_in": [
+        "Ngân hàng nguồn chính thống 5 cổng .gov.vn/vbpl.vn/quochoi.vn",
+        "Chiến lược 2 chế độ và 3 lớp kiểm chứng pháp lý"
+      ]
+    },
+    {
+      "name": "Quy Trình 3 Cửa Kiểm Chứng Trước Khi Lên Sóng",
+      "hook": "Trước khi lên sóng 60 giây, mỗi con số phạt ở đây phải qua 3 cửa kiểm chứng.",
+      "type": "data_driven",
+      "why_now": "Khác biệt lớn nhất của Ký Chủ Pháp Luật là kỷ luật không bịa điều khoản và khóa số liệu; đưa quy trình verify lên đầu giúp tạo niềm tin chuyên môn ngay lập tức.",
+      "grounded_in": [
+        "Legal Verification Gate 3 lớp",
+        "Bộ 3 định danh Số hiệu - Điều/Khoản - Ngày hiệu lực"
+      ]
+    },
+    {
+      "name": "30 Tình Huống Luật Đời Sống Sát Sườn",
+      "hook": "Mất cọc trọ, chuyển khoản nhầm, tăng ca thiếu lương — luật bảo vệ bạn chỗ nào?",
+      "type": "evergreen",
+      "why_now": "Kéo người xem bằng các tình huống ai cũng dễ gặp trong 6 mảng series, sau đó giải thích cách kênh cập nhật tin nóng và kiểm chứng nguồn.",
+      "grounded_in": [
+        "6 mảng chủ đề và 30 chủ đề trong series_backlog.yaml",
+        "Pain points của người lao động, người thuê trọ và người tham gia giao thông"
+      ]
+    }
+  ],
+  "visual_references": [
+    {
+      "description": "Phong cách Legal Dossier — Công báo hiện đại trên giấy công báo ấm #F6F2E9 kết hợp dải Statutory Navy #0D1B2A, con dấu Forest Green #145A4A & Crimson #B91C1C",
+      "what_works": "Tạo cảm giác hồ sơ tra cứu chính thống, tách biệt hẳn khỏi video AI nền tím neon hay slide chữ thuần"
+    },
+    {
+      "description": "Sơ đồ luồng FlowTimeline 3 bước kiểm chứng và lưới 6 mảng series có icon/nhãn nguồn rõ ràng",
+      "what_works": "Giúp người xem TikTok nắm được toàn bộ hệ thống kênh trong 60–75 giây mà không bị ngợp chữ"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://vanban.chinhphu.vn",
+      "title": "Hệ thống văn bản quy phạm pháp luật — Cổng Thông tin điện tử Chính phủ",
+      "used_for": "Nguồn gốc văn bản Nghị định, Quyết định, Chỉ thị Chính phủ",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://vbpl.vn",
+      "title": "Cơ sở dữ liệu quốc gia về văn bản pháp luật — Bộ Tư pháp",
+      "used_for": "Kiểm tra tình trạng hiệu lực văn bản và lịch sử sửa đổi, thay thế",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://quochoi.vn",
+      "title": "Cổng Thông tin điện tử Quốc hội",
+      "used_for": "Nguồn gốc Hiến pháp, Bộ luật, Luật, Nghị quyết Quốc hội",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://xaydungchinhsach.chinhphu.vn",
+      "title": "Chuyên trang Xây dựng chính sách, pháp luật — Chính phủ",
+      "used_for": "Theo dõi chính sách mới ban hành và sắp có hiệu lực",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://baochinhphu.vn",
+      "title": "Báo Điện tử Chính phủ",
+      "used_for": "Đối chiếu thông tin chính thống và cập nhật thời sự pháp luật",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://thanhnien.vn",
+      "title": "Cảnh báo thông tin pháp luật cắt xén, sai lệch trên mạng xã hội",
+      "used_for": "Bối cảnh thị trường và lý do cần quy trình kiểm chứng nghiêm ngặt",
+      "reliability": "secondary"
+    }
+  ],
+  "engagement_mode": "standard",
+  "research_summary": "Khoảng trống lớn nhất của nội dung pháp luật trên TikTok hiện nay là thiếu sự minh bạch về nguồn văn bản gốc và tình trạng hiệu lực thực tế, khiến người xem dễ hoang mang trước tin cắt ghép. Ký Chủ Pháp Luật giải quyết trực tiếp bài toán này với mô hình Công báo thu nhỏ: 2 chế độ nội dung (Tin Nghị định nóng 24–72 giờ / sắp hiệu lực 7–30 ngày + Series 'Luật Cần Biết Đời Sống' gồm 6 mảng / 30 chủ đề), dữ liệu lấy từ 5 cổng chính thống (.gov.vn, vbpl.vn, quochoi.vn) và đi qua quy trình kiểm chứng 3 lớp trước khi lên sóng."
+}

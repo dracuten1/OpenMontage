@@ -1,0 +1,170 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "tts_voice_s01",
+      "type": "narration",
+      "path": "assets/audio/voice_s01.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-1",
+      "duration_seconds": 7.065,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s01",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s02",
+      "type": "narration",
+      "path": "assets/audio/voice_s02.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-2",
+      "duration_seconds": 9.833,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s02",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s03",
+      "type": "narration",
+      "path": "assets/audio/voice_s03.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-3",
+      "duration_seconds": 8.955,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s03",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s04",
+      "type": "narration",
+      "path": "assets/audio/voice_s04.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-4",
+      "duration_seconds": 8.08,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s04",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s05",
+      "type": "narration",
+      "path": "assets/audio/voice_s05.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-5",
+      "duration_seconds": 9.684,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s05",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s06",
+      "type": "narration",
+      "path": "assets/audio/voice_s06.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-6",
+      "duration_seconds": 9.014,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s06",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s07",
+      "type": "narration",
+      "path": "assets/audio/voice_s07.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-7",
+      "duration_seconds": 7.064,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s07",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "bgm_main",
+      "type": "music",
+      "path": "assets/music/bgm.mp3",
+      "source_tool": "music_library",
+      "scene_id": "all",
+      "duration_seconds": 64.4,
+      "format": "mp3"
+    },
+    {
+      "id": "img_s01_legal_dossier",
+      "type": "image",
+      "path": "assets/images/ai_s01_legal_dossier.png",
+      "source_tool": "openai_image",
+      "scene_id": "scene-1",
+      "model": "cx/gpt-5.6-luna-image",
+      "cost_usd": 0.04,
+      "resolution": "1024x1536",
+      "format": "png",
+      "subtype": "generated",
+      "provider": "openai",
+      "generation_summary": "Editorial archival collage with brass balance scales, dark navy dossier folder, crimson ribbon, fountain pen"
+    },
+    {
+      "id": "img_s03_traffic",
+      "type": "image",
+      "path": "assets/images/photo_s03_traffic.jpg",
+      "source_tool": "pixabay_image",
+      "scene_id": "scene-3",
+      "format": "jpg",
+      "subtype": "stock",
+      "provider": "wikimedia_commons",
+      "license": "CC BY 2.0 (Wikimedia Commons)",
+      "original_url": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_City_traffic_(48815957331).jpg",
+      "generation_summary": "Verified street-level photograph of Ho Chi Minh City traffic"
+    },
+    {
+      "id": "img_s04_civil_life",
+      "type": "image",
+      "path": "assets/images/ai_s04_civil_life.png",
+      "source_tool": "openai_image",
+      "scene_id": "scene-4",
+      "model": "cx/gpt-5.6-luna-image",
+      "cost_usd": 0.04,
+      "resolution": "1536x1024",
+      "format": "png",
+      "subtype": "generated",
+      "provider": "openai",
+      "generation_summary": "Warm Swiss editorial print illustration representing civil life, apartment, payment card, digital ID"
+    },
+    {
+      "id": "img_s05_law_institution",
+      "type": "image",
+      "path": "assets/images/photo_s05_law_institution.jpg",
+      "source_tool": "pixabay_image",
+      "scene_id": "scene-5",
+      "format": "jpg",
+      "subtype": "stock",
+      "provider": "wikimedia_commons",
+      "license": "CC BY-SA 4.0 (Wikimedia Commons)",
+      "original_url": "https://commons.wikimedia.org/wiki/File:National_Assembly_Building_of_Vietnam_27-10-2025.jpg",
+      "generation_summary": "Verified architectural photograph of the National Assembly Building of Vietnam in Hanoi"
+    }
+  ],
+  "metadata": {
+    "total_audio_speech_duration_seconds": 59.695
+  },
+  "total_cost_usd": 0.08
+}

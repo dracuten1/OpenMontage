@@ -156,7 +156,8 @@ When authoring bespoke Atelier news scenes under `remotion-composer/src/<slug>/`
 
 2. **Verified Shared News Component Props:**
    - `HeroTitle`: accepts `{ text, highlight, color, highlightColor, align, sub, subColor }` (no `highlightTextColor` or `enterFrame`).
-   - `AiBadge`: accepts `{ concept }` (not `label`).
+   - `AiBadge`: accepts `{ concept }` (not `label`) and **auto-prepends `"MINH HỌA AI / "`** — pass only the short concept (e.g. `concept="CÔNG BÁO"`), never repeat the prefix.
+   - `ArchiveLabelBadge`: pass `archiveLabel="ẢNH TƯ LIỆU <year>"` (rather than `label=...`) so `fact_whitelist_gate.py` ignores the archival year via `NON_FACT_PROP_RE`.
    - `<OffthreadVideo muted />`: does **not** accept a `loop` prop — wrap in `<Loop durationInFrames={N}>` from `"remotion"`.
 
 3. **`fact_whitelist_gate.py` & `editorial_language_gate.py` TSX Hygiene:**
@@ -173,6 +174,12 @@ When authoring bespoke Atelier news scenes under `remotion-composer/src/<slug>/`
    - Never wire a raw `music_library/` track directly at `0.08–0.10` volume without checking `0–30s` loudness (`ffmpeg -t 30 -i track.mp3 -af volumedetect -f null -`). Filmscore tracks often start at `-28` to `-30 dB`, making `0.085` completely inaudible beneath `-14 dB` narration.
    - If `0–30s` `mean_volume < -22 dB`, probe per-15s windows, trim `-ss` to the active pulse section, and normalize the ingested `bgm.mp3` to **`-16 LUFS`** (`loudnorm=I=-16:TP=-2.0:LRA=5`).
    - On a `-16 LUFS` normalized bed, set Remotion `<Audio>` gain to **`0.20–0.24`** under narration (`~13 dB` below voice — clearly audible without masking speech) and swell to **`0.35–0.40`** during the outro `<BrandBumper />` before fade-out.
+
+6. **Multi-Channel Ship CLI & Strict Checkpoints:**
+   - `build_episode_audio.py --write-entry` emits JSX into `src/<slug>/index.ts`; rename it to `index.tsx` before running `npx tsc --noEmit` / `ship_episode.py`.
+   - Invoke `PYTHONPATH=. python3 tools/qc/ship_episode.py ...` from repo root so `lib.*` imports resolve cleanly.
+   - Keep `assets/images/provenance.json` strictly for verified real photographs (`visual_type: "photograph"`, `taken`, `license`, `credit_line`, `source_url`, `vision_verified: true`, `subject_match_note` >= 12 chars) — never list AI-generated illustrations there.
+   - Strict `compose`/`publish` checkpoints require `metadata.production_validation_report` (with `scene_coverage`, `expected_scenes`, `artifact_hashes`), `metadata.edit_decisions`, and `metadata.stage_fingerprint` computed via `recompute_checkpoint_fingerprint`.
 
 ---
 

@@ -28,6 +28,7 @@ from tools.channels.sync_channels import sync_channels
 def test_real_channels_validate_against_schema():
     channels = list_channels()
     assert "ky-chu-diem-tin" in channels
+    assert "ky-chu-phap-luat" in channels
     assert "vn-myth" in channels
 
     kcdt = load_channel("ky-chu-diem-tin", validate=True)
@@ -35,6 +36,20 @@ def test_real_channels_validate_against_schema():
     assert kcdt["canvas"]["width"] == 1080
     assert kcdt["canvas"]["height"] == 1920
     assert kcdt["theme"]["style_playbook"] == "archival-editorial"
+
+    kcpl = load_channel("ky-chu-phap-luat", validate=True)
+    assert kcpl["platform"] == "tiktok"
+    assert kcpl["canvas"]["width"] == 1080
+    assert kcpl["canvas"]["height"] == 1920
+    assert kcpl["theme"]["style_playbook"] == "archival-editorial"
+    assert kcpl["audio"]["speed"] == 1.1
+    assert kcpl["brand"]["bumper_enabled"] is True
+    assert kcpl["brand"]["bumper_frames"] == 90
+    legal_lex = load_merged_lexicon("ky-chu-phap-luat")
+    assert legal_lex is not None
+    assert legal_lex["replacements"]["NĐ-CP"] == "Nghị định Chính phủ"
+    assert legal_lex["replacements"]["BHXH"] == "bảo hiểm xã hội"
+    assert legal_lex["replacements"]["GPLX"] == "giấy phép lái xe"
 
     myth = load_channel("vn-myth", validate=True)
     assert myth["platform"] == "youtube"

@@ -62,6 +62,12 @@ projects/vn-myth/*/*
 !projects/vn-myth/*/artifacts
 !projects/vn-myth/*/*.json
 !projects/vn-myth/*/*.md
+!projects/ky-chu-phap-luat/*/
+projects/ky-chu-phap-luat/*/*
+!projects/ky-chu-phap-luat/*/scripts
+!projects/ky-chu-phap-luat/*/artifacts
+!projects/ky-chu-phap-luat/*/*.json
+!projects/ky-chu-phap-luat/*/*.md
 # </channel-gitignore-rules>
 # M-A: the editorial-language gate's hashed evidence artifact is machine-
 # generated per compose/audit run — never committable (validate_pre_render

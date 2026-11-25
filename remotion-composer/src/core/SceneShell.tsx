@@ -382,8 +382,7 @@ export const ArchivalPaperBackdrop: React.FC<{
       <AbsoluteFill style={{ backgroundColor: colors.ink }}>
         <AbsoluteFill
           style={{
-            background:
-              "radial-gradient(120% 90% at 50% 35%, #161A23 0%, #0B0C0E 78%)",
+            background: `radial-gradient(120% 90% at 50% 35%, ${colors.inkSoft} 0%, ${colors.ink} 78%)`,
           }}
         />
         <div
@@ -431,12 +430,11 @@ export const ArchivalPaperBackdrop: React.FC<{
       {/* Middle Swiss Gallery Stage */}
       <AbsoluteFill
         style={{
-          background:
-            "linear-gradient(180deg, #F8F8F6 0%, #F5F5F2 58%, #EEEEEA 100%)",
+          background: `linear-gradient(180deg, ${colors.paper} 0%, ${colors.paper} 58%, ${colors.paperWarm} 100%)`,
         }}
       />
 
-      {/* Top Edge-to-Edge Broadcast Carbon Masthead Block */}
+      {/* Top Edge-to-Edge Broadcast Masthead Block */}
       <div
         style={{
           position: "absolute",
@@ -444,8 +442,7 @@ export const ArchivalPaperBackdrop: React.FC<{
           left: 0,
           width: canvasWidth,
           height: mastheadH,
-          background:
-            "linear-gradient(180deg, #0B0C0E 0%, #12151C 100%)",
+          background: `linear-gradient(180deg, ${colors.ink} 0%, ${colors.inkSoft} 100%)`,
         }}
       >
         <div
@@ -488,8 +485,7 @@ export const ArchivalPaperBackdrop: React.FC<{
           left: 0,
           width: canvasWidth,
           height: lowerH,
-          background:
-            "linear-gradient(180deg, #0E1014 0%, #0B0C0E 35%, #07080A 100%)",
+          background: `linear-gradient(180deg, ${colors.inkSoft} 0%, ${colors.ink} 35%, ${colors.ink} 100%)`,
         }}
       >
         <div

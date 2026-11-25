@@ -223,6 +223,7 @@ Every production run creates a project workspace under `projects/` (either `proj
 
 Channel-specific configuration, editorial rules, lexicons, mix profiles, and brand/BGM assets live in self-contained channel packs under `channels/`:
 - `channels/ky-chu-diem-tin/channel.yaml` (TikTok 9:16, `archival-editorial`, Safe Zone v3.2)
+- `channels/ky-chu-phap-luat/channel.yaml` (TikTok 9:16, `archival-editorial`, Legal Dossier, Safe Zone v3.2)
 - `channels/vn-myth/channel.yaml` (YouTube 16:9, `ink-genome`, Warm Archival Diorama)
 - Shared Remotion primitives (`remotion-composer/src/core/`), channel loader (`lib/channels.py`), and QC/audio tools (`tools/audio/build_episode_audio.py`, `tools/qc/ship_episode.py`) read `channel.yaml` automatically so layout fixes and tool improvements sync across all channels.
 - Create a new channel: `python tools/channels/new_channel.py <channel-id> --name "<Name>" --platform youtube|tiktok`

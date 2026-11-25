@@ -1,67 +1,37 @@
 import { Composition, CalculateMetadataFunction } from "remotion";
+import { YeddaJourney } from "./yedda-team-journey/YeddaJourney";
+import { DamSanFull, DamSanDraftHud, DamSanPreview } from "./dam-san";
+import { AnimDemo } from "./dam-san/AnimDemo";
+import { TOTAL_FRAMES as damSanTotalFrames } from "./dam-san/timing";
 import { Explainer, ExplainerProps } from "./Explainer";
 import {
   CinematicRenderer,
   calculateCinematicMetadata,
 } from "./CinematicRenderer";
 import { signalFromTomorrowWithMusicFixture } from "./cinematic/fixtures";
-import { TalkingHead, TalkingHeadProps } from "./TalkingHead";
+import { TalkingHead } from "./TalkingHead";
 import {
   TitledVideo,
   calculateTitledVideoMetadata,
 } from "./TitledVideo";
 import { EndTag, EndTagProps } from "./components/EndTag";
 import { HeroTitle } from "./components/HeroTitle";
-import { CharacterPerformerAdv } from "./CharacterPerformerAdv";
-import { KidsRabbitDemo } from "./KidsRabbitDemo";
-import { KidsRabbitLayered } from "./KidsRabbitLayered";
-import { KidsRiggedRabbit } from "./KidsRiggedRabbit";
-import { KidsRabbitCode } from "./KidsRabbitCode";
-import { KidsRabbitTurtleDuet } from "./KidsRabbitDuet";
-import { KidsStoryMultiScene } from "./KidsStoryMultiScene";
-import { KidsStoryEp1V4 } from "./KidsStoryEp1V4";
-import { KidsStoryEp1V6 } from "./KidsStoryEp1V6";
-import { KidsStoryEp1V8 } from "./KidsStoryEp1V8";
-import { KidsDepthDemo } from "./KidsDepthDemo";
-import { KidsStoryEp1AI } from "./KidsStoryEp1AI";
-import { KidsStoryEp1V2 } from "./KidsStoryEp1V2";
-import { KidsRaceRigDemo } from "./KidsRaceRigDemo";
-import { KidsStoryEp1RemakeDemo } from "./KidsStoryEp1RemakeDemo";
-import { KidsStoryEp1Remake } from "./KidsStoryEp1Remake";
-import { KidsS5BackDemo } from "./KidsS5BackDemo";
-import { MeshDeformDemo } from "./MeshDeformDemo";
-import { CapsuleTurnaroundDemo } from "./CapsuleTurnaroundDemo";
-import { TurtleStill, TurtleStillWalk, TurtleStillProud } from "./TurtleStill";
-import {
-  TurtleStillV4Idle,
-  TurtleStillV4Walk,
-  TurtleStillV4Proud,
-} from "./TurtleStillV4";
 import { ProductReveal, ProductRevealProps } from "./components/ProductReveal";
 import { CaptionOverlay, WordCaption } from "./components/CaptionOverlay";
 import { CollageBurst, CollageBurstProps } from "./CollageBurst";
 import { LyricOverlay, LyricOverlayProps } from "./LyricOverlay";
-import { ScenePreview, ScenePreviewProps } from "./con-rong-chau-tien/ScenePreview";
-import { VNMythEpisode } from "./con-rong-chau-tien/Episode";
-import { XiVuBaTocEpisode, XI_VU_BA_TOC_FRAMES } from "./xi-vu-ba-toc/Episode";
-import { SonTinhThuyTinhEpisode, SON_TINH_THUY_TINH_FRAMES } from "./son-tinh-thuy-tinh/Episode";
-import { ThanhGiongEpisode, THANH_GIONG_FRAMES } from "./thanh-giong/Episode";
-import {
-  ChuDongTuDemo,
-  CHU_DONG_TU_DEMO_FRAMES,
-} from "./chu-dong-tu/Demo";
-import {
-  ChuDongTuEpisode,
-  CHU_DONG_TU_FRAMES,
-} from "./chu-dong-tu/Episode";
-import { News20261017, NEWS_20261017_TOTAL_FRAMES } from "./news-daily-20261017/Episode";
-import { News20261018, NEWS_20261018_TOTAL_FRAMES } from "./news-daily-20261018/Episode";
-import { News20261019, NEWS_20261019_TOTAL_FRAMES } from "./news-daily-20261019/Episode";
-import { LieuHanhDemo, LIEU_HANH_DEMO_FRAMES } from "./lieu-hanh/Demo";
-import { LieuHanhEpisode, LIEU_HANH_FRAMES } from "./lieu-hanh/Episode";
-import { CoastalReclamationDemo } from "./coastal-reclamation-20261024/Scene01Demo";
-import { CoastalReclamationThumbnail } from "./coastal-reclamation-20261024/Thumbnail";
-import { CoastalReclamationEpisode } from "./coastal-reclamation-20261024/Episode";
+import { EpisodeXangDau } from "./xang-dau-demo-20261107/Episode";
+import { EpisodeJapanAutoParts } from "./japan-auto-parts-20261123/Episode";
+import { TOTAL_FRAMES as japanAutoPartsTotalFrames } from "./japan-auto-parts-20261123/timing";
+import { EpisodeDuongSatTv02 } from "./duong-sat-toc-cao-tv02-20261123/Episode";
+import { TOTAL_FRAMES as duongSatTv02TotalFrames } from "./duong-sat-toc-cao-tv02-20261123/timing";
+import { EpisodeNvidiaJensenComeback } from "./nvidia-jensen-comeback-20261124/Episode";
+import { TOTAL_FRAMES as nvidiaJensenComebackTotalFrames } from "./nvidia-jensen-comeback-20261124/timing";
+import { EpisodeNvidiaJensenCongress } from "./nvidia-jensen-congress-20261125/Episode";
+import { TOTAL_FRAMES as nvidiaJensenCongressTotalFrames } from "./nvidia-jensen-congress-20261125/timing";
+import { EpisodeNghiLe2411 } from "./nghi-le-24-11-20261124/Episode";
+import { TOTAL_FRAMES as nghiLe2411TotalFrames } from "./nghi-le-24-11-20261124/timing";
+import { KcplBumper9x16 } from "./channels/ky-chu-phap-luat/Bumper9x16";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -151,7 +121,6 @@ export const THEMES: Record<string, ThemeConfig> = {
   },
 };
 
-// Default theme when none is specified — uses the existing dark style for backwards compatibility
 export const DEFAULT_THEME = THEMES["flat-motion-graphics"];
 
 export function resolveTheme(props: Record<string, unknown>): ThemeConfig {
@@ -159,7 +128,6 @@ export function resolveTheme(props: Record<string, unknown>): ThemeConfig {
   if (themeName && THEMES[themeName]) {
     return THEMES[themeName];
   }
-  // Allow custom theme passed as full object
   if (props.themeConfig && typeof props.themeConfig === "object") {
     return { ...DEFAULT_THEME, ...(props.themeConfig as Partial<ThemeConfig>) };
   }
@@ -174,10 +142,11 @@ const calculateMetadata: CalculateMetadataFunction<ExplainerProps> = async ({
     return { durationInFrames: 30 * 60 };
   }
   const lastEnd = Math.max(...cuts.map((c) => c.out_seconds || 0));
-  // Add 1 second padding for final fade
   return { durationInFrames: Math.ceil((lastEnd + 1) * 30) };
 };
 
+// Note: New episodes should emit their own src/<slug>/index.ts via
+// build_episode_audio.py --write-entry; historical compositions live in ArchiveRoot.tsx.
 export const Root: React.FC = () => {
   return (
     <>
@@ -254,206 +223,6 @@ export const Root: React.FC = () => {
           accentColor: "#F5C470",
         }}
         calculateMetadata={calculateTitledVideoMetadata}
-      />
-      <Composition
-        id="KidsRiggedRabbit"
-        component={KidsRiggedRabbit}
-        durationInFrames={30 * 17}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsRabbitLayered"
-        component={KidsRabbitLayered}
-        durationInFrames={30 * 17}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsRabbitDemo"
-        component={KidsRabbitDemo}
-        durationInFrames={30 * 13}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsRabbitCode"
-        component={KidsRabbitCode}
-        durationInFrames={510}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsRabbitTurtleDuet"
-        component={KidsRabbitTurtleDuet}
-        durationInFrames={900}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsStoryMultiScene"
-        component={KidsStoryMultiScene}
-        durationInFrames={1188}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsStoryEp1V4"
-        component={KidsStoryEp1V4}
-        durationInFrames={1220}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsStoryEp1V8"
-        component={KidsStoryEp1V8}
-        durationInFrames={1220}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsStoryEp1V6"
-        component={KidsStoryEp1V6}
-        durationInFrames={1220}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsDepthDemo"
-        component={KidsDepthDemo}
-        durationInFrames={270}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsStoryEp1AI"
-        component={KidsStoryEp1AI}
-        durationInFrames={1220}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsStoryEp1V2"
-        component={KidsStoryEp1V2}
-        durationInFrames={1206}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsRaceRigDemo"
-        component={KidsRaceRigDemo}
-        durationInFrames={102}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsStoryEp1RemakeDemo"
-        component={KidsStoryEp1RemakeDemo}
-        durationInFrames={285}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsS5BackDemo"
-        component={KidsS5BackDemo}
-        durationInFrames={198}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="KidsStoryEp1Remake"
-        component={KidsStoryEp1Remake}
-        durationInFrames={1230}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="MeshDeformDemo"
-        component={MeshDeformDemo}
-        durationInFrames={150}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="CapsuleTurnaroundDemo"
-        component={CapsuleTurnaroundDemo}
-        durationInFrames={180}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="TurtleStill"
-        component={TurtleStill}
-        durationInFrames={30}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="TurtleStillWalk"
-        component={TurtleStillWalk}
-        durationInFrames={30}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="TurtleStillProud"
-        component={TurtleStillProud}
-        durationInFrames={30}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="TurtleStillV4Idle"
-        component={TurtleStillV4Idle}
-        durationInFrames={30}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="TurtleStillV4Walk"
-        component={TurtleStillV4Walk}
-        durationInFrames={30}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="TurtleStillV4Proud"
-        component={TurtleStillV4Proud}
-        durationInFrames={30}
-        fps={30}
-        width={1080}
-        height={1080}
-      />
-      <Composition
-        id="CharacterPerformerAdv"
-        component={CharacterPerformerAdv}
-        durationInFrames={30 * 9}
-        fps={30}
-        width={1080}
-        height={1080}
       />
       <Composition
         id="HeroTitle"
@@ -545,7 +314,6 @@ export const Root: React.FC = () => {
       <Composition
         id="EndTag"
         component={EndTag}
-        // 5.5s at 30fps = 165 frames. Render CLI can override via --props.
         durationInFrames={165}
         fps={30}
         width={1920}
@@ -561,8 +329,6 @@ export const Root: React.FC = () => {
       <Composition
         id="EndTagOverlay"
         component={EndTag}
-        // 8.19s at 30fps = 246 frames. Render CLI can override via --props.
-        // Intended to be composited on top of body footage, not concat'd.
         durationInFrames={246}
         fps={30}
         width={1920}
@@ -576,224 +342,35 @@ export const Root: React.FC = () => {
           overlay: true,
         } as EndTagProps}
       />
+
+      {/* Reference demos & 3D Blender showcases */}
       <Composition
-        id="VNMythEpisode"
-        component={VNMythEpisode}
-        durationInFrames={18245}
+        id="XangDauDemoDraftHud"
+        component={EpisodeXangDau}
+        durationInFrames={874}
         fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true } as never}
+        width={720}
+        height={1280}
+        defaultProps={{ hud: true, showCaptions: true, scale720: true }}
       />
-      <Composition
-        id="ThanhGiong"
-        component={ThanhGiongEpisode}
-        durationInFrames={THANH_GIONG_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true }}
-      />
-      <Composition
-        id="ThanhGiongDraft"
-        component={ThanhGiongEpisode}
-        durationInFrames={THANH_GIONG_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true, draftHud: true }}
-      />
-      <Composition
-        id="ChuDongTuDemo"
-        component={ChuDongTuDemo}
-        durationInFrames={CHU_DONG_TU_DEMO_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ draftHud: true }}
-      />
-      <Composition
-        id="ChuDongTu"
-        component={ChuDongTuEpisode}
-        durationInFrames={CHU_DONG_TU_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true }}
-      />
-      <Composition
-        id="ChuDongTuDraft"
-        component={ChuDongTuEpisode}
-        durationInFrames={CHU_DONG_TU_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true, draftHud: true }}
-      />
-      <Composition
-        id="SonTinhThuyTinh"
-        component={SonTinhThuyTinhEpisode}
-        durationInFrames={SON_TINH_THUY_TINH_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true }}
-      />
-      <Composition
-        id="SonTinhThuyTinhDraft"
-        component={SonTinhThuyTinhEpisode}
-        durationInFrames={SON_TINH_THUY_TINH_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true, draftHud: true }}
-      />
-      <Composition
-        id="XiVuBaToc"
-        component={XiVuBaTocEpisode}
-        durationInFrames={XI_VU_BA_TOC_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true }}
-      />
-      <Composition
-        id="News20261017"
-        component={News20261017}
-        durationInFrames={NEWS_20261017_TOTAL_FRAMES}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ hud: false }}
-      />
-      <Composition
-        id="News20261017Debug"
-        component={News20261017}
-        durationInFrames={NEWS_20261017_TOTAL_FRAMES}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ hud: true }}
-      />
-      <Composition
-        id="News20261018"
-        component={News20261018}
-        durationInFrames={NEWS_20261018_TOTAL_FRAMES}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ hud: false }}
-      />
-      <Composition
-        id="News20261018Debug"
-        component={News20261018}
-        durationInFrames={NEWS_20261018_TOTAL_FRAMES}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ hud: true }}
-      />
-      <Composition
-        id="News20261019"
-        component={News20261019}
-        durationInFrames={NEWS_20261019_TOTAL_FRAMES}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ hud: false }}
-      />
-      <Composition
-        id="News20261019Debug"
-        component={News20261019}
-        durationInFrames={NEWS_20261019_TOTAL_FRAMES}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ hud: true }}
-      />
-      <Composition
-        id="VNMythScenePreview"
-        component={ScenePreview}
-        durationInFrames={450}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ sceneId: "sc-03", durationInFrames: 450 } as ScenePreviewProps}
-        calculateMetadata={async ({ props }) => ({
-          durationInFrames: (props as ScenePreviewProps).durationInFrames,
-        })}
-      />
-      <Composition
-        id="LieuHanhDemo"
-        component={LieuHanhDemo}
-        durationInFrames={LIEU_HANH_DEMO_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ draftHud: true }}
-      />
-      <Composition
-        id="LieuHanh"
-        component={LieuHanhEpisode}
-        durationInFrames={LIEU_HANH_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true }}
-      />
-      <Composition
-        id="LieuHanhDraft"
-        component={LieuHanhEpisode}
-        durationInFrames={LIEU_HANH_FRAMES}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={{ withMusic: true, draftHud: true }}
-      />
-      <Composition
-        id="CoastalReclamationDemo"
-        component={CoastalReclamationDemo}
-        durationInFrames={300}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ debug: true }}
-      />
-      <Composition
-        id="CoastalReclamationDemoClean"
-        component={CoastalReclamationDemo}
-        durationInFrames={300}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ debug: false }}
-      />
-      <Composition
-        id="CoastalReclamationThumbnail"
-        component={CoastalReclamationThumbnail}
-        durationInFrames={1}
-        fps={30}
-        width={1080}
-        height={1920}
-      />
-      <Composition
-        id="CoastalReclamationEpisode"
-        component={CoastalReclamationEpisode}
-        durationInFrames={2910}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ debug: true }}
-      />
-      <Composition
-        id="CoastalReclamationEpisodeClean"
-        component={CoastalReclamationEpisode}
-        durationInFrames={2910}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{ debug: false }}
-      />
+      <Composition id="dam-san-DRAFT" component={DamSanDraftHud} durationInFrames={damSanTotalFrames} fps={30} width={1920} height={1080} />
+      <Composition id="dam-san-FINAL" component={DamSanFull} durationInFrames={damSanTotalFrames} fps={30} width={1920} height={1080} defaultProps={{ showHud: false, showCaptions: false }} />
+      <Composition id="dam-san-PREVIEW" component={DamSanPreview} durationInFrames={damSanTotalFrames} fps={30} width={1920} height={1080} />
+      <Composition id="dam-san-ANIM-DEMO" component={AnimDemo} durationInFrames={480} fps={24} width={1920} height={1080} />
+      <Composition id="YeddaTeamJourney" component={YeddaJourney} durationInFrames={840} fps={24} width={1280} height={720} />
+
+      {/* Active recent episodes (2026-11-23 .. 2026-11-25) */}
+      <Composition id="japan-auto-parts-20261123-DRAFT" component={EpisodeJapanAutoParts} durationInFrames={japanAutoPartsTotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: true }} />
+      <Composition id="japan-auto-parts-20261123-FINAL" component={EpisodeJapanAutoParts} durationInFrames={japanAutoPartsTotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: false }} />
+      <Composition id="duong-sat-toc-cao-tv02-20261123-DRAFT" component={EpisodeDuongSatTv02} durationInFrames={duongSatTv02TotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: true }} />
+      <Composition id="duong-sat-toc-cao-tv02-20261123-FINAL" component={EpisodeDuongSatTv02} durationInFrames={duongSatTv02TotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: false }} />
+      <Composition id="nvidia-jensen-comeback-20261124-DRAFT" component={EpisodeNvidiaJensenComeback} durationInFrames={nvidiaJensenComebackTotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: true }} />
+      <Composition id="nvidia-jensen-comeback-20261124" component={EpisodeNvidiaJensenComeback} durationInFrames={nvidiaJensenComebackTotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: false }} />
+      <Composition id="nvidia-jensen-congress-20261125-DRAFT" component={EpisodeNvidiaJensenCongress} durationInFrames={nvidiaJensenCongressTotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: true }} />
+      <Composition id="nvidia-jensen-congress-20261125" component={EpisodeNvidiaJensenCongress} durationInFrames={nvidiaJensenCongressTotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: false }} />
+      <Composition id="nghi-le-24-11-20261124-DRAFT" component={EpisodeNghiLe2411} durationInFrames={nghiLe2411TotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: true }} />
+      <Composition id="nghi-le-24-11-20261124" component={EpisodeNghiLe2411} durationInFrames={nghiLe2411TotalFrames} fps={30} width={1080} height={1920} defaultProps={{ showHud: false }} />
+      <Composition id="KcplBumper9x16" component={KcplBumper9x16} durationInFrames={90} fps={30} width={1080} height={1920} />
     </>
   );
 };

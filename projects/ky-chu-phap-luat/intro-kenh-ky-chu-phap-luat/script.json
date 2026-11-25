@@ -1,0 +1,212 @@
+{
+  "version": "1.0",
+  "title": "Công Báo Thu Nhỏ — Mở Hồ Sơ Ký Chủ Pháp Luật",
+  "total_duration_seconds": 75,
+  "voice_performance": {
+    "performance_intent": "Biên tập viên pháp luật điềm tĩnh, rõ chữ, mạch lạc và đáng tin cậy — nói chuyện gần gũi như đang mở hồ sơ giải thích trực tiếp cho người xem.",
+    "pacing_profile": "conversational",
+    "energy_curve": "mở đầu chạm tâm lý nghi ngờ tin đồn (S01) -> rõ ràng mạch lạc 2 chế độ (S02) -> thực tế 6 mảng đời sống (S03-S04) -> uy tín 5 cổng chính thống (S05) -> dứt khoát quy trình verify 3 lớp (S06) -> ấm áp minh bạch & kêu gọi bình luận (S07)",
+    "pause_policy": "Nghỉ 0.25s cuối mỗi phân cảnh; nhấn nhẹ các con số 2 chế độ, 6 mảng, 30 chủ đề, 5 cổng và 3 lớp kiểm chứng.",
+    "sample_section_id": "S02",
+    "provider_notes": {
+      "vieneu": "Dùng chữ tiếng Việt chuẩn có dấu câu rõ ràng và phiên âm đầy đủ chữ số, tên viết tắt trong provider_text."
+    }
+  },
+  "sections": [
+    {
+      "id": "S01",
+      "label": "Cover + Hook: Mở Hồ Sơ Ký Chủ Pháp Luật",
+      "text": "Nghe tin mức phạt mới trên mạng mà nửa tin nửa ngờ? Đó là lý do Ký Chủ Pháp Luật ra đời — công báo thu nhỏ giúp bạn hiểu đúng luật trong 60 giây.",
+      "start_seconds": 0,
+      "end_seconds": 10,
+      "speaker_directions": "Mở đầu bằng câu hỏi gần gũi, hơi nhấn ở 'nửa tin nửa ngờ', rồi khẳng định chắc chắn ở 'công báo thu nhỏ'.",
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "direct-inquisitive",
+        "emphasis_words": ["nửa tin nửa ngờ", "Ký Chủ Pháp Luật", "công báo thu nhỏ"],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.25,
+        "delivery_note": "Tự nhiên, không gồng giọng phát thanh viên truyền hình cũ.",
+        "provider_text": "Nghe tin mức phạt mới trên mạng mà nửa tin nửa ngờ? Đó là lý do Ký Chủ Pháp Luật ra đời, công báo thu nhỏ giúp bạn hiểu đúng luật trong sáu mươi giây."
+      },
+      "enhancement_cues": [
+        {
+          "type": "broll",
+          "description": "Scene 1 Cover Thumbnail Card với minh họa hồ sơ công báo, cán cân đồng và tiêu đề HERO 'MỞ HỒ SƠ KÝ CHỦ PHÁP LUẬT'.",
+          "timestamp_seconds": 0
+        },
+        {
+          "type": "overlay",
+          "description": "Khung đối chiếu SVG: Tin đồn cắt ghép vs Công báo 60 giây.",
+          "timestamp_seconds": 4
+        }
+      ],
+      "pronunciation_guides": [
+        {"word": "60 giây", "phonetic": "sáu mươi giây"}
+      ],
+      "source_ref": "EV-1#f09 — Format tin ngắn TikTok & định vị kênh Ký Chủ Pháp Luật"
+    },
+    {
+      "id": "S02",
+      "label": "Nội dung kênh: 2 chế độ vận hành",
+      "text": "Kênh vận hành theo 2 chế độ rõ ràng. Chế độ A cập nhật Luật, Nghị định mới ban hành trong 24 đến 72 giờ hoặc sắp hiệu lực 7 đến 30 ngày. Chế độ B là Series Luật Cần Biết Đời Sống.",
+      "start_seconds": 10,
+      "end_seconds": 22,
+      "speaker_directions": "Tách nhịp rõ giữa Chế độ A và Chế độ B, nhấn mạnh mốc thời gian 24 đến 72 giờ và 7 đến 30 ngày.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "authoritative",
+        "emphasis_words": ["2 chế độ", "Chế độ A", "24 đến 72 giờ", "Chế độ B", "Luật Cần Biết Đời Sống"],
+        "pause_before_seconds": 0.15,
+        "pause_after_seconds": 0.25,
+        "delivery_note": "Rõ ràng, có cấu trúc để người xem dễ ghi nhớ.",
+        "provider_text": "Kênh vận hành theo hai chế độ rõ ràng. Chế độ A cập nhật Luật, Nghị định mới ban hành trong hai mươi tư đến bảy mươi hai giờ, hoặc sắp hiệu lực bảy đến ba mươi ngày. Chế độ B là xê ri Luật Cần Biết Đời Sống."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Bảng tách đôi ComparisonSplit: Chế độ A (Tin Nghị định nóng) vs Chế độ B (Series Luật Cần Biết Đời Sống).",
+          "timestamp_seconds": 11
+        }
+      ],
+      "pronunciation_guides": [
+        {"word": "Series", "phonetic": "xê ri"}
+      ],
+      "source_ref": "EV-1#f01..f03 — channels/ky-chu-phap-luat/editorial-rules.md §1"
+    },
+    {
+      "id": "S03",
+      "label": "Series Đời Sống: 3 mảng thiết yếu đầu tiên",
+      "text": "Series đời sống gồm 6 mảng với 30 chủ đề sát sườn. Ba mảng đầu chạm thẳng ví tiền: giao thông và mức phạt nguội; lao động, tăng ca, bảo hiểm xã hội; cùng chuyện thuê trọ và đất đai.",
+      "start_seconds": 22,
+      "end_seconds": 33,
+      "speaker_directions": "Nhịp vừa phải, liệt kê rành mạch từng mảng kèm quãng nghỉ ngắn sau dấu chấm phẩy.",
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "engaging",
+        "emphasis_words": ["6 mảng", "30 chủ đề", "giao thông", "lao động", "thuê trọ và đất đai"],
+        "pause_before_seconds": 0.15,
+        "pause_after_seconds": 0.25,
+        "delivery_note": "Nhấn vào chữ 'chạm thẳng ví tiền' để giữ nhịp thu hút.",
+        "provider_text": "Xê ri đời sống gồm sáu mảng với ba mươi chủ đề sát sườn. Ba mảng đầu chạm thẳng ví tiền: giao thông và mức phạt nguội; lao động, tăng ca, bảo hiểm xã hội; cùng chuyện thuê trọ và đất đai."
+      },
+      "enhancement_cues": [
+        {
+          "type": "broll",
+          "description": "Ảnh thực tế giao thông đô thị Việt Nam (NGUỒN: Pixabay) + 3 thẻ Mục 1–3.",
+          "timestamp_seconds": 22.5
+        }
+      ],
+      "pronunciation_guides": [],
+      "source_ref": "EV-1#f04, EV-1#f05 — channels/ky-chu-phap-luat/series_backlog.yaml (EVG-01..EVG-15)"
+    },
+    {
+      "id": "S04",
+      "label": "Series Đời Sống: 3 mảng còn lại",
+      "text": "Ba mảng còn lại bảo vệ quyền lợi hằng ngày: tài chính, thuế bán hàng online và chuyển khoản nhầm; hôn nhân, thừa kế; cùng quyền công dân số với VNeID và mua sắm trực tuyến.",
+      "start_seconds": 33,
+      "end_seconds": 44,
+      "speaker_directions": "Giữ nhịp đều, phát âm rõ VNeID và các nhóm chủ đề dân sự.",
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "engaging",
+        "emphasis_words": ["tài chính", "thuế", "chuyển khoản nhầm", "hôn nhân", "VNeID"],
+        "pause_before_seconds": 0.15,
+        "pause_after_seconds": 0.25,
+        "delivery_note": "Đọc 'VNeID' là 'vê en ai đi', 'online' là 'trực tuyến' hoặc 'on lai' tự nhiên.",
+        "provider_text": "Ba mảng còn lại bảo vệ quyền lợi hằng ngày: tài chính, thuế bán hàng trực tuyến và chuyển khoản nhầm; hôn nhân, thừa kế; cùng quyền công dân số với vê en ai đi và mua sắm trực tuyến."
+      },
+      "enhancement_cues": [
+        {
+          "type": "broll",
+          "description": "Minh họa biên tập đời sống công dân số + 3 thẻ Mục 4–6.",
+          "timestamp_seconds": 33.5
+        }
+      ],
+      "pronunciation_guides": [
+        {"word": "VNeID", "phonetic": "vê en ai đi"}
+      ],
+      "source_ref": "EV-1#f04, EV-1#f05 — channels/ky-chu-phap-luat/series_backlog.yaml (EVG-16..EVG-30)"
+    },
+    {
+      "id": "S05",
+      "label": "Nguồn dữ liệu: 5 cổng chính thống Nhà nước",
+      "text": "Toàn bộ dữ liệu được lấy ưu tiên từ 5 cổng chính thống của Nhà nước: Cổng văn bản Chính phủ, Cơ sở dữ liệu pháp luật quốc gia, Cổng Quốc hội, Xây dựng chính sách và Báo Chính phủ — tuyệt đối không trích tin đồn.",
+      "start_seconds": 44,
+      "end_seconds": 56,
+      "speaker_directions": "Giọng đĩnh đạc, chắc chắn khi nêu tên các cổng chính thống và dứt khoát ở vế cuối.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "authoritative",
+        "emphasis_words": ["5 cổng chính thống", "Chính phủ", "Quốc hội", "không trích tin đồn"],
+        "pause_before_seconds": 0.15,
+        "pause_after_seconds": 0.25,
+        "delivery_note": "Tạo cảm giác tin cậy, chuẩn mực cơ sở dữ liệu quốc gia.",
+        "provider_text": "Toàn bộ dữ liệu được lấy ưu tiên từ năm cổng chính thống của Nhà nước: Cổng văn bản Chính phủ, Cơ sở dữ liệu pháp luật quốc gia, Cổng Quốc hội, Xây dựng chính sách và Báo Chính phủ, tuyệt đối không trích tin đồn."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Ảnh kiến trúc cơ quan lập pháp (NGUỒN: Pixabay) + sơ đồ SVG 5 cổng .gov.vn/vbpl.vn/quochoi.vn.",
+          "timestamp_seconds": 45
+        }
+      ],
+      "pronunciation_guides": [],
+      "source_ref": "EV-1#f06 — channels/ky-chu-phap-luat/editorial-rules.md §2.1"
+    },
+    {
+      "id": "S06",
+      "label": "Quy trình verify 3 lớp chống bịa điều khoản",
+      "text": "Trước khi lên sóng, mỗi tập qua 3 lớp kiểm chứng: kiểm tra văn bản còn hiệu lực với đủ số hiệu, điều khoản, ngày áp dụng; khóa 100% con số chống bịa đặt; và giữ giọng trung tính, rõ nguồn.",
+      "start_seconds": 56,
+      "end_seconds": 67,
+      "speaker_directions": "Nhấn rõ '3 lớp kiểm chứng', 'còn hiệu lực', 'khóa 100% con số' và 'trung tính, rõ nguồn'.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "confident-analytical",
+        "emphasis_words": ["3 lớp kiểm chứng", "còn hiệu lực", "khóa 100%", "trung tính"],
+        "pause_before_seconds": 0.15,
+        "pause_after_seconds": 0.25,
+        "delivery_note": "Đoạn cao trào về uy tín chuyên môn.",
+        "provider_text": "Trước khi lên sóng, mỗi tập qua ba lớp kiểm chứng: kiểm tra văn bản còn hiệu lực với đủ số hiệu, điều khoản, ngày áp dụng; khóa một trăm phần trăm con số chống bịa đặt; và giữ giọng trung tính, rõ nguồn."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "FlowTimeline 3 bước kiểm chứng + dấu triện ĐÃ KIỂM CHỨNG màu xanh lá công báo.",
+          "timestamp_seconds": 57
+        }
+      ],
+      "pronunciation_guides": [
+        {"word": "100%", "phonetic": "một trăm phần trăm"}
+      ],
+      "source_ref": "EV-1#f07, EV-1#f10 — channels/ky-chu-phap-luat/editorial-rules.md §2.2"
+    },
+    {
+      "id": "S07",
+      "label": "Tuyên bố tham khảo & Kêu gọi bình luận",
+      "text": "Thông tin trên kênh mang tính tham khảo theo văn bản hiện hành. Nhấn theo dõi Ký Chủ Pháp Luật và bình luận tình huống bạn đang gặp để kênh giải thích ở các tập tới.",
+      "start_seconds": 67,
+      "end_seconds": 75,
+      "speaker_directions": "Điềm tĩnh ở câu tuyên bố tham khảo, ấm áp và mời gọi rõ ràng ở câu CTA cuối.",
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "warm-closing",
+        "emphasis_words": ["tham khảo", "theo dõi", "bình luận tình huống"],
+        "pause_before_seconds": 0.2,
+        "pause_after_seconds": 0.3,
+        "delivery_note": "Kết gọn, tự nhiên, chuyển mượt sang outro bumper 3 giây.",
+        "provider_text": "Thông tin trên kênh mang tính tham khảo theo văn bản hiện hành. Nhấn theo dõi Ký Chủ Pháp Luật và bình luận tình huống bạn đang gặp để kênh giải thích ở các tập tới."
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "Hồ sơ kết: Avatar emblem + 3 hành động (Theo dõi, Lưu, Bình luận) + Disclaimer + Outro KcplBumper9x16.",
+          "timestamp_seconds": 67.5
+        }
+      ],
+      "pronunciation_guides": [],
+      "source_ref": "channels/ky-chu-phap-luat/editorial-rules.md §2.3 & §4"
+    }
+  ]
+}

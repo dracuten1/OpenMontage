@@ -1,0 +1,167 @@
+{
+  "version": "1.0",
+  "style_playbook": "archival-editorial",
+  "scenes": [
+    {
+      "id": "scene-1",
+      "type": "generated",
+      "description": "Scene 1 Cover Thumbnail Card + Hook: minh họa hồ sơ công báo và cán cân đồng, tiêu đề HERO 'MỞ HỒ SƠ KÝ CHỦ PHÁP LUẬT' kèm khung đối chiếu tin đồn vs Công báo 60 giây.",
+      "start_seconds": 0,
+      "end_seconds": 10,
+      "script_section_id": "S01",
+      "framing": "Full-bleed vertical cover poster trong Safe Zone v3.2",
+      "movement": "Slow scale 1.0 -> 1.07 với spring reveal",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_intent": "Tạo cover frame t=0 ấn tượng trên TikTok và đặt câu hỏi mở đầu.",
+      "narrative_role": "establish_context",
+      "information_role": "Giới thiệu tên kênh Ký Chủ Pháp Luật và sứ mệnh công báo thu nhỏ 60 giây.",
+      "hero_moment": true,
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Minh họa biên tập hồ sơ công báo và cán cân đồng không chứa chữ (openai_image)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "scene-2",
+      "type": "diagram",
+      "description": "Bảng tách đôi Legal Dossier ComparisonSplit trình bày 2 chế độ: Chế độ A (Tin Nghị định nóng 24–72 giờ / 7–30 ngày) vs Chế độ B (Series Luật Cần Biết Đời Sống).",
+      "start_seconds": 10,
+      "end_seconds": 22,
+      "script_section_id": "S02",
+      "framing": "Swiss Gallery split 2 cột ngang bằng trên nền giấy công báo",
+      "movement": "Animated center spine + column slide-in",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_intent": "Làm rõ kiến trúc nội dung 2 chế độ của kênh.",
+      "narrative_role": "comparison",
+      "information_role": "Phân biệt rõ tuyến cập nhật tin nóng và tuyến series đời sống.",
+      "hero_moment": false,
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Sơ đồ 2 cột Legal Dossier Remotion Atelier",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "scene-3",
+      "type": "broll",
+      "description": "Top-split ảnh thực tế giao thông Việt Nam (có badge NGUỒN) + lưới 3 mảng Series đầu tiên: Mục 1 Giao thông, Mục 2 Lao động & BHXH, Mục 3 Nhà trọ & Đất đai.",
+      "start_seconds": 22,
+      "end_seconds": 33,
+      "script_section_id": "S03",
+      "framing": "Swiss Split trên ảnh thực tế, dưới lưới 3 thẻ không viền",
+      "movement": "Gentle photo zoom + horizontal bar reveal",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_intent": "Neo 3 mảng đụng thẳng ví tiền người dân vào hình ảnh thực tế.",
+      "narrative_role": "deliver_payload",
+      "information_role": "Người xem thấy ngay các tình huống giao thông, lương OT/BHXH và thuê trọ.",
+      "hero_moment": false,
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Ảnh thực tế giao thông đường phố Việt Nam qua PixabayImage",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "scene-4",
+      "type": "generated",
+      "description": "Top-split minh họa đời sống công dân số (gắn nhãn MINH HỌA AI) + lưới 3 mảng tiếp theo: Mục 4 Tài chính/Thuế, Mục 5 Hôn nhân & Gia đình, Mục 6 Quyền công dân số.",
+      "start_seconds": 33,
+      "end_seconds": 44,
+      "script_section_id": "S04",
+      "framing": "Swiss Split trên minh họa biên tập, dưới lưới 3 thẻ không viền",
+      "movement": "Gentle zoom + staggered reveal",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_intent": "Hoàn chỉnh bản đồ 6 mảng và 30 chủ đề Series Luật Cần Biết Đời Sống.",
+      "narrative_role": "deliver_payload",
+      "information_role": "Bao phủ tài chính, thuế bán hàng online, chuyển khoản nhầm, thừa kế và VNeID.",
+      "hero_moment": false,
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Minh họa biên tập đời sống dân sự và định danh số không chứa chữ (openai_image)",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "scene-5",
+      "type": "broll",
+      "description": "Top-split ảnh kiến trúc cơ quan công quyền (có badge NGUỒN) + sơ đồ SVG 5 cổng dữ liệu chính thống: vanban.chinhphu.vn, vbpl.vn, quochoi.vn, xaydungchinhsach.chinhphu.vn, baochinhphu.vn.",
+      "start_seconds": 44,
+      "end_seconds": 56,
+      "script_section_id": "S05",
+      "framing": "Swiss Split với mạng lưới dẫn nguồn SVG",
+      "movement": "SVG strokeDashoffset flow lines kết nối về con dấu trung tâm",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_intent": "Trả lời minh bạch câu hỏi 'Data lấy từ đâu?'.",
+      "narrative_role": "evidence",
+      "information_role": "Khẳng định nguyên tắc Primary-First từ 5 cổng Nhà nước.",
+      "hero_moment": false,
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Ảnh kiến trúc tòa án / cơ quan lập pháp thực tế qua PixabayImage",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "scene-6",
+      "type": "diagram",
+      "description": "FlowTimeline 3 lớp kiểm chứng pháp lý (Bước 1: Xác minh hiệu lực + 3 thông số Số hiệu/Điều khoản/Ngày áp dụng; Bước 2: Khóa 100% số liệu; Bước 3: Trung tính & rõ nguồn) kèm dấu triện ĐÃ KIỂM CHỨNG.",
+      "start_seconds": 56,
+      "end_seconds": 67,
+      "script_section_id": "S06",
+      "framing": "Toàn khung Swiss Paper cho dòng chảy kiểm chứng 3 bước",
+      "movement": "Vertical SVG spine + VerdictStamp pop",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_intent": "Trả lời dứt khoát câu hỏi 'Được verify như thế nào?'.",
+      "narrative_role": "evidence",
+      "information_role": "Hiển thị kỷ luật chống bịa điều khoản và khóa 100% số liệu.",
+      "hero_moment": true,
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "FlowTimeline 3 bước kiểm chứng Remotion Atelier",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "scene-7",
+      "type": "text_card",
+      "description": "Hồ sơ kết với avatar triện giấy công báo, 3 hành động cho người xem (Theo dõi, Lưu tra cứu, Bình luận tình huống), tuyên bố miễn trừ tham khảo và chuyển sang outro KcplBumper9x16.",
+      "start_seconds": 67,
+      "end_seconds": 75,
+      "script_section_id": "S07",
+      "framing": "Swiss Paper closing dossier + Safe Zone CtaBand",
+      "movement": "Spring pop + smooth fade into BrandBumper",
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "shot_intent": "Đóng gói chuẩn mực pháp lý và kích thích bình luận tình huống.",
+      "narrative_role": "call_to_action",
+      "information_role": "Tuyên bố tham khảo theo văn bản hiện hành và lời mời theo dõi kênh.",
+      "hero_moment": false,
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Tài sản thương hiệu có sẵn avatar_paper_seal.png và KcplBumper9x16",
+          "source": "provided"
+        }
+      ]
+    }
+  ]
+}

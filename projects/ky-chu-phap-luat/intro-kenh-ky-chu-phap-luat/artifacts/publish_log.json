@@ -1,0 +1,54 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "tiktok",
+      "status": "published",
+      "export_path": "/Users/tuyennguyen/project/OpenMontage/projects/ky-chu-phap-luat/intro-kenh-ky-chu-phap-luat/exports",
+      "timestamp": "2026-11-25T17:30:00+07:00",
+      "metadata_used": {
+        "title": "Ký Chủ Pháp Luật — Giới Thiệu Kênh (Công Báo Thu Nhỏ)",
+        "description": "Công báo thu nhỏ Ký Chủ Pháp Luật: cập nhật Nghị định mới, series luật đời sống và kiểm chứng 3 lớp từ 5 cổng chính thống Nhà nước.\n\nKênh Ký Chủ Pháp Luật mang đến bản tin pháp luật dễ hiểu trong 60 giây với 2 tuyến nội dung:\n- Tin Nghị định & Luật nóng: cập nhật văn bản mới ban hành (24–72 giờ) hoặc sắp có hiệu lực (7–30 ngày).\n- Series Luật Cần Biết Đời Sống: 6 mảng / 30 chủ đề sát sườn (Giao thông, Lao động & BHXH, Nhà trọ & Đất đai, Tài chính & Thuế, Hôn nhân gia đình, Quyền công dân số VNeID).\n\nNguồn & kiểm chứng:\n- Lấy dữ liệu gốc từ vanban.chinhphu.vn, vbpl.vn, quochoi.vn, xaydungchinhsach.chinhphu.vn và baochinhphu.vn.\n- Qua 3 lớp verify: xác minh văn bản còn hiệu lực (Số hiệu, Điều/Khoản, Ngày hiệu lực), khóa 100% con số và giữ giọng trung tính.\n\nLưu video để tra cứu khi cần, nhấn Theo dõi và bình luận tình huống pháp luật bạn đang gặp để kênh giải thích ở các tập tới!\n(Thông tin phổ biến pháp luật mang tính tham khảo theo văn bản hiện hành tại thời điểm phát hành.)\n\n#phapluat #kychuphapluat #nghidinhmoi #luatdoisong #luatvietnam",
+        "hashtags": [
+          "#phapluat",
+          "#kychuphapluat",
+          "#nghidinhmoi",
+          "#luatdoisong",
+          "#luatvietnam"
+        ],
+        "chapters": [
+          {
+            "start_seconds": 0.0,
+            "title": "Cover + Hook: Mở Hồ Sơ Ký Chủ Pháp Luật"
+          },
+          {
+            "start_seconds": 7.3,
+            "title": "Nội dung kênh: 2 chế độ vận hành"
+          },
+          {
+            "start_seconds": 17.367,
+            "title": "Series Đời Sống: 3 mảng thiết yếu đầu tiên"
+          },
+          {
+            "start_seconds": 26.567,
+            "title": "Series Đời Sống: 3 mảng còn lại"
+          },
+          {
+            "start_seconds": 34.9,
+            "title": "Nguồn dữ liệu: 5 cổng chính thống Nhà nước"
+          },
+          {
+            "start_seconds": 44.833,
+            "title": "Quy trình verify 3 lớp chống bịa điều khoản"
+          },
+          {
+            "start_seconds": 54.1,
+            "title": "Tuyên bố tham khảo & Kêu gọi bình luận"
+          }
+        ]
+      },
+      "visibility": "public",
+      "url": "https://www.tiktok.com/@kychuphapluat"
+    }
+  ]
+}
