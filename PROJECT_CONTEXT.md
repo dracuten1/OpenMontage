@@ -81,7 +81,9 @@ Each tool's `agent_skills[]` field bridges Layer 1 → Layer 3. See `skills/INDE
 | `tools/audio/build_episode_audio.py` | Reusable episode TTS synthesis, Whisper word-level alignment, and manifest/duration lock CLI |
 | `tools/media/harvest_photos.py` | Reusable source photo harvester + portrait/dimension QC + `asset_manifest.json` writer |
 | `tools/qc/mixdown.py` & `tools/qc/ship_episode.py` | Lossless stem pre-mix (ducking + `-11 LUFS` loudnorm) and end-to-end episode gate -> render -> mux -> Gate C CLI |
-| `remotion-composer/src/components/` | Shared Remotion kits: `news/` (`NewsEpisodeShell`, `SceneShell`, `HeroTitle`), `editorial/`, `charts/`, `layoutGuard`, core cards |
+| `lib/channels.py` & `tools/channels/` | Channel pack loader (`channels/*/channel.yaml`), `new_channel.py` scaffolder, and `sync_channels.py` cross-channel validator/stager |
+| `remotion-composer/src/core/` & `remotion-composer/src/channels/` | Theme-parameterized core Remotion shells (`EpisodeShell`, `SceneShell`, `BrandBumper`) and per-channel themes (`ky-chu-diem-tin`, `vn-myth`, `registry.ts`) |
+| `remotion-composer/src/components/` | Shared Remotion kits: `news/` (re-exports bound to `ky-chu-diem-tin`), `editorial/`, `charts/`, `layoutGuard`, core cards |
 | `schemas/styles/playbook.schema.json` | Playbook schema v2 with design tokens (chart_palette, scale_system, weight_matrix, color_rules) |
 | `tests/qa/` | Quality validation test scripts for tool-by-tool output inspection |
 

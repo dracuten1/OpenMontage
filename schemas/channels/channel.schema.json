@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "openmontage/channels/channel",
+  "title": "OpenMontage Channel Configuration",
+  "description": "Declarative SSOT configuration for a video channel pack under channels/<id>/channel.yaml.",
+  "type": "object",
+  "required": [
+    "version",
+    "id",
+    "name",
+    "platform",
+    "canvas",
+    "theme",
+    "audio",
+    "brand",
+    "pipeline",
+    "editorial_rules",
+    "publish"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "enum": ["tiktok", "youtube", "reels", "shorts", "custom"]
+    },
+    "canvas": {
+      "type": "object",
+      "required": ["width", "height", "fps", "aspect_ratio"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 240 },
+        "height": { "type": "integer", "minimum": 240 },
+        "fps": { "type": "integer", "minimum": 1, "maximum": 120 },
+        "aspect_ratio": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "theme": {
+      "type": "object",
+      "required": ["remotion_theme_id", "style_playbook", "safe_zone_profile"],
+      "properties": {
+        "remotion_theme_id": { "type": "string", "minLength": 1 },
+        "style_playbook": { "type": "string", "minLength": 1 },
+        "safe_zone_profile": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "audio": {
+      "type": "object",
+      "required": [
+        "tts_provider",
+        "voice",
+        "speed",
+        "language",
+        "tail_seconds",
+        "lexicon",
+        "mix_profile",
+        "bgm_dir"
+      ],
+      "properties": {
+        "tts_provider": { "type": "string", "minLength": 1 },
+        "voice": { "type": ["string", "null"] },
+        "speed": { "type": "number", "minimum": 0.5, "maximum": 2.0 },
+        "language": { "type": "string", "minLength": 2 },
+        "tail_seconds": { "type": "number", "minimum": 0.0, "maximum": 2.0 },
+        "lexicon": { "type": ["string", "null"] },
+        "mix_profile": { "type": ["string", "null"] },
+        "bgm_dir": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "brand": {
+      "type": "object",
+      "required": [
+        "bumper_enabled",
+        "bumper_frames",
+        "bumper_video_9x16",
+        "bumper_video_16x9",
+        "bumper_sting",
+        "characters_dir",
+        "textures_dir"
+      ],
+      "properties": {
+        "bumper_enabled": { "type": "boolean" },
+        "bumper_frames": { "type": "integer", "minimum": 0 },
+        "bumper_video_9x16": { "type": ["string", "null"] },
+        "bumper_video_16x9": { "type": ["string", "null"] },
+        "bumper_sting": { "type": ["string", "null"] },
+        "characters_dir": { "type": ["string", "null"] },
+        "textures_dir": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "pipeline": {
+      "type": "object",
+      "required": ["default_pipeline", "lane", "qc_gates"],
+      "properties": {
+        "default_pipeline": { "type": "string", "minLength": 1 },
+        "lane": { "type": ["string", "null"] },
+        "qc_gates": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "editorial_rules": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publish": {
+      "type": "object",
+      "required": ["hashtags_max", "forbidden_hashtags", "description_template"],
+      "properties": {
+        "hashtags_max": { "type": "integer", "minimum": 0 },
+        "forbidden_hashtags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "description_template": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

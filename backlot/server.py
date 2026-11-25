@@ -19,6 +19,7 @@ from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 from backlot.state import PROJECTS_DIR, REPO_ROOT, list_projects, load_board_state, summarize_project
+from lib.paths import is_channel_container, iter_project_dirs, resolve_project_dir
 
 UI_DIR = Path(__file__).resolve().parent / "ui"
 THUMB_CACHE_DIR = REPO_ROOT / ".backlot" / "thumbs"
@@ -86,16 +87,17 @@ def _cached_summaries() -> list[dict]:
     if not PROJECTS_DIR.is_dir():
         return []
     summaries = []
-    for entry in sorted(PROJECTS_DIR.iterdir()):
-        if not entry.is_dir() or entry.name.startswith(("_", ".")):
-            continue
+    for channel_name, entry in iter_project_dirs(PROJECTS_DIR):
         cached = _summary_cache.get(entry.name)
         if cached is None:
             try:
                 cached = summarize_project(entry)
+                if not cached.get("channel") and channel_name:
+                    cached["channel"] = channel_name
             except Exception:
                 cached = {
-                    "project_id": entry.name, "title": entry.name,
+                    "project_id": entry.name, "channel": channel_name,
+                    "title": entry.name,
                     "pipeline_type": "unknown", "has_pipeline_state": False,
                     "poster": None, "live": False, "last_activity": 0,
                     "active_stage": None, "awaiting_human": False,
@@ -126,6 +128,8 @@ def _project_of_change(path_str: str) -> Optional[str]:
     parts = rel.replace("\\", "/").split("/")
     if _IGNORE_PARTS.intersection(parts):
         return None
+    if len(parts) >= 2 and is_channel_container(PROJECTS_DIR / parts[0]):
+        return parts[1]
     return parts[0]
 
 
@@ -312,8 +316,8 @@ def _safe_project_dir(project_id: str) -> Path:
     # collapses back to PROJECTS_DIR itself).
     if any(c in project_id for c in "/\\:") or project_id in (".", ".."):
         raise HTTPException(status_code=400, detail="invalid project id")
-    project_dir = PROJECTS_DIR / project_id
-    if not project_dir.is_dir():
+    project_dir = resolve_project_dir(project_id, PROJECTS_DIR)
+    if project_dir is None or not project_dir.is_dir():
         raise HTTPException(status_code=404, detail=f"unknown project: {project_id}")
     return project_dir
 

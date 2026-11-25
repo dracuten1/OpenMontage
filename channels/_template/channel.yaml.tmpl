@@ -1,0 +1,47 @@
+version: "1.0"
+id: "{{CHANNEL_ID}}"
+name: "{{CHANNEL_NAME}}"
+platform: {{PLATFORM}}
+
+canvas:
+  width: {{WIDTH}}
+  height: {{HEIGHT}}
+  fps: {{FPS}}
+  aspect_ratio: "{{ASPECT_RATIO}}"
+
+theme:
+  remotion_theme_id: "{{CHANNEL_ID}}"
+  style_playbook: "{{STYLE_PLAYBOOK}}"
+  safe_zone_profile: "{{SAFE_ZONE_PROFILE}}"
+
+audio:
+  tts_provider: vieneu_tts
+  voice: {{VOICE}}
+  speed: {{SPEED}}
+  language: {{LANGUAGE}}
+  tail_seconds: 0.25
+  lexicon: tts_lexicon.json
+  mix_profile: mix_profile.json
+  bgm_dir: assets/bgm
+
+brand:
+  bumper_enabled: false
+  bumper_frames: 0
+  bumper_video_9x16: null
+  bumper_video_16x9: null
+  bumper_sting: null
+  characters_dir: assets/characters
+  textures_dir: assets/textures
+
+pipeline:
+  default_pipeline: animated-explainer
+  lane: "{{LANE}}"
+  qc_gates:
+    - bgm_gate
+
+editorial_rules: editorial-rules.md
+
+publish:
+  hashtags_max: 5
+  forbidden_hashtags: []
+  description_template: "{{DESCRIPTION_TEMPLATE}}"

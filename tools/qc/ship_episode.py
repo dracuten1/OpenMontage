@@ -93,9 +93,20 @@ def ship_episode(
     python_exe: str = sys.executable,
     runner: Callable[..., Any] = subprocess.run,
 ) -> dict[str, Any]:
+    from lib.channels import detect_project_channel, load_channel
+
     proj = Path(project_dir).resolve()
     if not proj.is_dir():
         raise FileNotFoundError(f"Project directory not found: {proj}")
+
+    channel_id = detect_project_channel(proj)
+    qc_gates: set[str] = set()
+    if channel_id:
+        try:
+            ch_cfg = load_channel(channel_id)
+            qc_gates = set((ch_cfg.get("pipeline") or {}).get("qc_gates") or [])
+        except Exception:
+            qc_gates = set()
 
     executed: list[str] = []
 
@@ -103,7 +114,7 @@ def ship_episode(
         _run_step("tsc", ["npx", "tsc", "--noEmit"], cwd=COMPOSER_DIR, runner=runner)
         executed.append("tsc")
 
-    if _has_source_photos(proj):
+    if _has_source_photos(proj) or ("source_photo_gate" in qc_gates and (proj / "assets" / "images").is_dir()):
         _run_step(
             "source_photo_gate",
             [python_exe, str(REPO_ROOT / "tools/qc/source_photo_gate.py"), "--project", str(proj)],
@@ -119,7 +130,7 @@ def ship_episode(
         )
         executed.append("fact_whitelist_gate")
 
-    if _has_editorial_lane(proj):
+    if _has_editorial_lane(proj) or "editorial_language_gate" in qc_gates:
         _run_step(
             "editorial_language_gate",
             [python_exe, str(REPO_ROOT / "tools/qc/editorial_language_gate.py"), "--project", str(proj)],
@@ -179,6 +190,7 @@ def ship_episode(
     return {
         "status": "pass",
         "project": proj.name,
+        "channel": channel_id,
         "composition": comp_id,
         "steps_executed": executed,
         "output": str(final_out),

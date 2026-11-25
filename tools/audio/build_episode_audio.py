@@ -265,14 +265,15 @@ def _render_episode_index_ts(slug: str, fps: int) -> str:
 def build_episode_audio(
     project_dir: Path | str,
     *,
+    channel: str | None = None,
     script_rel: str | None = None,
     lexicon_rel: str = "tts_lexicon.json",
-    tail_seconds: float = 0.25,
-    speed: float = 1.15,
-    fps: int = 30,
-    bumper_frames: int = 90,
+    tail_seconds: float | None = None,
+    speed: float | None = None,
+    fps: int | None = None,
+    bumper_frames: int | None = None,
     whisper_model: str = "small",
-    language: str = "vi",
+    language: str | None = None,
     voice: str | None = None,
     threads: int = 4,
     skip_tts: bool = False,
@@ -283,9 +284,48 @@ def build_episode_audio(
     tts_fn: Callable[[str, Path], None] | None = None,
     transcribe_fn: Callable[[Path], list[dict[str, Any]]] | None = None,
 ) -> dict[str, Any]:
+    from lib.channels import (
+        detect_project_channel,
+        load_channel,
+        load_merged_lexicon,
+        resolve_channel_asset,
+    )
+
     proj = Path(project_dir).resolve()
     if not proj.is_dir():
         raise FileNotFoundError(f"Project directory not found: {proj}")
+
+    resolved_channel = channel or detect_project_channel(proj)
+    ch_cfg: dict[str, Any] = {}
+    if resolved_channel:
+        try:
+            ch_cfg = load_channel(resolved_channel)
+        except Exception:
+            ch_cfg = {}
+
+    ch_audio = ch_cfg.get("audio") or {}
+    ch_canvas = ch_cfg.get("canvas") or {}
+    ch_brand = ch_cfg.get("brand") or {}
+
+    resolved_tail = float(tail_seconds if tail_seconds is not None else ch_audio.get("tail_seconds", 0.25))
+    resolved_speed = float(speed if speed is not None else ch_audio.get("speed", 1.15))
+    resolved_fps = int(fps if fps is not None else ch_canvas.get("fps", 30))
+    if bumper_frames is not None:
+        resolved_bumper_frames = int(bumper_frames)
+    elif ch_cfg:
+        resolved_bumper_frames = int(ch_brand.get("bumper_frames", 0)) if ch_brand.get("bumper_enabled") else 0
+    else:
+        resolved_bumper_frames = 90
+    resolved_language = str(language if language is not None else ch_audio.get("language", "vi"))
+    resolved_voice = voice if voice is not None else ch_audio.get("voice")
+
+    tail_seconds = resolved_tail
+    speed = resolved_speed
+    fps = resolved_fps
+    bumper_frames = resolved_bumper_frames
+    language = resolved_language
+    voice = resolved_voice
+
     slug = proj.name
     comp_base = composer_root or (REPO_ROOT / "remotion-composer")
     pub = comp_base / "public" / slug
@@ -308,8 +348,7 @@ def build_episode_audio(
     if not sections:
         raise ValueError(f"script.json has no sections[]: {script_p}")
 
-    lex_p = proj / lexicon_rel
-    lexicon = json.loads(lex_p.read_text(encoding="utf-8")) if lex_p.is_file() else None
+    lexicon = load_merged_lexicon(resolved_channel, proj, lexicon_rel)
 
     if tts_fn is None:
         tts_fn = lambda txt, out_p: _default_tts_runner(txt, out_p, voice=voice, threads=threads)
@@ -469,7 +508,15 @@ def build_episode_audio(
     if bgm_path:
         from tools.qc.mixdown import prepare_bgm_bed
         from tools.qc.bgm_gate import probe_duration
-        bgm_src = Path(bgm_path).resolve()
+        cand_bgm = Path(bgm_path)
+        if not cand_bgm.is_file():
+            resolved_bgm = (
+                resolve_channel_asset(resolved_channel, f"bgm/{bgm_path}", project_dir=proj)
+                or resolve_channel_asset(resolved_channel, str(bgm_path), project_dir=proj)
+            )
+            if resolved_bgm is not None:
+                cand_bgm = resolved_bgm
+        bgm_src = cand_bgm.resolve()
         bgm_work = proj / "renders" / "_master_work"
         norm_bgm_wav = prepare_bgm_bed(bgm_src, total_seconds, bgm_work, out_path=bgm_work / "bgm_ingested.wav")
         music_dir = proj / "assets" / "music"
@@ -580,25 +627,27 @@ def build_episode_audio(
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Build TTS, Whisper alignment, captions, and timing lock for an episode.")
-    ap.add_argument("--project", required=True, help="projects/<slug> directory")
+    ap.add_argument("--project", required=True, help="projects/<slug> or projects/<channel>/<slug> directory")
+    ap.add_argument("--channel", default=None, help="Optional channel id override (defaults to project.json/parent dir)")
     ap.add_argument("--script", default=None, help="Optional relative path to script.json")
     ap.add_argument("--lexicon", default="tts_lexicon.json", help="Lexicon JSON relative to project dir")
-    ap.add_argument("--tail", type=float, default=0.25, help="Per-scene post-speech breathing pad in seconds (<= 0.25s)")
-    ap.add_argument("--speed", type=float, default=1.15, help="ffmpeg atempo factor")
-    ap.add_argument("--fps", type=int, default=30)
-    ap.add_argument("--bumper-frames", type=int, default=90)
+    ap.add_argument("--tail", type=float, default=None, help="Per-scene post-speech breathing pad in seconds (default from channel.yaml or 0.25)")
+    ap.add_argument("--speed", type=float, default=None, help="ffmpeg atempo factor (default from channel.yaml or 1.15)")
+    ap.add_argument("--fps", type=int, default=None, help="FPS (default from channel.yaml or 30)")
+    ap.add_argument("--bumper-frames", type=int, default=None, help="Bumper frames (default from channel.yaml or 90)")
     ap.add_argument("--whisper-model", default="small")
-    ap.add_argument("--language", default="vi")
+    ap.add_argument("--language", default=None, help="Language code (default from channel.yaml or vi)")
     ap.add_argument("--voice", default=None)
     ap.add_argument("--threads", type=int, default=4)
     ap.add_argument("--skip-tts", action="store_true", help="Reuse existing assets/audio/voice_*.wav files")
     ap.add_argument("--force-tts", action="store_true", help="Regenerate raw TTS even if cached")
-    ap.add_argument("--bgm", default=None, help="Optional BGM file to trim, normalize (-16 LUFS), and stage")
+    ap.add_argument("--bgm", default=None, help="Optional BGM file or filename in channel assets/bgm/ to trim, normalize (-16 LUFS), and stage")
     ap.add_argument("--write-entry", action="store_true", help="Write per-episode remotion-composer/src/<slug>/index.ts")
     args = ap.parse_args(argv)
 
     summary = build_episode_audio(
         args.project,
+        channel=args.channel,
         script_rel=args.script,
         lexicon_rel=args.lexicon,
         tail_seconds=args.tail,

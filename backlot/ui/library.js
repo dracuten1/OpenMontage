@@ -56,6 +56,7 @@ function card(p) {
   }
 
   const meta = el("div", { class: "lb-meta" },
+    p.channel ? el("span", { class: "chip" }, p.channel) : null,
     el("span", { class: "chip" }, p.pipeline_type || "unknown"),
     p.scene_count ? el("span", { class: "chip" }, `${p.scene_count} scenes`) : null,
     p.render_count ? el("span", { class: "chip" }, `${p.render_count} renders`) : null,

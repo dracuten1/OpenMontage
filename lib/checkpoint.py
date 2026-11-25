@@ -96,10 +96,20 @@ CHECKPOINT_SCHEMA_PATH = (
 # live under PROJECTS_DIR/<project_id>/ — this is the location the Backlot
 # board watches. Callers may still pass a different pipeline_dir (tests do),
 # but production runs should use the default.
-from lib.paths import PROJECTS_DIR  # noqa: E402  (single source of truth)
+from lib.paths import PROJECTS_DIR, resolve_project_dir  # noqa: E402  (single source of truth)
 
 PROJECT_MARKER_FILENAME = "project.json"
 HISTORY_DIRNAME = "history"
+
+
+def _project_dir(pipeline_dir: Path, project_id: str) -> Path:
+    """Resolve ``project_id`` under ``pipeline_dir`` across flat and nested channel layouts."""
+    resolved = resolve_project_dir(project_id, pipeline_dir)
+    if resolved is not None:
+        return resolved
+    if pipeline_dir.name == project_id and (pipeline_dir / PROJECT_MARKER_FILENAME).is_file():
+        return pipeline_dir
+    return pipeline_dir / project_id
 
 
 class CheckpointValidationError(ValueError):
@@ -200,7 +210,7 @@ def _validate_edit_decisions_audio_sync(
 
     from lib.timing_validator import validate_edit_timing_against_audio
 
-    project_dir = pipeline_dir / project_id
+    project_dir = _project_dir(pipeline_dir, project_id)
     validation_mode = (checkpoint.get("metadata") or {}).get("validation_mode", "legacy") if checkpoint else "legacy"
     res = validate_edit_timing_against_audio(edit_decisions, project_dir, mode=validation_mode)
 
@@ -237,11 +247,7 @@ def _is_production_workspace(pipeline_dir: Path | str | None, project_id: str | 
     proj_dir: Path | None = None
     if pipeline_dir is not None and project_id is not None:
         p_path = Path(pipeline_dir)
-        candidate = p_path / str(project_id)
-        if not candidate.is_dir() and (p_path / PROJECT_MARKER_FILENAME).is_file() and p_path.name == str(project_id):
-            proj_dir = p_path
-        else:
-            proj_dir = candidate
+        proj_dir = _project_dir(p_path, str(project_id))
     elif pipeline_dir is not None:
         proj_dir = Path(pipeline_dir)
 
@@ -377,8 +383,9 @@ def _validate_artifacts_for_stage(
     resolved_project_id = project_id or (checkpoint.get("project_id") if checkpoint else None)
     if resolved_pipeline_dir is None and resolved_project_id:
         try:
-            if (PROJECTS_DIR / str(resolved_project_id)).is_dir():
-                resolved_pipeline_dir = PROJECTS_DIR
+            found_proj = resolve_project_dir(str(resolved_project_id), PROJECTS_DIR)
+            if found_proj is not None:
+                resolved_pipeline_dir = found_proj.parent
         except Exception:
             pass
 
@@ -575,29 +582,43 @@ def validate_checkpoint(
 
 
 def _checkpoint_path(pipeline_dir: Path, project_id: str, stage: str) -> Path:
-    return pipeline_dir / project_id / f"checkpoint_{stage}.json"
+    return _project_dir(pipeline_dir, project_id) / f"checkpoint_{stage}.json"
 
 
 def init_project(
     project_id: str,
     *,
     title: str,
-    pipeline_type: str,
+    pipeline_type: Optional[str] = None,
     pipeline_dir: Optional[Path] = None,
     style_playbook: Optional[str] = None,
+    channel: Optional[str] = None,
 ) -> Path:
     """Initialize a project workspace with the canonical layout + marker file.
 
-    Creates projects/<project_id>/ with the standard subdirectories and writes
-    project.json — the marker the Backlot board uses to render a project's
+    Creates ``projects/<project_id>/`` (or ``projects/<channel>/<project_id>/`` when
+    ``channel`` is supplied) with the standard subdirectories and writes
+    ``project.json`` — the marker the Backlot board uses to render a project's
     identity and stage rail before the first checkpoint exists.
 
     Idempotent: re-running preserves the original created_at and merges fields.
     Returns the project directory.
     """
+    ch_cfg: Optional[dict[str, Any]] = None
+    if channel is not None:
+        from lib.channels import load_channel
+        ch_cfg = load_channel(channel)
+        if style_playbook is None:
+            style_playbook = (ch_cfg.get("theme") or {}).get("style_playbook")
+        if not pipeline_type:
+            pipeline_type = (ch_cfg.get("pipeline") or {}).get("default_pipeline")
+
+    if not pipeline_type:
+        raise ValueError("pipeline_type is required when channel does not define default_pipeline")
+
     _validate_style_playbook(style_playbook)
     base = pipeline_dir or PROJECTS_DIR
-    project_dir = base / project_id
+    project_dir = (base / channel / project_id) if channel else (base / project_id)
     for sub in (
         "artifacts",
         "assets/images",
@@ -622,6 +643,8 @@ def init_project(
     marker["project_id"] = project_id
     marker["title"] = title
     marker["pipeline_type"] = pipeline_type
+    if channel is not None:
+        marker["channel"] = channel
     if style_playbook is not None:
         marker["style_playbook"] = style_playbook
 
@@ -782,7 +805,7 @@ def _archive_superseded_checkpoint(path: Path, stage: str) -> None:
 
 
 def _decision_log_path(pipeline_dir: Path, project_id: str) -> Path:
-    return pipeline_dir / project_id / "decision_log.json"
+    return _project_dir(pipeline_dir, project_id) / "decision_log.json"
 
 
 def _merge_decision_log(
@@ -836,7 +859,7 @@ def write_checkpoint(
     # Backfill identity fields from the project marker so omitted kwargs
     # cannot bypass either gate enforcement or style validation.
     marker = None
-    marker_path = pipeline_dir / project_id / PROJECT_MARKER_FILENAME
+    marker_path = _project_dir(pipeline_dir, project_id) / PROJECT_MARKER_FILENAME
     if marker_path.exists() and (not pipeline_type or not style_playbook):
         try:
             with open(marker_path, encoding="utf-8") as f:
@@ -979,7 +1002,7 @@ def get_latest_checkpoint(
     pipeline_dir: Path, project_id: str
 ) -> Optional[dict[str, Any]]:
     """Find the most recent checkpoint for a project (by file mtime)."""
-    project_dir = pipeline_dir / project_id
+    project_dir = _project_dir(pipeline_dir, project_id)
     if not project_dir.exists():
         return None
 

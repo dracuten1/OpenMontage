@@ -1,0 +1,52 @@
+version: "1.0"
+id: ky-chu-diem-tin
+name: "Ký Chủ Điểm Tin"
+platform: tiktok
+
+canvas:
+  width: 1080
+  height: 1920
+  fps: 30
+  aspect_ratio: "9:16"
+
+theme:
+  remotion_theme_id: ky-chu-diem-tin
+  style_playbook: archival-editorial
+  safe_zone_profile: tiktok-v3.2
+
+audio:
+  tts_provider: vieneu_tts
+  voice: null
+  speed: 1.15
+  language: vi
+  tail_seconds: 0.25
+  lexicon: tts_lexicon.json
+  mix_profile: mix_profile.json
+  bgm_dir: assets/bgm
+
+brand:
+  bumper_enabled: true
+  bumper_frames: 90
+  bumper_video_9x16: assets/brand/kcdt_bumper_9x16.mp4
+  bumper_video_16x9: assets/brand/kcdt_bumper_16x9.mp4
+  bumper_sting: assets/brand/kcdt_bumper_sting.wav
+  characters_dir: assets/characters
+  textures_dir: assets/textures
+
+pipeline:
+  default_pipeline: animated-explainer
+  lane: news-editorial-motion
+  qc_gates:
+    - source_photo_gate
+    - fact_whitelist_gate
+    - editorial_language_gate
+    - bgm_gate
+
+editorial_rules: editorial-rules.md
+
+publish:
+  hashtags_max: 5
+  forbidden_hashtags:
+    - "#fyp"
+    - "#foryou"
+  description_template: "80-100 char hook + keywords first, 3-5 relevant hashtags, comment/follow CTA"

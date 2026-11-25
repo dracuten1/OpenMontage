@@ -456,7 +456,14 @@ def _parse_sfx_entries(text: str, *, secs: dict[str, dict], fps: float, sfx_dir:
     return cues
 
 
-def _collect_sfx_cues(episode_dir: Path, timing: dict, sfx_dir: Path) -> list[tuple[float, Path, float]]:
+def _collect_sfx_cues(
+    episode_dir: Path,
+    timing: dict,
+    sfx_dir: Path,
+    *,
+    channel_id: str | None = None,
+    project_dir: Path | None = None,
+) -> list[tuple[float, Path, float]]:
     """Extract composition SFX cues from Episode.tsx (BLOCK_SFX, SCENE_SFX, BrandBumper) and scenes/S*.tsx."""
     cues: list[tuple[float, Path, float]] = []
     if not episode_dir.is_dir() or not sfx_dir.is_dir():
@@ -475,9 +482,23 @@ def _collect_sfx_cues(episode_dir: Path, timing: dict, sfx_dir: Path) -> list[tu
         cues.extend(_parse_sfx_entries(ep_text, secs=secs, fps=fps, sfx_dir=sfx_dir))
 
         if "<BrandBumper" in ep_text and not re.search(r"<BrandBumper[^>]*\bstingSrc\s*=\s*\{null\}", ep_text):
-            sting_pub = REPO / "remotion-composer" / "public" / "brand" / "kcdt_bumper_sting.wav"
-            sting_repo = REPO / "assets" / "brand" / "kcdt-bumper" / "kcdt_bumper_sting.wav"
-            sting_path = sting_pub if sting_pub.is_file() else (sting_repo if sting_repo.is_file() else None)
+            from lib.channels import load_channel, resolve_channel_asset
+            sting_rel = None
+            if channel_id:
+                try:
+                    ch_cfg = load_channel(channel_id)
+                    sting_rel = (ch_cfg.get("brand") or {}).get("bumper_sting")
+                except Exception:
+                    sting_rel = None
+            sting_path = (
+                resolve_channel_asset(channel_id, sting_rel, project_dir=project_dir)
+                if sting_rel
+                else None
+            )
+            if sting_path is None:
+                sting_pub = REPO / "remotion-composer" / "public" / "brand" / "kcdt_bumper_sting.wav"
+                sting_repo = REPO / "assets" / "brand" / "kcdt-bumper" / "kcdt_bumper_sting.wav"
+                sting_path = sting_pub if sting_pub.is_file() else (sting_repo if sting_repo.is_file() else None)
             if sting_path is not None:
                 m_bvol = re.search(r"<BrandBumper[^>]*\bstingVolume\s*=\s*\{([\d.]+)\}", ep_text)
                 bvol = float(m_bvol.group(1)) if m_bvol else 0.55
@@ -584,7 +605,7 @@ def premix_from_stems(
     bgm=None,
     timing_path=None,
     sfx_cues_json=None,
-    target_lufs=DEFAULT_TARGET_LUFS,
+    target_lufs=None,
     true_peak=-2.0,
     lra=DEFAULT_LRA,
     no_sfx=False,
@@ -595,9 +616,23 @@ def premix_from_stems(
     Eliminates the draft-render chicken-and-egg override (`mix_validation_failed`)
     and avoids double-AAC extraction loss.
     """
+    from lib.channels import detect_project_channel, resolve_channel_mix_profile
+
     project = Path(project).resolve()
     if not project.is_dir():
         raise InputError(f"project dir not found: {project}")
+    channel_id = detect_project_channel(project)
+    if target_lufs is None:
+        prof_path = resolve_channel_mix_profile(channel_id)
+        resolved_lufs = DEFAULT_TARGET_LUFS
+        if prof_path.is_file():
+            try:
+                prof_data = json.loads(prof_path.read_text(encoding="utf-8"))
+                if isinstance(prof_data, dict) and prof_data.get("target_lufs") is not None:
+                    resolved_lufs = float(prof_data["target_lufs"])
+            except Exception:
+                pass
+        target_lufs = resolved_lufs
     slug = project.name
     ep_dir = Path(episode_dir).resolve() if episode_dir else (REPO / "remotion-composer" / "src" / slug).resolve()
     pub_dir = Path(public_dir).resolve() if public_dir else (REPO / "remotion-composer" / "public" / slug).resolve()
@@ -652,7 +687,7 @@ def premix_from_stems(
                     raise InputError(f"SFX cue file not found: {c_path}")
                 cues.append((float(item["time_seconds"]), c_path, float(item.get("volume", 0.3))))
         else:
-            cues = _collect_sfx_cues(ep_dir, timing, sfx_root)
+            cues = _collect_sfx_cues(ep_dir, timing, sfx_root, channel_id=channel_id, project_dir=project)
 
     work = project / "renders" / "_master_work"
     qc_dir = project / "renders" / "audio_stems"
@@ -899,7 +934,7 @@ def main(argv=None):
     ap.add_argument("--public-dir", help="override remotion-composer/public/<slug> (for --from-stems)")
     ap.add_argument("--sfx-dir", help="override remotion-composer/public/sfx (for --from-stems)")
     ap.add_argument("--sfx-cues-json", help="optional JSON list of SFX cues [{time_seconds, file|path, volume}]")
-    ap.add_argument("--target-lufs", type=float, default=DEFAULT_TARGET_LUFS)
+    ap.add_argument("--target-lufs", type=float, default=None, help="Target LUFS (default from channel mix_profile.json or -11.0)")
     ap.add_argument("--true-peak", type=float, default=-2.0)
     ap.add_argument("--lra", type=float, default=DEFAULT_LRA)
     ap.add_argument("--no-sfx", action="store_true", help="declare no-sfx intent in generated mix_profile.json")

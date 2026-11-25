@@ -30,6 +30,16 @@ tests/qa/output/
 out/
 
 
+# Channel packs: track channel.yaml, docs, lexicons, mix profiles, SVGs; ignore heavy binaries
+channels/*/assets/**
+!channels/*/assets/**/
+!channels/*/assets/**/*.md
+!channels/*/assets/**/*.json
+!channels/*/assets/**/*.yaml
+!channels/*/assets/**/*.yml
+!channels/*/assets/**/*.svg
+!channels/*/assets/**/.gitkeep
+
 # Project workspaces: media/renders/audio stay LOCAL (regenerable or too big);
 # track per-project SOURCES + QC metadata only (scripts/, artifacts/, root *.json/*.md).
 projects/*/*
@@ -37,10 +47,27 @@ projects/*/*
 !projects/*/artifacts
 !projects/*/*.json
 !projects/*/*.md
+!projects/*/.gitkeep
+# Nested channel episodes: traverse projects/<channel>/<episode>/ and track only sources/QC
+# <channel-gitignore-rules>
+!projects/ky-chu-diem-tin/*/
+projects/ky-chu-diem-tin/*/*
+!projects/ky-chu-diem-tin/*/scripts
+!projects/ky-chu-diem-tin/*/artifacts
+!projects/ky-chu-diem-tin/*/*.json
+!projects/ky-chu-diem-tin/*/*.md
+!projects/vn-myth/*/
+projects/vn-myth/*/*
+!projects/vn-myth/*/scripts
+!projects/vn-myth/*/artifacts
+!projects/vn-myth/*/*.json
+!projects/vn-myth/*/*.md
+# </channel-gitignore-rules>
 # M-A: the editorial-language gate's hashed evidence artifact is machine-
 # generated per compose/audit run — never committable (validate_pre_render
 # re-derives and re-hashes it; a stale committed copy would hash-mismatch).
 projects/*/artifacts/editorial_language_evidence.json
+projects/*/*/artifacts/editorial_language_evidence.json
 # CC session task specs are working junk, not sources — never track
 projects/**/TASK_*.md
 # media & runtime junk never tracked, even inside whitelisted dirs

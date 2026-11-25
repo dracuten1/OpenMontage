@@ -217,7 +217,16 @@ Infrastructure files:
 
 ## Project Directory Convention
 
-Every production run creates a project workspace under `projects/`. This directory is gitignored — all generated assets are regenerable.
+Every production run creates a project workspace under `projects/` (either `projects/<channel>/<project-name>/` for channel-grouped episodes, or legacy flat `projects/<project-name>/`). This directory is gitignored for heavy media — all generated assets are regenerable.
+
+### Multi-Channel Architecture
+
+Channel-specific configuration, editorial rules, lexicons, mix profiles, and brand/BGM assets live in self-contained channel packs under `channels/`:
+- `channels/ky-chu-diem-tin/channel.yaml` (TikTok 9:16, `archival-editorial`, Safe Zone v3.2)
+- `channels/vn-myth/channel.yaml` (YouTube 16:9, `ink-genome`, Warm Archival Diorama)
+- Shared Remotion primitives (`remotion-composer/src/core/`), channel loader (`lib/channels.py`), and QC/audio tools (`tools/audio/build_episode_audio.py`, `tools/qc/ship_episode.py`) read `channel.yaml` automatically so layout fixes and tool improvements sync across all channels.
+- Create a new channel: `python tools/channels/new_channel.py <channel-id> --name "<Name>" --platform youtube|tiktok`
+- Validate & sync assets/tests across all channels: `python tools/channels/sync_channels.py --stage-assets --run-tests`
 
 ```
 projects/<project-name>/

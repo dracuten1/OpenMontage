@@ -13,8 +13,9 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Optional
 
+from lib.channels import detect_project_channel
 from lib.events import read_events
-from lib.paths import PROJECTS_DIR, REPO_ROOT  # single source of truth (env-overridable)
+from lib.paths import PROJECTS_DIR, REPO_ROOT, iter_project_dirs  # single source of truth (env-overridable)
 
 MEDIA_IMAGE_EXT = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"}
 MEDIA_VIDEO_EXT = {".mp4", ".webm", ".mov"}
@@ -639,6 +640,7 @@ def load_board_state(project_dir: Path) -> dict[str, Any]:
 
     state: dict[str, Any] = {
         "project_id": project_id,
+        "channel": detect_project_channel(project_dir),
         "title": marker.get("title") or meta_json.get("name") or project_id.replace("-", " ").title(),
         "pipeline": pipeline_meta,
         "style_playbook": marker.get("style_playbook"),
@@ -665,6 +667,7 @@ def summarize_project(project_dir: Path) -> dict[str, Any]:
     done = [s for s in state["stages"] if s["status"] == "completed"]
     return {
         "project_id": state["project_id"],
+        "channel": state.get("channel"),
         "title": state["title"],
         "pipeline_type": state["pipeline"]["pipeline_type"],
         "has_pipeline_state": state["has_pipeline_state"],
@@ -689,14 +692,16 @@ def list_projects(projects_dir: Optional[Path] = None) -> list[dict[str, Any]]:
     if not root.is_dir():
         return []
     summaries = []
-    for entry in sorted(root.iterdir()):
-        if not entry.is_dir() or entry.name.startswith(("_", ".")):
-            continue
+    for channel_name, entry in iter_project_dirs(root):
         try:
-            summaries.append(summarize_project(entry))
+            summary = summarize_project(entry)
+            if not summary.get("channel") and channel_name:
+                summary["channel"] = channel_name
+            summaries.append(summary)
         except Exception:
             summaries.append({
                 "project_id": entry.name,
+                "channel": channel_name,
                 "title": entry.name.replace("-", " ").title(),
                 "pipeline_type": "unknown",
                 "has_pipeline_state": False,

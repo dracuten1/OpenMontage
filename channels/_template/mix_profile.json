@@ -1,0 +1,1 @@
+{"schema":"openmontage.mix-profile","version":1,"target_lufs":-11.0,"lufs_tolerance":1,"ducking":{"music_volume_during_speech":0.22,"attack_ms":80,"release_ms":120,"min_reduction_db":12},"peak_limit":0.999,"silence_threshold":0.001,"boundary_tolerance_seconds":0.05,"windows":{"narration":[],"expected_silent":[],"expected_signal":[],"stem_windows":{}}}
