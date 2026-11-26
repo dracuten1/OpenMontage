@@ -2,8 +2,8 @@
 
 ## When To Use
 
-The user wants a short (30-180s) non-narrative piece built from existing
-footage — a thematic collage, essay film, or Adam-Curtis-style tone
+The user wants a flexible-duration non-narrative piece built from existing
+footage — a short or long-form thematic collage, essay film, or Adam-Curtis-style tone
 poem. The piece is NOT a narrated explainer, NOT a talking head, NOT a
 single extended scene. It is an arranged sequence of real-world clips
 whose meaning emerges from juxtaposition (Kuleshov effect,

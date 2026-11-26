@@ -16,6 +16,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import unicodedata
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
@@ -183,9 +184,20 @@ def run_speech_bounded_asr(
             language=language,
             beam_size=5,
             vad_filter=True,
-            word_timestamps=False,
+            word_timestamps=True,
         )
-        segs = [{"start": round(s.start, 2), "end": round(s.end, 2), "text": s.text.strip()} for s in segments]
+        segs: list[dict[str, Any]] = []
+        words: list[dict[str, Any]] = []
+        for s in segments:
+            segs.append({"start": round(s.start, 2), "end": round(s.end, 2), "text": s.text.strip()})
+            for w in getattr(s, "words", []) or []:
+                w_txt = str(w.word).strip()
+                if w_txt:
+                    words.append({
+                        "word": w_txt,
+                        "start": round(float(w.start), 3),
+                        "end": round(float(w.end), 3),
+                    })
 
     transcript = " ".join(s["text"] for s in segs).strip()
     result: dict[str, Any] = {
@@ -197,10 +209,11 @@ def run_speech_bounded_asr(
         "segments_count": len(segs),
         "transcript": transcript,
         "segments": segs,
+        "words": words,
     }
 
-    script_path = project_dir / "artifacts" / "script.json"
-    if script_path.is_file():
+    script_path = next((p for p in (project_dir / "artifacts" / "script.json", project_dir / "script.json") if p.is_file()), None)
+    if script_path is not None:
         script = json.loads(script_path.read_text(encoding="utf-8"))
         script_text = " ".join(str(sec.get("text", "")) for sec in script.get("sections", []))
         tok = lambda s: re.findall(r"[\w]+", s.lower())
@@ -209,6 +222,108 @@ def run_speech_bounded_asr(
             3,
         )
     return result
+
+
+def _norm_gate_token(s: str) -> str:
+    nfd = unicodedata.normalize("NFD", s.lower())
+    stripped = "".join(ch for ch in nfd if unicodedata.category(ch) != "Mn").replace("đ", "d")
+    return re.sub(r"[^a-z0-9]", "", stripped)
+
+
+def check_per_section_asr(
+    asr_words: list[dict[str, Any]],
+    scene_timing: dict[str, Any],
+    script: dict[str, Any],
+    *,
+    min_coverage: float = 0.52,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    """Verify each section in scene_timing has matching ASR words and intact tail."""
+    timing_sections = scene_timing.get("sections") or scene_timing.get("scenes") or []
+    script_by_id = {
+        str(sec.get("id", "")).lower(): sec
+        for sec in script.get("sections", [])
+        if isinstance(sec, dict)
+    }
+    rows: list[dict[str, Any]] = []
+    failures: list[str] = []
+
+    for idx, st in enumerate(timing_sections, start=1):
+        sid = str(st.get("section_id") or f"s{idx:02d}").lower()
+        t0 = float(st.get("start_seconds") or 0.0)
+        t1 = float(st.get("end_seconds") or 0.0)
+        sec = script_by_id.get(sid) or (script.get("sections", [])[idx - 1] if idx - 1 < len(script.get("sections", [])) else {})
+        disp_text = str(sec.get("text") or "")
+        prov_text = str(((sec.get("delivery_cues") or {}).get("provider_text")) or "")
+
+        disp_tokens = [_norm_gate_token(t) for t in disp_text.split() if _norm_gate_token(t)]
+        prov_tokens = [_norm_gate_token(t) for t in prov_text.split() if _norm_gate_token(t)]
+        ref_tokens = disp_tokens or prov_tokens
+
+        next_t0 = (
+            float(timing_sections[idx].get("start_seconds") or 0.0)
+            if idx < len(timing_sections)
+            else None
+        )
+        win_start = (t0 - 0.25) if idx == 1 else (t0 - 0.05)
+        win_end = (
+            (next_t0 - 0.05)
+            if (next_t0 is not None and abs(next_t0 - t1) <= 0.25)
+            else (t1 + 0.45)
+        )
+
+        sec_words = []
+        for w in asr_words:
+            ws = float(w.get("start", -1.0))
+            if ws < 0:
+                continue
+            we = float(w.get("end", ws))
+            w_mid = 0.5 * (ws + we) if we >= ws else ws
+            if win_start <= w_mid < win_end:
+                tok_w = _norm_gate_token(str(w.get("word", "")))
+                if tok_w:
+                    sec_words.append(tok_w)
+        coverage = round(len(sec_words) / max(1, len(ref_tokens)), 3)
+
+        tail_candidates = []
+        if disp_tokens:
+            tail_candidates.extend(disp_tokens[-2:])
+        if prov_tokens:
+            tail_candidates.extend(prov_tokens[-2:])
+        asr_tail = sec_words[-3:]
+
+        tail_matched = False
+        for st_tok in tail_candidates:
+            for at_tok in asr_tail:
+                if st_tok == at_tok or (len(st_tok) >= 3 and len(at_tok) >= 3 and SequenceMatcher(None, st_tok, at_tok).ratio() >= 0.65):
+                    tail_matched = True
+                    break
+            if tail_matched:
+                break
+
+        sec_ok = True
+        if not sec_words:
+            sec_ok = False
+            failures.append(f"section_empty_asr:{sid}")
+        else:
+            if tail_candidates and not tail_matched:
+                sec_ok = False
+                failures.append(f"section_tail_truncated:{sid} (expected_tail={disp_tokens[-3:] if disp_tokens else prov_tokens[-3:]}, asr_tail={asr_tail})")
+            if coverage < min_coverage:
+                sec_ok = False
+                failures.append(f"section_low_coverage:{sid} ({coverage}<{min_coverage})")
+
+        rows.append({
+            "section_id": sid,
+            "start_seconds": t0,
+            "end_seconds": t1,
+            "script_words": len(ref_tokens),
+            "asr_words": len(sec_words),
+            "coverage": coverage,
+            "tail_matched": tail_matched,
+            "ok": sec_ok,
+        })
+
+    return rows, failures
 
 
 def verify_project(
@@ -294,6 +409,14 @@ def verify_project(
         )
         if not asr_report.get("transcript"):
             failures.append("asr_empty_transcript: speech-bounded ASR produced empty transcript")
+        else:
+            script_path = next((p for p in (project_dir / "artifacts" / "script.json", project_dir / "script.json") if p.is_file()), None)
+            if script_path is not None and timing and asr_report.get("words"):
+                script_obj = json.loads(script_path.read_text(encoding="utf-8"))
+                sec_rows, sec_failures = check_per_section_asr(asr_report["words"], timing, script_obj)
+                asr_report["per_section_check"] = sec_rows
+                failures.extend(sec_failures)
+            asr_report.pop("words", None)
 
     passed = len(failures) == 0
     report: dict[str, Any] = {

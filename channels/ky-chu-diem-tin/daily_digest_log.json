@@ -1,0 +1,58 @@
+{
+  "schema": "openmontage.daily-digest-log",
+  "version": 1,
+  "channel": "ky-chu-diem-tin",
+  "runs": [
+    {
+      "date": "2026-11-26",
+      "slug": "diem-tin-20261126",
+      "title": "Điểm Tin 26/11: Xăng giảm, Cáp quang biển Việt, Mỹ siết chip ASEAN & Lãi suất 9,6%",
+      "topics": [
+        {
+          "pillar": "Kinh tế / Năng lượng",
+          "headline": "Xăng dầu đồng loạt giảm từ 15h ngày 26/11 (diesel giảm 1.380đ/lít, kỳ giảm thứ 6) giữa lúc Houthi tập kích nhà máy lọc dầu Ras Tanura 550.000 thùng/ngày",
+          "sources": [
+            "https://vnexpress.net/gia-xang-dau-moi-nhat-hom-nay-26-11-5149212.html",
+            "https://laodong.vn/thi-truong/gia-xang-dau-tiep-tuc-giam-co-loai-giam-toi-1382-donglit-1806980.ldo",
+            "https://vietnamnet.vn/gia-xang-dau-dong-loat-giam-dau-diesel-ha-toi-hon-1-300-dong-lit-2578888.html",
+            "https://vnexpress.net/houthi-tan-cong-nha-may-loc-dau-lon-nhat-arab-saudi-5149076.html"
+          ]
+        },
+        {
+          "pillar": "Công nghệ / Hạ tầng số",
+          "headline": "Khởi công tuyến cáp quang biển VTS (2.500 km, 600 Tbps, trục TP.HCM - Singapore 240 Tbps, độ trễ 12ms, chôn sâu 3m) đầu tiên do Việt Nam làm chủ",
+          "sources": [
+            "https://vnexpress.net/khoi-cong-tuyen-cap-quang-bien-dau-tien-do-nguoi-viet-lam-chu-5149069.html",
+            "https://thanhnien.vn/khoi-cong-tuyen-cap-quang-bien-quoc-te-dau-tien-do-viet-nam-khoi-xuong-185261126142709275.htm"
+          ]
+        },
+        {
+          "pillar": "Địa chính trị / Bán dẫn",
+          "headline": "Mỹ (BIS) siết cấp phép chip ≤16nm & data center tại 4 nước ASEAN (Singapore, Malaysia, Indonesia, Thái Lan); Rorze Nhật rót 330 triệu USD vào Hải Phòng và cảnh báo 50.000 kỹ sư từ SEMI SEA",
+          "sources": [
+            "https://www.taipeitimes.com/News/editorials/archives/2026/11/26/2003868397",
+            "https://www.itnews.asia/news/new-us-ai-chip-curbs-put-malaysias-datacentre-ambition-at-risk-630620",
+            "https://cafef.vn/khong-co-danh-sach-den-nao-vi-sao-xiaomi-oppo-vivo-bi-reo-ten-khi-tsmc-dung-don-chip-cua-trung-quoc-188261126132816377.chn",
+            "https://cafef.vn/sau-30-nam-dau-tu-o-viet-nam-dn-nhat-len-ke-hoach-xay-nha-may-rong-tuong-duong-33-san-bong-da-tai-mot-tp-phia-bac-la-doi-tac-cua-dai-bang-tcsm-tung-thuong-tet-len-den-12-thang-luong-nhan-vien-188261126140209007.chn",
+            "https://vnexpress.net/viet-nam-khong-the-chi-lam-lap-rap-trong-nganh-ban-dan-5148931.html"
+          ]
+        },
+        {
+          "pillar": "Tài chính cá nhân / Thị trường",
+          "headline": "Vàng SJC lên 134,5 triệu đồng/lượng (chênh thế giới 22,1 triệu) giữa lúc ngân hàng chào lãi suất ưu đãi tới 9,6%/năm và trái phiếu BVBank 9,5%/năm",
+          "sources": [
+            "https://thanhnien.vn/gia-vang-tang-tro-lai-chenh-lech-mua-ban-5-trieu-luong-185261126084531133.htm",
+            "https://vnexpress.net/ngan-hang-van-chao-lai-suat-tiet-kiem-toi-9-6-mot-nam-5148499.html",
+            "https://thanhnien.vn/lai-suat-huy-dong-len-95-nam-185261126111503295.htm"
+          ]
+        }
+      ],
+      "bgm": "tech-news-broadcast-bed.m4a",
+      "duration_s": 161.833,
+      "qc_status": "pass",
+      "publish_status": "published",
+      "tiktok_profile": "Profile 2",
+      "video_path": "/Users/tuyennguyen/project/OpenMontage/projects/ky-chu-diem-tin/diem-tin-20261126/renders/final.mp4"
+    }
+  ]
+}

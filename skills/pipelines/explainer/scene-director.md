@@ -159,36 +159,27 @@ Applies when the episode manifest declares `style_playbook == "editorial-explain
 - **Google Flow & Gemini Web Video B-Roll Asset Option (`.agents/skills/google-flow-asset/SKILL.md`, `.agents/skills/gemini-video-asset/SKILL.md`):** For short (`4–10s`) moving B-roll inside Swiss Split `top-split` (`1080×480–608px`) or media cards, plan a `google_flow_asset` (`16:9` · `Omni 1.2 Flash` · `360p` · `x1`) or `gemini_video_asset` (`16:9` · `720p` · `~10s`) clip paired with a required `remotion_native` graphic/map/chart layer (to pass R2/R3) and `AiBadge` (`MINH HỌA AI / <Concept>`). Never treat generated clips as standalone full videos or replacements for real press photos of named people/events.
 - **Every content (non-closing) scene must declare ≥1 GENUINE graphic-native layer**: `document_cutout` (via `t2i_chroma_key` or `web_plus_i2i` + `remove_bg`), `data_viz` (via remotion_native chart/map/timeline components), or `evidence_annotation` (via remotion_native highlighter/chip). Every non-closing scene TSX in `news-editorial-motion` MUST render at least one genuine SVG / chart / map / timeline / cutout layer (a standalone `HighlightBar` without `<svg>` fails `EL-GRAPHIC-NATIVE-MISSING`). Photo-frame dominance is role-independent: ANY `hero` layer is blocked whatever its method, and any photo layer (`t2i` method or photoreal-lexicon prompt/prompt_digest hit) covering ≥ 0.85 of the canvas is blocked whatever its declared role — a `background` texture backplate is permitted only BELOW that threshold.
 - **Portrait framing in `ArchivalSpotlight`:** Vertical portrait photos inside `ArchivalSpotlight` MUST default to `objectPosition="center 24%"` (to avoid cropping lower face/chin) and `quoteEnterFrame <= 60` so highlighted pull-quotes reveal cleanly before scene midpoint.
-- **Speech-locked EXCLUSIVE highlight:** exactly ONE highlight per scene, locked to the speech-contract anchor windows (active/settled/ghost opacities keyed to cue windows).
+- **Speech-locked EXCLUSIVE highlight & `cueFrame()` triggers:** exactly ONE highlight per scene, locked to the speech-contract anchor windows (active/settled/ghost opacities keyed to cue windows). Never guess hardcoded `enter` / `enterFrame` offsets `> 30f`; always bind every timed reveal and chart/card entrance to spoken phrases via `cueFrame(sectionId, phrase, fallback, leadFrames=3)` from `timing.ts` (enforced by `tools/qc/cue_sync_gate.py`).
 - **Closing-scene budget:** at most ONE scene is exempt: the LAST scene in the manifest array, whose non-empty layer-role set is a subset of `{background, background_texture, editorial_typography, attribution}` and contains at least one `editorial_typography` layer. Any other scene — including a last scene with only a background photo — remains a content scene subject to graphic-native and photo-dominance rules.
 - **Zero unresolved `anchor:` placeholders** anywhere in the manifest — every frame-valued leaf must be speech-locked to a real frame.
 
 **Canonical shared kit (`remotion-composer/src/components/`):** import `SceneShell`, `HeroTitle`, `HighlightBar`, `EditorialMap`, `ArchivalSpotlight`, `FlowTimeline`, `ComparisonSplit`, `EditorialLineChart`, and `EditorialBarChart` directly instead of duplicating per-project `SceneShell.tsx` files. (You may study `remotion-composer/src/xang-dau-demo-20261107/Episode.tsx` for isolated motion techniques like count-up axis math and parallax drift, never reusing its story shape or dark styling.)
 
-### Step 4b: Write Narration with Duration Budget
+### Step 4b: Align Scene Timing with Narration (Content-Driven by Default)
 
-If the video includes narration, the script **must** be written to fit the video duration.
+Unless the user explicitly locked a fixed duration limit (or matched to fixed pre-recorded footage), video duration should follow the script and measured TTS narration rather than trimming facts to squeeze into an arbitrary time box:
 
-**Duration budgeting formula:**
-1. Calculate total video duration from scene timings (last cut's `out_seconds`).
-2. Target narration at **85-90%** of video duration to leave breathing room at intro/outro.
-3. Budget words: **2.0-2.5 words/second** for documentary style with natural pauses; **2.5-3.0 words/second** for energetic/fast-paced delivery.
-4. Example: 53s video → target 45-48s of narration → 90-120 words max (documentary) or 112-144 words (energetic).
+**Duration estimation formula (when pacing/estimating):**
+1. Sum final section end times (including post-audio breathing pad, e.g. `0.25s`, plus outro bumper if enabled).
+2. Target narration at **85-90%** of non-bumper duration where visual-only pauses/transitions are intentional; for continuous narrated explainers, lock scene frames directly to `build_episode_audio.py` / Whisper word alignment.
+3. Reference speech rates: **2.0-2.5 words/second** for documentary style with natural pauses; **2.5-3.0 words/second** for energetic delivery.
+4. Keep visual beat changes every **4–7s** (`cueFrame`) inside longer scenes so visuals never freeze.
 
-**Per-scene word budgets:**
-- Allocate words proportionally to each scene's duration.
-- A 5s scene gets ~10-12 words. A 6s scene gets ~12-15 words.
-- Leave 0.5-1s of silence between scene transitions for visual breathing room.
-
-**Validation (mandatory before TTS generation):**
-- [ ] Total word count is within budget for the target duration
-- [ ] No single scene's narration exceeds its time slot
-- [ ] Opening and closing scenes have brief narration (let visuals breathe)
-
-**After TTS generation:**
-- The TTS tool returns `audio_duration_seconds` — compare it against video duration.
-- If narration exceeds video by >1s, either trim the script and regenerate, or extend the video's closing scene.
-- Always run `composition_validator` before rendering to catch mismatches automatically.
+**Validation (before and after TTS generation):**
+- [ ] Every scene has visual beats matching its spoken length (no `>6s` static holds)
+- [ ] No single scene's narration overflows its allocated time slot
+- [ ] After TTS generation (`audio_duration_seconds` / `scene_timing.json`), lock scene end frames to measured audio (never truncate narration). Only trim and re-synthesize when a user explicitly locked a fixed total duration and speech exceeds it by `>1s`; otherwise extend scene/video timing cleanly to fit measured TTS.
+- [ ] Always run `composition_validator` / `timing_relock_guard` before rendering to catch mismatches automatically.
 
 ### Step 4c: 5-Aspect Scene-Plan Checklist
 

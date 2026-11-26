@@ -5,7 +5,8 @@ Executes the deterministic Antigravity v3.0 ship pipeline in order, stopping on 
   1. TypeScript check (`npx tsc --noEmit` in remotion-composer/)
   2. Source photo gate (`source_photo_gate.py`, when provenance.json exists or real photos declared)
   3. Fact whitelist gate (`fact_whitelist_gate.py`, when whitelist exists)
-  4. Editorial language gate (`editorial_language_gate.py`, when editorial lane detected)
+  4. Legal audit gate (`legal_audit_gate.py`, when channel enables it or artifacts/legal_audit.json exists)
+  5. Editorial language gate (`editorial_language_gate.py`, when editorial lane detected)
   5. Lossless audio pre-mix + mix validator (`mixdown.py --from-stems` + `tools.qc.mix_validator`)
   6. Guarded Remotion render (`render_episode.py <comp> <raw_mp4> --agy`)
   7. Lossless master audio mux + optional 720p preview (`mixdown.py --mux-only`)
@@ -130,6 +131,14 @@ def ship_episode(
         )
         executed.append("fact_whitelist_gate")
 
+    if "legal_audit_gate" in qc_gates or (proj / "artifacts" / "legal_audit.json").is_file():
+        _run_step(
+            "legal_audit_gate",
+            [python_exe, str(REPO_ROOT / "tools/qc/legal_audit_gate.py"), "--project", str(proj)],
+            runner=runner,
+        )
+        executed.append("legal_audit_gate")
+
     if _has_editorial_lane(proj) or "editorial_language_gate" in qc_gates:
         _run_step(
             "editorial_language_gate",
@@ -137,6 +146,14 @@ def ship_episode(
             runner=runner,
         )
         executed.append("editorial_language_gate")
+
+    if (REPO_ROOT / "remotion-composer" / "public" / proj.name / "cues.json").is_file() or (proj / "artifacts" / "aligned_cues.json").is_file():
+        _run_step(
+            "cue_sync_gate",
+            [python_exe, str(REPO_ROOT / "tools/qc/cue_sync_gate.py"), "--project", str(proj)],
+            runner=runner,
+        )
+        executed.append("cue_sync_gate")
 
     mix_cmd = [python_exe, str(REPO_ROOT / "tools/qc/mixdown.py"), "--from-stems", "--project", str(proj)]
     if no_sfx:

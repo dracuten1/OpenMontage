@@ -62,9 +62,9 @@ YOUTUBE_SHORTS = MediaProfile(
     width=1080, height=1920,
     aspect_ratio=AspectRatio.PORTRAIT_9_16,
     fps=30, codec="libx264", audio_codec="aac", crf=20,
-    max_duration_seconds=60,
+    max_duration_seconds=180,
     caption_format="srt",
-    notes="YouTube Shorts (max 60s, vertical)",
+    notes="YouTube Shorts (up to 3 min, vertical)",
 )
 
 INSTAGRAM_REELS = MediaProfile(
@@ -73,9 +73,9 @@ INSTAGRAM_REELS = MediaProfile(
     aspect_ratio=AspectRatio.PORTRAIT_9_16,
     fps=30, codec="libx264", audio_codec="aac", crf=20,
     max_file_size_mb=250,
-    max_duration_seconds=90,
+    max_duration_seconds=180,
     caption_format="srt",
-    notes="Instagram Reels (max 90s, vertical)",
+    notes="Instagram Reels (up to 3 min, vertical)",
 )
 
 INSTAGRAM_FEED = MediaProfile(

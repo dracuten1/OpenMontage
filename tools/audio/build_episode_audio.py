@@ -7,9 +7,10 @@ aligns word timestamps via faster-whisper, and emits schema-valid artifacts:
   - projects/<slug>/assets/audio/voice_<sid>.wav (+ public/<slug>/audio/)
   - projects/<slug>/assets/scene_timing.json (+ public/<slug>/scene_timing.json)
   - projects/<slug>/assets/words.json, artifacts/narration_words.json, public/<slug>/words.json
+  - projects/<slug>/artifacts/aligned_cues.json & remotion-composer/public/<slug>/cues.json
   - projects/<slug>/assets/subtitles.srt
   - remotion-composer/public/<slug>/captions.json (canonical scene-local start/end)
-  - remotion-composer/src/<slug>/timing.ts (and optional index.ts via --write-entry)
+  - remotion-composer/src/<slug>/timing.ts (and optional index.tsx via --write-entry)
   - projects/<slug>/artifacts/asset_manifest.json & artifacts/edit_decisions.json
   - Updates script.json section windows and scene_manifest.json duration_frames
 """
@@ -22,10 +23,13 @@ import re
 import shutil
 import subprocess
 import sys
+import unicodedata
 import wave
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any, Callable
+
+import numpy as np
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
@@ -71,6 +75,178 @@ def _apply_lexicon(text: str, lexicon: dict[str, Any] | None) -> str:
 def _probe_wav_duration(wav_path: Path) -> float:
     with wave.open(str(wav_path), "rb") as w:
         return round(w.getnframes() / float(w.getframerate()), 3)
+
+
+def _norm_ascii_token(s: str) -> str:
+    nfd = unicodedata.normalize("NFD", s.lower())
+    stripped = "".join(ch for ch in nfd if unicodedata.category(ch) != "Mn").replace("đ", "d")
+    return re.sub(r"[^a-z0-9]", "", stripped)
+
+
+def _split_tts_chunks(text: str, max_chars: int = 150) -> list[tuple[str, float]]:
+    """Split Vietnamese narration into safe chunks <= max_chars so VieNeu Turbo
+    never hits its 300-frame (~10.9s) per-chunk ceiling and truncates tail words.
+    """
+    cleaned = re.sub(r"\s+", " ", (text or "").strip())
+    if not cleaned:
+        return []
+    if max_chars <= 0 or len(cleaned) <= max_chars:
+        return [(cleaned, 0.0)]
+
+    def _split_long_piece(piece: str) -> list[str]:
+        if len(piece) <= max_chars:
+            return [piece]
+        sub_parts = re.split(r"(?<=[,;])\s+|\s+—\s+", piece)
+        out: list[str] = []
+        buf = ""
+        for sp in sub_parts:
+            sp = sp.strip()
+            if not sp:
+                continue
+            cand = f"{buf} {sp}".strip() if buf else sp
+            if len(cand) <= max_chars:
+                buf = cand
+            else:
+                if buf:
+                    out.append(buf)
+                if len(sp) <= max_chars:
+                    buf = sp
+                else:
+                    words = sp.split()
+                    wbuf = ""
+                    for w in words:
+                        wcand = f"{wbuf} {w}".strip() if wbuf else w
+                        if len(wcand) <= max_chars:
+                            wbuf = wcand
+                        else:
+                            if wbuf:
+                                out.append(wbuf)
+                            wbuf = w
+                    buf = wbuf
+        if buf:
+            out.append(buf)
+        return out
+
+    sentences = re.split(r"(?<=[.?!;])\s+|\s+—\s+", cleaned)
+    pieces: list[str] = []
+    for sent in sentences:
+        sent = sent.strip()
+        if sent:
+            pieces.extend(_split_long_piece(sent))
+
+    grouped: list[str] = []
+    cur = ""
+    for p in pieces:
+        cand = f"{cur} {p}".strip() if cur else p
+        if cur and len(cand) <= max_chars:
+            cur = cand
+        else:
+            if cur:
+                grouped.append(cur)
+            cur = p
+    if cur:
+        grouped.append(cur)
+
+    result: list[tuple[str, float]] = []
+    for i, chunk in enumerate(grouped):
+        if i == len(grouped) - 1:
+            pause = 0.0
+        elif chunk.endswith((".", "?", "!")):
+            pause = 0.18
+        elif chunk.endswith((",", ";", "—", ":")):
+            pause = 0.09
+        else:
+            pause = 0.05
+        result.append((chunk, pause))
+    return result
+
+
+def _concat_wavs_with_pauses(chunk_wavs: list[tuple[Path, float]], out_wav: Path) -> None:
+    if not chunk_wavs:
+        raise ValueError("No chunk WAVs to concatenate")
+    arrays: list[np.ndarray] = []
+    target_sr: int | None = None
+    for idx, (wav_p, pause_sec) in enumerate(chunk_wavs):
+        with wave.open(str(wav_p), "rb") as w:
+            sr = w.getframerate()
+            ch = w.getnchannels()
+            sw = w.getsampwidth()
+            raw = w.readframes(w.getnframes())
+        if sw != 2:
+            raise ValueError(f"Unsupported sample width {sw} in {wav_p}")
+        if target_sr is None:
+            target_sr = sr
+        elif sr != target_sr:
+            resamp = wav_p.with_suffix(".resamp.wav")
+            subprocess.run(
+                ["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav_p), "-ar", str(target_sr), "-ac", "1", str(resamp)],
+                check=True,
+            )
+            with wave.open(str(resamp), "rb") as wr:
+                raw = wr.readframes(wr.getnframes())
+                ch = wr.getnchannels()
+            resamp.unlink(missing_ok=True)
+        arr = np.frombuffer(raw, dtype="<i2")
+        if ch > 1:
+            arr = arr.reshape(-1, ch).mean(axis=1).astype("<i2")
+        arrays.append(arr)
+        if idx < len(chunk_wavs) - 1 and pause_sec > 0.0 and target_sr:
+            arrays.append(np.zeros(int(round(pause_sec * target_sr)), dtype="<i2"))
+
+    merged = np.concatenate(arrays) if arrays else np.zeros(0, dtype="<i2")
+    out_wav.parent.mkdir(parents=True, exist_ok=True)
+    with wave.open(str(out_wav), "wb") as wo:
+        wo.setnchannels(1)
+        wo.setsampwidth(2)
+        wo.setframerate(target_sr or 48000)
+        wo.writeframes(merged.tobytes())
+
+
+def _check_section_completeness(
+    display_text: str,
+    provider_text: str,
+    asr_words: list[dict[str, Any]],
+    *,
+    min_coverage: float = 0.58,
+) -> dict[str, Any]:
+    disp_tokens = [_norm_ascii_token(t) for t in str(display_text or "").split() if _norm_ascii_token(t)]
+    prov_tokens = [_norm_ascii_token(t) for t in str(provider_text or "").split() if _norm_ascii_token(t)]
+    asr_tokens = [_norm_ascii_token(str(w.get("word", ""))) for w in asr_words if _norm_ascii_token(str(w.get("word", "")))]
+
+    ref_tokens = disp_tokens or prov_tokens
+    coverage = round(len(asr_tokens) / max(1, len(ref_tokens)), 3)
+
+    tail_candidates = []
+    if disp_tokens:
+        tail_candidates.extend(disp_tokens[-2:])
+    if prov_tokens:
+        tail_candidates.extend(prov_tokens[-2:])
+    asr_tail = asr_tokens[-3:]
+
+    tail_matched = False
+    for st in tail_candidates:
+        for at in asr_tail:
+            if st == at or (len(st) >= 3 and len(at) >= 3 and SequenceMatcher(None, st, at).ratio() >= 0.65):
+                tail_matched = True
+                break
+        if tail_matched:
+            break
+
+    reasons: list[str] = []
+    if not tail_matched and tail_candidates:
+        reasons.append(f"tail_truncated(expected_tail={disp_tokens[-3:] if disp_tokens else prov_tokens[-3:]}, asr_tail={asr_tail})")
+    if coverage < min_coverage:
+        reasons.append(f"low_coverage({coverage}<{min_coverage})")
+
+    return {
+        "ok": len(reasons) == 0,
+        "coverage": coverage,
+        "tail_matched": tail_matched,
+        "script_words": len(ref_tokens),
+        "asr_words": len(asr_tokens),
+        "asr_tail": asr_tail,
+        "reasons": reasons,
+    }
 
 
 def _default_tts_runner(text: str, out_raw_wav: Path, *, voice: str | None, threads: int) -> None:
@@ -128,7 +304,7 @@ def _align_script_tokens_to_asr(
         first = i
         while i < len(slots) and slots[i] is None:
             i += 1
-        lo = slots[first - 1][1] if first else 0.0
+        lo = slots[first - 1][1] if first else (float(asr_words[0]["start"]) if asr_words else 0.0)
         hi = slots[i][0] if i < len(slots) else audio_sec
         hi = max(lo, hi)
         count = i - first
@@ -182,11 +358,24 @@ def _pascal_case(slug: str) -> str:
 def _render_timing_ts(slug: str, fps: int, sections: list[dict[str, Any]], scenes_end_frame: int, total_frames: int) -> str:
     lines = [
         f"// Frozen timing contract derived strictly from projects/{slug}/assets/scene_timing.json",
+        f'import cuesData from "../../public/{slug}/cues.json";',
         'import { BRAND_BUMPER_FRAMES } from "../components/news";',
+        'import { CuesMap, resolveCueFrame } from "../core/timingCues";',
         "",
         f"export const FPS = {fps} as const;",
         f'export const ASSET_BASE = "{slug}" as const;',
         'export const ARCHIVAL_IMG_FILTER = "contrast(1.08) brightness(0.92)" as const;',
+        "",
+        "const ALIGNED_CUES: CuesMap = (cuesData as { cues?: CuesMap }).cues ?? {};",
+        "",
+        "export function cueFrame(",
+        "  sectionId: string,",
+        "  phrase: string,",
+        "  fallbackFrame = 0,",
+        "  leadFrames = 3,",
+        "): number {",
+        "  return resolveCueFrame(ALIGNED_CUES, sectionId, phrase, fallbackFrame, leadFrames);",
+        "}",
         "",
         "export function after(frame: number, start: number): boolean {",
         "  return frame >= start;",
@@ -278,6 +467,9 @@ def build_episode_audio(
     threads: int = 4,
     skip_tts: bool = False,
     force_tts: bool = False,
+    trim_leading_silence: bool = True,
+    max_chunk_chars: int = 150,
+    verify_tail: bool = True,
     bgm_path: Path | str | None = None,
     write_entry: bool = False,
     composer_root: Path | None = None,
@@ -355,38 +547,75 @@ def build_episode_audio(
     if transcribe_fn is None:
         transcribe_fn = _default_whisper_transcriber(whisper_model, language)
 
-    # 1. TTS + atempo per section
+    def _synthesize_section_wav(
+        raw_text: str,
+        raw_wav: Path,
+        out_wav: Path,
+        sid: str,
+        *,
+        chunk_limit: int,
+        regenerate: bool,
+    ) -> None:
+        if regenerate or not raw_wav.is_file():
+            chunks = _split_tts_chunks(raw_text, max_chars=chunk_limit)
+            if len(chunks) <= 1:
+                tts_fn(raw_text, raw_wav)
+            else:
+                chunk_wavs: list[tuple[Path, float]] = []
+                for c_idx, (c_text, pause_s) in enumerate(chunks, start=1):
+                    c_wav = raw_dir / f"raw_{sid}_c{c_idx}.wav"
+                    tts_fn(c_text, c_wav)
+                    chunk_wavs.append((c_wav, pause_s))
+                _concat_wavs_with_pauses(chunk_wavs, raw_wav)
+        filters: list[str] = []
+        if trim_leading_silence:
+            filters.append("silenceremove=start_periods=1:start_duration=0.015:start_threshold=-42dB")
+        if abs(speed - 1.0) > 1e-3:
+            filters.append(f"atempo={speed:.3f}")
+        if filters:
+            subprocess.run(
+                [
+                    "ffmpeg", "-y", "-loglevel", "error", "-i", str(raw_wav),
+                    "-filter:a", ",".join(filters), "-ar", "48000", "-ac", "1", str(out_wav),
+                ],
+                check=True,
+            )
+        else:
+            shutil.copy2(raw_wav, out_wav)
+
+    # 1. TTS + safe sub-chunking + silence trim + atempo per section
+    section_raw_texts: dict[str, str] = {}
     for sec in sections:
         sid = str(sec["id"]).lower()
         out_wav = audio_dir / f"voice_{sid}.wav"
         pub_wav = pub_audio / f"voice_{sid}.wav"
         raw_wav = raw_dir / f"raw_{sid}.wav"
 
+        cues = sec.get("delivery_cues") or {}
+        raw_text = str(cues.get("provider_text") or "").strip() or _apply_lexicon(str(sec.get("text") or ""), lexicon)
+        section_raw_texts[sid] = raw_text
+
         if not skip_tts:
-            cues = sec.get("delivery_cues") or {}
-            raw_text = str(cues.get("provider_text") or "").strip() or _apply_lexicon(str(sec.get("text") or ""), lexicon)
-            if force_tts or not raw_wav.is_file():
-                tts_fn(raw_text, raw_wav)
-            if abs(speed - 1.0) > 1e-3:
-                subprocess.run(
-                    [
-                        "ffmpeg", "-y", "-loglevel", "error", "-i", str(raw_wav),
-                        "-filter:a", f"atempo={speed:.3f}", "-ar", "48000", "-ac", "1", str(out_wav),
-                    ],
-                    check=True,
-                )
-            else:
-                shutil.copy2(raw_wav, out_wav)
+            _synthesize_section_wav(
+                raw_text,
+                raw_wav,
+                out_wav,
+                sid,
+                chunk_limit=max_chunk_chars,
+                regenerate=force_tts,
+            )
         elif not out_wav.is_file():
             raise FileNotFoundError(f"--skip-tts set but voice stem missing: {out_wav}")
 
         shutil.copy2(out_wav, pub_wav)
 
-    # 2. Whisper alignment + scene timing + captions
+    # 2. Whisper alignment + per-section tail completeness guard + scene timing + captions
     scene_timing: list[dict[str, Any]] = []
     narration_words: dict[str, Any] = {}
     words_sections: dict[str, list[dict[str, Any]]] = {}
+    aligned_cues: dict[str, list[dict[str, Any]]] = {}
     captions: dict[str, list[dict[str, Any]]] = {}
+    completeness_report: dict[str, Any] = {}
     srt_entries: list[tuple[list[str], float, float]] = []
 
     cursor_sec = 0.0
@@ -395,10 +624,35 @@ def build_episode_audio(
         sid = str(sec["id"]).lower()
         scene_code = f"S{idx:02d}"
         wav = audio_dir / f"voice_{sid}.wav"
+        pub_wav = pub_audio / f"voice_{sid}.wav"
+        raw_wav = raw_dir / f"raw_{sid}.wav"
         audio_sec = _probe_wav_duration(wav)
         asr_words = transcribe_fn(wav)
         if not asr_words:
             raise RuntimeError(f"ASR returned zero words for {sid} ({wav})")
+
+        disp_text = str(sec.get("text") or "")
+        prov_text = section_raw_texts.get(sid, disp_text)
+        comp = _check_section_completeness(disp_text, prov_text, asr_words)
+        if not comp["ok"] and verify_tail:
+            if not skip_tts:
+                tighter_limit = min(95, max_chunk_chars) if max_chunk_chars > 0 else 95
+                _synthesize_section_wav(
+                    prov_text,
+                    raw_wav,
+                    wav,
+                    sid,
+                    chunk_limit=tighter_limit,
+                    regenerate=True,
+                )
+                shutil.copy2(wav, pub_wav)
+                audio_sec = _probe_wav_duration(wav)
+                asr_words = transcribe_fn(wav)
+                comp = _check_section_completeness(disp_text, prov_text, asr_words)
+                comp["retried"] = True
+            if not comp["ok"]:
+                raise RuntimeError(f"TTS tail/completeness guard failed for {sid}: {comp['reasons']}")
+        completeness_report[sid] = comp
 
         start_sec = round(cursor_sec, 3)
         dur_sec = round(audio_sec + tail_seconds, 3)
@@ -452,6 +706,16 @@ def build_episode_audio(
 
         tokens = str(sec.get("text") or "").split()
         slots = _align_script_tokens_to_asr(tokens, asr_words, audio_sec)
+        aligned_cues[sid] = [
+            {
+                "word": tok,
+                "start": st,
+                "end": en,
+                "start_frame": int(round(st * fps)),
+                "end_frame": int(round(en * fps)),
+            }
+            for tok, (st, en) in zip(tokens, slots)
+        ]
         sec_chunks, sec_srt = _chunk_captions(tokens, slots, section_start_sec=start_sec)
         captions[sid] = sec_chunks
         srt_entries.extend(sec_srt)
@@ -484,6 +748,10 @@ def build_episode_audio(
     _atomic_write_json(proj / "assets" / "words.json", {"version": "1.0", "project_id": slug, "sections": words_sections})
     _atomic_write_json(proj / "artifacts" / "narration_words.json", narration_words)
     _atomic_write_json(pub / "words.json", narration_words)
+    cues_payload = {"version": "1.0", "fps": fps, "clock": "scene_local", "cues": aligned_cues}
+    _atomic_write_json(proj / "artifacts" / "aligned_cues.json", cues_payload)
+    _atomic_write_json(pub / "cues.json", cues_payload)
+    _atomic_write_json(proj / "artifacts" / "tts_completeness.json", {"version": "1.0", "sections": completeness_report})
     _atomic_write_json(pub / "captions.json", {"version": "1.0", "clock": "scene_local", "captions": captions})
 
     srt_lines = [
@@ -608,10 +876,13 @@ def build_episode_audio(
         "metadata": {"tail_seconds": tail_seconds, "total_frames": total_frames},
     })
 
-    # 5. Remotion timing.ts (+ optional index.ts)
+    # 5. Remotion timing.ts (+ optional index.tsx)
     _atomic_write_text(comp_src / "timing.ts", _render_timing_ts(slug, fps, scene_timing, scenes_end_frame, total_frames))
     if write_entry:
-        _atomic_write_text(comp_src / "index.ts", _render_episode_index_ts(slug, fps))
+        stale_ts = comp_src / "index.ts"
+        if stale_ts.is_file():
+            stale_ts.unlink()
+        _atomic_write_text(comp_src / "index.tsx", _render_episode_index_ts(slug, fps))
 
     return {
         "project": slug,
@@ -622,6 +893,7 @@ def build_episode_audio(
         "total_frames": total_frames,
         "timing_ts": str(comp_src / "timing.ts"),
         "captions_json": str(pub / "captions.json"),
+        "cues_json": str(pub / "cues.json"),
     }
 
 
@@ -641,8 +913,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--threads", type=int, default=4)
     ap.add_argument("--skip-tts", action="store_true", help="Reuse existing assets/audio/voice_*.wav files")
     ap.add_argument("--force-tts", action="store_true", help="Regenerate raw TTS even if cached")
+    ap.add_argument("--no-trim-leading-silence", action="store_true", help="Keep raw TTS leading silence instead of trimming below -42dB")
+    ap.add_argument("--max-chunk-chars", type=int, default=150, help="Split narration into safe sub-chunks <= N chars before TTS (0 disables)")
+    ap.add_argument("--no-verify-tail", action="store_true", help="Disable per-section ASR tail completeness guard")
     ap.add_argument("--bgm", default=None, help="Optional BGM file or filename in channel assets/bgm/ to trim, normalize (-16 LUFS), and stage")
-    ap.add_argument("--write-entry", action="store_true", help="Write per-episode remotion-composer/src/<slug>/index.ts")
+    ap.add_argument("--write-entry", action="store_true", help="Write per-episode remotion-composer/src/<slug>/index.tsx")
     args = ap.parse_args(argv)
 
     summary = build_episode_audio(
@@ -660,6 +935,9 @@ def main(argv: list[str] | None = None) -> int:
         threads=args.threads,
         skip_tts=args.skip_tts,
         force_tts=args.force_tts,
+        trim_leading_silence=not args.no_trim_leading_silence,
+        max_chunk_chars=args.max_chunk_chars,
+        verify_tail=not args.no_verify_tail,
         bgm_path=args.bgm,
         write_entry=args.write_entry,
     )

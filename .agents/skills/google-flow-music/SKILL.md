@@ -26,6 +26,8 @@ Use this skill when an OpenMontage video needs a **new instrumental background m
 | `ffmpeg` / `ffprobe` | Inspect duration/codec/sample rate, trim stingers, or strip cover art (`-vn`) | `which ffprobe ffmpeg` |
 | Reusable BGM catalog | Destination for reusable series tracks (`music_library/bgm/`) | `ls music_library/bgm/` |
 
+> **Speed & Multi-Profile Rule:** Read `~/.gemini/config/skills/agent-desktop-web/SKILL.md` first — always scope `snapshot`/`find` by `window_id` when 2+ Chrome profiles are open, use `desktop_batch` / `agent-desktop find` instead of repeated full-tree `max_depth=30` dumps, and prefer `pbpaste` or AX `statictext` over `desktop_clipboard_get` on macOS Homebrew installs.
+
 ---
 
 ## Verified Output Characteristics

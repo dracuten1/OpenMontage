@@ -52,7 +52,7 @@
           },
           "engagement_design": {
             "type": "object",
-            "description": "Populated when engagement_mode='debate_engagement'. Scales dynamically for videos of any duration (including 30s-300s / up to 5 minutes).",
+            "description": "Populated when engagement_mode='debate_engagement'. Scales dynamically for videos of any duration (fully flexible, no hard upper limit).",
             "properties": {
               "opening_hook_type": {
                 "type": "string",
@@ -60,7 +60,7 @@
               },
               "friction_beats": {
                 "type": "array",
-                "description": "1-3 mid-roll micro-questions scaled to video duration (1 for <=60s, 1-2 for 60-180s, 2-3 for 180-300s).",
+                "description": "Mid-roll micro-questions scaled dynamically to video duration (~1 for <=60s, 1-2 for 60-180s, 2-3+ for 180s+, adding roughly 1 per 60-90s / chapter pivot).",
                 "items": {
                   "type": "object",
                   "required": ["timestamp_hint_or_act", "prompt_text"],

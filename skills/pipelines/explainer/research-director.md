@@ -14,7 +14,12 @@ This stage is what separates an OpenMontage video from generic AI slop. Without 
 |-------|----------|---------|
 | Schema | `schemas/artifacts/research_brief.schema.json` | Artifact validation |
 | User input | Topic, audience hint, platform hint | Research scope |
-| Tools | Web search, web fetch | Research execution |
+| Tools | `gemini_web_search` (primary on unlocked desktop), `searxng_web_search` + `web_url_read` / `web_search` (verification & headless fallback) | Research execution |
+
+### Research Backend Priority (Hybrid — Desktop + Headless)
+
+1. **Primary (Interactive / unlocked macOS Chrome):** Use `gemini_web_search` (`tools/analysis/gemini_web_search.py` → `gemini.google.com/app` via `agent-desktop` / `chrome_ax_helper.py`, rotating `Default` → `Profile 2` → `Profile 5` with `--prefer-copy-code`) for Google-grounded multi-source discovery and Research v2 drafting at ~0 Antigravity tokens.
+2. **Primary-Source Verification & Headless Fallback:** Never mark a claim `PRIMARY_FETCHED` from a Gemini Web summary alone — fetch and verify exact figures, dates, and entity names on the original publisher URL via `web_url_read` (SearXNG MCP) or `curl`. When Chrome GUI is unavailable (locked screen / headless cron) or all 3 profiles hit quota, fall back automatically to `searxng_web_search` + `web_url_read`, 9Router `web_search`, or native `search_web`.
 
 ## Process
 
@@ -246,12 +251,13 @@ Produce 2–3 ranked hook candidates per event, each citing explicit `fact_id`s 
 Every research run operates in one of two explicit modes (record `engagement_mode` in the brief; default to `standard` unless the user selects `debate_engagement`):
 
 - **Mode 1 — `standard` (Default / Current Baseline):** Pure informational and analytical research. Do **NOT** invent controversy, force two-camp arguments, or add debate questions. Use the standard 5-angle matrix and 5-dimension hook rubric above as-is.
-- **Mode 2 — `debate_engagement` (Hook + Open Questions + Debate Mode):** Activate when the user wants higher comment velocity, debate, and retention (works for any video length, from 30s shorts up to 5-minute deep dives). In addition to all standard Research v2 outputs, add:
+- **Mode 2 — `debate_engagement` (Hook + Open Questions + Debate Mode):** Activate when the user wants higher comment velocity, debate, and retention (works for any video length — fully flexible, no hard duration cap). In addition to all standard Research v2 outputs, add:
   1. **6th Angle (`tradeoff-debate` / `fault-line`):** Identify where real people, experts, or affected groups genuinely split into two defensible camps (Camp A vs. Camp B).
   2. **6th Hook Rubric Dimension — `debate_voltage` (0–5):** Score how strongly the hook touches personal stakes, fairness, or a real decision where viewers immediately pick a side. Keep `fragility_penalty` active so controversy never comes from unverified numbers.
   3. **`debate_fault_lines` block:** Extract 1–3 real tensions per major event from press coverage, expert disagreements, or public comment threads (VnExpress, Reddit, VOZ, TikTok). Record `camp_a`, `camp_b`, `trigger_fact_ids`, and mark community sentiment strictly as `PULSE_ONLY` (never promote comment sentiment into `fact_table`).
   4. **`debate_questions` bank:** Draft 2–4 concrete open-ended / forced-choice questions (`option_a` vs. `option_b` or tradeoff dilemmas) tagged by `placement_hint` (`opening_hook`, `mid_roll`, `closing_dilemma`). Never write generic filler like *"Bạn nghĩ sao?"*.
   5. **Editorial Safety Invariant:** Controversy must live strictly in **tradeoffs, priorities, or viewer choices** — never in distorted numbers, personal attacks, or speculation outside `fact_table`.
+  6. **Audience-Centered Stakes (Target Audience First):** Anchor every `debate_fault_lines` and `debate_questions` entry in the **target channel audience's direct stakes** (for Vietnamese channels: Vietnamese citizens, workers, businesses, consumers, or Vietnamese cultural/legal perspectives). Never draft opening, mid-roll, or closing debate questions asking viewers to pick sides on another country's domestic interests (e.g., U.S. factories vs. U.S. households); treat foreign internal disputes strictly as external context affecting the target audience.
 
 #### 8d. Single Closed Fact Whitelist Table
 Every numeric figure, date milestone, or verifiable claim permitted in script or scenes MUST live in one machine-greppable `fact_table` (and `artifacts/fact_whitelist.json`):

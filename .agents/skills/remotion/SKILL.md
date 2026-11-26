@@ -181,6 +181,11 @@ When authoring bespoke Atelier news scenes under `remotion-composer/src/<slug>/`
    - Keep `assets/images/provenance.json` strictly for verified real photographs (`visual_type: "photograph"`, `taken`, `license`, `credit_line`, `source_url`, `vision_verified: true`, `subject_match_note` >= 12 chars) — never list AI-generated illustrations there.
    - Strict `compose`/`publish` checkpoints require `metadata.production_validation_report` (with `scene_coverage`, `expected_scenes`, `artifact_hashes`), `metadata.edit_decisions`, and `metadata.stage_fingerprint` computed via `recompute_checkpoint_fingerprint`.
 
+7. **Audio Tail Hygiene, `EditorialMap` Non-Conflict Pins & SVG Text Width Guard:**
+   - **TTS/ASR section-tail completeness (`build_episode_audio.py` + `gate_c_verify.py`):** Never end a `script.json` section's `text` or `delivery_cues.provider_text` with slashed/abbreviated units or dates (`9,6%/năm`, `10/12`, `12 mili giây` vs `mười hai phần nghìn giây`) — Whisper normalizes them differently and triggers fail-closed `tail_truncated` / `section_tail_truncated`. Always end each section with **2–3 plain Vietnamese words shared verbatim** between `text` and `provider_text` (e.g., `một năm.`, `tháng 12.`, `giảm một nửa.`).
+   - **`EditorialMap` non-conflict pins & dense labels:** `EditorialMap` maps `status: "active"` to `"ĐÁNH TRÚNG"` (strike/conflict badge). For infrastructure, cable, trade, or city maps, always use `status: "info"` (`"MỐC"`) or `"restricted"` (`"HẠN CHẾ"`), omit `route.label` around dense clusters, and offset adjacent pins (e.g., Malaysia/Singapore) with opposing `labelOffset` vectors.
+   - **SVG `<text>` no-wrap guard (`850px` Safe Zone):** SVG `<text>` never wraps automatically; when placing a right metric box at `x ≈ 600–630` inside an `850px` SVG, keep left-column `24px` body strings to `≤ 43` characters so copy never collides with the right badge.
+
 ---
 
 ## Feedback & Contributions

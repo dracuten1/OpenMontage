@@ -69,7 +69,12 @@ stages:
     skill: pipelines/explainer/research-director
     produces:
       - research_brief
-    tools_available: []
+    optional_tools:
+      - gemini_web_search
+      - web_search
+    tools_available:
+      - gemini_web_search
+      - web_search
     checkpoint_required: false
     human_approval_default: false
     review_focus:
@@ -131,7 +136,7 @@ stages:
     checkpoint_required: true
     human_approval_default: true
     review_focus:
-      - "Word count within +/-10% of duration target from selected concept"
+      - "Duration and word count are content-driven (flexible, no hard cap; enforce +/-10% only if user explicitly set a fixed time limit)"
       - "Enhancement cue density: 1 per 8-10 seconds"
       - "Narrative arc: hook -> setup -> build -> climax -> landing"
       - Speaker directions present for TTS
@@ -139,7 +144,7 @@ stages:
       - Script incorporates research data points and cited facts
     success_criteria:
       - Schema-valid script with enhancement_cues per section
-      - Total duration matches selected concept target within 10%
+      - Total duration matches natural content depth (or within +/-10% if user explicitly locked a fixed duration limit)
 
   - name: scene_plan
     skill: pipelines/explainer/scene-director

@@ -26,6 +26,8 @@ Use this skill when the user wants to generate **short video clips (`4s–8s`) a
 | `ffmpeg` / `ffprobe` | Inspect resolution/duration/fps and extract frames for Vision QA | `which ffprobe ffmpeg` |
 | Target OpenMontage project (optional) | Destination for ingested asset (`projects/<slug>/assets/video/`) | `ls projects/<slug>/` |
 
+> **Speed & Multi-Profile Rule:** Read `~/.gemini/config/skills/agent-desktop-web/SKILL.md` first — always scope `snapshot`/`find` by `window_id` when 2+ Chrome profiles are open, use `desktop_batch` / `agent-desktop find` instead of repeated full-tree `max_depth=30` dumps, and prefer `pbpaste` or AX `statictext` over `desktop_clipboard_get` on macOS Homebrew installs.
+
 ---
 
 ## TikTok / News Asset Default Preset (Credit- & Speed-Optimized)

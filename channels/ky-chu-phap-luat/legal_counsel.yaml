@@ -1,0 +1,26 @@
+version: "1.0"
+channel_id: ky-chu-phap-luat
+plugin: vn-legal-counsel
+default_backend: gemini_web
+fallback_backend: api_workflow
+
+chrome_profiles:
+  - dir: Default
+    label: Nguyen
+    account: tuyennguyenleminh@gmail.com
+  - dir: "Profile 2"
+    label: Tuyên
+    account: nguyenleminhtuyen99@gmail.com
+  - dir: "Profile 5"
+    label: dracuten1
+    account: dracuten@gmail.com
+
+gemini_web_skills:
+  research: "@vn-legal-researcher"
+  audit: "@vn-legal-auditor"
+  reply_comments: "@vn-legal-responder"
+
+isolation_rules:
+  - "Role 1 (@vn-legal-researcher) and Role 2 (@vn-legal-auditor) MUST run in separate chats or separate Chrome profiles."
+  - "Rotate Default -> Profile 2 -> Profile 5 on rate limit or parallel role isolation."
+  - "Always finalize audit JSON via legal_audit_finalize.py (0 LLM tokens) so SHA-256 hashes and URL checks stay fail-closed."

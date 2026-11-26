@@ -298,14 +298,15 @@ Choose from: `myth_busting`, `problem_solution`, `data_narrative`, `comparison`,
 
 #### 4d: Duration and Platform
 
-| Platform | Duration Range | Word Budget (150 WPM) |
-|----------|---------------|----------------------|
-| TikTok | 30-60s | 65-150 words |
-| YouTube Shorts | 30-60s | 65-150 words |
-| YouTube | 60-300s | 150-750 words |
-| LinkedIn | 60-120s | 150-300 words |
+Duration is **content-driven and flexible (no hard upper time limit)** — only enforce a strict duration box when the user explicitly specifies one. Rough starting pacing reference (estimates, not caps):
 
-**Animation note:** Animation videos can be longer than live-action explainers because the visual density sustains attention. A 3-minute math animation holds attention better than a 3-minute talking head.
+| Format / Scope | Starting Estimate | Word Budget (~150 WPM) |
+|---|---|---|
+| Quick Concept / Social Clip | ~30-90s | ~65-225 words |
+| Standard Explainer / Deep Dive (TikTok, YouTube, LinkedIn) | ~90s+ (flexible, no hard cap) | ~225+ words |
+| Multi-Chapter Essay Animation | 180s+ (content-driven) | Content-driven (~150 WPM) |
+
+**Animation note:** Animation videos can be as long as the explanation demands because structured visual pacing sustains attention. Never drop key explanatory steps just to fit a preset duration box.
 
 #### 4e: Concept Diversity Check
 

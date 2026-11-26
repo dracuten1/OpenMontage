@@ -58,13 +58,14 @@ Common registers for this pipeline:
 
 ### 3. Pick A Duration And A Shape
 
-Duration matters because it caps the number of beats.
+Duration is content-driven (no hard cap unless the user specifies a target length) and informs shot count and pacing:
 
 | Duration | Beats | Use |
 |----------|-------|-----|
 | 30-45s | 8-12 cuts | Social/Instagram/reel — one feeling, no arc |
 | 60-90s | 15-25 cuts | Standard short — mini arc with a turn |
 | 2-3 min | 30-50 cuts | Proper essay montage — 3-act arc possible |
+| 3+ min | Scales at target hold cadence | Extended essay montage / multi-act thematic exploration (flexible, no cap) |
 
 Shape options:
 

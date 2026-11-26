@@ -1,7 +1,43 @@
 version: "1.0"
 channel_id: ky-chu-phap-luat
 series_name: "Luật Cần Biết Đời Sống"
-selection_rule: "Pick next status=pending (priority=high first), rotate pillar from last run, and verify live current legal texts before scripting."
+selection_rule: "Mode A (priority): fresh Vietnamese Law/Decree/Circular within 24-72h or taking effect within 7-30d with broad citizen impact. Mode B (fallback): follow series_schedule by current weekday (Mon-Sat map to the 6 Series pillars; Sun = weekly digest / comment Q&A or next high-priority pending pillar), pick next status=pending (priority=high first) in that pillar, and verify live current legal texts on .gov.vn before scripting."
+series_schedule:
+  monday:
+    series_code: S1
+    series_title: "Ra Đường Đừng Mất Tiền Oan"
+    pillar: giao-thong
+    cover_tag: "GIAO THÔNG"
+  tuesday:
+    series_code: S2
+    series_title: "Luật Cho Người Đi Làm"
+    pillar: lao-dong-bhxh
+    cover_tag: "LAO ĐỘNG"
+  wednesday:
+    series_code: S3
+    series_title: "Tiền Bạc, Thuế & Tài Khoản"
+    pillar: tai-chinh-thue-ngan-hang
+    cover_tag: "TÀI CHÍNH"
+  thursday:
+    series_code: S4
+    series_title: "Thuê Trọ, Nhà Đất & Hàng Xóm"
+    pillar: nha-tro-dat-dai
+    cover_tag: "NHÀ ĐẤT"
+  friday:
+    series_code: S5
+    series_title: "Chuyện Nhà & Tài Sản"
+    pillar: hon-nhan-gia-dinh
+    cover_tag: "GIA ĐÌNH"
+  saturday:
+    series_code: S6
+    series_title: "Quyền Công Dân Thời Số"
+    pillar: doi-song-cong-dan
+    cover_tag: "ĐỜI SỐNG"
+  sunday:
+    series_code: S0
+    series_title: "Điểm Tin Nghị Định Tuần & Q&A"
+    pillar: weekly-digest-or-next-high
+    cover_tag: "TỔNG HỢP"
 
 topics:
   # --- Pillar 1: Giao thông ---
@@ -113,9 +149,9 @@ topics:
     hook_angle: "Chưa hết hợp đồng nhưng nhà trọ mất an toàn hoặc chủ nhà đổi ý — tiền cọc có được đòi lại gấp đôi?"
     verify_laws: "Kiểm tra Điều 328 Bộ luật Dân sự 2015 và Luật Nhà ở 2023 cùng văn bản hướng dẫn."
     priority: high
-    status: pending
-    pitched_date: null
-    published_slug: null
+    status: drafted
+    pitched_date: "2026-11-26"
+    published_slug: "thue-tro-mat-coc-20261126"
 
   - id: EVG-12
     pillar: nha-tro-dat-dai
@@ -184,9 +220,9 @@ topics:
     hook_angle: "Bỗng dưng nhận tiền chuyển nhầm vào tài khoản — tiêu xài hoặc chặn liên lạc từ mấy triệu đồng thì đi tù?"
     verify_laws: "Kiểm tra Điều 176 Bộ luật Hình sự 2015 (sửa đổi 2017) về tội chiếm giữ trái phép tài sản và Điều 579 BLDS 2015."
     priority: high
-    status: pending
-    pitched_date: null
-    published_slug: null
+    status: drafted
+    pitched_date: "2026-11-25"
+    published_slug: "chuyen-khoan-nham-v2-20261125"
 
   - id: EVG-19
     pillar: tai-chinh-thue-ngan-hang

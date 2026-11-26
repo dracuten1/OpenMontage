@@ -22,8 +22,8 @@ Before doing anything, clarify the user's intent:
 
 - **Topic**: What is the core subject? (e.g., "vector databases", "how HTTPS works", "why the sky is blue")
 - **Audience**: Who is this for? (developers, general public, students, executives)
-- **Platform**: Where will this be published? (YouTube, TikTok, Instagram, LinkedIn) — this constrains duration and style
-- **Duration**: Target length. Defaults by platform: TikTok 30-60s, Instagram Reels 60-90s, YouTube 60-180s, LinkedIn 60-120s
+- **Platform**: Where will this be published? (YouTube, TikTok, Instagram, LinkedIn) — informs framing, safe zones, and aspect ratio (do NOT treat platform choice as a hard time limit unless the user explicitly sets one)
+- **Duration**: Content-driven (no hard duration cap — let information completeness set the length; enforce a fixed target only if the user explicitly specifies one)
 - **Tone**: Casual, professional, educational, provocative, playful
 
 If the user's request is vague (e.g., "make a video about AI"), ask targeted questions. Never guess when you can ask.
@@ -149,7 +149,7 @@ If no existing playbook fits, describe the desired style in `brief.style` and th
 
 - **Skipping research**: The #1 failure mode. Without research, angles are generic and hooks are weak.
 - **Reworded angles**: Three variations of "explain how X works" are not three angles. Change the narrative structure.
-- **Wrong duration for platform**: A 3-minute explainer doesn't work on TikTok. A 30-second video can't explain Kubernetes.
+- **Arbitrarily capping depth**: Do not starve a complex topic down to 30–60s just because it is for TikTok or Reels; equally, do not stretch a simple single-fact tip into 3 minutes of filler. Match duration naturally to content depth unless the user locks a time limit.
 - **Ignoring the audience**: A video for CTOs needs different framing than one for junior developers, even on the same topic.
 - **Vague key_points**: "How vector databases work" is a topic, not a key point. "Vector databases use high-dimensional math to find similar items in milliseconds" is a key point.
 

@@ -84,7 +84,7 @@ stages:
     success_criteria:
       - Schema-valid scene_plan artifact
       - metadata.slots[] present with per-slot queries and preferred_sources
-      - Sum of target_hold_seconds within 10% of brief.duration_seconds
+      - Sum of target_hold_seconds matches natural pacing (or within +/-10% if user explicitly locked brief.duration_seconds)
 
   - name: assets
     skill: pipelines/documentary-montage/asset-director
@@ -139,7 +139,7 @@ stages:
       - Every cut has a reason
     success_criteria:
       - Schema-valid edit_decisions artifact
-      - Timeline duration within 10% of brief.duration_seconds
+      - Timeline duration matches natural montage arc (or within +/-10% if user explicitly locked brief.duration_seconds)
 
   - name: compose
     skill: pipelines/documentary-montage/compose-director

@@ -142,12 +142,12 @@ stages:
       - On-screen text remains readable and restrained
       - Timing structure leaves room for visual holds
       - Narration-led scripts include concrete voice performance cues
-      - Word count within +/-10% of duration target from selected concept
+      - "Duration and word count are content-driven (flexible, no hard cap; enforce +/-10% only if user explicitly set a fixed time limit)"
       - Script incorporates research data points where relevant
     success_criteria:
       - Schema-valid script artifact
       - Script sections map to distinct animation beats
-      - Total duration matches selected concept target within 10%
+      - Total duration matches natural content depth (or within +/-10% if user explicitly locked a fixed duration limit)
 
   - name: scene_plan
     skill: pipelines/animation/scene-director

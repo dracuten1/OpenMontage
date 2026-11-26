@@ -9,7 +9,7 @@
 ```
 ASPECT RATIO:     9:16 vertical (1080x1920)
 SAFE ZONE:        900x1400px centered (universal; TikTok feed override: x 60-940, y 240-1350)
-DURATION:         15s (highest completion) | 30s (best engagement) | 60s (most flexible)
+DURATION:         Content-driven & flexible (no hard cap; 15s/30s/60s are quick-clip retention benchmarks, TikTok supports up to 10 min)
 HOOK:             First 1-2 seconds — visual or text pattern interrupt
 CAPTIONS:         Mandatory (85% watch muted on mobile)
 TEXT SIZE:         42px+ minimum, bold sans-serif
@@ -42,19 +42,21 @@ FORMAT:      .mp4 preferred
 MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 ```
 
-## Duration Strategy
+## Duration Strategy (Benchmarks Only — No Hard Cap)
+
+Do NOT treat quick-clip benchmarks below as hard caps. Let information depth determine total length (especially for TikTok deep-dives, legal/economic explainers, and Debate Mode episodes; TikTok accepts up to 10 minutes).
 
 | Duration | Avg Completion Rate | Best For |
 |----------|-------------------|----------|
 | 0-15s | 92% | Single fact, quick tip, visual gag |
 | 16-30s | 84% | One concept explained, before/after |
 | 31-60s | 68% | Mini tutorial, step-by-step, story arc |
-| 60s+ | 48% | Deep explainer, only if retention structure is strong |
+| 60s+ (flexible) | 48%+ (higher watch time) | Deep explainer, multi-angle news, full-context debate |
 
-**Platform sweet spots:**
-- TikTok: 21-34 seconds for completion; 60-180s for maximum total watch time
-- Reels: 15-30 seconds for viral reach; 60-90s for highest engagement
-- Shorts: Bimodal — ~13 seconds OR full 60 seconds (Shortimize 35B views analysis)
+**Platform sweet spots (starting guidance, not limits):**
+- TikTok: 21-34 seconds for quick completion; 90-300s+ for deep-dive news/explainers & total watch time (upload limit 600s)
+- Reels: 15-30 seconds for viral reach; 60-180s for full engagement
+- Shorts: Bimodal — ~13 seconds OR 60-180s (up to 3-min vertical)
 
 **Key formula:** A 45s video with 70% completion (31.5s watch time) outperforms a 15s video with 40% completion (6s). Total watch time is what the algorithm rewards.
 

@@ -39,6 +39,7 @@ pipeline:
   qc_gates:
     - source_photo_gate
     - fact_whitelist_gate
+    - legal_audit_gate
     - editorial_language_gate
     - bgm_gate
 

@@ -112,9 +112,9 @@ Mọi tập news/explainer đi qua **Research v2** (`skills/pipelines/explainer/
 
 ### §6.1 Bảy phase bắt buộc
 1. **Brief / Script / Facts** — chốt `research_brief`, `proposal_packet`, `script`, `scene_plan` / `scene_manifest.json`, và freeze `fact_whitelist`.
-2. **Actual audio + alignment** — sinh TTS thật (`tts_selector` / `vieneu_tts.py`), chạy Whisper alignment lấy `words.json` và `narration_words.json`; mọi `trigger_frame` / `start_frame` re-lock theo từ nói thật (`±0.3s`).
+2. **Actual audio + alignment** — sinh TTS thật (`tts_selector` / `vieneu_tts.py` hoặc `tools/audio/build_episode_audio.py`), tự động tách sub-chunk an toàn `≤ 150` ký tự theo dấu câu trước khi gọi VieNeu (tránh chạm trần `300` frame làm cụt đuôi), cắt khoảng lặng đầu WAV (`silenceremove` dưới `-42dB`) để khớp ngay `t=0`, chạy Whisper alignment + **Per-Section TTS Tail/Completeness Guard** (`artifacts/tts_completeness.json`), xuất `words.json`, `narration_words.json`, và `public/<slug>/cues.json` (`artifacts/aligned_cues.json`); mọi `trigger_frame` / `enter` trong scene TSX BẮT BUỘC khóa theo từ nói thật qua `cueFrame(sectionId, phrase, fallback, leadFrames=3)` từ `timing.ts` (không đoán số frame cứng `> 30f`). Thời lượng và số cảnh **hoàn toàn linh hoạt theo độ sâu nội dung (không áp trần cứng thời lượng hay số cảnh**, kể cả trên TikTok — chỉ khóa trần khi owner yêu cầu rõ), mỗi câu đọc `≤ 140` ký tự, mỗi section giữ quanh `15–25s` (cần dài hơn thì tách thêm section thay vì cắt nội dung) và mỗi cảnh có 2–4 nhịp thị giác để không đứng hình.
 3. **Sealed inputs & Visual prep** — kiểm tra ảnh thật qua `tools/qc/source_photo_gate.py`, pre-mix stems qua `tools/qc/mixdown.py --from-stems`.
-4. **Scene author & independent review** — author `S01.tsx..Snn.tsx` (hoặc `Episode.tsx` nếu ≤5 scenes), tự kiểm `npx tsc --noEmit`, `npm run validate:layout`, `npm run validate:events`, và Gate B vision check.
+4. **Scene author & independent review** — author `S01.tsx..Snn.tsx` (hoặc `Episode.tsx` nếu ≤5 scenes), tự kiểm `npx tsc --noEmit`, `tools/qc/cue_sync_gate.py`, `npm run validate:layout`, `npm run validate:events`, và Gate B vision check.
 5. **Integration & Pre-render gates** — chạy đầy đủ các gate fail-closed trước render.
 6. **Final render / mix review** — render duy nhất qua `tools/qc/render_episode.py`, mux master stems qua `mixdown.py --mux-only`, kiểm tra Gate C.
 7. **Delivery** — đóng gói Video + Copyable description theo `AGENT_GUIDE.md`; quyết định publish/upload thuộc về owner tách biệt khỏi QC PASS (§6.4).
@@ -130,12 +130,13 @@ Mọi thay đổi trên facts, narration WAV, word alignment, shared theme/Scene
 - **Các gate cơ học đã verify trong repo:**
   - Source photos: `.venv/bin/python tools/qc/source_photo_gate.py --project projects/<slug>`
   - Fact whitelist: `.venv/bin/python tools/qc/fact_whitelist_gate.py --project projects/<slug>`
+  - Cue speech-lock: `.venv/bin/python tools/qc/cue_sync_gate.py --project projects/<slug>`
   - Editorial language (editorial lane): `.venv/bin/python tools/qc/editorial_language_gate.py --project projects/<slug>`
   - Timing re-lock: `.venv/bin/python -c "from tools.qc.timing_relock_guard import check_project_timing; check_project_timing('projects/<slug>', mode='strict')"`
   - Mix validation: `.venv/bin/python -m tools.qc.mix_validator <stems_dir> <mix_profile.json>`
   - Episode gate (Antigravity mode): `.venv/bin/python tools/qc/episode_gate.py projects/<slug> --mode agy`
   - Remotion layout/events: `npm run validate:layout -- <spec>` và `npm run validate:events -- <spec>` trong `remotion-composer/`
   - Pre-DM smoke: `.venv/bin/python tools/qc/render_episode.py --check-file <mp4>`
-  - Gate C bundle check: `.venv/bin/python tools/qc/gate_c_verify.py --project projects/<slug>` (speech-bounded `faster-whisper` với `vad_filter=True` + `ffprobe` + `ebur128` + 5 frame PNG)
+  - Gate C bundle check: `.venv/bin/python tools/qc/gate_c_verify.py --project projects/<slug>` (speech-bounded `faster-whisper` với `vad_filter=True` + **Per-Section ASR Tail & Coverage Check** đối chiếu từng cảnh + `ffprobe` + `ebur128` + 5 frame PNG)
 - **Override discipline:** Các mã provenance/editorial/fact-whitelist/source-photo nằm trong `NON_OVERRIDABLE_CODES` của `tools/qc/render_episode.py` — không thể bypass.
 - **Publication separation:** QC PASS ở compose không tự động cho phép đăng bài; mọi upload/publish cần owner duyệt riêng.

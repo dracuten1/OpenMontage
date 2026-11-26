@@ -75,14 +75,16 @@ LANDING (last 5s) → Sharp takeaway + concrete CTA (before the 3s outro BrandBu
 #### Engagement Mode Respect (`standard` vs. `debate_engagement`)
 Check `proposal_packet.production_plan.engagement_mode` (or `selected_concept.engagement_mode`, default `standard`):
 - **If `standard` (or omitted):** Follow the standard Narrative Arc above strictly. Do **NOT** inject unsolicited debate questions, forced-choice polls, or artificial controversy.
-- **If `debate_engagement`:** Execute the approved `selected_concept.engagement_design` faithfully across the full runtime (whether 45s or up to 5 minutes):
+- **If `debate_engagement`:** Execute the approved `selected_concept.engagement_design` faithfully across the full content-driven runtime (fully flexible, no hard time cap):
   - Deliver the `opening_hook_type` tension in seconds 0–3.
   - Place each approved `friction_beats` micro-question at its planned act/chapter transition (with matching on-screen text/question card cue).
   - Present both `steelman_sides` (`camp_a` vs. `camp_b`) fairly without taking a partisan stance or inventing facts outside `fact_table`.
   - Close with the exact `closing_dilemma` (A vs. B / tradeoff question) paired with the `debate_visual_cue`.
+  - **Audience-Centered Debate Rule:** Every spoken debate question (`opening`, `mid-roll`, and `closing`) MUST center on the target audience's own stakes (Vietnamese citizens, workers, exporters, consumers, or Vietnamese perspectives on VN channels). Keep foreign domestic reactions strictly as factual context, never asking viewers to pick sides on another country's internal interests.
 
 #### Anti-AI Voice & Spoken Cadence Rules
-- **Short spoken sentences:** Keep sentences crisp (`≤18 words/sentence` where natural in Vietnamese, max 1 clause pivot per beat) and cap spoken numbers at **≤3 numbers per sentence** so listeners absorb figures effortlessly.
+- **Short spoken sentences & TTS chunk safety:** Keep every narration sentence `≤ 140` characters (and `≤ 18` words where natural in Vietnamese, max 1 clause pivot per beat) with crisp `.` or `?` punctuation. Never write a 200+ char run-on sentence in `provider_text` (local TTS engines cap per-chunk frame length; `build_episode_audio.py` also splits sub-chunks `≤ 150` chars and enforces Per-Section Tail Completeness). Hook `S01` should use **2 crisp short sentences** so the opening punch lands intact.
+- **Content-Driven Flexible Duration (No Hard Cap):** Never artificially starve or truncate explainers to fit a default time box (`60s`, `90s`, `120s`, or `300s`) when the topic needs concrete examples, statutory exceptions, counterarguments, or step-by-step mechanisms. Scale naturally across as many `15–25s` sections as the story needs so every idea is complete and clear. Enforce a strict runtime cap only if the user explicitly specified one.
 - **Display vs. Narration Consistency (Doctrine §3):** Use exact `fact_table.display_string` for on-screen text and `fact_table.narration_form` for TTS `provider_text`. Never display an English label while narrating a different Vietnamese translation (e.g., never display `"Expert"` while saying `"chuyên gia"`).
 - **Ban AI Filler Words:** Reject openings/transitions like `"Đáng chú ý"`, `"Nhìn chung"`, `"Tóm lại là"`, `"Có thể thấy rằng"`, `"Một câu hỏi được đặt ra"`. Lead directly with the verb, person, or concrete number.
 
@@ -144,13 +146,16 @@ Keeping sections ≤20–25s bounds duration drift, keeps speech aligned with sc
 | Energetic | ~180 wpm | Short-form, high-energy, TikTok/Reels |
 | Technical | ~130 wpm | Code walkthroughs, architecture deep-dives |
 
-**Word budget by duration:**
+**Word-to-duration reference (pacing guide, not a hard limit):**
 - 30s video → ~65-75 words
 - 60s video → ~130-150 words
 - 90s video → ~195-225 words
 - 120s video → ~260-300 words
+- 180s (3 min) → ~390-450 words
+- 300s (5 min) → ~650-750 words
+- Longer / Custom → ~2.2-2.5 words/sec (`target_duration_seconds` scales from measured script + TTS unless the user explicitly locked a fixed time budget).
 
-Count your words. If you're 20%+ over budget, the TTS will either rush or exceed duration. Cut ruthlessly.
+Only trim to fit a strict word/second budget when the user explicitly specified a fixed duration limit — otherwise let `total_duration_seconds` follow the natural script depth and split long thoughts into additional `≤25s` sections.
 
 #### Speaker Directions
 
