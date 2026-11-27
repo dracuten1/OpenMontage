@@ -1,0 +1,166 @@
+{
+  "version": "1.0",
+  "topic": "Điểm Tin 27/11/2026: CPTPP mở rộng, Thuế Mỹ ART, Hạ tầng AI & Vàng SJC 136 triệu",
+  "research_date": "2026-11-27",
+  "engagement_mode": "debate_engagement",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "CPTPP sẽ đàm phán kết nạp UAE, Indonesia và Philippines",
+        "url": "https://vnexpress.net/cptpp-se-dam-phan-ket-nap-uae-indonesia-va-philippines-5149696.html",
+        "source": "vnexpress.net",
+        "angle": "multilateral_trade_expansion",
+        "what_it_covers": "Phiên họp Hội đồng CPTPP lần thứ 11 tại Hà Nội mở đàm phán gia nhập với 3 nước và lộ trình nâng cấp giữa năm 2027.",
+        "what_it_misses": "Chưa ghép trực tiếp với tuyên bố cùng ngày của Thủ tướng về Hiệp định ART giảm áp lực thuế 35% từ Mỹ.",
+        "engagement_signal": "Breaking 27/11/2026 16:31"
+      },
+      {
+        "title": "Thủ tướng: Thuế Mỹ áp với Việt Nam sẽ thấp hơn nhiều mức 35%",
+        "url": "https://vnexpress.net/thu-tuong-thue-my-ap-voi-viet-nam-se-thap-hon-nhieu-muc-35-5149602.html",
+        "source": "vnexpress.net",
+        "angle": "us_vietnam_art_update",
+        "what_it_covers": "Việt Nam cơ bản xong đàm phán ART với Mỹ, đang hoàn tất kỹ thuật để ký kết.",
+        "what_it_misses": "Chưa đặt vào bản đồ đa dạng hóa thị trường xuất khẩu 1.001 tỷ USD.",
+        "engagement_signal": "Breaking 27/11/2026 13:03"
+      },
+      {
+        "title": "Nvidia dừng giao máy chủ AI tới Đông Nam Á: Các dự án tỷ USD ngưng trệ",
+        "url": "https://dantri.com.vn/kinh-doanh/nvidia-dung-giao-may-chu-ai-toi-dong-nam-a-cac-du-an-ty-usd-ngung-tre-20261127052427643.htm",
+        "source": "dantri.com.vn",
+        "angle": "asean_ai_server_freeze",
+        "what_it_covers": "Dell và Supermicro tạm dừng giao máy chủ AI tới Singapore, Malaysia, Thái Lan, Indonesia.",
+        "what_it_misses": "Chưa đối chiếu với VNPT IDC Hòa Lạc vừa đạt trọn 3 chuẩn Uptime Tier III và Quyết định 2320 bán dẫn trong nước.",
+        "engagement_signal": "Breaking 27/11/2026"
+      },
+      {
+        "title": "ROBOTERA Deploys 45 Humanoid Robots at China Post's Hangzhou Hub",
+        "url": "https://www.unite.ai/robotera-deploys-45-humanoid-robots-at-china-posts-hangzhou-hub/",
+        "source": "unite.ai",
+        "angle": "humanoid_logistics_automation",
+        "what_it_covers": "45 robot M7 đạt 1.200–1.500 bưu kiện/giờ với độ chính xác trên 90%.",
+        "what_it_misses": "Chưa nối với áp lực chuyển đổi nghề nghiệp của nhân lực IT – lao động Việt Nam (khảo sát VnExpress 27/11).",
+        "engagement_signal": "Tech automation pulse 26-27/11/2026"
+      },
+      {
+        "title": "Chứng khoán ngày 27/11: VN-Index phục hồi mạnh, khối ngoại trở lại mua ròng",
+        "url": "https://thoibaotaichinhvietnam.vn/chung-khoan-ngay-27-11-vn-index-phuc-hoi-manh-khoi-ngoai-tro-lai-mua-rong-207649.html",
+        "source": "thoibaotaichinhvietnam.vn",
+        "angle": "vietnam_equities_gold_geopolitics",
+        "what_it_covers": "VN-Index +24,22 điểm lên 1.653,90 điểm, dầu khí +6,8%, khối ngoại mua ròng 611 tỷ.",
+        "what_it_misses": "Chưa đặt cạnh vàng SJC tăng 1,5 triệu lên 136 triệu đồng/lượng và cảnh báo Mỹ-Iran quanh Núi Pickaxe.",
+        "engagement_signal": "Market close 27/11/2026 17:27"
+      }
+    ],
+    "saturated_angles": [
+      "Đưa tin đơn lẻ bảng giá vàng hoặc điểm số VN-Index mà không phân tích thanh khoản và rủi ro địa chính trị",
+      "Lặp lại đề xuất thuế 35% hôm 25/11 mà không cập nhật phát biểu sáng 27/11 về Hiệp định ART"
+    ],
+    "underserved_gaps": [
+      "Kết nối song hành mở rộng CPTPP + đàm phán ART giảm áp lực thuế 35%",
+      "Soi cơ hội & rủi ro hạ tầng số Việt Nam (VNPT IDC Hòa Lạc Tier III, QĐ 2320) khi đối tác Nvidia dừng giao máy chủ tại 4 nước ASEAN",
+      "Đặt làn sóng 45 robot hình người logistics cạnh khảo sát chuyển nghề của dân IT Việt trước AI"
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "CPTPP khởi động đàm phán kết nạp UAE, Indonesia và Philippines tại Hà Nội",
+        "url": "https://baochinhphu.vn/cptpp-se-dam-phan-ve-viec-gia-nhap-cua-uae-indonesia-va-philippines-102261127172652896.htm",
+        "date": "2026-11-27",
+        "relevance": "Mở rộng khối gần 600 triệu dân ngay trong năm Chủ tịch 2026 của Việt Nam."
+      },
+      {
+        "headline": "Thủ tướng Lê Minh Hưng: Cơ bản xong đàm phán ART, thuế Mỹ sẽ thấp hơn nhiều 35%",
+        "url": "https://vnexpress.net/thu-tuong-thue-my-ap-voi-viet-nam-se-thap-hon-nhieu-muc-35-5149602.html",
+        "date": "2026-11-27",
+        "relevance": "Cập nhật mới quan trọng cho 159,4 tỷ USD hàng xuất sang Mỹ trong 10 tháng."
+      },
+      {
+        "headline": "VNPT IDC Hòa Lạc hoàn thiện 3 chuẩn Uptime Tier III & Đề án QĐ 2320 giữa lúc Nvidia dừng máy chủ AI ASEAN",
+        "url": "https://vnexpress.net/viet-nam-co-them-trung-tam-du-lieu-dat-du-ba-chuan-quoc-te-5149565.html",
+        "date": "2026-11-27",
+        "relevance": "Cơ hội nâng chuẩn hạ tầng số Việt Nam nhưng cần kiểm soát xuất xứ."
+      },
+      {
+        "headline": "45 robot hình người ROBOTERA M7 tại Hàng Châu (1.500 bưu kiện/giờ) & chỉ 12% nhân sự IT Việt không bị AI ảnh hưởng",
+        "url": "https://vnexpress.net/dan-cong-nghe-viet-xoay-xo-doi-nghe-trong-bao-ai-5145736.html",
+        "date": "2026-11-27",
+        "relevance": "Tác động trực tiếp tới việc làm và hướng chuyển dịch sang bán dẫn."
+      },
+      {
+        "headline": "VN-Index tăng 24,22 điểm lên 1.653,90 điểm; vàng SJC vọt lên 136 triệu đồng/lượng giữa rủi ro Mỹ-Iran",
+        "url": "https://cafef.vn/gia-vang-nhan-tron-vang-mieng-chieu-27-11-tai-bao-tin-minh-chau-sjc-pnj-doji-va-bao-tin-manh-hai-bat-tang-manh-188261127074924289.chn",
+        "date": "2026-11-27",
+        "relevance": "Diễn biến túi tiền trực tiếp của nhà đầu tư và người giữ vàng Việt Nam."
+      }
+    ],
+    "active_discussions": [],
+    "timeliness_window": "days"
+  },
+  "data_points": [
+    {
+      "claim": "Hội đồng CPTPP lần 11 tại Hà Nội (27/11/2026) mở đàm phán kết nạp UAE, Indonesia và Philippines, đặt mục tiêu nâng cấp hiệp định giữa năm 2027.",
+      "source_url": "https://vnexpress.net/cptpp-se-dam-phan-ket-nap-uae-indonesia-va-philippines-5149696.html",
+      "source_name": "VnExpress & Báo Chính phủ (27/11/2026)",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "Thủ tướng Lê Minh Hưng (27/11/2026): Việt Nam cơ bản kết thúc đàm phán Hiệp định ART với Mỹ, thuế thực tế sẽ thấp hơn nhiều mức đề xuất tối đa 35%.",
+      "source_url": "https://vnexpress.net/thu-tuong-thue-my-ap-voi-viet-nam-se-thap-hon-nhieu-muc-35-5149602.html",
+      "source_name": "VnExpress & Znews (27/11/2026)",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "VNPT IDC Hòa Lạc (23.000 m2, 2.000 rack) đạt chuẩn Tier III TCOS sáng 27/11, hoàn thiện bộ 3 chuẩn quốc tế; đối tác Nvidia tạm dừng giao máy chủ AI tới 4 nước ASEAN.",
+      "source_url": "https://dantri.com.vn/kinh-doanh/nvidia-dung-giao-may-chu-ai-toi-dong-nam-a-cac-du-an-ty-usd-ngung-tre-20261127052427643.htm",
+      "source_name": "Dân trí & VnExpress & Báo Chính phủ (27/11/2026)",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "ROBOTERA triển khai 45 robot hình người M7 đạt 1.200–1.500 bưu kiện/giờ (>90% chính xác); tại Việt Nam chỉ 12% nhân sự IT không bị AI ảnh hưởng.",
+      "source_url": "https://www.unite.ai/robotera-deploys-45-humanoid-robots-at-china-posts-hangzhou-hub/",
+      "source_name": "Unite.AI & Gasgoo & VnExpress (26-27/11/2026)",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "VN-Index 27/11 tăng 24,22 điểm (+1,49%) lên 1.653,90 điểm nhờ dầu khí (+6,8%) và khối ngoại mua ròng 611 tỷ; vàng SJC chiều 27/11 tăng 1,5 triệu lên 136 triệu đồng/lượng.",
+      "source_url": "https://thoibaotaichinhvietnam.vn/chung-khoan-ngay-27-11-vn-index-phuc-hoi-manh-khoi-ngoai-tro-lai-mua-rong-207649.html",
+      "source_name": "Thời báo Tài chính Việt Nam & CafeF (27/11/2026)",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    }
+  ],
+  "angles_discovered": [
+    {
+      "angle": "dual_trade_shield",
+      "description": "Song song mở rộng CPTPP thêm UAE, Indonesia, Philippines và chốt kỹ thuật ART để kéo thuế Mỹ thấp hơn 35%.",
+      "grounded_in": ["EV1#f01", "EV1#f02", "EV1#f03", "EV1#f05"]
+    },
+    {
+      "angle": "digital_infra_and_ai_labor",
+      "description": "Chuẩn hóa Data Center Tier III + QĐ 2320 bán dẫn giữa lúc Nvidia dừng giao máy chủ ASEAN và 45 robot M7 đẩy áp lực tái đào tạo nhân lực IT.",
+      "grounded_in": ["EV2#f06", "EV2#f08", "EV2#f09", "EV3#f11", "EV3#f13"]
+    },
+    {
+      "angle": "vietnamese_strategy_debate",
+      "description": "Cân nhắc giữa đầu tư nâng cấp kỹ năng/đón thị trường mới hay phòng thủ thanh khoản trước vàng 136 triệu và thanh khoản chứng khoán giảm 30%.",
+      "grounded_in": ["EV1#f02", "EV3#f13", "EV4#f16", "EV4#f17"]
+    }
+  ],
+  "hook_candidates": [
+    {
+      "rank": 1,
+      "text": "CPTPP mở đàm phán thêm ba nước ngay tại Hà Nội, còn Thủ tướng khẳng định thuế Mỹ sẽ thấp hơn nhiều mức 35%. Cùng lúc, Nvidia dừng máy chủ Đông Nam Á và vàng SJC vọt lên 136 triệu đồng.",
+      "net": 28
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from "react";
+import { continueRender, delayRender } from "remotion";
 import { loadFont as loadBarlowCondensed } from "@remotion/google-fonts/BarlowCondensed";
 import { loadFont as loadBeVietnam } from "@remotion/google-fonts/BeVietnamPro";
 import { loadFont as loadInter } from "@remotion/google-fonts/Inter";
@@ -133,15 +134,39 @@ export type DeepPartial<T> = {
         : T[K];
 };
 
-function trackFontLoad(handle: unknown, promises: Promise<unknown>[]): void {
+function awaitFontHandle(handle: unknown): Promise<void> {
   if (
     handle &&
     typeof handle === "object" &&
     "waitUntilDone" in handle &&
     typeof (handle as { waitUntilDone?: () => Promise<unknown> }).waitUntilDone === "function"
   ) {
-    promises.push((handle as { waitUntilDone: () => Promise<unknown> }).waitUntilDone());
+    return (handle as { waitUntilDone: () => Promise<unknown> }).waitUntilDone().then(() => undefined);
   }
+  return Promise.resolve();
+}
+
+/**
+ * Load non-Vietnamese subsets strictly before the `vietnamese` subset so shared
+ * codepoints like `U+0110` (`Đ`) always stay in the `vietnamese` FontFace run
+ * alongside Vietnamese vowels (preventing cross-worker HarfBuzz kerning jitter).
+ */
+function trackOrderedSubsets(
+  loadStage: (isVietnameseStage: boolean) => unknown,
+  promises: Promise<unknown>[],
+  withVietnameseStage = true,
+): void {
+  const isBrowser = typeof window !== "undefined" && typeof FontFace !== "undefined";
+  const gate = isBrowser ? delayRender("Ordered Google Font subset load", { timeoutInMilliseconds: 60000 }) : null;
+  const p = awaitFontHandle(loadStage(false))
+    .then(() => (withVietnameseStage ? awaitFontHandle(loadStage(true)) : undefined))
+    .catch(() => undefined)
+    .finally(() => {
+      if (gate !== null) {
+        continueRender(gate);
+      }
+    });
+  promises.push(p);
 }
 
 let swissFontsLoaded = false;
@@ -150,25 +175,28 @@ const swissFontPromises: Promise<unknown>[] = [];
 export function ensureSwissBroadcastFonts(): void {
   if (swissFontsLoaded) return;
   swissFontsLoaded = true;
-  trackFontLoad(
-    loadBarlowCondensed("normal", {
-      weights: ["600", "700", "800", "900"],
-      subsets: ["latin", "latin-ext", "vietnamese"],
-    }),
+  trackOrderedSubsets(
+    (vi) =>
+      loadBarlowCondensed("normal", {
+        weights: ["600", "700", "800", "900"],
+        subsets: vi ? ["vietnamese"] : ["latin", "latin-ext"],
+      }),
     swissFontPromises,
   );
-  trackFontLoad(
-    loadPlusJakarta("normal", {
-      weights: ["500", "600", "700", "800"],
-      subsets: ["latin", "latin-ext", "vietnamese"],
-    }),
+  trackOrderedSubsets(
+    (vi) =>
+      loadPlusJakarta("normal", {
+        weights: ["500", "600", "700", "800"],
+        subsets: vi ? ["vietnamese"] : ["latin", "latin-ext"],
+      }),
     swissFontPromises,
   );
-  trackFontLoad(
-    loadBeVietnam("normal", {
-      weights: ["400", "500", "600", "700", "800"],
-      subsets: ["latin", "latin-ext", "vietnamese"],
-    }),
+  trackOrderedSubsets(
+    (vi) =>
+      loadBeVietnam("normal", {
+        weights: ["400", "500", "600", "700", "800"],
+        subsets: vi ? ["vietnamese"] : ["latin", "latin-ext"],
+      }),
     swissFontPromises,
   );
 }
@@ -187,25 +215,28 @@ const dioramaFontPromises: Promise<unknown>[] = [];
 export function ensureDioramaFonts(): void {
   if (dioramaFontsLoaded) return;
   dioramaFontsLoaded = true;
-  trackFontLoad(
-    loadPlayfairDisplay("normal", {
-      weights: ["600", "700", "800", "900"],
-      subsets: ["latin", "vietnamese"],
-    }),
+  trackOrderedSubsets(
+    (vi) =>
+      loadPlayfairDisplay("normal", {
+        weights: ["600", "700", "800", "900"],
+        subsets: vi ? ["vietnamese"] : ["latin"],
+      }),
     dioramaFontPromises,
   );
-  trackFontLoad(
-    loadBeVietnam("normal", {
-      weights: ["400", "500", "600", "700", "800"],
-      subsets: ["latin", "latin-ext", "vietnamese"],
-    }),
+  trackOrderedSubsets(
+    (vi) =>
+      loadBeVietnam("normal", {
+        weights: ["400", "500", "600", "700", "800"],
+        subsets: vi ? ["vietnamese"] : ["latin", "latin-ext"],
+      }),
     dioramaFontPromises,
   );
-  trackFontLoad(
-    loadJetBrainsMono("normal", {
-      weights: ["400", "600", "700"],
-      subsets: ["latin", "vietnamese"],
-    }),
+  trackOrderedSubsets(
+    (vi) =>
+      loadJetBrainsMono("normal", {
+        weights: ["400", "600", "700"],
+        subsets: vi ? ["vietnamese"] : ["latin"],
+      }),
     dioramaFontPromises,
   );
 }
@@ -224,19 +255,22 @@ const minimalFontPromises: Promise<unknown>[] = [];
 export function ensureMinimalFonts(): void {
   if (minimalFontsLoaded) return;
   minimalFontsLoaded = true;
-  trackFontLoad(
-    loadInter("normal", {
-      weights: ["400", "500", "600", "700", "800"],
-      subsets: ["latin", "latin-ext", "vietnamese"],
-    }),
+  trackOrderedSubsets(
+    (vi) =>
+      loadInter("normal", {
+        weights: ["400", "500", "600", "700", "800"],
+        subsets: vi ? ["vietnamese"] : ["latin", "latin-ext"],
+      }),
     minimalFontPromises,
   );
-  trackFontLoad(
-    loadJetBrainsMono("normal", {
-      weights: ["400", "600", "700"],
-      subsets: ["latin"],
-    }),
+  trackOrderedSubsets(
+    () =>
+      loadJetBrainsMono("normal", {
+        weights: ["400", "600", "700"],
+        subsets: ["latin"],
+      }),
     minimalFontPromises,
+    false,
   );
 }
 

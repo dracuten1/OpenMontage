@@ -25,7 +25,13 @@ function tokensMatch(tokenNorm: string, needleNorm: string): boolean {
   if (!tokenNorm || !needleNorm) return false;
   if (tokenNorm === needleNorm) return true;
   if (needleNorm.length >= 2 && tokenNorm.includes(needleNorm)) return true;
-  if (tokenNorm.length >= 2 && needleNorm.includes(tokenNorm)) return true;
+  if (
+    tokenNorm.length >= 4 &&
+    !/^\d+$/.test(tokenNorm) &&
+    needleNorm.includes(tokenNorm)
+  ) {
+    return true;
+  }
   return false;
 }
 

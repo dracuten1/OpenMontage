@@ -1,0 +1,669 @@
+{
+  "version": "1.0",
+  "project_id": "diem-tin-20261127",
+  "pipeline_type": "animated-explainer",
+  "style_playbook": "archival-editorial",
+  "lane": "news-editorial-motion",
+  "orchestrator": "antigravity",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "posterize_fps": 15,
+    "aspect_variants": [
+      "9x16"
+    ]
+  },
+  "style_anchor": "Broadcast Photojournalism x Swiss Edge-to-Edge Split (#0B0C0E / #F5F5F2, #E11D2E / #FFD100, Barlow Condensed + Plus Jakarta Sans, 35mm 12fps grain)",
+  "negative_prompt": "Card-itis vien 1px, hop den toast phu de, JetBrains Mono, dark-slate neon gradient, glassmorphism 999px, toon/anime, watermark",
+  "speech_lock_contract": "Every trigger_frame and enterFrame is derived from cues.json via cueFrame() (spoken word +-0.3s).",
+  "camera_rig": {
+    "action": "Ken Burns speech-locked 1.00->1.07 on archival photos and EditorialMap via useCurrentFrame()",
+    "scale": "1.0 -> 1.07",
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "parallax": {
+      "bg_z0_multiplier": 1.0,
+      "graphic_z20_multiplier": 1.04,
+      "data_z40_multiplier": 1.08
+    }
+  },
+  "physics": {
+    "spring_damping": "16-22 (MOTION.pop / MOTION.settle)",
+    "stiffness": "120-140",
+    "rule": "pop-in translateY +N -> 0; zero CSS transitions"
+  },
+  "global_overlays": [
+    {
+      "type": "vignette",
+      "source": "remotion_native (radial gradient)",
+      "opacity": 0.25,
+      "z_index": 89
+    },
+    {
+      "type": "grain_loop",
+      "source": "remotion_native (film_grain_1..3.png, 12fps)",
+      "blend_mode": "overlay",
+      "opacity": 0.18,
+      "z_index": 90
+    }
+  ],
+  "safe_zones": {
+    "kicker": {
+      "y": 250
+    },
+    "content": {
+      "y_top": 350,
+      "y_bottom": 1420,
+      "left": 90,
+      "max_width": 850,
+      "right_rail_min": 140
+    },
+    "subtitles": {
+      "y_top": 1480,
+      "y_bottom": 1600,
+      "font_px": [
+        42,
+        45
+      ],
+      "chunk_max_chars": 64
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "scene-1",
+      "section_id": "s01",
+      "display_name": "Cover + Hook · Bốn điểm nóng 27/11",
+      "narrative_beat": "Cover Poster t=0: CPTPP MỞ · VÀNG 136 TRIỆU + DigestPulseGrid + ảnh AI cover_digest.png",
+      "duration_frames": 361,
+      "composition_source": "scenes/S01.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s01",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s01_cover",
+          "z_index": 25,
+          "role": "archive_photo",
+          "pipeline": {
+            "method": "t2i",
+            "component": "cover_digest.png"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 850,
+            "h": 540,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s01_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "DigestPulseGrid"
+          },
+          "transform": {
+            "x": 540,
+            "y": 1120,
+            "w": 850,
+            "h": 340,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-2",
+      "section_id": "s02",
+      "display_name": "Bản đồ Điểm Tin 27/11",
+      "narrative_beat": "FlowTimeline tóm tắt 4 trụ cột tin 27/11",
+      "duration_frames": 532,
+      "composition_source": "scenes/S02.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s02",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s02_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "FlowTimeline"
+          },
+          "transform": {
+            "x": 540,
+            "y": 920,
+            "w": 850,
+            "h": 720,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-3",
+      "section_id": "s03",
+      "display_name": "Tin 1A · CPTPP mở rộng tại Hà Nội",
+      "narrative_beat": "EditorialMap Hà Nội kết nối đàm phán gia nhập UAE, Indonesia, Philippines",
+      "duration_frames": 432,
+      "composition_source": "scenes/S03.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s03",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s03_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "EditorialMap"
+          },
+          "transform": {
+            "x": 540,
+            "y": 760,
+            "w": 850,
+            "h": 640,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-4",
+      "section_id": "s04",
+      "display_name": "Tin 1B · Cập nhật mới thuế Mỹ ART",
+      "narrative_beat": "ArchivalSpotlight cảng xuất khẩu + ArtTradeStrip cập nhật mới Thủ tướng Lê Minh Hưng",
+      "duration_frames": 385,
+      "composition_source": "scenes/S04.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s04",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s04_photo",
+          "z_index": 25,
+          "role": "archive_photo",
+          "pipeline": {
+            "method": "photo_asset",
+            "component": "container_port.jpg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 600,
+            "w": 850,
+            "h": 420,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s04_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "ArtTradeStrip"
+          },
+          "transform": {
+            "x": 540,
+            "y": 1160,
+            "w": 850,
+            "h": 360,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-5",
+      "section_id": "s05",
+      "display_name": "Tin 2A · VNPT IDC Hòa Lạc & Đề án 2320",
+      "narrative_beat": "ArchivalSpotlight trung tâm dữ liệu + DataCenterTierSvg 3 chuẩn Tier III & QĐ 2320",
+      "duration_frames": 405,
+      "composition_source": "scenes/S05.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s05",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s05_photo",
+          "z_index": 25,
+          "role": "archive_photo",
+          "pipeline": {
+            "method": "photo_asset",
+            "component": "data_center.jpg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 600,
+            "w": 850,
+            "h": 420,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s05_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "DataCenterTierSvg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 1160,
+            "w": 850,
+            "h": 360,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-6",
+      "section_id": "s06",
+      "display_name": "Tin 2B · Nvidia dừng máy chủ AI Đông Nam Á",
+      "narrative_beat": "EditorialMap 4 nước ASEAN chịu tạm dừng giao máy chủ AI & bài toán Việt Nam",
+      "duration_frames": 383,
+      "composition_source": "scenes/S06.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s06",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s06_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "EditorialMap"
+          },
+          "transform": {
+            "x": 540,
+            "y": 760,
+            "w": 850,
+            "h": 640,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-7",
+      "section_id": "s07",
+      "display_name": "Tin 3A · 45 Robot ROBOTERA M7 tại Hàng Châu",
+      "narrative_beat": "ArchivalSpotlight robot logistics + EditorialBarChart 500 -> 1.200 -> 1.500 bưu kiện/giờ",
+      "duration_frames": 323,
+      "composition_source": "scenes/S07.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s07",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s07_photo",
+          "z_index": 25,
+          "role": "archive_photo",
+          "pipeline": {
+            "method": "photo_asset",
+            "component": "logistics_robot.jpg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 580,
+            "w": 850,
+            "h": 380,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s07_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "EditorialBarChart"
+          },
+          "transform": {
+            "x": 540,
+            "y": 1140,
+            "w": 850,
+            "h": 400,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-8",
+      "section_id": "s08",
+      "display_name": "Tin 3B · Khảo sát nhân lực IT Việt trước bão AI",
+      "narrative_beat": "EditorialBarChart khảo sát VnExpress & ManpowerGroup về tác động AI lên nhân lực Việt",
+      "duration_frames": 377,
+      "composition_source": "scenes/S08.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s08",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s08_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "EditorialBarChart"
+          },
+          "transform": {
+            "x": 540,
+            "y": 900,
+            "w": 850,
+            "h": 540,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-9",
+      "section_id": "s09",
+      "display_name": "Tin 4A · VN-Index hồi 24,22 điểm & Sóng Dầu khí",
+      "narrative_beat": "EditorialBarChart tỷ trọng hồi phục dầu khí/khối ngoại + MarketPulseSvg VN-Index 1.653,90",
+      "duration_frames": 447,
+      "composition_source": "scenes/S09.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s09",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s09_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "MarketPulseSvg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 900,
+            "w": 850,
+            "h": 520,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-10",
+      "section_id": "s10",
+      "display_name": "Tin 4B · Cập nhật mới vàng SJC 136 triệu & Núi Pickaxe",
+      "narrative_beat": "ArchivalSpotlight thỏi vàng + GoldGeoRiskSvg SJC 136 triệu & cảnh báo Núi Pickaxe",
+      "duration_frames": 350,
+      "composition_source": "scenes/S10.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s10",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s10_photo",
+          "z_index": 25,
+          "role": "archive_photo",
+          "pipeline": {
+            "method": "photo_asset",
+            "component": "gold_bullion.jpg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 600,
+            "w": 850,
+            "h": 420,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s10_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "GoldGeoRiskSvg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 1160,
+            "w": 850,
+            "h": 360,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-11",
+      "section_id": "s11",
+      "display_name": "Tranh luận A vs B hướng tới người Việt",
+      "narrative_beat": "ComparisonSplit Chọn A (Nâng kỹ năng & mở thị trường) vs Chọn B (Phòng thủ tiền mặt)",
+      "duration_frames": 393,
+      "composition_source": "scenes/S11.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s11",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s11_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "ComparisonSplit"
+          },
+          "transform": {
+            "x": 540,
+            "y": 920,
+            "w": 850,
+            "h": 640,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    },
+    {
+      "scene_id": "scene-12",
+      "section_id": "s12",
+      "display_name": "Outro CTA · Ký Chủ Điểm Tin",
+      "narrative_beat": "DebateOutroSvg + CtaBand trước BrandBumper outro 3s",
+      "duration_frames": 184,
+      "composition_source": "scenes/S12.tsx",
+      "layers": [
+        {
+          "layer_id": "bg_s12",
+          "z_index": 0,
+          "role": "background",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "SceneShell"
+          },
+          "transform": {
+            "x": 540,
+            "y": 960,
+            "w": 1080,
+            "h": 1920,
+            "anchor": "center"
+          }
+        },
+        {
+          "layer_id": "s12_graphic",
+          "z_index": 35,
+          "role": "data_viz",
+          "pipeline": {
+            "method": "remotion_native",
+            "component": "DebateOutroSvg"
+          },
+          "transform": {
+            "x": 540,
+            "y": 900,
+            "w": 850,
+            "h": 180,
+            "anchor": "center"
+          }
+        }
+      ],
+      "sfx_cues": []
+    }
+  ]
+}

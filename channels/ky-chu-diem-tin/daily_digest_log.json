@@ -53,6 +53,61 @@
       "publish_status": "published",
       "tiktok_profile": "Profile 2",
       "video_path": "/Users/tuyennguyen/project/OpenMontage/projects/ky-chu-diem-tin/diem-tin-20261126/renders/final.mp4"
+    },
+    {
+      "date": "2026-11-27",
+      "slug": "diem-tin-20261127",
+      "title": "Điểm Tin 27/11: CPTPP mở rộng, Thuế Mỹ ART, Hạ tầng AI & Vàng SJC 136 triệu",
+      "topics": [
+        {
+          "pillar": "Kinh tế / Thương mại quốc tế",
+          "headline": "CPTPP khởi động đàm phán kết nạp UAE, Indonesia, Philippines tại Hà Nội (27/11) & Cập nhật mới: Thủ tướng Lê Minh Hưng khẳng định cơ bản xong đàm phán ART, thuế Mỹ sẽ thấp hơn nhiều mức 35%",
+          "sources": [
+            "https://vnexpress.net/cptpp-se-dam-phan-ket-nap-uae-indonesia-va-philippines-5149696.html",
+            "https://baochinhphu.vn/cptpp-se-dam-phan-ve-viec-gia-nhap-cua-uae-indonesia-va-philippines-102261127172652896.htm",
+            "https://vnexpress.net/thu-tuong-thue-my-ap-voi-viet-nam-se-thap-hon-nhieu-muc-35-5149602.html",
+            "https://znews.vn/thu-tuong-thue-my-ap-voi-viet-nam-se-thap-hon-nhieu-muc-35-post1699470.html"
+          ]
+        },
+        {
+          "pillar": "Công nghệ / Hạ tầng số & Bán dẫn",
+          "headline": "VNPT IDC Hòa Lạc đạt trọn 3 chuẩn Uptime Tier III & Đề án QĐ 2320/QĐ-TTg bán dẫn tới 2030 giữa lúc đối tác Nvidia (Dell, Supermicro) tạm dừng giao máy chủ AI tới 4 nước ASEAN",
+          "sources": [
+            "https://vnexpress.net/viet-nam-co-them-trung-tam-du-lieu-dat-du-ba-chuan-quoc-te-5149565.html",
+            "https://baochinhphu.vn/trung-tam-du-lieu-vnpt-idc-hoa-lac-hoan-thien-bo-3-chung-nhan-tier-iii-cho-toan-bo-vong-doi-cua-trung-tam-102261127111103925.htm",
+            "https://tapchicongthuong.vn/thuc-day-hop-tac-quoc-te--huy-dong-nguon-luc-phat-trien-cong-nghiep-ban-dan--dien-tu-viet-nam-569631.htm",
+            "https://dantri.com.vn/kinh-doanh/nvidia-dung-giao-may-chu-ai-toi-dong-nam-a-cac-du-an-ty-usd-ngung-tre-20261127052427643.htm"
+          ]
+        },
+        {
+          "pillar": "Công nghệ AI / Robot & Lao động",
+          "headline": "ROBOTERA triển khai 45 robot hình người M7 tại China Post Hàng Châu (1.200–1.500 bưu kiện/giờ, >90% chính xác) & Khảo sát VnExpress 27/11 cho thấy chỉ 12% nhân sự IT Việt không bị AI tác động",
+          "sources": [
+            "https://www.unite.ai/robotera-deploys-45-humanoid-robots-at-china-posts-hangzhou-hub/",
+            "https://autonews.gasgoo.com/articles/news/45-robotera-m7-embodied-robots-start-work-at-china-post-in-hangzhou-2125945496979783681",
+            "https://vnexpress.net/dan-cong-nghe-viet-xoay-xo-doi-nghe-trong-bao-ai-5145736.html"
+          ]
+        },
+        {
+          "pillar": "Thị trường Tài chính & Địa chính trị",
+          "headline": "VN-Index hồi 24,22 điểm lên 1.653,90 điểm nhờ dầu khí (+6,8%) và khối ngoại mua ròng 611 tỷ & Cập nhật mới: Vàng SJC tăng 1,5 triệu lên 136 triệu đồng/lượng giữa cảnh báo Mỹ–Iran quanh Núi Pickaxe",
+          "sources": [
+            "https://thoibaotaichinhvietnam.vn/chung-khoan-ngay-27-11-vn-index-phuc-hoi-manh-khoi-ngoai-tro-lai-mua-rong-207649.html",
+            "https://vnexpress.net/co-phieu-dau-khi-bung-no-5149677.html",
+            "https://znews.vn/vn-index-tang-hon-24-diem-co-phieu-dau-khi-dua-nhau-tang-tran-post1699504.html",
+            "https://cafef.vn/gia-vang-nhan-tron-vang-mieng-chieu-27-11-tai-bao-tin-minh-chau-sjc-pnj-doji-va-bao-tin-manh-hai-bat-tang-manh-188261127074924289.chn",
+            "https://baonghean.vn/gia-vang-chieu-nay-27-11-2026-gia-vang-sjc-9999-vang-nhan-trong-nuoc-va-vang-quoc-te-10356734.html",
+            "https://www.jpost.com/middle-east/iran-news/article-916297",
+            "https://thanhnien.vn/hinh-anh-ve-tinh-he-lo-tien-do-xay-dung-co-so-ngam-moi-cua-iran-185261126123010699.htm"
+          ]
+        }
+      ],
+      "bgm": "tech-news-broadcast-bed.m4a",
+      "duration_s": 155.4,
+      "qc_status": "pass",
+      "publish_status": "published",
+      "tiktok_profile": "Profile 2",
+      "video_path": "/Users/tuyennguyen/project/OpenMontage/projects/ky-chu-diem-tin/diem-tin-20261127/renders/final.mp4"
     }
   ]
 }

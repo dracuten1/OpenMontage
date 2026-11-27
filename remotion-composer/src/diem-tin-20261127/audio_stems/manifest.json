@@ -1,0 +1,94 @@
+{
+ "schema": "openmontage.stems",
+ "version": 1,
+ "stems": {
+  "voice_s01": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s01.wav",
+   "kind": "voice",
+   "duration_seconds": 11.775,
+   "start_frame": 0,
+   "frames": 361
+  },
+  "voice_s02": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s02.wav",
+   "kind": "voice",
+   "duration_seconds": 17.491,
+   "start_frame": 361,
+   "frames": 532
+  },
+  "voice_s03": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s03.wav",
+   "kind": "voice",
+   "duration_seconds": 14.152,
+   "start_frame": 893,
+   "frames": 432
+  },
+  "voice_s04": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s04.wav",
+   "kind": "voice",
+   "duration_seconds": 12.587,
+   "start_frame": 1325,
+   "frames": 385
+  },
+  "voice_s05": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s05.wav",
+   "kind": "voice",
+   "duration_seconds": 13.253,
+   "start_frame": 1710,
+   "frames": 405
+  },
+  "voice_s06": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s06.wav",
+   "kind": "voice",
+   "duration_seconds": 12.522,
+   "start_frame": 2115,
+   "frames": 383
+  },
+  "voice_s07": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s07.wav",
+   "kind": "voice",
+   "duration_seconds": 10.528,
+   "start_frame": 2498,
+   "frames": 323
+  },
+  "voice_s08": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s08.wav",
+   "kind": "voice",
+   "duration_seconds": 12.302,
+   "start_frame": 2821,
+   "frames": 377
+  },
+  "voice_s09": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s09.wav",
+   "kind": "voice",
+   "duration_seconds": 14.665,
+   "start_frame": 3198,
+   "frames": 447
+  },
+  "voice_s10": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s10.wav",
+   "kind": "voice",
+   "duration_seconds": 11.418,
+   "start_frame": 3645,
+   "frames": 350
+  },
+  "voice_s11": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s11.wav",
+   "kind": "voice",
+   "duration_seconds": 12.852,
+   "start_frame": 3995,
+   "frames": 393
+  },
+  "voice_s12": {
+   "path": "/Users/tuyennguyen/project/OpenMontage/remotion-composer/public/diem-tin-20261127/audio/voice_s12.wav",
+   "kind": "voice",
+   "duration_seconds": 5.895,
+   "start_frame": 4388,
+   "frames": 184
+  }
+ },
+ "narration": "/Users/tuyennguyen/project/OpenMontage/projects/ky-chu-diem-tin/diem-tin-20261127/renders/audio_stems/narration.wav",
+ "bgm": "/Users/tuyennguyen/project/OpenMontage/projects/ky-chu-diem-tin/diem-tin-20261127/renders/audio_stems/bgm.wav",
+ "mix": "/Users/tuyennguyen/project/OpenMontage/projects/ky-chu-diem-tin/diem-tin-20261127/renders/_master_work/mix_master.wav",
+ "sfx": "/Users/tuyennguyen/project/OpenMontage/projects/ky-chu-diem-tin/diem-tin-20261127/renders/audio_stems/sfx.wav"
+}

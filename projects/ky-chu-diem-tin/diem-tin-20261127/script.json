@@ -1,0 +1,234 @@
+{
+  "version": "1.0",
+  "title": "Điểm Tin 27/11: CPTPP mở rộng, Thuế Mỹ ART, Hạ tầng AI & Vàng SJC 136 triệu",
+  "total_duration_seconds": 190.0,
+  "voice_performance": {
+    "performance_intent": "Phát thanh viên Điểm Tin Kinh tế - Công nghệ - Địa chính trị kênh Ký Chủ Điểm Tin: rõ ràng, dứt khoát ở số liệu, gắn chặt từng tin quốc tế/vĩ mô với ví tiền và công việc của người Việt.",
+    "pacing_profile": "conversational",
+    "energy_curve": "S01 hook dứt khoát -> S02 bản đồ 4 tin -> S03-S04 CPTPP & cập nhật mới thuế Mỹ ART -> S05-S06 VNPT IDC Hòa Lạc & QĐ 2320 vs Nvidia dừng máy chủ ASEAN -> S07-S08 45 robot ROBOTERA M7 & khảo sát IT Việt -> S09-S10 VN-Index 1.653,9 & vàng SJC 136 triệu giữa rủi ro Pickaxe -> S11-S12 tranh luận A/B & CTA.",
+    "pause_policy": "Ngắt 0.25s cuối mỗi section; mọi câu <=140 ký tự có dấu chấm hoặc dấu hỏi rõ ràng.",
+    "sample_section_id": "S03",
+    "provider_notes": {
+      "vieneu": "Chạy VieNeu TTS cục bộ tốc độ 1.15x từ delivery_cues.provider_text với mọi câu <=140 ký tự; chạy Gate A probe trước batch."
+    }
+  },
+  "sections": [
+    {
+      "id": "S01",
+      "label": "Cover + Hook · Bốn điểm nóng 27/11",
+      "text": "CPTPP mở đàm phán thêm ba nước ngay tại Hà Nội, và Thủ tướng khẳng định thuế Mỹ sẽ thấp hơn nhiều mức 35%. Cùng lúc, Nvidia dừng máy chủ Đông Nam Á và vàng SJC vọt lên 136 triệu đồng.",
+      "start_seconds": 0.0,
+      "end_seconds": 10.0,
+      "speaker_directions": "News anchor dứt khoát, mở trực diện 4 điểm nóng 27/11.",
+      "delivery_cues": {
+        "pace": "brisk",
+        "energy": "urgent-anchor",
+        "emphasis_words": ["CPTPP", "Hà Nội", "35%", "Nvidia", "136 triệu"],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.25,
+        "provider_text": "Hiệp định xi bi, ti ti bi, mở đàm phán thêm ba nước ngay tại Hà Nội. Đồng thời, Thủ tướng khẳng định mức thuế Mỹ sẽ thấp hơn nhiều ngưỡng ba mươi lăm phần trăm. Cùng lúc, En-vi-đi-a dừng máy chủ Đông Nam Á và vàng Ét Giây Xê vọt lên một trăm ba mươi sáu triệu đồng."
+      },
+      "enhancement_cues": [{"type": "overlay", "description": "Cover Card t=0: CPTPP MỞ · VÀNG 136 TRIỆU + DigestPulseGrid", "timestamp_seconds": 0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV1#f02, EV1#f03, EV2#f09, EV4#f17"
+    },
+    {
+      "id": "S02",
+      "label": "Bản đồ Điểm Tin 27/11",
+      "text": "Điểm Tin ngày 27/11 có bốn chuyển động sát sườn ví tiền người Việt. Đầu tiên là mở rộng CPTPP và đàm phán thuế Mỹ. Thứ hai là hạ tầng số Hòa Lạc đạt chuẩn, đối lập cú sốc Nvidia. Thứ ba là 45 robot tự động hóa bưu cục tạo sức ép cho nhân sự IT. Thứ tư là chứng khoán bật tăng cùng vàng SJC 136 triệu.",
+      "start_seconds": 10.0,
+      "end_seconds": 21.0,
+      "speaker_directions": "Rõ ràng từng mục theo đúng thứ tự hiển thị 1 đến 4.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "briefing-anchor",
+        "emphasis_words": ["CPTPP", "Hòa Lạc", "45 robot", "chứng khoán", "136 triệu"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Điểm Tin ngày hai mươi bảy tháng mười một có bốn chuyển động sát sườn ví tiền người Việt. Đầu tiên là mở rộng Hiệp định xi bi, ti ti bi và đàm phán thuế Mỹ. Thứ hai là hạ tầng số Hòa Lạc đạt chuẩn, đối lập cú sốc En-vi-đi-a. Thứ ba là bốn mươi lăm rô-bốt tự động hóa bưu cục tạo sức ép cho nhân sự Ai Ti. Thứ tư là chứng khoán bật tăng cùng vàng Ét Giây Xê một trăm ba mươi sáu triệu."
+      },
+      "enhancement_cues": [{"type": "diagram", "description": "FlowTimeline 4 trụ cột tin ngày 27/11", "timestamp_seconds": 10.5}],
+      "pronunciation_guides": [],
+      "source_ref": "EV1#f01, EV1#f02, EV2#f06, EV3#f11, EV4#f15, EV4#f17"
+    },
+    {
+      "id": "S03",
+      "label": "Tin 1A · CPTPP mở rộng lịch sử tại Hà Nội",
+      "text": "Chiều 27/11 tại Hà Nội, Hội đồng CPTPP lần thứ 11 nhất trí khởi động đàm phán kết nạp UAE, Indonesia và Philippines. Khối gần 600 triệu dân chiếm 14% GDP toàn cầu cũng đặt mục tiêu nâng cấp hiệp định vào giữa năm 2027.",
+      "start_seconds": 21.0,
+      "end_seconds": 38.0,
+      "speaker_directions": "Nhấn rõ 3 ứng viên mới và mốc nâng cấp giữa năm 2027.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "data-anchor",
+        "emphasis_words": ["Hà Nội", "UAE", "Indonesia", "Philippines", "14%", "2027"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Chiều hai mươi bảy tháng mười một tại Hà Nội, Hội đồng Hiệp định xi bi, ti ti bi, họp mở rộng. Khối nhất trí khởi động đàm phán kết nạp U A E, In-đô-nê-xi-a và Phi-líp-pin. Khối gần sáu trăm triệu dân chiếm mười bốn phần trăm Gờ Đê Pê toàn cầu. Các thành viên cũng đặt mục tiêu nâng cấp hiệp định vào giữa năm hai nghìn không trăm hai mươi bảy."
+      },
+      "enhancement_cues": [{"type": "diagram", "description": "EditorialMap mở rộng CPTPP từ Hà Nội tới UAE, Indonesia, Philippines", "timestamp_seconds": 22.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV1#f01, EV1#f02"
+    },
+    {
+      "id": "S04",
+      "label": "Tin 1B · Cập nhật mới: Thuế Mỹ ART & Đường ra xuất khẩu",
+      "text": "Cập nhật mới ngày 27/11: Thủ tướng Lê Minh Hưng cho biết Việt Nam cơ bản xong đàm phán Hiệp định ART với Mỹ. Nhờ vậy, thuế thực tế sẽ thấp hơn nhiều ngưỡng 35% đề xuất cho 159,4 tỷ USD hàng xuất sang Mỹ.",
+      "start_seconds": 38.0,
+      "end_seconds": 56.0,
+      "speaker_directions": "Tông tin cậy, nhấn rõ Cập nhật mới 27/11 và con số 159,4 tỷ USD.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "analytical",
+        "emphasis_words": ["Cập nhật mới", "Lê Minh Hưng", "ART", "35%", "159,4 tỷ"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Cập nhật mới ngày hai mươi bảy tháng mười một: Thủ tướng Lê Minh Hưng cho biết Việt Nam cơ bản xong đàm phán Hiệp định A Rờ Tê với Mỹ. Nhờ vậy, thuế suất thực tế sẽ thấp hơn nhiều ngưỡng ba mươi lăm phần trăm. Đây là tin rất tích cực cho một trăm năm mươi chín phẩy bốn tỷ đô la hàng xuất sang Mỹ."
+      },
+      "enhancement_cues": [{"type": "broll", "description": "ArchivalSpotlight cảng container + ArtTradeStrip", "timestamp_seconds": 39.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV1#f03, EV1#f04, EV1#f05"
+    },
+    {
+      "id": "S05",
+      "label": "Tin 2A · VNPT IDC Hòa Lạc & Đề án bán dẫn 2320",
+      "text": "Sáng 27/11, VNPT IDC Hòa Lạc 2.000 rack trở thành trung tâm thứ hai tại Việt Nam đủ ba chuẩn Tier III. Cùng lúc, Quyết định 2320 mở 7 giải pháp hợp tác quốc tế ngành bán dẫn đến năm 2030.",
+      "start_seconds": 56.0,
+      "end_seconds": 73.0,
+      "speaker_directions": "Khí thế rõ nét khi nêu 2.000 rack, đủ ba chuẩn Tier III và QĐ 2320.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "milestone-anchor",
+        "emphasis_words": ["Hòa Lạc", "2.000 rack", "Tier III", "2320", "2030"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Sáng hai mươi bảy tháng mười một, trung tâm dữ liệu Vê En, Pê Tê Hòa Lạc quy mô hai nghìn tủ rắc đạt đủ ba chuẩn quốc tế Ti-ơ ba. Đây là trung tâm dữ liệu thứ hai tại Việt Nam hoàn thiện trọn bộ tiêu chuẩn này. Cùng lúc, Quyết định hai ba hai mươi thúc đẩy bảy giải pháp bán dẫn đến hai nghìn không trăm ba mươi."
+      },
+      "enhancement_cues": [{"type": "broll", "description": "ArchivalSpotlight trung tâm dữ liệu + DataCenterTierSvg", "timestamp_seconds": 57.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV2#f06, EV2#f07, EV2#f08"
+    },
+    {
+      "id": "S06",
+      "label": "Tin 2B · Nvidia dừng máy chủ ASEAN & Cơ hội Việt Nam",
+      "text": "Nhưng khu vực vừa gặp cú sốc mới: đối tác Nvidia tạm dừng giao máy chủ AI tới 4 nước Đông Nam Á để chờ giấy phép Mỹ. Việt Nam có cơ hội đón vốn từ 42 trung tâm dữ liệu, song phải siết chặt tuân thủ xuất xứ.",
+      "start_seconds": 73.0,
+      "end_seconds": 91.0,
+      "speaker_directions": "Tông phân tích rõ đối lập giữa cú sốc 4 nước ASEAN và yêu cầu tuân thủ tại Việt Nam.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "investigative",
+        "emphasis_words": ["Nvidia", "4 nước", "90 ngày", "42 trung tâm", "tuân thủ"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Nhưng khu vực vừa gặp cú sốc mới: đối tác của En-vi-đi-a tạm dừng giao máy chủ trí tuệ nhân tạo tới bốn nước Đông Nam Á. Các bên phải chờ hướng dẫn giấy phép Mỹ trong hạn chín mươi ngày. Việt Nam có cơ hội đón vốn từ bốn mươi hai trung tâm dữ liệu, nhưng phải siết tuân thủ xuất xứ."
+      },
+      "enhancement_cues": [{"type": "diagram", "description": "EditorialMap 4 nước ASEAN bị Nvidia tạm dừng máy chủ AI", "timestamp_seconds": 74.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV2#f07, EV2#f09, EV2#f10"
+    },
+    {
+      "id": "S07",
+      "label": "Tin 3A · 45 Robot hình người ROBOTERA M7 tại Hàng Châu",
+      "text": "Trong ngành giao vận, hãng ROBOTERA vừa đưa 45 robot hình người M7 vào bưu cục Hàng Châu của China Post. Tốc độ phân loại tăng từ 500 lên 1.200 rồi vượt 1.500 bưu kiện mỗi giờ với độ chính xác trên 90%.",
+      "start_seconds": 91.0,
+      "end_seconds": 108.0,
+      "speaker_directions": "Nhấn nhịp tăng tốc 500 -> 1.200 -> 1.500 bưu kiện mỗi giờ.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "data-anchor",
+        "emphasis_words": ["45", "Hàng Châu", "1.200", "1.500", "90%"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Trong ngành giao vận, hãng Rô-bô-te-ra đưa bốn mươi lăm rô-bốt hình người Em Bảy vào bưu cục Hàng Châu. Tốc độ phân loại bưu kiện tăng từ năm trăm lên một nghìn hai trăm rồi vượt một nghìn năm trăm gói mỗi giờ. Độ chính xác vận hành vượt chín mươi phần trăm."
+      },
+      "enhancement_cues": [{"type": "bar_chart", "description": "ArchivalSpotlight robot công nghiệp + EditorialBarChart tốc độ phân loại", "timestamp_seconds": 92.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV3#f11, EV3#f12"
+    },
+    {
+      "id": "S08",
+      "label": "Tin 3B · Khảo sát nhân lực IT Việt trước bão AI",
+      "text": "Sức ép tự động hóa đang gõ cửa lao động Việt: khảo sát VnExpress ngày 27/11 cho thấy tỷ lệ dân IT không bị AI tác động chỉ là 12%. Khoảng 50% phải học thêm giữ việc, còn hơn 70% một lớp cao học bán dẫn đi lên từ ngành IT.",
+      "start_seconds": 108.0,
+      "end_seconds": 125.0,
+      "speaker_directions": "Chậm vừa phải, nhấn rõ 12%, 50% và hơn 70% theo đúng thứ tự trên màn hình.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "analytical",
+        "emphasis_words": ["12%", "50%", "70%", "bán dẫn"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Áp lực tự động hóa đang gõ cửa lao động Việt Nam. Khảo sát ngày hai mươi bảy tháng mười một cho thấy tỷ lệ nhân sự Ai Ti không bị ảnh hưởng chỉ là mười hai phần trăm. Khoảng năm mươi phần trăm phải học thêm để giữ việc, còn hơn bảy mươi phần trăm lớp cao học bán dẫn đi lên từ ngành Ai Ti."
+      },
+      "enhancement_cues": [{"type": "bar_chart", "description": "EditorialBarChart khảo sát lao động IT & tự động hóa", "timestamp_seconds": 109.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV3#f13, EV3#f14, EV2#f08"
+    },
+    {
+      "id": "S09",
+      "label": "Tin 4A · VN-Index hồi 24,22 điểm & Sóng Dầu khí",
+      "text": "Trên sàn chứng khoán ngày 27/11, VN-Index bật tăng 24,22 điểm lên 1.653,9 điểm nhờ nhóm dầu khí tăng 6,8%. Dù thanh khoản HoSE giảm gần 30%, khối ngoại đã đảo chiều mua ròng 611 tỷ đồng toàn thị trường.",
+      "start_seconds": 125.0,
+      "end_seconds": 144.0,
+      "speaker_directions": "Đọc dứt khoát từ chỉ số 1.653,9 -> dầu khí 6,8% -> thanh khoản giảm 30% -> khối ngoại mua ròng 611 tỷ.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "data-anchor",
+        "emphasis_words": ["24,22 điểm", "1.653,9", "6,8%", "30%", "611 tỷ"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Trên sàn chứng khoán ngày hai mươi bảy tháng mười một, chỉ số Vê En, In-đếch bật tăng hai mươi bốn phẩy hai mươi hai điểm. Chỉ số đóng cửa tại một nghìn sáu trăm năm mươi ba phẩy chín điểm nhờ nhóm dầu khí tăng sáu phẩy tám phần trăm. Dù thanh khoản sàn Hô-xê giảm gần ba mươi phần trăm, khối ngoại đã đảo chiều mua ròng sáu trăm mười một tỷ đồng."
+      },
+      "enhancement_cues": [{"type": "line_chart", "description": "EditorialLineChart nhịp hồi VN-Index & cột khối ngoại/dầu khí", "timestamp_seconds": 126.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV4#f15, EV4#f16"
+    },
+    {
+      "id": "S10",
+      "label": "Tin 4B · Cập nhật mới: Vàng SJC 136 triệu & Rủi ro Mỹ-Iran",
+      "text": "Cập nhật mới chiều 27/11: vàng miếng SJC bật tăng 1,5 triệu lên 136 triệu đồng mỗi lượng theo đà thế giới 3.656 USD một ounce. Lực mua trú ẩn tăng mạnh giữa lúc Mỹ cảnh báo tấn công Núi Pickaxe tại Iran.",
+      "start_seconds": 144.0,
+      "end_seconds": 162.0,
+      "speaker_directions": "Nhấn rõ Cập nhật mới 136 triệu đồng/lượng và yếu tố địa chính trị Pickaxe.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "investigative",
+        "emphasis_words": ["Cập nhật mới", "136 triệu", "3.656", "Pickaxe"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Cập nhật mới chiều nay: vàng miếng Ét Giây Xê tăng một phẩy năm triệu lên một trăm ba mươi sáu triệu đồng mỗi lượng. Giá vàng thế giới cũng tăng lên ba nghìn sáu trăm năm mươi sáu đô la một ao. Nhu cầu mua trú ẩn tăng mạnh giữa lúc Mỹ cảnh báo sẵn sàng đánh Núi Pích-ách tại I-ran."
+      },
+      "enhancement_cues": [{"type": "broll", "description": "ArchivalSpotlight thỏi vàng + GoldGeoRiskSvg", "timestamp_seconds": 145.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV4#f17, EV4#f18"
+    },
+    {
+      "id": "S11",
+      "label": "Tranh luận A vs B hướng tới người Việt",
+      "text": "Trước làn sóng AI, đàm phán thuế Mỹ và vàng 136 triệu, người Việt nên chọn A hay B? Chọn A: nâng kỹ năng sang bán dẫn và mở rộng CPTPP, hay chọn B: giữ tiền mặt, tránh đuổi giá vàng để chờ ký chính thức Hiệp định ART?",
+      "start_seconds": 162.0,
+      "end_seconds": 179.0,
+      "speaker_directions": "Tông đối thoại trực diện, tách rõ lựa chọn A và B cho khán giả Việt.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "conversational-debate",
+        "emphasis_words": ["chọn A", "chọn B", "bán dẫn", "CPTPP", "ART"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Trước làn sóng tự động hóa, thuế Mỹ và vàng một trăm ba mươi sáu triệu, người Việt nên chọn A hay chọn B? Chọn A: nâng kỹ năng sang bán dẫn và mở rộng xuất khẩu qua Hiệp định xi bi, ti ti bi. Hay chọn B: giữ tiền mặt, tránh đuổi giá vàng để chờ ký chính thức Hiệp định A Rờ Tê?"
+      },
+      "enhancement_cues": [{"type": "comparison", "description": "ComparisonSplit Chọn A vs Chọn B hướng tới người Việt", "timestamp_seconds": 163.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV1#f02, EV1#f03, EV2#f08, EV3#f13, EV4#f16, EV4#f17"
+    },
+    {
+      "id": "S12",
+      "label": "Outro CTA · Ký Chủ Điểm Tin",
+      "text": "Bạn nghiêng về phương án A hay B cho năm 2027? Hãy bình luận lựa chọn của bạn và theo dõi Ký Chủ Điểm Tin mỗi ngày.",
+      "start_seconds": 179.0,
+      "end_seconds": 190.0,
+      "speaker_directions": "Ấm áp, dứt khoát chốt CTA trước BrandBumper 3 giây cuối.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "warm-cta",
+        "emphasis_words": ["A hay B", "Bình luận", "theo dõi", "Ký Chủ Điểm Tin"],
+        "pause_after_seconds": 0.25,
+        "provider_text": "Bạn nghiêng về phương án A hay B cho năm hai nghìn không trăm hai mươi bảy? Hãy bình luận lựa chọn của bạn và theo dõi Ký Chủ Điểm Tin mỗi ngày."
+      },
+      "enhancement_cues": [{"type": "cta", "description": "CtaBand + DebatOutroSvg + BrandBumper outro 90f", "timestamp_seconds": 180.0}],
+      "pronunciation_guides": [],
+      "source_ref": "EV1#f02, EV1#f03"
+    }
+  ]
+}

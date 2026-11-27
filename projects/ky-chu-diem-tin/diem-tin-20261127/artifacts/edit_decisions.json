@@ -1,0 +1,185 @@
+{
+  "version": "1.0",
+  "render_runtime": "remotion",
+  "composition_mode": "atelier",
+  "cuts": [
+    {
+      "id": "cut-s01",
+      "source": "assets/audio/voice_s01.wav",
+      "in_seconds": 0.0,
+      "out_seconds": 11.775,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s02",
+      "source": "assets/audio/voice_s02.wav",
+      "in_seconds": 12.033,
+      "out_seconds": 29.524,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s03",
+      "source": "assets/audio/voice_s03.wav",
+      "in_seconds": 29.766,
+      "out_seconds": 43.918,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s04",
+      "source": "assets/audio/voice_s04.wav",
+      "in_seconds": 44.166,
+      "out_seconds": 56.753,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s05",
+      "source": "assets/audio/voice_s05.wav",
+      "in_seconds": 56.999,
+      "out_seconds": 70.252,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s06",
+      "source": "assets/audio/voice_s06.wav",
+      "in_seconds": 70.499,
+      "out_seconds": 83.021,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s07",
+      "source": "assets/audio/voice_s07.wav",
+      "in_seconds": 83.266,
+      "out_seconds": 93.794,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s08",
+      "source": "assets/audio/voice_s08.wav",
+      "in_seconds": 94.033,
+      "out_seconds": 106.335,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s09",
+      "source": "assets/audio/voice_s09.wav",
+      "in_seconds": 106.6,
+      "out_seconds": 121.265,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s10",
+      "source": "assets/audio/voice_s10.wav",
+      "in_seconds": 121.5,
+      "out_seconds": 132.918,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s11",
+      "source": "assets/audio/voice_s11.wav",
+      "in_seconds": 133.167,
+      "out_seconds": 146.019,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    },
+    {
+      "id": "cut-s12",
+      "source": "assets/audio/voice_s12.wav",
+      "in_seconds": 146.267,
+      "out_seconds": 152.162,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "segments": [
+        {
+          "asset_id": "tts_voice_s01",
+          "start_seconds": 0.0,
+          "end_seconds": 11.775
+        },
+        {
+          "asset_id": "tts_voice_s02",
+          "start_seconds": 12.033,
+          "end_seconds": 29.524
+        },
+        {
+          "asset_id": "tts_voice_s03",
+          "start_seconds": 29.766,
+          "end_seconds": 43.918
+        },
+        {
+          "asset_id": "tts_voice_s04",
+          "start_seconds": 44.166,
+          "end_seconds": 56.753
+        },
+        {
+          "asset_id": "tts_voice_s05",
+          "start_seconds": 56.999,
+          "end_seconds": 70.252
+        },
+        {
+          "asset_id": "tts_voice_s06",
+          "start_seconds": 70.499,
+          "end_seconds": 83.021
+        },
+        {
+          "asset_id": "tts_voice_s07",
+          "start_seconds": 83.266,
+          "end_seconds": 93.794
+        },
+        {
+          "asset_id": "tts_voice_s08",
+          "start_seconds": 94.033,
+          "end_seconds": 106.335
+        },
+        {
+          "asset_id": "tts_voice_s09",
+          "start_seconds": 106.6,
+          "end_seconds": 121.265
+        },
+        {
+          "asset_id": "tts_voice_s10",
+          "start_seconds": 121.5,
+          "end_seconds": 132.918
+        },
+        {
+          "asset_id": "tts_voice_s11",
+          "start_seconds": 133.167,
+          "end_seconds": 146.019
+        },
+        {
+          "asset_id": "tts_voice_s12",
+          "start_seconds": 146.267,
+          "end_seconds": 152.162
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "tail_seconds": 0.25,
+    "total_frames": 4662
+  }
+}

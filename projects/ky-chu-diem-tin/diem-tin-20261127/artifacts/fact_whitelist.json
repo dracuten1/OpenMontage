@@ -1,0 +1,197 @@
+{
+  "project": "diem-tin-20261127",
+  "freshness_anchor": "2026-11-27",
+  "source_of_truth": "research/research_brief.md",
+  "engagement_mode": "debate_engagement",
+  "scene_count_exact": 12,
+  "banned_strings": [
+    "Việt Nam gia nhập WTO hôm nay",
+    "thuế 35% đã có hiệu lực",
+    "539 tỷ đồng",
+    "Việt Nam bị Nvidia cấm",
+    "vàng SJC vượt 140 triệu",
+    "Mỹ đã ném bom Núi Pickaxe"
+  ],
+  "facts": [
+    {
+      "fact_id": "EV1#f01",
+      "display_string": "26-27/11/2026: Hội đồng CPTPP lần thứ 11 tại Hà Nội (VN Chủ tịch) · 600 triệu dân · 14% GDP toàn cầu",
+      "type": "event",
+      "source": "vnexpress.net + baochinhphu.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S01", "S02", "S03", "S11"],
+      "narration_form": "tại Hà Nội ngày hai mươi bảy tháng mười một, Hội đồng Hiệp định xi bi, ti ti bi lần thứ mười một quy mô gần sáu trăm triệu dân, mười bốn phần trăm Gờ Đê Pê toàn cầu",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV1#f02",
+      "display_string": "Khởi động đàm phán gia nhập UAE, Indonesia, Philippines (+3 nước) · Thúc đẩy Uruguay · Nâng cấp giữa năm 2027",
+      "type": "policy",
+      "source": "vnexpress.net + baochinhphu.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S01", "S02", "S03", "S11", "S12"],
+      "narration_form": "khởi động đàm phán kết nạp thêm ba nước là U A E, In-đô-nê-xi-a và Phi-líp-pin, thúc đẩy U-ru-goay và mục tiêu nâng cấp giữa năm hai nghìn không trăm hai mươi bảy",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV1#f03",
+      "display_string": "CẬP NHẬT MỚI 27/11: Thủ tướng Lê Minh Hưng công bố cơ bản xong đàm phán ART với Mỹ · Thuế thực tế thấp hơn nhiều 35%",
+      "type": "event",
+      "source": "vnexpress.net + znews.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S01", "S02", "S04", "S11", "S12"],
+      "narration_form": "cập nhật mới hai mươi bảy tháng mười một, Thủ tướng Lê Minh Hưng cho biết Việt Nam cơ bản xong đàm phán Hiệp định A Rờ Tê với Mỹ và thuế thực tế sẽ thấp hơn nhiều mức ba mươi lăm phần trăm",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV1#f04",
+      "display_string": "Đề xuất USTR 25/11: tối đa 35% (giảm còn 20% nếu đạt ART) · Quyết định cuối sớm nhất tháng 2/2027",
+      "type": "metric",
+      "source": "vnexpress.net + znews.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S04"],
+      "narration_form": "đề xuất của U Ét Tê Rờ hôm hai mươi lăm tháng mười một là tối đa ba mươi lăm phần trăm, có thể giảm còn hai mươi phần trăm nếu đạt A Rờ Tê, quyết định cuối sớm nhất tháng hai năm hai nghìn không trăm hai mươi bảy",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV1#f05",
+      "display_string": "10 tháng 2026: Tổng XNK Việt Nam 1.001 tỷ USD · Xuất khẩu sang Mỹ 159,4 tỷ USD · Thuế lao động cưỡng bức tháng 7 mức 12,5%",
+      "type": "metric",
+      "source": "vnexpress.net (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S04"],
+      "narration_form": "mười tháng đầu năm, tổng xuất nhập khẩu đạt một nghìn không trăm linh một tỷ đô la, riêng xuất sang Mỹ đạt một trăm năm mươi chín phẩy bốn tỷ đô la",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV2#f06",
+      "display_string": "27/11/2026: VNPT IDC Hòa Lạc (23.000 m2, 2.000 rack, mở 10/2023) nhận Uptime Tier III TCOS (sau 2021 & 2023)",
+      "type": "event",
+      "source": "vnexpress.net + baochinhphu.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S01", "S02", "S05"],
+      "narration_form": "sáng hai mươi bảy tháng mười một, Vê En Pê Tê Ai Đi Xi Hòa Lạc rộng hai mươi ba nghìn mét vuông với hai nghìn rách hoàn thiện đủ ba chuẩn Ti-ơ Ba",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV2#f07",
+      "display_string": "Cả nước có 42 trung tâm dữ liệu (372,75 MW) · 19 cơ sở (44%) đạt chuẩn quốc tế · Chỉ 2 cơ sở đủ 3 chuẩn Tier III",
+      "type": "metric",
+      "source": "vnexpress.net (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S05", "S06"],
+      "narration_form": "Việt Nam hiện có bốn mươi hai trung tâm dữ liệu tổng công suất ba trăm bảy mươi hai phẩy bảy mươi lăm mê-ga-oát nhưng mới chỉ hai cơ sở đạt đủ ba chuẩn Ti-ơ Ba",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV2#f08",
+      "display_string": "Quyết định 2320/QĐ-TTg (26/11, công bố 27/11): Đề án hợp tác quốc tế bán dẫn – điện tử đến 2030 · 7 giải pháp trọng tâm",
+      "type": "policy",
+      "source": "tapchicongthuong.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S05", "S08", "S11"],
+      "narration_form": "Quyết định hai ba hai mươi ban hành đề án hợp tác quốc tế bán dẫn điện tử đến hai nghìn không trăm ba mươi với bảy giải pháp trọng tâm",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV2#f09",
+      "display_string": "27/11/2026: Đối tác Nvidia (Dell, Supermicro) tạm dừng giao máy chủ AI tới 4 nước ASEAN (Singapore, Malaysia, Thái Lan, Indonesia)",
+      "type": "event",
+      "source": "dantri.com.vn + laodong.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S01", "S02", "S06"],
+      "narration_form": "đối tác của En-vi-đi-a gồm Đeo và Su-pơ-mai-crô tạm dừng giao máy chủ trí tuệ nhân tạo tới bốn nước Đông Nam Á là Xin-ga-po, Ma-lai-xi-a, Thái Lan và In-đô-nê-xi-a",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV2#f10",
+      "display_string": "Nvidia thu 104 tỷ USD qua Singapore năm 2025 (+72%) · Hạn 90 ngày rà soát giấy phép Mỹ",
+      "type": "metric",
+      "source": "dantri.com.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S06"],
+      "narration_form": "En-vi-đi-a ghi nhận một trăm lẻ bốn tỷ đô la qua Xin-ga-po năm hai nghìn không trăm hai mươi lăm, tăng bảy mươi hai phần trăm, trong hạn chín mươi ngày rà soát giấy phép Mỹ",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV3#f11",
+      "display_string": "ROBOTERA triển khai 45 robot hình người M7 tại China Post Hàng Châu (sau 11 điểm ở 8 thành phố Quảng Đông)",
+      "type": "event",
+      "source": "unite.ai + gasgoo.com (26/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S02", "S07"],
+      "narration_form": "hãng Rô-bô-te-ra triển khai bốn mươi lăm rô-bốt hình người Em Bảy tại bưu cục Hàng Châu của Bưu điện Trung Quốc sau mười một điểm ở tám thành phố Quảng Đông",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV3#f12",
+      "display_string": "Tốc độ phân loại tăng từ 500-600 lên 1.200 rồi vượt 1.500 bưu kiện/giờ · Chính xác >90% · >95% phần cứng tự chế tạo",
+      "type": "metric",
+      "source": "unite.ai + gasgoo.com (26/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S02", "S07"],
+      "narration_form": "tốc độ xử lý tăng từ năm trăm đến sáu trăm lên một nghìn hai trăm rồi vượt một nghìn năm trăm bưu kiện mỗi giờ với độ chính xác trên chín mươi phần trăm",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV3#f13",
+      "display_string": "Khảo sát VnExpress (27/11/2026): Chỉ 12% IT Việt không bị AI tác động · 50% học thêm · 20% đổi nghề · 10% tìm việc mới",
+      "type": "metric",
+      "source": "vnexpress.net (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S08", "S11"],
+      "narration_form": "khảo sát ngày hai mươi bảy tháng mười một cho thấy chỉ mười hai phần trăm nhân sự Ai Ti Việt Nam không bị ảnh hưởng bởi trí tuệ nhân tạo, năm mươi phần trăm phải học thêm",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV3#f14",
+      "display_string": "ManpowerGroup Q4/2026: 52% doanh nghiệp giảm nhân sự vì tự động hóa · TopCV: 52,2% giữ quy mô · 70% lớp bán dẫn TP.HCM từ IT/điện",
+      "type": "metric",
+      "source": "vnexpress.net (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S08"],
+      "narration_form": "năm mươi hai phần trăm doanh nghiệp có kế hoạch giảm nhân sự do tự động hóa, còn hơn bảy mươi phần trăm học viên một lớp cao học bán dẫn đi lên từ ngành Ai Ti",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV4#f15",
+      "display_string": "27/11/2026: VN-Index tăng 24,22 điểm (+1,49%) lên 1.653,90 điểm (1.653,9 / 1.654) sau phiên giảm gần 60 điểm · 208 mã tăng / 83 mã giảm · VIC góp 8 điểm",
+      "type": "metric",
+      "source": "thoibaotaichinhvietnam.vn + vnexpress.net + znews.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S01", "S02", "S09"],
+      "narration_form": "Vê En In-đếch bật tăng hai mươi bốn phẩy hai mươi hai điểm lên một nghìn sáu trăm năm mươi ba phẩy chín điểm với hai trăm lẻ tám mã tăng",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV4#f16",
+      "display_string": "Dầu khí +6,8% (BSR, PVS, PVD tăng trần) · Khối ngoại mua ròng 611 tỷ toàn thị trường (563 tỷ HoSE, FPT 182 tỷ) · Thanh khoản HoSE 11.269 tỷ (-30%)",
+      "type": "metric",
+      "source": "thoibaotaichinhvietnam.vn + vnexpress.net + znews.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S09", "S11"],
+      "narration_form": "nhóm dầu khí tăng sáu phẩy tám phần trăm, khối ngoại mua ròng sáu trăm mười một tỷ đồng nhưng thanh khoản sàn Hô-xê giảm gần ba mươi phần trăm còn mười một nghìn hai trăm sáu mươi chín tỷ đồng",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV4#f17",
+      "display_string": "CẬP NHẬT MỚI chiều 27/11: Vàng miếng SJC tăng 1,5 triệu lên 131 - 136 triệu đồng/lượng (chênh 5 triệu) · Vàng nhẫn SJC mua tăng 2,5 triệu lên 130,8 - 135,8 triệu",
+      "type": "metric",
+      "source": "cafef.vn + baonghean.vn (27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S01", "S02", "S10", "S11"],
+      "narration_form": "cập nhật mới chiều nay, vàng miếng Ét Giây Xê tăng một phẩy năm triệu lên một trăm ba mươi sáu triệu đồng một lượng, chênh mua bán năm triệu đồng",
+      "label_required": "-"
+    },
+    {
+      "fact_id": "EV4#f18",
+      "display_string": "Vàng thế giới +2,6% lên 3.656 USD/ounce · Mỹ phóng 150 tên lửa · Trump cảnh báo đánh Núi Pickaxe · Ảnh 26/11 cơ sở Behjatabad cách 62 km, tới 5.000 ha",
+      "type": "metric",
+      "source": "cafef.vn + jpost.com + thanhnien.vn (26-27/11/2026)",
+      "verification": "PRIMARY_FETCHED",
+      "allowed_scenes": ["S10"],
+      "narration_form": "vàng thế giới tăng lên ba nghìn sáu trăm năm mươi sáu đô la một ao giữa lúc Mỹ cảnh báo sẵn sàng tấn công Núi Pích-ách và ảnh vệ tinh hé lộ cơ sở ngầm Bê-ha-ta-bát cách sáu mươi hai ki-lô-mét",
+      "label_required": "-"
+    }
+  ]
+}

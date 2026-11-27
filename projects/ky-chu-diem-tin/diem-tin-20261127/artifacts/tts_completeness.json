@@ -1,0 +1,161 @@
+{
+  "version": "1.0",
+  "sections": {
+    "s01": {
+      "ok": true,
+      "coverage": 1.122,
+      "tail_matched": true,
+      "script_words": 41,
+      "asr_words": 46,
+      "asr_tail": [
+        "136",
+        "trieu",
+        "dong"
+      ],
+      "reasons": []
+    },
+    "s02": {
+      "ok": true,
+      "coverage": 1.072,
+      "tail_matched": true,
+      "script_words": 69,
+      "asr_words": 74,
+      "asr_tail": [
+        "szc",
+        "136",
+        "trieu"
+      ],
+      "reasons": []
+    },
+    "s03": {
+      "ok": true,
+      "coverage": 1.178,
+      "tail_matched": true,
+      "script_words": 45,
+      "asr_words": 53,
+      "asr_tail": [
+        "giua",
+        "nam",
+        "2027"
+      ],
+      "reasons": []
+    },
+    "s04": {
+      "ok": true,
+      "coverage": 1.178,
+      "tail_matched": true,
+      "script_words": 45,
+      "asr_words": 53,
+      "asr_tail": [
+        "xuat",
+        "sang",
+        "my"
+      ],
+      "reasons": []
+    },
+    "s05": {
+      "ok": true,
+      "coverage": 1.39,
+      "tail_matched": true,
+      "script_words": 41,
+      "asr_words": 57,
+      "asr_tail": [
+        "dan",
+        "den",
+        "2030"
+      ],
+      "reasons": []
+    },
+    "s06": {
+      "ok": true,
+      "coverage": 1.224,
+      "tail_matched": true,
+      "script_words": 49,
+      "asr_words": 60,
+      "asr_tail": [
+        "tho",
+        "xuat",
+        "su"
+      ],
+      "reasons": []
+    },
+    "s07": {
+      "ok": true,
+      "coverage": 1.047,
+      "tail_matched": true,
+      "script_words": 43,
+      "asr_words": 45,
+      "asr_tail": [
+        "hanh",
+        "vuot",
+        "90"
+      ],
+      "reasons": []
+    },
+    "s08": {
+      "ok": true,
+      "coverage": 1.059,
+      "tail_matched": true,
+      "script_words": 51,
+      "asr_words": 54,
+      "asr_tail": [
+        "tu",
+        "nganh",
+        "it"
+      ],
+      "reasons": []
+    },
+    "s09": {
+      "ok": true,
+      "coverage": 1.325,
+      "tail_matched": true,
+      "script_words": 40,
+      "asr_words": 53,
+      "asr_tail": [
+        "611",
+        "ty",
+        "dong"
+      ],
+      "reasons": []
+    },
+    "s10": {
+      "ok": true,
+      "coverage": 1.14,
+      "tail_matched": true,
+      "script_words": 43,
+      "asr_words": 49,
+      "asr_tail": [
+        "pixx",
+        "tai",
+        "iran"
+      ],
+      "reasons": []
+    },
+    "s11": {
+      "ok": true,
+      "coverage": 1.143,
+      "tail_matched": true,
+      "script_words": 49,
+      "asr_words": 56,
+      "asr_tail": [
+        "hiep",
+        "dinh",
+        "azt"
+      ],
+      "reasons": []
+    },
+    "s12": {
+      "ok": true,
+      "coverage": 1.0,
+      "tail_matched": true,
+      "script_words": 27,
+      "asr_words": 27,
+      "asr_tail": [
+        "tim",
+        "moi",
+        "ngay"
+      ],
+      "reasons": []
+    }
+  }
+}

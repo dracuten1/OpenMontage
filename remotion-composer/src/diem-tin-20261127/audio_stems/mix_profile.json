@@ -1,0 +1,79 @@
+{
+ "schema": "openmontage.mix-profile",
+ "version": 1,
+ "target_lufs": -11.0,
+ "lufs_tolerance": 0.4,
+ "peak_limit": 0.944,
+ "silence_threshold": 0.001,
+ "boundary_tolerance_seconds": 0.05,
+ "ducking": {
+  "min_reduction_db": 10
+ },
+ "windows": {
+  "narration": [],
+  "expected_silent": [],
+  "expected_signal": [
+   [
+    5.737,
+    6.038
+   ],
+   [
+    20.629,
+    20.928
+   ],
+   [
+    36.692,
+    36.992
+   ],
+   [
+    50.309,
+    50.609
+   ],
+   [
+    63.476,
+    63.776
+   ],
+   [
+    76.61,
+    76.91
+   ],
+   [
+    88.38,
+    88.68
+   ],
+   [
+    100.034,
+    100.334
+   ],
+   [
+    113.782,
+    114.082
+   ],
+   [
+    127.059,
+    127.359
+   ],
+   [
+    139.443,
+    139.743
+   ],
+   [
+    149.064,
+    149.364
+   ]
+  ],
+  "stem_windows": {
+   "narration": [
+    0.0,
+    152.212
+   ]
+  }
+ },
+ "no_sfx": false,
+ "sfx_mode": "present_in_composition",
+ "declared_not_measured": [
+  "music_masking",
+  "leading_sfx"
+ ],
+ "notes": "Pre-mixed from lossless voice stems via mixdown.py --from-stems (BGM -16 LUFS, mix -11.0 LUFS, TP -2.0 dBTP)."
+}

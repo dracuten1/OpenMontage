@@ -1,0 +1,185 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "tts_voice_s01",
+      "type": "narration",
+      "path": "assets/audio/voice_s01.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-1",
+      "duration_seconds": 11.775,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s01",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s02",
+      "type": "narration",
+      "path": "assets/audio/voice_s02.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-2",
+      "duration_seconds": 17.491,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s02",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s03",
+      "type": "narration",
+      "path": "assets/audio/voice_s03.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-3",
+      "duration_seconds": 14.152,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s03",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s04",
+      "type": "narration",
+      "path": "assets/audio/voice_s04.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-4",
+      "duration_seconds": 12.587,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s04",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s05",
+      "type": "narration",
+      "path": "assets/audio/voice_s05.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-5",
+      "duration_seconds": 13.253,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s05",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s06",
+      "type": "narration",
+      "path": "assets/audio/voice_s06.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-6",
+      "duration_seconds": 12.522,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s06",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s07",
+      "type": "narration",
+      "path": "assets/audio/voice_s07.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-7",
+      "duration_seconds": 10.528,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s07",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s08",
+      "type": "narration",
+      "path": "assets/audio/voice_s08.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-8",
+      "duration_seconds": 12.302,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s08",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s09",
+      "type": "narration",
+      "path": "assets/audio/voice_s09.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-9",
+      "duration_seconds": 14.665,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s09",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s10",
+      "type": "narration",
+      "path": "assets/audio/voice_s10.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-10",
+      "duration_seconds": 11.418,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s10",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s11",
+      "type": "narration",
+      "path": "assets/audio/voice_s11.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-11",
+      "duration_seconds": 12.852,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s11",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "tts_voice_s12",
+      "type": "narration",
+      "path": "assets/audio/voice_s12.wav",
+      "source_tool": "vieneu_tts",
+      "scene_id": "scene-12",
+      "duration_seconds": 5.895,
+      "format": "wav",
+      "voice_performance": {
+        "source_section_id": "s12",
+        "delivery_cues_applied": true,
+        "provider_text_used": true
+      }
+    },
+    {
+      "id": "bgm_main",
+      "type": "music",
+      "path": "assets/music/bgm.mp3",
+      "source_tool": "music_library",
+      "scene_id": "all",
+      "duration_seconds": 155.4,
+      "format": "mp3"
+    }
+  ],
+  "metadata": {
+    "total_audio_speech_duration_seconds": 149.44
+  }
+}

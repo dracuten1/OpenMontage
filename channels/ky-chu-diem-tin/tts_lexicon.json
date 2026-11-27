@@ -1,4 +1,24 @@
 {
   "version": "1.0",
-  "replacements": {}
+  "replacements": {
+    "CPTPP": "Hiệp định xi bi, ti ti bi",
+    "ART": "A Rờ Tê",
+    "USTR": "U Ét Tê Rờ",
+    "VNPT": "Vê En, Pê Tê",
+    "IDC": "Ai Đi Xi",
+    "Tier III": "Ti-ơ ba",
+    "Nvidia": "En-vi-đi-a",
+    "ASEAN": "A-xê-an",
+    "VN-Index": "Vê En, In-đếch",
+    "HoSE": "Hô-xê",
+    "SJC": "Ét Giây Xê",
+    "UAE": "U A E",
+    "Indonesia": "In-đô-nê-xi-a",
+    "Philippines": "Phi-líp-pin",
+    "Singapore": "Xin-ga-po",
+    "Malaysia": "Ma-lai-xi-a",
+    "USD": "đô la",
+    "GDP": "Gờ Đê Pê",
+    "IT": "Ai Ti"
+  }
 }

@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "created_at": "2026-11-27T18:08:00+07:00",
+  "project_id": "diem-tin-20261127",
+  "title": "Điểm Tin 27/11: CPTPP mở rộng, Thuế Mỹ ART, Hạ tầng AI & Vàng SJC 136 triệu",
+  "pipeline_type": "animated-explainer",
+  "channel": "ky-chu-diem-tin",
+  "style_playbook": "archival-editorial",
+  "lane": "news-editorial-motion",
+  "orchestrator": "antigravity",
+  "freshness_anchor": "2026-11-27",
+  "engagement_mode": "debate_engagement",
+  "debate_mode": true,
+  "scene_count_exact": 12
+}

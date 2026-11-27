@@ -1,0 +1,5795 @@
+{
+  "s01": {
+    "section_id": "s01",
+    "scene_id": "S01",
+    "global_start": 0.0,
+    "audio_seconds": 11.775,
+    "words": [
+      {
+        "word": "tiêu",
+        "local_start": 0.0,
+        "local_end": 0.06,
+        "start": 0.0,
+        "end": 0.06,
+        "start_frame": 0,
+        "end_frame": 2
+      },
+      {
+        "word": "bình",
+        "local_start": 0.06,
+        "local_end": 0.16,
+        "start": 0.06,
+        "end": 0.16,
+        "start_frame": 2,
+        "end_frame": 5
+      },
+      {
+        "word": "CP,",
+        "local_start": 0.16,
+        "local_end": 0.34,
+        "start": 0.16,
+        "end": 0.34,
+        "start_frame": 5,
+        "end_frame": 10
+      },
+      {
+        "word": "TTP",
+        "local_start": 0.78,
+        "local_end": 1.1,
+        "start": 0.78,
+        "end": 1.1,
+        "start_frame": 23,
+        "end_frame": 33
+      },
+      {
+        "word": "mở",
+        "local_start": 1.1,
+        "local_end": 1.58,
+        "start": 1.1,
+        "end": 1.58,
+        "start_frame": 33,
+        "end_frame": 47
+      },
+      {
+        "word": "đám",
+        "local_start": 1.58,
+        "local_end": 1.68,
+        "start": 1.58,
+        "end": 1.68,
+        "start_frame": 47,
+        "end_frame": 50
+      },
+      {
+        "word": "phán",
+        "local_start": 1.68,
+        "local_end": 1.86,
+        "start": 1.68,
+        "end": 1.86,
+        "start_frame": 50,
+        "end_frame": 56
+      },
+      {
+        "word": "thêm",
+        "local_start": 1.86,
+        "local_end": 2.02,
+        "start": 1.86,
+        "end": 2.02,
+        "start_frame": 56,
+        "end_frame": 61
+      },
+      {
+        "word": "3",
+        "local_start": 2.02,
+        "local_end": 2.14,
+        "start": 2.02,
+        "end": 2.14,
+        "start_frame": 61,
+        "end_frame": 64
+      },
+      {
+        "word": "nước",
+        "local_start": 2.14,
+        "local_end": 2.26,
+        "start": 2.14,
+        "end": 2.26,
+        "start_frame": 64,
+        "end_frame": 68
+      },
+      {
+        "word": "ngay",
+        "local_start": 2.26,
+        "local_end": 2.54,
+        "start": 2.26,
+        "end": 2.54,
+        "start_frame": 68,
+        "end_frame": 76
+      },
+      {
+        "word": "tại",
+        "local_start": 2.54,
+        "local_end": 2.66,
+        "start": 2.54,
+        "end": 2.66,
+        "start_frame": 76,
+        "end_frame": 80
+      },
+      {
+        "word": "Hà",
+        "local_start": 2.66,
+        "local_end": 2.78,
+        "start": 2.66,
+        "end": 2.78,
+        "start_frame": 80,
+        "end_frame": 83
+      },
+      {
+        "word": "Nội.",
+        "local_start": 2.78,
+        "local_end": 2.98,
+        "start": 2.78,
+        "end": 2.98,
+        "start_frame": 83,
+        "end_frame": 89
+      },
+      {
+        "word": "Đồng",
+        "local_start": 3.24,
+        "local_end": 3.4,
+        "start": 3.24,
+        "end": 3.4,
+        "start_frame": 97,
+        "end_frame": 102
+      },
+      {
+        "word": "thời,",
+        "local_start": 3.4,
+        "local_end": 3.6,
+        "start": 3.4,
+        "end": 3.6,
+        "start_frame": 102,
+        "end_frame": 108
+      },
+      {
+        "word": "thủ",
+        "local_start": 3.9,
+        "local_end": 4.0,
+        "start": 3.9,
+        "end": 4.0,
+        "start_frame": 117,
+        "end_frame": 120
+      },
+      {
+        "word": "tướng",
+        "local_start": 4.0,
+        "local_end": 4.2,
+        "start": 4.0,
+        "end": 4.2,
+        "start_frame": 120,
+        "end_frame": 126
+      },
+      {
+        "word": "khẳng",
+        "local_start": 4.2,
+        "local_end": 4.38,
+        "start": 4.2,
+        "end": 4.38,
+        "start_frame": 126,
+        "end_frame": 131
+      },
+      {
+        "word": "định",
+        "local_start": 4.38,
+        "local_end": 4.54,
+        "start": 4.38,
+        "end": 4.54,
+        "start_frame": 131,
+        "end_frame": 136
+      },
+      {
+        "word": "mức",
+        "local_start": 4.54,
+        "local_end": 4.74,
+        "start": 4.54,
+        "end": 4.74,
+        "start_frame": 136,
+        "end_frame": 142
+      },
+      {
+        "word": "Thế",
+        "local_start": 4.74,
+        "local_end": 4.86,
+        "start": 4.74,
+        "end": 4.86,
+        "start_frame": 142,
+        "end_frame": 146
+      },
+      {
+        "word": "Mỹ",
+        "local_start": 4.86,
+        "local_end": 5.02,
+        "start": 4.86,
+        "end": 5.02,
+        "start_frame": 146,
+        "end_frame": 151
+      },
+      {
+        "word": "sẽ",
+        "local_start": 5.02,
+        "local_end": 5.24,
+        "start": 5.02,
+        "end": 5.24,
+        "start_frame": 151,
+        "end_frame": 157
+      },
+      {
+        "word": "thấp",
+        "local_start": 5.24,
+        "local_end": 5.46,
+        "start": 5.24,
+        "end": 5.46,
+        "start_frame": 157,
+        "end_frame": 164
+      },
+      {
+        "word": "hơn",
+        "local_start": 5.46,
+        "local_end": 5.62,
+        "start": 5.46,
+        "end": 5.62,
+        "start_frame": 164,
+        "end_frame": 169
+      },
+      {
+        "word": "nhiều",
+        "local_start": 5.62,
+        "local_end": 5.78,
+        "start": 5.62,
+        "end": 5.78,
+        "start_frame": 169,
+        "end_frame": 173
+      },
+      {
+        "word": "ngưỡng",
+        "local_start": 5.78,
+        "local_end": 6.04,
+        "start": 5.78,
+        "end": 6.04,
+        "start_frame": 173,
+        "end_frame": 181
+      },
+      {
+        "word": "35",
+        "local_start": 6.04,
+        "local_end": 6.24,
+        "start": 6.04,
+        "end": 6.24,
+        "start_frame": 181,
+        "end_frame": 187
+      },
+      {
+        "word": "%",
+        "local_start": 6.24,
+        "local_end": 6.64,
+        "start": 6.24,
+        "end": 6.64,
+        "start_frame": 187,
+        "end_frame": 199
+      },
+      {
+        "word": "cùng",
+        "local_start": 6.64,
+        "local_end": 7.12,
+        "start": 6.64,
+        "end": 7.12,
+        "start_frame": 199,
+        "end_frame": 214
+      },
+      {
+        "word": "lúc",
+        "local_start": 7.12,
+        "local_end": 7.36,
+        "start": 7.12,
+        "end": 7.36,
+        "start_frame": 214,
+        "end_frame": 221
+      },
+      {
+        "word": "NVIDIA",
+        "local_start": 7.36,
+        "local_end": 8.08,
+        "start": 7.36,
+        "end": 8.08,
+        "start_frame": 221,
+        "end_frame": 242
+      },
+      {
+        "word": "dừng",
+        "local_start": 8.08,
+        "local_end": 8.34,
+        "start": 8.08,
+        "end": 8.34,
+        "start_frame": 242,
+        "end_frame": 250
+      },
+      {
+        "word": "máy",
+        "local_start": 8.34,
+        "local_end": 8.52,
+        "start": 8.34,
+        "end": 8.52,
+        "start_frame": 250,
+        "end_frame": 256
+      },
+      {
+        "word": "chủ",
+        "local_start": 8.52,
+        "local_end": 8.64,
+        "start": 8.52,
+        "end": 8.64,
+        "start_frame": 256,
+        "end_frame": 259
+      },
+      {
+        "word": "đông",
+        "local_start": 8.64,
+        "local_end": 8.76,
+        "start": 8.64,
+        "end": 8.76,
+        "start_frame": 259,
+        "end_frame": 263
+      },
+      {
+        "word": "Nam",
+        "local_start": 8.76,
+        "local_end": 8.86,
+        "start": 8.76,
+        "end": 8.86,
+        "start_frame": 263,
+        "end_frame": 266
+      },
+      {
+        "word": "Á",
+        "local_start": 8.86,
+        "local_end": 9.06,
+        "start": 8.86,
+        "end": 9.06,
+        "start_frame": 266,
+        "end_frame": 272
+      },
+      {
+        "word": "và",
+        "local_start": 9.06,
+        "local_end": 9.5,
+        "start": 9.06,
+        "end": 9.5,
+        "start_frame": 272,
+        "end_frame": 285
+      },
+      {
+        "word": "vang",
+        "local_start": 9.5,
+        "local_end": 9.76,
+        "start": 9.5,
+        "end": 9.76,
+        "start_frame": 285,
+        "end_frame": 293
+      },
+      {
+        "word": "SEC",
+        "local_start": 9.76,
+        "local_end": 10.06,
+        "start": 9.76,
+        "end": 10.06,
+        "start_frame": 293,
+        "end_frame": 302
+      },
+      {
+        "word": "vọt",
+        "local_start": 10.06,
+        "local_end": 10.46,
+        "start": 10.06,
+        "end": 10.46,
+        "start_frame": 302,
+        "end_frame": 314
+      },
+      {
+        "word": "lên",
+        "local_start": 10.46,
+        "local_end": 10.5,
+        "start": 10.46,
+        "end": 10.5,
+        "start_frame": 314,
+        "end_frame": 315
+      },
+      {
+        "word": "136",
+        "local_start": 10.5,
+        "local_end": 11.26,
+        "start": 10.5,
+        "end": 11.26,
+        "start_frame": 315,
+        "end_frame": 338
+      },
+      {
+        "word": "triệu",
+        "local_start": 11.26,
+        "local_end": 11.42,
+        "start": 11.26,
+        "end": 11.42,
+        "start_frame": 338,
+        "end_frame": 343
+      },
+      {
+        "word": "đồng.",
+        "local_start": 11.42,
+        "local_end": 11.58,
+        "start": 11.42,
+        "end": 11.58,
+        "start_frame": 343,
+        "end_frame": 347
+      }
+    ]
+  },
+  "s02": {
+    "section_id": "s02",
+    "scene_id": "S02",
+    "global_start": 12.033,
+    "audio_seconds": 17.491,
+    "words": [
+      {
+        "word": "Điểm",
+        "local_start": 0.0,
+        "local_end": 0.08,
+        "start": 12.033,
+        "end": 12.113,
+        "start_frame": 361,
+        "end_frame": 363
+      },
+      {
+        "word": "tinh",
+        "local_start": 0.08,
+        "local_end": 0.28,
+        "start": 12.113,
+        "end": 12.313,
+        "start_frame": 363,
+        "end_frame": 369
+      },
+      {
+        "word": "ngày",
+        "local_start": 0.28,
+        "local_end": 0.42,
+        "start": 12.313,
+        "end": 12.453,
+        "start_frame": 369,
+        "end_frame": 374
+      },
+      {
+        "word": "27",
+        "local_start": 0.42,
+        "local_end": 0.82,
+        "start": 12.453,
+        "end": 12.853,
+        "start_frame": 374,
+        "end_frame": 386
+      },
+      {
+        "word": "tháng",
+        "local_start": 0.82,
+        "local_end": 1.02,
+        "start": 12.853,
+        "end": 13.053,
+        "start_frame": 386,
+        "end_frame": 392
+      },
+      {
+        "word": "11",
+        "local_start": 1.02,
+        "local_end": 1.24,
+        "start": 13.053,
+        "end": 13.273,
+        "start_frame": 392,
+        "end_frame": 398
+      },
+      {
+        "word": "có",
+        "local_start": 1.24,
+        "local_end": 1.58,
+        "start": 13.273,
+        "end": 13.613,
+        "start_frame": 398,
+        "end_frame": 408
+      },
+      {
+        "word": "4",
+        "local_start": 1.58,
+        "local_end": 1.78,
+        "start": 13.613,
+        "end": 13.813,
+        "start_frame": 408,
+        "end_frame": 414
+      },
+      {
+        "word": "chuyển",
+        "local_start": 1.78,
+        "local_end": 1.98,
+        "start": 13.813,
+        "end": 14.013,
+        "start_frame": 414,
+        "end_frame": 420
+      },
+      {
+        "word": "động",
+        "local_start": 1.98,
+        "local_end": 2.1,
+        "start": 14.013,
+        "end": 14.133,
+        "start_frame": 420,
+        "end_frame": 424
+      },
+      {
+        "word": "sát",
+        "local_start": 2.1,
+        "local_end": 2.32,
+        "start": 14.133,
+        "end": 14.353,
+        "start_frame": 424,
+        "end_frame": 431
+      },
+      {
+        "word": "sườn",
+        "local_start": 2.32,
+        "local_end": 2.58,
+        "start": 14.353,
+        "end": 14.613,
+        "start_frame": 431,
+        "end_frame": 438
+      },
+      {
+        "word": "ví",
+        "local_start": 2.58,
+        "local_end": 2.68,
+        "start": 14.613,
+        "end": 14.713,
+        "start_frame": 438,
+        "end_frame": 441
+      },
+      {
+        "word": "tiên",
+        "local_start": 2.68,
+        "local_end": 2.82,
+        "start": 14.713,
+        "end": 14.853,
+        "start_frame": 441,
+        "end_frame": 446
+      },
+      {
+        "word": "người",
+        "local_start": 2.82,
+        "local_end": 2.92,
+        "start": 14.853,
+        "end": 14.953,
+        "start_frame": 446,
+        "end_frame": 449
+      },
+      {
+        "word": "Việt.",
+        "local_start": 2.92,
+        "local_end": 3.1,
+        "start": 14.953,
+        "end": 15.133,
+        "start_frame": 449,
+        "end_frame": 454
+      },
+      {
+        "word": "Đầu",
+        "local_start": 3.5,
+        "local_end": 3.6,
+        "start": 15.533,
+        "end": 15.633,
+        "start_frame": 466,
+        "end_frame": 469
+      },
+      {
+        "word": "tiên",
+        "local_start": 3.6,
+        "local_end": 3.78,
+        "start": 15.633,
+        "end": 15.813,
+        "start_frame": 469,
+        "end_frame": 474
+      },
+      {
+        "word": "là",
+        "local_start": 3.78,
+        "local_end": 3.88,
+        "start": 15.813,
+        "end": 15.913,
+        "start_frame": 474,
+        "end_frame": 477
+      },
+      {
+        "word": "mở",
+        "local_start": 3.88,
+        "local_end": 4.02,
+        "start": 15.913,
+        "end": 16.053,
+        "start_frame": 477,
+        "end_frame": 482
+      },
+      {
+        "word": "rộng",
+        "local_start": 4.02,
+        "local_end": 4.22,
+        "start": 16.053,
+        "end": 16.253,
+        "start_frame": 482,
+        "end_frame": 488
+      },
+      {
+        "word": "hiệp",
+        "local_start": 4.22,
+        "local_end": 4.32,
+        "start": 16.253,
+        "end": 16.353,
+        "start_frame": 488,
+        "end_frame": 491
+      },
+      {
+        "word": "định",
+        "local_start": 4.32,
+        "local_end": 4.5,
+        "start": 16.353,
+        "end": 16.533,
+        "start_frame": 491,
+        "end_frame": 496
+      },
+      {
+        "word": "CB,",
+        "local_start": 4.5,
+        "local_end": 4.72,
+        "start": 16.533,
+        "end": 16.753,
+        "start_frame": 496,
+        "end_frame": 503
+      },
+      {
+        "word": "TTB",
+        "local_start": 5.06,
+        "local_end": 5.42,
+        "start": 17.093,
+        "end": 17.453,
+        "start_frame": 513,
+        "end_frame": 524
+      },
+      {
+        "word": "và",
+        "local_start": 5.42,
+        "local_end": 5.52,
+        "start": 17.453,
+        "end": 17.553,
+        "start_frame": 524,
+        "end_frame": 527
+      },
+      {
+        "word": "đàm",
+        "local_start": 5.52,
+        "local_end": 5.68,
+        "start": 17.553,
+        "end": 17.713,
+        "start_frame": 527,
+        "end_frame": 531
+      },
+      {
+        "word": "phán",
+        "local_start": 5.68,
+        "local_end": 5.76,
+        "start": 17.713,
+        "end": 17.793,
+        "start_frame": 531,
+        "end_frame": 534
+      },
+      {
+        "word": "thuê",
+        "local_start": 5.76,
+        "local_end": 5.88,
+        "start": 17.793,
+        "end": 17.913,
+        "start_frame": 534,
+        "end_frame": 537
+      },
+      {
+        "word": "Mỹ.",
+        "local_start": 5.88,
+        "local_end": 6.02,
+        "start": 17.913,
+        "end": 18.053,
+        "start_frame": 537,
+        "end_frame": 542
+      },
+      {
+        "word": "Thứ",
+        "local_start": 6.4,
+        "local_end": 6.6,
+        "start": 18.433,
+        "end": 18.633,
+        "start_frame": 553,
+        "end_frame": 559
+      },
+      {
+        "word": "2",
+        "local_start": 6.6,
+        "local_end": 6.78,
+        "start": 18.633,
+        "end": 18.813,
+        "start_frame": 559,
+        "end_frame": 564
+      },
+      {
+        "word": "là",
+        "local_start": 6.78,
+        "local_end": 6.92,
+        "start": 18.813,
+        "end": 18.953,
+        "start_frame": 564,
+        "end_frame": 569
+      },
+      {
+        "word": "hạ",
+        "local_start": 6.92,
+        "local_end": 7.02,
+        "start": 18.953,
+        "end": 19.053,
+        "start_frame": 569,
+        "end_frame": 572
+      },
+      {
+        "word": "tầng",
+        "local_start": 7.02,
+        "local_end": 7.16,
+        "start": 19.053,
+        "end": 19.193,
+        "start_frame": 572,
+        "end_frame": 576
+      },
+      {
+        "word": "số",
+        "local_start": 7.16,
+        "local_end": 7.34,
+        "start": 19.193,
+        "end": 19.373,
+        "start_frame": 576,
+        "end_frame": 581
+      },
+      {
+        "word": "hoa",
+        "local_start": 7.34,
+        "local_end": 7.48,
+        "start": 19.373,
+        "end": 19.513,
+        "start_frame": 581,
+        "end_frame": 585
+      },
+      {
+        "word": "lạc",
+        "local_start": 7.48,
+        "local_end": 7.66,
+        "start": 19.513,
+        "end": 19.693,
+        "start_frame": 585,
+        "end_frame": 591
+      },
+      {
+        "word": "đặt",
+        "local_start": 7.66,
+        "local_end": 7.8,
+        "start": 19.693,
+        "end": 19.833,
+        "start_frame": 591,
+        "end_frame": 595
+      },
+      {
+        "word": "chuẩn,",
+        "local_start": 7.8,
+        "local_end": 8.02,
+        "start": 19.833,
+        "end": 20.053,
+        "start_frame": 595,
+        "end_frame": 602
+      },
+      {
+        "word": "đối",
+        "local_start": 8.36,
+        "local_end": 8.46,
+        "start": 20.393,
+        "end": 20.493,
+        "start_frame": 612,
+        "end_frame": 615
+      },
+      {
+        "word": "lập",
+        "local_start": 8.46,
+        "local_end": 8.58,
+        "start": 20.493,
+        "end": 20.613,
+        "start_frame": 615,
+        "end_frame": 618
+      },
+      {
+        "word": "cú",
+        "local_start": 8.58,
+        "local_end": 8.76,
+        "start": 20.613,
+        "end": 20.793,
+        "start_frame": 618,
+        "end_frame": 624
+      },
+      {
+        "word": "sốc",
+        "local_start": 8.76,
+        "local_end": 8.9,
+        "start": 20.793,
+        "end": 20.933,
+        "start_frame": 624,
+        "end_frame": 628
+      },
+      {
+        "word": "Nvidia.",
+        "local_start": 8.9,
+        "local_end": 9.14,
+        "start": 20.933,
+        "end": 21.173,
+        "start_frame": 628,
+        "end_frame": 635
+      },
+      {
+        "word": "Thứ",
+        "local_start": 9.8,
+        "local_end": 9.9,
+        "start": 21.833,
+        "end": 21.933,
+        "start_frame": 655,
+        "end_frame": 658
+      },
+      {
+        "word": "3",
+        "local_start": 9.9,
+        "local_end": 10.12,
+        "start": 21.933,
+        "end": 22.153,
+        "start_frame": 658,
+        "end_frame": 665
+      },
+      {
+        "word": "là",
+        "local_start": 10.12,
+        "local_end": 10.26,
+        "start": 22.153,
+        "end": 22.293,
+        "start_frame": 665,
+        "end_frame": 669
+      },
+      {
+        "word": "45,",
+        "local_start": 10.26,
+        "local_end": 10.6,
+        "start": 22.293,
+        "end": 22.633,
+        "start_frame": 669,
+        "end_frame": 679
+      },
+      {
+        "word": "robot",
+        "local_start": 11.04,
+        "local_end": 11.26,
+        "start": 23.073,
+        "end": 23.293,
+        "start_frame": 692,
+        "end_frame": 699
+      },
+      {
+        "word": "tự",
+        "local_start": 11.26,
+        "local_end": 11.44,
+        "start": 23.293,
+        "end": 23.473,
+        "start_frame": 699,
+        "end_frame": 704
+      },
+      {
+        "word": "động",
+        "local_start": 11.44,
+        "local_end": 11.56,
+        "start": 23.473,
+        "end": 23.593,
+        "start_frame": 704,
+        "end_frame": 708
+      },
+      {
+        "word": "hóa",
+        "local_start": 11.56,
+        "local_end": 11.8,
+        "start": 23.593,
+        "end": 23.833,
+        "start_frame": 708,
+        "end_frame": 715
+      },
+      {
+        "word": "biêu",
+        "local_start": 11.8,
+        "local_end": 11.98,
+        "start": 23.833,
+        "end": 24.013,
+        "start_frame": 715,
+        "end_frame": 720
+      },
+      {
+        "word": "cục,",
+        "local_start": 11.98,
+        "local_end": 12.34,
+        "start": 24.013,
+        "end": 24.373,
+        "start_frame": 720,
+        "end_frame": 731
+      },
+      {
+        "word": "tạo",
+        "local_start": 12.36,
+        "local_end": 12.52,
+        "start": 24.393,
+        "end": 24.553,
+        "start_frame": 732,
+        "end_frame": 737
+      },
+      {
+        "word": "sức",
+        "local_start": 12.52,
+        "local_end": 12.66,
+        "start": 24.553,
+        "end": 24.693,
+        "start_frame": 737,
+        "end_frame": 741
+      },
+      {
+        "word": "ép",
+        "local_start": 12.66,
+        "local_end": 12.8,
+        "start": 24.693,
+        "end": 24.833,
+        "start_frame": 741,
+        "end_frame": 745
+      },
+      {
+        "word": "cho",
+        "local_start": 12.8,
+        "local_end": 12.94,
+        "start": 24.833,
+        "end": 24.973,
+        "start_frame": 745,
+        "end_frame": 749
+      },
+      {
+        "word": "nhân",
+        "local_start": 12.94,
+        "local_end": 13.06,
+        "start": 24.973,
+        "end": 25.093,
+        "start_frame": 749,
+        "end_frame": 753
+      },
+      {
+        "word": "sự",
+        "local_start": 13.06,
+        "local_end": 13.2,
+        "start": 25.093,
+        "end": 25.233,
+        "start_frame": 753,
+        "end_frame": 757
+      },
+      {
+        "word": "IT.",
+        "local_start": 13.2,
+        "local_end": 13.46,
+        "start": 25.233,
+        "end": 25.493,
+        "start_frame": 757,
+        "end_frame": 765
+      },
+      {
+        "word": "Thứ",
+        "local_start": 13.94,
+        "local_end": 14.1,
+        "start": 25.973,
+        "end": 26.133,
+        "start_frame": 779,
+        "end_frame": 784
+      },
+      {
+        "word": "4",
+        "local_start": 14.1,
+        "local_end": 14.24,
+        "start": 26.133,
+        "end": 26.273,
+        "start_frame": 784,
+        "end_frame": 788
+      },
+      {
+        "word": "là",
+        "local_start": 14.24,
+        "local_end": 14.36,
+        "start": 26.273,
+        "end": 26.393,
+        "start_frame": 788,
+        "end_frame": 792
+      },
+      {
+        "word": "chứng",
+        "local_start": 14.36,
+        "local_end": 14.5,
+        "start": 26.393,
+        "end": 26.533,
+        "start_frame": 792,
+        "end_frame": 796
+      },
+      {
+        "word": "khoán",
+        "local_start": 14.5,
+        "local_end": 14.72,
+        "start": 26.533,
+        "end": 26.753,
+        "start_frame": 796,
+        "end_frame": 803
+      },
+      {
+        "word": "bật",
+        "local_start": 14.72,
+        "local_end": 14.9,
+        "start": 26.753,
+        "end": 26.933,
+        "start_frame": 803,
+        "end_frame": 808
+      },
+      {
+        "word": "tăng,",
+        "local_start": 14.9,
+        "local_end": 15.18,
+        "start": 26.933,
+        "end": 27.213,
+        "start_frame": 808,
+        "end_frame": 816
+      },
+      {
+        "word": "cùng",
+        "local_start": 15.46,
+        "local_end": 15.56,
+        "start": 27.493,
+        "end": 27.593,
+        "start_frame": 825,
+        "end_frame": 828
+      },
+      {
+        "word": "vàng",
+        "local_start": 15.56,
+        "local_end": 15.82,
+        "start": 27.593,
+        "end": 27.853,
+        "start_frame": 828,
+        "end_frame": 836
+      },
+      {
+        "word": "SZC",
+        "local_start": 15.82,
+        "local_end": 16.36,
+        "start": 27.853,
+        "end": 28.393,
+        "start_frame": 836,
+        "end_frame": 852
+      },
+      {
+        "word": "136",
+        "local_start": 16.36,
+        "local_end": 17.04,
+        "start": 28.393,
+        "end": 29.073,
+        "start_frame": 852,
+        "end_frame": 872
+      },
+      {
+        "word": "triệu.",
+        "local_start": 17.04,
+        "local_end": 17.28,
+        "start": 29.073,
+        "end": 29.313,
+        "start_frame": 872,
+        "end_frame": 879
+      }
+    ]
+  },
+  "s03": {
+    "section_id": "s03",
+    "scene_id": "S03",
+    "global_start": 29.766,
+    "audio_seconds": 14.152,
+    "words": [
+      {
+        "word": "Chiều",
+        "local_start": 0.0,
+        "local_end": 0.16,
+        "start": 29.766,
+        "end": 29.926,
+        "start_frame": 893,
+        "end_frame": 898
+      },
+      {
+        "word": "27",
+        "local_start": 0.16,
+        "local_end": 0.42,
+        "start": 29.926,
+        "end": 30.186,
+        "start_frame": 898,
+        "end_frame": 906
+      },
+      {
+        "word": ".11",
+        "local_start": 0.42,
+        "local_end": 0.86,
+        "start": 30.186,
+        "end": 30.626,
+        "start_frame": 906,
+        "end_frame": 919
+      },
+      {
+        "word": "tại",
+        "local_start": 0.86,
+        "local_end": 1.04,
+        "start": 30.626,
+        "end": 30.806,
+        "start_frame": 919,
+        "end_frame": 924
+      },
+      {
+        "word": "Hà",
+        "local_start": 1.04,
+        "local_end": 1.18,
+        "start": 30.806,
+        "end": 30.946,
+        "start_frame": 924,
+        "end_frame": 928
+      },
+      {
+        "word": "Nội,",
+        "local_start": 1.18,
+        "local_end": 1.38,
+        "start": 30.946,
+        "end": 31.146,
+        "start_frame": 928,
+        "end_frame": 934
+      },
+      {
+        "word": "hội",
+        "local_start": 1.66,
+        "local_end": 1.7,
+        "start": 31.426,
+        "end": 31.466,
+        "start_frame": 943,
+        "end_frame": 944
+      },
+      {
+        "word": "đồng",
+        "local_start": 1.7,
+        "local_end": 1.84,
+        "start": 31.466,
+        "end": 31.606,
+        "start_frame": 944,
+        "end_frame": 948
+      },
+      {
+        "word": "hiệp",
+        "local_start": 1.84,
+        "local_end": 1.98,
+        "start": 31.606,
+        "end": 31.746,
+        "start_frame": 948,
+        "end_frame": 952
+      },
+      {
+        "word": "định",
+        "local_start": 1.98,
+        "local_end": 2.16,
+        "start": 31.746,
+        "end": 31.926,
+        "start_frame": 952,
+        "end_frame": 958
+      },
+      {
+        "word": "CB,",
+        "local_start": 2.16,
+        "local_end": 2.4,
+        "start": 31.926,
+        "end": 32.166,
+        "start_frame": 958,
+        "end_frame": 965
+      },
+      {
+        "word": "TTB,",
+        "local_start": 2.88,
+        "local_end": 3.38,
+        "start": 32.646,
+        "end": 33.146,
+        "start_frame": 979,
+        "end_frame": 994
+      },
+      {
+        "word": "học",
+        "local_start": 3.46,
+        "local_end": 3.56,
+        "start": 33.226,
+        "end": 33.326,
+        "start_frame": 997,
+        "end_frame": 1000
+      },
+      {
+        "word": "mở",
+        "local_start": 3.56,
+        "local_end": 3.72,
+        "start": 33.326,
+        "end": 33.486,
+        "start_frame": 1000,
+        "end_frame": 1005
+      },
+      {
+        "word": "rộng,",
+        "local_start": 3.72,
+        "local_end": 4.06,
+        "start": 33.486,
+        "end": 33.826,
+        "start_frame": 1005,
+        "end_frame": 1015
+      },
+      {
+        "word": "khối",
+        "local_start": 4.24,
+        "local_end": 4.34,
+        "start": 34.006,
+        "end": 34.106,
+        "start_frame": 1020,
+        "end_frame": 1023
+      },
+      {
+        "word": "nhất",
+        "local_start": 4.34,
+        "local_end": 4.48,
+        "start": 34.106,
+        "end": 34.246,
+        "start_frame": 1023,
+        "end_frame": 1027
+      },
+      {
+        "word": "trí",
+        "local_start": 4.48,
+        "local_end": 4.64,
+        "start": 34.246,
+        "end": 34.406,
+        "start_frame": 1027,
+        "end_frame": 1032
+      },
+      {
+        "word": "khởi",
+        "local_start": 4.64,
+        "local_end": 4.82,
+        "start": 34.406,
+        "end": 34.586,
+        "start_frame": 1032,
+        "end_frame": 1038
+      },
+      {
+        "word": "động",
+        "local_start": 4.82,
+        "local_end": 4.9,
+        "start": 34.586,
+        "end": 34.666,
+        "start_frame": 1038,
+        "end_frame": 1040
+      },
+      {
+        "word": "đàm",
+        "local_start": 4.9,
+        "local_end": 5.16,
+        "start": 34.666,
+        "end": 34.926,
+        "start_frame": 1040,
+        "end_frame": 1048
+      },
+      {
+        "word": "phán",
+        "local_start": 5.16,
+        "local_end": 5.32,
+        "start": 34.926,
+        "end": 35.086,
+        "start_frame": 1048,
+        "end_frame": 1053
+      },
+      {
+        "word": "kết",
+        "local_start": 5.32,
+        "local_end": 5.48,
+        "start": 35.086,
+        "end": 35.246,
+        "start_frame": 1053,
+        "end_frame": 1057
+      },
+      {
+        "word": "nạp",
+        "local_start": 5.48,
+        "local_end": 5.76,
+        "start": 35.246,
+        "end": 35.526,
+        "start_frame": 1057,
+        "end_frame": 1066
+      },
+      {
+        "word": "UI,",
+        "local_start": 5.76,
+        "local_end": 5.94,
+        "start": 35.526,
+        "end": 35.706,
+        "start_frame": 1066,
+        "end_frame": 1071
+      },
+      {
+        "word": "Indonesia",
+        "local_start": 6.28,
+        "local_end": 6.6,
+        "start": 36.046,
+        "end": 36.366,
+        "start_frame": 1081,
+        "end_frame": 1091
+      },
+      {
+        "word": "và",
+        "local_start": 6.6,
+        "local_end": 7.0,
+        "start": 36.366,
+        "end": 36.766,
+        "start_frame": 1091,
+        "end_frame": 1103
+      },
+      {
+        "word": "Philippines,",
+        "local_start": 7.0,
+        "local_end": 7.32,
+        "start": 36.766,
+        "end": 37.086,
+        "start_frame": 1103,
+        "end_frame": 1113
+      },
+      {
+        "word": "khối",
+        "local_start": 7.88,
+        "local_end": 8.08,
+        "start": 37.646,
+        "end": 37.846,
+        "start_frame": 1129,
+        "end_frame": 1135
+      },
+      {
+        "word": "gần",
+        "local_start": 8.08,
+        "local_end": 8.22,
+        "start": 37.846,
+        "end": 37.986,
+        "start_frame": 1135,
+        "end_frame": 1140
+      },
+      {
+        "word": "600",
+        "local_start": 8.22,
+        "local_end": 8.44,
+        "start": 37.986,
+        "end": 38.206,
+        "start_frame": 1140,
+        "end_frame": 1146
+      },
+      {
+        "word": "triệu",
+        "local_start": 8.44,
+        "local_end": 8.8,
+        "start": 38.206,
+        "end": 38.566,
+        "start_frame": 1146,
+        "end_frame": 1157
+      },
+      {
+        "word": "dân",
+        "local_start": 8.8,
+        "local_end": 9.0,
+        "start": 38.566,
+        "end": 38.766,
+        "start_frame": 1157,
+        "end_frame": 1163
+      },
+      {
+        "word": "914",
+        "local_start": 9.0,
+        "local_end": 9.38,
+        "start": 38.766,
+        "end": 39.146,
+        "start_frame": 1163,
+        "end_frame": 1174
+      },
+      {
+        "word": "%",
+        "local_start": 9.38,
+        "local_end": 9.68,
+        "start": 39.146,
+        "end": 39.446,
+        "start_frame": 1174,
+        "end_frame": 1183
+      },
+      {
+        "word": "cờ",
+        "local_start": 9.68,
+        "local_end": 9.84,
+        "start": 39.446,
+        "end": 39.606,
+        "start_frame": 1183,
+        "end_frame": 1188
+      },
+      {
+        "word": "DP",
+        "local_start": 9.84,
+        "local_end": 9.98,
+        "start": 39.606,
+        "end": 39.746,
+        "start_frame": 1188,
+        "end_frame": 1192
+      },
+      {
+        "word": "toàn",
+        "local_start": 9.98,
+        "local_end": 10.2,
+        "start": 39.746,
+        "end": 39.966,
+        "start_frame": 1192,
+        "end_frame": 1199
+      },
+      {
+        "word": "cầu.",
+        "local_start": 10.2,
+        "local_end": 10.44,
+        "start": 39.966,
+        "end": 40.206,
+        "start_frame": 1199,
+        "end_frame": 1206
+      },
+      {
+        "word": "Các",
+        "local_start": 10.84,
+        "local_end": 10.9,
+        "start": 40.606,
+        "end": 40.666,
+        "start_frame": 1218,
+        "end_frame": 1220
+      },
+      {
+        "word": "thành",
+        "local_start": 10.9,
+        "local_end": 11.02,
+        "start": 40.666,
+        "end": 40.786,
+        "start_frame": 1220,
+        "end_frame": 1224
+      },
+      {
+        "word": "viên",
+        "local_start": 11.02,
+        "local_end": 11.22,
+        "start": 40.786,
+        "end": 40.986,
+        "start_frame": 1224,
+        "end_frame": 1230
+      },
+      {
+        "word": "cũng",
+        "local_start": 11.22,
+        "local_end": 11.34,
+        "start": 40.986,
+        "end": 41.106,
+        "start_frame": 1230,
+        "end_frame": 1233
+      },
+      {
+        "word": "đạt",
+        "local_start": 11.34,
+        "local_end": 11.46,
+        "start": 41.106,
+        "end": 41.226,
+        "start_frame": 1233,
+        "end_frame": 1237
+      },
+      {
+        "word": "mục",
+        "local_start": 11.46,
+        "local_end": 11.64,
+        "start": 41.226,
+        "end": 41.406,
+        "start_frame": 1237,
+        "end_frame": 1242
+      },
+      {
+        "word": "tiêu",
+        "local_start": 11.64,
+        "local_end": 11.84,
+        "start": 41.406,
+        "end": 41.606,
+        "start_frame": 1242,
+        "end_frame": 1248
+      },
+      {
+        "word": "nâng",
+        "local_start": 11.84,
+        "local_end": 12.08,
+        "start": 41.606,
+        "end": 41.846,
+        "start_frame": 1248,
+        "end_frame": 1255
+      },
+      {
+        "word": "cấp",
+        "local_start": 12.08,
+        "local_end": 12.18,
+        "start": 41.846,
+        "end": 41.946,
+        "start_frame": 1255,
+        "end_frame": 1258
+      },
+      {
+        "word": "hiệp",
+        "local_start": 12.18,
+        "local_end": 12.38,
+        "start": 41.946,
+        "end": 42.146,
+        "start_frame": 1258,
+        "end_frame": 1264
+      },
+      {
+        "word": "định",
+        "local_start": 12.38,
+        "local_end": 12.58,
+        "start": 42.146,
+        "end": 42.346,
+        "start_frame": 1264,
+        "end_frame": 1270
+      },
+      {
+        "word": "vào",
+        "local_start": 12.58,
+        "local_end": 12.72,
+        "start": 42.346,
+        "end": 42.486,
+        "start_frame": 1270,
+        "end_frame": 1275
+      },
+      {
+        "word": "giữa",
+        "local_start": 12.72,
+        "local_end": 12.96,
+        "start": 42.486,
+        "end": 42.726,
+        "start_frame": 1275,
+        "end_frame": 1282
+      },
+      {
+        "word": "năm",
+        "local_start": 12.96,
+        "local_end": 13.12,
+        "start": 42.726,
+        "end": 42.886,
+        "start_frame": 1282,
+        "end_frame": 1287
+      },
+      {
+        "word": "2027.",
+        "local_start": 13.12,
+        "local_end": 13.78,
+        "start": 42.886,
+        "end": 43.546,
+        "start_frame": 1287,
+        "end_frame": 1306
+      }
+    ]
+  },
+  "s04": {
+    "section_id": "s04",
+    "scene_id": "S04",
+    "global_start": 44.166,
+    "audio_seconds": 12.587,
+    "words": [
+      {
+        "word": "Cầm",
+        "local_start": 0.0,
+        "local_end": 0.1,
+        "start": 44.166,
+        "end": 44.266,
+        "start_frame": 1325,
+        "end_frame": 1328
+      },
+      {
+        "word": "nhật",
+        "local_start": 0.1,
+        "local_end": 0.26,
+        "start": 44.266,
+        "end": 44.426,
+        "start_frame": 1328,
+        "end_frame": 1333
+      },
+      {
+        "word": "mới",
+        "local_start": 0.26,
+        "local_end": 0.44,
+        "start": 44.426,
+        "end": 44.606,
+        "start_frame": 1333,
+        "end_frame": 1338
+      },
+      {
+        "word": "ngày",
+        "local_start": 0.44,
+        "local_end": 0.64,
+        "start": 44.606,
+        "end": 44.806,
+        "start_frame": 1338,
+        "end_frame": 1344
+      },
+      {
+        "word": "27",
+        "local_start": 0.64,
+        "local_end": 1.0,
+        "start": 44.806,
+        "end": 45.166,
+        "start_frame": 1344,
+        "end_frame": 1355
+      },
+      {
+        "word": "tháng",
+        "local_start": 1.0,
+        "local_end": 1.18,
+        "start": 45.166,
+        "end": 45.346,
+        "start_frame": 1355,
+        "end_frame": 1360
+      },
+      {
+        "word": "11,",
+        "local_start": 1.18,
+        "local_end": 1.38,
+        "start": 45.346,
+        "end": 45.546,
+        "start_frame": 1360,
+        "end_frame": 1366
+      },
+      {
+        "word": "Thủ",
+        "local_start": 1.76,
+        "local_end": 1.84,
+        "start": 45.926,
+        "end": 46.006,
+        "start_frame": 1378,
+        "end_frame": 1380
+      },
+      {
+        "word": "tướng",
+        "local_start": 1.84,
+        "local_end": 2.06,
+        "start": 46.006,
+        "end": 46.226,
+        "start_frame": 1380,
+        "end_frame": 1387
+      },
+      {
+        "word": "Lê",
+        "local_start": 2.06,
+        "local_end": 2.2,
+        "start": 46.226,
+        "end": 46.366,
+        "start_frame": 1387,
+        "end_frame": 1391
+      },
+      {
+        "word": "Minh",
+        "local_start": 2.2,
+        "local_end": 2.34,
+        "start": 46.366,
+        "end": 46.506,
+        "start_frame": 1391,
+        "end_frame": 1395
+      },
+      {
+        "word": "Hưng",
+        "local_start": 2.34,
+        "local_end": 2.48,
+        "start": 46.506,
+        "end": 46.646,
+        "start_frame": 1395,
+        "end_frame": 1399
+      },
+      {
+        "word": "cho",
+        "local_start": 2.48,
+        "local_end": 2.6,
+        "start": 46.646,
+        "end": 46.766,
+        "start_frame": 1399,
+        "end_frame": 1403
+      },
+      {
+        "word": "biết,",
+        "local_start": 2.6,
+        "local_end": 2.72,
+        "start": 46.766,
+        "end": 46.886,
+        "start_frame": 1403,
+        "end_frame": 1407
+      },
+      {
+        "word": "Việt",
+        "local_start": 3.04,
+        "local_end": 3.08,
+        "start": 47.206,
+        "end": 47.246,
+        "start_frame": 1416,
+        "end_frame": 1417
+      },
+      {
+        "word": "Nam",
+        "local_start": 3.08,
+        "local_end": 3.3,
+        "start": 47.246,
+        "end": 47.466,
+        "start_frame": 1417,
+        "end_frame": 1424
+      },
+      {
+        "word": "cơ",
+        "local_start": 3.3,
+        "local_end": 3.5,
+        "start": 47.466,
+        "end": 47.666,
+        "start_frame": 1424,
+        "end_frame": 1430
+      },
+      {
+        "word": "bản",
+        "local_start": 3.5,
+        "local_end": 3.68,
+        "start": 47.666,
+        "end": 47.846,
+        "start_frame": 1430,
+        "end_frame": 1435
+      },
+      {
+        "word": "xong",
+        "local_start": 3.68,
+        "local_end": 3.92,
+        "start": 47.846,
+        "end": 48.086,
+        "start_frame": 1435,
+        "end_frame": 1443
+      },
+      {
+        "word": "đàm",
+        "local_start": 3.92,
+        "local_end": 4.14,
+        "start": 48.086,
+        "end": 48.306,
+        "start_frame": 1443,
+        "end_frame": 1449
+      },
+      {
+        "word": "phán",
+        "local_start": 4.14,
+        "local_end": 4.26,
+        "start": 48.306,
+        "end": 48.426,
+        "start_frame": 1449,
+        "end_frame": 1453
+      },
+      {
+        "word": "hiệp",
+        "local_start": 4.26,
+        "local_end": 4.4,
+        "start": 48.426,
+        "end": 48.566,
+        "start_frame": 1453,
+        "end_frame": 1457
+      },
+      {
+        "word": "định",
+        "local_start": 4.4,
+        "local_end": 4.62,
+        "start": 48.566,
+        "end": 48.786,
+        "start_frame": 1457,
+        "end_frame": 1464
+      },
+      {
+        "word": "AZT",
+        "local_start": 4.62,
+        "local_end": 5.06,
+        "start": 48.786,
+        "end": 49.226,
+        "start_frame": 1464,
+        "end_frame": 1477
+      },
+      {
+        "word": "với",
+        "local_start": 5.06,
+        "local_end": 5.18,
+        "start": 49.226,
+        "end": 49.346,
+        "start_frame": 1477,
+        "end_frame": 1480
+      },
+      {
+        "word": "Mỹ.",
+        "local_start": 5.18,
+        "local_end": 5.36,
+        "start": 49.346,
+        "end": 49.526,
+        "start_frame": 1480,
+        "end_frame": 1486
+      },
+      {
+        "word": "Nhờ",
+        "local_start": 5.78,
+        "local_end": 5.94,
+        "start": 49.946,
+        "end": 50.106,
+        "start_frame": 1498,
+        "end_frame": 1503
+      },
+      {
+        "word": "vậy,",
+        "local_start": 5.94,
+        "local_end": 6.12,
+        "start": 50.106,
+        "end": 50.286,
+        "start_frame": 1503,
+        "end_frame": 1509
+      },
+      {
+        "word": "thuyết",
+        "local_start": 6.52,
+        "local_end": 6.64,
+        "start": 50.686,
+        "end": 50.806,
+        "start_frame": 1521,
+        "end_frame": 1524
+      },
+      {
+        "word": "xuất",
+        "local_start": 6.64,
+        "local_end": 6.78,
+        "start": 50.806,
+        "end": 50.946,
+        "start_frame": 1524,
+        "end_frame": 1528
+      },
+      {
+        "word": "thực",
+        "local_start": 6.78,
+        "local_end": 6.86,
+        "start": 50.946,
+        "end": 51.026,
+        "start_frame": 1528,
+        "end_frame": 1531
+      },
+      {
+        "word": "tế",
+        "local_start": 6.86,
+        "local_end": 7.06,
+        "start": 51.026,
+        "end": 51.226,
+        "start_frame": 1531,
+        "end_frame": 1537
+      },
+      {
+        "word": "sẽ",
+        "local_start": 7.06,
+        "local_end": 7.2,
+        "start": 51.226,
+        "end": 51.366,
+        "start_frame": 1537,
+        "end_frame": 1541
+      },
+      {
+        "word": "thấp",
+        "local_start": 7.2,
+        "local_end": 7.36,
+        "start": 51.366,
+        "end": 51.526,
+        "start_frame": 1541,
+        "end_frame": 1546
+      },
+      {
+        "word": "hơn",
+        "local_start": 7.36,
+        "local_end": 7.5,
+        "start": 51.526,
+        "end": 51.666,
+        "start_frame": 1546,
+        "end_frame": 1550
+      },
+      {
+        "word": "nhiều",
+        "local_start": 7.5,
+        "local_end": 7.66,
+        "start": 51.666,
+        "end": 51.826,
+        "start_frame": 1550,
+        "end_frame": 1555
+      },
+      {
+        "word": "ngưỡng",
+        "local_start": 7.66,
+        "local_end": 7.9,
+        "start": 51.826,
+        "end": 52.066,
+        "start_frame": 1555,
+        "end_frame": 1562
+      },
+      {
+        "word": "35",
+        "local_start": 7.9,
+        "local_end": 8.16,
+        "start": 52.066,
+        "end": 52.326,
+        "start_frame": 1562,
+        "end_frame": 1570
+      },
+      {
+        "word": "%",
+        "local_start": 8.16,
+        "local_end": 8.54,
+        "start": 52.326,
+        "end": 52.706,
+        "start_frame": 1570,
+        "end_frame": 1581
+      },
+      {
+        "word": "Đây",
+        "local_start": 8.54,
+        "local_end": 9.14,
+        "start": 52.706,
+        "end": 53.306,
+        "start_frame": 1581,
+        "end_frame": 1599
+      },
+      {
+        "word": "là",
+        "local_start": 9.14,
+        "local_end": 9.26,
+        "start": 53.306,
+        "end": 53.426,
+        "start_frame": 1599,
+        "end_frame": 1603
+      },
+      {
+        "word": "tiền",
+        "local_start": 9.26,
+        "local_end": 9.5,
+        "start": 53.426,
+        "end": 53.666,
+        "start_frame": 1603,
+        "end_frame": 1610
+      },
+      {
+        "word": "rất",
+        "local_start": 9.5,
+        "local_end": 9.62,
+        "start": 53.666,
+        "end": 53.786,
+        "start_frame": 1610,
+        "end_frame": 1614
+      },
+      {
+        "word": "tích",
+        "local_start": 9.62,
+        "local_end": 9.82,
+        "start": 53.786,
+        "end": 53.986,
+        "start_frame": 1614,
+        "end_frame": 1620
+      },
+      {
+        "word": "cực",
+        "local_start": 9.82,
+        "local_end": 10.08,
+        "start": 53.986,
+        "end": 54.246,
+        "start_frame": 1620,
+        "end_frame": 1627
+      },
+      {
+        "word": "trong",
+        "local_start": 10.08,
+        "local_end": 10.18,
+        "start": 54.246,
+        "end": 54.346,
+        "start_frame": 1627,
+        "end_frame": 1630
+      },
+      {
+        "word": "159",
+        "local_start": 10.18,
+        "local_end": 10.84,
+        "start": 54.346,
+        "end": 55.006,
+        "start_frame": 1630,
+        "end_frame": 1650
+      },
+      {
+        "word": ",4",
+        "local_start": 10.84,
+        "local_end": 11.16,
+        "start": 55.006,
+        "end": 55.326,
+        "start_frame": 1650,
+        "end_frame": 1660
+      },
+      {
+        "word": "tỷ",
+        "local_start": 11.16,
+        "local_end": 11.36,
+        "start": 55.326,
+        "end": 55.526,
+        "start_frame": 1660,
+        "end_frame": 1666
+      },
+      {
+        "word": "USD",
+        "local_start": 11.36,
+        "local_end": 11.56,
+        "start": 55.526,
+        "end": 55.726,
+        "start_frame": 1666,
+        "end_frame": 1672
+      },
+      {
+        "word": "hàng",
+        "local_start": 11.56,
+        "local_end": 11.78,
+        "start": 55.726,
+        "end": 55.946,
+        "start_frame": 1672,
+        "end_frame": 1678
+      },
+      {
+        "word": "xuất",
+        "local_start": 11.78,
+        "local_end": 12.02,
+        "start": 55.946,
+        "end": 56.186,
+        "start_frame": 1678,
+        "end_frame": 1686
+      },
+      {
+        "word": "sang",
+        "local_start": 12.02,
+        "local_end": 12.14,
+        "start": 56.186,
+        "end": 56.306,
+        "start_frame": 1686,
+        "end_frame": 1689
+      },
+      {
+        "word": "Mỹ.",
+        "local_start": 12.14,
+        "local_end": 12.32,
+        "start": 56.306,
+        "end": 56.486,
+        "start_frame": 1689,
+        "end_frame": 1695
+      }
+    ]
+  },
+  "s05": {
+    "section_id": "s05",
+    "scene_id": "S05",
+    "global_start": 56.999,
+    "audio_seconds": 13.253,
+    "words": [
+      {
+        "word": "Sáng",
+        "local_start": 0.0,
+        "local_end": 0.12,
+        "start": 56.999,
+        "end": 57.119,
+        "start_frame": 1710,
+        "end_frame": 1714
+      },
+      {
+        "word": "27",
+        "local_start": 0.12,
+        "local_end": 0.38,
+        "start": 57.119,
+        "end": 57.379,
+        "start_frame": 1714,
+        "end_frame": 1721
+      },
+      {
+        "word": "tháng",
+        "local_start": 0.38,
+        "local_end": 0.76,
+        "start": 57.379,
+        "end": 57.759,
+        "start_frame": 1721,
+        "end_frame": 1733
+      },
+      {
+        "word": "11,",
+        "local_start": 0.76,
+        "local_end": 0.96,
+        "start": 57.759,
+        "end": 57.959,
+        "start_frame": 1733,
+        "end_frame": 1739
+      },
+      {
+        "word": "trung",
+        "local_start": 1.38,
+        "local_end": 1.52,
+        "start": 58.379,
+        "end": 58.519,
+        "start_frame": 1751,
+        "end_frame": 1756
+      },
+      {
+        "word": "tâm",
+        "local_start": 1.52,
+        "local_end": 1.68,
+        "start": 58.519,
+        "end": 58.679,
+        "start_frame": 1756,
+        "end_frame": 1760
+      },
+      {
+        "word": "dữ",
+        "local_start": 1.68,
+        "local_end": 1.84,
+        "start": 58.679,
+        "end": 58.839,
+        "start_frame": 1760,
+        "end_frame": 1765
+      },
+      {
+        "word": "liệu",
+        "local_start": 1.84,
+        "local_end": 1.98,
+        "start": 58.839,
+        "end": 58.979,
+        "start_frame": 1765,
+        "end_frame": 1769
+      },
+      {
+        "word": "VN,",
+        "local_start": 1.98,
+        "local_end": 2.26,
+        "start": 58.979,
+        "end": 59.259,
+        "start_frame": 1769,
+        "end_frame": 1778
+      },
+      {
+        "word": "VT",
+        "local_start": 2.54,
+        "local_end": 2.7,
+        "start": 59.539,
+        "end": 59.699,
+        "start_frame": 1786,
+        "end_frame": 1791
+      },
+      {
+        "word": "Hòa",
+        "local_start": 2.7,
+        "local_end": 2.92,
+        "start": 59.699,
+        "end": 59.919,
+        "start_frame": 1791,
+        "end_frame": 1798
+      },
+      {
+        "word": "Lạc",
+        "local_start": 2.92,
+        "local_end": 3.06,
+        "start": 59.919,
+        "end": 60.059,
+        "start_frame": 1798,
+        "end_frame": 1802
+      },
+      {
+        "word": "Quy",
+        "local_start": 3.06,
+        "local_end": 3.18,
+        "start": 60.059,
+        "end": 60.179,
+        "start_frame": 1802,
+        "end_frame": 1805
+      },
+      {
+        "word": "Mo",
+        "local_start": 3.18,
+        "local_end": 3.28,
+        "start": 60.179,
+        "end": 60.279,
+        "start_frame": 1805,
+        "end_frame": 1808
+      },
+      {
+        "word": "2000",
+        "local_start": 3.28,
+        "local_end": 3.48,
+        "start": 60.279,
+        "end": 60.479,
+        "start_frame": 1808,
+        "end_frame": 1814
+      },
+      {
+        "word": "tủ",
+        "local_start": 3.48,
+        "local_end": 3.72,
+        "start": 60.479,
+        "end": 60.719,
+        "start_frame": 1814,
+        "end_frame": 1822
+      },
+      {
+        "word": "giắc,",
+        "local_start": 3.72,
+        "local_end": 3.98,
+        "start": 60.719,
+        "end": 60.979,
+        "start_frame": 1822,
+        "end_frame": 1829
+      },
+      {
+        "word": "đạt",
+        "local_start": 4.2,
+        "local_end": 4.32,
+        "start": 61.199,
+        "end": 61.319,
+        "start_frame": 1836,
+        "end_frame": 1840
+      },
+      {
+        "word": "đủ",
+        "local_start": 4.32,
+        "local_end": 4.48,
+        "start": 61.319,
+        "end": 61.479,
+        "start_frame": 1840,
+        "end_frame": 1844
+      },
+      {
+        "word": "3",
+        "local_start": 4.48,
+        "local_end": 4.62,
+        "start": 61.479,
+        "end": 61.619,
+        "start_frame": 1844,
+        "end_frame": 1849
+      },
+      {
+        "word": "chuyển",
+        "local_start": 4.62,
+        "local_end": 4.82,
+        "start": 61.619,
+        "end": 61.819,
+        "start_frame": 1849,
+        "end_frame": 1855
+      },
+      {
+        "word": "quốc",
+        "local_start": 4.82,
+        "local_end": 4.96,
+        "start": 61.819,
+        "end": 61.959,
+        "start_frame": 1855,
+        "end_frame": 1859
+      },
+      {
+        "word": "kế",
+        "local_start": 4.96,
+        "local_end": 5.1,
+        "start": 61.959,
+        "end": 62.099,
+        "start_frame": 1859,
+        "end_frame": 1863
+      },
+      {
+        "word": "tìa",
+        "local_start": 5.1,
+        "local_end": 5.28,
+        "start": 62.099,
+        "end": 62.279,
+        "start_frame": 1863,
+        "end_frame": 1868
+      },
+      {
+        "word": "3.",
+        "local_start": 5.28,
+        "local_end": 5.42,
+        "start": 62.279,
+        "end": 62.419,
+        "start_frame": 1868,
+        "end_frame": 1873
+      },
+      {
+        "word": "Đây",
+        "local_start": 5.88,
+        "local_end": 6.02,
+        "start": 62.879,
+        "end": 63.019,
+        "start_frame": 1886,
+        "end_frame": 1891
+      },
+      {
+        "word": "là",
+        "local_start": 6.02,
+        "local_end": 6.12,
+        "start": 63.019,
+        "end": 63.119,
+        "start_frame": 1891,
+        "end_frame": 1894
+      },
+      {
+        "word": "trung",
+        "local_start": 6.12,
+        "local_end": 6.28,
+        "start": 63.119,
+        "end": 63.279,
+        "start_frame": 1894,
+        "end_frame": 1898
+      },
+      {
+        "word": "tâm",
+        "local_start": 6.28,
+        "local_end": 6.42,
+        "start": 63.279,
+        "end": 63.419,
+        "start_frame": 1898,
+        "end_frame": 1903
+      },
+      {
+        "word": "dữ",
+        "local_start": 6.42,
+        "local_end": 6.58,
+        "start": 63.419,
+        "end": 63.579,
+        "start_frame": 1903,
+        "end_frame": 1907
+      },
+      {
+        "word": "liệu",
+        "local_start": 6.58,
+        "local_end": 6.74,
+        "start": 63.579,
+        "end": 63.739,
+        "start_frame": 1907,
+        "end_frame": 1912
+      },
+      {
+        "word": "thứ",
+        "local_start": 6.74,
+        "local_end": 6.84,
+        "start": 63.739,
+        "end": 63.839,
+        "start_frame": 1912,
+        "end_frame": 1915
+      },
+      {
+        "word": "2",
+        "local_start": 6.84,
+        "local_end": 7.02,
+        "start": 63.839,
+        "end": 64.019,
+        "start_frame": 1915,
+        "end_frame": 1921
+      },
+      {
+        "word": "tại",
+        "local_start": 7.02,
+        "local_end": 7.26,
+        "start": 64.019,
+        "end": 64.259,
+        "start_frame": 1921,
+        "end_frame": 1928
+      },
+      {
+        "word": "Việt",
+        "local_start": 7.26,
+        "local_end": 7.44,
+        "start": 64.259,
+        "end": 64.439,
+        "start_frame": 1928,
+        "end_frame": 1933
+      },
+      {
+        "word": "Nam",
+        "local_start": 7.44,
+        "local_end": 7.64,
+        "start": 64.439,
+        "end": 64.639,
+        "start_frame": 1933,
+        "end_frame": 1939
+      },
+      {
+        "word": "hoàn",
+        "local_start": 7.64,
+        "local_end": 7.96,
+        "start": 64.639,
+        "end": 64.959,
+        "start_frame": 1939,
+        "end_frame": 1949
+      },
+      {
+        "word": "thiện",
+        "local_start": 7.96,
+        "local_end": 8.18,
+        "start": 64.959,
+        "end": 65.179,
+        "start_frame": 1949,
+        "end_frame": 1955
+      },
+      {
+        "word": "chọn",
+        "local_start": 8.18,
+        "local_end": 8.4,
+        "start": 65.179,
+        "end": 65.399,
+        "start_frame": 1955,
+        "end_frame": 1962
+      },
+      {
+        "word": "bộ",
+        "local_start": 8.4,
+        "local_end": 8.56,
+        "start": 65.399,
+        "end": 65.559,
+        "start_frame": 1962,
+        "end_frame": 1967
+      },
+      {
+        "word": "tiêu",
+        "local_start": 8.56,
+        "local_end": 8.72,
+        "start": 65.559,
+        "end": 65.719,
+        "start_frame": 1967,
+        "end_frame": 1972
+      },
+      {
+        "word": "chuẩn",
+        "local_start": 8.72,
+        "local_end": 8.92,
+        "start": 65.719,
+        "end": 65.919,
+        "start_frame": 1972,
+        "end_frame": 1978
+      },
+      {
+        "word": "này.",
+        "local_start": 8.92,
+        "local_end": 9.04,
+        "start": 65.919,
+        "end": 66.039,
+        "start_frame": 1978,
+        "end_frame": 1981
+      },
+      {
+        "word": "Cùng",
+        "local_start": 9.28,
+        "local_end": 9.52,
+        "start": 66.279,
+        "end": 66.519,
+        "start_frame": 1988,
+        "end_frame": 1996
+      },
+      {
+        "word": "lúc,",
+        "local_start": 9.52,
+        "local_end": 9.76,
+        "start": 66.519,
+        "end": 66.759,
+        "start_frame": 1996,
+        "end_frame": 2003
+      },
+      {
+        "word": "quyết",
+        "local_start": 10.02,
+        "local_end": 10.12,
+        "start": 67.019,
+        "end": 67.119,
+        "start_frame": 2011,
+        "end_frame": 2014
+      },
+      {
+        "word": "định",
+        "local_start": 10.12,
+        "local_end": 10.24,
+        "start": 67.119,
+        "end": 67.239,
+        "start_frame": 2014,
+        "end_frame": 2017
+      },
+      {
+        "word": "2320",
+        "local_start": 10.24,
+        "local_end": 10.82,
+        "start": 67.239,
+        "end": 67.819,
+        "start_frame": 2017,
+        "end_frame": 2035
+      },
+      {
+        "word": "thúc",
+        "local_start": 10.82,
+        "local_end": 11.02,
+        "start": 67.819,
+        "end": 68.019,
+        "start_frame": 2035,
+        "end_frame": 2041
+      },
+      {
+        "word": "đẩy",
+        "local_start": 11.02,
+        "local_end": 11.24,
+        "start": 68.019,
+        "end": 68.239,
+        "start_frame": 2041,
+        "end_frame": 2047
+      },
+      {
+        "word": "7",
+        "local_start": 11.24,
+        "local_end": 11.38,
+        "start": 68.239,
+        "end": 68.379,
+        "start_frame": 2047,
+        "end_frame": 2051
+      },
+      {
+        "word": "giải",
+        "local_start": 11.38,
+        "local_end": 11.6,
+        "start": 68.379,
+        "end": 68.599,
+        "start_frame": 2051,
+        "end_frame": 2058
+      },
+      {
+        "word": "pháp",
+        "local_start": 11.6,
+        "local_end": 11.78,
+        "start": 68.599,
+        "end": 68.779,
+        "start_frame": 2058,
+        "end_frame": 2063
+      },
+      {
+        "word": "ban",
+        "local_start": 11.78,
+        "local_end": 11.92,
+        "start": 68.779,
+        "end": 68.919,
+        "start_frame": 2063,
+        "end_frame": 2068
+      },
+      {
+        "word": "dẫn",
+        "local_start": 11.92,
+        "local_end": 12.08,
+        "start": 68.919,
+        "end": 69.079,
+        "start_frame": 2068,
+        "end_frame": 2072
+      },
+      {
+        "word": "đến",
+        "local_start": 12.08,
+        "local_end": 12.22,
+        "start": 69.079,
+        "end": 69.219,
+        "start_frame": 2072,
+        "end_frame": 2077
+      },
+      {
+        "word": "2030.",
+        "local_start": 12.22,
+        "local_end": 12.68,
+        "start": 69.219,
+        "end": 69.679,
+        "start_frame": 2077,
+        "end_frame": 2090
+      }
+    ]
+  },
+  "s06": {
+    "section_id": "s06",
+    "scene_id": "S06",
+    "global_start": 70.499,
+    "audio_seconds": 12.522,
+    "words": [
+      {
+        "word": "Những",
+        "local_start": 0.0,
+        "local_end": 0.08,
+        "start": 70.499,
+        "end": 70.579,
+        "start_frame": 2115,
+        "end_frame": 2117
+      },
+      {
+        "word": "khu",
+        "local_start": 0.08,
+        "local_end": 0.22,
+        "start": 70.579,
+        "end": 70.719,
+        "start_frame": 2117,
+        "end_frame": 2122
+      },
+      {
+        "word": "vực",
+        "local_start": 0.22,
+        "local_end": 0.38,
+        "start": 70.719,
+        "end": 70.879,
+        "start_frame": 2122,
+        "end_frame": 2126
+      },
+      {
+        "word": "vừa",
+        "local_start": 0.38,
+        "local_end": 0.56,
+        "start": 70.879,
+        "end": 71.059,
+        "start_frame": 2126,
+        "end_frame": 2132
+      },
+      {
+        "word": "gặp",
+        "local_start": 0.56,
+        "local_end": 0.68,
+        "start": 71.059,
+        "end": 71.179,
+        "start_frame": 2132,
+        "end_frame": 2135
+      },
+      {
+        "word": "cú",
+        "local_start": 0.68,
+        "local_end": 0.84,
+        "start": 71.179,
+        "end": 71.339,
+        "start_frame": 2135,
+        "end_frame": 2140
+      },
+      {
+        "word": "sức",
+        "local_start": 0.84,
+        "local_end": 0.96,
+        "start": 71.339,
+        "end": 71.459,
+        "start_frame": 2140,
+        "end_frame": 2144
+      },
+      {
+        "word": "mới,",
+        "local_start": 0.96,
+        "local_end": 1.16,
+        "start": 71.459,
+        "end": 71.659,
+        "start_frame": 2144,
+        "end_frame": 2150
+      },
+      {
+        "word": "đối",
+        "local_start": 1.56,
+        "local_end": 1.64,
+        "start": 72.059,
+        "end": 72.139,
+        "start_frame": 2162,
+        "end_frame": 2164
+      },
+      {
+        "word": "tác",
+        "local_start": 1.64,
+        "local_end": 1.86,
+        "start": 72.139,
+        "end": 72.359,
+        "start_frame": 2164,
+        "end_frame": 2171
+      },
+      {
+        "word": "của",
+        "local_start": 1.86,
+        "local_end": 1.94,
+        "start": 72.359,
+        "end": 72.439,
+        "start_frame": 2171,
+        "end_frame": 2173
+      },
+      {
+        "word": "NVIDIA",
+        "local_start": 1.94,
+        "local_end": 2.54,
+        "start": 72.439,
+        "end": 73.039,
+        "start_frame": 2173,
+        "end_frame": 2191
+      },
+      {
+        "word": "tạm",
+        "local_start": 2.54,
+        "local_end": 2.82,
+        "start": 73.039,
+        "end": 73.319,
+        "start_frame": 2191,
+        "end_frame": 2200
+      },
+      {
+        "word": "dừng",
+        "local_start": 2.82,
+        "local_end": 2.94,
+        "start": 73.319,
+        "end": 73.439,
+        "start_frame": 2200,
+        "end_frame": 2203
+      },
+      {
+        "word": "giao",
+        "local_start": 2.94,
+        "local_end": 3.1,
+        "start": 73.439,
+        "end": 73.599,
+        "start_frame": 2203,
+        "end_frame": 2208
+      },
+      {
+        "word": "máy",
+        "local_start": 3.1,
+        "local_end": 3.28,
+        "start": 73.599,
+        "end": 73.779,
+        "start_frame": 2208,
+        "end_frame": 2213
+      },
+      {
+        "word": "chủ",
+        "local_start": 3.28,
+        "local_end": 3.44,
+        "start": 73.779,
+        "end": 73.939,
+        "start_frame": 2213,
+        "end_frame": 2218
+      },
+      {
+        "word": "trí",
+        "local_start": 3.44,
+        "local_end": 3.56,
+        "start": 73.939,
+        "end": 74.059,
+        "start_frame": 2218,
+        "end_frame": 2222
+      },
+      {
+        "word": "tuệ",
+        "local_start": 3.56,
+        "local_end": 3.68,
+        "start": 74.059,
+        "end": 74.179,
+        "start_frame": 2222,
+        "end_frame": 2225
+      },
+      {
+        "word": "nhân",
+        "local_start": 3.68,
+        "local_end": 3.78,
+        "start": 74.179,
+        "end": 74.279,
+        "start_frame": 2225,
+        "end_frame": 2228
+      },
+      {
+        "word": "tạo",
+        "local_start": 3.78,
+        "local_end": 4.06,
+        "start": 74.279,
+        "end": 74.559,
+        "start_frame": 2228,
+        "end_frame": 2237
+      },
+      {
+        "word": "tới",
+        "local_start": 4.06,
+        "local_end": 4.36,
+        "start": 74.559,
+        "end": 74.859,
+        "start_frame": 2237,
+        "end_frame": 2246
+      },
+      {
+        "word": "4",
+        "local_start": 4.36,
+        "local_end": 4.5,
+        "start": 74.859,
+        "end": 74.999,
+        "start_frame": 2246,
+        "end_frame": 2250
+      },
+      {
+        "word": "nước",
+        "local_start": 4.5,
+        "local_end": 4.66,
+        "start": 74.999,
+        "end": 75.159,
+        "start_frame": 2250,
+        "end_frame": 2255
+      },
+      {
+        "word": "Đông",
+        "local_start": 4.66,
+        "local_end": 4.82,
+        "start": 75.159,
+        "end": 75.319,
+        "start_frame": 2255,
+        "end_frame": 2260
+      },
+      {
+        "word": "Nam",
+        "local_start": 4.82,
+        "local_end": 4.9,
+        "start": 75.319,
+        "end": 75.399,
+        "start_frame": 2260,
+        "end_frame": 2262
+      },
+      {
+        "word": "Á,",
+        "local_start": 4.9,
+        "local_end": 5.12,
+        "start": 75.399,
+        "end": 75.619,
+        "start_frame": 2262,
+        "end_frame": 2269
+      },
+      {
+        "word": "các",
+        "local_start": 5.5,
+        "local_end": 5.62,
+        "start": 75.999,
+        "end": 76.119,
+        "start_frame": 2280,
+        "end_frame": 2284
+      },
+      {
+        "word": "bên",
+        "local_start": 5.62,
+        "local_end": 5.74,
+        "start": 76.119,
+        "end": 76.239,
+        "start_frame": 2284,
+        "end_frame": 2287
+      },
+      {
+        "word": "phải",
+        "local_start": 5.74,
+        "local_end": 5.92,
+        "start": 76.239,
+        "end": 76.419,
+        "start_frame": 2287,
+        "end_frame": 2293
+      },
+      {
+        "word": "trở",
+        "local_start": 5.92,
+        "local_end": 6.22,
+        "start": 76.419,
+        "end": 76.719,
+        "start_frame": 2293,
+        "end_frame": 2302
+      },
+      {
+        "word": "hướng",
+        "local_start": 6.22,
+        "local_end": 6.44,
+        "start": 76.719,
+        "end": 76.939,
+        "start_frame": 2302,
+        "end_frame": 2308
+      },
+      {
+        "word": "dẫn",
+        "local_start": 6.44,
+        "local_end": 6.6,
+        "start": 76.939,
+        "end": 77.099,
+        "start_frame": 2308,
+        "end_frame": 2313
+      },
+      {
+        "word": "giấy",
+        "local_start": 6.6,
+        "local_end": 6.86,
+        "start": 77.099,
+        "end": 77.359,
+        "start_frame": 2313,
+        "end_frame": 2321
+      },
+      {
+        "word": "phép",
+        "local_start": 6.86,
+        "local_end": 7.0,
+        "start": 77.359,
+        "end": 77.499,
+        "start_frame": 2321,
+        "end_frame": 2325
+      },
+      {
+        "word": "Mỹ",
+        "local_start": 7.0,
+        "local_end": 7.2,
+        "start": 77.499,
+        "end": 77.699,
+        "start_frame": 2325,
+        "end_frame": 2331
+      },
+      {
+        "word": "trong",
+        "local_start": 7.2,
+        "local_end": 7.36,
+        "start": 77.699,
+        "end": 77.859,
+        "start_frame": 2331,
+        "end_frame": 2336
+      },
+      {
+        "word": "hạ",
+        "local_start": 7.36,
+        "local_end": 7.52,
+        "start": 77.859,
+        "end": 78.019,
+        "start_frame": 2336,
+        "end_frame": 2341
+      },
+      {
+        "word": "90",
+        "local_start": 7.52,
+        "local_end": 7.86,
+        "start": 78.019,
+        "end": 78.359,
+        "start_frame": 2341,
+        "end_frame": 2351
+      },
+      {
+        "word": "ngày.",
+        "local_start": 7.86,
+        "local_end": 8.1,
+        "start": 78.359,
+        "end": 78.599,
+        "start_frame": 2351,
+        "end_frame": 2358
+      },
+      {
+        "word": "Việt",
+        "local_start": 8.44,
+        "local_end": 8.62,
+        "start": 78.939,
+        "end": 79.119,
+        "start_frame": 2368,
+        "end_frame": 2374
+      },
+      {
+        "word": "Nam",
+        "local_start": 8.62,
+        "local_end": 8.84,
+        "start": 79.119,
+        "end": 79.339,
+        "start_frame": 2374,
+        "end_frame": 2380
+      },
+      {
+        "word": "có",
+        "local_start": 8.84,
+        "local_end": 8.98,
+        "start": 79.339,
+        "end": 79.479,
+        "start_frame": 2380,
+        "end_frame": 2384
+      },
+      {
+        "word": "cơ",
+        "local_start": 8.98,
+        "local_end": 9.12,
+        "start": 79.479,
+        "end": 79.619,
+        "start_frame": 2384,
+        "end_frame": 2389
+      },
+      {
+        "word": "hội",
+        "local_start": 9.12,
+        "local_end": 9.3,
+        "start": 79.619,
+        "end": 79.799,
+        "start_frame": 2389,
+        "end_frame": 2394
+      },
+      {
+        "word": "đón",
+        "local_start": 9.3,
+        "local_end": 9.46,
+        "start": 79.799,
+        "end": 79.959,
+        "start_frame": 2394,
+        "end_frame": 2399
+      },
+      {
+        "word": "vốn",
+        "local_start": 9.46,
+        "local_end": 9.7,
+        "start": 79.959,
+        "end": 80.199,
+        "start_frame": 2399,
+        "end_frame": 2406
+      },
+      {
+        "word": "từ",
+        "local_start": 9.7,
+        "local_end": 9.82,
+        "start": 80.199,
+        "end": 80.319,
+        "start_frame": 2406,
+        "end_frame": 2410
+      },
+      {
+        "word": "42",
+        "local_start": 9.82,
+        "local_end": 10.14,
+        "start": 80.319,
+        "end": 80.639,
+        "start_frame": 2410,
+        "end_frame": 2419
+      },
+      {
+        "word": "trung",
+        "local_start": 10.14,
+        "local_end": 10.4,
+        "start": 80.639,
+        "end": 80.899,
+        "start_frame": 2419,
+        "end_frame": 2427
+      },
+      {
+        "word": "tâm",
+        "local_start": 10.4,
+        "local_end": 10.54,
+        "start": 80.899,
+        "end": 81.039,
+        "start_frame": 2427,
+        "end_frame": 2431
+      },
+      {
+        "word": "dữ",
+        "local_start": 10.54,
+        "local_end": 10.64,
+        "start": 81.039,
+        "end": 81.139,
+        "start_frame": 2431,
+        "end_frame": 2434
+      },
+      {
+        "word": "liệu",
+        "local_start": 10.64,
+        "local_end": 10.86,
+        "start": 81.139,
+        "end": 81.359,
+        "start_frame": 2434,
+        "end_frame": 2441
+      },
+      {
+        "word": "nhưng",
+        "local_start": 10.86,
+        "local_end": 11.3,
+        "start": 81.359,
+        "end": 81.799,
+        "start_frame": 2441,
+        "end_frame": 2454
+      },
+      {
+        "word": "phải",
+        "local_start": 11.3,
+        "local_end": 11.5,
+        "start": 81.799,
+        "end": 81.999,
+        "start_frame": 2454,
+        "end_frame": 2460
+      },
+      {
+        "word": "xếp",
+        "local_start": 11.5,
+        "local_end": 11.72,
+        "start": 81.999,
+        "end": 82.219,
+        "start_frame": 2460,
+        "end_frame": 2467
+      },
+      {
+        "word": "tân",
+        "local_start": 11.72,
+        "local_end": 11.82,
+        "start": 82.219,
+        "end": 82.319,
+        "start_frame": 2467,
+        "end_frame": 2470
+      },
+      {
+        "word": "thổ",
+        "local_start": 11.82,
+        "local_end": 12.04,
+        "start": 82.319,
+        "end": 82.539,
+        "start_frame": 2470,
+        "end_frame": 2476
+      },
+      {
+        "word": "xuất",
+        "local_start": 12.04,
+        "local_end": 12.18,
+        "start": 82.539,
+        "end": 82.679,
+        "start_frame": 2476,
+        "end_frame": 2480
+      },
+      {
+        "word": "sứ.",
+        "local_start": 12.18,
+        "local_end": 12.36,
+        "start": 82.679,
+        "end": 82.859,
+        "start_frame": 2480,
+        "end_frame": 2486
+      }
+    ]
+  },
+  "s07": {
+    "section_id": "s07",
+    "scene_id": "S07",
+    "global_start": 83.266,
+    "audio_seconds": 10.528,
+    "words": [
+      {
+        "word": "Trong",
+        "local_start": 0.0,
+        "local_end": 0.1,
+        "start": 83.266,
+        "end": 83.366,
+        "start_frame": 2498,
+        "end_frame": 2501
+      },
+      {
+        "word": "ngành",
+        "local_start": 0.1,
+        "local_end": 0.22,
+        "start": 83.366,
+        "end": 83.486,
+        "start_frame": 2501,
+        "end_frame": 2505
+      },
+      {
+        "word": "giao",
+        "local_start": 0.22,
+        "local_end": 0.36,
+        "start": 83.486,
+        "end": 83.626,
+        "start_frame": 2505,
+        "end_frame": 2509
+      },
+      {
+        "word": "vận,",
+        "local_start": 0.36,
+        "local_end": 0.52,
+        "start": 83.626,
+        "end": 83.786,
+        "start_frame": 2509,
+        "end_frame": 2514
+      },
+      {
+        "word": "Hãng",
+        "local_start": 0.76,
+        "local_end": 0.92,
+        "start": 84.026,
+        "end": 84.186,
+        "start_frame": 2521,
+        "end_frame": 2526
+      },
+      {
+        "word": "Robote",
+        "local_start": 0.92,
+        "local_end": 1.26,
+        "start": 84.186,
+        "end": 84.526,
+        "start_frame": 2526,
+        "end_frame": 2536
+      },
+      {
+        "word": "da",
+        "local_start": 1.26,
+        "local_end": 1.5,
+        "start": 84.526,
+        "end": 84.766,
+        "start_frame": 2536,
+        "end_frame": 2543
+      },
+      {
+        "word": "đứa",
+        "local_start": 1.5,
+        "local_end": 1.7,
+        "start": 84.766,
+        "end": 84.966,
+        "start_frame": 2543,
+        "end_frame": 2549
+      },
+      {
+        "word": "45",
+        "local_start": 1.7,
+        "local_end": 1.96,
+        "start": 84.966,
+        "end": 85.226,
+        "start_frame": 2549,
+        "end_frame": 2557
+      },
+      {
+        "word": "robot,",
+        "local_start": 1.96,
+        "local_end": 2.24,
+        "start": 85.226,
+        "end": 85.506,
+        "start_frame": 2557,
+        "end_frame": 2565
+      },
+      {
+        "word": "hình",
+        "local_start": 2.44,
+        "local_end": 2.56,
+        "start": 85.706,
+        "end": 85.826,
+        "start_frame": 2571,
+        "end_frame": 2575
+      },
+      {
+        "word": "người",
+        "local_start": 2.56,
+        "local_end": 2.72,
+        "start": 85.826,
+        "end": 85.986,
+        "start_frame": 2575,
+        "end_frame": 2580
+      },
+      {
+        "word": "em",
+        "local_start": 2.72,
+        "local_end": 2.9,
+        "start": 85.986,
+        "end": 86.166,
+        "start_frame": 2580,
+        "end_frame": 2585
+      },
+      {
+        "word": "7",
+        "local_start": 2.9,
+        "local_end": 3.1,
+        "start": 86.166,
+        "end": 86.366,
+        "start_frame": 2585,
+        "end_frame": 2591
+      },
+      {
+        "word": "vào",
+        "local_start": 3.1,
+        "local_end": 3.26,
+        "start": 86.366,
+        "end": 86.526,
+        "start_frame": 2591,
+        "end_frame": 2596
+      },
+      {
+        "word": "bưu",
+        "local_start": 3.26,
+        "local_end": 3.44,
+        "start": 86.526,
+        "end": 86.706,
+        "start_frame": 2596,
+        "end_frame": 2601
+      },
+      {
+        "word": "cục",
+        "local_start": 3.44,
+        "local_end": 3.54,
+        "start": 86.706,
+        "end": 86.806,
+        "start_frame": 2601,
+        "end_frame": 2604
+      },
+      {
+        "word": "Hằng",
+        "local_start": 3.54,
+        "local_end": 3.66,
+        "start": 86.806,
+        "end": 86.926,
+        "start_frame": 2604,
+        "end_frame": 2608
+      },
+      {
+        "word": "Châu.",
+        "local_start": 3.66,
+        "local_end": 3.92,
+        "start": 86.926,
+        "end": 87.186,
+        "start_frame": 2608,
+        "end_frame": 2616
+      },
+      {
+        "word": "Tốc",
+        "local_start": 4.28,
+        "local_end": 4.4,
+        "start": 87.546,
+        "end": 87.666,
+        "start_frame": 2626,
+        "end_frame": 2630
+      },
+      {
+        "word": "độ",
+        "local_start": 4.4,
+        "local_end": 4.52,
+        "start": 87.666,
+        "end": 87.786,
+        "start_frame": 2630,
+        "end_frame": 2634
+      },
+      {
+        "word": "phân",
+        "local_start": 4.52,
+        "local_end": 4.68,
+        "start": 87.786,
+        "end": 87.946,
+        "start_frame": 2634,
+        "end_frame": 2638
+      },
+      {
+        "word": "loại",
+        "local_start": 4.68,
+        "local_end": 4.84,
+        "start": 87.946,
+        "end": 88.106,
+        "start_frame": 2638,
+        "end_frame": 2643
+      },
+      {
+        "word": "đu",
+        "local_start": 4.84,
+        "local_end": 4.92,
+        "start": 88.106,
+        "end": 88.186,
+        "start_frame": 2643,
+        "end_frame": 2646
+      },
+      {
+        "word": "kiện",
+        "local_start": 4.92,
+        "local_end": 5.14,
+        "start": 88.186,
+        "end": 88.406,
+        "start_frame": 2646,
+        "end_frame": 2652
+      },
+      {
+        "word": "tăng",
+        "local_start": 5.14,
+        "local_end": 5.38,
+        "start": 88.406,
+        "end": 88.646,
+        "start_frame": 2652,
+        "end_frame": 2659
+      },
+      {
+        "word": "từ",
+        "local_start": 5.38,
+        "local_end": 5.48,
+        "start": 88.646,
+        "end": 88.746,
+        "start_frame": 2659,
+        "end_frame": 2662
+      },
+      {
+        "word": "500",
+        "local_start": 5.48,
+        "local_end": 5.8,
+        "start": 88.746,
+        "end": 89.066,
+        "start_frame": 2662,
+        "end_frame": 2672
+      },
+      {
+        "word": "lên",
+        "local_start": 5.8,
+        "local_end": 5.94,
+        "start": 89.066,
+        "end": 89.206,
+        "start_frame": 2672,
+        "end_frame": 2676
+      },
+      {
+        "word": "1",
+        "local_start": 5.94,
+        "local_end": 6.1,
+        "start": 89.206,
+        "end": 89.366,
+        "start_frame": 2676,
+        "end_frame": 2681
+      },
+      {
+        "word": ".200,",
+        "local_start": 6.1,
+        "local_end": 6.48,
+        "start": 89.366,
+        "end": 89.746,
+        "start_frame": 2681,
+        "end_frame": 2692
+      },
+      {
+        "word": "rồi",
+        "local_start": 6.84,
+        "local_end": 7.02,
+        "start": 90.106,
+        "end": 90.286,
+        "start_frame": 2703,
+        "end_frame": 2709
+      },
+      {
+        "word": "vượt",
+        "local_start": 7.02,
+        "local_end": 7.24,
+        "start": 90.286,
+        "end": 90.506,
+        "start_frame": 2709,
+        "end_frame": 2715
+      },
+      {
+        "word": "1",
+        "local_start": 7.24,
+        "local_end": 7.32,
+        "start": 90.506,
+        "end": 90.586,
+        "start_frame": 2715,
+        "end_frame": 2718
+      },
+      {
+        "word": ".500",
+        "local_start": 7.32,
+        "local_end": 7.78,
+        "start": 90.586,
+        "end": 91.046,
+        "start_frame": 2718,
+        "end_frame": 2731
+      },
+      {
+        "word": "gói",
+        "local_start": 7.78,
+        "local_end": 8.04,
+        "start": 91.046,
+        "end": 91.306,
+        "start_frame": 2731,
+        "end_frame": 2739
+      },
+      {
+        "word": "mỗi",
+        "local_start": 8.04,
+        "local_end": 8.14,
+        "start": 91.306,
+        "end": 91.406,
+        "start_frame": 2739,
+        "end_frame": 2742
+      },
+      {
+        "word": "giờ.",
+        "local_start": 8.14,
+        "local_end": 8.3,
+        "start": 91.406,
+        "end": 91.566,
+        "start_frame": 2742,
+        "end_frame": 2747
+      },
+      {
+        "word": "Độ",
+        "local_start": 8.58,
+        "local_end": 8.84,
+        "start": 91.846,
+        "end": 92.106,
+        "start_frame": 2755,
+        "end_frame": 2763
+      },
+      {
+        "word": "chính",
+        "local_start": 8.84,
+        "local_end": 8.98,
+        "start": 92.106,
+        "end": 92.246,
+        "start_frame": 2763,
+        "end_frame": 2767
+      },
+      {
+        "word": "xác",
+        "local_start": 8.98,
+        "local_end": 9.2,
+        "start": 92.246,
+        "end": 92.466,
+        "start_frame": 2767,
+        "end_frame": 2774
+      },
+      {
+        "word": "vận",
+        "local_start": 9.2,
+        "local_end": 9.34,
+        "start": 92.466,
+        "end": 92.606,
+        "start_frame": 2774,
+        "end_frame": 2778
+      },
+      {
+        "word": "hành",
+        "local_start": 9.34,
+        "local_end": 9.5,
+        "start": 92.606,
+        "end": 92.766,
+        "start_frame": 2778,
+        "end_frame": 2783
+      },
+      {
+        "word": "vượt",
+        "local_start": 9.5,
+        "local_end": 9.8,
+        "start": 92.766,
+        "end": 93.066,
+        "start_frame": 2783,
+        "end_frame": 2792
+      },
+      {
+        "word": "90%.",
+        "local_start": 9.8,
+        "local_end": 10.24,
+        "start": 93.066,
+        "end": 93.506,
+        "start_frame": 2792,
+        "end_frame": 2805
+      }
+    ]
+  },
+  "s08": {
+    "section_id": "s08",
+    "scene_id": "S08",
+    "global_start": 94.033,
+    "audio_seconds": 12.302,
+    "words": [
+      {
+        "word": "Bác",
+        "local_start": 0.0,
+        "local_end": 0.06,
+        "start": 94.033,
+        "end": 94.093,
+        "start_frame": 2821,
+        "end_frame": 2823
+      },
+      {
+        "word": "áp",
+        "local_start": 0.06,
+        "local_end": 0.14,
+        "start": 94.093,
+        "end": 94.173,
+        "start_frame": 2823,
+        "end_frame": 2825
+      },
+      {
+        "word": "lực",
+        "local_start": 0.14,
+        "local_end": 0.3,
+        "start": 94.173,
+        "end": 94.333,
+        "start_frame": 2825,
+        "end_frame": 2830
+      },
+      {
+        "word": "tự",
+        "local_start": 0.3,
+        "local_end": 0.46,
+        "start": 94.333,
+        "end": 94.493,
+        "start_frame": 2830,
+        "end_frame": 2835
+      },
+      {
+        "word": "động",
+        "local_start": 0.46,
+        "local_end": 0.62,
+        "start": 94.493,
+        "end": 94.653,
+        "start_frame": 2835,
+        "end_frame": 2840
+      },
+      {
+        "word": "hóa",
+        "local_start": 0.62,
+        "local_end": 0.84,
+        "start": 94.653,
+        "end": 94.873,
+        "start_frame": 2840,
+        "end_frame": 2846
+      },
+      {
+        "word": "đang",
+        "local_start": 0.84,
+        "local_end": 0.98,
+        "start": 94.873,
+        "end": 95.013,
+        "start_frame": 2846,
+        "end_frame": 2850
+      },
+      {
+        "word": "gõ",
+        "local_start": 0.98,
+        "local_end": 1.14,
+        "start": 95.013,
+        "end": 95.173,
+        "start_frame": 2850,
+        "end_frame": 2855
+      },
+      {
+        "word": "cửa",
+        "local_start": 1.14,
+        "local_end": 1.4,
+        "start": 95.173,
+        "end": 95.433,
+        "start_frame": 2855,
+        "end_frame": 2863
+      },
+      {
+        "word": "lao",
+        "local_start": 1.4,
+        "local_end": 1.56,
+        "start": 95.433,
+        "end": 95.593,
+        "start_frame": 2863,
+        "end_frame": 2868
+      },
+      {
+        "word": "động",
+        "local_start": 1.56,
+        "local_end": 1.62,
+        "start": 95.593,
+        "end": 95.653,
+        "start_frame": 2868,
+        "end_frame": 2870
+      },
+      {
+        "word": "Việt",
+        "local_start": 1.62,
+        "local_end": 1.76,
+        "start": 95.653,
+        "end": 95.793,
+        "start_frame": 2870,
+        "end_frame": 2874
+      },
+      {
+        "word": "Nam.",
+        "local_start": 1.76,
+        "local_end": 2.04,
+        "start": 95.793,
+        "end": 96.073,
+        "start_frame": 2874,
+        "end_frame": 2882
+      },
+      {
+        "word": "Khảo",
+        "local_start": 2.44,
+        "local_end": 2.6,
+        "start": 96.473,
+        "end": 96.633,
+        "start_frame": 2894,
+        "end_frame": 2899
+      },
+      {
+        "word": "sát",
+        "local_start": 2.6,
+        "local_end": 2.74,
+        "start": 96.633,
+        "end": 96.773,
+        "start_frame": 2899,
+        "end_frame": 2903
+      },
+      {
+        "word": "ngày",
+        "local_start": 2.74,
+        "local_end": 2.88,
+        "start": 96.773,
+        "end": 96.913,
+        "start_frame": 2903,
+        "end_frame": 2907
+      },
+      {
+        "word": "27",
+        "local_start": 2.88,
+        "local_end": 3.22,
+        "start": 96.913,
+        "end": 97.253,
+        "start_frame": 2907,
+        "end_frame": 2918
+      },
+      {
+        "word": "tháng",
+        "local_start": 3.22,
+        "local_end": 3.42,
+        "start": 97.253,
+        "end": 97.453,
+        "start_frame": 2918,
+        "end_frame": 2924
+      },
+      {
+        "word": "11",
+        "local_start": 3.42,
+        "local_end": 3.6,
+        "start": 97.453,
+        "end": 97.633,
+        "start_frame": 2924,
+        "end_frame": 2929
+      },
+      {
+        "word": "cho",
+        "local_start": 3.6,
+        "local_end": 3.76,
+        "start": 97.633,
+        "end": 97.793,
+        "start_frame": 2929,
+        "end_frame": 2934
+      },
+      {
+        "word": "thấy,",
+        "local_start": 3.76,
+        "local_end": 3.94,
+        "start": 97.793,
+        "end": 97.973,
+        "start_frame": 2934,
+        "end_frame": 2939
+      },
+      {
+        "word": "tỷ",
+        "local_start": 4.38,
+        "local_end": 4.48,
+        "start": 98.413,
+        "end": 98.513,
+        "start_frame": 2952,
+        "end_frame": 2955
+      },
+      {
+        "word": "lệ",
+        "local_start": 4.48,
+        "local_end": 4.64,
+        "start": 98.513,
+        "end": 98.673,
+        "start_frame": 2955,
+        "end_frame": 2960
+      },
+      {
+        "word": "nhân",
+        "local_start": 4.64,
+        "local_end": 4.76,
+        "start": 98.673,
+        "end": 98.793,
+        "start_frame": 2960,
+        "end_frame": 2964
+      },
+      {
+        "word": "sự",
+        "local_start": 4.76,
+        "local_end": 4.94,
+        "start": 98.793,
+        "end": 98.973,
+        "start_frame": 2964,
+        "end_frame": 2969
+      },
+      {
+        "word": "IT",
+        "local_start": 4.94,
+        "local_end": 5.22,
+        "start": 98.973,
+        "end": 99.253,
+        "start_frame": 2969,
+        "end_frame": 2978
+      },
+      {
+        "word": "không",
+        "local_start": 5.22,
+        "local_end": 5.46,
+        "start": 99.253,
+        "end": 99.493,
+        "start_frame": 2978,
+        "end_frame": 2985
+      },
+      {
+        "word": "bị",
+        "local_start": 5.46,
+        "local_end": 5.6,
+        "start": 99.493,
+        "end": 99.633,
+        "start_frame": 2985,
+        "end_frame": 2989
+      },
+      {
+        "word": "ảnh",
+        "local_start": 5.6,
+        "local_end": 5.74,
+        "start": 99.633,
+        "end": 99.773,
+        "start_frame": 2989,
+        "end_frame": 2993
+      },
+      {
+        "word": "hưởng,",
+        "local_start": 5.74,
+        "local_end": 5.92,
+        "start": 99.773,
+        "end": 99.953,
+        "start_frame": 2993,
+        "end_frame": 2999
+      },
+      {
+        "word": "chỉ",
+        "local_start": 6.18,
+        "local_end": 6.32,
+        "start": 100.213,
+        "end": 100.353,
+        "start_frame": 3006,
+        "end_frame": 3011
+      },
+      {
+        "word": "là",
+        "local_start": 6.32,
+        "local_end": 6.46,
+        "start": 100.353,
+        "end": 100.493,
+        "start_frame": 3011,
+        "end_frame": 3015
+      },
+      {
+        "word": "12",
+        "local_start": 6.46,
+        "local_end": 6.66,
+        "start": 100.493,
+        "end": 100.693,
+        "start_frame": 3015,
+        "end_frame": 3021
+      },
+      {
+        "word": "%",
+        "local_start": 6.66,
+        "local_end": 7.06,
+        "start": 100.693,
+        "end": 101.093,
+        "start_frame": 3021,
+        "end_frame": 3033
+      },
+      {
+        "word": "khoảng",
+        "local_start": 7.4,
+        "local_end": 7.72,
+        "start": 101.433,
+        "end": 101.753,
+        "start_frame": 3043,
+        "end_frame": 3053
+      },
+      {
+        "word": "50",
+        "local_start": 7.72,
+        "local_end": 7.92,
+        "start": 101.753,
+        "end": 101.953,
+        "start_frame": 3053,
+        "end_frame": 3059
+      },
+      {
+        "word": "%",
+        "local_start": 7.92,
+        "local_end": 8.18,
+        "start": 101.953,
+        "end": 102.213,
+        "start_frame": 3059,
+        "end_frame": 3066
+      },
+      {
+        "word": "phải",
+        "local_start": 8.18,
+        "local_end": 8.32,
+        "start": 102.213,
+        "end": 102.353,
+        "start_frame": 3066,
+        "end_frame": 3071
+      },
+      {
+        "word": "học",
+        "local_start": 8.32,
+        "local_end": 8.44,
+        "start": 102.353,
+        "end": 102.473,
+        "start_frame": 3071,
+        "end_frame": 3074
+      },
+      {
+        "word": "thêm",
+        "local_start": 8.44,
+        "local_end": 8.66,
+        "start": 102.473,
+        "end": 102.693,
+        "start_frame": 3074,
+        "end_frame": 3081
+      },
+      {
+        "word": "để",
+        "local_start": 8.66,
+        "local_end": 8.8,
+        "start": 102.693,
+        "end": 102.833,
+        "start_frame": 3081,
+        "end_frame": 3085
+      },
+      {
+        "word": "giữ",
+        "local_start": 8.8,
+        "local_end": 8.94,
+        "start": 102.833,
+        "end": 102.973,
+        "start_frame": 3085,
+        "end_frame": 3089
+      },
+      {
+        "word": "việc,",
+        "local_start": 8.94,
+        "local_end": 9.14,
+        "start": 102.973,
+        "end": 103.173,
+        "start_frame": 3089,
+        "end_frame": 3095
+      },
+      {
+        "word": "còn",
+        "local_start": 9.52,
+        "local_end": 9.62,
+        "start": 103.553,
+        "end": 103.653,
+        "start_frame": 3107,
+        "end_frame": 3110
+      },
+      {
+        "word": "hơn",
+        "local_start": 9.62,
+        "local_end": 9.78,
+        "start": 103.653,
+        "end": 103.813,
+        "start_frame": 3110,
+        "end_frame": 3114
+      },
+      {
+        "word": "70",
+        "local_start": 9.78,
+        "local_end": 10.1,
+        "start": 103.813,
+        "end": 104.133,
+        "start_frame": 3114,
+        "end_frame": 3124
+      },
+      {
+        "word": "%",
+        "local_start": 10.1,
+        "local_end": 10.36,
+        "start": 104.133,
+        "end": 104.393,
+        "start_frame": 3124,
+        "end_frame": 3132
+      },
+      {
+        "word": "lớp",
+        "local_start": 10.36,
+        "local_end": 10.56,
+        "start": 104.393,
+        "end": 104.593,
+        "start_frame": 3132,
+        "end_frame": 3138
+      },
+      {
+        "word": "cao",
+        "local_start": 10.56,
+        "local_end": 10.74,
+        "start": 104.593,
+        "end": 104.773,
+        "start_frame": 3138,
+        "end_frame": 3143
+      },
+      {
+        "word": "học",
+        "local_start": 10.74,
+        "local_end": 10.86,
+        "start": 104.773,
+        "end": 104.893,
+        "start_frame": 3143,
+        "end_frame": 3147
+      },
+      {
+        "word": "bán",
+        "local_start": 10.86,
+        "local_end": 11.08,
+        "start": 104.893,
+        "end": 105.113,
+        "start_frame": 3147,
+        "end_frame": 3153
+      },
+      {
+        "word": "dẫn",
+        "local_start": 11.08,
+        "local_end": 11.24,
+        "start": 105.113,
+        "end": 105.273,
+        "start_frame": 3153,
+        "end_frame": 3158
+      },
+      {
+        "word": "đi",
+        "local_start": 11.24,
+        "local_end": 11.34,
+        "start": 105.273,
+        "end": 105.373,
+        "start_frame": 3158,
+        "end_frame": 3161
+      },
+      {
+        "word": "lên",
+        "local_start": 11.34,
+        "local_end": 11.52,
+        "start": 105.373,
+        "end": 105.553,
+        "start_frame": 3161,
+        "end_frame": 3167
+      },
+      {
+        "word": "từ",
+        "local_start": 11.52,
+        "local_end": 11.6,
+        "start": 105.553,
+        "end": 105.633,
+        "start_frame": 3167,
+        "end_frame": 3169
+      },
+      {
+        "word": "ngành",
+        "local_start": 11.6,
+        "local_end": 11.72,
+        "start": 105.633,
+        "end": 105.753,
+        "start_frame": 3169,
+        "end_frame": 3173
+      },
+      {
+        "word": "IT.",
+        "local_start": 11.72,
+        "local_end": 11.98,
+        "start": 105.753,
+        "end": 106.013,
+        "start_frame": 3173,
+        "end_frame": 3180
+      }
+    ]
+  },
+  "s09": {
+    "section_id": "s09",
+    "scene_id": "S09",
+    "global_start": 106.6,
+    "audio_seconds": 14.665,
+    "words": [
+      {
+        "word": "trên",
+        "local_start": 0.0,
+        "local_end": 0.08,
+        "start": 106.6,
+        "end": 106.68,
+        "start_frame": 3198,
+        "end_frame": 3200
+      },
+      {
+        "word": "sản",
+        "local_start": 0.08,
+        "local_end": 0.3,
+        "start": 106.68,
+        "end": 106.9,
+        "start_frame": 3200,
+        "end_frame": 3207
+      },
+      {
+        "word": "trình",
+        "local_start": 0.3,
+        "local_end": 0.46,
+        "start": 106.9,
+        "end": 107.06,
+        "start_frame": 3207,
+        "end_frame": 3212
+      },
+      {
+        "word": "quán",
+        "local_start": 0.46,
+        "local_end": 0.66,
+        "start": 107.06,
+        "end": 107.26,
+        "start_frame": 3212,
+        "end_frame": 3218
+      },
+      {
+        "word": "ngày",
+        "local_start": 0.66,
+        "local_end": 0.78,
+        "start": 107.26,
+        "end": 107.38,
+        "start_frame": 3218,
+        "end_frame": 3221
+      },
+      {
+        "word": "27",
+        "local_start": 0.78,
+        "local_end": 1.06,
+        "start": 107.38,
+        "end": 107.66,
+        "start_frame": 3221,
+        "end_frame": 3230
+      },
+      {
+        "word": "tháng",
+        "local_start": 1.06,
+        "local_end": 1.36,
+        "start": 107.66,
+        "end": 107.96,
+        "start_frame": 3230,
+        "end_frame": 3239
+      },
+      {
+        "word": "11,",
+        "local_start": 1.36,
+        "local_end": 1.56,
+        "start": 107.96,
+        "end": 108.16,
+        "start_frame": 3239,
+        "end_frame": 3245
+      },
+      {
+        "word": "chỉ",
+        "local_start": 1.84,
+        "local_end": 1.92,
+        "start": 108.44,
+        "end": 108.52,
+        "start_frame": 3253,
+        "end_frame": 3256
+      },
+      {
+        "word": "số",
+        "local_start": 1.92,
+        "local_end": 2.08,
+        "start": 108.52,
+        "end": 108.68,
+        "start_frame": 3256,
+        "end_frame": 3260
+      },
+      {
+        "word": "VN,",
+        "local_start": 2.08,
+        "local_end": 2.56,
+        "start": 108.68,
+        "end": 109.16,
+        "start_frame": 3260,
+        "end_frame": 3275
+      },
+      {
+        "word": "index",
+        "local_start": 2.8,
+        "local_end": 3.04,
+        "start": 109.4,
+        "end": 109.64,
+        "start_frame": 3282,
+        "end_frame": 3289
+      },
+      {
+        "word": "bật",
+        "local_start": 3.04,
+        "local_end": 3.28,
+        "start": 109.64,
+        "end": 109.88,
+        "start_frame": 3289,
+        "end_frame": 3296
+      },
+      {
+        "word": "tăng",
+        "local_start": 3.28,
+        "local_end": 3.44,
+        "start": 109.88,
+        "end": 110.04,
+        "start_frame": 3296,
+        "end_frame": 3301
+      },
+      {
+        "word": "24",
+        "local_start": 3.44,
+        "local_end": 3.8,
+        "start": 110.04,
+        "end": 110.4,
+        "start_frame": 3301,
+        "end_frame": 3312
+      },
+      {
+        "word": ",22",
+        "local_start": 3.8,
+        "local_end": 4.4,
+        "start": 110.4,
+        "end": 111.0,
+        "start_frame": 3312,
+        "end_frame": 3330
+      },
+      {
+        "word": "điểm,",
+        "local_start": 4.4,
+        "local_end": 4.64,
+        "start": 111.0,
+        "end": 111.24,
+        "start_frame": 3330,
+        "end_frame": 3337
+      },
+      {
+        "word": "chỉ",
+        "local_start": 4.96,
+        "local_end": 5.04,
+        "start": 111.56,
+        "end": 111.64,
+        "start_frame": 3347,
+        "end_frame": 3349
+      },
+      {
+        "word": "số",
+        "local_start": 5.04,
+        "local_end": 5.16,
+        "start": 111.64,
+        "end": 111.76,
+        "start_frame": 3349,
+        "end_frame": 3353
+      },
+      {
+        "word": "đóng",
+        "local_start": 5.16,
+        "local_end": 5.3,
+        "start": 111.76,
+        "end": 111.9,
+        "start_frame": 3353,
+        "end_frame": 3357
+      },
+      {
+        "word": "cửa",
+        "local_start": 5.3,
+        "local_end": 5.52,
+        "start": 111.9,
+        "end": 112.12,
+        "start_frame": 3357,
+        "end_frame": 3364
+      },
+      {
+        "word": "tại",
+        "local_start": 5.52,
+        "local_end": 5.64,
+        "start": 112.12,
+        "end": 112.24,
+        "start_frame": 3364,
+        "end_frame": 3367
+      },
+      {
+        "word": "1",
+        "local_start": 5.64,
+        "local_end": 5.78,
+        "start": 112.24,
+        "end": 112.38,
+        "start_frame": 3367,
+        "end_frame": 3371
+      },
+      {
+        "word": ".653,",
+        "local_start": 5.78,
+        "local_end": 6.7,
+        "start": 112.38,
+        "end": 113.3,
+        "start_frame": 3371,
+        "end_frame": 3399
+      },
+      {
+        "word": "phải",
+        "local_start": 7.06,
+        "local_end": 7.2,
+        "start": 113.66,
+        "end": 113.8,
+        "start_frame": 3410,
+        "end_frame": 3414
+      },
+      {
+        "word": "9",
+        "local_start": 7.2,
+        "local_end": 7.54,
+        "start": 113.8,
+        "end": 114.14,
+        "start_frame": 3414,
+        "end_frame": 3424
+      },
+      {
+        "word": "điểm",
+        "local_start": 7.54,
+        "local_end": 7.78,
+        "start": 114.14,
+        "end": 114.38,
+        "start_frame": 3424,
+        "end_frame": 3431
+      },
+      {
+        "word": "nhờ",
+        "local_start": 7.78,
+        "local_end": 8.02,
+        "start": 114.38,
+        "end": 114.62,
+        "start_frame": 3431,
+        "end_frame": 3439
+      },
+      {
+        "word": "nhóm",
+        "local_start": 8.02,
+        "local_end": 8.2,
+        "start": 114.62,
+        "end": 114.8,
+        "start_frame": 3439,
+        "end_frame": 3444
+      },
+      {
+        "word": "dầu",
+        "local_start": 8.2,
+        "local_end": 8.34,
+        "start": 114.8,
+        "end": 114.94,
+        "start_frame": 3444,
+        "end_frame": 3448
+      },
+      {
+        "word": "khí",
+        "local_start": 8.34,
+        "local_end": 8.54,
+        "start": 114.94,
+        "end": 115.14,
+        "start_frame": 3448,
+        "end_frame": 3454
+      },
+      {
+        "word": "tăng",
+        "local_start": 8.54,
+        "local_end": 8.66,
+        "start": 115.14,
+        "end": 115.26,
+        "start_frame": 3454,
+        "end_frame": 3458
+      },
+      {
+        "word": "6",
+        "local_start": 8.66,
+        "local_end": 8.86,
+        "start": 115.26,
+        "end": 115.46,
+        "start_frame": 3458,
+        "end_frame": 3464
+      },
+      {
+        "word": ",8%.",
+        "local_start": 8.86,
+        "local_end": 9.5,
+        "start": 115.46,
+        "end": 116.1,
+        "start_frame": 3464,
+        "end_frame": 3483
+      },
+      {
+        "word": "Dù",
+        "local_start": 9.5,
+        "local_end": 9.96,
+        "start": 116.1,
+        "end": 116.56,
+        "start_frame": 3483,
+        "end_frame": 3497
+      },
+      {
+        "word": "thanh",
+        "local_start": 9.96,
+        "local_end": 10.14,
+        "start": 116.56,
+        "end": 116.74,
+        "start_frame": 3497,
+        "end_frame": 3502
+      },
+      {
+        "word": "khoản",
+        "local_start": 10.14,
+        "local_end": 10.32,
+        "start": 116.74,
+        "end": 116.92,
+        "start_frame": 3502,
+        "end_frame": 3508
+      },
+      {
+        "word": "sàn",
+        "local_start": 10.32,
+        "local_end": 10.48,
+        "start": 116.92,
+        "end": 117.08,
+        "start_frame": 3508,
+        "end_frame": 3512
+      },
+      {
+        "word": "hốt",
+        "local_start": 10.48,
+        "local_end": 10.66,
+        "start": 117.08,
+        "end": 117.26,
+        "start_frame": 3512,
+        "end_frame": 3518
+      },
+      {
+        "word": "xe",
+        "local_start": 10.66,
+        "local_end": 10.84,
+        "start": 117.26,
+        "end": 117.44,
+        "start_frame": 3518,
+        "end_frame": 3523
+      },
+      {
+        "word": "giảm",
+        "local_start": 10.84,
+        "local_end": 11.12,
+        "start": 117.44,
+        "end": 117.72,
+        "start_frame": 3523,
+        "end_frame": 3532
+      },
+      {
+        "word": "gần",
+        "local_start": 11.12,
+        "local_end": 11.26,
+        "start": 117.72,
+        "end": 117.86,
+        "start_frame": 3532,
+        "end_frame": 3536
+      },
+      {
+        "word": "30%,",
+        "local_start": 11.26,
+        "local_end": 11.8,
+        "start": 117.86,
+        "end": 118.4,
+        "start_frame": 3536,
+        "end_frame": 3552
+      },
+      {
+        "word": "khối",
+        "local_start": 11.8,
+        "local_end": 12.38,
+        "start": 118.4,
+        "end": 118.98,
+        "start_frame": 3552,
+        "end_frame": 3569
+      },
+      {
+        "word": "ngoại",
+        "local_start": 12.38,
+        "local_end": 12.62,
+        "start": 118.98,
+        "end": 119.22,
+        "start_frame": 3569,
+        "end_frame": 3577
+      },
+      {
+        "word": "đã",
+        "local_start": 12.62,
+        "local_end": 12.74,
+        "start": 119.22,
+        "end": 119.34,
+        "start_frame": 3577,
+        "end_frame": 3580
+      },
+      {
+        "word": "đảo",
+        "local_start": 12.74,
+        "local_end": 12.92,
+        "start": 119.34,
+        "end": 119.52,
+        "start_frame": 3580,
+        "end_frame": 3586
+      },
+      {
+        "word": "chiều",
+        "local_start": 12.92,
+        "local_end": 13.14,
+        "start": 119.52,
+        "end": 119.74,
+        "start_frame": 3586,
+        "end_frame": 3592
+      },
+      {
+        "word": "mua",
+        "local_start": 13.14,
+        "local_end": 13.36,
+        "start": 119.74,
+        "end": 119.96,
+        "start_frame": 3592,
+        "end_frame": 3599
+      },
+      {
+        "word": "dòng",
+        "local_start": 13.36,
+        "local_end": 13.52,
+        "start": 119.96,
+        "end": 120.12,
+        "start_frame": 3599,
+        "end_frame": 3604
+      },
+      {
+        "word": "611",
+        "local_start": 13.52,
+        "local_end": 14.12,
+        "start": 120.12,
+        "end": 120.72,
+        "start_frame": 3604,
+        "end_frame": 3622
+      },
+      {
+        "word": "tỷ",
+        "local_start": 14.12,
+        "local_end": 14.36,
+        "start": 120.72,
+        "end": 120.96,
+        "start_frame": 3622,
+        "end_frame": 3629
+      },
+      {
+        "word": "đồng.",
+        "local_start": 14.36,
+        "local_end": 14.5,
+        "start": 120.96,
+        "end": 121.1,
+        "start_frame": 3629,
+        "end_frame": 3633
+      }
+    ]
+  },
+  "s10": {
+    "section_id": "s10",
+    "scene_id": "S10",
+    "global_start": 121.5,
+    "audio_seconds": 11.418,
+    "words": [
+      {
+        "word": "gặp",
+        "local_start": 0.0,
+        "local_end": 0.1,
+        "start": 121.5,
+        "end": 121.6,
+        "start_frame": 3645,
+        "end_frame": 3648
+      },
+      {
+        "word": "nhật",
+        "local_start": 0.1,
+        "local_end": 0.24,
+        "start": 121.6,
+        "end": 121.74,
+        "start_frame": 3648,
+        "end_frame": 3652
+      },
+      {
+        "word": "mới",
+        "local_start": 0.24,
+        "local_end": 0.32,
+        "start": 121.74,
+        "end": 121.82,
+        "start_frame": 3652,
+        "end_frame": 3655
+      },
+      {
+        "word": "chiều",
+        "local_start": 0.32,
+        "local_end": 0.52,
+        "start": 121.82,
+        "end": 122.02,
+        "start_frame": 3655,
+        "end_frame": 3661
+      },
+      {
+        "word": "nay,",
+        "local_start": 0.52,
+        "local_end": 0.68,
+        "start": 122.02,
+        "end": 122.18,
+        "start_frame": 3661,
+        "end_frame": 3665
+      },
+      {
+        "word": "và",
+        "local_start": 1.0,
+        "local_end": 1.22,
+        "start": 122.5,
+        "end": 122.72,
+        "start_frame": 3675,
+        "end_frame": 3682
+      },
+      {
+        "word": "nguyên",
+        "local_start": 1.22,
+        "local_end": 1.42,
+        "start": 122.72,
+        "end": 122.92,
+        "start_frame": 3682,
+        "end_frame": 3688
+      },
+      {
+        "word": "SZC",
+        "local_start": 1.42,
+        "local_end": 1.94,
+        "start": 122.92,
+        "end": 123.44,
+        "start_frame": 3688,
+        "end_frame": 3703
+      },
+      {
+        "word": "tăng",
+        "local_start": 1.94,
+        "local_end": 2.06,
+        "start": 123.44,
+        "end": 123.56,
+        "start_frame": 3703,
+        "end_frame": 3707
+      },
+      {
+        "word": "1",
+        "local_start": 2.06,
+        "local_end": 2.2,
+        "start": 123.56,
+        "end": 123.7,
+        "start_frame": 3707,
+        "end_frame": 3711
+      },
+      {
+        "word": ",5",
+        "local_start": 2.2,
+        "local_end": 2.44,
+        "start": 123.7,
+        "end": 123.94,
+        "start_frame": 3711,
+        "end_frame": 3718
+      },
+      {
+        "word": "triệu",
+        "local_start": 2.44,
+        "local_end": 2.68,
+        "start": 123.94,
+        "end": 124.18,
+        "start_frame": 3718,
+        "end_frame": 3725
+      },
+      {
+        "word": "lên",
+        "local_start": 2.68,
+        "local_end": 2.78,
+        "start": 124.18,
+        "end": 124.28,
+        "start_frame": 3725,
+        "end_frame": 3728
+      },
+      {
+        "word": "136",
+        "local_start": 2.78,
+        "local_end": 3.46,
+        "start": 124.28,
+        "end": 124.96,
+        "start_frame": 3728,
+        "end_frame": 3749
+      },
+      {
+        "word": "triệu",
+        "local_start": 3.46,
+        "local_end": 3.62,
+        "start": 124.96,
+        "end": 125.12,
+        "start_frame": 3749,
+        "end_frame": 3754
+      },
+      {
+        "word": "đồng",
+        "local_start": 3.62,
+        "local_end": 3.7,
+        "start": 125.12,
+        "end": 125.2,
+        "start_frame": 3754,
+        "end_frame": 3756
+      },
+      {
+        "word": "mỗi",
+        "local_start": 3.7,
+        "local_end": 3.82,
+        "start": 125.2,
+        "end": 125.32,
+        "start_frame": 3756,
+        "end_frame": 3760
+      },
+      {
+        "word": "lượng.",
+        "local_start": 3.82,
+        "local_end": 4.02,
+        "start": 125.32,
+        "end": 125.52,
+        "start_frame": 3760,
+        "end_frame": 3766
+      },
+      {
+        "word": "Giáo",
+        "local_start": 4.4,
+        "local_end": 4.58,
+        "start": 125.9,
+        "end": 126.08,
+        "start_frame": 3777,
+        "end_frame": 3782
+      },
+      {
+        "word": "tạng",
+        "local_start": 4.58,
+        "local_end": 4.72,
+        "start": 126.08,
+        "end": 126.22,
+        "start_frame": 3782,
+        "end_frame": 3787
+      },
+      {
+        "word": "thế",
+        "local_start": 4.72,
+        "local_end": 4.8,
+        "start": 126.22,
+        "end": 126.3,
+        "start_frame": 3787,
+        "end_frame": 3789
+      },
+      {
+        "word": "giới",
+        "local_start": 4.8,
+        "local_end": 5.02,
+        "start": 126.3,
+        "end": 126.52,
+        "start_frame": 3789,
+        "end_frame": 3796
+      },
+      {
+        "word": "cũng",
+        "local_start": 5.02,
+        "local_end": 5.14,
+        "start": 126.52,
+        "end": 126.64,
+        "start_frame": 3796,
+        "end_frame": 3799
+      },
+      {
+        "word": "tăng",
+        "local_start": 5.14,
+        "local_end": 5.36,
+        "start": 126.64,
+        "end": 126.86,
+        "start_frame": 3799,
+        "end_frame": 3806
+      },
+      {
+        "word": "lên",
+        "local_start": 5.36,
+        "local_end": 5.48,
+        "start": 126.86,
+        "end": 126.98,
+        "start_frame": 3806,
+        "end_frame": 3809
+      },
+      {
+        "word": "3",
+        "local_start": 5.48,
+        "local_end": 5.82,
+        "start": 126.98,
+        "end": 127.32,
+        "start_frame": 3809,
+        "end_frame": 3820
+      },
+      {
+        "word": ".656",
+        "local_start": 5.82,
+        "local_end": 6.72,
+        "start": 127.32,
+        "end": 128.22,
+        "start_frame": 3820,
+        "end_frame": 3847
+      },
+      {
+        "word": "đô",
+        "local_start": 6.72,
+        "local_end": 6.82,
+        "start": 128.22,
+        "end": 128.32,
+        "start_frame": 3847,
+        "end_frame": 3850
+      },
+      {
+        "word": "loa",
+        "local_start": 6.82,
+        "local_end": 6.96,
+        "start": 128.32,
+        "end": 128.46,
+        "start_frame": 3850,
+        "end_frame": 3854
+      },
+      {
+        "word": "1",
+        "local_start": 6.96,
+        "local_end": 7.04,
+        "start": 128.46,
+        "end": 128.54,
+        "start_frame": 3854,
+        "end_frame": 3856
+      },
+      {
+        "word": "ao,",
+        "local_start": 7.04,
+        "local_end": 7.22,
+        "start": 128.54,
+        "end": 128.72,
+        "start_frame": 3856,
+        "end_frame": 3862
+      },
+      {
+        "word": "nhưng",
+        "local_start": 7.62,
+        "local_end": 7.72,
+        "start": 129.12,
+        "end": 129.22,
+        "start_frame": 3874,
+        "end_frame": 3877
+      },
+      {
+        "word": "cầu",
+        "local_start": 7.72,
+        "local_end": 7.88,
+        "start": 129.22,
+        "end": 129.38,
+        "start_frame": 3877,
+        "end_frame": 3881
+      },
+      {
+        "word": "môi",
+        "local_start": 7.88,
+        "local_end": 8.0,
+        "start": 129.38,
+        "end": 129.5,
+        "start_frame": 3881,
+        "end_frame": 3885
+      },
+      {
+        "word": "chuẩn",
+        "local_start": 8.0,
+        "local_end": 8.26,
+        "start": 129.5,
+        "end": 129.76,
+        "start_frame": 3885,
+        "end_frame": 3893
+      },
+      {
+        "word": "tăng",
+        "local_start": 8.26,
+        "local_end": 8.48,
+        "start": 129.76,
+        "end": 129.98,
+        "start_frame": 3893,
+        "end_frame": 3899
+      },
+      {
+        "word": "mạnh",
+        "local_start": 8.48,
+        "local_end": 8.66,
+        "start": 129.98,
+        "end": 130.16,
+        "start_frame": 3899,
+        "end_frame": 3905
+      },
+      {
+        "word": "giữa",
+        "local_start": 8.66,
+        "local_end": 8.84,
+        "start": 130.16,
+        "end": 130.34,
+        "start_frame": 3905,
+        "end_frame": 3910
+      },
+      {
+        "word": "lúc",
+        "local_start": 8.84,
+        "local_end": 8.96,
+        "start": 130.34,
+        "end": 130.46,
+        "start_frame": 3910,
+        "end_frame": 3914
+      },
+      {
+        "word": "Mỹ",
+        "local_start": 8.96,
+        "local_end": 9.08,
+        "start": 130.46,
+        "end": 130.58,
+        "start_frame": 3914,
+        "end_frame": 3917
+      },
+      {
+        "word": "cảnh",
+        "local_start": 9.08,
+        "local_end": 9.28,
+        "start": 130.58,
+        "end": 130.78,
+        "start_frame": 3917,
+        "end_frame": 3923
+      },
+      {
+        "word": "bào",
+        "local_start": 9.28,
+        "local_end": 9.5,
+        "start": 130.78,
+        "end": 131.0,
+        "start_frame": 3923,
+        "end_frame": 3930
+      },
+      {
+        "word": "sẵn",
+        "local_start": 9.5,
+        "local_end": 9.72,
+        "start": 131.0,
+        "end": 131.22,
+        "start_frame": 3930,
+        "end_frame": 3937
+      },
+      {
+        "word": "sàng",
+        "local_start": 9.72,
+        "local_end": 9.92,
+        "start": 131.22,
+        "end": 131.42,
+        "start_frame": 3937,
+        "end_frame": 3943
+      },
+      {
+        "word": "đánh",
+        "local_start": 9.92,
+        "local_end": 10.02,
+        "start": 131.42,
+        "end": 131.52,
+        "start_frame": 3943,
+        "end_frame": 3946
+      },
+      {
+        "word": "núi",
+        "local_start": 10.02,
+        "local_end": 10.26,
+        "start": 131.52,
+        "end": 131.76,
+        "start_frame": 3946,
+        "end_frame": 3953
+      },
+      {
+        "word": "PIXX",
+        "local_start": 10.26,
+        "local_end": 10.6,
+        "start": 131.76,
+        "end": 132.1,
+        "start_frame": 3953,
+        "end_frame": 3963
+      },
+      {
+        "word": "tại",
+        "local_start": 10.6,
+        "local_end": 10.86,
+        "start": 132.1,
+        "end": 132.36,
+        "start_frame": 3963,
+        "end_frame": 3971
+      },
+      {
+        "word": "Iran.",
+        "local_start": 10.86,
+        "local_end": 11.14,
+        "start": 132.36,
+        "end": 132.64,
+        "start_frame": 3971,
+        "end_frame": 3979
+      }
+    ]
+  },
+  "s11": {
+    "section_id": "s11",
+    "scene_id": "S11",
+    "global_start": 133.167,
+    "audio_seconds": 12.852,
+    "words": [
+      {
+        "word": "Trước",
+        "local_start": 0.0,
+        "local_end": 0.1,
+        "start": 133.167,
+        "end": 133.267,
+        "start_frame": 3995,
+        "end_frame": 3998
+      },
+      {
+        "word": "là",
+        "local_start": 0.1,
+        "local_end": 0.22,
+        "start": 133.267,
+        "end": 133.387,
+        "start_frame": 3998,
+        "end_frame": 4002
+      },
+      {
+        "word": "sống",
+        "local_start": 0.22,
+        "local_end": 0.42,
+        "start": 133.387,
+        "end": 133.587,
+        "start_frame": 4002,
+        "end_frame": 4008
+      },
+      {
+        "word": "từ",
+        "local_start": 0.42,
+        "local_end": 0.56,
+        "start": 133.587,
+        "end": 133.727,
+        "start_frame": 4008,
+        "end_frame": 4012
+      },
+      {
+        "word": "Động",
+        "local_start": 0.56,
+        "local_end": 0.72,
+        "start": 133.727,
+        "end": 133.887,
+        "start_frame": 4012,
+        "end_frame": 4017
+      },
+      {
+        "word": "Hóa,",
+        "local_start": 0.72,
+        "local_end": 1.0,
+        "start": 133.887,
+        "end": 134.167,
+        "start_frame": 4017,
+        "end_frame": 4025
+      },
+      {
+        "word": "Thế",
+        "local_start": 1.06,
+        "local_end": 1.1,
+        "start": 134.227,
+        "end": 134.267,
+        "start_frame": 4027,
+        "end_frame": 4028
+      },
+      {
+        "word": "Mỹ",
+        "local_start": 1.1,
+        "local_end": 1.28,
+        "start": 134.267,
+        "end": 134.447,
+        "start_frame": 4028,
+        "end_frame": 4033
+      },
+      {
+        "word": "và",
+        "local_start": 1.28,
+        "local_end": 1.42,
+        "start": 134.447,
+        "end": 134.587,
+        "start_frame": 4033,
+        "end_frame": 4038
+      },
+      {
+        "word": "và",
+        "local_start": 1.42,
+        "local_end": 1.52,
+        "start": 134.587,
+        "end": 134.687,
+        "start_frame": 4038,
+        "end_frame": 4041
+      },
+      {
+        "word": "136",
+        "local_start": 1.52,
+        "local_end": 2.28,
+        "start": 134.687,
+        "end": 135.447,
+        "start_frame": 4041,
+        "end_frame": 4063
+      },
+      {
+        "word": "triệu,",
+        "local_start": 2.28,
+        "local_end": 2.54,
+        "start": 135.447,
+        "end": 135.707,
+        "start_frame": 4063,
+        "end_frame": 4071
+      },
+      {
+        "word": "người",
+        "local_start": 2.84,
+        "local_end": 2.92,
+        "start": 136.007,
+        "end": 136.087,
+        "start_frame": 4080,
+        "end_frame": 4083
+      },
+      {
+        "word": "Việt",
+        "local_start": 2.92,
+        "local_end": 3.06,
+        "start": 136.087,
+        "end": 136.227,
+        "start_frame": 4083,
+        "end_frame": 4087
+      },
+      {
+        "word": "niên",
+        "local_start": 3.06,
+        "local_end": 3.28,
+        "start": 136.227,
+        "end": 136.447,
+        "start_frame": 4087,
+        "end_frame": 4093
+      },
+      {
+        "word": "chọn",
+        "local_start": 3.28,
+        "local_end": 3.44,
+        "start": 136.447,
+        "end": 136.607,
+        "start_frame": 4093,
+        "end_frame": 4098
+      },
+      {
+        "word": "A",
+        "local_start": 3.44,
+        "local_end": 3.6,
+        "start": 136.607,
+        "end": 136.767,
+        "start_frame": 4098,
+        "end_frame": 4103
+      },
+      {
+        "word": "hay",
+        "local_start": 3.6,
+        "local_end": 3.72,
+        "start": 136.767,
+        "end": 136.887,
+        "start_frame": 4103,
+        "end_frame": 4107
+      },
+      {
+        "word": "chọn",
+        "local_start": 3.72,
+        "local_end": 3.86,
+        "start": 136.887,
+        "end": 137.027,
+        "start_frame": 4107,
+        "end_frame": 4111
+      },
+      {
+        "word": "B.",
+        "local_start": 3.86,
+        "local_end": 4.04,
+        "start": 137.027,
+        "end": 137.207,
+        "start_frame": 4111,
+        "end_frame": 4116
+      },
+      {
+        "word": "Chọn",
+        "local_start": 4.48,
+        "local_end": 4.58,
+        "start": 137.647,
+        "end": 137.747,
+        "start_frame": 4129,
+        "end_frame": 4132
+      },
+      {
+        "word": "A,",
+        "local_start": 4.58,
+        "local_end": 4.78,
+        "start": 137.747,
+        "end": 137.947,
+        "start_frame": 4132,
+        "end_frame": 4138
+      },
+      {
+        "word": "nâng",
+        "local_start": 5.18,
+        "local_end": 5.34,
+        "start": 138.347,
+        "end": 138.507,
+        "start_frame": 4150,
+        "end_frame": 4155
+      },
+      {
+        "word": "kĩ",
+        "local_start": 5.34,
+        "local_end": 5.44,
+        "start": 138.507,
+        "end": 138.607,
+        "start_frame": 4155,
+        "end_frame": 4158
+      },
+      {
+        "word": "năng",
+        "local_start": 5.44,
+        "local_end": 5.6,
+        "start": 138.607,
+        "end": 138.767,
+        "start_frame": 4158,
+        "end_frame": 4163
+      },
+      {
+        "word": "sang",
+        "local_start": 5.6,
+        "local_end": 5.72,
+        "start": 138.767,
+        "end": 138.887,
+        "start_frame": 4163,
+        "end_frame": 4167
+      },
+      {
+        "word": "bàn",
+        "local_start": 5.72,
+        "local_end": 5.86,
+        "start": 138.887,
+        "end": 139.027,
+        "start_frame": 4167,
+        "end_frame": 4171
+      },
+      {
+        "word": "dẫn",
+        "local_start": 5.86,
+        "local_end": 6.06,
+        "start": 139.027,
+        "end": 139.227,
+        "start_frame": 4171,
+        "end_frame": 4177
+      },
+      {
+        "word": "và",
+        "local_start": 6.06,
+        "local_end": 6.2,
+        "start": 139.227,
+        "end": 139.367,
+        "start_frame": 4177,
+        "end_frame": 4181
+      },
+      {
+        "word": "mở",
+        "local_start": 6.2,
+        "local_end": 6.36,
+        "start": 139.367,
+        "end": 139.527,
+        "start_frame": 4181,
+        "end_frame": 4186
+      },
+      {
+        "word": "rộng",
+        "local_start": 6.36,
+        "local_end": 6.58,
+        "start": 139.527,
+        "end": 139.747,
+        "start_frame": 4186,
+        "end_frame": 4192
+      },
+      {
+        "word": "xuất",
+        "local_start": 6.58,
+        "local_end": 6.7,
+        "start": 139.747,
+        "end": 139.867,
+        "start_frame": 4192,
+        "end_frame": 4196
+      },
+      {
+        "word": "khẩu",
+        "local_start": 6.7,
+        "local_end": 6.9,
+        "start": 139.867,
+        "end": 140.067,
+        "start_frame": 4196,
+        "end_frame": 4202
+      },
+      {
+        "word": "qua",
+        "local_start": 6.9,
+        "local_end": 7.02,
+        "start": 140.067,
+        "end": 140.187,
+        "start_frame": 4202,
+        "end_frame": 4206
+      },
+      {
+        "word": "hiệp",
+        "local_start": 7.02,
+        "local_end": 7.16,
+        "start": 140.187,
+        "end": 140.327,
+        "start_frame": 4206,
+        "end_frame": 4210
+      },
+      {
+        "word": "định",
+        "local_start": 7.16,
+        "local_end": 7.32,
+        "start": 140.327,
+        "end": 140.487,
+        "start_frame": 4210,
+        "end_frame": 4215
+      },
+      {
+        "word": "CB,",
+        "local_start": 7.32,
+        "local_end": 7.5,
+        "start": 140.487,
+        "end": 140.667,
+        "start_frame": 4215,
+        "end_frame": 4220
+      },
+      {
+        "word": "TTP.",
+        "local_start": 7.9,
+        "local_end": 8.1,
+        "start": 141.067,
+        "end": 141.267,
+        "start_frame": 4232,
+        "end_frame": 4238
+      },
+      {
+        "word": "Hai",
+        "local_start": 8.68,
+        "local_end": 8.82,
+        "start": 141.847,
+        "end": 141.987,
+        "start_frame": 4255,
+        "end_frame": 4260
+      },
+      {
+        "word": "chọn",
+        "local_start": 8.82,
+        "local_end": 9.0,
+        "start": 141.987,
+        "end": 142.167,
+        "start_frame": 4260,
+        "end_frame": 4265
+      },
+      {
+        "word": "B,",
+        "local_start": 9.0,
+        "local_end": 9.2,
+        "start": 142.167,
+        "end": 142.367,
+        "start_frame": 4265,
+        "end_frame": 4271
+      },
+      {
+        "word": "giữ",
+        "local_start": 9.58,
+        "local_end": 9.68,
+        "start": 142.747,
+        "end": 142.847,
+        "start_frame": 4282,
+        "end_frame": 4285
+      },
+      {
+        "word": "tiền",
+        "local_start": 9.68,
+        "local_end": 9.84,
+        "start": 142.847,
+        "end": 143.007,
+        "start_frame": 4285,
+        "end_frame": 4290
+      },
+      {
+        "word": "mặt,",
+        "local_start": 9.84,
+        "local_end": 10.04,
+        "start": 143.007,
+        "end": 143.207,
+        "start_frame": 4290,
+        "end_frame": 4296
+      },
+      {
+        "word": "tránh",
+        "local_start": 10.32,
+        "local_end": 10.42,
+        "start": 143.487,
+        "end": 143.587,
+        "start_frame": 4305,
+        "end_frame": 4308
+      },
+      {
+        "word": "đuổi",
+        "local_start": 10.42,
+        "local_end": 10.62,
+        "start": 143.587,
+        "end": 143.787,
+        "start_frame": 4308,
+        "end_frame": 4314
+      },
+      {
+        "word": "giá",
+        "local_start": 10.62,
+        "local_end": 10.78,
+        "start": 143.787,
+        "end": 143.947,
+        "start_frame": 4314,
+        "end_frame": 4318
+      },
+      {
+        "word": "vàng",
+        "local_start": 10.78,
+        "local_end": 11.02,
+        "start": 143.947,
+        "end": 144.187,
+        "start_frame": 4318,
+        "end_frame": 4326
+      },
+      {
+        "word": "để",
+        "local_start": 11.02,
+        "local_end": 11.16,
+        "start": 144.187,
+        "end": 144.327,
+        "start_frame": 4326,
+        "end_frame": 4330
+      },
+      {
+        "word": "trở",
+        "local_start": 11.16,
+        "local_end": 11.34,
+        "start": 144.327,
+        "end": 144.507,
+        "start_frame": 4330,
+        "end_frame": 4335
+      },
+      {
+        "word": "ký",
+        "local_start": 11.34,
+        "local_end": 11.5,
+        "start": 144.507,
+        "end": 144.667,
+        "start_frame": 4335,
+        "end_frame": 4340
+      },
+      {
+        "word": "chính",
+        "local_start": 11.5,
+        "local_end": 11.64,
+        "start": 144.667,
+        "end": 144.807,
+        "start_frame": 4340,
+        "end_frame": 4344
+      },
+      {
+        "word": "thức",
+        "local_start": 11.64,
+        "local_end": 11.8,
+        "start": 144.807,
+        "end": 144.967,
+        "start_frame": 4344,
+        "end_frame": 4349
+      },
+      {
+        "word": "hiệp",
+        "local_start": 11.8,
+        "local_end": 11.9,
+        "start": 144.967,
+        "end": 145.067,
+        "start_frame": 4349,
+        "end_frame": 4352
+      },
+      {
+        "word": "định",
+        "local_start": 11.9,
+        "local_end": 12.12,
+        "start": 145.067,
+        "end": 145.287,
+        "start_frame": 4352,
+        "end_frame": 4359
+      },
+      {
+        "word": "AZT.",
+        "local_start": 12.12,
+        "local_end": 12.6,
+        "start": 145.287,
+        "end": 145.767,
+        "start_frame": 4359,
+        "end_frame": 4373
+      }
+    ]
+  },
+  "s12": {
+    "section_id": "s12",
+    "scene_id": "S12",
+    "global_start": 146.267,
+    "audio_seconds": 5.895,
+    "words": [
+      {
+        "word": "bạn",
+        "local_start": 0.0,
+        "local_end": 0.1,
+        "start": 146.267,
+        "end": 146.367,
+        "start_frame": 4388,
+        "end_frame": 4391
+      },
+      {
+        "word": "nghiêng",
+        "local_start": 0.1,
+        "local_end": 0.38,
+        "start": 146.367,
+        "end": 146.647,
+        "start_frame": 4391,
+        "end_frame": 4399
+      },
+      {
+        "word": "về",
+        "local_start": 0.38,
+        "local_end": 0.52,
+        "start": 146.647,
+        "end": 146.787,
+        "start_frame": 4399,
+        "end_frame": 4404
+      },
+      {
+        "word": "phương",
+        "local_start": 0.52,
+        "local_end": 0.68,
+        "start": 146.787,
+        "end": 146.947,
+        "start_frame": 4404,
+        "end_frame": 4408
+      },
+      {
+        "word": "án",
+        "local_start": 0.68,
+        "local_end": 0.9,
+        "start": 146.947,
+        "end": 147.167,
+        "start_frame": 4408,
+        "end_frame": 4415
+      },
+      {
+        "word": "A",
+        "local_start": 0.9,
+        "local_end": 1.06,
+        "start": 147.167,
+        "end": 147.327,
+        "start_frame": 4415,
+        "end_frame": 4420
+      },
+      {
+        "word": "hay",
+        "local_start": 1.06,
+        "local_end": 1.28,
+        "start": 147.327,
+        "end": 147.547,
+        "start_frame": 4420,
+        "end_frame": 4426
+      },
+      {
+        "word": "B",
+        "local_start": 1.28,
+        "local_end": 1.52,
+        "start": 147.547,
+        "end": 147.787,
+        "start_frame": 4426,
+        "end_frame": 4434
+      },
+      {
+        "word": "trong",
+        "local_start": 1.52,
+        "local_end": 1.68,
+        "start": 147.787,
+        "end": 147.947,
+        "start_frame": 4434,
+        "end_frame": 4438
+      },
+      {
+        "word": "năm",
+        "local_start": 1.68,
+        "local_end": 1.78,
+        "start": 147.947,
+        "end": 148.047,
+        "start_frame": 4438,
+        "end_frame": 4441
+      },
+      {
+        "word": "2020.",
+        "local_start": 1.78,
+        "local_end": 2.24,
+        "start": 148.047,
+        "end": 148.507,
+        "start_frame": 4441,
+        "end_frame": 4455
+      },
+      {
+        "word": "Hãy",
+        "local_start": 3.02,
+        "local_end": 3.34,
+        "start": 149.287,
+        "end": 149.607,
+        "start_frame": 4479,
+        "end_frame": 4488
+      },
+      {
+        "word": "bình",
+        "local_start": 3.34,
+        "local_end": 3.46,
+        "start": 149.607,
+        "end": 149.727,
+        "start_frame": 4488,
+        "end_frame": 4492
+      },
+      {
+        "word": "luận",
+        "local_start": 3.46,
+        "local_end": 3.64,
+        "start": 149.727,
+        "end": 149.907,
+        "start_frame": 4492,
+        "end_frame": 4497
+      },
+      {
+        "word": "lựa",
+        "local_start": 3.64,
+        "local_end": 3.84,
+        "start": 149.907,
+        "end": 150.107,
+        "start_frame": 4497,
+        "end_frame": 4503
+      },
+      {
+        "word": "chọn",
+        "local_start": 3.84,
+        "local_end": 3.98,
+        "start": 150.107,
+        "end": 150.247,
+        "start_frame": 4503,
+        "end_frame": 4507
+      },
+      {
+        "word": "của",
+        "local_start": 3.98,
+        "local_end": 4.08,
+        "start": 150.247,
+        "end": 150.347,
+        "start_frame": 4507,
+        "end_frame": 4510
+      },
+      {
+        "word": "bạn",
+        "local_start": 4.08,
+        "local_end": 4.2,
+        "start": 150.347,
+        "end": 150.467,
+        "start_frame": 4510,
+        "end_frame": 4514
+      },
+      {
+        "word": "và",
+        "local_start": 4.2,
+        "local_end": 4.48,
+        "start": 150.467,
+        "end": 150.747,
+        "start_frame": 4514,
+        "end_frame": 4522
+      },
+      {
+        "word": "theo",
+        "local_start": 4.48,
+        "local_end": 4.6,
+        "start": 150.747,
+        "end": 150.867,
+        "start_frame": 4522,
+        "end_frame": 4526
+      },
+      {
+        "word": "dõi",
+        "local_start": 4.6,
+        "local_end": 4.82,
+        "start": 150.867,
+        "end": 151.087,
+        "start_frame": 4526,
+        "end_frame": 4533
+      },
+      {
+        "word": "kí",
+        "local_start": 4.82,
+        "local_end": 4.96,
+        "start": 151.087,
+        "end": 151.227,
+        "start_frame": 4533,
+        "end_frame": 4537
+      },
+      {
+        "word": "chủ",
+        "local_start": 4.96,
+        "local_end": 5.1,
+        "start": 151.227,
+        "end": 151.367,
+        "start_frame": 4537,
+        "end_frame": 4541
+      },
+      {
+        "word": "điểm",
+        "local_start": 5.1,
+        "local_end": 5.26,
+        "start": 151.367,
+        "end": 151.527,
+        "start_frame": 4541,
+        "end_frame": 4546
+      },
+      {
+        "word": "tìm",
+        "local_start": 5.26,
+        "local_end": 5.48,
+        "start": 151.527,
+        "end": 151.747,
+        "start_frame": 4546,
+        "end_frame": 4552
+      },
+      {
+        "word": "mỗi",
+        "local_start": 5.48,
+        "local_end": 5.54,
+        "start": 151.747,
+        "end": 151.807,
+        "start_frame": 4552,
+        "end_frame": 4554
+      },
+      {
+        "word": "ngày.",
+        "local_start": 5.54,
+        "local_end": 5.68,
+        "start": 151.807,
+        "end": 151.947,
+        "start_frame": 4554,
+        "end_frame": 4558
+      }
+    ]
+  }
+}
